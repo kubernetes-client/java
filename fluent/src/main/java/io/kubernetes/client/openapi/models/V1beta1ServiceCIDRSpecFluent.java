@@ -1,14 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Object;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
 import java.util.List;
-import java.lang.String;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 /**
@@ -16,34 +16,23 @@ import java.util.function.Predicate;
  */
 @SuppressWarnings("unchecked")
 public class V1beta1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta1ServiceCIDRSpecFluent<A>> extends BaseFluent<A>{
+
+  private List<String> cidrs;
+
   public V1beta1ServiceCIDRSpecFluent() {
   }
   
   public V1beta1ServiceCIDRSpecFluent(V1beta1ServiceCIDRSpec instance) {
     this.copyInstance(instance);
   }
-  private List<String> cidrs;
-  
-  protected void copyInstance(V1beta1ServiceCIDRSpec instance) {
-    instance = instance != null ? instance : new V1beta1ServiceCIDRSpec();
-    if (instance != null) {
-      this.withCidrs(instance.getCidrs());
-    }
-  }
-  
-  public A addToCidrs(int index,String item) {
+
+  public A addAllToCidrs(Collection<String> items) {
     if (this.cidrs == null) {
       this.cidrs = new ArrayList();
     }
-    this.cidrs.add(index, item);
-    return (A) this;
-  }
-  
-  public A setToCidrs(int index,String item) {
-    if (this.cidrs == null) {
-      this.cidrs = new ArrayList();
+    for (String item : items) {
+      this.cidrs.add(item);
     }
-    this.cidrs.set(index, item);
     return (A) this;
   }
   
@@ -57,42 +46,44 @@ public class V1beta1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi
     return (A) this;
   }
   
-  public A addAllToCidrs(Collection<String> items) {
+  public A addToCidrs(int index,String item) {
     if (this.cidrs == null) {
       this.cidrs = new ArrayList();
     }
-    for (String item : items) {
-      this.cidrs.add(item);
-    }
+    this.cidrs.add(index, item);
     return (A) this;
   }
   
-  public A removeFromCidrs(String... items) {
-    if (this.cidrs == null) {
-      return (A) this;
+  protected void copyInstance(V1beta1ServiceCIDRSpec instance) {
+    instance = instance != null ? instance : new V1beta1ServiceCIDRSpec();
+    if (instance != null) {
+      this.withCidrs(instance.getCidrs());
     }
-    for (String item : items) {
-      this.cidrs.remove(item);
-    }
-    return (A) this;
   }
   
-  public A removeAllFromCidrs(Collection<String> items) {
-    if (this.cidrs == null) {
-      return (A) this;
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-    for (String item : items) {
-      this.cidrs.remove(item);
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
     }
-    return (A) this;
-  }
-  
-  public List<String> getCidrs() {
-    return this.cidrs;
+    if (!(super.equals(o))) {
+      return false;
+    }
+    V1beta1ServiceCIDRSpecFluent that = (V1beta1ServiceCIDRSpecFluent) o;
+    if (!(Objects.equals(cidrs, that.cidrs))) {
+      return false;
+    }
+    return true;
   }
   
   public String getCidr(int index) {
     return this.cidrs.get(index);
+  }
+  
+  public List<String> getCidrs() {
+    return this.cidrs;
   }
   
   public String getFirstCidr() {
@@ -112,6 +103,10 @@ public class V1beta1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi
       return null;
   }
   
+  public boolean hasCidrs() {
+    return this.cidrs != null && !(this.cidrs.isEmpty());
+  }
+  
   public boolean hasMatchingCidr(Predicate<String> predicate) {
       for (String item : cidrs) {
         if (predicate.test(item)) {
@@ -119,6 +114,49 @@ public class V1beta1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi
         }
       }
       return false;
+  }
+  
+  public int hashCode() {
+    return Objects.hash(cidrs);
+  }
+  
+  public A removeAllFromCidrs(Collection<String> items) {
+    if (this.cidrs == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.cidrs.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromCidrs(String... items) {
+    if (this.cidrs == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.cidrs.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A setToCidrs(int index,String item) {
+    if (this.cidrs == null) {
+      this.cidrs = new ArrayList();
+    }
+    this.cidrs.set(index, item);
+    return (A) this;
+  }
+  
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (!(cidrs == null) && !(cidrs.isEmpty())) {
+        sb.append("cidrs:");
+        sb.append(cidrs);
+    }
+    sb.append("}");
+    return sb.toString();
   }
   
   public A withCidrs(List<String> cidrs) {
@@ -146,41 +184,4 @@ public class V1beta1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi
     return (A) this;
   }
   
-  public boolean hasCidrs() {
-    return this.cidrs != null && !(this.cidrs.isEmpty());
-  }
-  
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || this.getClass() != o.getClass()) {
-      return false;
-    }
-    if (!(super.equals(o))) {
-      return false;
-    }
-    V1beta1ServiceCIDRSpecFluent that = (V1beta1ServiceCIDRSpecFluent) o;
-    if (!(Objects.equals(cidrs, that.cidrs))) {
-      return false;
-    }
-    return true;
-  }
-  
-  public int hashCode() {
-    return Objects.hash(cidrs);
-  }
-  
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("{");
-    if (!(cidrs == null) && !(cidrs.isEmpty())) {
-        sb.append("cidrs:");
-        sb.append(cidrs);
-    }
-    sb.append("}");
-    return sb.toString();
-  }
-  
-
 }

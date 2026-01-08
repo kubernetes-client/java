@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1JobSpecBuilder extends V1JobSpecFluent<V1JobSpecBuilder> implements VisitableBuilder<V1JobSpec,V1JobSpecBuilder>{
+
+  V1JobSpecFluent<?> fluent;
+
   public V1JobSpecBuilder() {
     this(new V1JobSpec());
   }
@@ -11,17 +14,16 @@ public class V1JobSpecBuilder extends V1JobSpecFluent<V1JobSpecBuilder> implemen
     this(fluent, new V1JobSpec());
   }
   
-  public V1JobSpecBuilder(V1JobSpecFluent<?> fluent,V1JobSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1JobSpecBuilder(V1JobSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1JobSpecFluent<?> fluent;
   
+  public V1JobSpecBuilder(V1JobSpecFluent<?> fluent,V1JobSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1JobSpec build() {
     V1JobSpec buildable = new V1JobSpec();
     buildable.setActiveDeadlineSeconds(fluent.getActiveDeadlineSeconds());
@@ -43,5 +45,4 @@ public class V1JobSpecBuilder extends V1JobSpecFluent<V1JobSpecBuilder> implemen
     return buildable;
   }
   
-
 }

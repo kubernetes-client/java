@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluent<V1CSIVolumeSourceBuilder> implements VisitableBuilder<V1CSIVolumeSource,V1CSIVolumeSourceBuilder>{
+
+  V1CSIVolumeSourceFluent<?> fluent;
+
   public V1CSIVolumeSourceBuilder() {
     this(new V1CSIVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluent<V1CSIVolum
     this(fluent, new V1CSIVolumeSource());
   }
   
-  public V1CSIVolumeSourceBuilder(V1CSIVolumeSourceFluent<?> fluent,V1CSIVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1CSIVolumeSourceBuilder(V1CSIVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1CSIVolumeSourceFluent<?> fluent;
   
+  public V1CSIVolumeSourceBuilder(V1CSIVolumeSourceFluent<?> fluent,V1CSIVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1CSIVolumeSource build() {
     V1CSIVolumeSource buildable = new V1CSIVolumeSource();
     buildable.setDriver(fluent.getDriver());
@@ -32,5 +34,4 @@ public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluent<V1CSIVolum
     return buildable;
   }
   
-
 }

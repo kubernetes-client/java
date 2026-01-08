@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1GroupVersionForDiscoveryFluent<A extends io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryFluent<A>> extends BaseFluent<A>{
+
+  private String groupVersion;
+  private String version;
+
   public V1GroupVersionForDiscoveryFluent() {
   }
   
   public V1GroupVersionForDiscoveryFluent(V1GroupVersionForDiscovery instance) {
     this.copyInstance(instance);
   }
-  private String groupVersion;
-  private String version;
-  
+
   protected void copyInstance(V1GroupVersionForDiscovery instance) {
     instance = instance != null ? instance : new V1GroupVersionForDiscovery();
     if (instance != null) {
         this.withGroupVersion(instance.getGroupVersion());
         this.withVersion(instance.getVersion());
     }
-  }
-  
-  public String getGroupVersion() {
-    return this.groupVersion;
-  }
-  
-  public A withGroupVersion(String groupVersion) {
-    this.groupVersion = groupVersion;
-    return (A) this;
-  }
-  
-  public boolean hasGroupVersion() {
-    return this.groupVersion != null;
-  }
-  
-  public String getVersion() {
-    return this.version;
-  }
-  
-  public A withVersion(String version) {
-    this.version = version;
-    return (A) this;
-  }
-  
-  public boolean hasVersion() {
-    return this.version != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1GroupVersionForDiscoveryFluent<A extends io.kubernetes.client.ope
     return true;
   }
   
+  public String getGroupVersion() {
+    return this.groupVersion;
+  }
+  
+  public String getVersion() {
+    return this.version;
+  }
+  
+  public boolean hasGroupVersion() {
+    return this.groupVersion != null;
+  }
+  
+  public boolean hasVersion() {
+    return this.version != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(groupVersion, version);
   }
@@ -95,5 +87,14 @@ public class V1GroupVersionForDiscoveryFluent<A extends io.kubernetes.client.ope
     return sb.toString();
   }
   
-
+  public A withGroupVersion(String groupVersion) {
+    this.groupVersion = groupVersion;
+    return (A) this;
+  }
+  
+  public A withVersion(String version) {
+    this.version = version;
+    return (A) this;
+  }
+  
 }

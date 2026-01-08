@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1NamespaceStatusBuilder extends V1NamespaceStatusFluent<V1NamespaceStatusBuilder> implements VisitableBuilder<V1NamespaceStatus,V1NamespaceStatusBuilder>{
+
+  V1NamespaceStatusFluent<?> fluent;
+
   public V1NamespaceStatusBuilder() {
     this(new V1NamespaceStatus());
   }
@@ -11,17 +14,16 @@ public class V1NamespaceStatusBuilder extends V1NamespaceStatusFluent<V1Namespac
     this(fluent, new V1NamespaceStatus());
   }
   
-  public V1NamespaceStatusBuilder(V1NamespaceStatusFluent<?> fluent,V1NamespaceStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1NamespaceStatusBuilder(V1NamespaceStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1NamespaceStatusFluent<?> fluent;
   
+  public V1NamespaceStatusBuilder(V1NamespaceStatusFluent<?> fluent,V1NamespaceStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1NamespaceStatus build() {
     V1NamespaceStatus buildable = new V1NamespaceStatus();
     buildable.setConditions(fluent.buildConditions());
@@ -29,5 +31,4 @@ public class V1NamespaceStatusBuilder extends V1NamespaceStatusFluent<V1Namespac
     return buildable;
   }
   
-
 }

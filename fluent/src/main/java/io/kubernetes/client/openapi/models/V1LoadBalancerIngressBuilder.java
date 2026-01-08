@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1LoadBalancerIngressBuilder extends V1LoadBalancerIngressFluent<V1LoadBalancerIngressBuilder> implements VisitableBuilder<V1LoadBalancerIngress,V1LoadBalancerIngressBuilder>{
+
+  V1LoadBalancerIngressFluent<?> fluent;
+
   public V1LoadBalancerIngressBuilder() {
     this(new V1LoadBalancerIngress());
   }
@@ -11,17 +14,16 @@ public class V1LoadBalancerIngressBuilder extends V1LoadBalancerIngressFluent<V1
     this(fluent, new V1LoadBalancerIngress());
   }
   
-  public V1LoadBalancerIngressBuilder(V1LoadBalancerIngressFluent<?> fluent,V1LoadBalancerIngress instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1LoadBalancerIngressBuilder(V1LoadBalancerIngress instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1LoadBalancerIngressFluent<?> fluent;
   
+  public V1LoadBalancerIngressBuilder(V1LoadBalancerIngressFluent<?> fluent,V1LoadBalancerIngress instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1LoadBalancerIngress build() {
     V1LoadBalancerIngress buildable = new V1LoadBalancerIngress();
     buildable.setHostname(fluent.getHostname());
@@ -31,5 +33,4 @@ public class V1LoadBalancerIngressBuilder extends V1LoadBalancerIngressFluent<V1
     return buildable;
   }
   
-
 }

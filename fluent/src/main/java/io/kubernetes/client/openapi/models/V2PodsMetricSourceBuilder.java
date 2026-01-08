@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V2PodsMetricSourceBuilder extends V2PodsMetricSourceFluent<V2PodsMetricSourceBuilder> implements VisitableBuilder<V2PodsMetricSource,V2PodsMetricSourceBuilder>{
+
+  V2PodsMetricSourceFluent<?> fluent;
+
   public V2PodsMetricSourceBuilder() {
     this(new V2PodsMetricSource());
   }
@@ -11,17 +14,16 @@ public class V2PodsMetricSourceBuilder extends V2PodsMetricSourceFluent<V2PodsMe
     this(fluent, new V2PodsMetricSource());
   }
   
-  public V2PodsMetricSourceBuilder(V2PodsMetricSourceFluent<?> fluent,V2PodsMetricSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V2PodsMetricSourceBuilder(V2PodsMetricSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V2PodsMetricSourceFluent<?> fluent;
   
+  public V2PodsMetricSourceBuilder(V2PodsMetricSourceFluent<?> fluent,V2PodsMetricSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V2PodsMetricSource build() {
     V2PodsMetricSource buildable = new V2PodsMetricSource();
     buildable.setMetric(fluent.buildMetric());
@@ -29,5 +31,4 @@ public class V2PodsMetricSourceBuilder extends V2PodsMetricSourceFluent<V2PodsMe
     return buildable;
   }
   
-
 }

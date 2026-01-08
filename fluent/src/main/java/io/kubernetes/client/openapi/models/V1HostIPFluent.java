@@ -1,43 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1HostIPFluent<A extends io.kubernetes.client.openapi.models.V1HostIPFluent<A>> extends BaseFluent<A>{
+
+  private String ip;
+
   public V1HostIPFluent() {
   }
   
   public V1HostIPFluent(V1HostIP instance) {
     this.copyInstance(instance);
   }
-  private String ip;
-  
+
   protected void copyInstance(V1HostIP instance) {
     instance = instance != null ? instance : new V1HostIP();
     if (instance != null) {
       this.withIp(instance.getIp());
     }
-  }
-  
-  public String getIp() {
-    return this.ip;
-  }
-  
-  public A withIp(String ip) {
-    this.ip = ip;
-    return (A) this;
-  }
-  
-  public boolean hasIp() {
-    return this.ip != null;
   }
   
   public boolean equals(Object o) {
@@ -57,6 +46,14 @@ public class V1HostIPFluent<A extends io.kubernetes.client.openapi.models.V1Host
     return true;
   }
   
+  public String getIp() {
+    return this.ip;
+  }
+  
+  public boolean hasIp() {
+    return this.ip != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(ip);
   }
@@ -72,5 +69,9 @@ public class V1HostIPFluent<A extends io.kubernetes.client.openapi.models.V1Host
     return sb.toString();
   }
   
-
+  public A withIp(String ip) {
+    this.ip = ip;
+    return (A) this;
+  }
+  
 }

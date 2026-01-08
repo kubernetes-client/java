@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,6 +45,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import io.kubernetes.client.openapi.JSON;
 
@@ -51,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * Spec to control the desired behavior of rolling update.
  */
 @ApiModel(description = "Spec to control the desired behavior of rolling update.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-21T03:25:56.836812Z[Etc/UTC]", comments = "Generator version: 7.16.0")
 public class V1RollingUpdateDeployment {
   public static final String SERIALIZED_NAME_MAX_SURGE = "maxSurge";
   @SerializedName(SERIALIZED_NAME_MAX_SURGE)
@@ -152,12 +154,10 @@ public class V1RollingUpdateDeployment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("maxSurge");
-    openapiFields.add("maxUnavailable");
+    openapiFields = new HashSet<String>(Arrays.asList("maxSurge", "maxUnavailable"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -169,7 +169,7 @@ public class V1RollingUpdateDeployment {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1RollingUpdateDeployment.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1RollingUpdateDeployment is not found in the empty JSON string", V1RollingUpdateDeployment.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in V1RollingUpdateDeployment is not found in the empty JSON string", V1RollingUpdateDeployment.openapiRequiredFields.toString()));
         }
       }
 
@@ -177,15 +177,15 @@ public class V1RollingUpdateDeployment {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1RollingUpdateDeployment.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1RollingUpdateDeployment` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1RollingUpdateDeployment` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("maxSurge") != null && !jsonObj.get("maxSurge").isJsonNull()) && !jsonObj.get("maxSurge").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `maxSurge` to be a primitive type in the JSON string but got `%s`", jsonObj.get("maxSurge").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `maxSurge` to be a primitive type in the JSON string but got `%s`", jsonObj.get("maxSurge").toString()));
       }
       if ((jsonObj.get("maxUnavailable") != null && !jsonObj.get("maxUnavailable").isJsonNull()) && !jsonObj.get("maxUnavailable").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `maxUnavailable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("maxUnavailable").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `maxUnavailable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("maxUnavailable").toString()));
       }
   }
 

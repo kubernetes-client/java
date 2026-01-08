@@ -1,59 +1,69 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
 import io.kubernetes.client.custom.IntOrString;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.Collection;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<A>> extends BaseFluent<A>{
+
+  private String host;
+  private ArrayList<V1HTTPHeaderBuilder> httpHeaders;
+  private String path;
+  private IntOrString port;
+  private String scheme;
+
   public V1HTTPGetActionFluent() {
   }
   
   public V1HTTPGetActionFluent(V1HTTPGetAction instance) {
     this.copyInstance(instance);
   }
-  private String host;
-  private ArrayList<V1HTTPHeaderBuilder> httpHeaders;
-  private String path;
-  private IntOrString port;
-  private String scheme;
-  
-  protected void copyInstance(V1HTTPGetAction instance) {
-    instance = instance != null ? instance : new V1HTTPGetAction();
-    if (instance != null) {
-        this.withHost(instance.getHost());
-        this.withHttpHeaders(instance.getHttpHeaders());
-        this.withPath(instance.getPath());
-        this.withPort(instance.getPort());
-        this.withScheme(instance.getScheme());
+
+  public A addAllToHttpHeaders(Collection<V1HTTPHeader> items) {
+    if (this.httpHeaders == null) {
+      this.httpHeaders = new ArrayList();
     }
-  }
-  
-  public String getHost() {
-    return this.host;
-  }
-  
-  public A withHost(String host) {
-    this.host = host;
+    for (V1HTTPHeader item : items) {
+        V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
+        _visitables.get("httpHeaders").add(builder);
+        this.httpHeaders.add(builder);
+    }
     return (A) this;
   }
   
-  public boolean hasHost() {
-    return this.host != null;
+  public HttpHeadersNested<A> addNewHttpHeader() {
+    return new HttpHeadersNested(-1, null);
+  }
+  
+  public HttpHeadersNested<A> addNewHttpHeaderLike(V1HTTPHeader item) {
+    return new HttpHeadersNested(-1, item);
+  }
+  
+  public A addToHttpHeaders(V1HTTPHeader... items) {
+    if (this.httpHeaders == null) {
+      this.httpHeaders = new ArrayList();
+    }
+    for (V1HTTPHeader item : items) {
+        V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
+        _visitables.get("httpHeaders").add(builder);
+        this.httpHeaders.add(builder);
+    }
+    return (A) this;
   }
   
   public A addToHttpHeaders(int index,V1HTTPHeader item) {
@@ -71,95 +81,16 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
     return (A) this;
   }
   
-  public A setToHttpHeaders(int index,V1HTTPHeader item) {
-    if (this.httpHeaders == null) {
-      this.httpHeaders = new ArrayList();
-    }
-    V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
-    if (index < 0 || index >= httpHeaders.size()) {
-        _visitables.get("httpHeaders").add(builder);
-        httpHeaders.add(builder);
-    } else {
-        _visitables.get("httpHeaders").add(builder);
-        httpHeaders.set(index, builder);
-    }
-    return (A) this;
-  }
-  
-  public A addToHttpHeaders(V1HTTPHeader... items) {
-    if (this.httpHeaders == null) {
-      this.httpHeaders = new ArrayList();
-    }
-    for (V1HTTPHeader item : items) {
-        V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
-        _visitables.get("httpHeaders").add(builder);
-        this.httpHeaders.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToHttpHeaders(Collection<V1HTTPHeader> items) {
-    if (this.httpHeaders == null) {
-      this.httpHeaders = new ArrayList();
-    }
-    for (V1HTTPHeader item : items) {
-        V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
-        _visitables.get("httpHeaders").add(builder);
-        this.httpHeaders.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromHttpHeaders(V1HTTPHeader... items) {
-    if (this.httpHeaders == null) {
-      return (A) this;
-    }
-    for (V1HTTPHeader item : items) {
-        V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
-        _visitables.get("httpHeaders").remove(builder);
-        this.httpHeaders.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromHttpHeaders(Collection<V1HTTPHeader> items) {
-    if (this.httpHeaders == null) {
-      return (A) this;
-    }
-    for (V1HTTPHeader item : items) {
-        V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
-        _visitables.get("httpHeaders").remove(builder);
-        this.httpHeaders.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromHttpHeaders(Predicate<V1HTTPHeaderBuilder> predicate) {
-    if (httpHeaders == null) {
-      return (A) this;
-    }
-    Iterator<V1HTTPHeaderBuilder> each = httpHeaders.iterator();
-    List visitables = _visitables.get("httpHeaders");
-    while (each.hasNext()) {
-        V1HTTPHeaderBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
-  }
-  
-  public List<V1HTTPHeader> buildHttpHeaders() {
-    return this.httpHeaders != null ? build(httpHeaders) : null;
+  public V1HTTPHeader buildFirstHttpHeader() {
+    return this.httpHeaders.get(0).build();
   }
   
   public V1HTTPHeader buildHttpHeader(int index) {
     return this.httpHeaders.get(index).build();
   }
   
-  public V1HTTPHeader buildFirstHttpHeader() {
-    return this.httpHeaders.get(0).build();
+  public List<V1HTTPHeader> buildHttpHeaders() {
+    return this.httpHeaders != null ? build(httpHeaders) : null;
   }
   
   public V1HTTPHeader buildLastHttpHeader() {
@@ -175,64 +106,15 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
       return null;
   }
   
-  public boolean hasMatchingHttpHeader(Predicate<V1HTTPHeaderBuilder> predicate) {
-      for (V1HTTPHeaderBuilder item : httpHeaders) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withHttpHeaders(List<V1HTTPHeader> httpHeaders) {
-    if (this.httpHeaders != null) {
-      this._visitables.get("httpHeaders").clear();
+  protected void copyInstance(V1HTTPGetAction instance) {
+    instance = instance != null ? instance : new V1HTTPGetAction();
+    if (instance != null) {
+        this.withHost(instance.getHost());
+        this.withHttpHeaders(instance.getHttpHeaders());
+        this.withPath(instance.getPath());
+        this.withPort(instance.getPort());
+        this.withScheme(instance.getScheme());
     }
-    if (httpHeaders != null) {
-        this.httpHeaders = new ArrayList();
-        for (V1HTTPHeader item : httpHeaders) {
-          this.addToHttpHeaders(item);
-        }
-    } else {
-      this.httpHeaders = null;
-    }
-    return (A) this;
-  }
-  
-  public A withHttpHeaders(V1HTTPHeader... httpHeaders) {
-    if (this.httpHeaders != null) {
-        this.httpHeaders.clear();
-        _visitables.remove("httpHeaders");
-    }
-    if (httpHeaders != null) {
-      for (V1HTTPHeader item : httpHeaders) {
-        this.addToHttpHeaders(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasHttpHeaders() {
-    return this.httpHeaders != null && !(this.httpHeaders.isEmpty());
-  }
-  
-  public HttpHeadersNested<A> addNewHttpHeader() {
-    return new HttpHeadersNested(-1, null);
-  }
-  
-  public HttpHeadersNested<A> addNewHttpHeaderLike(V1HTTPHeader item) {
-    return new HttpHeadersNested(-1, item);
-  }
-  
-  public HttpHeadersNested<A> setNewHttpHeaderLike(int index,V1HTTPHeader item) {
-    return new HttpHeadersNested(index, item);
-  }
-  
-  public HttpHeadersNested<A> editHttpHeader(int index) {
-    if (index <= httpHeaders.size()) {
-      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "httpHeaders"));
-    }
-    return this.setNewHttpHeaderLike(index, this.buildHttpHeader(index));
   }
   
   public HttpHeadersNested<A> editFirstHttpHeader() {
@@ -240,6 +122,13 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
       throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "httpHeaders"));
     }
     return this.setNewHttpHeaderLike(0, this.buildHttpHeader(0));
+  }
+  
+  public HttpHeadersNested<A> editHttpHeader(int index) {
+    if (httpHeaders.size() <= index) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "httpHeaders"));
+    }
+    return this.setNewHttpHeaderLike(index, this.buildHttpHeader(index));
   }
   
   public HttpHeadersNested<A> editLastHttpHeader() {
@@ -262,53 +151,6 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
       throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "httpHeaders"));
     }
     return this.setNewHttpHeaderLike(index, this.buildHttpHeader(index));
-  }
-  
-  public String getPath() {
-    return this.path;
-  }
-  
-  public A withPath(String path) {
-    this.path = path;
-    return (A) this;
-  }
-  
-  public boolean hasPath() {
-    return this.path != null;
-  }
-  
-  public IntOrString getPort() {
-    return this.port;
-  }
-  
-  public A withPort(IntOrString port) {
-    this.port = port;
-    return (A) this;
-  }
-  
-  public boolean hasPort() {
-    return this.port != null;
-  }
-  
-  public A withNewPort(int value) {
-    return (A) this.withPort(new IntOrString(value));
-  }
-  
-  public A withNewPort(String value) {
-    return (A) this.withPort(new IntOrString(value));
-  }
-  
-  public String getScheme() {
-    return this.scheme;
-  }
-  
-  public A withScheme(String scheme) {
-    this.scheme = scheme;
-    return (A) this;
-  }
-  
-  public boolean hasScheme() {
-    return this.scheme != null;
   }
   
   public boolean equals(Object o) {
@@ -340,8 +182,112 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
     return true;
   }
   
+  public String getHost() {
+    return this.host;
+  }
+  
+  public String getPath() {
+    return this.path;
+  }
+  
+  public IntOrString getPort() {
+    return this.port;
+  }
+  
+  public String getScheme() {
+    return this.scheme;
+  }
+  
+  public boolean hasHost() {
+    return this.host != null;
+  }
+  
+  public boolean hasHttpHeaders() {
+    return this.httpHeaders != null && !(this.httpHeaders.isEmpty());
+  }
+  
+  public boolean hasMatchingHttpHeader(Predicate<V1HTTPHeaderBuilder> predicate) {
+      for (V1HTTPHeaderBuilder item : httpHeaders) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasPath() {
+    return this.path != null;
+  }
+  
+  public boolean hasPort() {
+    return this.port != null;
+  }
+  
+  public boolean hasScheme() {
+    return this.scheme != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(host, httpHeaders, path, port, scheme);
+  }
+  
+  public A removeAllFromHttpHeaders(Collection<V1HTTPHeader> items) {
+    if (this.httpHeaders == null) {
+      return (A) this;
+    }
+    for (V1HTTPHeader item : items) {
+        V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
+        _visitables.get("httpHeaders").remove(builder);
+        this.httpHeaders.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromHttpHeaders(V1HTTPHeader... items) {
+    if (this.httpHeaders == null) {
+      return (A) this;
+    }
+    for (V1HTTPHeader item : items) {
+        V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
+        _visitables.get("httpHeaders").remove(builder);
+        this.httpHeaders.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromHttpHeaders(Predicate<V1HTTPHeaderBuilder> predicate) {
+    if (httpHeaders == null) {
+      return (A) this;
+    }
+    Iterator<V1HTTPHeaderBuilder> each = httpHeaders.iterator();
+    List visitables = _visitables.get("httpHeaders");
+    while (each.hasNext()) {
+        V1HTTPHeaderBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public HttpHeadersNested<A> setNewHttpHeaderLike(int index,V1HTTPHeader item) {
+    return new HttpHeadersNested(index, item);
+  }
+  
+  public A setToHttpHeaders(int index,V1HTTPHeader item) {
+    if (this.httpHeaders == null) {
+      this.httpHeaders = new ArrayList();
+    }
+    V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
+    if (index < 0 || index >= httpHeaders.size()) {
+        _visitables.get("httpHeaders").add(builder);
+        httpHeaders.add(builder);
+    } else {
+        _visitables.get("httpHeaders").add(builder);
+        httpHeaders.set(index, builder);
+    }
+    return (A) this;
   }
   
   public String toString() {
@@ -374,14 +320,72 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withHost(String host) {
+    this.host = host;
+    return (A) this;
+  }
+  
+  public A withHttpHeaders(List<V1HTTPHeader> httpHeaders) {
+    if (this.httpHeaders != null) {
+      this._visitables.get("httpHeaders").clear();
+    }
+    if (httpHeaders != null) {
+        this.httpHeaders = new ArrayList();
+        for (V1HTTPHeader item : httpHeaders) {
+          this.addToHttpHeaders(item);
+        }
+    } else {
+      this.httpHeaders = null;
+    }
+    return (A) this;
+  }
+  
+  public A withHttpHeaders(V1HTTPHeader... httpHeaders) {
+    if (this.httpHeaders != null) {
+        this.httpHeaders.clear();
+        _visitables.remove("httpHeaders");
+    }
+    if (httpHeaders != null) {
+      for (V1HTTPHeader item : httpHeaders) {
+        this.addToHttpHeaders(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public A withNewPort(int value) {
+    return (A) this.withPort(new IntOrString(value));
+  }
+  
+  public A withNewPort(String value) {
+    return (A) this.withPort(new IntOrString(value));
+  }
+  
+  public A withPath(String path) {
+    this.path = path;
+    return (A) this;
+  }
+  
+  public A withPort(IntOrString port) {
+    this.port = port;
+    return (A) this;
+  }
+  
+  public A withScheme(String scheme) {
+    this.scheme = scheme;
+    return (A) this;
+  }
   public class HttpHeadersNested<N> extends V1HTTPHeaderFluent<HttpHeadersNested<N>> implements Nested<N>{
+  
+    V1HTTPHeaderBuilder builder;
+    int index;
+  
     HttpHeadersNested(int index,V1HTTPHeader item) {
       this.index = index;
       this.builder = new V1HTTPHeaderBuilder(this, item);
     }
-    V1HTTPHeaderBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1HTTPGetActionFluent.this.setToHttpHeaders(index, builder.build());
     }
@@ -390,7 +394,5 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
       return and();
     }
     
-  
   }
-
 }

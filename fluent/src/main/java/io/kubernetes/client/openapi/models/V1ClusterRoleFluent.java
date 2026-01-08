@@ -1,152 +1,69 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
-import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 import java.util.Objects;
-import java.util.Collection;
-import java.lang.Object;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ClusterRoleFluent<A extends io.kubernetes.client.openapi.models.V1ClusterRoleFluent<A>> extends BaseFluent<A>{
+
+  private V1AggregationRuleBuilder aggregationRule;
+  private String apiVersion;
+  private String kind;
+  private V1ObjectMetaBuilder metadata;
+  private ArrayList<V1PolicyRuleBuilder> rules;
+
   public V1ClusterRoleFluent() {
   }
   
   public V1ClusterRoleFluent(V1ClusterRole instance) {
     this.copyInstance(instance);
   }
-  private V1AggregationRuleBuilder aggregationRule;
-  private String apiVersion;
-  private String kind;
-  private V1ObjectMetaBuilder metadata;
-  private ArrayList<V1PolicyRuleBuilder> rules;
-  
-  protected void copyInstance(V1ClusterRole instance) {
-    instance = instance != null ? instance : new V1ClusterRole();
-    if (instance != null) {
-        this.withAggregationRule(instance.getAggregationRule());
-        this.withApiVersion(instance.getApiVersion());
-        this.withKind(instance.getKind());
-        this.withMetadata(instance.getMetadata());
-        this.withRules(instance.getRules());
+
+  public A addAllToRules(Collection<V1PolicyRule> items) {
+    if (this.rules == null) {
+      this.rules = new ArrayList();
     }
-  }
-  
-  public V1AggregationRule buildAggregationRule() {
-    return this.aggregationRule != null ? this.aggregationRule.build() : null;
-  }
-  
-  public A withAggregationRule(V1AggregationRule aggregationRule) {
-    this._visitables.remove("aggregationRule");
-    if (aggregationRule != null) {
-        this.aggregationRule = new V1AggregationRuleBuilder(aggregationRule);
-        this._visitables.get("aggregationRule").add(this.aggregationRule);
-    } else {
-        this.aggregationRule = null;
-        this._visitables.get("aggregationRule").remove(this.aggregationRule);
+    for (V1PolicyRule item : items) {
+        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
+        _visitables.get("rules").add(builder);
+        this.rules.add(builder);
     }
     return (A) this;
   }
   
-  public boolean hasAggregationRule() {
-    return this.aggregationRule != null;
+  public RulesNested<A> addNewRule() {
+    return new RulesNested(-1, null);
   }
   
-  public AggregationRuleNested<A> withNewAggregationRule() {
-    return new AggregationRuleNested(null);
+  public RulesNested<A> addNewRuleLike(V1PolicyRule item) {
+    return new RulesNested(-1, item);
   }
   
-  public AggregationRuleNested<A> withNewAggregationRuleLike(V1AggregationRule item) {
-    return new AggregationRuleNested(item);
-  }
-  
-  public AggregationRuleNested<A> editAggregationRule() {
-    return this.withNewAggregationRuleLike(Optional.ofNullable(this.buildAggregationRule()).orElse(null));
-  }
-  
-  public AggregationRuleNested<A> editOrNewAggregationRule() {
-    return this.withNewAggregationRuleLike(Optional.ofNullable(this.buildAggregationRule()).orElse(new V1AggregationRuleBuilder().build()));
-  }
-  
-  public AggregationRuleNested<A> editOrNewAggregationRuleLike(V1AggregationRule item) {
-    return this.withNewAggregationRuleLike(Optional.ofNullable(this.buildAggregationRule()).orElse(item));
-  }
-  
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public V1ObjectMeta buildMetadata() {
-    return this.metadata != null ? this.metadata.build() : null;
-  }
-  
-  public A withMetadata(V1ObjectMeta metadata) {
-    this._visitables.remove("metadata");
-    if (metadata != null) {
-        this.metadata = new V1ObjectMetaBuilder(metadata);
-        this._visitables.get("metadata").add(this.metadata);
-    } else {
-        this.metadata = null;
-        this._visitables.get("metadata").remove(this.metadata);
+  public A addToRules(V1PolicyRule... items) {
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
+    for (V1PolicyRule item : items) {
+        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
+        _visitables.get("rules").add(builder);
+        this.rules.add(builder);
     }
     return (A) this;
-  }
-  
-  public boolean hasMetadata() {
-    return this.metadata != null;
-  }
-  
-  public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
-  }
-  
-  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
-  }
-  
-  public MetadataNested<A> editMetadata() {
-    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
-  }
-  
-  public MetadataNested<A> editOrNewMetadata() {
-    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
-  }
-  
-  public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
-    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
   public A addToRules(int index,V1PolicyRule item) {
@@ -164,91 +81,8 @@ public class V1ClusterRoleFluent<A extends io.kubernetes.client.openapi.models.V
     return (A) this;
   }
   
-  public A setToRules(int index,V1PolicyRule item) {
-    if (this.rules == null) {
-      this.rules = new ArrayList();
-    }
-    V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
-    if (index < 0 || index >= rules.size()) {
-        _visitables.get("rules").add(builder);
-        rules.add(builder);
-    } else {
-        _visitables.get("rules").add(builder);
-        rules.set(index, builder);
-    }
-    return (A) this;
-  }
-  
-  public A addToRules(V1PolicyRule... items) {
-    if (this.rules == null) {
-      this.rules = new ArrayList();
-    }
-    for (V1PolicyRule item : items) {
-        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
-        _visitables.get("rules").add(builder);
-        this.rules.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToRules(Collection<V1PolicyRule> items) {
-    if (this.rules == null) {
-      this.rules = new ArrayList();
-    }
-    for (V1PolicyRule item : items) {
-        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
-        _visitables.get("rules").add(builder);
-        this.rules.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromRules(V1PolicyRule... items) {
-    if (this.rules == null) {
-      return (A) this;
-    }
-    for (V1PolicyRule item : items) {
-        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
-        _visitables.get("rules").remove(builder);
-        this.rules.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromRules(Collection<V1PolicyRule> items) {
-    if (this.rules == null) {
-      return (A) this;
-    }
-    for (V1PolicyRule item : items) {
-        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
-        _visitables.get("rules").remove(builder);
-        this.rules.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromRules(Predicate<V1PolicyRuleBuilder> predicate) {
-    if (rules == null) {
-      return (A) this;
-    }
-    Iterator<V1PolicyRuleBuilder> each = rules.iterator();
-    List visitables = _visitables.get("rules");
-    while (each.hasNext()) {
-        V1PolicyRuleBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
-  }
-  
-  public List<V1PolicyRule> buildRules() {
-    return this.rules != null ? build(rules) : null;
-  }
-  
-  public V1PolicyRule buildRule(int index) {
-    return this.rules.get(index).build();
+  public V1AggregationRule buildAggregationRule() {
+    return this.aggregationRule != null ? this.aggregationRule.build() : null;
   }
   
   public V1PolicyRule buildFirstRule() {
@@ -268,64 +102,31 @@ public class V1ClusterRoleFluent<A extends io.kubernetes.client.openapi.models.V
       return null;
   }
   
-  public boolean hasMatchingRule(Predicate<V1PolicyRuleBuilder> predicate) {
-      for (V1PolicyRuleBuilder item : rules) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
+  public V1ObjectMeta buildMetadata() {
+    return this.metadata != null ? this.metadata.build() : null;
   }
   
-  public A withRules(List<V1PolicyRule> rules) {
-    if (this.rules != null) {
-      this._visitables.get("rules").clear();
+  public V1PolicyRule buildRule(int index) {
+    return this.rules.get(index).build();
+  }
+  
+  public List<V1PolicyRule> buildRules() {
+    return this.rules != null ? build(rules) : null;
+  }
+  
+  protected void copyInstance(V1ClusterRole instance) {
+    instance = instance != null ? instance : new V1ClusterRole();
+    if (instance != null) {
+        this.withAggregationRule(instance.getAggregationRule());
+        this.withApiVersion(instance.getApiVersion());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
+        this.withRules(instance.getRules());
     }
-    if (rules != null) {
-        this.rules = new ArrayList();
-        for (V1PolicyRule item : rules) {
-          this.addToRules(item);
-        }
-    } else {
-      this.rules = null;
-    }
-    return (A) this;
   }
   
-  public A withRules(V1PolicyRule... rules) {
-    if (this.rules != null) {
-        this.rules.clear();
-        _visitables.remove("rules");
-    }
-    if (rules != null) {
-      for (V1PolicyRule item : rules) {
-        this.addToRules(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasRules() {
-    return this.rules != null && !(this.rules.isEmpty());
-  }
-  
-  public RulesNested<A> addNewRule() {
-    return new RulesNested(-1, null);
-  }
-  
-  public RulesNested<A> addNewRuleLike(V1PolicyRule item) {
-    return new RulesNested(-1, item);
-  }
-  
-  public RulesNested<A> setNewRuleLike(int index,V1PolicyRule item) {
-    return new RulesNested(index, item);
-  }
-  
-  public RulesNested<A> editRule(int index) {
-    if (index <= rules.size()) {
-      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "rules"));
-    }
-    return this.setNewRuleLike(index, this.buildRule(index));
+  public AggregationRuleNested<A> editAggregationRule() {
+    return this.withNewAggregationRuleLike(Optional.ofNullable(this.buildAggregationRule()).orElse(null));
   }
   
   public RulesNested<A> editFirstRule() {
@@ -353,6 +154,33 @@ public class V1ClusterRoleFluent<A extends io.kubernetes.client.openapi.models.V
     }
     if (index < 0) {
       throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "rules"));
+    }
+    return this.setNewRuleLike(index, this.buildRule(index));
+  }
+  
+  public MetadataNested<A> editMetadata() {
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(null));
+  }
+  
+  public AggregationRuleNested<A> editOrNewAggregationRule() {
+    return this.withNewAggregationRuleLike(Optional.ofNullable(this.buildAggregationRule()).orElse(new V1AggregationRuleBuilder().build()));
+  }
+  
+  public AggregationRuleNested<A> editOrNewAggregationRuleLike(V1AggregationRule item) {
+    return this.withNewAggregationRuleLike(Optional.ofNullable(this.buildAggregationRule()).orElse(item));
+  }
+  
+  public MetadataNested<A> editOrNewMetadata() {
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(new V1ObjectMetaBuilder().build()));
+  }
+  
+  public MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+    return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
+  }
+  
+  public RulesNested<A> editRule(int index) {
+    if (rules.size() <= index) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "rules"));
     }
     return this.setNewRuleLike(index, this.buildRule(index));
   }
@@ -386,8 +214,104 @@ public class V1ClusterRoleFluent<A extends io.kubernetes.client.openapi.models.V
     return true;
   }
   
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public boolean hasAggregationRule() {
+    return this.aggregationRule != null;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasMatchingRule(Predicate<V1PolicyRuleBuilder> predicate) {
+      for (V1PolicyRuleBuilder item : rules) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasMetadata() {
+    return this.metadata != null;
+  }
+  
+  public boolean hasRules() {
+    return this.rules != null && !(this.rules.isEmpty());
+  }
+  
   public int hashCode() {
     return Objects.hash(aggregationRule, apiVersion, kind, metadata, rules);
+  }
+  
+  public A removeAllFromRules(Collection<V1PolicyRule> items) {
+    if (this.rules == null) {
+      return (A) this;
+    }
+    for (V1PolicyRule item : items) {
+        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
+        _visitables.get("rules").remove(builder);
+        this.rules.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromRules(V1PolicyRule... items) {
+    if (this.rules == null) {
+      return (A) this;
+    }
+    for (V1PolicyRule item : items) {
+        V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
+        _visitables.get("rules").remove(builder);
+        this.rules.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromRules(Predicate<V1PolicyRuleBuilder> predicate) {
+    if (rules == null) {
+      return (A) this;
+    }
+    Iterator<V1PolicyRuleBuilder> each = rules.iterator();
+    List visitables = _visitables.get("rules");
+    while (each.hasNext()) {
+        V1PolicyRuleBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public RulesNested<A> setNewRuleLike(int index,V1PolicyRule item) {
+    return new RulesNested(index, item);
+  }
+  
+  public A setToRules(int index,V1PolicyRule item) {
+    if (this.rules == null) {
+      this.rules = new ArrayList();
+    }
+    V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
+    if (index < 0 || index >= rules.size()) {
+        _visitables.get("rules").add(builder);
+        rules.add(builder);
+    } else {
+        _visitables.get("rules").add(builder);
+        rules.set(index, builder);
+    }
+    return (A) this;
   }
   
   public String toString() {
@@ -420,12 +344,92 @@ public class V1ClusterRoleFluent<A extends io.kubernetes.client.openapi.models.V
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withAggregationRule(V1AggregationRule aggregationRule) {
+    this._visitables.remove("aggregationRule");
+    if (aggregationRule != null) {
+        this.aggregationRule = new V1AggregationRuleBuilder(aggregationRule);
+        this._visitables.get("aggregationRule").add(this.aggregationRule);
+    } else {
+        this.aggregationRule = null;
+        this._visitables.get("aggregationRule").remove(this.aggregationRule);
+    }
+    return (A) this;
+  }
+  
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withMetadata(V1ObjectMeta metadata) {
+    this._visitables.remove("metadata");
+    if (metadata != null) {
+        this.metadata = new V1ObjectMetaBuilder(metadata);
+        this._visitables.get("metadata").add(this.metadata);
+    } else {
+        this.metadata = null;
+        this._visitables.get("metadata").remove(this.metadata);
+    }
+    return (A) this;
+  }
+  
+  public AggregationRuleNested<A> withNewAggregationRule() {
+    return new AggregationRuleNested(null);
+  }
+  
+  public AggregationRuleNested<A> withNewAggregationRuleLike(V1AggregationRule item) {
+    return new AggregationRuleNested(item);
+  }
+  
+  public MetadataNested<A> withNewMetadata() {
+    return new MetadataNested(null);
+  }
+  
+  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+    return new MetadataNested(item);
+  }
+  
+  public A withRules(List<V1PolicyRule> rules) {
+    if (this.rules != null) {
+      this._visitables.get("rules").clear();
+    }
+    if (rules != null) {
+        this.rules = new ArrayList();
+        for (V1PolicyRule item : rules) {
+          this.addToRules(item);
+        }
+    } else {
+      this.rules = null;
+    }
+    return (A) this;
+  }
+  
+  public A withRules(V1PolicyRule... rules) {
+    if (this.rules != null) {
+        this.rules.clear();
+        _visitables.remove("rules");
+    }
+    if (rules != null) {
+      for (V1PolicyRule item : rules) {
+        this.addToRules(item);
+      }
+    }
+    return (A) this;
+  }
   public class AggregationRuleNested<N> extends V1AggregationRuleFluent<AggregationRuleNested<N>> implements Nested<N>{
+  
+    V1AggregationRuleBuilder builder;
+  
     AggregationRuleNested(V1AggregationRule item) {
       this.builder = new V1AggregationRuleBuilder(this, item);
     }
-    V1AggregationRuleBuilder builder;
-    
+  
     public N and() {
       return (N) V1ClusterRoleFluent.this.withAggregationRule(builder.build());
     }
@@ -434,14 +438,15 @@ public class V1ClusterRoleFluent<A extends io.kubernetes.client.openapi.models.V
       return and();
     }
     
-  
   }
   public class MetadataNested<N> extends V1ObjectMetaFluent<MetadataNested<N>> implements Nested<N>{
+  
+    V1ObjectMetaBuilder builder;
+  
     MetadataNested(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
-    V1ObjectMetaBuilder builder;
-    
+  
     public N and() {
       return (N) V1ClusterRoleFluent.this.withMetadata(builder.build());
     }
@@ -450,16 +455,17 @@ public class V1ClusterRoleFluent<A extends io.kubernetes.client.openapi.models.V
       return and();
     }
     
-  
   }
   public class RulesNested<N> extends V1PolicyRuleFluent<RulesNested<N>> implements Nested<N>{
+  
+    V1PolicyRuleBuilder builder;
+    int index;
+  
     RulesNested(int index,V1PolicyRule item) {
       this.index = index;
       this.builder = new V1PolicyRuleBuilder(this, item);
     }
-    V1PolicyRuleBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1ClusterRoleFluent.this.setToRules(index, builder.build());
     }
@@ -468,7 +474,5 @@ public class V1ClusterRoleFluent<A extends io.kubernetes.client.openapi.models.V
       return and();
     }
     
-  
   }
-
 }

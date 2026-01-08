@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1DaemonSetUpdateStrategyBuilder extends V1DaemonSetUpdateStrategyFluent<V1DaemonSetUpdateStrategyBuilder> implements VisitableBuilder<V1DaemonSetUpdateStrategy,V1DaemonSetUpdateStrategyBuilder>{
+
+  V1DaemonSetUpdateStrategyFluent<?> fluent;
+
   public V1DaemonSetUpdateStrategyBuilder() {
     this(new V1DaemonSetUpdateStrategy());
   }
@@ -11,17 +14,16 @@ public class V1DaemonSetUpdateStrategyBuilder extends V1DaemonSetUpdateStrategyF
     this(fluent, new V1DaemonSetUpdateStrategy());
   }
   
-  public V1DaemonSetUpdateStrategyBuilder(V1DaemonSetUpdateStrategyFluent<?> fluent,V1DaemonSetUpdateStrategy instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1DaemonSetUpdateStrategyBuilder(V1DaemonSetUpdateStrategy instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1DaemonSetUpdateStrategyFluent<?> fluent;
   
+  public V1DaemonSetUpdateStrategyBuilder(V1DaemonSetUpdateStrategyFluent<?> fluent,V1DaemonSetUpdateStrategy instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1DaemonSetUpdateStrategy build() {
     V1DaemonSetUpdateStrategy buildable = new V1DaemonSetUpdateStrategy();
     buildable.setRollingUpdate(fluent.buildRollingUpdate());
@@ -29,5 +31,4 @@ public class V1DaemonSetUpdateStrategyBuilder extends V1DaemonSetUpdateStrategyF
     return buildable;
   }
   
-
 }

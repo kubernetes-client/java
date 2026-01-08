@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1RBDPersistentVolumeSourceBuilder extends V1RBDPersistentVolumeSourceFluent<V1RBDPersistentVolumeSourceBuilder> implements VisitableBuilder<V1RBDPersistentVolumeSource,V1RBDPersistentVolumeSourceBuilder>{
+
+  V1RBDPersistentVolumeSourceFluent<?> fluent;
+
   public V1RBDPersistentVolumeSourceBuilder() {
     this(new V1RBDPersistentVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1RBDPersistentVolumeSourceBuilder extends V1RBDPersistentVolumeSou
     this(fluent, new V1RBDPersistentVolumeSource());
   }
   
-  public V1RBDPersistentVolumeSourceBuilder(V1RBDPersistentVolumeSourceFluent<?> fluent,V1RBDPersistentVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1RBDPersistentVolumeSourceBuilder(V1RBDPersistentVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1RBDPersistentVolumeSourceFluent<?> fluent;
   
+  public V1RBDPersistentVolumeSourceBuilder(V1RBDPersistentVolumeSourceFluent<?> fluent,V1RBDPersistentVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1RBDPersistentVolumeSource build() {
     V1RBDPersistentVolumeSource buildable = new V1RBDPersistentVolumeSource();
     buildable.setFsType(fluent.getFsType());
@@ -35,5 +37,4 @@ public class V1RBDPersistentVolumeSourceBuilder extends V1RBDPersistentVolumeSou
     return buildable;
   }
   
-
 }

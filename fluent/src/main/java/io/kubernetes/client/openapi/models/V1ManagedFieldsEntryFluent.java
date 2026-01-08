@@ -1,24 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.time.OffsetDateTime;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ManagedFieldsEntryFluent<A extends io.kubernetes.client.openapi.models.V1ManagedFieldsEntryFluent<A>> extends BaseFluent<A>{
-  public V1ManagedFieldsEntryFluent() {
-  }
-  
-  public V1ManagedFieldsEntryFluent(V1ManagedFieldsEntry instance) {
-    this.copyInstance(instance);
-  }
+
   private String apiVersion;
   private String fieldsType;
   private Object fieldsV1;
@@ -26,7 +21,14 @@ public class V1ManagedFieldsEntryFluent<A extends io.kubernetes.client.openapi.m
   private String operation;
   private String subresource;
   private OffsetDateTime time;
+
+  public V1ManagedFieldsEntryFluent() {
+  }
   
+  public V1ManagedFieldsEntryFluent(V1ManagedFieldsEntry instance) {
+    this.copyInstance(instance);
+  }
+
   protected void copyInstance(V1ManagedFieldsEntry instance) {
     instance = instance != null ? instance : new V1ManagedFieldsEntry();
     if (instance != null) {
@@ -38,97 +40,6 @@ public class V1ManagedFieldsEntryFluent<A extends io.kubernetes.client.openapi.m
         this.withSubresource(instance.getSubresource());
         this.withTime(instance.getTime());
     }
-  }
-  
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public String getFieldsType() {
-    return this.fieldsType;
-  }
-  
-  public A withFieldsType(String fieldsType) {
-    this.fieldsType = fieldsType;
-    return (A) this;
-  }
-  
-  public boolean hasFieldsType() {
-    return this.fieldsType != null;
-  }
-  
-  public Object getFieldsV1() {
-    return this.fieldsV1;
-  }
-  
-  public A withFieldsV1(Object fieldsV1) {
-    this.fieldsV1 = fieldsV1;
-    return (A) this;
-  }
-  
-  public boolean hasFieldsV1() {
-    return this.fieldsV1 != null;
-  }
-  
-  public String getManager() {
-    return this.manager;
-  }
-  
-  public A withManager(String manager) {
-    this.manager = manager;
-    return (A) this;
-  }
-  
-  public boolean hasManager() {
-    return this.manager != null;
-  }
-  
-  public String getOperation() {
-    return this.operation;
-  }
-  
-  public A withOperation(String operation) {
-    this.operation = operation;
-    return (A) this;
-  }
-  
-  public boolean hasOperation() {
-    return this.operation != null;
-  }
-  
-  public String getSubresource() {
-    return this.subresource;
-  }
-  
-  public A withSubresource(String subresource) {
-    this.subresource = subresource;
-    return (A) this;
-  }
-  
-  public boolean hasSubresource() {
-    return this.subresource != null;
-  }
-  
-  public OffsetDateTime getTime() {
-    return this.time;
-  }
-  
-  public A withTime(OffsetDateTime time) {
-    this.time = time;
-    return (A) this;
-  }
-  
-  public boolean hasTime() {
-    return this.time != null;
   }
   
   public boolean equals(Object o) {
@@ -164,6 +75,62 @@ public class V1ManagedFieldsEntryFluent<A extends io.kubernetes.client.openapi.m
       return false;
     }
     return true;
+  }
+  
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public String getFieldsType() {
+    return this.fieldsType;
+  }
+  
+  public Object getFieldsV1() {
+    return this.fieldsV1;
+  }
+  
+  public String getManager() {
+    return this.manager;
+  }
+  
+  public String getOperation() {
+    return this.operation;
+  }
+  
+  public String getSubresource() {
+    return this.subresource;
+  }
+  
+  public OffsetDateTime getTime() {
+    return this.time;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasFieldsType() {
+    return this.fieldsType != null;
+  }
+  
+  public boolean hasFieldsV1() {
+    return this.fieldsV1 != null;
+  }
+  
+  public boolean hasManager() {
+    return this.manager != null;
+  }
+  
+  public boolean hasOperation() {
+    return this.operation != null;
+  }
+  
+  public boolean hasSubresource() {
+    return this.subresource != null;
+  }
+  
+  public boolean hasTime() {
+    return this.time != null;
   }
   
   public int hashCode() {
@@ -211,5 +178,39 @@ public class V1ManagedFieldsEntryFluent<A extends io.kubernetes.client.openapi.m
     return sb.toString();
   }
   
-
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withFieldsType(String fieldsType) {
+    this.fieldsType = fieldsType;
+    return (A) this;
+  }
+  
+  public A withFieldsV1(Object fieldsV1) {
+    this.fieldsV1 = fieldsV1;
+    return (A) this;
+  }
+  
+  public A withManager(String manager) {
+    this.manager = manager;
+    return (A) this;
+  }
+  
+  public A withOperation(String operation) {
+    this.operation = operation;
+    return (A) this;
+  }
+  
+  public A withSubresource(String subresource) {
+    this.subresource = subresource;
+    return (A) this;
+  }
+  
+  public A withTime(OffsetDateTime time) {
+    this.time = time;
+    return (A) this;
+  }
+  
 }

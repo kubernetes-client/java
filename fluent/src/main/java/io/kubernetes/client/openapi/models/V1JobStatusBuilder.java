@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1JobStatusBuilder extends V1JobStatusFluent<V1JobStatusBuilder> implements VisitableBuilder<V1JobStatus,V1JobStatusBuilder>{
+
+  V1JobStatusFluent<?> fluent;
+
   public V1JobStatusBuilder() {
     this(new V1JobStatus());
   }
@@ -11,17 +14,16 @@ public class V1JobStatusBuilder extends V1JobStatusFluent<V1JobStatusBuilder> im
     this(fluent, new V1JobStatus());
   }
   
-  public V1JobStatusBuilder(V1JobStatusFluent<?> fluent,V1JobStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1JobStatusBuilder(V1JobStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1JobStatusFluent<?> fluent;
   
+  public V1JobStatusBuilder(V1JobStatusFluent<?> fluent,V1JobStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1JobStatus build() {
     V1JobStatus buildable = new V1JobStatus();
     buildable.setActive(fluent.getActive());
@@ -38,5 +40,4 @@ public class V1JobStatusBuilder extends V1JobStatusFluent<V1JobStatusBuilder> im
     return buildable;
   }
   
-
 }
