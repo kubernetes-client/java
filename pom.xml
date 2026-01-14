@@ -48,8 +48,8 @@
     <slf4j.version>2.0.17</slf4j.version>
     <caffeine.version>2.9.3</caffeine.version>
     <protobuf.version>4.33.4</protobuf.version>
-    <junit-jupiter.version>5.13.4</junit-jupiter.version>
-    <junit-jupiter.version>5.13.4</junit-jupiter.version>
+    <junit-jupiter.version>6.0.2</junit-jupiter.version>
+    <junit-jupiter.version>6.0.2</junit-jupiter.version>
     <junit-jupiter-params.version>${junit-jupiter.version}</junit-jupiter-params.version>
     <bucket4j.version>8.10.1</bucket4j.version>
     <bouncycastle.version>1.83</bouncycastle.version>
