@@ -394,7 +394,7 @@ public class ResourceList {
             DynamicKubernetesApi dynamicApi = getDynamicApi(dynamicObj);
 
             String ns = getEffectiveNamespace(dynamicObj);
-            io.kubernetes.client.util.generic.options.CreateOptions createOpts = 
+            io.kubernetes.client.util.generic.options.CreateOptions createOpts =
                     new io.kubernetes.client.util.generic.options.CreateOptions();
 
             KubernetesApiResponse<DynamicKubernetesObject> response;
@@ -417,7 +417,7 @@ public class ResourceList {
 
             String ns = getEffectiveNamespace(dynamicObj);
             String name = dynamicObj.getMetadata().getName();
-            io.kubernetes.client.util.generic.options.CreateOptions createOpts = 
+            io.kubernetes.client.util.generic.options.CreateOptions createOpts =
                     new io.kubernetes.client.util.generic.options.CreateOptions();
 
             // Try to get existing
@@ -515,8 +515,8 @@ public class ResourceList {
 
         WaitUtils.waitUntilCondition(
                 () -> {
-                    KubernetesApiResponse<DynamicKubernetesObject> response = ns != null 
-                            ? dynamicApi.get(ns, name) 
+                    KubernetesApiResponse<DynamicKubernetesObject> response = ns != null
+                            ? dynamicApi.get(ns, name)
                             : dynamicApi.get(name);
                     return response.isSuccess() ? response.getObject() : null;
                 },
@@ -544,8 +544,8 @@ public class ResourceList {
 
         WaitUtils.waitUntilDeleted(
                 () -> {
-                    KubernetesApiResponse<DynamicKubernetesObject> response = ns != null 
-                            ? dynamicApi.get(ns, name) 
+                    KubernetesApiResponse<DynamicKubernetesObject> response = ns != null
+                            ? dynamicApi.get(ns, name)
                             : dynamicApi.get(name);
                     return response.isSuccess() ? response.getObject() : null;
                 },
@@ -580,7 +580,7 @@ public class ResourceList {
 
         return new DynamicKubernetesApi(group, version, plural, apiClient);
     }
-    
+
     /**
      * Simple pluralization for Kubernetes resource kinds.
      */
@@ -590,7 +590,7 @@ public class ResourceList {
         }
         String lower = kind.toLowerCase();
         // Special cases for Kubernetes kinds
-        if (lower.endsWith("s") || lower.endsWith("x") || lower.endsWith("z") 
+        if (lower.endsWith("s") || lower.endsWith("x") || lower.endsWith("z")
                 || lower.endsWith("ch") || lower.endsWith("sh")) {
             return lower + "es";
         }
