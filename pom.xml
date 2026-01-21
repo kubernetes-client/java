@@ -54,7 +54,8 @@
     <junit.version>4.13</junit.version>
     <bucket4j.version>7.6.0</bucket4j.version>
     <bouncycastle.version>1.83</bouncycastle.version>
-    <jackson.version>2.19.2</jackson.version>
+    <jackson.version>2.21.0</jackson.version>
+    <jackson.annotations.version>2.21</jackson.annotations.version>
     <gson.version>2.13.2</gson.version>
     <jsr305.version>3.0.2</jsr305.version>
     <okhttp3.version>5.3.2</okhttp3.version>
@@ -265,7 +266,7 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
-        <version>${jackson.version}</version>
+        <version>${jackson.annotations.version}</version>
         <optional>true</optional>
       </dependency>
       <dependency>
