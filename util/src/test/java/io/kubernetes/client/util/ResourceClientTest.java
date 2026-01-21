@@ -209,7 +209,7 @@ class ResourceClientTest {
     void update_namespacedPod_updatesResource() throws ApiException {
         V1Pod pod = createPod("existing-pod", "default");
         pod.getMetadata().setResourceVersion("12345");
-        
+
         apiServer.stubFor(
                 put(urlPathEqualTo("/api/v1/namespaces/default/pods/existing-pod"))
                         .willReturn(aResponse()
@@ -322,7 +322,7 @@ class ResourceClientTest {
     @Test
     void inNamespace_returnsNewClient() {
         ResourceClient<V1Pod, V1PodList> namespacedClient = podClient.inNamespace("my-namespace");
-        
+
         assertThat(namespacedClient).isNotNull();
         assertThat(namespacedClient).isNotSameAs(podClient);
     }
@@ -330,7 +330,7 @@ class ResourceClientTest {
     @Test
     void withName_returnsNewClient() {
         ResourceClient<V1Pod, V1PodList> namedClient = podClient.withName("my-pod");
-        
+
         assertThat(namedClient).isNotNull();
         assertThat(namedClient).isNotSameAs(podClient);
     }
@@ -364,7 +364,7 @@ class ResourceClientTest {
                                 .withStatus(500)
                                 .withBody("{\"message\": \"Internal Server Error\"}")));
 
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 podClient.inNamespace("default").withName("error-pod").get())
                 .isInstanceOf(ApiException.class);
     }
@@ -378,7 +378,7 @@ class ResourceClientTest {
                                 .withStatus(409)
                                 .withBody("{\"message\": \"AlreadyExists\"}")));
 
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 podClient.inNamespace("default").create(pod))
                 .isInstanceOf(ApiException.class);
     }
@@ -389,7 +389,7 @@ class ResourceClientTest {
     void createOrReplace_existingResource_updatesResource() throws ApiException {
         V1Pod existingPod = createPod("existing-pod", "default");
         existingPod.getMetadata().setResourceVersion("12345");
-        
+
         V1Pod updatedPod = createPod("existing-pod", "default");
         updatedPod.getMetadata().setResourceVersion("12346");
 
