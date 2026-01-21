@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1CSIStorageCapacityBuilder extends V1CSIStorageCapacityFluent<V1CSIStorageCapacityBuilder> implements VisitableBuilder<V1CSIStorageCapacity,V1CSIStorageCapacityBuilder>{
+
+  V1CSIStorageCapacityFluent<?> fluent;
+
   public V1CSIStorageCapacityBuilder() {
     this(new V1CSIStorageCapacity());
   }
@@ -11,17 +14,16 @@ public class V1CSIStorageCapacityBuilder extends V1CSIStorageCapacityFluent<V1CS
     this(fluent, new V1CSIStorageCapacity());
   }
   
-  public V1CSIStorageCapacityBuilder(V1CSIStorageCapacityFluent<?> fluent,V1CSIStorageCapacity instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1CSIStorageCapacityBuilder(V1CSIStorageCapacity instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1CSIStorageCapacityFluent<?> fluent;
   
+  public V1CSIStorageCapacityBuilder(V1CSIStorageCapacityFluent<?> fluent,V1CSIStorageCapacity instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1CSIStorageCapacity build() {
     V1CSIStorageCapacity buildable = new V1CSIStorageCapacity();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -34,5 +36,4 @@ public class V1CSIStorageCapacityBuilder extends V1CSIStorageCapacityFluent<V1CS
     return buildable;
   }
   
-
 }

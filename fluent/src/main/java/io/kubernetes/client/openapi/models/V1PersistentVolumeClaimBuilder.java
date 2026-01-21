@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PersistentVolumeClaimBuilder extends V1PersistentVolumeClaimFluent<V1PersistentVolumeClaimBuilder> implements VisitableBuilder<V1PersistentVolumeClaim,V1PersistentVolumeClaimBuilder>{
+
+  V1PersistentVolumeClaimFluent<?> fluent;
+
   public V1PersistentVolumeClaimBuilder() {
     this(new V1PersistentVolumeClaim());
   }
@@ -11,17 +14,16 @@ public class V1PersistentVolumeClaimBuilder extends V1PersistentVolumeClaimFluen
     this(fluent, new V1PersistentVolumeClaim());
   }
   
-  public V1PersistentVolumeClaimBuilder(V1PersistentVolumeClaimFluent<?> fluent,V1PersistentVolumeClaim instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PersistentVolumeClaimBuilder(V1PersistentVolumeClaim instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PersistentVolumeClaimFluent<?> fluent;
   
+  public V1PersistentVolumeClaimBuilder(V1PersistentVolumeClaimFluent<?> fluent,V1PersistentVolumeClaim instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PersistentVolumeClaim build() {
     V1PersistentVolumeClaim buildable = new V1PersistentVolumeClaim();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -32,5 +34,4 @@ public class V1PersistentVolumeClaimBuilder extends V1PersistentVolumeClaimFluen
     return buildable;
   }
   
-
 }

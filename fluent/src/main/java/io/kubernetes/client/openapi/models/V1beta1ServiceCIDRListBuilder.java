@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1beta1ServiceCIDRListBuilder extends V1beta1ServiceCIDRListFluent<V1beta1ServiceCIDRListBuilder> implements VisitableBuilder<V1beta1ServiceCIDRList,V1beta1ServiceCIDRListBuilder>{
+
+  V1beta1ServiceCIDRListFluent<?> fluent;
+
   public V1beta1ServiceCIDRListBuilder() {
     this(new V1beta1ServiceCIDRList());
   }
@@ -11,17 +14,16 @@ public class V1beta1ServiceCIDRListBuilder extends V1beta1ServiceCIDRListFluent<
     this(fluent, new V1beta1ServiceCIDRList());
   }
   
-  public V1beta1ServiceCIDRListBuilder(V1beta1ServiceCIDRListFluent<?> fluent,V1beta1ServiceCIDRList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1beta1ServiceCIDRListBuilder(V1beta1ServiceCIDRList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1beta1ServiceCIDRListFluent<?> fluent;
   
+  public V1beta1ServiceCIDRListBuilder(V1beta1ServiceCIDRListFluent<?> fluent,V1beta1ServiceCIDRList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1beta1ServiceCIDRList build() {
     V1beta1ServiceCIDRList buildable = new V1beta1ServiceCIDRList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1beta1ServiceCIDRListBuilder extends V1beta1ServiceCIDRListFluent<
     return buildable;
   }
   
-
 }

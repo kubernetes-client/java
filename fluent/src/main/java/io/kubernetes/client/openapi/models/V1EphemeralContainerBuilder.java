@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1EphemeralContainerBuilder extends V1EphemeralContainerFluent<V1EphemeralContainerBuilder> implements VisitableBuilder<V1EphemeralContainer,V1EphemeralContainerBuilder>{
+
+  V1EphemeralContainerFluent<?> fluent;
+
   public V1EphemeralContainerBuilder() {
     this(new V1EphemeralContainer());
   }
@@ -11,17 +14,16 @@ public class V1EphemeralContainerBuilder extends V1EphemeralContainerFluent<V1Ep
     this(fluent, new V1EphemeralContainer());
   }
   
-  public V1EphemeralContainerBuilder(V1EphemeralContainerFluent<?> fluent,V1EphemeralContainer instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1EphemeralContainerBuilder(V1EphemeralContainer instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1EphemeralContainerFluent<?> fluent;
   
+  public V1EphemeralContainerBuilder(V1EphemeralContainerFluent<?> fluent,V1EphemeralContainer instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1EphemeralContainer build() {
     V1EphemeralContainer buildable = new V1EphemeralContainer();
     buildable.setArgs(fluent.getArgs());
@@ -53,5 +55,4 @@ public class V1EphemeralContainerBuilder extends V1EphemeralContainerFluent<V1Ep
     return buildable;
   }
   
-
 }

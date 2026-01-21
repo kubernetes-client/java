@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ParentReferenceFluent<A extends io.kubernetes.client.openapi.models.V1ParentReferenceFluent<A>> extends BaseFluent<A>{
+
+  private String group;
+  private String name;
+  private String namespace;
+  private String resource;
+
   public V1ParentReferenceFluent() {
   }
   
   public V1ParentReferenceFluent(V1ParentReference instance) {
     this.copyInstance(instance);
   }
-  private String group;
-  private String name;
-  private String namespace;
-  private String resource;
-  
+
   protected void copyInstance(V1ParentReference instance) {
     instance = instance != null ? instance : new V1ParentReference();
     if (instance != null) {
@@ -31,58 +33,6 @@ public class V1ParentReferenceFluent<A extends io.kubernetes.client.openapi.mode
         this.withNamespace(instance.getNamespace());
         this.withResource(instance.getResource());
     }
-  }
-  
-  public String getGroup() {
-    return this.group;
-  }
-  
-  public A withGroup(String group) {
-    this.group = group;
-    return (A) this;
-  }
-  
-  public boolean hasGroup() {
-    return this.group != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public String getNamespace() {
-    return this.namespace;
-  }
-  
-  public A withNamespace(String namespace) {
-    this.namespace = namespace;
-    return (A) this;
-  }
-  
-  public boolean hasNamespace() {
-    return this.namespace != null;
-  }
-  
-  public String getResource() {
-    return this.resource;
-  }
-  
-  public A withResource(String resource) {
-    this.resource = resource;
-    return (A) this;
-  }
-  
-  public boolean hasResource() {
-    return this.resource != null;
   }
   
   public boolean equals(Object o) {
@@ -109,6 +59,38 @@ public class V1ParentReferenceFluent<A extends io.kubernetes.client.openapi.mode
       return false;
     }
     return true;
+  }
+  
+  public String getGroup() {
+    return this.group;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public String getNamespace() {
+    return this.namespace;
+  }
+  
+  public String getResource() {
+    return this.resource;
+  }
+  
+  public boolean hasGroup() {
+    return this.group != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasNamespace() {
+    return this.namespace != null;
+  }
+  
+  public boolean hasResource() {
+    return this.resource != null;
   }
   
   public int hashCode() {
@@ -141,5 +123,24 @@ public class V1ParentReferenceFluent<A extends io.kubernetes.client.openapi.mode
     return sb.toString();
   }
   
-
+  public A withGroup(String group) {
+    this.group = group;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withNamespace(String namespace) {
+    this.namespace = namespace;
+    return (A) this;
+  }
+  
+  public A withResource(String resource) {
+    this.resource = resource;
+    return (A) this;
+  }
+  
 }

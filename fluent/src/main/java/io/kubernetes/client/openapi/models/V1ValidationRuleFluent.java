@@ -1,31 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ValidationRuleFluent<A extends io.kubernetes.client.openapi.models.V1ValidationRuleFluent<A>> extends BaseFluent<A>{
-  public V1ValidationRuleFluent() {
-  }
-  
-  public V1ValidationRuleFluent(V1ValidationRule instance) {
-    this.copyInstance(instance);
-  }
+
   private String fieldPath;
   private String message;
   private String messageExpression;
   private Boolean optionalOldSelf;
   private String reason;
   private String rule;
+
+  public V1ValidationRuleFluent() {
+  }
   
+  public V1ValidationRuleFluent(V1ValidationRule instance) {
+    this.copyInstance(instance);
+  }
+
   protected void copyInstance(V1ValidationRule instance) {
     instance = instance != null ? instance : new V1ValidationRule();
     if (instance != null) {
@@ -36,84 +38,6 @@ public class V1ValidationRuleFluent<A extends io.kubernetes.client.openapi.model
         this.withReason(instance.getReason());
         this.withRule(instance.getRule());
     }
-  }
-  
-  public String getFieldPath() {
-    return this.fieldPath;
-  }
-  
-  public A withFieldPath(String fieldPath) {
-    this.fieldPath = fieldPath;
-    return (A) this;
-  }
-  
-  public boolean hasFieldPath() {
-    return this.fieldPath != null;
-  }
-  
-  public String getMessage() {
-    return this.message;
-  }
-  
-  public A withMessage(String message) {
-    this.message = message;
-    return (A) this;
-  }
-  
-  public boolean hasMessage() {
-    return this.message != null;
-  }
-  
-  public String getMessageExpression() {
-    return this.messageExpression;
-  }
-  
-  public A withMessageExpression(String messageExpression) {
-    this.messageExpression = messageExpression;
-    return (A) this;
-  }
-  
-  public boolean hasMessageExpression() {
-    return this.messageExpression != null;
-  }
-  
-  public Boolean getOptionalOldSelf() {
-    return this.optionalOldSelf;
-  }
-  
-  public A withOptionalOldSelf(Boolean optionalOldSelf) {
-    this.optionalOldSelf = optionalOldSelf;
-    return (A) this;
-  }
-  
-  public boolean hasOptionalOldSelf() {
-    return this.optionalOldSelf != null;
-  }
-  
-  public String getReason() {
-    return this.reason;
-  }
-  
-  public A withReason(String reason) {
-    this.reason = reason;
-    return (A) this;
-  }
-  
-  public boolean hasReason() {
-    return this.reason != null;
-  }
-  
-  public String getRule() {
-    return this.rule;
-  }
-  
-  public A withRule(String rule) {
-    this.rule = rule;
-    return (A) this;
-  }
-  
-  public boolean hasRule() {
-    return this.rule != null;
   }
   
   public boolean equals(Object o) {
@@ -146,6 +70,54 @@ public class V1ValidationRuleFluent<A extends io.kubernetes.client.openapi.model
       return false;
     }
     return true;
+  }
+  
+  public String getFieldPath() {
+    return this.fieldPath;
+  }
+  
+  public String getMessage() {
+    return this.message;
+  }
+  
+  public String getMessageExpression() {
+    return this.messageExpression;
+  }
+  
+  public Boolean getOptionalOldSelf() {
+    return this.optionalOldSelf;
+  }
+  
+  public String getReason() {
+    return this.reason;
+  }
+  
+  public String getRule() {
+    return this.rule;
+  }
+  
+  public boolean hasFieldPath() {
+    return this.fieldPath != null;
+  }
+  
+  public boolean hasMessage() {
+    return this.message != null;
+  }
+  
+  public boolean hasMessageExpression() {
+    return this.messageExpression != null;
+  }
+  
+  public boolean hasOptionalOldSelf() {
+    return this.optionalOldSelf != null;
+  }
+  
+  public boolean hasReason() {
+    return this.reason != null;
+  }
+  
+  public boolean hasRule() {
+    return this.rule != null;
   }
   
   public int hashCode() {
@@ -188,9 +160,38 @@ public class V1ValidationRuleFluent<A extends io.kubernetes.client.openapi.model
     return sb.toString();
   }
   
+  public A withFieldPath(String fieldPath) {
+    this.fieldPath = fieldPath;
+    return (A) this;
+  }
+  
+  public A withMessage(String message) {
+    this.message = message;
+    return (A) this;
+  }
+  
+  public A withMessageExpression(String messageExpression) {
+    this.messageExpression = messageExpression;
+    return (A) this;
+  }
+  
   public A withOptionalOldSelf() {
     return withOptionalOldSelf(true);
   }
   
-
+  public A withOptionalOldSelf(Boolean optionalOldSelf) {
+    this.optionalOldSelf = optionalOldSelf;
+    return (A) this;
+  }
+  
+  public A withReason(String reason) {
+    this.reason = reason;
+    return (A) this;
+  }
+  
+  public A withRule(String rule) {
+    this.rule = rule;
+    return (A) this;
+  }
+  
 }

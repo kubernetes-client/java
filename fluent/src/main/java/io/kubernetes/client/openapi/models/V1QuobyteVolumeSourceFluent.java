@@ -1,31 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1QuobyteVolumeSourceFluent<A>> extends BaseFluent<A>{
-  public V1QuobyteVolumeSourceFluent() {
-  }
-  
-  public V1QuobyteVolumeSourceFluent(V1QuobyteVolumeSource instance) {
-    this.copyInstance(instance);
-  }
+
   private String group;
   private Boolean readOnly;
   private String registry;
   private String tenant;
   private String user;
   private String volume;
+
+  public V1QuobyteVolumeSourceFluent() {
+  }
   
+  public V1QuobyteVolumeSourceFluent(V1QuobyteVolumeSource instance) {
+    this.copyInstance(instance);
+  }
+
   protected void copyInstance(V1QuobyteVolumeSource instance) {
     instance = instance != null ? instance : new V1QuobyteVolumeSource();
     if (instance != null) {
@@ -36,84 +38,6 @@ public class V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.openapi.
         this.withUser(instance.getUser());
         this.withVolume(instance.getVolume());
     }
-  }
-  
-  public String getGroup() {
-    return this.group;
-  }
-  
-  public A withGroup(String group) {
-    this.group = group;
-    return (A) this;
-  }
-  
-  public boolean hasGroup() {
-    return this.group != null;
-  }
-  
-  public Boolean getReadOnly() {
-    return this.readOnly;
-  }
-  
-  public A withReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-    return (A) this;
-  }
-  
-  public boolean hasReadOnly() {
-    return this.readOnly != null;
-  }
-  
-  public String getRegistry() {
-    return this.registry;
-  }
-  
-  public A withRegistry(String registry) {
-    this.registry = registry;
-    return (A) this;
-  }
-  
-  public boolean hasRegistry() {
-    return this.registry != null;
-  }
-  
-  public String getTenant() {
-    return this.tenant;
-  }
-  
-  public A withTenant(String tenant) {
-    this.tenant = tenant;
-    return (A) this;
-  }
-  
-  public boolean hasTenant() {
-    return this.tenant != null;
-  }
-  
-  public String getUser() {
-    return this.user;
-  }
-  
-  public A withUser(String user) {
-    this.user = user;
-    return (A) this;
-  }
-  
-  public boolean hasUser() {
-    return this.user != null;
-  }
-  
-  public String getVolume() {
-    return this.volume;
-  }
-  
-  public A withVolume(String volume) {
-    this.volume = volume;
-    return (A) this;
-  }
-  
-  public boolean hasVolume() {
-    return this.volume != null;
   }
   
   public boolean equals(Object o) {
@@ -146,6 +70,54 @@ public class V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.openapi.
       return false;
     }
     return true;
+  }
+  
+  public String getGroup() {
+    return this.group;
+  }
+  
+  public Boolean getReadOnly() {
+    return this.readOnly;
+  }
+  
+  public String getRegistry() {
+    return this.registry;
+  }
+  
+  public String getTenant() {
+    return this.tenant;
+  }
+  
+  public String getUser() {
+    return this.user;
+  }
+  
+  public String getVolume() {
+    return this.volume;
+  }
+  
+  public boolean hasGroup() {
+    return this.group != null;
+  }
+  
+  public boolean hasReadOnly() {
+    return this.readOnly != null;
+  }
+  
+  public boolean hasRegistry() {
+    return this.registry != null;
+  }
+  
+  public boolean hasTenant() {
+    return this.tenant != null;
+  }
+  
+  public boolean hasUser() {
+    return this.user != null;
+  }
+  
+  public boolean hasVolume() {
+    return this.volume != null;
   }
   
   public int hashCode() {
@@ -188,9 +160,38 @@ public class V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.openapi.
     return sb.toString();
   }
   
+  public A withGroup(String group) {
+    this.group = group;
+    return (A) this;
+  }
+  
   public A withReadOnly() {
     return withReadOnly(true);
   }
   
-
+  public A withReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return (A) this;
+  }
+  
+  public A withRegistry(String registry) {
+    this.registry = registry;
+    return (A) this;
+  }
+  
+  public A withTenant(String tenant) {
+    this.tenant = tenant;
+    return (A) this;
+  }
+  
+  public A withUser(String user) {
+    this.user = user;
+    return (A) this;
+  }
+  
+  public A withVolume(String volume) {
+    this.volume = volume;
+    return (A) this;
+  }
+  
 }

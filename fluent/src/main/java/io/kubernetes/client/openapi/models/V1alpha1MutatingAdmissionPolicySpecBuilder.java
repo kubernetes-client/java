@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1alpha1MutatingAdmissionPolicySpecBuilder extends V1alpha1MutatingAdmissionPolicySpecFluent<V1alpha1MutatingAdmissionPolicySpecBuilder> implements VisitableBuilder<V1alpha1MutatingAdmissionPolicySpec,V1alpha1MutatingAdmissionPolicySpecBuilder>{
+
+  V1alpha1MutatingAdmissionPolicySpecFluent<?> fluent;
+
   public V1alpha1MutatingAdmissionPolicySpecBuilder() {
     this(new V1alpha1MutatingAdmissionPolicySpec());
   }
@@ -11,17 +14,16 @@ public class V1alpha1MutatingAdmissionPolicySpecBuilder extends V1alpha1Mutating
     this(fluent, new V1alpha1MutatingAdmissionPolicySpec());
   }
   
-  public V1alpha1MutatingAdmissionPolicySpecBuilder(V1alpha1MutatingAdmissionPolicySpecFluent<?> fluent,V1alpha1MutatingAdmissionPolicySpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1alpha1MutatingAdmissionPolicySpecBuilder(V1alpha1MutatingAdmissionPolicySpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1alpha1MutatingAdmissionPolicySpecFluent<?> fluent;
   
+  public V1alpha1MutatingAdmissionPolicySpecBuilder(V1alpha1MutatingAdmissionPolicySpecFluent<?> fluent,V1alpha1MutatingAdmissionPolicySpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1alpha1MutatingAdmissionPolicySpec build() {
     V1alpha1MutatingAdmissionPolicySpec buildable = new V1alpha1MutatingAdmissionPolicySpec();
     buildable.setFailurePolicy(fluent.getFailurePolicy());
@@ -34,5 +36,4 @@ public class V1alpha1MutatingAdmissionPolicySpecBuilder extends V1alpha1Mutating
     return buildable;
   }
   
-
 }

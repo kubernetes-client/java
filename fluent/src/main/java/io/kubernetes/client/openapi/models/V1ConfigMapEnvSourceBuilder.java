@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ConfigMapEnvSourceBuilder extends V1ConfigMapEnvSourceFluent<V1ConfigMapEnvSourceBuilder> implements VisitableBuilder<V1ConfigMapEnvSource,V1ConfigMapEnvSourceBuilder>{
+
+  V1ConfigMapEnvSourceFluent<?> fluent;
+
   public V1ConfigMapEnvSourceBuilder() {
     this(new V1ConfigMapEnvSource());
   }
@@ -11,17 +14,16 @@ public class V1ConfigMapEnvSourceBuilder extends V1ConfigMapEnvSourceFluent<V1Co
     this(fluent, new V1ConfigMapEnvSource());
   }
   
-  public V1ConfigMapEnvSourceBuilder(V1ConfigMapEnvSourceFluent<?> fluent,V1ConfigMapEnvSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ConfigMapEnvSourceBuilder(V1ConfigMapEnvSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ConfigMapEnvSourceFluent<?> fluent;
   
+  public V1ConfigMapEnvSourceBuilder(V1ConfigMapEnvSourceFluent<?> fluent,V1ConfigMapEnvSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ConfigMapEnvSource build() {
     V1ConfigMapEnvSource buildable = new V1ConfigMapEnvSource();
     buildable.setName(fluent.getName());
@@ -29,5 +31,4 @@ public class V1ConfigMapEnvSourceBuilder extends V1ConfigMapEnvSourceFluent<V1Co
     return buildable;
   }
   
-
 }

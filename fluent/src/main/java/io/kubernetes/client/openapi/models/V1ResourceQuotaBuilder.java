@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ResourceQuotaBuilder extends V1ResourceQuotaFluent<V1ResourceQuotaBuilder> implements VisitableBuilder<V1ResourceQuota,V1ResourceQuotaBuilder>{
+
+  V1ResourceQuotaFluent<?> fluent;
+
   public V1ResourceQuotaBuilder() {
     this(new V1ResourceQuota());
   }
@@ -11,17 +14,16 @@ public class V1ResourceQuotaBuilder extends V1ResourceQuotaFluent<V1ResourceQuot
     this(fluent, new V1ResourceQuota());
   }
   
-  public V1ResourceQuotaBuilder(V1ResourceQuotaFluent<?> fluent,V1ResourceQuota instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ResourceQuotaBuilder(V1ResourceQuota instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ResourceQuotaFluent<?> fluent;
   
+  public V1ResourceQuotaBuilder(V1ResourceQuotaFluent<?> fluent,V1ResourceQuota instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ResourceQuota build() {
     V1ResourceQuota buildable = new V1ResourceQuota();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -32,5 +34,4 @@ public class V1ResourceQuotaBuilder extends V1ResourceQuotaFluent<V1ResourceQuot
     return buildable;
   }
   
-
 }

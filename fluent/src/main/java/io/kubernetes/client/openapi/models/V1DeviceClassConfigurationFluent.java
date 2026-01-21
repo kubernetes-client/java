@@ -1,60 +1,38 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1DeviceClassConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1DeviceClassConfigurationFluent<A>> extends BaseFluent<A>{
+
+  private V1OpaqueDeviceConfigurationBuilder opaque;
+
   public V1DeviceClassConfigurationFluent() {
   }
   
   public V1DeviceClassConfigurationFluent(V1DeviceClassConfiguration instance) {
     this.copyInstance(instance);
   }
-  private V1OpaqueDeviceConfigurationBuilder opaque;
+
+  public V1OpaqueDeviceConfiguration buildOpaque() {
+    return this.opaque != null ? this.opaque.build() : null;
+  }
   
   protected void copyInstance(V1DeviceClassConfiguration instance) {
     instance = instance != null ? instance : new V1DeviceClassConfiguration();
     if (instance != null) {
       this.withOpaque(instance.getOpaque());
     }
-  }
-  
-  public V1OpaqueDeviceConfiguration buildOpaque() {
-    return this.opaque != null ? this.opaque.build() : null;
-  }
-  
-  public A withOpaque(V1OpaqueDeviceConfiguration opaque) {
-    this._visitables.remove("opaque");
-    if (opaque != null) {
-        this.opaque = new V1OpaqueDeviceConfigurationBuilder(opaque);
-        this._visitables.get("opaque").add(this.opaque);
-    } else {
-        this.opaque = null;
-        this._visitables.get("opaque").remove(this.opaque);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasOpaque() {
-    return this.opaque != null;
-  }
-  
-  public OpaqueNested<A> withNewOpaque() {
-    return new OpaqueNested(null);
-  }
-  
-  public OpaqueNested<A> withNewOpaqueLike(V1OpaqueDeviceConfiguration item) {
-    return new OpaqueNested(item);
   }
   
   public OpaqueNested<A> editOpaque() {
@@ -86,6 +64,10 @@ public class V1DeviceClassConfigurationFluent<A extends io.kubernetes.client.ope
     return true;
   }
   
+  public boolean hasOpaque() {
+    return this.opaque != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(opaque);
   }
@@ -100,12 +82,34 @@ public class V1DeviceClassConfigurationFluent<A extends io.kubernetes.client.ope
     sb.append("}");
     return sb.toString();
   }
+  
+  public OpaqueNested<A> withNewOpaque() {
+    return new OpaqueNested(null);
+  }
+  
+  public OpaqueNested<A> withNewOpaqueLike(V1OpaqueDeviceConfiguration item) {
+    return new OpaqueNested(item);
+  }
+  
+  public A withOpaque(V1OpaqueDeviceConfiguration opaque) {
+    this._visitables.remove("opaque");
+    if (opaque != null) {
+        this.opaque = new V1OpaqueDeviceConfigurationBuilder(opaque);
+        this._visitables.get("opaque").add(this.opaque);
+    } else {
+        this.opaque = null;
+        this._visitables.get("opaque").remove(this.opaque);
+    }
+    return (A) this;
+  }
   public class OpaqueNested<N> extends V1OpaqueDeviceConfigurationFluent<OpaqueNested<N>> implements Nested<N>{
+  
+    V1OpaqueDeviceConfigurationBuilder builder;
+  
     OpaqueNested(V1OpaqueDeviceConfiguration item) {
       this.builder = new V1OpaqueDeviceConfigurationBuilder(this, item);
     }
-    V1OpaqueDeviceConfigurationBuilder builder;
-    
+  
     public N and() {
       return (N) V1DeviceClassConfigurationFluent.this.withOpaque(builder.build());
     }
@@ -114,7 +118,5 @@ public class V1DeviceClassConfigurationFluent<A extends io.kubernetes.client.ope
       return and();
     }
     
-  
   }
-
 }

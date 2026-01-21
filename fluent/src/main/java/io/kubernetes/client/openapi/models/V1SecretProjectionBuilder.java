@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1SecretProjectionBuilder extends V1SecretProjectionFluent<V1SecretProjectionBuilder> implements VisitableBuilder<V1SecretProjection,V1SecretProjectionBuilder>{
+
+  V1SecretProjectionFluent<?> fluent;
+
   public V1SecretProjectionBuilder() {
     this(new V1SecretProjection());
   }
@@ -11,17 +14,16 @@ public class V1SecretProjectionBuilder extends V1SecretProjectionFluent<V1Secret
     this(fluent, new V1SecretProjection());
   }
   
-  public V1SecretProjectionBuilder(V1SecretProjectionFluent<?> fluent,V1SecretProjection instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1SecretProjectionBuilder(V1SecretProjection instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1SecretProjectionFluent<?> fluent;
   
+  public V1SecretProjectionBuilder(V1SecretProjectionFluent<?> fluent,V1SecretProjection instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1SecretProjection build() {
     V1SecretProjection buildable = new V1SecretProjection();
     buildable.setItems(fluent.buildItems());
@@ -30,5 +32,4 @@ public class V1SecretProjectionBuilder extends V1SecretProjectionFluent<V1Secret
     return buildable;
   }
   
-
 }

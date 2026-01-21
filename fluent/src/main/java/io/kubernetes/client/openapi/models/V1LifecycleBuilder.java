@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1LifecycleBuilder extends V1LifecycleFluent<V1LifecycleBuilder> implements VisitableBuilder<V1Lifecycle,V1LifecycleBuilder>{
+
+  V1LifecycleFluent<?> fluent;
+
   public V1LifecycleBuilder() {
     this(new V1Lifecycle());
   }
@@ -11,17 +14,16 @@ public class V1LifecycleBuilder extends V1LifecycleFluent<V1LifecycleBuilder> im
     this(fluent, new V1Lifecycle());
   }
   
-  public V1LifecycleBuilder(V1LifecycleFluent<?> fluent,V1Lifecycle instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1LifecycleBuilder(V1Lifecycle instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1LifecycleFluent<?> fluent;
   
+  public V1LifecycleBuilder(V1LifecycleFluent<?> fluent,V1Lifecycle instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1Lifecycle build() {
     V1Lifecycle buildable = new V1Lifecycle();
     buildable.setPostStart(fluent.buildPostStart());
@@ -30,5 +32,4 @@ public class V1LifecycleBuilder extends V1LifecycleFluent<V1LifecycleBuilder> im
     return buildable;
   }
   
-
 }

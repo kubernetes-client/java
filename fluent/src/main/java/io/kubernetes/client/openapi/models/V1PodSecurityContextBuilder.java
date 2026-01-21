@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PodSecurityContextBuilder extends V1PodSecurityContextFluent<V1PodSecurityContextBuilder> implements VisitableBuilder<V1PodSecurityContext,V1PodSecurityContextBuilder>{
+
+  V1PodSecurityContextFluent<?> fluent;
+
   public V1PodSecurityContextBuilder() {
     this(new V1PodSecurityContext());
   }
@@ -11,17 +14,16 @@ public class V1PodSecurityContextBuilder extends V1PodSecurityContextFluent<V1Po
     this(fluent, new V1PodSecurityContext());
   }
   
-  public V1PodSecurityContextBuilder(V1PodSecurityContextFluent<?> fluent,V1PodSecurityContext instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PodSecurityContextBuilder(V1PodSecurityContext instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PodSecurityContextFluent<?> fluent;
   
+  public V1PodSecurityContextBuilder(V1PodSecurityContextFluent<?> fluent,V1PodSecurityContext instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PodSecurityContext build() {
     V1PodSecurityContext buildable = new V1PodSecurityContext();
     buildable.setAppArmorProfile(fluent.buildAppArmorProfile());
@@ -40,5 +42,4 @@ public class V1PodSecurityContextBuilder extends V1PodSecurityContextFluent<V1Po
     return buildable;
   }
   
-
 }

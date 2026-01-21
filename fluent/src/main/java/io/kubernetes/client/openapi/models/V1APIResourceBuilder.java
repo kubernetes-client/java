@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1APIResourceBuilder extends V1APIResourceFluent<V1APIResourceBuilder> implements VisitableBuilder<V1APIResource,V1APIResourceBuilder>{
+
+  V1APIResourceFluent<?> fluent;
+
   public V1APIResourceBuilder() {
     this(new V1APIResource());
   }
@@ -11,17 +14,16 @@ public class V1APIResourceBuilder extends V1APIResourceFluent<V1APIResourceBuild
     this(fluent, new V1APIResource());
   }
   
-  public V1APIResourceBuilder(V1APIResourceFluent<?> fluent,V1APIResource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1APIResourceBuilder(V1APIResource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1APIResourceFluent<?> fluent;
   
+  public V1APIResourceBuilder(V1APIResourceFluent<?> fluent,V1APIResource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1APIResource build() {
     V1APIResource buildable = new V1APIResource();
     buildable.setCategories(fluent.getCategories());
@@ -37,5 +39,4 @@ public class V1APIResourceBuilder extends V1APIResourceFluent<V1APIResourceBuild
     return buildable;
   }
   
-
 }

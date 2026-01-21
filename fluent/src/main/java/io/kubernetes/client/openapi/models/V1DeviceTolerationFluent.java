@@ -1,30 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1DeviceTolerationFluent<A extends io.kubernetes.client.openapi.models.V1DeviceTolerationFluent<A>> extends BaseFluent<A>{
+
+  private String effect;
+  private String key;
+  private String operator;
+  private Long tolerationSeconds;
+  private String value;
+
   public V1DeviceTolerationFluent() {
   }
   
   public V1DeviceTolerationFluent(V1DeviceToleration instance) {
     this.copyInstance(instance);
   }
-  private String effect;
-  private String key;
-  private String operator;
-  private Long tolerationSeconds;
-  private String value;
-  
+
   protected void copyInstance(V1DeviceToleration instance) {
     instance = instance != null ? instance : new V1DeviceToleration();
     if (instance != null) {
@@ -34,71 +36,6 @@ public class V1DeviceTolerationFluent<A extends io.kubernetes.client.openapi.mod
         this.withTolerationSeconds(instance.getTolerationSeconds());
         this.withValue(instance.getValue());
     }
-  }
-  
-  public String getEffect() {
-    return this.effect;
-  }
-  
-  public A withEffect(String effect) {
-    this.effect = effect;
-    return (A) this;
-  }
-  
-  public boolean hasEffect() {
-    return this.effect != null;
-  }
-  
-  public String getKey() {
-    return this.key;
-  }
-  
-  public A withKey(String key) {
-    this.key = key;
-    return (A) this;
-  }
-  
-  public boolean hasKey() {
-    return this.key != null;
-  }
-  
-  public String getOperator() {
-    return this.operator;
-  }
-  
-  public A withOperator(String operator) {
-    this.operator = operator;
-    return (A) this;
-  }
-  
-  public boolean hasOperator() {
-    return this.operator != null;
-  }
-  
-  public Long getTolerationSeconds() {
-    return this.tolerationSeconds;
-  }
-  
-  public A withTolerationSeconds(Long tolerationSeconds) {
-    this.tolerationSeconds = tolerationSeconds;
-    return (A) this;
-  }
-  
-  public boolean hasTolerationSeconds() {
-    return this.tolerationSeconds != null;
-  }
-  
-  public String getValue() {
-    return this.value;
-  }
-  
-  public A withValue(String value) {
-    this.value = value;
-    return (A) this;
-  }
-  
-  public boolean hasValue() {
-    return this.value != null;
   }
   
   public boolean equals(Object o) {
@@ -128,6 +65,46 @@ public class V1DeviceTolerationFluent<A extends io.kubernetes.client.openapi.mod
       return false;
     }
     return true;
+  }
+  
+  public String getEffect() {
+    return this.effect;
+  }
+  
+  public String getKey() {
+    return this.key;
+  }
+  
+  public String getOperator() {
+    return this.operator;
+  }
+  
+  public Long getTolerationSeconds() {
+    return this.tolerationSeconds;
+  }
+  
+  public String getValue() {
+    return this.value;
+  }
+  
+  public boolean hasEffect() {
+    return this.effect != null;
+  }
+  
+  public boolean hasKey() {
+    return this.key != null;
+  }
+  
+  public boolean hasOperator() {
+    return this.operator != null;
+  }
+  
+  public boolean hasTolerationSeconds() {
+    return this.tolerationSeconds != null;
+  }
+  
+  public boolean hasValue() {
+    return this.value != null;
   }
   
   public int hashCode() {
@@ -165,5 +142,29 @@ public class V1DeviceTolerationFluent<A extends io.kubernetes.client.openapi.mod
     return sb.toString();
   }
   
-
+  public A withEffect(String effect) {
+    this.effect = effect;
+    return (A) this;
+  }
+  
+  public A withKey(String key) {
+    this.key = key;
+    return (A) this;
+  }
+  
+  public A withOperator(String operator) {
+    this.operator = operator;
+    return (A) this;
+  }
+  
+  public A withTolerationSeconds(Long tolerationSeconds) {
+    this.tolerationSeconds = tolerationSeconds;
+    return (A) this;
+  }
+  
+  public A withValue(String value) {
+    this.value = value;
+    return (A) this;
+  }
+  
 }

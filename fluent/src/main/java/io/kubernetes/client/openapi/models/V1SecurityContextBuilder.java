@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1SecurityContextBuilder extends V1SecurityContextFluent<V1SecurityContextBuilder> implements VisitableBuilder<V1SecurityContext,V1SecurityContextBuilder>{
+
+  V1SecurityContextFluent<?> fluent;
+
   public V1SecurityContextBuilder() {
     this(new V1SecurityContext());
   }
@@ -11,17 +14,16 @@ public class V1SecurityContextBuilder extends V1SecurityContextFluent<V1Security
     this(fluent, new V1SecurityContext());
   }
   
-  public V1SecurityContextBuilder(V1SecurityContextFluent<?> fluent,V1SecurityContext instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1SecurityContextBuilder(V1SecurityContext instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1SecurityContextFluent<?> fluent;
   
+  public V1SecurityContextBuilder(V1SecurityContextFluent<?> fluent,V1SecurityContext instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1SecurityContext build() {
     V1SecurityContext buildable = new V1SecurityContext();
     buildable.setAllowPrivilegeEscalation(fluent.getAllowPrivilegeEscalation());
@@ -39,5 +41,4 @@ public class V1SecurityContextBuilder extends V1SecurityContextFluent<V1Security
     return buildable;
   }
   
-
 }

@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ResourcePoolFluent<A extends io.kubernetes.client.openapi.models.V1ResourcePoolFluent<A>> extends BaseFluent<A>{
+
+  private Long generation;
+  private String name;
+  private Long resourceSliceCount;
+
   public V1ResourcePoolFluent() {
   }
   
   public V1ResourcePoolFluent(V1ResourcePool instance) {
     this.copyInstance(instance);
   }
-  private Long generation;
-  private String name;
-  private Long resourceSliceCount;
-  
+
   protected void copyInstance(V1ResourcePool instance) {
     instance = instance != null ? instance : new V1ResourcePool();
     if (instance != null) {
@@ -30,45 +32,6 @@ public class V1ResourcePoolFluent<A extends io.kubernetes.client.openapi.models.
         this.withName(instance.getName());
         this.withResourceSliceCount(instance.getResourceSliceCount());
     }
-  }
-  
-  public Long getGeneration() {
-    return this.generation;
-  }
-  
-  public A withGeneration(Long generation) {
-    this.generation = generation;
-    return (A) this;
-  }
-  
-  public boolean hasGeneration() {
-    return this.generation != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public Long getResourceSliceCount() {
-    return this.resourceSliceCount;
-  }
-  
-  public A withResourceSliceCount(Long resourceSliceCount) {
-    this.resourceSliceCount = resourceSliceCount;
-    return (A) this;
-  }
-  
-  public boolean hasResourceSliceCount() {
-    return this.resourceSliceCount != null;
   }
   
   public boolean equals(Object o) {
@@ -92,6 +55,30 @@ public class V1ResourcePoolFluent<A extends io.kubernetes.client.openapi.models.
       return false;
     }
     return true;
+  }
+  
+  public Long getGeneration() {
+    return this.generation;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public Long getResourceSliceCount() {
+    return this.resourceSliceCount;
+  }
+  
+  public boolean hasGeneration() {
+    return this.generation != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasResourceSliceCount() {
+    return this.resourceSliceCount != null;
   }
   
   public int hashCode() {
@@ -119,5 +106,19 @@ public class V1ResourcePoolFluent<A extends io.kubernetes.client.openapi.models.
     return sb.toString();
   }
   
-
+  public A withGeneration(Long generation) {
+    this.generation = generation;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withResourceSliceCount(Long resourceSliceCount) {
+    this.resourceSliceCount = resourceSliceCount;
+    return (A) this;
+  }
+  
 }

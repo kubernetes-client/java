@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ObjectMetaBuilder extends V1ObjectMetaFluent<V1ObjectMetaBuilder> implements VisitableBuilder<V1ObjectMeta,V1ObjectMetaBuilder>{
+
+  V1ObjectMetaFluent<?> fluent;
+
   public V1ObjectMetaBuilder() {
     this(new V1ObjectMeta());
   }
@@ -11,17 +14,16 @@ public class V1ObjectMetaBuilder extends V1ObjectMetaFluent<V1ObjectMetaBuilder>
     this(fluent, new V1ObjectMeta());
   }
   
-  public V1ObjectMetaBuilder(V1ObjectMetaFluent<?> fluent,V1ObjectMeta instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ObjectMetaBuilder(V1ObjectMeta instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ObjectMetaFluent<?> fluent;
   
+  public V1ObjectMetaBuilder(V1ObjectMetaFluent<?> fluent,V1ObjectMeta instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ObjectMeta build() {
     V1ObjectMeta buildable = new V1ObjectMeta();
     buildable.setAnnotations(fluent.getAnnotations());
@@ -42,5 +44,4 @@ public class V1ObjectMetaBuilder extends V1ObjectMetaFluent<V1ObjectMetaBuilder>
     return buildable;
   }
   
-
 }

@@ -1,27 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ContainerRestartRuleFluent<A extends io.kubernetes.client.openapi.models.V1ContainerRestartRuleFluent<A>> extends BaseFluent<A>{
+
+  private String action;
+  private V1ContainerRestartRuleOnExitCodesBuilder exitCodes;
+
   public V1ContainerRestartRuleFluent() {
   }
   
   public V1ContainerRestartRuleFluent(V1ContainerRestartRule instance) {
     this.copyInstance(instance);
   }
-  private String action;
-  private V1ContainerRestartRuleOnExitCodesBuilder exitCodes;
+
+  public V1ContainerRestartRuleOnExitCodes buildExitCodes() {
+    return this.exitCodes != null ? this.exitCodes.build() : null;
+  }
   
   protected void copyInstance(V1ContainerRestartRule instance) {
     instance = instance != null ? instance : new V1ContainerRestartRule();
@@ -29,47 +35,6 @@ public class V1ContainerRestartRuleFluent<A extends io.kubernetes.client.openapi
         this.withAction(instance.getAction());
         this.withExitCodes(instance.getExitCodes());
     }
-  }
-  
-  public String getAction() {
-    return this.action;
-  }
-  
-  public A withAction(String action) {
-    this.action = action;
-    return (A) this;
-  }
-  
-  public boolean hasAction() {
-    return this.action != null;
-  }
-  
-  public V1ContainerRestartRuleOnExitCodes buildExitCodes() {
-    return this.exitCodes != null ? this.exitCodes.build() : null;
-  }
-  
-  public A withExitCodes(V1ContainerRestartRuleOnExitCodes exitCodes) {
-    this._visitables.remove("exitCodes");
-    if (exitCodes != null) {
-        this.exitCodes = new V1ContainerRestartRuleOnExitCodesBuilder(exitCodes);
-        this._visitables.get("exitCodes").add(this.exitCodes);
-    } else {
-        this.exitCodes = null;
-        this._visitables.get("exitCodes").remove(this.exitCodes);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasExitCodes() {
-    return this.exitCodes != null;
-  }
-  
-  public ExitCodesNested<A> withNewExitCodes() {
-    return new ExitCodesNested(null);
-  }
-  
-  public ExitCodesNested<A> withNewExitCodesLike(V1ContainerRestartRuleOnExitCodes item) {
-    return new ExitCodesNested(item);
   }
   
   public ExitCodesNested<A> editExitCodes() {
@@ -104,6 +69,18 @@ public class V1ContainerRestartRuleFluent<A extends io.kubernetes.client.openapi
     return true;
   }
   
+  public String getAction() {
+    return this.action;
+  }
+  
+  public boolean hasAction() {
+    return this.action != null;
+  }
+  
+  public boolean hasExitCodes() {
+    return this.exitCodes != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(action, exitCodes);
   }
@@ -123,12 +100,39 @@ public class V1ContainerRestartRuleFluent<A extends io.kubernetes.client.openapi
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withAction(String action) {
+    this.action = action;
+    return (A) this;
+  }
+  
+  public A withExitCodes(V1ContainerRestartRuleOnExitCodes exitCodes) {
+    this._visitables.remove("exitCodes");
+    if (exitCodes != null) {
+        this.exitCodes = new V1ContainerRestartRuleOnExitCodesBuilder(exitCodes);
+        this._visitables.get("exitCodes").add(this.exitCodes);
+    } else {
+        this.exitCodes = null;
+        this._visitables.get("exitCodes").remove(this.exitCodes);
+    }
+    return (A) this;
+  }
+  
+  public ExitCodesNested<A> withNewExitCodes() {
+    return new ExitCodesNested(null);
+  }
+  
+  public ExitCodesNested<A> withNewExitCodesLike(V1ContainerRestartRuleOnExitCodes item) {
+    return new ExitCodesNested(item);
+  }
   public class ExitCodesNested<N> extends V1ContainerRestartRuleOnExitCodesFluent<ExitCodesNested<N>> implements Nested<N>{
+  
+    V1ContainerRestartRuleOnExitCodesBuilder builder;
+  
     ExitCodesNested(V1ContainerRestartRuleOnExitCodes item) {
       this.builder = new V1ContainerRestartRuleOnExitCodesBuilder(this, item);
     }
-    V1ContainerRestartRuleOnExitCodesBuilder builder;
-    
+  
     public N and() {
       return (N) V1ContainerRestartRuleFluent.this.withExitCodes(builder.build());
     }
@@ -137,7 +141,5 @@ public class V1ContainerRestartRuleFluent<A extends io.kubernetes.client.openapi
       return and();
     }
     
-  
   }
-
 }

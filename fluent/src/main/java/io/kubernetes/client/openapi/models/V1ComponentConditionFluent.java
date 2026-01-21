@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ComponentConditionFluent<A extends io.kubernetes.client.openapi.models.V1ComponentConditionFluent<A>> extends BaseFluent<A>{
+
+  private String error;
+  private String message;
+  private String status;
+  private String type;
+
   public V1ComponentConditionFluent() {
   }
   
   public V1ComponentConditionFluent(V1ComponentCondition instance) {
     this.copyInstance(instance);
   }
-  private String error;
-  private String message;
-  private String status;
-  private String type;
-  
+
   protected void copyInstance(V1ComponentCondition instance) {
     instance = instance != null ? instance : new V1ComponentCondition();
     if (instance != null) {
@@ -31,58 +33,6 @@ public class V1ComponentConditionFluent<A extends io.kubernetes.client.openapi.m
         this.withStatus(instance.getStatus());
         this.withType(instance.getType());
     }
-  }
-  
-  public String getError() {
-    return this.error;
-  }
-  
-  public A withError(String error) {
-    this.error = error;
-    return (A) this;
-  }
-  
-  public boolean hasError() {
-    return this.error != null;
-  }
-  
-  public String getMessage() {
-    return this.message;
-  }
-  
-  public A withMessage(String message) {
-    this.message = message;
-    return (A) this;
-  }
-  
-  public boolean hasMessage() {
-    return this.message != null;
-  }
-  
-  public String getStatus() {
-    return this.status;
-  }
-  
-  public A withStatus(String status) {
-    this.status = status;
-    return (A) this;
-  }
-  
-  public boolean hasStatus() {
-    return this.status != null;
-  }
-  
-  public String getType() {
-    return this.type;
-  }
-  
-  public A withType(String type) {
-    this.type = type;
-    return (A) this;
-  }
-  
-  public boolean hasType() {
-    return this.type != null;
   }
   
   public boolean equals(Object o) {
@@ -109,6 +59,38 @@ public class V1ComponentConditionFluent<A extends io.kubernetes.client.openapi.m
       return false;
     }
     return true;
+  }
+  
+  public String getError() {
+    return this.error;
+  }
+  
+  public String getMessage() {
+    return this.message;
+  }
+  
+  public String getStatus() {
+    return this.status;
+  }
+  
+  public String getType() {
+    return this.type;
+  }
+  
+  public boolean hasError() {
+    return this.error != null;
+  }
+  
+  public boolean hasMessage() {
+    return this.message != null;
+  }
+  
+  public boolean hasStatus() {
+    return this.status != null;
+  }
+  
+  public boolean hasType() {
+    return this.type != null;
   }
   
   public int hashCode() {
@@ -141,5 +123,24 @@ public class V1ComponentConditionFluent<A extends io.kubernetes.client.openapi.m
     return sb.toString();
   }
   
-
+  public A withError(String error) {
+    this.error = error;
+    return (A) this;
+  }
+  
+  public A withMessage(String message) {
+    this.message = message;
+    return (A) this;
+  }
+  
+  public A withStatus(String status) {
+    this.status = status;
+    return (A) this;
+  }
+  
+  public A withType(String type) {
+    this.type = type;
+    return (A) this;
+  }
+  
 }

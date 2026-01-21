@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1alpha1MatchConditionFluent<A extends io.kubernetes.client.openapi.models.V1alpha1MatchConditionFluent<A>> extends BaseFluent<A>{
+
+  private String expression;
+  private String name;
+
   public V1alpha1MatchConditionFluent() {
   }
   
   public V1alpha1MatchConditionFluent(V1alpha1MatchCondition instance) {
     this.copyInstance(instance);
   }
-  private String expression;
-  private String name;
-  
+
   protected void copyInstance(V1alpha1MatchCondition instance) {
     instance = instance != null ? instance : new V1alpha1MatchCondition();
     if (instance != null) {
         this.withExpression(instance.getExpression());
         this.withName(instance.getName());
     }
-  }
-  
-  public String getExpression() {
-    return this.expression;
-  }
-  
-  public A withExpression(String expression) {
-    this.expression = expression;
-    return (A) this;
-  }
-  
-  public boolean hasExpression() {
-    return this.expression != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1alpha1MatchConditionFluent<A extends io.kubernetes.client.openapi
     return true;
   }
   
+  public String getExpression() {
+    return this.expression;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public boolean hasExpression() {
+    return this.expression != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(expression, name);
   }
@@ -95,5 +87,14 @@ public class V1alpha1MatchConditionFluent<A extends io.kubernetes.client.openapi
     return sb.toString();
   }
   
-
+  public A withExpression(String expression) {
+    this.expression = expression;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
 }

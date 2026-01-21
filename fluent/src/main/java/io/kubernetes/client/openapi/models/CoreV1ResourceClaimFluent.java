@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class CoreV1ResourceClaimFluent<A extends io.kubernetes.client.openapi.models.CoreV1ResourceClaimFluent<A>> extends BaseFluent<A>{
+
+  private String name;
+  private String request;
+
   public CoreV1ResourceClaimFluent() {
   }
   
   public CoreV1ResourceClaimFluent(CoreV1ResourceClaim instance) {
     this.copyInstance(instance);
   }
-  private String name;
-  private String request;
-  
+
   protected void copyInstance(CoreV1ResourceClaim instance) {
     instance = instance != null ? instance : new CoreV1ResourceClaim();
     if (instance != null) {
         this.withName(instance.getName());
         this.withRequest(instance.getRequest());
     }
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public String getRequest() {
-    return this.request;
-  }
-  
-  public A withRequest(String request) {
-    this.request = request;
-    return (A) this;
-  }
-  
-  public boolean hasRequest() {
-    return this.request != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class CoreV1ResourceClaimFluent<A extends io.kubernetes.client.openapi.mo
     return true;
   }
   
+  public String getName() {
+    return this.name;
+  }
+  
+  public String getRequest() {
+    return this.request;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasRequest() {
+    return this.request != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(name, request);
   }
@@ -95,5 +87,14 @@ public class CoreV1ResourceClaimFluent<A extends io.kubernetes.client.openapi.mo
     return sb.toString();
   }
   
-
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withRequest(String request) {
+    this.request = request;
+    return (A) this;
+  }
+  
 }
