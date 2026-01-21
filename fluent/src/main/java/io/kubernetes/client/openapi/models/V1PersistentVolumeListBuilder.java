@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PersistentVolumeListBuilder extends V1PersistentVolumeListFluent<V1PersistentVolumeListBuilder> implements VisitableBuilder<V1PersistentVolumeList,V1PersistentVolumeListBuilder>{
+
+  V1PersistentVolumeListFluent<?> fluent;
+
   public V1PersistentVolumeListBuilder() {
     this(new V1PersistentVolumeList());
   }
@@ -11,17 +14,16 @@ public class V1PersistentVolumeListBuilder extends V1PersistentVolumeListFluent<
     this(fluent, new V1PersistentVolumeList());
   }
   
-  public V1PersistentVolumeListBuilder(V1PersistentVolumeListFluent<?> fluent,V1PersistentVolumeList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PersistentVolumeListBuilder(V1PersistentVolumeList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PersistentVolumeListFluent<?> fluent;
   
+  public V1PersistentVolumeListBuilder(V1PersistentVolumeListFluent<?> fluent,V1PersistentVolumeList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PersistentVolumeList build() {
     V1PersistentVolumeList buildable = new V1PersistentVolumeList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1PersistentVolumeListBuilder extends V1PersistentVolumeListFluent<
     return buildable;
   }
   
-
 }

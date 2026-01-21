@@ -1,16 +1,25 @@
 package io.kubernetes.client.fluent;
 
-import java.util.Map.Entry;
-import java.util.ServiceLoader;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.Set;
 import java.lang.Object;
-import java.util.List;
 import java.lang.String;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.ServiceLoader;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
 public interface VisitorListener{
-  static AtomicBoolean loaded = new AtomicBoolean();
+
   static Set<VisitorListener> listeners = new HashSet<>();
+  static AtomicBoolean loaded = new AtomicBoolean();
+
+  default <T>void afterVisit(Visitor<T> v,List<Entry<String,Object>> path,T target) {
+    
+  }
+  
+  default <T>void beforeVisit(Visitor<T> v,List<Entry<String,Object>> path,T target) {
+    
+  }
   
   public static Set<VisitorListener> getListeners() {
     if (loaded.get()) {
@@ -34,8 +43,8 @@ public interface VisitorListener{
         return listeners;
   }
   
-  public static <T>Visitor<T> wrap(Visitor<T> visitor) {
-    return VisitorWiretap.create(visitor, getListeners());
+  default <V,T>void onCheck(Visitor<V> v,boolean canVisit,T target) {
+    
   }
   
   public static void register(VisitorListener listener) {
@@ -46,17 +55,8 @@ public interface VisitorListener{
     listeners.add(listener);
   }
   
-  default <T>void beforeVisit(Visitor<T> v,List<Entry<String,Object>> path,T target) {
-    
+  public static <T>Visitor<T> wrap(Visitor<T> visitor) {
+    return VisitorWiretap.create(visitor, getListeners());
   }
   
-  default <T>void afterVisit(Visitor<T> v,List<Entry<String,Object>> path,T target) {
-    
-  }
-  
-  default <V,T>void onCheck(Visitor<V> v,boolean canVisit,T target) {
-    
-  }
-  
-
 }

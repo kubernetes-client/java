@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V2HPAScalingPolicyFluent<A extends io.kubernetes.client.openapi.models.V2HPAScalingPolicyFluent<A>> extends BaseFluent<A>{
+
+  private Integer periodSeconds;
+  private String type;
+  private Integer value;
+
   public V2HPAScalingPolicyFluent() {
   }
   
   public V2HPAScalingPolicyFluent(V2HPAScalingPolicy instance) {
     this.copyInstance(instance);
   }
-  private Integer periodSeconds;
-  private String type;
-  private Integer value;
-  
+
   protected void copyInstance(V2HPAScalingPolicy instance) {
     instance = instance != null ? instance : new V2HPAScalingPolicy();
     if (instance != null) {
@@ -30,45 +32,6 @@ public class V2HPAScalingPolicyFluent<A extends io.kubernetes.client.openapi.mod
         this.withType(instance.getType());
         this.withValue(instance.getValue());
     }
-  }
-  
-  public Integer getPeriodSeconds() {
-    return this.periodSeconds;
-  }
-  
-  public A withPeriodSeconds(Integer periodSeconds) {
-    this.periodSeconds = periodSeconds;
-    return (A) this;
-  }
-  
-  public boolean hasPeriodSeconds() {
-    return this.periodSeconds != null;
-  }
-  
-  public String getType() {
-    return this.type;
-  }
-  
-  public A withType(String type) {
-    this.type = type;
-    return (A) this;
-  }
-  
-  public boolean hasType() {
-    return this.type != null;
-  }
-  
-  public Integer getValue() {
-    return this.value;
-  }
-  
-  public A withValue(Integer value) {
-    this.value = value;
-    return (A) this;
-  }
-  
-  public boolean hasValue() {
-    return this.value != null;
   }
   
   public boolean equals(Object o) {
@@ -92,6 +55,30 @@ public class V2HPAScalingPolicyFluent<A extends io.kubernetes.client.openapi.mod
       return false;
     }
     return true;
+  }
+  
+  public Integer getPeriodSeconds() {
+    return this.periodSeconds;
+  }
+  
+  public String getType() {
+    return this.type;
+  }
+  
+  public Integer getValue() {
+    return this.value;
+  }
+  
+  public boolean hasPeriodSeconds() {
+    return this.periodSeconds != null;
+  }
+  
+  public boolean hasType() {
+    return this.type != null;
+  }
+  
+  public boolean hasValue() {
+    return this.value != null;
   }
   
   public int hashCode() {
@@ -119,5 +106,19 @@ public class V2HPAScalingPolicyFluent<A extends io.kubernetes.client.openapi.mod
     return sb.toString();
   }
   
-
+  public A withPeriodSeconds(Integer periodSeconds) {
+    this.periodSeconds = periodSeconds;
+    return (A) this;
+  }
+  
+  public A withType(String type) {
+    this.type = type;
+    return (A) this;
+  }
+  
+  public A withValue(Integer value) {
+    this.value = value;
+    return (A) this;
+  }
+  
 }

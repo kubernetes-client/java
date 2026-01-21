@@ -1,16 +1,24 @@
 package io.kubernetes.client.fluent;
 
-import java.util.AbstractMap;
-import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.ArrayList;
 import java.lang.Class;
 import java.lang.Object;
-import java.util.List;
 import java.lang.String;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Optional;
 public interface Visitable<T>{
+
   
+  default T accept(Visitor... visitors) {
+    return accept(Collections.emptyList(), visitors);
+  }
+  
+  default T accept(List<Entry<String,Object>> path,Visitor... visitors) {
+    return accept(path, "", visitors);
+  }
   
   default <V>T accept(Class<V> type,Visitor<V> visitor) {
     return accept(Collections.emptyList(), new Visitor<V>() {
@@ -29,14 +37,6 @@ public interface Visitable<T>{
             visitor.visit(element);
           }
         });
-  }
-  
-  default T accept(Visitor... visitors) {
-    return accept(Collections.emptyList(), visitors);
-  }
-  
-  default T accept(List<Entry<String,Object>> path,Visitor... visitors) {
-    return accept(path, "", visitors);
   }
   
   default T accept(List<Entry<String,Object>> path,String currentKey,Visitor... visitors) {
@@ -88,5 +88,4 @@ public interface Visitable<T>{
     return Optional.empty();
   }
   
-
 }

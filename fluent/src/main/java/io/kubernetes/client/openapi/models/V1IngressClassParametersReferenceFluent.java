@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1IngressClassParametersReferenceFluent<A extends io.kubernetes.client.openapi.models.V1IngressClassParametersReferenceFluent<A>> extends BaseFluent<A>{
+
+  private String apiGroup;
+  private String kind;
+  private String name;
+  private String namespace;
+  private String scope;
+
   public V1IngressClassParametersReferenceFluent() {
   }
   
   public V1IngressClassParametersReferenceFluent(V1IngressClassParametersReference instance) {
     this.copyInstance(instance);
   }
-  private String apiGroup;
-  private String kind;
-  private String name;
-  private String namespace;
-  private String scope;
-  
+
   protected void copyInstance(V1IngressClassParametersReference instance) {
     instance = instance != null ? instance : new V1IngressClassParametersReference();
     if (instance != null) {
@@ -33,71 +35,6 @@ public class V1IngressClassParametersReferenceFluent<A extends io.kubernetes.cli
         this.withNamespace(instance.getNamespace());
         this.withScope(instance.getScope());
     }
-  }
-  
-  public String getApiGroup() {
-    return this.apiGroup;
-  }
-  
-  public A withApiGroup(String apiGroup) {
-    this.apiGroup = apiGroup;
-    return (A) this;
-  }
-  
-  public boolean hasApiGroup() {
-    return this.apiGroup != null;
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public String getNamespace() {
-    return this.namespace;
-  }
-  
-  public A withNamespace(String namespace) {
-    this.namespace = namespace;
-    return (A) this;
-  }
-  
-  public boolean hasNamespace() {
-    return this.namespace != null;
-  }
-  
-  public String getScope() {
-    return this.scope;
-  }
-  
-  public A withScope(String scope) {
-    this.scope = scope;
-    return (A) this;
-  }
-  
-  public boolean hasScope() {
-    return this.scope != null;
   }
   
   public boolean equals(Object o) {
@@ -127,6 +64,46 @@ public class V1IngressClassParametersReferenceFluent<A extends io.kubernetes.cli
       return false;
     }
     return true;
+  }
+  
+  public String getApiGroup() {
+    return this.apiGroup;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public String getNamespace() {
+    return this.namespace;
+  }
+  
+  public String getScope() {
+    return this.scope;
+  }
+  
+  public boolean hasApiGroup() {
+    return this.apiGroup != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasNamespace() {
+    return this.namespace != null;
+  }
+  
+  public boolean hasScope() {
+    return this.scope != null;
   }
   
   public int hashCode() {
@@ -164,5 +141,29 @@ public class V1IngressClassParametersReferenceFluent<A extends io.kubernetes.cli
     return sb.toString();
   }
   
-
+  public A withApiGroup(String apiGroup) {
+    this.apiGroup = apiGroup;
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withNamespace(String namespace) {
+    this.namespace = namespace;
+    return (A) this;
+  }
+  
+  public A withScope(String scope) {
+    this.scope = scope;
+    return (A) this;
+  }
+  
 }

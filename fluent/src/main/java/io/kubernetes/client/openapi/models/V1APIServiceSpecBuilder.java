@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1APIServiceSpecBuilder extends V1APIServiceSpecFluent<V1APIServiceSpecBuilder> implements VisitableBuilder<V1APIServiceSpec,V1APIServiceSpecBuilder>{
+
+  V1APIServiceSpecFluent<?> fluent;
+
   public V1APIServiceSpecBuilder() {
     this(new V1APIServiceSpec());
   }
@@ -11,17 +14,16 @@ public class V1APIServiceSpecBuilder extends V1APIServiceSpecFluent<V1APIService
     this(fluent, new V1APIServiceSpec());
   }
   
-  public V1APIServiceSpecBuilder(V1APIServiceSpecFluent<?> fluent,V1APIServiceSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1APIServiceSpecBuilder(V1APIServiceSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1APIServiceSpecFluent<?> fluent;
   
+  public V1APIServiceSpecBuilder(V1APIServiceSpecFluent<?> fluent,V1APIServiceSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1APIServiceSpec build() {
     V1APIServiceSpec buildable = new V1APIServiceSpec();
     buildable.setCaBundle(fluent.getCaBundle());
@@ -34,5 +36,4 @@ public class V1APIServiceSpecBuilder extends V1APIServiceSpecFluent<V1APIService
     return buildable;
   }
   
-
 }

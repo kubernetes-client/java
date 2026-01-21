@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -79,7 +79,7 @@ import io.kubernetes.client.openapi.JSON;
  * PersistentVolumeSpec is the specification of a persistent volume.
  */
 @ApiModel(description = "PersistentVolumeSpec is the specification of a persistent volume.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PersistentVolumeSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
@@ -987,41 +987,10 @@ public class V1PersistentVolumeSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accessModes");
-    openapiFields.add("awsElasticBlockStore");
-    openapiFields.add("azureDisk");
-    openapiFields.add("azureFile");
-    openapiFields.add("capacity");
-    openapiFields.add("cephfs");
-    openapiFields.add("cinder");
-    openapiFields.add("claimRef");
-    openapiFields.add("csi");
-    openapiFields.add("fc");
-    openapiFields.add("flexVolume");
-    openapiFields.add("flocker");
-    openapiFields.add("gcePersistentDisk");
-    openapiFields.add("glusterfs");
-    openapiFields.add("hostPath");
-    openapiFields.add("iscsi");
-    openapiFields.add("local");
-    openapiFields.add("mountOptions");
-    openapiFields.add("nfs");
-    openapiFields.add("nodeAffinity");
-    openapiFields.add("persistentVolumeReclaimPolicy");
-    openapiFields.add("photonPersistentDisk");
-    openapiFields.add("portworxVolume");
-    openapiFields.add("quobyte");
-    openapiFields.add("rbd");
-    openapiFields.add("scaleIO");
-    openapiFields.add("storageClassName");
-    openapiFields.add("storageos");
-    openapiFields.add("volumeAttributesClassName");
-    openapiFields.add("volumeMode");
-    openapiFields.add("vsphereVolume");
+    openapiFields = new HashSet<String>(Arrays.asList("accessModes", "awsElasticBlockStore", "azureDisk", "azureFile", "capacity", "cephfs", "cinder", "claimRef", "csi", "fc", "flexVolume", "flocker", "gcePersistentDisk", "glusterfs", "hostPath", "iscsi", "local", "mountOptions", "nfs", "nodeAffinity", "persistentVolumeReclaimPolicy", "photonPersistentDisk", "portworxVolume", "quobyte", "rbd", "scaleIO", "storageClassName", "storageos", "volumeAttributesClassName", "volumeMode", "vsphereVolume"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -1033,7 +1002,7 @@ public class V1PersistentVolumeSpec {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PersistentVolumeSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PersistentVolumeSpec is not found in the empty JSON string", V1PersistentVolumeSpec.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1PersistentVolumeSpec is not found in the empty JSON string", V1PersistentVolumeSpec.openapiRequiredFields.toString()));
         }
       }
 
@@ -1041,13 +1010,13 @@ public class V1PersistentVolumeSpec {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PersistentVolumeSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PersistentVolumeSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PersistentVolumeSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("accessModes") != null && !jsonObj.get("accessModes").isJsonNull() && !jsonObj.get("accessModes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accessModes` to be an array in the JSON string but got `%s`", jsonObj.get("accessModes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accessModes` to be an array in the JSON string but got `%s`", jsonObj.get("accessModes").toString()));
       }
       // validate the optional field `awsElasticBlockStore`
       if (jsonObj.get("awsElasticBlockStore") != null && !jsonObj.get("awsElasticBlockStore").isJsonNull()) {
@@ -1111,7 +1080,7 @@ public class V1PersistentVolumeSpec {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("mountOptions") != null && !jsonObj.get("mountOptions").isJsonNull() && !jsonObj.get("mountOptions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mountOptions` to be an array in the JSON string but got `%s`", jsonObj.get("mountOptions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mountOptions` to be an array in the JSON string but got `%s`", jsonObj.get("mountOptions").toString()));
       }
       // validate the optional field `nfs`
       if (jsonObj.get("nfs") != null && !jsonObj.get("nfs").isJsonNull()) {
@@ -1122,7 +1091,7 @@ public class V1PersistentVolumeSpec {
         V1VolumeNodeAffinity.validateJsonElement(jsonObj.get("nodeAffinity"));
       }
       if ((jsonObj.get("persistentVolumeReclaimPolicy") != null && !jsonObj.get("persistentVolumeReclaimPolicy").isJsonNull()) && !jsonObj.get("persistentVolumeReclaimPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `persistentVolumeReclaimPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("persistentVolumeReclaimPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `persistentVolumeReclaimPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("persistentVolumeReclaimPolicy").toString()));
       }
       // validate the optional field `photonPersistentDisk`
       if (jsonObj.get("photonPersistentDisk") != null && !jsonObj.get("photonPersistentDisk").isJsonNull()) {
@@ -1145,17 +1114,17 @@ public class V1PersistentVolumeSpec {
         V1ScaleIOPersistentVolumeSource.validateJsonElement(jsonObj.get("scaleIO"));
       }
       if ((jsonObj.get("storageClassName") != null && !jsonObj.get("storageClassName").isJsonNull()) && !jsonObj.get("storageClassName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storageClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storageClassName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storageClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storageClassName").toString()));
       }
       // validate the optional field `storageos`
       if (jsonObj.get("storageos") != null && !jsonObj.get("storageos").isJsonNull()) {
         V1StorageOSPersistentVolumeSource.validateJsonElement(jsonObj.get("storageos"));
       }
       if ((jsonObj.get("volumeAttributesClassName") != null && !jsonObj.get("volumeAttributesClassName").isJsonNull()) && !jsonObj.get("volumeAttributesClassName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `volumeAttributesClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeAttributesClassName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `volumeAttributesClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeAttributesClassName").toString()));
       }
       if ((jsonObj.get("volumeMode") != null && !jsonObj.get("volumeMode").isJsonNull()) && !jsonObj.get("volumeMode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `volumeMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeMode").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `volumeMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("volumeMode").toString()));
       }
       // validate the optional field `vsphereVolume`
       if (jsonObj.get("vsphereVolume") != null && !jsonObj.get("vsphereVolume").isJsonNull()) {

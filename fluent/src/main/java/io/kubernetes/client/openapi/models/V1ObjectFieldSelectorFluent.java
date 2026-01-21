@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ObjectFieldSelectorFluent<A extends io.kubernetes.client.openapi.models.V1ObjectFieldSelectorFluent<A>> extends BaseFluent<A>{
+
+  private String apiVersion;
+  private String fieldPath;
+
   public V1ObjectFieldSelectorFluent() {
   }
   
   public V1ObjectFieldSelectorFluent(V1ObjectFieldSelector instance) {
     this.copyInstance(instance);
   }
-  private String apiVersion;
-  private String fieldPath;
-  
+
   protected void copyInstance(V1ObjectFieldSelector instance) {
     instance = instance != null ? instance : new V1ObjectFieldSelector();
     if (instance != null) {
         this.withApiVersion(instance.getApiVersion());
         this.withFieldPath(instance.getFieldPath());
     }
-  }
-  
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public String getFieldPath() {
-    return this.fieldPath;
-  }
-  
-  public A withFieldPath(String fieldPath) {
-    this.fieldPath = fieldPath;
-    return (A) this;
-  }
-  
-  public boolean hasFieldPath() {
-    return this.fieldPath != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1ObjectFieldSelectorFluent<A extends io.kubernetes.client.openapi.
     return true;
   }
   
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public String getFieldPath() {
+    return this.fieldPath;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasFieldPath() {
+    return this.fieldPath != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(apiVersion, fieldPath);
   }
@@ -95,5 +87,14 @@ public class V1ObjectFieldSelectorFluent<A extends io.kubernetes.client.openapi.
     return sb.toString();
   }
   
-
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withFieldPath(String fieldPath) {
+    this.fieldPath = fieldPath;
+    return (A) this;
+  }
+  
 }

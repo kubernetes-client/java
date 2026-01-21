@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ExpressionWarningFluent<A extends io.kubernetes.client.openapi.models.V1ExpressionWarningFluent<A>> extends BaseFluent<A>{
+
+  private String fieldRef;
+  private String warning;
+
   public V1ExpressionWarningFluent() {
   }
   
   public V1ExpressionWarningFluent(V1ExpressionWarning instance) {
     this.copyInstance(instance);
   }
-  private String fieldRef;
-  private String warning;
-  
+
   protected void copyInstance(V1ExpressionWarning instance) {
     instance = instance != null ? instance : new V1ExpressionWarning();
     if (instance != null) {
         this.withFieldRef(instance.getFieldRef());
         this.withWarning(instance.getWarning());
     }
-  }
-  
-  public String getFieldRef() {
-    return this.fieldRef;
-  }
-  
-  public A withFieldRef(String fieldRef) {
-    this.fieldRef = fieldRef;
-    return (A) this;
-  }
-  
-  public boolean hasFieldRef() {
-    return this.fieldRef != null;
-  }
-  
-  public String getWarning() {
-    return this.warning;
-  }
-  
-  public A withWarning(String warning) {
-    this.warning = warning;
-    return (A) this;
-  }
-  
-  public boolean hasWarning() {
-    return this.warning != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1ExpressionWarningFluent<A extends io.kubernetes.client.openapi.mo
     return true;
   }
   
+  public String getFieldRef() {
+    return this.fieldRef;
+  }
+  
+  public String getWarning() {
+    return this.warning;
+  }
+  
+  public boolean hasFieldRef() {
+    return this.fieldRef != null;
+  }
+  
+  public boolean hasWarning() {
+    return this.warning != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(fieldRef, warning);
   }
@@ -95,5 +87,14 @@ public class V1ExpressionWarningFluent<A extends io.kubernetes.client.openapi.mo
     return sb.toString();
   }
   
-
+  public A withFieldRef(String fieldRef) {
+    this.fieldRef = fieldRef;
+    return (A) this;
+  }
+  
+  public A withWarning(String warning) {
+    this.warning = warning;
+    return (A) this;
+  }
+  
 }

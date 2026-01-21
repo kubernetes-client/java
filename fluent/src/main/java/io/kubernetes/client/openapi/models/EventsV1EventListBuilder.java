@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class EventsV1EventListBuilder extends EventsV1EventListFluent<EventsV1EventListBuilder> implements VisitableBuilder<EventsV1EventList,EventsV1EventListBuilder>{
+
+  EventsV1EventListFluent<?> fluent;
+
   public EventsV1EventListBuilder() {
     this(new EventsV1EventList());
   }
@@ -11,17 +14,16 @@ public class EventsV1EventListBuilder extends EventsV1EventListFluent<EventsV1Ev
     this(fluent, new EventsV1EventList());
   }
   
-  public EventsV1EventListBuilder(EventsV1EventListFluent<?> fluent,EventsV1EventList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public EventsV1EventListBuilder(EventsV1EventList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  EventsV1EventListFluent<?> fluent;
   
+  public EventsV1EventListBuilder(EventsV1EventListFluent<?> fluent,EventsV1EventList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public EventsV1EventList build() {
     EventsV1EventList buildable = new EventsV1EventList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class EventsV1EventListBuilder extends EventsV1EventListFluent<EventsV1Ev
     return buildable;
   }
   
-
 }

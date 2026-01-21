@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ResourceClaimConsumerReferenceFluent<A extends io.kubernetes.client.openapi.models.V1ResourceClaimConsumerReferenceFluent<A>> extends BaseFluent<A>{
+
+  private String apiGroup;
+  private String name;
+  private String resource;
+  private String uid;
+
   public V1ResourceClaimConsumerReferenceFluent() {
   }
   
   public V1ResourceClaimConsumerReferenceFluent(V1ResourceClaimConsumerReference instance) {
     this.copyInstance(instance);
   }
-  private String apiGroup;
-  private String name;
-  private String resource;
-  private String uid;
-  
+
   protected void copyInstance(V1ResourceClaimConsumerReference instance) {
     instance = instance != null ? instance : new V1ResourceClaimConsumerReference();
     if (instance != null) {
@@ -31,58 +33,6 @@ public class V1ResourceClaimConsumerReferenceFluent<A extends io.kubernetes.clie
         this.withResource(instance.getResource());
         this.withUid(instance.getUid());
     }
-  }
-  
-  public String getApiGroup() {
-    return this.apiGroup;
-  }
-  
-  public A withApiGroup(String apiGroup) {
-    this.apiGroup = apiGroup;
-    return (A) this;
-  }
-  
-  public boolean hasApiGroup() {
-    return this.apiGroup != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public String getResource() {
-    return this.resource;
-  }
-  
-  public A withResource(String resource) {
-    this.resource = resource;
-    return (A) this;
-  }
-  
-  public boolean hasResource() {
-    return this.resource != null;
-  }
-  
-  public String getUid() {
-    return this.uid;
-  }
-  
-  public A withUid(String uid) {
-    this.uid = uid;
-    return (A) this;
-  }
-  
-  public boolean hasUid() {
-    return this.uid != null;
   }
   
   public boolean equals(Object o) {
@@ -109,6 +59,38 @@ public class V1ResourceClaimConsumerReferenceFluent<A extends io.kubernetes.clie
       return false;
     }
     return true;
+  }
+  
+  public String getApiGroup() {
+    return this.apiGroup;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public String getResource() {
+    return this.resource;
+  }
+  
+  public String getUid() {
+    return this.uid;
+  }
+  
+  public boolean hasApiGroup() {
+    return this.apiGroup != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasResource() {
+    return this.resource != null;
+  }
+  
+  public boolean hasUid() {
+    return this.uid != null;
   }
   
   public int hashCode() {
@@ -141,5 +123,24 @@ public class V1ResourceClaimConsumerReferenceFluent<A extends io.kubernetes.clie
     return sb.toString();
   }
   
-
+  public A withApiGroup(String apiGroup) {
+    this.apiGroup = apiGroup;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withResource(String resource) {
+    this.resource = resource;
+    return (A) this;
+  }
+  
+  public A withUid(String uid) {
+    this.uid = uid;
+    return (A) this;
+  }
+  
 }

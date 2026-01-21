@@ -1,31 +1,65 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
-import java.util.Collection;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1DeviceClaimConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1DeviceClaimConfigurationFluent<A>> extends BaseFluent<A>{
+
+  private V1OpaqueDeviceConfigurationBuilder opaque;
+  private List<String> requests;
+
   public V1DeviceClaimConfigurationFluent() {
   }
   
   public V1DeviceClaimConfigurationFluent(V1DeviceClaimConfiguration instance) {
     this.copyInstance(instance);
   }
-  private V1OpaqueDeviceConfigurationBuilder opaque;
-  private List<String> requests;
+
+  public A addAllToRequests(Collection<String> items) {
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    for (String item : items) {
+      this.requests.add(item);
+    }
+    return (A) this;
+  }
+  
+  public A addToRequests(String... items) {
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    for (String item : items) {
+      this.requests.add(item);
+    }
+    return (A) this;
+  }
+  
+  public A addToRequests(int index,String item) {
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    this.requests.add(index, item);
+    return (A) this;
+  }
+  
+  public V1OpaqueDeviceConfiguration buildOpaque() {
+    return this.opaque != null ? this.opaque.build() : null;
+  }
   
   protected void copyInstance(V1DeviceClaimConfiguration instance) {
     instance = instance != null ? instance : new V1DeviceClaimConfiguration();
@@ -33,34 +67,6 @@ public class V1DeviceClaimConfigurationFluent<A extends io.kubernetes.client.ope
         this.withOpaque(instance.getOpaque());
         this.withRequests(instance.getRequests());
     }
-  }
-  
-  public V1OpaqueDeviceConfiguration buildOpaque() {
-    return this.opaque != null ? this.opaque.build() : null;
-  }
-  
-  public A withOpaque(V1OpaqueDeviceConfiguration opaque) {
-    this._visitables.remove("opaque");
-    if (opaque != null) {
-        this.opaque = new V1OpaqueDeviceConfigurationBuilder(opaque);
-        this._visitables.get("opaque").add(this.opaque);
-    } else {
-        this.opaque = null;
-        this._visitables.get("opaque").remove(this.opaque);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasOpaque() {
-    return this.opaque != null;
-  }
-  
-  public OpaqueNested<A> withNewOpaque() {
-    return new OpaqueNested(null);
-  }
-  
-  public OpaqueNested<A> withNewOpaqueLike(V1OpaqueDeviceConfiguration item) {
-    return new OpaqueNested(item);
   }
   
   public OpaqueNested<A> editOpaque() {
@@ -75,68 +81,24 @@ public class V1DeviceClaimConfigurationFluent<A extends io.kubernetes.client.ope
     return this.withNewOpaqueLike(Optional.ofNullable(this.buildOpaque()).orElse(item));
   }
   
-  public A addToRequests(int index,String item) {
-    if (this.requests == null) {
-      this.requests = new ArrayList();
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-    this.requests.add(index, item);
-    return (A) this;
-  }
-  
-  public A setToRequests(int index,String item) {
-    if (this.requests == null) {
-      this.requests = new ArrayList();
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
     }
-    this.requests.set(index, item);
-    return (A) this;
-  }
-  
-  public A addToRequests(String... items) {
-    if (this.requests == null) {
-      this.requests = new ArrayList();
+    if (!(super.equals(o))) {
+      return false;
     }
-    for (String item : items) {
-      this.requests.add(item);
+    V1DeviceClaimConfigurationFluent that = (V1DeviceClaimConfigurationFluent) o;
+    if (!(Objects.equals(opaque, that.opaque))) {
+      return false;
     }
-    return (A) this;
-  }
-  
-  public A addAllToRequests(Collection<String> items) {
-    if (this.requests == null) {
-      this.requests = new ArrayList();
+    if (!(Objects.equals(requests, that.requests))) {
+      return false;
     }
-    for (String item : items) {
-      this.requests.add(item);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromRequests(String... items) {
-    if (this.requests == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.requests.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromRequests(Collection<String> items) {
-    if (this.requests == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.requests.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public List<String> getRequests() {
-    return this.requests;
-  }
-  
-  public String getRequest(int index) {
-    return this.requests.get(index);
+    return true;
   }
   
   public String getFirstRequest() {
@@ -156,6 +118,14 @@ public class V1DeviceClaimConfigurationFluent<A extends io.kubernetes.client.ope
       return null;
   }
   
+  public String getRequest(int index) {
+    return this.requests.get(index);
+  }
+  
+  public List<String> getRequests() {
+    return this.requests;
+  }
+  
   public boolean hasMatchingRequest(Predicate<String> predicate) {
       for (String item : requests) {
         if (predicate.test(item)) {
@@ -163,6 +133,82 @@ public class V1DeviceClaimConfigurationFluent<A extends io.kubernetes.client.ope
         }
       }
       return false;
+  }
+  
+  public boolean hasOpaque() {
+    return this.opaque != null;
+  }
+  
+  public boolean hasRequests() {
+    return this.requests != null && !(this.requests.isEmpty());
+  }
+  
+  public int hashCode() {
+    return Objects.hash(opaque, requests);
+  }
+  
+  public A removeAllFromRequests(Collection<String> items) {
+    if (this.requests == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.requests.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromRequests(String... items) {
+    if (this.requests == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.requests.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A setToRequests(int index,String item) {
+    if (this.requests == null) {
+      this.requests = new ArrayList();
+    }
+    this.requests.set(index, item);
+    return (A) this;
+  }
+  
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (!(opaque == null)) {
+        sb.append("opaque:");
+        sb.append(opaque);
+        sb.append(",");
+    }
+    if (!(requests == null) && !(requests.isEmpty())) {
+        sb.append("requests:");
+        sb.append(requests);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+  
+  public OpaqueNested<A> withNewOpaque() {
+    return new OpaqueNested(null);
+  }
+  
+  public OpaqueNested<A> withNewOpaqueLike(V1OpaqueDeviceConfiguration item) {
+    return new OpaqueNested(item);
+  }
+  
+  public A withOpaque(V1OpaqueDeviceConfiguration opaque) {
+    this._visitables.remove("opaque");
+    if (opaque != null) {
+        this.opaque = new V1OpaqueDeviceConfigurationBuilder(opaque);
+        this._visitables.get("opaque").add(this.opaque);
+    } else {
+        this.opaque = null;
+        this._visitables.get("opaque").remove(this.opaque);
+    }
+    return (A) this;
   }
   
   public A withRequests(List<String> requests) {
@@ -189,56 +235,14 @@ public class V1DeviceClaimConfigurationFluent<A extends io.kubernetes.client.ope
     }
     return (A) this;
   }
-  
-  public boolean hasRequests() {
-    return this.requests != null && !(this.requests.isEmpty());
-  }
-  
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || this.getClass() != o.getClass()) {
-      return false;
-    }
-    if (!(super.equals(o))) {
-      return false;
-    }
-    V1DeviceClaimConfigurationFluent that = (V1DeviceClaimConfigurationFluent) o;
-    if (!(Objects.equals(opaque, that.opaque))) {
-      return false;
-    }
-    if (!(Objects.equals(requests, that.requests))) {
-      return false;
-    }
-    return true;
-  }
-  
-  public int hashCode() {
-    return Objects.hash(opaque, requests);
-  }
-  
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("{");
-    if (!(opaque == null)) {
-        sb.append("opaque:");
-        sb.append(opaque);
-        sb.append(",");
-    }
-    if (!(requests == null) && !(requests.isEmpty())) {
-        sb.append("requests:");
-        sb.append(requests);
-    }
-    sb.append("}");
-    return sb.toString();
-  }
   public class OpaqueNested<N> extends V1OpaqueDeviceConfigurationFluent<OpaqueNested<N>> implements Nested<N>{
+  
+    V1OpaqueDeviceConfigurationBuilder builder;
+  
     OpaqueNested(V1OpaqueDeviceConfiguration item) {
       this.builder = new V1OpaqueDeviceConfigurationBuilder(this, item);
     }
-    V1OpaqueDeviceConfigurationBuilder builder;
-    
+  
     public N and() {
       return (N) V1DeviceClaimConfigurationFluent.this.withOpaque(builder.build());
     }
@@ -247,7 +251,5 @@ public class V1DeviceClaimConfigurationFluent<A extends io.kubernetes.client.ope
       return and();
     }
     
-  
   }
-
 }

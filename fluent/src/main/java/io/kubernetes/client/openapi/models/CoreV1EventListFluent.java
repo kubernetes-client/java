@@ -1,57 +1,68 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
-import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 import java.util.Objects;
-import java.util.Collection;
-import java.lang.Object;
+import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models.CoreV1EventListFluent<A>> extends BaseFluent<A>{
+
+  private String apiVersion;
+  private ArrayList<CoreV1EventBuilder> items;
+  private String kind;
+  private V1ListMetaBuilder metadata;
+
   public CoreV1EventListFluent() {
   }
   
   public CoreV1EventListFluent(CoreV1EventList instance) {
     this.copyInstance(instance);
   }
-  private String apiVersion;
-  private ArrayList<CoreV1EventBuilder> items;
-  private String kind;
-  private V1ListMetaBuilder metadata;
-  
-  protected void copyInstance(CoreV1EventList instance) {
-    instance = instance != null ? instance : new CoreV1EventList();
-    if (instance != null) {
-        this.withApiVersion(instance.getApiVersion());
-        this.withItems(instance.getItems());
-        this.withKind(instance.getKind());
-        this.withMetadata(instance.getMetadata());
+
+  public A addAllToItems(Collection<CoreV1Event> items) {
+    if (this.items == null) {
+      this.items = new ArrayList();
     }
-  }
-  
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
+    for (CoreV1Event item : items) {
+        CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
+        _visitables.get("items").add(builder);
+        this.items.add(builder);
+    }
     return (A) this;
   }
   
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
+  public ItemsNested<A> addNewItem() {
+    return new ItemsNested(-1, null);
+  }
+  
+  public ItemsNested<A> addNewItemLike(CoreV1Event item) {
+    return new ItemsNested(-1, item);
+  }
+  
+  public A addToItems(CoreV1Event... items) {
+    if (this.items == null) {
+      this.items = new ArrayList();
+    }
+    for (CoreV1Event item : items) {
+        CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
+        _visitables.get("items").add(builder);
+        this.items.add(builder);
+    }
+    return (A) this;
   }
   
   public A addToItems(int index,CoreV1Event item) {
@@ -69,95 +80,16 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
     return (A) this;
   }
   
-  public A setToItems(int index,CoreV1Event item) {
-    if (this.items == null) {
-      this.items = new ArrayList();
-    }
-    CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
-    if (index < 0 || index >= items.size()) {
-        _visitables.get("items").add(builder);
-        items.add(builder);
-    } else {
-        _visitables.get("items").add(builder);
-        items.set(index, builder);
-    }
-    return (A) this;
-  }
-  
-  public A addToItems(CoreV1Event... items) {
-    if (this.items == null) {
-      this.items = new ArrayList();
-    }
-    for (CoreV1Event item : items) {
-        CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
-        _visitables.get("items").add(builder);
-        this.items.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToItems(Collection<CoreV1Event> items) {
-    if (this.items == null) {
-      this.items = new ArrayList();
-    }
-    for (CoreV1Event item : items) {
-        CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
-        _visitables.get("items").add(builder);
-        this.items.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromItems(CoreV1Event... items) {
-    if (this.items == null) {
-      return (A) this;
-    }
-    for (CoreV1Event item : items) {
-        CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
-        _visitables.get("items").remove(builder);
-        this.items.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromItems(Collection<CoreV1Event> items) {
-    if (this.items == null) {
-      return (A) this;
-    }
-    for (CoreV1Event item : items) {
-        CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
-        _visitables.get("items").remove(builder);
-        this.items.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromItems(Predicate<CoreV1EventBuilder> predicate) {
-    if (items == null) {
-      return (A) this;
-    }
-    Iterator<CoreV1EventBuilder> each = items.iterator();
-    List visitables = _visitables.get("items");
-    while (each.hasNext()) {
-        CoreV1EventBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
-  }
-  
-  public List<CoreV1Event> buildItems() {
-    return this.items != null ? build(items) : null;
+  public CoreV1Event buildFirstItem() {
+    return this.items.get(0).build();
   }
   
   public CoreV1Event buildItem(int index) {
     return this.items.get(index).build();
   }
   
-  public CoreV1Event buildFirstItem() {
-    return this.items.get(0).build();
+  public List<CoreV1Event> buildItems() {
+    return this.items != null ? build(items) : null;
   }
   
   public CoreV1Event buildLastItem() {
@@ -173,64 +105,18 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
       return null;
   }
   
-  public boolean hasMatchingItem(Predicate<CoreV1EventBuilder> predicate) {
-      for (CoreV1EventBuilder item : items) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
+  public V1ListMeta buildMetadata() {
+    return this.metadata != null ? this.metadata.build() : null;
   }
   
-  public A withItems(List<CoreV1Event> items) {
-    if (this.items != null) {
-      this._visitables.get("items").clear();
+  protected void copyInstance(CoreV1EventList instance) {
+    instance = instance != null ? instance : new CoreV1EventList();
+    if (instance != null) {
+        this.withApiVersion(instance.getApiVersion());
+        this.withItems(instance.getItems());
+        this.withKind(instance.getKind());
+        this.withMetadata(instance.getMetadata());
     }
-    if (items != null) {
-        this.items = new ArrayList();
-        for (CoreV1Event item : items) {
-          this.addToItems(item);
-        }
-    } else {
-      this.items = null;
-    }
-    return (A) this;
-  }
-  
-  public A withItems(CoreV1Event... items) {
-    if (this.items != null) {
-        this.items.clear();
-        _visitables.remove("items");
-    }
-    if (items != null) {
-      for (CoreV1Event item : items) {
-        this.addToItems(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasItems() {
-    return this.items != null && !(this.items.isEmpty());
-  }
-  
-  public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
-  }
-  
-  public ItemsNested<A> addNewItemLike(CoreV1Event item) {
-    return new ItemsNested(-1, item);
-  }
-  
-  public ItemsNested<A> setNewItemLike(int index,CoreV1Event item) {
-    return new ItemsNested(index, item);
-  }
-  
-  public ItemsNested<A> editItem(int index) {
-    if (index <= items.size()) {
-      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "items"));
-    }
-    return this.setNewItemLike(index, this.buildItem(index));
   }
   
   public ItemsNested<A> editFirstItem() {
@@ -238,6 +124,13 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
       throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "items"));
     }
     return this.setNewItemLike(0, this.buildItem(0));
+  }
+  
+  public ItemsNested<A> editItem(int index) {
+    if (items.size() <= index) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "items"));
+    }
+    return this.setNewItemLike(index, this.buildItem(index));
   }
   
   public ItemsNested<A> editLastItem() {
@@ -260,47 +153,6 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
       throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "items"));
     }
     return this.setNewItemLike(index, this.buildItem(index));
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public V1ListMeta buildMetadata() {
-    return this.metadata != null ? this.metadata.build() : null;
-  }
-  
-  public A withMetadata(V1ListMeta metadata) {
-    this._visitables.remove("metadata");
-    if (metadata != null) {
-        this.metadata = new V1ListMetaBuilder(metadata);
-        this._visitables.get("metadata").add(this.metadata);
-    } else {
-        this.metadata = null;
-        this._visitables.get("metadata").remove(this.metadata);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasMetadata() {
-    return this.metadata != null;
-  }
-  
-  public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
-  }
-  
-  public MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
-    return new MetadataNested(item);
   }
   
   public MetadataNested<A> editMetadata() {
@@ -341,8 +193,100 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
     return true;
   }
   
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasItems() {
+    return this.items != null && !(this.items.isEmpty());
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasMatchingItem(Predicate<CoreV1EventBuilder> predicate) {
+      for (CoreV1EventBuilder item : items) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasMetadata() {
+    return this.metadata != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(apiVersion, items, kind, metadata);
+  }
+  
+  public A removeAllFromItems(Collection<CoreV1Event> items) {
+    if (this.items == null) {
+      return (A) this;
+    }
+    for (CoreV1Event item : items) {
+        CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
+        _visitables.get("items").remove(builder);
+        this.items.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromItems(CoreV1Event... items) {
+    if (this.items == null) {
+      return (A) this;
+    }
+    for (CoreV1Event item : items) {
+        CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
+        _visitables.get("items").remove(builder);
+        this.items.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromItems(Predicate<CoreV1EventBuilder> predicate) {
+    if (items == null) {
+      return (A) this;
+    }
+    Iterator<CoreV1EventBuilder> each = items.iterator();
+    List visitables = _visitables.get("items");
+    while (each.hasNext()) {
+        CoreV1EventBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public ItemsNested<A> setNewItemLike(int index,CoreV1Event item) {
+    return new ItemsNested(index, item);
+  }
+  
+  public A setToItems(int index,CoreV1Event item) {
+    if (this.items == null) {
+      this.items = new ArrayList();
+    }
+    CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
+    if (index < 0 || index >= items.size()) {
+        _visitables.get("items").add(builder);
+        items.add(builder);
+    } else {
+        _visitables.get("items").add(builder);
+        items.set(index, builder);
+    }
+    return (A) this;
   }
   
   public String toString() {
@@ -370,14 +314,74 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withItems(List<CoreV1Event> items) {
+    if (this.items != null) {
+      this._visitables.get("items").clear();
+    }
+    if (items != null) {
+        this.items = new ArrayList();
+        for (CoreV1Event item : items) {
+          this.addToItems(item);
+        }
+    } else {
+      this.items = null;
+    }
+    return (A) this;
+  }
+  
+  public A withItems(CoreV1Event... items) {
+    if (this.items != null) {
+        this.items.clear();
+        _visitables.remove("items");
+    }
+    if (items != null) {
+      for (CoreV1Event item : items) {
+        this.addToItems(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withMetadata(V1ListMeta metadata) {
+    this._visitables.remove("metadata");
+    if (metadata != null) {
+        this.metadata = new V1ListMetaBuilder(metadata);
+        this._visitables.get("metadata").add(this.metadata);
+    } else {
+        this.metadata = null;
+        this._visitables.get("metadata").remove(this.metadata);
+    }
+    return (A) this;
+  }
+  
+  public MetadataNested<A> withNewMetadata() {
+    return new MetadataNested(null);
+  }
+  
+  public MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
+    return new MetadataNested(item);
+  }
   public class ItemsNested<N> extends CoreV1EventFluent<ItemsNested<N>> implements Nested<N>{
+  
+    CoreV1EventBuilder builder;
+    int index;
+  
     ItemsNested(int index,CoreV1Event item) {
       this.index = index;
       this.builder = new CoreV1EventBuilder(this, item);
     }
-    CoreV1EventBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) CoreV1EventListFluent.this.setToItems(index, builder.build());
     }
@@ -386,14 +390,15 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
       return and();
     }
     
-  
   }
   public class MetadataNested<N> extends V1ListMetaFluent<MetadataNested<N>> implements Nested<N>{
+  
+    V1ListMetaBuilder builder;
+  
     MetadataNested(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }
-    V1ListMetaBuilder builder;
-    
+  
     public N and() {
       return (N) CoreV1EventListFluent.this.withMetadata(builder.build());
     }
@@ -402,7 +407,5 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
       return and();
     }
     
-  
   }
-
 }

@@ -1,59 +1,35 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1SecretEnvSourceFluent<A extends io.kubernetes.client.openapi.models.V1SecretEnvSourceFluent<A>> extends BaseFluent<A>{
+
+  private String name;
+  private Boolean optional;
+
   public V1SecretEnvSourceFluent() {
   }
   
   public V1SecretEnvSourceFluent(V1SecretEnvSource instance) {
     this.copyInstance(instance);
   }
-  private String name;
-  private Boolean optional;
-  
+
   protected void copyInstance(V1SecretEnvSource instance) {
     instance = instance != null ? instance : new V1SecretEnvSource();
     if (instance != null) {
         this.withName(instance.getName());
         this.withOptional(instance.getOptional());
     }
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public Boolean getOptional() {
-    return this.optional;
-  }
-  
-  public A withOptional(Boolean optional) {
-    this.optional = optional;
-    return (A) this;
-  }
-  
-  public boolean hasOptional() {
-    return this.optional != null;
   }
   
   public boolean equals(Object o) {
@@ -76,6 +52,22 @@ public class V1SecretEnvSourceFluent<A extends io.kubernetes.client.openapi.mode
     return true;
   }
   
+  public String getName() {
+    return this.name;
+  }
+  
+  public Boolean getOptional() {
+    return this.optional;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasOptional() {
+    return this.optional != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(name, optional);
   }
@@ -96,9 +88,18 @@ public class V1SecretEnvSourceFluent<A extends io.kubernetes.client.openapi.mode
     return sb.toString();
   }
   
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
   public A withOptional() {
     return withOptional(true);
   }
   
-
+  public A withOptional(Boolean optional) {
+    this.optional = optional;
+    return (A) this;
+  }
+  
 }

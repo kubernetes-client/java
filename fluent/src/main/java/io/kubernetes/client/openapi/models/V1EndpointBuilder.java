@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1EndpointBuilder extends V1EndpointFluent<V1EndpointBuilder> implements VisitableBuilder<V1Endpoint,V1EndpointBuilder>{
+
+  V1EndpointFluent<?> fluent;
+
   public V1EndpointBuilder() {
     this(new V1Endpoint());
   }
@@ -11,17 +14,16 @@ public class V1EndpointBuilder extends V1EndpointFluent<V1EndpointBuilder> imple
     this(fluent, new V1Endpoint());
   }
   
-  public V1EndpointBuilder(V1EndpointFluent<?> fluent,V1Endpoint instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1EndpointBuilder(V1Endpoint instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1EndpointFluent<?> fluent;
   
+  public V1EndpointBuilder(V1EndpointFluent<?> fluent,V1Endpoint instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1Endpoint build() {
     V1Endpoint buildable = new V1Endpoint();
     buildable.setAddresses(fluent.getAddresses());
@@ -35,5 +37,4 @@ public class V1EndpointBuilder extends V1EndpointFluent<V1EndpointBuilder> imple
     return buildable;
   }
   
-
 }

@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * PersistentVolumeClaimVolumeSource references the user&#39;s PVC in the same namespace. This volume finds the bound PV and mounts that volume for the pod. A PersistentVolumeClaimVolumeSource is, essentially, a wrapper around another type of volume that is owned by someone else (the system).
  */
 @ApiModel(description = "PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace. This volume finds the bound PV and mounts that volume for the pod. A PersistentVolumeClaimVolumeSource is, essentially, a wrapper around another type of volume that is owned by someone else (the system).")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PersistentVolumeClaimVolumeSource {
   public static final String SERIALIZED_NAME_CLAIM_NAME = "claimName";
   @SerializedName(SERIALIZED_NAME_CLAIM_NAME)
@@ -151,13 +151,10 @@ public class V1PersistentVolumeClaimVolumeSource {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("claimName");
-    openapiFields.add("readOnly");
+    openapiFields = new HashSet<String>(Arrays.asList("claimName", "readOnly"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("claimName");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("claimName"));
   }
 
   /**
@@ -169,7 +166,7 @@ public class V1PersistentVolumeClaimVolumeSource {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PersistentVolumeClaimVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PersistentVolumeClaimVolumeSource is not found in the empty JSON string", V1PersistentVolumeClaimVolumeSource.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1PersistentVolumeClaimVolumeSource is not found in the empty JSON string", V1PersistentVolumeClaimVolumeSource.openapiRequiredFields.toString()));
         }
       }
 
@@ -177,19 +174,19 @@ public class V1PersistentVolumeClaimVolumeSource {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PersistentVolumeClaimVolumeSource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PersistentVolumeClaimVolumeSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PersistentVolumeClaimVolumeSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1PersistentVolumeClaimVolumeSource.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("claimName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `claimName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("claimName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `claimName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("claimName").toString()));
       }
   }
 

@@ -1,24 +1,19 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1VolumeMountFluent<A extends io.kubernetes.client.openapi.models.V1VolumeMountFluent<A>> extends BaseFluent<A>{
-  public V1VolumeMountFluent() {
-  }
-  
-  public V1VolumeMountFluent(V1VolumeMount instance) {
-    this.copyInstance(instance);
-  }
+
   private String mountPath;
   private String mountPropagation;
   private String name;
@@ -26,7 +21,14 @@ public class V1VolumeMountFluent<A extends io.kubernetes.client.openapi.models.V
   private String recursiveReadOnly;
   private String subPath;
   private String subPathExpr;
+
+  public V1VolumeMountFluent() {
+  }
   
+  public V1VolumeMountFluent(V1VolumeMount instance) {
+    this.copyInstance(instance);
+  }
+
   protected void copyInstance(V1VolumeMount instance) {
     instance = instance != null ? instance : new V1VolumeMount();
     if (instance != null) {
@@ -38,97 +40,6 @@ public class V1VolumeMountFluent<A extends io.kubernetes.client.openapi.models.V
         this.withSubPath(instance.getSubPath());
         this.withSubPathExpr(instance.getSubPathExpr());
     }
-  }
-  
-  public String getMountPath() {
-    return this.mountPath;
-  }
-  
-  public A withMountPath(String mountPath) {
-    this.mountPath = mountPath;
-    return (A) this;
-  }
-  
-  public boolean hasMountPath() {
-    return this.mountPath != null;
-  }
-  
-  public String getMountPropagation() {
-    return this.mountPropagation;
-  }
-  
-  public A withMountPropagation(String mountPropagation) {
-    this.mountPropagation = mountPropagation;
-    return (A) this;
-  }
-  
-  public boolean hasMountPropagation() {
-    return this.mountPropagation != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public Boolean getReadOnly() {
-    return this.readOnly;
-  }
-  
-  public A withReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-    return (A) this;
-  }
-  
-  public boolean hasReadOnly() {
-    return this.readOnly != null;
-  }
-  
-  public String getRecursiveReadOnly() {
-    return this.recursiveReadOnly;
-  }
-  
-  public A withRecursiveReadOnly(String recursiveReadOnly) {
-    this.recursiveReadOnly = recursiveReadOnly;
-    return (A) this;
-  }
-  
-  public boolean hasRecursiveReadOnly() {
-    return this.recursiveReadOnly != null;
-  }
-  
-  public String getSubPath() {
-    return this.subPath;
-  }
-  
-  public A withSubPath(String subPath) {
-    this.subPath = subPath;
-    return (A) this;
-  }
-  
-  public boolean hasSubPath() {
-    return this.subPath != null;
-  }
-  
-  public String getSubPathExpr() {
-    return this.subPathExpr;
-  }
-  
-  public A withSubPathExpr(String subPathExpr) {
-    this.subPathExpr = subPathExpr;
-    return (A) this;
-  }
-  
-  public boolean hasSubPathExpr() {
-    return this.subPathExpr != null;
   }
   
   public boolean equals(Object o) {
@@ -164,6 +75,62 @@ public class V1VolumeMountFluent<A extends io.kubernetes.client.openapi.models.V
       return false;
     }
     return true;
+  }
+  
+  public String getMountPath() {
+    return this.mountPath;
+  }
+  
+  public String getMountPropagation() {
+    return this.mountPropagation;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public Boolean getReadOnly() {
+    return this.readOnly;
+  }
+  
+  public String getRecursiveReadOnly() {
+    return this.recursiveReadOnly;
+  }
+  
+  public String getSubPath() {
+    return this.subPath;
+  }
+  
+  public String getSubPathExpr() {
+    return this.subPathExpr;
+  }
+  
+  public boolean hasMountPath() {
+    return this.mountPath != null;
+  }
+  
+  public boolean hasMountPropagation() {
+    return this.mountPropagation != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasReadOnly() {
+    return this.readOnly != null;
+  }
+  
+  public boolean hasRecursiveReadOnly() {
+    return this.recursiveReadOnly != null;
+  }
+  
+  public boolean hasSubPath() {
+    return this.subPath != null;
+  }
+  
+  public boolean hasSubPathExpr() {
+    return this.subPathExpr != null;
   }
   
   public int hashCode() {
@@ -211,9 +178,43 @@ public class V1VolumeMountFluent<A extends io.kubernetes.client.openapi.models.V
     return sb.toString();
   }
   
+  public A withMountPath(String mountPath) {
+    this.mountPath = mountPath;
+    return (A) this;
+  }
+  
+  public A withMountPropagation(String mountPropagation) {
+    this.mountPropagation = mountPropagation;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
   public A withReadOnly() {
     return withReadOnly(true);
   }
   
-
+  public A withReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return (A) this;
+  }
+  
+  public A withRecursiveReadOnly(String recursiveReadOnly) {
+    this.recursiveReadOnly = recursiveReadOnly;
+    return (A) this;
+  }
+  
+  public A withSubPath(String subPath) {
+    this.subPath = subPath;
+    return (A) this;
+  }
+  
+  public A withSubPathExpr(String subPathExpr) {
+    this.subPathExpr = subPathExpr;
+    return (A) this;
+  }
+  
 }

@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1FlexPersistentVolumeSourceBuilder extends V1FlexPersistentVolumeSourceFluent<V1FlexPersistentVolumeSourceBuilder> implements VisitableBuilder<V1FlexPersistentVolumeSource,V1FlexPersistentVolumeSourceBuilder>{
+
+  V1FlexPersistentVolumeSourceFluent<?> fluent;
+
   public V1FlexPersistentVolumeSourceBuilder() {
     this(new V1FlexPersistentVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1FlexPersistentVolumeSourceBuilder extends V1FlexPersistentVolumeS
     this(fluent, new V1FlexPersistentVolumeSource());
   }
   
-  public V1FlexPersistentVolumeSourceBuilder(V1FlexPersistentVolumeSourceFluent<?> fluent,V1FlexPersistentVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1FlexPersistentVolumeSourceBuilder(V1FlexPersistentVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1FlexPersistentVolumeSourceFluent<?> fluent;
   
+  public V1FlexPersistentVolumeSourceBuilder(V1FlexPersistentVolumeSourceFluent<?> fluent,V1FlexPersistentVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1FlexPersistentVolumeSource build() {
     V1FlexPersistentVolumeSource buildable = new V1FlexPersistentVolumeSource();
     buildable.setDriver(fluent.getDriver());
@@ -32,5 +34,4 @@ public class V1FlexPersistentVolumeSourceBuilder extends V1FlexPersistentVolumeS
     return buildable;
   }
   
-
 }

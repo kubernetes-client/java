@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class ApiextensionsV1ServiceReferenceBuilder extends ApiextensionsV1ServiceReferenceFluent<ApiextensionsV1ServiceReferenceBuilder> implements VisitableBuilder<ApiextensionsV1ServiceReference,ApiextensionsV1ServiceReferenceBuilder>{
+
+  ApiextensionsV1ServiceReferenceFluent<?> fluent;
+
   public ApiextensionsV1ServiceReferenceBuilder() {
     this(new ApiextensionsV1ServiceReference());
   }
@@ -11,17 +14,16 @@ public class ApiextensionsV1ServiceReferenceBuilder extends ApiextensionsV1Servi
     this(fluent, new ApiextensionsV1ServiceReference());
   }
   
-  public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReferenceFluent<?> fluent,ApiextensionsV1ServiceReference instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReference instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  ApiextensionsV1ServiceReferenceFluent<?> fluent;
   
+  public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReferenceFluent<?> fluent,ApiextensionsV1ServiceReference instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public ApiextensionsV1ServiceReference build() {
     ApiextensionsV1ServiceReference buildable = new ApiextensionsV1ServiceReference();
     buildable.setName(fluent.getName());
@@ -31,5 +33,4 @@ public class ApiextensionsV1ServiceReferenceBuilder extends ApiextensionsV1Servi
     return buildable;
   }
   
-
 }

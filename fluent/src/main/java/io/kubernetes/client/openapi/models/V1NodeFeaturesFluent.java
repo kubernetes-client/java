@@ -1,44 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1NodeFeaturesFluent<A extends io.kubernetes.client.openapi.models.V1NodeFeaturesFluent<A>> extends BaseFluent<A>{
+
+  private Boolean supplementalGroupsPolicy;
+
   public V1NodeFeaturesFluent() {
   }
   
   public V1NodeFeaturesFluent(V1NodeFeatures instance) {
     this.copyInstance(instance);
   }
-  private Boolean supplementalGroupsPolicy;
-  
+
   protected void copyInstance(V1NodeFeatures instance) {
     instance = instance != null ? instance : new V1NodeFeatures();
     if (instance != null) {
       this.withSupplementalGroupsPolicy(instance.getSupplementalGroupsPolicy());
     }
-  }
-  
-  public Boolean getSupplementalGroupsPolicy() {
-    return this.supplementalGroupsPolicy;
-  }
-  
-  public A withSupplementalGroupsPolicy(Boolean supplementalGroupsPolicy) {
-    this.supplementalGroupsPolicy = supplementalGroupsPolicy;
-    return (A) this;
-  }
-  
-  public boolean hasSupplementalGroupsPolicy() {
-    return this.supplementalGroupsPolicy != null;
   }
   
   public boolean equals(Object o) {
@@ -56,6 +45,14 @@ public class V1NodeFeaturesFluent<A extends io.kubernetes.client.openapi.models.
       return false;
     }
     return true;
+  }
+  
+  public Boolean getSupplementalGroupsPolicy() {
+    return this.supplementalGroupsPolicy;
+  }
+  
+  public boolean hasSupplementalGroupsPolicy() {
+    return this.supplementalGroupsPolicy != null;
   }
   
   public int hashCode() {
@@ -77,5 +74,9 @@ public class V1NodeFeaturesFluent<A extends io.kubernetes.client.openapi.models.
     return withSupplementalGroupsPolicy(true);
   }
   
-
+  public A withSupplementalGroupsPolicy(Boolean supplementalGroupsPolicy) {
+    this.supplementalGroupsPolicy = supplementalGroupsPolicy;
+    return (A) this;
+  }
+  
 }

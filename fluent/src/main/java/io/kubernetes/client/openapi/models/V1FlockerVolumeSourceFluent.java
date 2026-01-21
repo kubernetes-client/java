@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1FlockerVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1FlockerVolumeSourceFluent<A>> extends BaseFluent<A>{
+
+  private String datasetName;
+  private String datasetUUID;
+
   public V1FlockerVolumeSourceFluent() {
   }
   
   public V1FlockerVolumeSourceFluent(V1FlockerVolumeSource instance) {
     this.copyInstance(instance);
   }
-  private String datasetName;
-  private String datasetUUID;
-  
+
   protected void copyInstance(V1FlockerVolumeSource instance) {
     instance = instance != null ? instance : new V1FlockerVolumeSource();
     if (instance != null) {
         this.withDatasetName(instance.getDatasetName());
         this.withDatasetUUID(instance.getDatasetUUID());
     }
-  }
-  
-  public String getDatasetName() {
-    return this.datasetName;
-  }
-  
-  public A withDatasetName(String datasetName) {
-    this.datasetName = datasetName;
-    return (A) this;
-  }
-  
-  public boolean hasDatasetName() {
-    return this.datasetName != null;
-  }
-  
-  public String getDatasetUUID() {
-    return this.datasetUUID;
-  }
-  
-  public A withDatasetUUID(String datasetUUID) {
-    this.datasetUUID = datasetUUID;
-    return (A) this;
-  }
-  
-  public boolean hasDatasetUUID() {
-    return this.datasetUUID != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1FlockerVolumeSourceFluent<A extends io.kubernetes.client.openapi.
     return true;
   }
   
+  public String getDatasetName() {
+    return this.datasetName;
+  }
+  
+  public String getDatasetUUID() {
+    return this.datasetUUID;
+  }
+  
+  public boolean hasDatasetName() {
+    return this.datasetName != null;
+  }
+  
+  public boolean hasDatasetUUID() {
+    return this.datasetUUID != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(datasetName, datasetUUID);
   }
@@ -95,5 +87,14 @@ public class V1FlockerVolumeSourceFluent<A extends io.kubernetes.client.openapi.
     return sb.toString();
   }
   
-
+  public A withDatasetName(String datasetName) {
+    this.datasetName = datasetName;
+    return (A) this;
+  }
+  
+  public A withDatasetUUID(String datasetUUID) {
+    this.datasetUUID = datasetUUID;
+    return (A) this;
+  }
+  
 }

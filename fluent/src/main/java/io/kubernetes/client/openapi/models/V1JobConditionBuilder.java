@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1JobConditionBuilder extends V1JobConditionFluent<V1JobConditionBuilder> implements VisitableBuilder<V1JobCondition,V1JobConditionBuilder>{
+
+  V1JobConditionFluent<?> fluent;
+
   public V1JobConditionBuilder() {
     this(new V1JobCondition());
   }
@@ -11,17 +14,16 @@ public class V1JobConditionBuilder extends V1JobConditionFluent<V1JobConditionBu
     this(fluent, new V1JobCondition());
   }
   
-  public V1JobConditionBuilder(V1JobConditionFluent<?> fluent,V1JobCondition instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1JobConditionBuilder(V1JobCondition instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1JobConditionFluent<?> fluent;
   
+  public V1JobConditionBuilder(V1JobConditionFluent<?> fluent,V1JobCondition instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1JobCondition build() {
     V1JobCondition buildable = new V1JobCondition();
     buildable.setLastProbeTime(fluent.getLastProbeTime());
@@ -33,5 +35,4 @@ public class V1JobConditionBuilder extends V1JobConditionFluent<V1JobConditionBu
     return buildable;
   }
   
-
 }

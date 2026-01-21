@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1beta1LeaseCandidateListBuilder extends V1beta1LeaseCandidateListFluent<V1beta1LeaseCandidateListBuilder> implements VisitableBuilder<V1beta1LeaseCandidateList,V1beta1LeaseCandidateListBuilder>{
+
+  V1beta1LeaseCandidateListFluent<?> fluent;
+
   public V1beta1LeaseCandidateListBuilder() {
     this(new V1beta1LeaseCandidateList());
   }
@@ -11,17 +14,16 @@ public class V1beta1LeaseCandidateListBuilder extends V1beta1LeaseCandidateListF
     this(fluent, new V1beta1LeaseCandidateList());
   }
   
-  public V1beta1LeaseCandidateListBuilder(V1beta1LeaseCandidateListFluent<?> fluent,V1beta1LeaseCandidateList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1beta1LeaseCandidateListBuilder(V1beta1LeaseCandidateList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1beta1LeaseCandidateListFluent<?> fluent;
   
+  public V1beta1LeaseCandidateListBuilder(V1beta1LeaseCandidateListFluent<?> fluent,V1beta1LeaseCandidateList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1beta1LeaseCandidateList build() {
     V1beta1LeaseCandidateList buildable = new V1beta1LeaseCandidateList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1beta1LeaseCandidateListBuilder extends V1beta1LeaseCandidateListF
     return buildable;
   }
   
-
 }

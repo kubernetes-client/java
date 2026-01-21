@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1VolumeAttributesClassListBuilder extends V1VolumeAttributesClassListFluent<V1VolumeAttributesClassListBuilder> implements VisitableBuilder<V1VolumeAttributesClassList,V1VolumeAttributesClassListBuilder>{
+
+  V1VolumeAttributesClassListFluent<?> fluent;
+
   public V1VolumeAttributesClassListBuilder() {
     this(new V1VolumeAttributesClassList());
   }
@@ -11,17 +14,16 @@ public class V1VolumeAttributesClassListBuilder extends V1VolumeAttributesClassL
     this(fluent, new V1VolumeAttributesClassList());
   }
   
-  public V1VolumeAttributesClassListBuilder(V1VolumeAttributesClassListFluent<?> fluent,V1VolumeAttributesClassList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1VolumeAttributesClassListBuilder(V1VolumeAttributesClassList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1VolumeAttributesClassListFluent<?> fluent;
   
+  public V1VolumeAttributesClassListBuilder(V1VolumeAttributesClassListFluent<?> fluent,V1VolumeAttributesClassList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1VolumeAttributesClassList build() {
     V1VolumeAttributesClassList buildable = new V1VolumeAttributesClassList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1VolumeAttributesClassListBuilder extends V1VolumeAttributesClassL
     return buildable;
   }
   
-
 }

@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -55,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * IngressSpec describes the Ingress the user wishes to exist.
  */
 @ApiModel(description = "IngressSpec describes the Ingress the user wishes to exist.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1IngressSpec {
   public static final String SERIALIZED_NAME_DEFAULT_BACKEND = "defaultBackend";
   @SerializedName(SERIALIZED_NAME_DEFAULT_BACKEND)
@@ -226,14 +226,10 @@ public class V1IngressSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("defaultBackend");
-    openapiFields.add("ingressClassName");
-    openapiFields.add("rules");
-    openapiFields.add("tls");
+    openapiFields = new HashSet<String>(Arrays.asList("defaultBackend", "ingressClassName", "rules", "tls"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -245,7 +241,7 @@ public class V1IngressSpec {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1IngressSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1IngressSpec is not found in the empty JSON string", V1IngressSpec.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1IngressSpec is not found in the empty JSON string", V1IngressSpec.openapiRequiredFields.toString()));
         }
       }
 
@@ -253,7 +249,7 @@ public class V1IngressSpec {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1IngressSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1IngressSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1IngressSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -262,14 +258,14 @@ public class V1IngressSpec {
         V1IngressBackend.validateJsonElement(jsonObj.get("defaultBackend"));
       }
       if ((jsonObj.get("ingressClassName") != null && !jsonObj.get("ingressClassName").isJsonNull()) && !jsonObj.get("ingressClassName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ingressClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ingressClassName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ingressClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ingressClassName").toString()));
       }
       if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {
         JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
         if (jsonArrayrules != null) {
           // ensure the json data is an array
           if (!jsonObj.get("rules").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `rules` to be an array in the JSON string but got `%s`", jsonObj.get("rules").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rules` to be an array in the JSON string but got `%s`", jsonObj.get("rules").toString()));
           }
 
           // validate the optional field `rules` (array)
@@ -283,7 +279,7 @@ public class V1IngressSpec {
         if (jsonArraytls != null) {
           // ensure the json data is an array
           if (!jsonObj.get("tls").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `tls` to be an array in the JSON string but got `%s`", jsonObj.get("tls").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tls` to be an array in the JSON string but got `%s`", jsonObj.get("tls").toString()));
           }
 
           // validate the optional field `tls` (array)

@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.
  */
 @ApiModel(description = "ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ListMeta {
   public static final String SERIALIZED_NAME_CONTINUE = "continue";
   @SerializedName(SERIALIZED_NAME_CONTINUE)
@@ -205,14 +205,10 @@ public class V1ListMeta {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("continue");
-    openapiFields.add("remainingItemCount");
-    openapiFields.add("resourceVersion");
-    openapiFields.add("selfLink");
+    openapiFields = new HashSet<String>(Arrays.asList("continue", "remainingItemCount", "resourceVersion", "selfLink"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -224,7 +220,7 @@ public class V1ListMeta {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ListMeta.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ListMeta is not found in the empty JSON string", V1ListMeta.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1ListMeta is not found in the empty JSON string", V1ListMeta.openapiRequiredFields.toString()));
         }
       }
 
@@ -232,18 +228,18 @@ public class V1ListMeta {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ListMeta.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ListMeta` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1ListMeta` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("continue") != null && !jsonObj.get("continue").isJsonNull()) && !jsonObj.get("continue").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `continue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("continue").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `continue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("continue").toString()));
       }
       if ((jsonObj.get("resourceVersion") != null && !jsonObj.get("resourceVersion").isJsonNull()) && !jsonObj.get("resourceVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resourceVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resourceVersion").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resourceVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resourceVersion").toString()));
       }
       if ((jsonObj.get("selfLink") != null && !jsonObj.get("selfLink").isJsonNull()) && !jsonObj.get("selfLink").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `selfLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selfLink").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selfLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selfLink").toString()));
       }
   }
 

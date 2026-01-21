@@ -635,7 +635,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -645,7 +645,7 @@ public final class V1beta1Authentication {
     boolean hasMetadata();
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -655,7 +655,7 @@ public final class V1beta1Authentication {
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -666,7 +666,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * Status is filled in by the server with the user attributes.
+     * status is filled in by the server with the user attributes.
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -674,7 +674,7 @@ public final class V1beta1Authentication {
     boolean hasStatus();
     /**
      * <pre>
-     * Status is filled in by the server with the user attributes.
+     * status is filled in by the server with the user attributes.
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -682,7 +682,7 @@ public final class V1beta1Authentication {
     io.kubernetes.client.proto.V1beta1Authentication.SelfSubjectReviewStatus getStatus();
     /**
      * <pre>
-     * Status is filled in by the server with the user attributes.
+     * status is filled in by the server with the user attributes.
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -797,7 +797,7 @@ public final class V1beta1Authentication {
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -809,7 +809,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -821,7 +821,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -836,7 +836,7 @@ public final class V1beta1Authentication {
     private io.kubernetes.client.proto.V1beta1Authentication.SelfSubjectReviewStatus status_;
     /**
      * <pre>
-     * Status is filled in by the server with the user attributes.
+     * status is filled in by the server with the user attributes.
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -846,7 +846,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Status is filled in by the server with the user attributes.
+     * status is filled in by the server with the user attributes.
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -856,7 +856,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Status is filled in by the server with the user attributes.
+     * status is filled in by the server with the user attributes.
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -1234,7 +1234,7 @@ public final class V1beta1Authentication {
           io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -1246,7 +1246,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -1262,7 +1262,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -1284,7 +1284,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -1304,7 +1304,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -1330,7 +1330,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -1349,7 +1349,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -1363,7 +1363,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -1380,7 +1380,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -1406,7 +1406,7 @@ public final class V1beta1Authentication {
           io.kubernetes.client.proto.V1beta1Authentication.SelfSubjectReviewStatus, io.kubernetes.client.proto.V1beta1Authentication.SelfSubjectReviewStatus.Builder, io.kubernetes.client.proto.V1beta1Authentication.SelfSubjectReviewStatusOrBuilder> statusBuilder_;
       /**
        * <pre>
-       * Status is filled in by the server with the user attributes.
+       * status is filled in by the server with the user attributes.
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -1416,7 +1416,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server with the user attributes.
+       * status is filled in by the server with the user attributes.
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -1430,7 +1430,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server with the user attributes.
+       * status is filled in by the server with the user attributes.
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -1450,7 +1450,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server with the user attributes.
+       * status is filled in by the server with the user attributes.
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -1468,7 +1468,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server with the user attributes.
+       * status is filled in by the server with the user attributes.
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -1492,7 +1492,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server with the user attributes.
+       * status is filled in by the server with the user attributes.
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -1509,7 +1509,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server with the user attributes.
+       * status is filled in by the server with the user attributes.
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -1521,7 +1521,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server with the user attributes.
+       * status is filled in by the server with the user attributes.
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -1536,7 +1536,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server with the user attributes.
+       * status is filled in by the server with the user attributes.
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.SelfSubjectReviewStatus status = 2;</code>
@@ -1613,7 +1613,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * User attributes of the user making this request.
+     * userInfo is a set of attributes belonging to the user making this request.
      * +optional
      * </pre>
      *
@@ -1622,7 +1622,7 @@ public final class V1beta1Authentication {
     boolean hasUserInfo();
     /**
      * <pre>
-     * User attributes of the user making this request.
+     * userInfo is a set of attributes belonging to the user making this request.
      * +optional
      * </pre>
      *
@@ -1631,7 +1631,7 @@ public final class V1beta1Authentication {
     io.kubernetes.client.proto.V1Authentication.UserInfo getUserInfo();
     /**
      * <pre>
-     * User attributes of the user making this request.
+     * userInfo is a set of attributes belonging to the user making this request.
      * +optional
      * </pre>
      *
@@ -1732,7 +1732,7 @@ public final class V1beta1Authentication {
     private io.kubernetes.client.proto.V1Authentication.UserInfo userInfo_;
     /**
      * <pre>
-     * User attributes of the user making this request.
+     * userInfo is a set of attributes belonging to the user making this request.
      * +optional
      * </pre>
      *
@@ -1743,7 +1743,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * User attributes of the user making this request.
+     * userInfo is a set of attributes belonging to the user making this request.
      * +optional
      * </pre>
      *
@@ -1754,7 +1754,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * User attributes of the user making this request.
+     * userInfo is a set of attributes belonging to the user making this request.
      * +optional
      * </pre>
      *
@@ -2097,7 +2097,7 @@ public final class V1beta1Authentication {
           io.kubernetes.client.proto.V1Authentication.UserInfo, io.kubernetes.client.proto.V1Authentication.UserInfo.Builder, io.kubernetes.client.proto.V1Authentication.UserInfoOrBuilder> userInfoBuilder_;
       /**
        * <pre>
-       * User attributes of the user making this request.
+       * userInfo is a set of attributes belonging to the user making this request.
        * +optional
        * </pre>
        *
@@ -2108,7 +2108,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User attributes of the user making this request.
+       * userInfo is a set of attributes belonging to the user making this request.
        * +optional
        * </pre>
        *
@@ -2123,7 +2123,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User attributes of the user making this request.
+       * userInfo is a set of attributes belonging to the user making this request.
        * +optional
        * </pre>
        *
@@ -2144,7 +2144,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User attributes of the user making this request.
+       * userInfo is a set of attributes belonging to the user making this request.
        * +optional
        * </pre>
        *
@@ -2163,7 +2163,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User attributes of the user making this request.
+       * userInfo is a set of attributes belonging to the user making this request.
        * +optional
        * </pre>
        *
@@ -2188,7 +2188,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User attributes of the user making this request.
+       * userInfo is a set of attributes belonging to the user making this request.
        * +optional
        * </pre>
        *
@@ -2206,7 +2206,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User attributes of the user making this request.
+       * userInfo is a set of attributes belonging to the user making this request.
        * +optional
        * </pre>
        *
@@ -2219,7 +2219,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User attributes of the user making this request.
+       * userInfo is a set of attributes belonging to the user making this request.
        * +optional
        * </pre>
        *
@@ -2235,7 +2235,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User attributes of the user making this request.
+       * userInfo is a set of attributes belonging to the user making this request.
        * +optional
        * </pre>
        *
@@ -2313,7 +2313,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -2323,7 +2323,7 @@ public final class V1beta1Authentication {
     boolean hasMetadata();
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -2333,7 +2333,7 @@ public final class V1beta1Authentication {
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -2344,7 +2344,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -2352,7 +2352,7 @@ public final class V1beta1Authentication {
     boolean hasSpec();
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -2360,7 +2360,7 @@ public final class V1beta1Authentication {
     io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec getSpec();
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -2369,7 +2369,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the token can be authenticated.
+     * status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -2378,7 +2378,7 @@ public final class V1beta1Authentication {
     boolean hasStatus();
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the token can be authenticated.
+     * status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -2387,7 +2387,7 @@ public final class V1beta1Authentication {
     io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus getStatus();
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the token can be authenticated.
+     * status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -2516,7 +2516,7 @@ public final class V1beta1Authentication {
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -2528,7 +2528,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -2540,7 +2540,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Standard object's metadata.
+     * metadata is the standard object's metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -2555,7 +2555,7 @@ public final class V1beta1Authentication {
     private io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec spec_;
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -2565,7 +2565,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -2575,7 +2575,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -2588,7 +2588,7 @@ public final class V1beta1Authentication {
     private io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus status_;
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the token can be authenticated.
+     * status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -2599,7 +2599,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the token can be authenticated.
+     * status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -2610,7 +2610,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the token can be authenticated.
+     * status is filled in by the server and indicates whether the token can be authenticated.
      * +optional
      * </pre>
      *
@@ -3023,7 +3023,7 @@ public final class V1beta1Authentication {
           io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -3035,7 +3035,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -3051,7 +3051,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -3073,7 +3073,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -3093,7 +3093,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -3119,7 +3119,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -3138,7 +3138,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -3152,7 +3152,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -3169,7 +3169,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Standard object's metadata.
+       * metadata is the standard object's metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -3195,7 +3195,7 @@ public final class V1beta1Authentication {
           io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec, io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpec.Builder, io.kubernetes.client.proto.V1beta1Authentication.TokenReviewSpecOrBuilder> specBuilder_;
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -3205,7 +3205,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -3219,7 +3219,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -3239,7 +3239,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -3257,7 +3257,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -3281,7 +3281,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -3298,7 +3298,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -3310,7 +3310,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -3325,7 +3325,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1beta1.TokenReviewSpec spec = 2;</code>
@@ -3349,7 +3349,7 @@ public final class V1beta1Authentication {
           io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus, io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatus.Builder, io.kubernetes.client.proto.V1beta1Authentication.TokenReviewStatusOrBuilder> statusBuilder_;
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the token can be authenticated.
+       * status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3360,7 +3360,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the token can be authenticated.
+       * status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3375,7 +3375,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the token can be authenticated.
+       * status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3396,7 +3396,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the token can be authenticated.
+       * status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3415,7 +3415,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the token can be authenticated.
+       * status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3440,7 +3440,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the token can be authenticated.
+       * status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3458,7 +3458,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the token can be authenticated.
+       * status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3471,7 +3471,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the token can be authenticated.
+       * status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3487,7 +3487,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the token can be authenticated.
+       * status is filled in by the server and indicates whether the token can be authenticated.
        * +optional
        * </pre>
        *
@@ -3565,7 +3565,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * Token is the opaque bearer token.
+     * token is the opaque bearer token.
      * +optional
      * </pre>
      *
@@ -3574,7 +3574,7 @@ public final class V1beta1Authentication {
     boolean hasToken();
     /**
      * <pre>
-     * Token is the opaque bearer token.
+     * token is the opaque bearer token.
      * +optional
      * </pre>
      *
@@ -3583,7 +3583,7 @@ public final class V1beta1Authentication {
     java.lang.String getToken();
     /**
      * <pre>
-     * Token is the opaque bearer token.
+     * token is the opaque bearer token.
      * +optional
      * </pre>
      *
@@ -3594,7 +3594,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * Audiences is a list of the identifiers that the resource server presented
+     * audiences is a list of the identifiers that the resource server presented
      * with the token identifies as. Audience-aware token authenticators will
      * verify that the token was intended for at least one of the audiences in
      * this list. If no audiences are provided, the audience will default to the
@@ -3609,7 +3609,7 @@ public final class V1beta1Authentication {
         getAudiencesList();
     /**
      * <pre>
-     * Audiences is a list of the identifiers that the resource server presented
+     * audiences is a list of the identifiers that the resource server presented
      * with the token identifies as. Audience-aware token authenticators will
      * verify that the token was intended for at least one of the audiences in
      * this list. If no audiences are provided, the audience will default to the
@@ -3623,7 +3623,7 @@ public final class V1beta1Authentication {
     int getAudiencesCount();
     /**
      * <pre>
-     * Audiences is a list of the identifiers that the resource server presented
+     * audiences is a list of the identifiers that the resource server presented
      * with the token identifies as. Audience-aware token authenticators will
      * verify that the token was intended for at least one of the audiences in
      * this list. If no audiences are provided, the audience will default to the
@@ -3637,7 +3637,7 @@ public final class V1beta1Authentication {
     java.lang.String getAudiences(int index);
     /**
      * <pre>
-     * Audiences is a list of the identifiers that the resource server presented
+     * audiences is a list of the identifiers that the resource server presented
      * with the token identifies as. Audience-aware token authenticators will
      * verify that the token was intended for at least one of the audiences in
      * this list. If no audiences are provided, the audience will default to the
@@ -3751,7 +3751,7 @@ public final class V1beta1Authentication {
     private volatile java.lang.Object token_;
     /**
      * <pre>
-     * Token is the opaque bearer token.
+     * token is the opaque bearer token.
      * +optional
      * </pre>
      *
@@ -3762,7 +3762,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Token is the opaque bearer token.
+     * token is the opaque bearer token.
      * +optional
      * </pre>
      *
@@ -3784,7 +3784,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Token is the opaque bearer token.
+     * token is the opaque bearer token.
      * +optional
      * </pre>
      *
@@ -3808,7 +3808,7 @@ public final class V1beta1Authentication {
     private com.google.protobuf.LazyStringList audiences_;
     /**
      * <pre>
-     * Audiences is a list of the identifiers that the resource server presented
+     * audiences is a list of the identifiers that the resource server presented
      * with the token identifies as. Audience-aware token authenticators will
      * verify that the token was intended for at least one of the audiences in
      * this list. If no audiences are provided, the audience will default to the
@@ -3825,7 +3825,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Audiences is a list of the identifiers that the resource server presented
+     * audiences is a list of the identifiers that the resource server presented
      * with the token identifies as. Audience-aware token authenticators will
      * verify that the token was intended for at least one of the audiences in
      * this list. If no audiences are provided, the audience will default to the
@@ -3841,7 +3841,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Audiences is a list of the identifiers that the resource server presented
+     * audiences is a list of the identifiers that the resource server presented
      * with the token identifies as. Audience-aware token authenticators will
      * verify that the token was intended for at least one of the audiences in
      * this list. If no audiences are provided, the audience will default to the
@@ -3857,7 +3857,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Audiences is a list of the identifiers that the resource server presented
+     * audiences is a list of the identifiers that the resource server presented
      * with the token identifies as. Audience-aware token authenticators will
      * verify that the token was intended for at least one of the audiences in
      * this list. If no audiences are provided, the audience will default to the
@@ -4230,7 +4230,7 @@ public final class V1beta1Authentication {
       private java.lang.Object token_ = "";
       /**
        * <pre>
-       * Token is the opaque bearer token.
+       * token is the opaque bearer token.
        * +optional
        * </pre>
        *
@@ -4241,7 +4241,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Token is the opaque bearer token.
+       * token is the opaque bearer token.
        * +optional
        * </pre>
        *
@@ -4263,7 +4263,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Token is the opaque bearer token.
+       * token is the opaque bearer token.
        * +optional
        * </pre>
        *
@@ -4284,7 +4284,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Token is the opaque bearer token.
+       * token is the opaque bearer token.
        * +optional
        * </pre>
        *
@@ -4302,7 +4302,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Token is the opaque bearer token.
+       * token is the opaque bearer token.
        * +optional
        * </pre>
        *
@@ -4316,7 +4316,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Token is the opaque bearer token.
+       * token is the opaque bearer token.
        * +optional
        * </pre>
        *
@@ -4342,7 +4342,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences is a list of the identifiers that the resource server presented
+       * audiences is a list of the identifiers that the resource server presented
        * with the token identifies as. Audience-aware token authenticators will
        * verify that the token was intended for at least one of the audiences in
        * this list. If no audiences are provided, the audience will default to the
@@ -4359,7 +4359,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences is a list of the identifiers that the resource server presented
+       * audiences is a list of the identifiers that the resource server presented
        * with the token identifies as. Audience-aware token authenticators will
        * verify that the token was intended for at least one of the audiences in
        * this list. If no audiences are provided, the audience will default to the
@@ -4375,7 +4375,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences is a list of the identifiers that the resource server presented
+       * audiences is a list of the identifiers that the resource server presented
        * with the token identifies as. Audience-aware token authenticators will
        * verify that the token was intended for at least one of the audiences in
        * this list. If no audiences are provided, the audience will default to the
@@ -4391,7 +4391,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences is a list of the identifiers that the resource server presented
+       * audiences is a list of the identifiers that the resource server presented
        * with the token identifies as. Audience-aware token authenticators will
        * verify that the token was intended for at least one of the audiences in
        * this list. If no audiences are provided, the audience will default to the
@@ -4408,7 +4408,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences is a list of the identifiers that the resource server presented
+       * audiences is a list of the identifiers that the resource server presented
        * with the token identifies as. Audience-aware token authenticators will
        * verify that the token was intended for at least one of the audiences in
        * this list. If no audiences are provided, the audience will default to the
@@ -4431,7 +4431,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences is a list of the identifiers that the resource server presented
+       * audiences is a list of the identifiers that the resource server presented
        * with the token identifies as. Audience-aware token authenticators will
        * verify that the token was intended for at least one of the audiences in
        * this list. If no audiences are provided, the audience will default to the
@@ -4454,7 +4454,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences is a list of the identifiers that the resource server presented
+       * audiences is a list of the identifiers that the resource server presented
        * with the token identifies as. Audience-aware token authenticators will
        * verify that the token was intended for at least one of the audiences in
        * this list. If no audiences are provided, the audience will default to the
@@ -4475,7 +4475,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences is a list of the identifiers that the resource server presented
+       * audiences is a list of the identifiers that the resource server presented
        * with the token identifies as. Audience-aware token authenticators will
        * verify that the token was intended for at least one of the audiences in
        * this list. If no audiences are provided, the audience will default to the
@@ -4494,7 +4494,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences is a list of the identifiers that the resource server presented
+       * audiences is a list of the identifiers that the resource server presented
        * with the token identifies as. Audience-aware token authenticators will
        * verify that the token was intended for at least one of the audiences in
        * this list. If no audiences are provided, the audience will default to the
@@ -4574,7 +4574,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * Authenticated indicates that the token was associated with a known user.
+     * authenticated indicates that the token was associated with a known user.
      * +optional
      * </pre>
      *
@@ -4583,7 +4583,7 @@ public final class V1beta1Authentication {
     boolean hasAuthenticated();
     /**
      * <pre>
-     * Authenticated indicates that the token was associated with a known user.
+     * authenticated indicates that the token was associated with a known user.
      * +optional
      * </pre>
      *
@@ -4593,7 +4593,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * User is the UserInfo associated with the provided token.
+     * user is the UserInfo associated with the provided token.
      * +optional
      * </pre>
      *
@@ -4602,7 +4602,7 @@ public final class V1beta1Authentication {
     boolean hasUser();
     /**
      * <pre>
-     * User is the UserInfo associated with the provided token.
+     * user is the UserInfo associated with the provided token.
      * +optional
      * </pre>
      *
@@ -4611,7 +4611,7 @@ public final class V1beta1Authentication {
     io.kubernetes.client.proto.V1beta1Authentication.UserInfo getUser();
     /**
      * <pre>
-     * User is the UserInfo associated with the provided token.
+     * user is the UserInfo associated with the provided token.
      * +optional
      * </pre>
      *
@@ -4621,7 +4621,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * Audiences are audience identifiers chosen by the authenticator that are
+     * audiences are audience identifiers chosen by the authenticator that are
      * compatible with both the TokenReview and token. An identifier is any
      * identifier in the intersection of the TokenReviewSpec audiences and the
      * token's audiences. A client of the TokenReview API that sets the
@@ -4640,7 +4640,7 @@ public final class V1beta1Authentication {
         getAudiencesList();
     /**
      * <pre>
-     * Audiences are audience identifiers chosen by the authenticator that are
+     * audiences are audience identifiers chosen by the authenticator that are
      * compatible with both the TokenReview and token. An identifier is any
      * identifier in the intersection of the TokenReviewSpec audiences and the
      * token's audiences. A client of the TokenReview API that sets the
@@ -4658,7 +4658,7 @@ public final class V1beta1Authentication {
     int getAudiencesCount();
     /**
      * <pre>
-     * Audiences are audience identifiers chosen by the authenticator that are
+     * audiences are audience identifiers chosen by the authenticator that are
      * compatible with both the TokenReview and token. An identifier is any
      * identifier in the intersection of the TokenReviewSpec audiences and the
      * token's audiences. A client of the TokenReview API that sets the
@@ -4676,7 +4676,7 @@ public final class V1beta1Authentication {
     java.lang.String getAudiences(int index);
     /**
      * <pre>
-     * Audiences are audience identifiers chosen by the authenticator that are
+     * audiences are audience identifiers chosen by the authenticator that are
      * compatible with both the TokenReview and token. An identifier is any
      * identifier in the intersection of the TokenReviewSpec audiences and the
      * token's audiences. A client of the TokenReview API that sets the
@@ -4696,7 +4696,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * Error indicates that the token couldn't be checked
+     * error indicates that the token couldn't be checked
      * +optional
      * </pre>
      *
@@ -4705,7 +4705,7 @@ public final class V1beta1Authentication {
     boolean hasError();
     /**
      * <pre>
-     * Error indicates that the token couldn't be checked
+     * error indicates that the token couldn't be checked
      * +optional
      * </pre>
      *
@@ -4714,7 +4714,7 @@ public final class V1beta1Authentication {
     java.lang.String getError();
     /**
      * <pre>
-     * Error indicates that the token couldn't be checked
+     * error indicates that the token couldn't be checked
      * +optional
      * </pre>
      *
@@ -4842,7 +4842,7 @@ public final class V1beta1Authentication {
     private boolean authenticated_;
     /**
      * <pre>
-     * Authenticated indicates that the token was associated with a known user.
+     * authenticated indicates that the token was associated with a known user.
      * +optional
      * </pre>
      *
@@ -4853,7 +4853,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Authenticated indicates that the token was associated with a known user.
+     * authenticated indicates that the token was associated with a known user.
      * +optional
      * </pre>
      *
@@ -4867,7 +4867,7 @@ public final class V1beta1Authentication {
     private io.kubernetes.client.proto.V1beta1Authentication.UserInfo user_;
     /**
      * <pre>
-     * User is the UserInfo associated with the provided token.
+     * user is the UserInfo associated with the provided token.
      * +optional
      * </pre>
      *
@@ -4878,7 +4878,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * User is the UserInfo associated with the provided token.
+     * user is the UserInfo associated with the provided token.
      * +optional
      * </pre>
      *
@@ -4889,7 +4889,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * User is the UserInfo associated with the provided token.
+     * user is the UserInfo associated with the provided token.
      * +optional
      * </pre>
      *
@@ -4903,7 +4903,7 @@ public final class V1beta1Authentication {
     private com.google.protobuf.LazyStringList audiences_;
     /**
      * <pre>
-     * Audiences are audience identifiers chosen by the authenticator that are
+     * audiences are audience identifiers chosen by the authenticator that are
      * compatible with both the TokenReview and token. An identifier is any
      * identifier in the intersection of the TokenReviewSpec audiences and the
      * token's audiences. A client of the TokenReview API that sets the
@@ -4924,7 +4924,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Audiences are audience identifiers chosen by the authenticator that are
+     * audiences are audience identifiers chosen by the authenticator that are
      * compatible with both the TokenReview and token. An identifier is any
      * identifier in the intersection of the TokenReviewSpec audiences and the
      * token's audiences. A client of the TokenReview API that sets the
@@ -4944,7 +4944,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Audiences are audience identifiers chosen by the authenticator that are
+     * audiences are audience identifiers chosen by the authenticator that are
      * compatible with both the TokenReview and token. An identifier is any
      * identifier in the intersection of the TokenReviewSpec audiences and the
      * token's audiences. A client of the TokenReview API that sets the
@@ -4964,7 +4964,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Audiences are audience identifiers chosen by the authenticator that are
+     * audiences are audience identifiers chosen by the authenticator that are
      * compatible with both the TokenReview and token. An identifier is any
      * identifier in the intersection of the TokenReviewSpec audiences and the
      * token's audiences. A client of the TokenReview API that sets the
@@ -4988,7 +4988,7 @@ public final class V1beta1Authentication {
     private volatile java.lang.Object error_;
     /**
      * <pre>
-     * Error indicates that the token couldn't be checked
+     * error indicates that the token couldn't be checked
      * +optional
      * </pre>
      *
@@ -4999,7 +4999,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Error indicates that the token couldn't be checked
+     * error indicates that the token couldn't be checked
      * +optional
      * </pre>
      *
@@ -5021,7 +5021,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Error indicates that the token couldn't be checked
+     * error indicates that the token couldn't be checked
      * +optional
      * </pre>
      *
@@ -5458,7 +5458,7 @@ public final class V1beta1Authentication {
       private boolean authenticated_ ;
       /**
        * <pre>
-       * Authenticated indicates that the token was associated with a known user.
+       * authenticated indicates that the token was associated with a known user.
        * +optional
        * </pre>
        *
@@ -5469,7 +5469,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Authenticated indicates that the token was associated with a known user.
+       * authenticated indicates that the token was associated with a known user.
        * +optional
        * </pre>
        *
@@ -5480,7 +5480,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Authenticated indicates that the token was associated with a known user.
+       * authenticated indicates that the token was associated with a known user.
        * +optional
        * </pre>
        *
@@ -5494,7 +5494,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Authenticated indicates that the token was associated with a known user.
+       * authenticated indicates that the token was associated with a known user.
        * +optional
        * </pre>
        *
@@ -5512,7 +5512,7 @@ public final class V1beta1Authentication {
           io.kubernetes.client.proto.V1beta1Authentication.UserInfo, io.kubernetes.client.proto.V1beta1Authentication.UserInfo.Builder, io.kubernetes.client.proto.V1beta1Authentication.UserInfoOrBuilder> userBuilder_;
       /**
        * <pre>
-       * User is the UserInfo associated with the provided token.
+       * user is the UserInfo associated with the provided token.
        * +optional
        * </pre>
        *
@@ -5523,7 +5523,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User is the UserInfo associated with the provided token.
+       * user is the UserInfo associated with the provided token.
        * +optional
        * </pre>
        *
@@ -5538,7 +5538,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User is the UserInfo associated with the provided token.
+       * user is the UserInfo associated with the provided token.
        * +optional
        * </pre>
        *
@@ -5559,7 +5559,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User is the UserInfo associated with the provided token.
+       * user is the UserInfo associated with the provided token.
        * +optional
        * </pre>
        *
@@ -5578,7 +5578,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User is the UserInfo associated with the provided token.
+       * user is the UserInfo associated with the provided token.
        * +optional
        * </pre>
        *
@@ -5603,7 +5603,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User is the UserInfo associated with the provided token.
+       * user is the UserInfo associated with the provided token.
        * +optional
        * </pre>
        *
@@ -5621,7 +5621,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User is the UserInfo associated with the provided token.
+       * user is the UserInfo associated with the provided token.
        * +optional
        * </pre>
        *
@@ -5634,7 +5634,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User is the UserInfo associated with the provided token.
+       * user is the UserInfo associated with the provided token.
        * +optional
        * </pre>
        *
@@ -5650,7 +5650,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * User is the UserInfo associated with the provided token.
+       * user is the UserInfo associated with the provided token.
        * +optional
        * </pre>
        *
@@ -5679,7 +5679,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences are audience identifiers chosen by the authenticator that are
+       * audiences are audience identifiers chosen by the authenticator that are
        * compatible with both the TokenReview and token. An identifier is any
        * identifier in the intersection of the TokenReviewSpec audiences and the
        * token's audiences. A client of the TokenReview API that sets the
@@ -5700,7 +5700,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences are audience identifiers chosen by the authenticator that are
+       * audiences are audience identifiers chosen by the authenticator that are
        * compatible with both the TokenReview and token. An identifier is any
        * identifier in the intersection of the TokenReviewSpec audiences and the
        * token's audiences. A client of the TokenReview API that sets the
@@ -5720,7 +5720,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences are audience identifiers chosen by the authenticator that are
+       * audiences are audience identifiers chosen by the authenticator that are
        * compatible with both the TokenReview and token. An identifier is any
        * identifier in the intersection of the TokenReviewSpec audiences and the
        * token's audiences. A client of the TokenReview API that sets the
@@ -5740,7 +5740,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences are audience identifiers chosen by the authenticator that are
+       * audiences are audience identifiers chosen by the authenticator that are
        * compatible with both the TokenReview and token. An identifier is any
        * identifier in the intersection of the TokenReviewSpec audiences and the
        * token's audiences. A client of the TokenReview API that sets the
@@ -5761,7 +5761,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences are audience identifiers chosen by the authenticator that are
+       * audiences are audience identifiers chosen by the authenticator that are
        * compatible with both the TokenReview and token. An identifier is any
        * identifier in the intersection of the TokenReviewSpec audiences and the
        * token's audiences. A client of the TokenReview API that sets the
@@ -5788,7 +5788,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences are audience identifiers chosen by the authenticator that are
+       * audiences are audience identifiers chosen by the authenticator that are
        * compatible with both the TokenReview and token. An identifier is any
        * identifier in the intersection of the TokenReviewSpec audiences and the
        * token's audiences. A client of the TokenReview API that sets the
@@ -5815,7 +5815,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences are audience identifiers chosen by the authenticator that are
+       * audiences are audience identifiers chosen by the authenticator that are
        * compatible with both the TokenReview and token. An identifier is any
        * identifier in the intersection of the TokenReviewSpec audiences and the
        * token's audiences. A client of the TokenReview API that sets the
@@ -5840,7 +5840,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences are audience identifiers chosen by the authenticator that are
+       * audiences are audience identifiers chosen by the authenticator that are
        * compatible with both the TokenReview and token. An identifier is any
        * identifier in the intersection of the TokenReviewSpec audiences and the
        * token's audiences. A client of the TokenReview API that sets the
@@ -5863,7 +5863,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Audiences are audience identifiers chosen by the authenticator that are
+       * audiences are audience identifiers chosen by the authenticator that are
        * compatible with both the TokenReview and token. An identifier is any
        * identifier in the intersection of the TokenReviewSpec audiences and the
        * token's audiences. A client of the TokenReview API that sets the
@@ -5892,7 +5892,7 @@ public final class V1beta1Authentication {
       private java.lang.Object error_ = "";
       /**
        * <pre>
-       * Error indicates that the token couldn't be checked
+       * error indicates that the token couldn't be checked
        * +optional
        * </pre>
        *
@@ -5903,7 +5903,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Error indicates that the token couldn't be checked
+       * error indicates that the token couldn't be checked
        * +optional
        * </pre>
        *
@@ -5925,7 +5925,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Error indicates that the token couldn't be checked
+       * error indicates that the token couldn't be checked
        * +optional
        * </pre>
        *
@@ -5946,7 +5946,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Error indicates that the token couldn't be checked
+       * error indicates that the token couldn't be checked
        * +optional
        * </pre>
        *
@@ -5964,7 +5964,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Error indicates that the token couldn't be checked
+       * error indicates that the token couldn't be checked
        * +optional
        * </pre>
        *
@@ -5978,7 +5978,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Error indicates that the token couldn't be checked
+       * error indicates that the token couldn't be checked
        * +optional
        * </pre>
        *
@@ -6053,7 +6053,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * The name that uniquely identifies this user among all active users.
+     * username is the name that uniquely identifies this user among all active users.
      * +optional
      * </pre>
      *
@@ -6062,7 +6062,7 @@ public final class V1beta1Authentication {
     boolean hasUsername();
     /**
      * <pre>
-     * The name that uniquely identifies this user among all active users.
+     * username is the name that uniquely identifies this user among all active users.
      * +optional
      * </pre>
      *
@@ -6071,7 +6071,7 @@ public final class V1beta1Authentication {
     java.lang.String getUsername();
     /**
      * <pre>
-     * The name that uniquely identifies this user among all active users.
+     * username is the name that uniquely identifies this user among all active users.
      * +optional
      * </pre>
      *
@@ -6082,7 +6082,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * A unique value that identifies this user across time. If this user is
+     * uid is a unique value that identifies this user across time. If this user is
      * deleted and another user by the same name is added, they will have
      * different UIDs.
      * +optional
@@ -6093,7 +6093,7 @@ public final class V1beta1Authentication {
     boolean hasUid();
     /**
      * <pre>
-     * A unique value that identifies this user across time. If this user is
+     * uid is a unique value that identifies this user across time. If this user is
      * deleted and another user by the same name is added, they will have
      * different UIDs.
      * +optional
@@ -6104,7 +6104,7 @@ public final class V1beta1Authentication {
     java.lang.String getUid();
     /**
      * <pre>
-     * A unique value that identifies this user across time. If this user is
+     * uid is a unique value that identifies this user across time. If this user is
      * deleted and another user by the same name is added, they will have
      * different UIDs.
      * +optional
@@ -6117,7 +6117,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * The names of groups this user is a part of.
+     * groups is the names of groups this user is a part of.
      * +optional
      * +listType=atomic
      * </pre>
@@ -6128,7 +6128,7 @@ public final class V1beta1Authentication {
         getGroupsList();
     /**
      * <pre>
-     * The names of groups this user is a part of.
+     * groups is the names of groups this user is a part of.
      * +optional
      * +listType=atomic
      * </pre>
@@ -6138,7 +6138,7 @@ public final class V1beta1Authentication {
     int getGroupsCount();
     /**
      * <pre>
-     * The names of groups this user is a part of.
+     * groups is the names of groups this user is a part of.
      * +optional
      * +listType=atomic
      * </pre>
@@ -6148,7 +6148,7 @@ public final class V1beta1Authentication {
     java.lang.String getGroups(int index);
     /**
      * <pre>
-     * The names of groups this user is a part of.
+     * groups is the names of groups this user is a part of.
      * +optional
      * +listType=atomic
      * </pre>
@@ -6160,7 +6160,7 @@ public final class V1beta1Authentication {
 
     /**
      * <pre>
-     * Any additional information provided by the authenticator.
+     * extra is any additional information provided by the authenticator.
      * +optional
      * </pre>
      *
@@ -6169,7 +6169,7 @@ public final class V1beta1Authentication {
     int getExtraCount();
     /**
      * <pre>
-     * Any additional information provided by the authenticator.
+     * extra is any additional information provided by the authenticator.
      * +optional
      * </pre>
      *
@@ -6185,7 +6185,7 @@ public final class V1beta1Authentication {
     getExtra();
     /**
      * <pre>
-     * Any additional information provided by the authenticator.
+     * extra is any additional information provided by the authenticator.
      * +optional
      * </pre>
      *
@@ -6195,7 +6195,7 @@ public final class V1beta1Authentication {
     getExtraMap();
     /**
      * <pre>
-     * Any additional information provided by the authenticator.
+     * extra is any additional information provided by the authenticator.
      * +optional
      * </pre>
      *
@@ -6207,7 +6207,7 @@ public final class V1beta1Authentication {
         io.kubernetes.client.proto.V1beta1Authentication.ExtraValue defaultValue);
     /**
      * <pre>
-     * Any additional information provided by the authenticator.
+     * extra is any additional information provided by the authenticator.
      * +optional
      * </pre>
      *
@@ -6350,7 +6350,7 @@ public final class V1beta1Authentication {
     private volatile java.lang.Object username_;
     /**
      * <pre>
-     * The name that uniquely identifies this user among all active users.
+     * username is the name that uniquely identifies this user among all active users.
      * +optional
      * </pre>
      *
@@ -6361,7 +6361,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * The name that uniquely identifies this user among all active users.
+     * username is the name that uniquely identifies this user among all active users.
      * +optional
      * </pre>
      *
@@ -6383,7 +6383,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * The name that uniquely identifies this user among all active users.
+     * username is the name that uniquely identifies this user among all active users.
      * +optional
      * </pre>
      *
@@ -6407,7 +6407,7 @@ public final class V1beta1Authentication {
     private volatile java.lang.Object uid_;
     /**
      * <pre>
-     * A unique value that identifies this user across time. If this user is
+     * uid is a unique value that identifies this user across time. If this user is
      * deleted and another user by the same name is added, they will have
      * different UIDs.
      * +optional
@@ -6420,7 +6420,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * A unique value that identifies this user across time. If this user is
+     * uid is a unique value that identifies this user across time. If this user is
      * deleted and another user by the same name is added, they will have
      * different UIDs.
      * +optional
@@ -6444,7 +6444,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * A unique value that identifies this user across time. If this user is
+     * uid is a unique value that identifies this user across time. If this user is
      * deleted and another user by the same name is added, they will have
      * different UIDs.
      * +optional
@@ -6470,7 +6470,7 @@ public final class V1beta1Authentication {
     private com.google.protobuf.LazyStringList groups_;
     /**
      * <pre>
-     * The names of groups this user is a part of.
+     * groups is the names of groups this user is a part of.
      * +optional
      * +listType=atomic
      * </pre>
@@ -6483,7 +6483,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * The names of groups this user is a part of.
+     * groups is the names of groups this user is a part of.
      * +optional
      * +listType=atomic
      * </pre>
@@ -6495,7 +6495,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * The names of groups this user is a part of.
+     * groups is the names of groups this user is a part of.
      * +optional
      * +listType=atomic
      * </pre>
@@ -6507,7 +6507,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * The names of groups this user is a part of.
+     * groups is the names of groups this user is a part of.
      * +optional
      * +listType=atomic
      * </pre>
@@ -6547,7 +6547,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Any additional information provided by the authenticator.
+     * extra is any additional information provided by the authenticator.
      * +optional
      * </pre>
      *
@@ -6568,7 +6568,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Any additional information provided by the authenticator.
+     * extra is any additional information provided by the authenticator.
      * +optional
      * </pre>
      *
@@ -6580,7 +6580,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Any additional information provided by the authenticator.
+     * extra is any additional information provided by the authenticator.
      * +optional
      * </pre>
      *
@@ -6597,7 +6597,7 @@ public final class V1beta1Authentication {
     }
     /**
      * <pre>
-     * Any additional information provided by the authenticator.
+     * extra is any additional information provided by the authenticator.
      * +optional
      * </pre>
      *
@@ -7048,7 +7048,7 @@ public final class V1beta1Authentication {
       private java.lang.Object username_ = "";
       /**
        * <pre>
-       * The name that uniquely identifies this user among all active users.
+       * username is the name that uniquely identifies this user among all active users.
        * +optional
        * </pre>
        *
@@ -7059,7 +7059,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The name that uniquely identifies this user among all active users.
+       * username is the name that uniquely identifies this user among all active users.
        * +optional
        * </pre>
        *
@@ -7081,7 +7081,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The name that uniquely identifies this user among all active users.
+       * username is the name that uniquely identifies this user among all active users.
        * +optional
        * </pre>
        *
@@ -7102,7 +7102,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The name that uniquely identifies this user among all active users.
+       * username is the name that uniquely identifies this user among all active users.
        * +optional
        * </pre>
        *
@@ -7120,7 +7120,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The name that uniquely identifies this user among all active users.
+       * username is the name that uniquely identifies this user among all active users.
        * +optional
        * </pre>
        *
@@ -7134,7 +7134,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The name that uniquely identifies this user among all active users.
+       * username is the name that uniquely identifies this user among all active users.
        * +optional
        * </pre>
        *
@@ -7154,7 +7154,7 @@ public final class V1beta1Authentication {
       private java.lang.Object uid_ = "";
       /**
        * <pre>
-       * A unique value that identifies this user across time. If this user is
+       * uid is a unique value that identifies this user across time. If this user is
        * deleted and another user by the same name is added, they will have
        * different UIDs.
        * +optional
@@ -7167,7 +7167,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * A unique value that identifies this user across time. If this user is
+       * uid is a unique value that identifies this user across time. If this user is
        * deleted and another user by the same name is added, they will have
        * different UIDs.
        * +optional
@@ -7191,7 +7191,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * A unique value that identifies this user across time. If this user is
+       * uid is a unique value that identifies this user across time. If this user is
        * deleted and another user by the same name is added, they will have
        * different UIDs.
        * +optional
@@ -7214,7 +7214,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * A unique value that identifies this user across time. If this user is
+       * uid is a unique value that identifies this user across time. If this user is
        * deleted and another user by the same name is added, they will have
        * different UIDs.
        * +optional
@@ -7234,7 +7234,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * A unique value that identifies this user across time. If this user is
+       * uid is a unique value that identifies this user across time. If this user is
        * deleted and another user by the same name is added, they will have
        * different UIDs.
        * +optional
@@ -7250,7 +7250,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * A unique value that identifies this user across time. If this user is
+       * uid is a unique value that identifies this user across time. If this user is
        * deleted and another user by the same name is added, they will have
        * different UIDs.
        * +optional
@@ -7278,7 +7278,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The names of groups this user is a part of.
+       * groups is the names of groups this user is a part of.
        * +optional
        * +listType=atomic
        * </pre>
@@ -7291,7 +7291,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The names of groups this user is a part of.
+       * groups is the names of groups this user is a part of.
        * +optional
        * +listType=atomic
        * </pre>
@@ -7303,7 +7303,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The names of groups this user is a part of.
+       * groups is the names of groups this user is a part of.
        * +optional
        * +listType=atomic
        * </pre>
@@ -7315,7 +7315,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The names of groups this user is a part of.
+       * groups is the names of groups this user is a part of.
        * +optional
        * +listType=atomic
        * </pre>
@@ -7328,7 +7328,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The names of groups this user is a part of.
+       * groups is the names of groups this user is a part of.
        * +optional
        * +listType=atomic
        * </pre>
@@ -7347,7 +7347,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The names of groups this user is a part of.
+       * groups is the names of groups this user is a part of.
        * +optional
        * +listType=atomic
        * </pre>
@@ -7366,7 +7366,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The names of groups this user is a part of.
+       * groups is the names of groups this user is a part of.
        * +optional
        * +listType=atomic
        * </pre>
@@ -7383,7 +7383,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The names of groups this user is a part of.
+       * groups is the names of groups this user is a part of.
        * +optional
        * +listType=atomic
        * </pre>
@@ -7398,7 +7398,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * The names of groups this user is a part of.
+       * groups is the names of groups this user is a part of.
        * +optional
        * +listType=atomic
        * </pre>
@@ -7444,7 +7444,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Any additional information provided by the authenticator.
+       * extra is any additional information provided by the authenticator.
        * +optional
        * </pre>
        *
@@ -7465,7 +7465,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Any additional information provided by the authenticator.
+       * extra is any additional information provided by the authenticator.
        * +optional
        * </pre>
        *
@@ -7477,7 +7477,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Any additional information provided by the authenticator.
+       * extra is any additional information provided by the authenticator.
        * +optional
        * </pre>
        *
@@ -7494,7 +7494,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Any additional information provided by the authenticator.
+       * extra is any additional information provided by the authenticator.
        * +optional
        * </pre>
        *
@@ -7519,7 +7519,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Any additional information provided by the authenticator.
+       * extra is any additional information provided by the authenticator.
        * +optional
        * </pre>
        *
@@ -7543,7 +7543,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Any additional information provided by the authenticator.
+       * extra is any additional information provided by the authenticator.
        * +optional
        * </pre>
        *
@@ -7560,7 +7560,7 @@ public final class V1beta1Authentication {
       }
       /**
        * <pre>
-       * Any additional information provided by the authenticator.
+       * extra is any additional information provided by the authenticator.
        * +optional
        * </pre>
        *

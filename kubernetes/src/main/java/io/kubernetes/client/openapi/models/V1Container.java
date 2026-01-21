@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -63,7 +63,7 @@ import io.kubernetes.client.openapi.JSON;
  * A single application container that you want to run within a pod.
  */
 @ApiModel(description = "A single application container that you want to run within a pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1Container {
   public static final String SERIALIZED_NAME_ARGS = "args";
   @SerializedName(SERIALIZED_NAME_ARGS)
@@ -467,11 +467,11 @@ public class V1Container {
   }
 
   /**
-   * Resources resize policy for the container.
+   * Resources resize policy for the container. This field cannot be set on ephemeral containers.
    * @return resizePolicy
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Resources resize policy for the container.")
+  @ApiModelProperty(value = "Resources resize policy for the container. This field cannot be set on ephemeral containers.")
   public List<V1ContainerResizePolicy> getResizePolicy() {
     return resizePolicy;
   }
@@ -857,36 +857,10 @@ public class V1Container {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("args");
-    openapiFields.add("command");
-    openapiFields.add("env");
-    openapiFields.add("envFrom");
-    openapiFields.add("image");
-    openapiFields.add("imagePullPolicy");
-    openapiFields.add("lifecycle");
-    openapiFields.add("livenessProbe");
-    openapiFields.add("name");
-    openapiFields.add("ports");
-    openapiFields.add("readinessProbe");
-    openapiFields.add("resizePolicy");
-    openapiFields.add("resources");
-    openapiFields.add("restartPolicy");
-    openapiFields.add("restartPolicyRules");
-    openapiFields.add("securityContext");
-    openapiFields.add("startupProbe");
-    openapiFields.add("stdin");
-    openapiFields.add("stdinOnce");
-    openapiFields.add("terminationMessagePath");
-    openapiFields.add("terminationMessagePolicy");
-    openapiFields.add("tty");
-    openapiFields.add("volumeDevices");
-    openapiFields.add("volumeMounts");
-    openapiFields.add("workingDir");
+    openapiFields = new HashSet<String>(Arrays.asList("args", "command", "env", "envFrom", "image", "imagePullPolicy", "lifecycle", "livenessProbe", "name", "ports", "readinessProbe", "resizePolicy", "resources", "restartPolicy", "restartPolicyRules", "securityContext", "startupProbe", "stdin", "stdinOnce", "terminationMessagePath", "terminationMessagePolicy", "tty", "volumeDevices", "volumeMounts", "workingDir"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
   }
 
   /**
@@ -898,7 +872,7 @@ public class V1Container {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1Container.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Container is not found in the empty JSON string", V1Container.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1Container is not found in the empty JSON string", V1Container.openapiRequiredFields.toString()));
         }
       }
 
@@ -906,31 +880,31 @@ public class V1Container {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1Container.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Container` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1Container` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1Container.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("args") != null && !jsonObj.get("args").isJsonNull() && !jsonObj.get("args").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `args` to be an array in the JSON string but got `%s`", jsonObj.get("args").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `args` to be an array in the JSON string but got `%s`", jsonObj.get("args").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("command") != null && !jsonObj.get("command").isJsonNull() && !jsonObj.get("command").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `command` to be an array in the JSON string but got `%s`", jsonObj.get("command").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `command` to be an array in the JSON string but got `%s`", jsonObj.get("command").toString()));
       }
       if (jsonObj.get("env") != null && !jsonObj.get("env").isJsonNull()) {
         JsonArray jsonArrayenv = jsonObj.getAsJsonArray("env");
         if (jsonArrayenv != null) {
           // ensure the json data is an array
           if (!jsonObj.get("env").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `env` to be an array in the JSON string but got `%s`", jsonObj.get("env").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `env` to be an array in the JSON string but got `%s`", jsonObj.get("env").toString()));
           }
 
           // validate the optional field `env` (array)
@@ -944,7 +918,7 @@ public class V1Container {
         if (jsonArrayenvFrom != null) {
           // ensure the json data is an array
           if (!jsonObj.get("envFrom").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `envFrom` to be an array in the JSON string but got `%s`", jsonObj.get("envFrom").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `envFrom` to be an array in the JSON string but got `%s`", jsonObj.get("envFrom").toString()));
           }
 
           // validate the optional field `envFrom` (array)
@@ -954,10 +928,10 @@ public class V1Container {
         }
       }
       if ((jsonObj.get("image") != null && !jsonObj.get("image").isJsonNull()) && !jsonObj.get("image").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
       }
       if ((jsonObj.get("imagePullPolicy") != null && !jsonObj.get("imagePullPolicy").isJsonNull()) && !jsonObj.get("imagePullPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `imagePullPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imagePullPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `imagePullPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imagePullPolicy").toString()));
       }
       // validate the optional field `lifecycle`
       if (jsonObj.get("lifecycle") != null && !jsonObj.get("lifecycle").isJsonNull()) {
@@ -968,14 +942,14 @@ public class V1Container {
         V1Probe.validateJsonElement(jsonObj.get("livenessProbe"));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (jsonObj.get("ports") != null && !jsonObj.get("ports").isJsonNull()) {
         JsonArray jsonArrayports = jsonObj.getAsJsonArray("ports");
         if (jsonArrayports != null) {
           // ensure the json data is an array
           if (!jsonObj.get("ports").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `ports` to be an array in the JSON string but got `%s`", jsonObj.get("ports").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ports` to be an array in the JSON string but got `%s`", jsonObj.get("ports").toString()));
           }
 
           // validate the optional field `ports` (array)
@@ -993,7 +967,7 @@ public class V1Container {
         if (jsonArrayresizePolicy != null) {
           // ensure the json data is an array
           if (!jsonObj.get("resizePolicy").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `resizePolicy` to be an array in the JSON string but got `%s`", jsonObj.get("resizePolicy").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resizePolicy` to be an array in the JSON string but got `%s`", jsonObj.get("resizePolicy").toString()));
           }
 
           // validate the optional field `resizePolicy` (array)
@@ -1007,14 +981,14 @@ public class V1Container {
         V1ResourceRequirements.validateJsonElement(jsonObj.get("resources"));
       }
       if ((jsonObj.get("restartPolicy") != null && !jsonObj.get("restartPolicy").isJsonNull()) && !jsonObj.get("restartPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `restartPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("restartPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `restartPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("restartPolicy").toString()));
       }
       if (jsonObj.get("restartPolicyRules") != null && !jsonObj.get("restartPolicyRules").isJsonNull()) {
         JsonArray jsonArrayrestartPolicyRules = jsonObj.getAsJsonArray("restartPolicyRules");
         if (jsonArrayrestartPolicyRules != null) {
           // ensure the json data is an array
           if (!jsonObj.get("restartPolicyRules").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `restartPolicyRules` to be an array in the JSON string but got `%s`", jsonObj.get("restartPolicyRules").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `restartPolicyRules` to be an array in the JSON string but got `%s`", jsonObj.get("restartPolicyRules").toString()));
           }
 
           // validate the optional field `restartPolicyRules` (array)
@@ -1032,17 +1006,17 @@ public class V1Container {
         V1Probe.validateJsonElement(jsonObj.get("startupProbe"));
       }
       if ((jsonObj.get("terminationMessagePath") != null && !jsonObj.get("terminationMessagePath").isJsonNull()) && !jsonObj.get("terminationMessagePath").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `terminationMessagePath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminationMessagePath").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `terminationMessagePath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminationMessagePath").toString()));
       }
       if ((jsonObj.get("terminationMessagePolicy") != null && !jsonObj.get("terminationMessagePolicy").isJsonNull()) && !jsonObj.get("terminationMessagePolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `terminationMessagePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminationMessagePolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `terminationMessagePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminationMessagePolicy").toString()));
       }
       if (jsonObj.get("volumeDevices") != null && !jsonObj.get("volumeDevices").isJsonNull()) {
         JsonArray jsonArrayvolumeDevices = jsonObj.getAsJsonArray("volumeDevices");
         if (jsonArrayvolumeDevices != null) {
           // ensure the json data is an array
           if (!jsonObj.get("volumeDevices").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `volumeDevices` to be an array in the JSON string but got `%s`", jsonObj.get("volumeDevices").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `volumeDevices` to be an array in the JSON string but got `%s`", jsonObj.get("volumeDevices").toString()));
           }
 
           // validate the optional field `volumeDevices` (array)
@@ -1056,7 +1030,7 @@ public class V1Container {
         if (jsonArrayvolumeMounts != null) {
           // ensure the json data is an array
           if (!jsonObj.get("volumeMounts").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `volumeMounts` to be an array in the JSON string but got `%s`", jsonObj.get("volumeMounts").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `volumeMounts` to be an array in the JSON string but got `%s`", jsonObj.get("volumeMounts").toString()));
           }
 
           // validate the optional field `volumeMounts` (array)
@@ -1066,7 +1040,7 @@ public class V1Container {
         }
       }
       if ((jsonObj.get("workingDir") != null && !jsonObj.get("workingDir").isJsonNull()) && !jsonObj.get("workingDir").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `workingDir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workingDir").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `workingDir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("workingDir").toString()));
       }
   }
 

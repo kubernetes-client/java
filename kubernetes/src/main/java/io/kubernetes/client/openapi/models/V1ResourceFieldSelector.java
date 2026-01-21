@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceFieldSelector represents container resources (cpu, memory) and their output format
  */
 @ApiModel(description = "ResourceFieldSelector represents container resources (cpu, memory) and their output format")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ResourceFieldSelector {
   public static final String SERIALIZED_NAME_CONTAINER_NAME = "containerName";
   @SerializedName(SERIALIZED_NAME_CONTAINER_NAME)
@@ -179,14 +179,10 @@ public class V1ResourceFieldSelector {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("containerName");
-    openapiFields.add("divisor");
-    openapiFields.add("resource");
+    openapiFields = new HashSet<String>(Arrays.asList("containerName", "divisor", "resource"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("resource");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("resource"));
   }
 
   /**
@@ -198,7 +194,7 @@ public class V1ResourceFieldSelector {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ResourceFieldSelector.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ResourceFieldSelector is not found in the empty JSON string", V1ResourceFieldSelector.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1ResourceFieldSelector is not found in the empty JSON string", V1ResourceFieldSelector.openapiRequiredFields.toString()));
         }
       }
 
@@ -206,25 +202,25 @@ public class V1ResourceFieldSelector {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ResourceFieldSelector.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ResourceFieldSelector` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1ResourceFieldSelector` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1ResourceFieldSelector.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("containerName") != null && !jsonObj.get("containerName").isJsonNull()) && !jsonObj.get("containerName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `containerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `containerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerName").toString()));
       }
       if ((jsonObj.get("divisor") != null && !jsonObj.get("divisor").isJsonNull()) && !jsonObj.get("divisor").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `divisor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("divisor").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `divisor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("divisor").toString()));
       }
       if (!jsonObj.get("resource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource").toString()));
       }
   }
 

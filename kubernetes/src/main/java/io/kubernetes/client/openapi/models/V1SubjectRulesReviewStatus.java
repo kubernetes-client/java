@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * SubjectRulesReviewStatus contains the result of a rules check. This check can be incomplete depending on the set of authorizers the server is configured with and any errors experienced during evaluation. Because authorization rules are additive, if a rule appears in a list it&#39;s safe to assume the subject has that permission, even if that list is incomplete.
  */
 @ApiModel(description = "SubjectRulesReviewStatus contains the result of a rules check. This check can be incomplete depending on the set of authorizers the server is configured with and any errors experienced during evaluation. Because authorization rules are additive, if a rule appears in a list it's safe to assume the subject has that permission, even if that list is incomplete.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1SubjectRulesReviewStatus {
   public static final String SERIALIZED_NAME_EVALUATION_ERROR = "evaluationError";
   @SerializedName(SERIALIZED_NAME_EVALUATION_ERROR)
@@ -225,17 +225,10 @@ public class V1SubjectRulesReviewStatus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("evaluationError");
-    openapiFields.add("incomplete");
-    openapiFields.add("nonResourceRules");
-    openapiFields.add("resourceRules");
+    openapiFields = new HashSet<String>(Arrays.asList("evaluationError", "incomplete", "nonResourceRules", "resourceRules"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("incomplete");
-    openapiRequiredFields.add("nonResourceRules");
-    openapiRequiredFields.add("resourceRules");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("incomplete", "nonResourceRules", "resourceRules"));
   }
 
   /**
@@ -247,7 +240,7 @@ public class V1SubjectRulesReviewStatus {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1SubjectRulesReviewStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1SubjectRulesReviewStatus is not found in the empty JSON string", V1SubjectRulesReviewStatus.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1SubjectRulesReviewStatus is not found in the empty JSON string", V1SubjectRulesReviewStatus.openapiRequiredFields.toString()));
         }
       }
 
@@ -255,23 +248,23 @@ public class V1SubjectRulesReviewStatus {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1SubjectRulesReviewStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SubjectRulesReviewStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1SubjectRulesReviewStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1SubjectRulesReviewStatus.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("evaluationError") != null && !jsonObj.get("evaluationError").isJsonNull()) && !jsonObj.get("evaluationError").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `evaluationError` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationError").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evaluationError` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evaluationError").toString()));
       }
       // ensure the json data is an array
       if (!jsonObj.get("nonResourceRules").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nonResourceRules` to be an array in the JSON string but got `%s`", jsonObj.get("nonResourceRules").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `nonResourceRules` to be an array in the JSON string but got `%s`", jsonObj.get("nonResourceRules").toString()));
       }
 
       JsonArray jsonArraynonResourceRules = jsonObj.getAsJsonArray("nonResourceRules");
@@ -281,7 +274,7 @@ public class V1SubjectRulesReviewStatus {
       };
       // ensure the json data is an array
       if (!jsonObj.get("resourceRules").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resourceRules` to be an array in the JSON string but got `%s`", jsonObj.get("resourceRules").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resourceRules` to be an array in the JSON string but got `%s`", jsonObj.get("resourceRules").toString()));
       }
 
       JsonArray jsonArrayresourceRules = jsonObj.getAsJsonArray("resourceRules");

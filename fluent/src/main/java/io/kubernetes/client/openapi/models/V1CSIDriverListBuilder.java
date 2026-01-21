@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1CSIDriverListBuilder extends V1CSIDriverListFluent<V1CSIDriverListBuilder> implements VisitableBuilder<V1CSIDriverList,V1CSIDriverListBuilder>{
+
+  V1CSIDriverListFluent<?> fluent;
+
   public V1CSIDriverListBuilder() {
     this(new V1CSIDriverList());
   }
@@ -11,17 +14,16 @@ public class V1CSIDriverListBuilder extends V1CSIDriverListFluent<V1CSIDriverLis
     this(fluent, new V1CSIDriverList());
   }
   
-  public V1CSIDriverListBuilder(V1CSIDriverListFluent<?> fluent,V1CSIDriverList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1CSIDriverListBuilder(V1CSIDriverList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1CSIDriverListFluent<?> fluent;
   
+  public V1CSIDriverListBuilder(V1CSIDriverListFluent<?> fluent,V1CSIDriverList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1CSIDriverList build() {
     V1CSIDriverList buildable = new V1CSIDriverList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1CSIDriverListBuilder extends V1CSIDriverListFluent<V1CSIDriverLis
     return buildable;
   }
   
-
 }

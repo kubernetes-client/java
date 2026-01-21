@@ -1,27 +1,29 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1StatusCauseFluent<A extends io.kubernetes.client.openapi.models.V1StatusCauseFluent<A>> extends BaseFluent<A>{
+
+  private String field;
+  private String message;
+  private String reason;
+
   public V1StatusCauseFluent() {
   }
   
   public V1StatusCauseFluent(V1StatusCause instance) {
     this.copyInstance(instance);
   }
-  private String field;
-  private String message;
-  private String reason;
-  
+
   protected void copyInstance(V1StatusCause instance) {
     instance = instance != null ? instance : new V1StatusCause();
     if (instance != null) {
@@ -29,45 +31,6 @@ public class V1StatusCauseFluent<A extends io.kubernetes.client.openapi.models.V
         this.withMessage(instance.getMessage());
         this.withReason(instance.getReason());
     }
-  }
-  
-  public String getField() {
-    return this.field;
-  }
-  
-  public A withField(String field) {
-    this.field = field;
-    return (A) this;
-  }
-  
-  public boolean hasField() {
-    return this.field != null;
-  }
-  
-  public String getMessage() {
-    return this.message;
-  }
-  
-  public A withMessage(String message) {
-    this.message = message;
-    return (A) this;
-  }
-  
-  public boolean hasMessage() {
-    return this.message != null;
-  }
-  
-  public String getReason() {
-    return this.reason;
-  }
-  
-  public A withReason(String reason) {
-    this.reason = reason;
-    return (A) this;
-  }
-  
-  public boolean hasReason() {
-    return this.reason != null;
   }
   
   public boolean equals(Object o) {
@@ -91,6 +54,30 @@ public class V1StatusCauseFluent<A extends io.kubernetes.client.openapi.models.V
       return false;
     }
     return true;
+  }
+  
+  public String getField() {
+    return this.field;
+  }
+  
+  public String getMessage() {
+    return this.message;
+  }
+  
+  public String getReason() {
+    return this.reason;
+  }
+  
+  public boolean hasField() {
+    return this.field != null;
+  }
+  
+  public boolean hasMessage() {
+    return this.message != null;
+  }
+  
+  public boolean hasReason() {
+    return this.reason != null;
   }
   
   public int hashCode() {
@@ -118,5 +105,19 @@ public class V1StatusCauseFluent<A extends io.kubernetes.client.openapi.models.V
     return sb.toString();
   }
   
-
+  public A withField(String field) {
+    this.field = field;
+    return (A) this;
+  }
+  
+  public A withMessage(String message) {
+    this.message = message;
+    return (A) this;
+  }
+  
+  public A withReason(String reason) {
+    this.reason = reason;
+    return (A) this;
+  }
+  
 }

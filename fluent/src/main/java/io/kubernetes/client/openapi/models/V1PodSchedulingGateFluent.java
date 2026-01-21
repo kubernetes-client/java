@@ -1,43 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1PodSchedulingGateFluent<A extends io.kubernetes.client.openapi.models.V1PodSchedulingGateFluent<A>> extends BaseFluent<A>{
+
+  private String name;
+
   public V1PodSchedulingGateFluent() {
   }
   
   public V1PodSchedulingGateFluent(V1PodSchedulingGate instance) {
     this.copyInstance(instance);
   }
-  private String name;
-  
+
   protected void copyInstance(V1PodSchedulingGate instance) {
     instance = instance != null ? instance : new V1PodSchedulingGate();
     if (instance != null) {
       this.withName(instance.getName());
     }
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
   }
   
   public boolean equals(Object o) {
@@ -57,6 +46,14 @@ public class V1PodSchedulingGateFluent<A extends io.kubernetes.client.openapi.mo
     return true;
   }
   
+  public String getName() {
+    return this.name;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(name);
   }
@@ -72,5 +69,9 @@ public class V1PodSchedulingGateFluent<A extends io.kubernetes.client.openapi.mo
     return sb.toString();
   }
   
-
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
 }

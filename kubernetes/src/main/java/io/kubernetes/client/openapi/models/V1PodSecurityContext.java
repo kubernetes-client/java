@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -57,7 +57,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.
  */
 @ApiModel(description = "PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PodSecurityContext {
   public static final String SERIALIZED_NAME_APP_ARMOR_PROFILE = "appArmorProfile";
   @SerializedName(SERIALIZED_NAME_APP_ARMOR_PROFILE)
@@ -471,23 +471,10 @@ public class V1PodSecurityContext {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("appArmorProfile");
-    openapiFields.add("fsGroup");
-    openapiFields.add("fsGroupChangePolicy");
-    openapiFields.add("runAsGroup");
-    openapiFields.add("runAsNonRoot");
-    openapiFields.add("runAsUser");
-    openapiFields.add("seLinuxChangePolicy");
-    openapiFields.add("seLinuxOptions");
-    openapiFields.add("seccompProfile");
-    openapiFields.add("supplementalGroups");
-    openapiFields.add("supplementalGroupsPolicy");
-    openapiFields.add("sysctls");
-    openapiFields.add("windowsOptions");
+    openapiFields = new HashSet<String>(Arrays.asList("appArmorProfile", "fsGroup", "fsGroupChangePolicy", "runAsGroup", "runAsNonRoot", "runAsUser", "seLinuxChangePolicy", "seLinuxOptions", "seccompProfile", "supplementalGroups", "supplementalGroupsPolicy", "sysctls", "windowsOptions"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -499,7 +486,7 @@ public class V1PodSecurityContext {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodSecurityContext.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodSecurityContext is not found in the empty JSON string", V1PodSecurityContext.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1PodSecurityContext is not found in the empty JSON string", V1PodSecurityContext.openapiRequiredFields.toString()));
         }
       }
 
@@ -507,7 +494,7 @@ public class V1PodSecurityContext {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodSecurityContext.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodSecurityContext` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PodSecurityContext` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -516,10 +503,10 @@ public class V1PodSecurityContext {
         V1AppArmorProfile.validateJsonElement(jsonObj.get("appArmorProfile"));
       }
       if ((jsonObj.get("fsGroupChangePolicy") != null && !jsonObj.get("fsGroupChangePolicy").isJsonNull()) && !jsonObj.get("fsGroupChangePolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fsGroupChangePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsGroupChangePolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `fsGroupChangePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsGroupChangePolicy").toString()));
       }
       if ((jsonObj.get("seLinuxChangePolicy") != null && !jsonObj.get("seLinuxChangePolicy").isJsonNull()) && !jsonObj.get("seLinuxChangePolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `seLinuxChangePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("seLinuxChangePolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `seLinuxChangePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("seLinuxChangePolicy").toString()));
       }
       // validate the optional field `seLinuxOptions`
       if (jsonObj.get("seLinuxOptions") != null && !jsonObj.get("seLinuxOptions").isJsonNull()) {
@@ -531,17 +518,17 @@ public class V1PodSecurityContext {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("supplementalGroups") != null && !jsonObj.get("supplementalGroups").isJsonNull() && !jsonObj.get("supplementalGroups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `supplementalGroups` to be an array in the JSON string but got `%s`", jsonObj.get("supplementalGroups").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `supplementalGroups` to be an array in the JSON string but got `%s`", jsonObj.get("supplementalGroups").toString()));
       }
       if ((jsonObj.get("supplementalGroupsPolicy") != null && !jsonObj.get("supplementalGroupsPolicy").isJsonNull()) && !jsonObj.get("supplementalGroupsPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `supplementalGroupsPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplementalGroupsPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `supplementalGroupsPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplementalGroupsPolicy").toString()));
       }
       if (jsonObj.get("sysctls") != null && !jsonObj.get("sysctls").isJsonNull()) {
         JsonArray jsonArraysysctls = jsonObj.getAsJsonArray("sysctls");
         if (jsonArraysysctls != null) {
           // ensure the json data is an array
           if (!jsonObj.get("sysctls").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `sysctls` to be an array in the JSON string but got `%s`", jsonObj.get("sysctls").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sysctls` to be an array in the JSON string but got `%s`", jsonObj.get("sysctls").toString()));
           }
 
           // validate the optional field `sysctls` (array)

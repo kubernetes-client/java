@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PersistentVolumeStatusBuilder extends V1PersistentVolumeStatusFluent<V1PersistentVolumeStatusBuilder> implements VisitableBuilder<V1PersistentVolumeStatus,V1PersistentVolumeStatusBuilder>{
+
+  V1PersistentVolumeStatusFluent<?> fluent;
+
   public V1PersistentVolumeStatusBuilder() {
     this(new V1PersistentVolumeStatus());
   }
@@ -11,17 +14,16 @@ public class V1PersistentVolumeStatusBuilder extends V1PersistentVolumeStatusFlu
     this(fluent, new V1PersistentVolumeStatus());
   }
   
-  public V1PersistentVolumeStatusBuilder(V1PersistentVolumeStatusFluent<?> fluent,V1PersistentVolumeStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PersistentVolumeStatusBuilder(V1PersistentVolumeStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PersistentVolumeStatusFluent<?> fluent;
   
+  public V1PersistentVolumeStatusBuilder(V1PersistentVolumeStatusFluent<?> fluent,V1PersistentVolumeStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PersistentVolumeStatus build() {
     V1PersistentVolumeStatus buildable = new V1PersistentVolumeStatus();
     buildable.setLastPhaseTransitionTime(fluent.getLastPhaseTransitionTime());
@@ -31,5 +33,4 @@ public class V1PersistentVolumeStatusBuilder extends V1PersistentVolumeStatusFlu
     return buildable;
   }
   
-
 }

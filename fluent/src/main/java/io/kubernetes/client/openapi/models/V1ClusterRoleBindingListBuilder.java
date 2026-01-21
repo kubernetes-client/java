@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ClusterRoleBindingListBuilder extends V1ClusterRoleBindingListFluent<V1ClusterRoleBindingListBuilder> implements VisitableBuilder<V1ClusterRoleBindingList,V1ClusterRoleBindingListBuilder>{
+
+  V1ClusterRoleBindingListFluent<?> fluent;
+
   public V1ClusterRoleBindingListBuilder() {
     this(new V1ClusterRoleBindingList());
   }
@@ -11,17 +14,16 @@ public class V1ClusterRoleBindingListBuilder extends V1ClusterRoleBindingListFlu
     this(fluent, new V1ClusterRoleBindingList());
   }
   
-  public V1ClusterRoleBindingListBuilder(V1ClusterRoleBindingListFluent<?> fluent,V1ClusterRoleBindingList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ClusterRoleBindingListBuilder(V1ClusterRoleBindingList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ClusterRoleBindingListFluent<?> fluent;
   
+  public V1ClusterRoleBindingListBuilder(V1ClusterRoleBindingListFluent<?> fluent,V1ClusterRoleBindingList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ClusterRoleBindingList build() {
     V1ClusterRoleBindingList buildable = new V1ClusterRoleBindingList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1ClusterRoleBindingListBuilder extends V1ClusterRoleBindingListFlu
     return buildable;
   }
   
-
 }

@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * CSIDriverSpec is the specification of a CSIDriver.
  */
 @ApiModel(description = "CSIDriverSpec is the specification of a CSIDriver.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1CSIDriverSpec {
   public static final String SERIALIZED_NAME_ATTACH_REQUIRED = "attachRequired";
   @SerializedName(SERIALIZED_NAME_ATTACH_REQUIRED)
@@ -84,6 +84,11 @@ public class V1CSIDriverSpec {
   @SerializedName(SERIALIZED_NAME_SE_LINUX_MOUNT)
   @jakarta.annotation.Nullable
   private Boolean seLinuxMount;
+
+  public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_TOKEN_IN_SECRETS = "serviceAccountTokenInSecrets";
+  @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_TOKEN_IN_SECRETS)
+  @jakarta.annotation.Nullable
+  private Boolean serviceAccountTokenInSecrets;
 
   public static final String SERIALIZED_NAME_STORAGE_CAPACITY = "storageCapacity";
   @SerializedName(SERIALIZED_NAME_STORAGE_CAPACITY)
@@ -223,6 +228,26 @@ public class V1CSIDriverSpec {
   }
 
 
+  public V1CSIDriverSpec serviceAccountTokenInSecrets(@jakarta.annotation.Nullable Boolean serviceAccountTokenInSecrets) {
+    this.serviceAccountTokenInSecrets = serviceAccountTokenInSecrets;
+    return this;
+  }
+
+  /**
+   * serviceAccountTokenInSecrets is an opt-in for CSI drivers to indicate that service account tokens should be passed via the Secrets field in NodePublishVolumeRequest instead of the VolumeContext field. The CSI specification provides a dedicated Secrets field for sensitive information like tokens, which is the appropriate mechanism for handling credentials. This addresses security concerns where sensitive tokens were being logged as part of volume context.  When \&quot;true\&quot;, kubelet will pass the tokens only in the Secrets field with the key \&quot;csi.storage.k8s.io/serviceAccount.tokens\&quot;. The CSI driver must be updated to read tokens from the Secrets field instead of VolumeContext.  When \&quot;false\&quot; or not set, kubelet will pass the tokens in VolumeContext with the key \&quot;csi.storage.k8s.io/serviceAccount.tokens\&quot; (existing behavior). This maintains backward compatibility with existing CSI drivers.  This field can only be set when TokenRequests is configured. The API server will reject CSIDriver specs that set this field without TokenRequests.  Default behavior if unset is to pass tokens in the VolumeContext field.
+   * @return serviceAccountTokenInSecrets
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "serviceAccountTokenInSecrets is an opt-in for CSI drivers to indicate that service account tokens should be passed via the Secrets field in NodePublishVolumeRequest instead of the VolumeContext field. The CSI specification provides a dedicated Secrets field for sensitive information like tokens, which is the appropriate mechanism for handling credentials. This addresses security concerns where sensitive tokens were being logged as part of volume context.  When \"true\", kubelet will pass the tokens only in the Secrets field with the key \"csi.storage.k8s.io/serviceAccount.tokens\". The CSI driver must be updated to read tokens from the Secrets field instead of VolumeContext.  When \"false\" or not set, kubelet will pass the tokens in VolumeContext with the key \"csi.storage.k8s.io/serviceAccount.tokens\" (existing behavior). This maintains backward compatibility with existing CSI drivers.  This field can only be set when TokenRequests is configured. The API server will reject CSIDriver specs that set this field without TokenRequests.  Default behavior if unset is to pass tokens in the VolumeContext field.")
+  public Boolean getServiceAccountTokenInSecrets() {
+    return serviceAccountTokenInSecrets;
+  }
+
+  public void setServiceAccountTokenInSecrets(@jakarta.annotation.Nullable Boolean serviceAccountTokenInSecrets) {
+    this.serviceAccountTokenInSecrets = serviceAccountTokenInSecrets;
+  }
+
+
   public V1CSIDriverSpec storageCapacity(@jakarta.annotation.Nullable Boolean storageCapacity) {
     this.storageCapacity = storageCapacity;
     return this;
@@ -315,6 +340,7 @@ public class V1CSIDriverSpec {
         Objects.equals(this.podInfoOnMount, v1CSIDriverSpec.podInfoOnMount) &&
         Objects.equals(this.requiresRepublish, v1CSIDriverSpec.requiresRepublish) &&
         Objects.equals(this.seLinuxMount, v1CSIDriverSpec.seLinuxMount) &&
+        Objects.equals(this.serviceAccountTokenInSecrets, v1CSIDriverSpec.serviceAccountTokenInSecrets) &&
         Objects.equals(this.storageCapacity, v1CSIDriverSpec.storageCapacity) &&
         Objects.equals(this.tokenRequests, v1CSIDriverSpec.tokenRequests) &&
         Objects.equals(this.volumeLifecycleModes, v1CSIDriverSpec.volumeLifecycleModes);
@@ -322,7 +348,7 @@ public class V1CSIDriverSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachRequired, fsGroupPolicy, nodeAllocatableUpdatePeriodSeconds, podInfoOnMount, requiresRepublish, seLinuxMount, storageCapacity, tokenRequests, volumeLifecycleModes);
+    return Objects.hash(attachRequired, fsGroupPolicy, nodeAllocatableUpdatePeriodSeconds, podInfoOnMount, requiresRepublish, seLinuxMount, serviceAccountTokenInSecrets, storageCapacity, tokenRequests, volumeLifecycleModes);
   }
 
   @Override
@@ -335,6 +361,7 @@ public class V1CSIDriverSpec {
     sb.append("    podInfoOnMount: ").append(toIndentedString(podInfoOnMount)).append("\n");
     sb.append("    requiresRepublish: ").append(toIndentedString(requiresRepublish)).append("\n");
     sb.append("    seLinuxMount: ").append(toIndentedString(seLinuxMount)).append("\n");
+    sb.append("    serviceAccountTokenInSecrets: ").append(toIndentedString(serviceAccountTokenInSecrets)).append("\n");
     sb.append("    storageCapacity: ").append(toIndentedString(storageCapacity)).append("\n");
     sb.append("    tokenRequests: ").append(toIndentedString(tokenRequests)).append("\n");
     sb.append("    volumeLifecycleModes: ").append(toIndentedString(volumeLifecycleModes)).append("\n");
@@ -359,19 +386,10 @@ public class V1CSIDriverSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("attachRequired");
-    openapiFields.add("fsGroupPolicy");
-    openapiFields.add("nodeAllocatableUpdatePeriodSeconds");
-    openapiFields.add("podInfoOnMount");
-    openapiFields.add("requiresRepublish");
-    openapiFields.add("seLinuxMount");
-    openapiFields.add("storageCapacity");
-    openapiFields.add("tokenRequests");
-    openapiFields.add("volumeLifecycleModes");
+    openapiFields = new HashSet<String>(Arrays.asList("attachRequired", "fsGroupPolicy", "nodeAllocatableUpdatePeriodSeconds", "podInfoOnMount", "requiresRepublish", "seLinuxMount", "serviceAccountTokenInSecrets", "storageCapacity", "tokenRequests", "volumeLifecycleModes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -383,7 +401,7 @@ public class V1CSIDriverSpec {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1CSIDriverSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1CSIDriverSpec is not found in the empty JSON string", V1CSIDriverSpec.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1CSIDriverSpec is not found in the empty JSON string", V1CSIDriverSpec.openapiRequiredFields.toString()));
         }
       }
 
@@ -391,19 +409,19 @@ public class V1CSIDriverSpec {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1CSIDriverSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CSIDriverSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1CSIDriverSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("fsGroupPolicy") != null && !jsonObj.get("fsGroupPolicy").isJsonNull()) && !jsonObj.get("fsGroupPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fsGroupPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsGroupPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `fsGroupPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsGroupPolicy").toString()));
       }
       if (jsonObj.get("tokenRequests") != null && !jsonObj.get("tokenRequests").isJsonNull()) {
         JsonArray jsonArraytokenRequests = jsonObj.getAsJsonArray("tokenRequests");
         if (jsonArraytokenRequests != null) {
           // ensure the json data is an array
           if (!jsonObj.get("tokenRequests").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `tokenRequests` to be an array in the JSON string but got `%s`", jsonObj.get("tokenRequests").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tokenRequests` to be an array in the JSON string but got `%s`", jsonObj.get("tokenRequests").toString()));
           }
 
           // validate the optional field `tokenRequests` (array)
@@ -414,7 +432,7 @@ public class V1CSIDriverSpec {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("volumeLifecycleModes") != null && !jsonObj.get("volumeLifecycleModes").isJsonNull() && !jsonObj.get("volumeLifecycleModes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `volumeLifecycleModes` to be an array in the JSON string but got `%s`", jsonObj.get("volumeLifecycleModes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `volumeLifecycleModes` to be an array in the JSON string but got `%s`", jsonObj.get("volumeLifecycleModes").toString()));
       }
   }
 

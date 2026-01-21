@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ValidatingWebhookConfigurationListBuilder extends V1ValidatingWebhookConfigurationListFluent<V1ValidatingWebhookConfigurationListBuilder> implements VisitableBuilder<V1ValidatingWebhookConfigurationList,V1ValidatingWebhookConfigurationListBuilder>{
+
+  V1ValidatingWebhookConfigurationListFluent<?> fluent;
+
   public V1ValidatingWebhookConfigurationListBuilder() {
     this(new V1ValidatingWebhookConfigurationList());
   }
@@ -11,17 +14,16 @@ public class V1ValidatingWebhookConfigurationListBuilder extends V1ValidatingWeb
     this(fluent, new V1ValidatingWebhookConfigurationList());
   }
   
-  public V1ValidatingWebhookConfigurationListBuilder(V1ValidatingWebhookConfigurationListFluent<?> fluent,V1ValidatingWebhookConfigurationList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ValidatingWebhookConfigurationListBuilder(V1ValidatingWebhookConfigurationList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ValidatingWebhookConfigurationListFluent<?> fluent;
   
+  public V1ValidatingWebhookConfigurationListBuilder(V1ValidatingWebhookConfigurationListFluent<?> fluent,V1ValidatingWebhookConfigurationList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ValidatingWebhookConfigurationList build() {
     V1ValidatingWebhookConfigurationList buildable = new V1ValidatingWebhookConfigurationList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1ValidatingWebhookConfigurationListBuilder extends V1ValidatingWeb
     return buildable;
   }
   
-
 }

@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -34,6 +34,7 @@ import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1Toleration;
 import io.kubernetes.client.openapi.models.V1TopologySpreadConstraint;
 import io.kubernetes.client.openapi.models.V1Volume;
+import io.kubernetes.client.openapi.models.V1WorkloadReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -70,7 +71,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodSpec is a description of a pod.
  */
 @ApiModel(description = "PodSpec is a description of a pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS)
@@ -276,6 +277,11 @@ public class V1PodSpec {
   @SerializedName(SERIALIZED_NAME_VOLUMES)
   @jakarta.annotation.Nullable
   private List<V1Volume> volumes = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_WORKLOAD_REF = "workloadRef";
+  @SerializedName(SERIALIZED_NAME_WORKLOAD_REF)
+  @jakarta.annotation.Nullable
+  private V1WorkloadReference workloadRef;
 
   public V1PodSpec() {
   }
@@ -858,11 +864,11 @@ public class V1PodSpec {
   }
 
   /**
-   * ResourceClaims defines which ResourceClaims must be allocated and reserved before the Pod is allowed to start. The resources will be made available to those containers which consume them by name.  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.  This field is immutable.
+   * ResourceClaims defines which ResourceClaims must be allocated and reserved before the Pod is allowed to start. The resources will be made available to those containers which consume them by name.  This is a stable field but requires that the DynamicResourceAllocation feature gate is enabled.  This field is immutable.
    * @return resourceClaims
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "ResourceClaims defines which ResourceClaims must be allocated and reserved before the Pod is allowed to start. The resources will be made available to those containers which consume them by name.  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.  This field is immutable.")
+  @ApiModelProperty(value = "ResourceClaims defines which ResourceClaims must be allocated and reserved before the Pod is allowed to start. The resources will be made available to those containers which consume them by name.  This is a stable field but requires that the DynamicResourceAllocation feature gate is enabled.  This field is immutable.")
   public List<V1PodResourceClaim> getResourceClaims() {
     return resourceClaims;
   }
@@ -1204,6 +1210,26 @@ public class V1PodSpec {
   }
 
 
+  public V1PodSpec workloadRef(@jakarta.annotation.Nullable V1WorkloadReference workloadRef) {
+    this.workloadRef = workloadRef;
+    return this;
+  }
+
+  /**
+   * Get workloadRef
+   * @return workloadRef
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1WorkloadReference getWorkloadRef() {
+    return workloadRef;
+  }
+
+  public void setWorkloadRef(@jakarta.annotation.Nullable V1WorkloadReference workloadRef) {
+    this.workloadRef = workloadRef;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1254,12 +1280,13 @@ public class V1PodSpec {
         Objects.equals(this.terminationGracePeriodSeconds, v1PodSpec.terminationGracePeriodSeconds) &&
         Objects.equals(this.tolerations, v1PodSpec.tolerations) &&
         Objects.equals(this.topologySpreadConstraints, v1PodSpec.topologySpreadConstraints) &&
-        Objects.equals(this.volumes, v1PodSpec.volumes);
+        Objects.equals(this.volumes, v1PodSpec.volumes) &&
+        Objects.equals(this.workloadRef, v1PodSpec.workloadRef);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDeadlineSeconds, affinity, automountServiceAccountToken, containers, dnsConfig, dnsPolicy, enableServiceLinks, ephemeralContainers, hostAliases, hostIPC, hostNetwork, hostPID, hostUsers, hostname, hostnameOverride, imagePullSecrets, initContainers, nodeName, nodeSelector, os, overhead, preemptionPolicy, priority, priorityClassName, readinessGates, resourceClaims, resources, restartPolicy, runtimeClassName, schedulerName, schedulingGates, securityContext, serviceAccount, serviceAccountName, setHostnameAsFQDN, shareProcessNamespace, subdomain, terminationGracePeriodSeconds, tolerations, topologySpreadConstraints, volumes);
+    return Objects.hash(activeDeadlineSeconds, affinity, automountServiceAccountToken, containers, dnsConfig, dnsPolicy, enableServiceLinks, ephemeralContainers, hostAliases, hostIPC, hostNetwork, hostPID, hostUsers, hostname, hostnameOverride, imagePullSecrets, initContainers, nodeName, nodeSelector, os, overhead, preemptionPolicy, priority, priorityClassName, readinessGates, resourceClaims, resources, restartPolicy, runtimeClassName, schedulerName, schedulingGates, securityContext, serviceAccount, serviceAccountName, setHostnameAsFQDN, shareProcessNamespace, subdomain, terminationGracePeriodSeconds, tolerations, topologySpreadConstraints, volumes, workloadRef);
   }
 
   @Override
@@ -1307,6 +1334,7 @@ public class V1PodSpec {
     sb.append("    tolerations: ").append(toIndentedString(tolerations)).append("\n");
     sb.append("    topologySpreadConstraints: ").append(toIndentedString(topologySpreadConstraints)).append("\n");
     sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");
+    sb.append("    workloadRef: ").append(toIndentedString(workloadRef)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1328,52 +1356,10 @@ public class V1PodSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("activeDeadlineSeconds");
-    openapiFields.add("affinity");
-    openapiFields.add("automountServiceAccountToken");
-    openapiFields.add("containers");
-    openapiFields.add("dnsConfig");
-    openapiFields.add("dnsPolicy");
-    openapiFields.add("enableServiceLinks");
-    openapiFields.add("ephemeralContainers");
-    openapiFields.add("hostAliases");
-    openapiFields.add("hostIPC");
-    openapiFields.add("hostNetwork");
-    openapiFields.add("hostPID");
-    openapiFields.add("hostUsers");
-    openapiFields.add("hostname");
-    openapiFields.add("hostnameOverride");
-    openapiFields.add("imagePullSecrets");
-    openapiFields.add("initContainers");
-    openapiFields.add("nodeName");
-    openapiFields.add("nodeSelector");
-    openapiFields.add("os");
-    openapiFields.add("overhead");
-    openapiFields.add("preemptionPolicy");
-    openapiFields.add("priority");
-    openapiFields.add("priorityClassName");
-    openapiFields.add("readinessGates");
-    openapiFields.add("resourceClaims");
-    openapiFields.add("resources");
-    openapiFields.add("restartPolicy");
-    openapiFields.add("runtimeClassName");
-    openapiFields.add("schedulerName");
-    openapiFields.add("schedulingGates");
-    openapiFields.add("securityContext");
-    openapiFields.add("serviceAccount");
-    openapiFields.add("serviceAccountName");
-    openapiFields.add("setHostnameAsFQDN");
-    openapiFields.add("shareProcessNamespace");
-    openapiFields.add("subdomain");
-    openapiFields.add("terminationGracePeriodSeconds");
-    openapiFields.add("tolerations");
-    openapiFields.add("topologySpreadConstraints");
-    openapiFields.add("volumes");
+    openapiFields = new HashSet<String>(Arrays.asList("activeDeadlineSeconds", "affinity", "automountServiceAccountToken", "containers", "dnsConfig", "dnsPolicy", "enableServiceLinks", "ephemeralContainers", "hostAliases", "hostIPC", "hostNetwork", "hostPID", "hostUsers", "hostname", "hostnameOverride", "imagePullSecrets", "initContainers", "nodeName", "nodeSelector", "os", "overhead", "preemptionPolicy", "priority", "priorityClassName", "readinessGates", "resourceClaims", "resources", "restartPolicy", "runtimeClassName", "schedulerName", "schedulingGates", "securityContext", "serviceAccount", "serviceAccountName", "setHostnameAsFQDN", "shareProcessNamespace", "subdomain", "terminationGracePeriodSeconds", "tolerations", "topologySpreadConstraints", "volumes", "workloadRef"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("containers");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("containers"));
   }
 
   /**
@@ -1385,7 +1371,7 @@ public class V1PodSpec {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodSpec is not found in the empty JSON string", V1PodSpec.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1PodSpec is not found in the empty JSON string", V1PodSpec.openapiRequiredFields.toString()));
         }
       }
 
@@ -1393,14 +1379,14 @@ public class V1PodSpec {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PodSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1PodSpec.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -1410,7 +1396,7 @@ public class V1PodSpec {
       }
       // ensure the json data is an array
       if (!jsonObj.get("containers").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
       }
 
       JsonArray jsonArraycontainers = jsonObj.getAsJsonArray("containers");
@@ -1423,14 +1409,14 @@ public class V1PodSpec {
         V1PodDNSConfig.validateJsonElement(jsonObj.get("dnsConfig"));
       }
       if ((jsonObj.get("dnsPolicy") != null && !jsonObj.get("dnsPolicy").isJsonNull()) && !jsonObj.get("dnsPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dnsPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dnsPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dnsPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dnsPolicy").toString()));
       }
       if (jsonObj.get("ephemeralContainers") != null && !jsonObj.get("ephemeralContainers").isJsonNull()) {
         JsonArray jsonArrayephemeralContainers = jsonObj.getAsJsonArray("ephemeralContainers");
         if (jsonArrayephemeralContainers != null) {
           // ensure the json data is an array
           if (!jsonObj.get("ephemeralContainers").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `ephemeralContainers` to be an array in the JSON string but got `%s`", jsonObj.get("ephemeralContainers").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ephemeralContainers` to be an array in the JSON string but got `%s`", jsonObj.get("ephemeralContainers").toString()));
           }
 
           // validate the optional field `ephemeralContainers` (array)
@@ -1444,7 +1430,7 @@ public class V1PodSpec {
         if (jsonArrayhostAliases != null) {
           // ensure the json data is an array
           if (!jsonObj.get("hostAliases").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `hostAliases` to be an array in the JSON string but got `%s`", jsonObj.get("hostAliases").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostAliases` to be an array in the JSON string but got `%s`", jsonObj.get("hostAliases").toString()));
           }
 
           // validate the optional field `hostAliases` (array)
@@ -1454,17 +1440,17 @@ public class V1PodSpec {
         }
       }
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
       }
       if ((jsonObj.get("hostnameOverride") != null && !jsonObj.get("hostnameOverride").isJsonNull()) && !jsonObj.get("hostnameOverride").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostnameOverride` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostnameOverride").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostnameOverride` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostnameOverride").toString()));
       }
       if (jsonObj.get("imagePullSecrets") != null && !jsonObj.get("imagePullSecrets").isJsonNull()) {
         JsonArray jsonArrayimagePullSecrets = jsonObj.getAsJsonArray("imagePullSecrets");
         if (jsonArrayimagePullSecrets != null) {
           // ensure the json data is an array
           if (!jsonObj.get("imagePullSecrets").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `imagePullSecrets` to be an array in the JSON string but got `%s`", jsonObj.get("imagePullSecrets").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `imagePullSecrets` to be an array in the JSON string but got `%s`", jsonObj.get("imagePullSecrets").toString()));
           }
 
           // validate the optional field `imagePullSecrets` (array)
@@ -1478,7 +1464,7 @@ public class V1PodSpec {
         if (jsonArrayinitContainers != null) {
           // ensure the json data is an array
           if (!jsonObj.get("initContainers").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `initContainers` to be an array in the JSON string but got `%s`", jsonObj.get("initContainers").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `initContainers` to be an array in the JSON string but got `%s`", jsonObj.get("initContainers").toString()));
           }
 
           // validate the optional field `initContainers` (array)
@@ -1488,24 +1474,24 @@ public class V1PodSpec {
         }
       }
       if ((jsonObj.get("nodeName") != null && !jsonObj.get("nodeName").isJsonNull()) && !jsonObj.get("nodeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nodeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nodeName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `nodeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nodeName").toString()));
       }
       // validate the optional field `os`
       if (jsonObj.get("os") != null && !jsonObj.get("os").isJsonNull()) {
         V1PodOS.validateJsonElement(jsonObj.get("os"));
       }
       if ((jsonObj.get("preemptionPolicy") != null && !jsonObj.get("preemptionPolicy").isJsonNull()) && !jsonObj.get("preemptionPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `preemptionPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preemptionPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `preemptionPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preemptionPolicy").toString()));
       }
       if ((jsonObj.get("priorityClassName") != null && !jsonObj.get("priorityClassName").isJsonNull()) && !jsonObj.get("priorityClassName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `priorityClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priorityClassName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `priorityClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priorityClassName").toString()));
       }
       if (jsonObj.get("readinessGates") != null && !jsonObj.get("readinessGates").isJsonNull()) {
         JsonArray jsonArrayreadinessGates = jsonObj.getAsJsonArray("readinessGates");
         if (jsonArrayreadinessGates != null) {
           // ensure the json data is an array
           if (!jsonObj.get("readinessGates").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `readinessGates` to be an array in the JSON string but got `%s`", jsonObj.get("readinessGates").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `readinessGates` to be an array in the JSON string but got `%s`", jsonObj.get("readinessGates").toString()));
           }
 
           // validate the optional field `readinessGates` (array)
@@ -1519,7 +1505,7 @@ public class V1PodSpec {
         if (jsonArrayresourceClaims != null) {
           // ensure the json data is an array
           if (!jsonObj.get("resourceClaims").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `resourceClaims` to be an array in the JSON string but got `%s`", jsonObj.get("resourceClaims").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resourceClaims` to be an array in the JSON string but got `%s`", jsonObj.get("resourceClaims").toString()));
           }
 
           // validate the optional field `resourceClaims` (array)
@@ -1533,20 +1519,20 @@ public class V1PodSpec {
         V1ResourceRequirements.validateJsonElement(jsonObj.get("resources"));
       }
       if ((jsonObj.get("restartPolicy") != null && !jsonObj.get("restartPolicy").isJsonNull()) && !jsonObj.get("restartPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `restartPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("restartPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `restartPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("restartPolicy").toString()));
       }
       if ((jsonObj.get("runtimeClassName") != null && !jsonObj.get("runtimeClassName").isJsonNull()) && !jsonObj.get("runtimeClassName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `runtimeClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("runtimeClassName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `runtimeClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("runtimeClassName").toString()));
       }
       if ((jsonObj.get("schedulerName") != null && !jsonObj.get("schedulerName").isJsonNull()) && !jsonObj.get("schedulerName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `schedulerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("schedulerName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `schedulerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("schedulerName").toString()));
       }
       if (jsonObj.get("schedulingGates") != null && !jsonObj.get("schedulingGates").isJsonNull()) {
         JsonArray jsonArrayschedulingGates = jsonObj.getAsJsonArray("schedulingGates");
         if (jsonArrayschedulingGates != null) {
           // ensure the json data is an array
           if (!jsonObj.get("schedulingGates").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `schedulingGates` to be an array in the JSON string but got `%s`", jsonObj.get("schedulingGates").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `schedulingGates` to be an array in the JSON string but got `%s`", jsonObj.get("schedulingGates").toString()));
           }
 
           // validate the optional field `schedulingGates` (array)
@@ -1560,20 +1546,20 @@ public class V1PodSpec {
         V1PodSecurityContext.validateJsonElement(jsonObj.get("securityContext"));
       }
       if ((jsonObj.get("serviceAccount") != null && !jsonObj.get("serviceAccount").isJsonNull()) && !jsonObj.get("serviceAccount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `serviceAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serviceAccount").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `serviceAccount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serviceAccount").toString()));
       }
       if ((jsonObj.get("serviceAccountName") != null && !jsonObj.get("serviceAccountName").isJsonNull()) && !jsonObj.get("serviceAccountName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `serviceAccountName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serviceAccountName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `serviceAccountName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serviceAccountName").toString()));
       }
       if ((jsonObj.get("subdomain") != null && !jsonObj.get("subdomain").isJsonNull()) && !jsonObj.get("subdomain").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subdomain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subdomain").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subdomain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subdomain").toString()));
       }
       if (jsonObj.get("tolerations") != null && !jsonObj.get("tolerations").isJsonNull()) {
         JsonArray jsonArraytolerations = jsonObj.getAsJsonArray("tolerations");
         if (jsonArraytolerations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("tolerations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `tolerations` to be an array in the JSON string but got `%s`", jsonObj.get("tolerations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tolerations` to be an array in the JSON string but got `%s`", jsonObj.get("tolerations").toString()));
           }
 
           // validate the optional field `tolerations` (array)
@@ -1587,7 +1573,7 @@ public class V1PodSpec {
         if (jsonArraytopologySpreadConstraints != null) {
           // ensure the json data is an array
           if (!jsonObj.get("topologySpreadConstraints").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `topologySpreadConstraints` to be an array in the JSON string but got `%s`", jsonObj.get("topologySpreadConstraints").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `topologySpreadConstraints` to be an array in the JSON string but got `%s`", jsonObj.get("topologySpreadConstraints").toString()));
           }
 
           // validate the optional field `topologySpreadConstraints` (array)
@@ -1601,7 +1587,7 @@ public class V1PodSpec {
         if (jsonArrayvolumes != null) {
           // ensure the json data is an array
           if (!jsonObj.get("volumes").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `volumes` to be an array in the JSON string but got `%s`", jsonObj.get("volumes").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `volumes` to be an array in the JSON string but got `%s`", jsonObj.get("volumes").toString()));
           }
 
           // validate the optional field `volumes` (array)
@@ -1609,6 +1595,10 @@ public class V1PodSpec {
             V1Volume.validateJsonElement(jsonArrayvolumes.get(i));
           };
         }
+      }
+      // validate the optional field `workloadRef`
+      if (jsonObj.get("workloadRef") != null && !jsonObj.get("workloadRef").isJsonNull()) {
+        V1WorkloadReference.validateJsonElement(jsonObj.get("workloadRef"));
       }
   }
 

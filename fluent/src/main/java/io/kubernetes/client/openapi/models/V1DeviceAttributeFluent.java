@@ -1,30 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Boolean;
 import java.lang.Long;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.models.V1DeviceAttributeFluent<A>> extends BaseFluent<A>{
+
+  private Long _int;
+  private Boolean bool;
+  private String string;
+  private String version;
+
   public V1DeviceAttributeFluent() {
   }
   
   public V1DeviceAttributeFluent(V1DeviceAttribute instance) {
     this.copyInstance(instance);
   }
-  private Boolean bool;
-  private Long _int;
-  private String string;
-  private String version;
-  
+
   protected void copyInstance(V1DeviceAttribute instance) {
     instance = instance != null ? instance : new V1DeviceAttribute();
     if (instance != null) {
@@ -33,58 +35,6 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
         this.withString(instance.getString());
         this.withVersion(instance.getVersion());
     }
-  }
-  
-  public Boolean getBool() {
-    return this.bool;
-  }
-  
-  public A withBool(Boolean bool) {
-    this.bool = bool;
-    return (A) this;
-  }
-  
-  public boolean hasBool() {
-    return this.bool != null;
-  }
-  
-  public Long getInt() {
-    return this._int;
-  }
-  
-  public A withInt(Long _int) {
-    this._int = _int;
-    return (A) this;
-  }
-  
-  public boolean hasInt() {
-    return this._int != null;
-  }
-  
-  public String getString() {
-    return this.string;
-  }
-  
-  public A withString(String string) {
-    this.string = string;
-    return (A) this;
-  }
-  
-  public boolean hasString() {
-    return this.string != null;
-  }
-  
-  public String getVersion() {
-    return this.version;
-  }
-  
-  public A withVersion(String version) {
-    this.version = version;
-    return (A) this;
-  }
-  
-  public boolean hasVersion() {
-    return this.version != null;
   }
   
   public boolean equals(Object o) {
@@ -111,6 +61,38 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
       return false;
     }
     return true;
+  }
+  
+  public Boolean getBool() {
+    return this.bool;
+  }
+  
+  public Long getInt() {
+    return this._int;
+  }
+  
+  public String getString() {
+    return this.string;
+  }
+  
+  public String getVersion() {
+    return this.version;
+  }
+  
+  public boolean hasBool() {
+    return this.bool != null;
+  }
+  
+  public boolean hasInt() {
+    return this._int != null;
+  }
+  
+  public boolean hasString() {
+    return this.string != null;
+  }
+  
+  public boolean hasVersion() {
+    return this.version != null;
   }
   
   public int hashCode() {
@@ -147,5 +129,24 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
     return withBool(true);
   }
   
-
+  public A withBool(Boolean bool) {
+    this.bool = bool;
+    return (A) this;
+  }
+  
+  public A withInt(Long _int) {
+    this._int = _int;
+    return (A) this;
+  }
+  
+  public A withString(String string) {
+    this.string = string;
+    return (A) this;
+  }
+  
+  public A withVersion(String version) {
+    this.version = version;
+    return (A) this;
+  }
+  
 }

@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * AllocationResult contains attributes of an allocated resource.
  */
 @ApiModel(description = "AllocationResult contains attributes of an allocated resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1AllocationResult {
   public static final String SERIALIZED_NAME_ALLOCATION_TIMESTAMP = "allocationTimestamp";
   @SerializedName(SERIALIZED_NAME_ALLOCATION_TIMESTAMP)
@@ -181,13 +181,10 @@ public class V1AllocationResult {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allocationTimestamp");
-    openapiFields.add("devices");
-    openapiFields.add("nodeSelector");
+    openapiFields = new HashSet<String>(Arrays.asList("allocationTimestamp", "devices", "nodeSelector"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -199,7 +196,7 @@ public class V1AllocationResult {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1AllocationResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1AllocationResult is not found in the empty JSON string", V1AllocationResult.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1AllocationResult is not found in the empty JSON string", V1AllocationResult.openapiRequiredFields.toString()));
         }
       }
 
@@ -207,7 +204,7 @@ public class V1AllocationResult {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1AllocationResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1AllocationResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1AllocationResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

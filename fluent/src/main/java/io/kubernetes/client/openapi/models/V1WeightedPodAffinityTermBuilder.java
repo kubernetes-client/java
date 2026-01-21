@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1WeightedPodAffinityTermBuilder extends V1WeightedPodAffinityTermFluent<V1WeightedPodAffinityTermBuilder> implements VisitableBuilder<V1WeightedPodAffinityTerm,V1WeightedPodAffinityTermBuilder>{
+
+  V1WeightedPodAffinityTermFluent<?> fluent;
+
   public V1WeightedPodAffinityTermBuilder() {
     this(new V1WeightedPodAffinityTerm());
   }
@@ -11,17 +14,16 @@ public class V1WeightedPodAffinityTermBuilder extends V1WeightedPodAffinityTermF
     this(fluent, new V1WeightedPodAffinityTerm());
   }
   
-  public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTermFluent<?> fluent,V1WeightedPodAffinityTerm instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTerm instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1WeightedPodAffinityTermFluent<?> fluent;
   
+  public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTermFluent<?> fluent,V1WeightedPodAffinityTerm instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1WeightedPodAffinityTerm build() {
     V1WeightedPodAffinityTerm buildable = new V1WeightedPodAffinityTerm();
     buildable.setPodAffinityTerm(fluent.buildPodAffinityTerm());
@@ -29,5 +31,4 @@ public class V1WeightedPodAffinityTermBuilder extends V1WeightedPodAffinityTermF
     return buildable;
   }
   
-
 }

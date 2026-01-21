@@ -1,27 +1,29 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V2CrossVersionObjectReferenceFluent<A extends io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceFluent<A>> extends BaseFluent<A>{
+
+  private String apiVersion;
+  private String kind;
+  private String name;
+
   public V2CrossVersionObjectReferenceFluent() {
   }
   
   public V2CrossVersionObjectReferenceFluent(V2CrossVersionObjectReference instance) {
     this.copyInstance(instance);
   }
-  private String apiVersion;
-  private String kind;
-  private String name;
-  
+
   protected void copyInstance(V2CrossVersionObjectReference instance) {
     instance = instance != null ? instance : new V2CrossVersionObjectReference();
     if (instance != null) {
@@ -29,45 +31,6 @@ public class V2CrossVersionObjectReferenceFluent<A extends io.kubernetes.client.
         this.withKind(instance.getKind());
         this.withName(instance.getName());
     }
-  }
-  
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
   }
   
   public boolean equals(Object o) {
@@ -91,6 +54,30 @@ public class V2CrossVersionObjectReferenceFluent<A extends io.kubernetes.client.
       return false;
     }
     return true;
+  }
+  
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
   }
   
   public int hashCode() {
@@ -118,5 +105,19 @@ public class V2CrossVersionObjectReferenceFluent<A extends io.kubernetes.client.
     return sb.toString();
   }
   
-
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
 }
