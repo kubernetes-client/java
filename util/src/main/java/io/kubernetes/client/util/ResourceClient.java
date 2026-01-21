@@ -43,28 +43,28 @@ import java.util.function.UnaryOperator;
  * <p>Example usage:
  * <pre>{@code
  * // Create a client for pods
- * ResourceClient<V1Pod, V1PodList> pods = 
+ * ResourceClient<V1Pod, V1PodList> pods =
  *     ResourceClient.create(apiClient, V1Pod.class, V1PodList.class, "", "v1", "pods");
- * 
+ *
  * // Get a pod in a namespace
  * V1Pod pod = pods.inNamespace("default").withName("my-pod").get();
- * 
+ *
  * // List all pods with a label
  * V1PodList podList = pods.inNamespace("default")
  *     .withLabel("app", "myapp")
  *     .list();
- * 
+ *
  * // Create or replace a pod
  * V1Pod created = pods.inNamespace("default").createOrReplace(myPod);
- * 
+ *
  * // Delete a pod
  * pods.inNamespace("default").withName("my-pod").delete();
- * 
+ *
  * // Wait until ready
  * V1Pod ready = pods.inNamespace("default")
  *     .withName("my-pod")
  *     .waitUntilReady(Duration.ofMinutes(5));
- * 
+ *
  * // Edit a resource
  * V1Pod edited = pods.inNamespace("default")
  *     .withName("my-pod")
@@ -536,8 +536,8 @@ public class ResourceClient<ApiType extends KubernetesObject, ApiListType extend
         final String resourceName = name;
         WaitUtils.waitUntilDeleted(
                 () -> {
-                    KubernetesApiResponse<ApiType> response = ns != null 
-                            ? api.get(ns, resourceName) 
+                    KubernetesApiResponse<ApiType> response = ns != null
+                            ? api.get(ns, resourceName)
                             : api.get(resourceName);
                     return response.isSuccess() ? response.getObject() : null;
                 },
@@ -557,8 +557,8 @@ public class ResourceClient<ApiType extends KubernetesObject, ApiListType extend
         final String resourceName = name;
         return WaitUtils.waitUntilReadyAsync(
                 () -> {
-                    KubernetesApiResponse<ApiType> response = ns != null 
-                            ? api.get(ns, resourceName) 
+                    KubernetesApiResponse<ApiType> response = ns != null
+                            ? api.get(ns, resourceName)
                             : api.get(resourceName);
                     return response.isSuccess() ? response.getObject() : null;
                 },
@@ -580,8 +580,8 @@ public class ResourceClient<ApiType extends KubernetesObject, ApiListType extend
         final String resourceName = name;
         return WaitUtils.waitUntilConditionAsync(
                 () -> {
-                    KubernetesApiResponse<ApiType> response = ns != null 
-                            ? api.get(ns, resourceName) 
+                    KubernetesApiResponse<ApiType> response = ns != null
+                            ? api.get(ns, resourceName)
                             : api.get(resourceName);
                     return response.isSuccess() ? response.getObject() : null;
                 },
