@@ -34,10 +34,10 @@ import java.util.Objects;
  * <pre>{@code
  * // Simple server-side apply
  * V1Pod appliedPod = ServerSideApply.apply(
- *     apiClient, 
- *     V1Pod.class, 
- *     V1PodList.class, 
- *     deployment, 
+ *     apiClient,
+ *     V1Pod.class,
+ *     V1PodList.class,
+ *     deployment,
  *     "my-field-manager"
  * );
  *
@@ -363,14 +363,14 @@ public class ServerSideApply {
             }
             return pluralize(kind);
         }
-        
+
         /**
          * Simple pluralization for Kubernetes resource kinds.
          */
         private String pluralize(String kind) {
             String lower = kind.toLowerCase();
             // Special cases for Kubernetes kinds
-            if (lower.endsWith("s") || lower.endsWith("x") || lower.endsWith("z") 
+            if (lower.endsWith("s") || lower.endsWith("x") || lower.endsWith("z")
                     || lower.endsWith("ch") || lower.endsWith("sh")) {
                 return lower + "es";
             }

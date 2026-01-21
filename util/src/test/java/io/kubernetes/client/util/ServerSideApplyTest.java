@@ -232,7 +232,7 @@ class ServerSideApplyTest {
     @Test
     void apply_nullApi_throwsNullPointerException() {
         V1Pod pod = createPod("test-pod", "default");
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 ServerSideApply.apply((GenericKubernetesApi<V1Pod, V1PodList>) null, pod, "test-manager"))
                 .isInstanceOf(NullPointerException.class);
     }
@@ -288,7 +288,7 @@ class ServerSideApplyTest {
     void builder_missingApiTypeClass_throwsNullPointerException() {
         V1Pod pod = createPod("test-pod", "default");
 
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 ServerSideApply.<V1Pod, V1PodList>builder(apiClient)
                         .apiListTypeClass(V1PodList.class)
                         .resource(pod)
@@ -302,7 +302,7 @@ class ServerSideApplyTest {
     void builder_missingApiListTypeClass_throwsNullPointerException() {
         V1Pod pod = createPod("test-pod", "default");
 
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 ServerSideApply.<V1Pod, V1PodList>builder(apiClient)
                         .apiTypeClass(V1Pod.class)
                         .resource(pod)
@@ -314,7 +314,7 @@ class ServerSideApplyTest {
 
     @Test
     void builder_missingResource_throwsNullPointerException() {
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 ServerSideApply.<V1Pod, V1PodList>builder(apiClient)
                         .apiTypeClass(V1Pod.class)
                         .apiListTypeClass(V1PodList.class)
