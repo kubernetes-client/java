@@ -33,7 +33,7 @@ import org.junit.jupiter.api.Test;
 
 class ResourceLoaderTest {
 
-    private static final String POD_YAML = 
+    private static final String POD_YAML =
             "apiVersion: v1\n" +
             "kind: Pod\n" +
             "metadata:\n" +
@@ -245,7 +245,7 @@ class ResourceLoaderTest {
                 return lower.substring(0, lower.length() - 1) + "ies";
             }
         }
-        if (lower.endsWith("s") || lower.endsWith("x") || lower.endsWith("z") 
+        if (lower.endsWith("s") || lower.endsWith("x") || lower.endsWith("z")
                 || lower.endsWith("ch") || lower.endsWith("sh")) {
             return lower + "es";
         }
@@ -254,7 +254,7 @@ class ResourceLoaderTest {
 
     @Test
     void loadWithNamespace_overridesNamespace() throws IOException {
-        String yamlWithoutNamespace = 
+        String yamlWithoutNamespace =
                 "apiVersion: v1\n" +
                 "kind: Pod\n" +
                 "metadata:\n" +

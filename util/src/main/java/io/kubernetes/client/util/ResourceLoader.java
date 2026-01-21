@@ -46,13 +46,13 @@ import java.util.stream.Collectors;
  * <pre>{@code
  * // Load a single resource from a file
  * Object resource = ResourceLoader.load(new File("pod.yaml"));
- * 
+ *
  * // Load multiple resources from a file
  * List<Object> resources = ResourceLoader.loadAll(new File("multi-resource.yaml"));
- * 
+ *
  * // Load and create resources using ApiClient
  * List<Object> created = ResourceLoader.loadAndCreate(apiClient, new File("deployment.yaml"));
- * 
+ *
  * // Load from InputStream
  * try (InputStream is = getClass().getResourceAsStream("/my-pod.yaml")) {
  *     V1Pod pod = ResourceLoader.load(is, V1Pod.class);
@@ -213,7 +213,7 @@ public class ResourceLoader {
      * @throws IOException if an error occurs reading the file
      * @throws ApiException if an error occurs creating resources
      */
-    public static List<Object> loadAndCreate(ApiClient apiClient, File file) 
+    public static List<Object> loadAndCreate(ApiClient apiClient, File file)
             throws IOException, ApiException {
         List<Object> resources = loadAll(file);
         return createResources(apiClient, resources);
@@ -228,7 +228,7 @@ public class ResourceLoader {
      * @throws IOException if an error occurs reading the stream
      * @throws ApiException if an error occurs creating resources
      */
-    public static List<Object> loadAndCreate(ApiClient apiClient, InputStream inputStream) 
+    public static List<Object> loadAndCreate(ApiClient apiClient, InputStream inputStream)
             throws IOException, ApiException {
         List<Object> resources = loadAll(inputStream);
         return createResources(apiClient, resources);
@@ -243,7 +243,7 @@ public class ResourceLoader {
      * @throws IOException if an error occurs parsing the content
      * @throws ApiException if an error occurs creating resources
      */
-    public static List<Object> loadAndCreate(ApiClient apiClient, String content) 
+    public static List<Object> loadAndCreate(ApiClient apiClient, String content)
             throws IOException, ApiException {
         List<Object> resources = loadAll(content);
         return createResources(apiClient, resources);
@@ -258,7 +258,7 @@ public class ResourceLoader {
      * @throws IOException if an error occurs reading the file
      * @throws ApiException if an error occurs applying resources
      */
-    public static List<Object> loadAndApply(ApiClient apiClient, File file) 
+    public static List<Object> loadAndApply(ApiClient apiClient, File file)
             throws IOException, ApiException {
         List<Object> resources = loadAll(file);
         return applyResources(apiClient, resources);
@@ -273,7 +273,7 @@ public class ResourceLoader {
      * @throws IOException if an error occurs reading the stream
      * @throws ApiException if an error occurs applying resources
      */
-    public static List<Object> loadAndApply(ApiClient apiClient, InputStream inputStream) 
+    public static List<Object> loadAndApply(ApiClient apiClient, InputStream inputStream)
             throws IOException, ApiException {
         List<Object> resources = loadAll(inputStream);
         return applyResources(apiClient, resources);
@@ -287,7 +287,7 @@ public class ResourceLoader {
      * @throws IOException if an error occurs reading the file
      * @throws ApiException if an error occurs deleting resources
      */
-    public static void loadAndDelete(ApiClient apiClient, File file) 
+    public static void loadAndDelete(ApiClient apiClient, File file)
             throws IOException, ApiException {
         List<Object> resources = loadAll(file);
         deleteResources(apiClient, resources);
@@ -301,7 +301,7 @@ public class ResourceLoader {
      * @throws IOException if an error occurs reading the stream
      * @throws ApiException if an error occurs deleting resources
      */
-    public static void loadAndDelete(ApiClient apiClient, InputStream inputStream) 
+    public static void loadAndDelete(ApiClient apiClient, InputStream inputStream)
             throws IOException, ApiException {
         List<Object> resources = loadAll(inputStream);
         deleteResources(apiClient, resources);
@@ -310,30 +310,30 @@ public class ResourceLoader {
     /**
      * Create resources in the cluster using DynamicKubernetesApi.
      */
-    private static List<Object> createResources(ApiClient apiClient, List<Object> resources) 
+    private static List<Object> createResources(ApiClient apiClient, List<Object> resources)
             throws ApiException {
         List<Object> created = new ArrayList<>();
-        io.kubernetes.client.util.generic.options.CreateOptions createOpts = 
+        io.kubernetes.client.util.generic.options.CreateOptions createOpts =
                 new io.kubernetes.client.util.generic.options.CreateOptions();
         for (Object resource : resources) {
             if (resource instanceof KubernetesObject) {
                 KubernetesObject k8sObj = (KubernetesObject) resource;
                 DynamicKubernetesObject dynamicObj = toDynamicObject(k8sObj);
                 DynamicKubernetesApi dynamicApi = getDynamicApi(apiClient, dynamicObj);
-                
+
                 String namespace = dynamicObj.getMetadata().getNamespace();
                 KubernetesApiResponse<DynamicKubernetesObject> response;
-                
+
                 if (namespace != null && !namespace.isEmpty()) {
                     response = dynamicApi.create(namespace, dynamicObj, createOpts);
                 } else {
                     response = dynamicApi.create(dynamicObj, createOpts);
                 }
-                
+
                 if (response.isSuccess()) {
                     created.add(response.getObject());
                 } else {
-                    throw new ApiException(response.getHttpStatusCode(), 
+                    throw new ApiException(response.getHttpStatusCode(),
                             "Failed to create resource: " + response.getStatus());
                 }
             }
@@ -344,20 +344,20 @@ public class ResourceLoader {
     /**
      * Apply (create or update) resources in the cluster.
      */
-    private static List<Object> applyResources(ApiClient apiClient, List<Object> resources) 
+    private static List<Object> applyResources(ApiClient apiClient, List<Object> resources)
             throws ApiException {
         List<Object> applied = new ArrayList<>();
-        io.kubernetes.client.util.generic.options.CreateOptions createOpts = 
+        io.kubernetes.client.util.generic.options.CreateOptions createOpts =
                 new io.kubernetes.client.util.generic.options.CreateOptions();
         for (Object resource : resources) {
             if (resource instanceof KubernetesObject) {
                 KubernetesObject k8sObj = (KubernetesObject) resource;
                 DynamicKubernetesObject dynamicObj = toDynamicObject(k8sObj);
                 DynamicKubernetesApi dynamicApi = getDynamicApi(apiClient, dynamicObj);
-                
+
                 String namespace = dynamicObj.getMetadata().getNamespace();
                 String name = dynamicObj.getMetadata().getName();
-                
+
                 // Try to get existing resource
                 KubernetesApiResponse<DynamicKubernetesObject> existing;
                 if (namespace != null && !namespace.isEmpty()) {
@@ -365,13 +365,13 @@ public class ResourceLoader {
                 } else {
                     existing = dynamicApi.get(name);
                 }
-                
+
                 KubernetesApiResponse<DynamicKubernetesObject> response;
                 if (existing.isSuccess()) {
                     // Update existing resource
                     dynamicObj.getMetadata().setResourceVersion(
                             existing.getObject().getMetadata().getResourceVersion());
-                    
+
                     response = dynamicApi.update(dynamicObj);
                 } else {
                     // Create new resource
@@ -381,11 +381,11 @@ public class ResourceLoader {
                         response = dynamicApi.create(dynamicObj, createOpts);
                     }
                 }
-                
+
                 if (response.isSuccess()) {
                     applied.add(response.getObject());
                 } else {
-                    throw new ApiException(response.getHttpStatusCode(), 
+                    throw new ApiException(response.getHttpStatusCode(),
                             "Failed to apply resource: " + response.getStatus());
                 }
             }
@@ -396,27 +396,27 @@ public class ResourceLoader {
     /**
      * Delete resources from the cluster.
      */
-    private static void deleteResources(ApiClient apiClient, List<Object> resources) 
+    private static void deleteResources(ApiClient apiClient, List<Object> resources)
             throws ApiException {
         for (Object resource : resources) {
             if (resource instanceof KubernetesObject) {
                 KubernetesObject k8sObj = (KubernetesObject) resource;
                 DynamicKubernetesObject dynamicObj = toDynamicObject(k8sObj);
                 DynamicKubernetesApi dynamicApi = getDynamicApi(apiClient, dynamicObj);
-                
+
                 String namespace = dynamicObj.getMetadata().getNamespace();
                 String name = dynamicObj.getMetadata().getName();
-                
+
                 KubernetesApiResponse<DynamicKubernetesObject> response;
                 if (namespace != null && !namespace.isEmpty()) {
                     response = dynamicApi.delete(namespace, name);
                 } else {
                     response = dynamicApi.delete(name);
                 }
-                
+
                 // 404 is ok for delete (already deleted)
                 if (!response.isSuccess() && response.getHttpStatusCode() != 404) {
-                    throw new ApiException(response.getHttpStatusCode(), 
+                    throw new ApiException(response.getHttpStatusCode(),
                             "Failed to delete resource: " + response.getStatus());
                 }
             }
@@ -442,7 +442,7 @@ public class ResourceLoader {
     private static DynamicKubernetesApi getDynamicApi(ApiClient apiClient, DynamicKubernetesObject obj) {
         String apiVersion = obj.getApiVersion();
         String kind = obj.getKind();
-        
+
         // Parse apiVersion into group and version
         String group;
         String version;
@@ -454,11 +454,11 @@ public class ResourceLoader {
             group = "";
             version = apiVersion;
         }
-        
+
         // Get the plural name using simple pluralization
         // In a production system, you would use API discovery to get the correct plural
         String plural = pluralize(kind);
-        
+
         return new DynamicKubernetesApi(group, version, plural, apiClient);
     }
 
@@ -471,7 +471,7 @@ public class ResourceLoader {
         }
         String lower = kind.toLowerCase();
         // Special cases for Kubernetes kinds
-        if (lower.endsWith("s") || lower.endsWith("x") || lower.endsWith("z") 
+        if (lower.endsWith("s") || lower.endsWith("x") || lower.endsWith("z")
                 || lower.endsWith("ch") || lower.endsWith("sh")) {
             return lower + "es";
         }
