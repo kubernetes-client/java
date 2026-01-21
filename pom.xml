@@ -69,6 +69,8 @@
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
 
+    <!-- Updated Spring Framework from 6.2.12 to 7.0.3 -->
+
     <!-- The `optional` tag in `dependencyManagement` is not inherited; see
     https://issues.apache.org/jira/browse/MNG-5227 and
     https://issues.apache.org/jira/browse/MNG-5632. Therefore, we specify
