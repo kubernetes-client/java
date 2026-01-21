@@ -44,14 +44,14 @@ import java.util.Objects;
 /**
  * Utilities for checking the readiness of various Kubernetes resources.
  * Provides fabric8-style readiness checks for common resource types.
- * 
+ *
  * <p>Example usage:
  * <pre>{@code
  * V1Pod pod = coreV1Api.readNamespacedPod("my-pod", "default").execute();
  * if (Readiness.isPodReady(pod)) {
  *     // Pod is ready
  * }
- * 
+ *
  * // Or use generic method:
  * if (Readiness.isReady(pod)) {
  *     // Resource is ready
@@ -180,7 +180,7 @@ public class Readiness {
             replicas = 1; // Default replicas is 1
         }
 
-        return Objects.equals(replicas, readyReplicas) && 
+        return Objects.equals(replicas, readyReplicas) &&
                Objects.equals(replicas, availableReplicas);
     }
 
@@ -375,7 +375,7 @@ public class Readiness {
             return false;
         }
 
-        Integer replicas = replicationController.getSpec() != null 
+        Integer replicas = replicationController.getSpec() != null
                 ? replicationController.getSpec().getReplicas() : null;
         Integer readyReplicas = status.getReadyReplicas();
 
