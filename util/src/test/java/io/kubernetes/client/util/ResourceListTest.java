@@ -167,18 +167,18 @@ class ResourceListTest {
     @Test
     void inNamespace_returnsThis() throws IOException {
         ResourceList resourceList = ResourceList.fromYaml(apiClient, POD_YAML);
-        
+
         ResourceList result = resourceList.inNamespace("custom-ns");
-        
+
         assertThat(result).isSameAs(resourceList);
     }
 
     @Test
     void continueOnError_returnsThis() throws IOException {
         ResourceList resourceList = ResourceList.fromYaml(apiClient, POD_YAML);
-        
+
         ResourceList result = resourceList.continueOnError(true);
-        
+
         assertThat(result).isSameAs(resourceList);
     }
 
