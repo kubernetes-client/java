@@ -63,7 +63,7 @@ class WaitUtilsTest {
         V1Pod notReadyPod = createNotReadyPod();
         Supplier<V1Pod> supplier = () -> notReadyPod;
 
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 WaitUtils.waitUntilReady(supplier, Duration.ofMillis(200), Duration.ofMillis(50)))
                 .isInstanceOf(TimeoutException.class);
     }
@@ -114,7 +114,7 @@ class WaitUtilsTest {
             return null;
         };
 
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 WaitUtils.waitUntilCondition(
                         supplier,
                         p -> true,
@@ -182,7 +182,7 @@ class WaitUtilsTest {
     void waitUntilDeleted_notDeleted_timesOut() {
         Supplier<V1Pod> supplier = () -> createReadyPod();
 
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 WaitUtils.waitUntilDeleted(supplier, Duration.ofMillis(200), Duration.ofMillis(50)))
                 .isInstanceOf(TimeoutException.class);
     }
@@ -217,7 +217,7 @@ class WaitUtilsTest {
 
     @Test
     void waitUntilCondition_nullSupplier_throwsNullPointerException() {
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 WaitUtils.waitUntilCondition(null, p -> true, Duration.ofSeconds(1), Duration.ofMillis(100)))
                 .isInstanceOf(NullPointerException.class)
                 .hasMessageContaining("resourceSupplier");
@@ -225,7 +225,7 @@ class WaitUtilsTest {
 
     @Test
     void waitUntilCondition_nullCondition_throwsNullPointerException() {
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 WaitUtils.waitUntilCondition(() -> createReadyPod(), null, Duration.ofSeconds(1), Duration.ofMillis(100)))
                 .isInstanceOf(NullPointerException.class)
                 .hasMessageContaining("condition");
@@ -233,7 +233,7 @@ class WaitUtilsTest {
 
     @Test
     void waitUntilCondition_nullTimeout_throwsNullPointerException() {
-        assertThatThrownBy(() -> 
+        assertThatThrownBy(() ->
                 WaitUtils.waitUntilCondition(() -> createReadyPod(), p -> true, null, Duration.ofMillis(100)))
                 .isInstanceOf(NullPointerException.class)
                 .hasMessageContaining("timeout");

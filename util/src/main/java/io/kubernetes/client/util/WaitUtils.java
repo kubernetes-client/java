@@ -41,7 +41,7 @@ import java.util.function.Supplier;
  *     Duration.ofMinutes(5),
  *     Duration.ofSeconds(1)
  * );
- * 
+ *
  * // Wait for a custom condition
  * V1Pod runningPod = WaitUtils.waitUntilCondition(
  *     () -> coreV1Api.readNamespacedPod("my-pod", "default").execute(),
@@ -49,12 +49,12 @@ import java.util.function.Supplier;
  *     Duration.ofMinutes(5),
  *     Duration.ofSeconds(1)
  * );
- * 
+ *
  * // Using GenericKubernetesApi
  * V1Pod readyPod = WaitUtils.waitUntilReady(
- *     podApi, 
- *     "default", 
- *     "my-pod", 
+ *     podApi,
+ *     "default",
+ *     "my-pod",
  *     Duration.ofMinutes(5)
  * );
  * }</pre>
@@ -253,8 +253,8 @@ public class WaitUtils {
 
         return waitUntilCondition(
                 () -> {
-                    KubernetesApiResponse<T> response = namespace != null 
-                            ? api.get(namespace, name) 
+                    KubernetesApiResponse<T> response = namespace != null
+                            ? api.get(namespace, name)
                             : api.get(name);
                     return response.isSuccess() ? response.getObject() : null;
                 },
@@ -287,8 +287,8 @@ public class WaitUtils {
 
         return waitUntilCondition(
                 () -> {
-                    KubernetesApiResponse<T> response = namespace != null 
-                            ? api.get(namespace, name) 
+                    KubernetesApiResponse<T> response = namespace != null
+                            ? api.get(namespace, name)
                             : api.get(name);
                     return response.isSuccess() ? response.getObject() : null;
                 },
@@ -350,7 +350,7 @@ public class WaitUtils {
             Duration pollInterval) {
 
         CompletableFuture<T> result = new CompletableFuture<>();
-        
+
         CompletableFuture.runAsync(() -> {
             try {
                 T resource = waitUntilCondition(resourceSupplier, condition, timeout, pollInterval);
