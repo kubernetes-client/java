@@ -167,6 +167,9 @@ class KubernetesInformerCreatorTest {
     getCount.acquire(2);
     watchCount.acquire(2);
 
+    // Add a small delay to ensure WireMock has finished recording the requests
+    Thread.sleep(100);
+
     apiServer.verify(
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
