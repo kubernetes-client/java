@@ -19,7 +19,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.awaitility.Awaitility.await;
 
 import com.github.tomakehurst.wiremock.core.Admin;
 import com.github.tomakehurst.wiremock.extension.Parameters;
@@ -39,7 +38,6 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
-import java.time.Duration;
 import java.util.Collections;
 import java.util.concurrent.Semaphore;
 import org.junit.jupiter.api.Test;
@@ -127,9 +125,11 @@ class KubernetesInformerCreatorTest {
         get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
+            .atPriority(1)
             .willReturn(
                 aResponse()
                     .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
                     .withBody(
                         JSON.serialize(
                                 new V1PodList()
@@ -139,15 +139,22 @@ class KubernetesInformerCreatorTest {
         get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
-            .willReturn(aResponse().withStatus(200).withBody("{}")));
+            .atPriority(2)
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
 
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
+            .atPriority(1)
             .willReturn(
                 aResponse()
                     .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
                     .withBody(
                         JSON.serialize(
                                 new V1ConfigMapList()
@@ -157,7 +164,12 @@ class KubernetesInformerCreatorTest {
         get(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
-            .willReturn(aResponse().withStatus(200).withBody("{}")));
+            .atPriority(2)
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
 
     // These will be released for each web call above.
     getCount.acquire(2);
@@ -169,27 +181,18 @@ class KubernetesInformerCreatorTest {
     getCount.acquire(2);
     watchCount.acquire(2);
 
-    // Use Awaitility to poll until WireMock has recorded the requests
-    await()
-        .atMost(Duration.ofSeconds(5))
-        .pollInterval(Duration.ofMillis(50))
-        .untilAsserted(
-            () -> {
-              apiServer.verify(
-                  1,
-                  getRequestedFor(urlPathEqualTo("/api/v1/pods"))
-                      .withQueryParam("watch", equalTo("false")));
-              apiServer.verify(
-                  getRequestedFor(urlPathEqualTo("/api/v1/pods"))
-                      .withQueryParam("watch", equalTo("true")));
-              apiServer.verify(
-                  1,
-                  getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
-                      .withQueryParam("watch", equalTo("false")));
-              apiServer.verify(
-                  getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
-                      .withQueryParam("watch", equalTo("true")));
-            });
+    apiServer.verify(
+        1,
+        getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
+    apiServer.verify(
+        getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("true")));
+    apiServer.verify(
+        1,
+        getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
+            .withQueryParam("watch", equalTo("false")));
+    apiServer.verify(
+        getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
+            .withQueryParam("watch", equalTo("true")));
 
     assertThat(new Lister<>(podInformer.getIndexer()).list()).hasSize(1);
     assertThat(new Lister<>(configMapInformer.getIndexer()).list()).hasSize(1);
