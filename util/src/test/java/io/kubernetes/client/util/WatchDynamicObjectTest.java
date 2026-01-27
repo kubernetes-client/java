@@ -17,6 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesObject;
+import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesTypeAdaptorFactory;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
@@ -26,13 +27,19 @@ class WatchDynamicObjectTest {
   @Test
   void watchAddedEventShouldPreserveRawData() throws IOException {
     JSON json = new JSON();
-    // Register the DynamicKubernetesTypeAdaptorFactory to properly handle DynamicKubernetesObject
-    json.setGson(json.getGson().newBuilder()
-        .registerTypeAdapterFactory(new io.kubernetes.client.util.generic.dynamic.DynamicKubernetesTypeAdaptorFactory())
-        .create());
+    // Register the DynamicKubernetesTypeAdaptorFactory to properly handle
+    // DynamicKubernetesObject
+    json.setGson(
+        json.getGson()
+            .newBuilder()
+            .registerTypeAdapterFactory(new DynamicKubernetesTypeAdaptorFactory())
+            .create());
     Watch<DynamicKubernetesObject> watch =
         new Watch<>(
-            json, null, new TypeToken<Watch.Response<DynamicKubernetesObject>>() {}.getType(), null);
+            json,
+            null,
+            new TypeToken<Watch.Response<DynamicKubernetesObject>>() {}.getType(),
+            null);
 
     String addedEvent = "{\"type\":\"ADDED\","
         + "\"object\":{"
@@ -47,10 +54,11 @@ class WatchDynamicObjectTest {
     assertThat(response.object).isNotNull();
     assertThat(response.object.getMetadata()).isNotNull();
     assertThat(response.object.getMetadata().getName()).isEqualTo("test-pod");
-    
+
     // Check that raw data is preserved
     assertThat(response.object.getRaw()).isNotNull();
-    assertThat(response.object.getRaw().size()).isGreaterThan(2); // Should have more than just metadata
+    // Should have more than just metadata
+    assertThat(response.object.getRaw().size()).isGreaterThan(2);
     assertThat(response.object.getRaw().has("spec")).isTrue();
     assertThat(response.object.getRaw().get("spec")).isNotNull();
   }
@@ -58,13 +66,19 @@ class WatchDynamicObjectTest {
   @Test
   void watchModifiedEventShouldPreserveRawData() throws IOException {
     JSON json = new JSON();
-    // Register the DynamicKubernetesTypeAdaptorFactory to properly handle DynamicKubernetesObject
-    json.setGson(json.getGson().newBuilder()
-        .registerTypeAdapterFactory(new io.kubernetes.client.util.generic.dynamic.DynamicKubernetesTypeAdaptorFactory())
-        .create());
+    // Register the DynamicKubernetesTypeAdaptorFactory to properly handle
+    // DynamicKubernetesObject
+    json.setGson(
+        json.getGson()
+            .newBuilder()
+            .registerTypeAdapterFactory(new DynamicKubernetesTypeAdaptorFactory())
+            .create());
     Watch<DynamicKubernetesObject> watch =
         new Watch<>(
-            json, null, new TypeToken<Watch.Response<DynamicKubernetesObject>>() {}.getType(), null);
+            json,
+            null,
+            new TypeToken<Watch.Response<DynamicKubernetesObject>>() {}.getType(),
+            null);
 
     String modifiedEvent = "{\"type\":\"MODIFIED\","
         + "\"object\":{"
@@ -79,10 +93,11 @@ class WatchDynamicObjectTest {
     assertThat(response.object).isNotNull();
     assertThat(response.object.getMetadata()).isNotNull();
     assertThat(response.object.getMetadata().getName()).isEqualTo("test-pod");
-    
+
     // Check that raw data is preserved
     assertThat(response.object.getRaw()).isNotNull();
-    assertThat(response.object.getRaw().size()).isGreaterThan(2); // Should have more than just metadata
+    // Should have more than just metadata
+    assertThat(response.object.getRaw().size()).isGreaterThan(2);
     assertThat(response.object.getRaw().has("spec")).isTrue();
     assertThat(response.object.getRaw().get("spec")).isNotNull();
   }
