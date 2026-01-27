@@ -883,26 +883,29 @@ public class GenericKubernetesApi<
     boolean isNamespaced = !Strings.isNullOrEmpty(objectMeta.getNamespace());
     return () ->
         //// TODO(yue9944882): judge namespaced object via api discovery
-        isNamespaced
-            ? customObjectsApi.patchNamespacedCustomObjectStatus(
-                this.apiGroup,
-                this.apiVersion,
-                objectMeta.getNamespace(),
-                this.resourcePlural,
-                objectMeta.getName(),
-                Arrays.asList(new StatusPatch(status.apply(object))))
-                .dryRun(updateOptions.getDryRun())
-                .fieldManager(updateOptions.getFieldManager())
-                .buildCall(null)
-            : customObjectsApi.patchClusterCustomObjectStatus(
-                this.apiGroup,
-                this.apiVersion,
-                this.resourcePlural,
-                objectMeta.getName(),
-                Arrays.asList(new StatusPatch(status.apply(object))))
-                .dryRun(updateOptions.getDryRun())
-                .fieldManager(updateOptions.getFieldManager())
-                .buildCall(null);
+        adaptPatchCall(
+            customObjectsApi.getApiClient(),
+            isNamespaced
+                ? customObjectsApi.patchNamespacedCustomObjectStatus(
+                    this.apiGroup,
+                    this.apiVersion,
+                    objectMeta.getNamespace(),
+                    this.resourcePlural,
+                    objectMeta.getName(),
+                    Arrays.asList(new StatusPatch(status.apply(object))))
+                    .dryRun(updateOptions.getDryRun())
+                    .fieldManager(updateOptions.getFieldManager())
+                    .buildCall(null)
+                : customObjectsApi.patchClusterCustomObjectStatus(
+                    this.apiGroup,
+                    this.apiVersion,
+                    this.resourcePlural,
+                    objectMeta.getName(),
+                    Arrays.asList(new StatusPatch(status.apply(object))))
+                    .dryRun(updateOptions.getDryRun())
+                    .fieldManager(updateOptions.getFieldManager())
+                    .buildCall(null),
+            V1Patch.PATCH_FORMAT_JSON_PATCH);
   }
 
   /**
