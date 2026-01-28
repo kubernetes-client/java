@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -56,7 +56,7 @@ import io.kubernetes.client.openapi.JSON;
  * ServiceSpec describes the attributes that a user creates on a service.
  */
 @ApiModel(description = "ServiceSpec describes the attributes that a user creates on a service.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS = "allocateLoadBalancerNodePorts";
   @SerializedName(SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS)
@@ -691,30 +691,10 @@ public class V1ServiceSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allocateLoadBalancerNodePorts");
-    openapiFields.add("clusterIP");
-    openapiFields.add("clusterIPs");
-    openapiFields.add("externalIPs");
-    openapiFields.add("externalName");
-    openapiFields.add("externalTrafficPolicy");
-    openapiFields.add("healthCheckNodePort");
-    openapiFields.add("internalTrafficPolicy");
-    openapiFields.add("ipFamilies");
-    openapiFields.add("ipFamilyPolicy");
-    openapiFields.add("loadBalancerClass");
-    openapiFields.add("loadBalancerIP");
-    openapiFields.add("loadBalancerSourceRanges");
-    openapiFields.add("ports");
-    openapiFields.add("publishNotReadyAddresses");
-    openapiFields.add("selector");
-    openapiFields.add("sessionAffinity");
-    openapiFields.add("sessionAffinityConfig");
-    openapiFields.add("trafficDistribution");
-    openapiFields.add("type");
+    openapiFields = new HashSet<String>(Arrays.asList("allocateLoadBalancerNodePorts", "clusterIP", "clusterIPs", "externalIPs", "externalName", "externalTrafficPolicy", "healthCheckNodePort", "internalTrafficPolicy", "ipFamilies", "ipFamilyPolicy", "loadBalancerClass", "loadBalancerIP", "loadBalancerSourceRanges", "ports", "publishNotReadyAddresses", "selector", "sessionAffinity", "sessionAffinityConfig", "trafficDistribution", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -726,7 +706,7 @@ public class V1ServiceSpec {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ServiceSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ServiceSpec is not found in the empty JSON string", V1ServiceSpec.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1ServiceSpec is not found in the empty JSON string", V1ServiceSpec.openapiRequiredFields.toString()));
         }
       }
 
@@ -734,53 +714,53 @@ public class V1ServiceSpec {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ServiceSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ServiceSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1ServiceSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("clusterIP") != null && !jsonObj.get("clusterIP").isJsonNull()) && !jsonObj.get("clusterIP").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `clusterIP` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clusterIP").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `clusterIP` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clusterIP").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("clusterIPs") != null && !jsonObj.get("clusterIPs").isJsonNull() && !jsonObj.get("clusterIPs").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `clusterIPs` to be an array in the JSON string but got `%s`", jsonObj.get("clusterIPs").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `clusterIPs` to be an array in the JSON string but got `%s`", jsonObj.get("clusterIPs").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("externalIPs") != null && !jsonObj.get("externalIPs").isJsonNull() && !jsonObj.get("externalIPs").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `externalIPs` to be an array in the JSON string but got `%s`", jsonObj.get("externalIPs").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `externalIPs` to be an array in the JSON string but got `%s`", jsonObj.get("externalIPs").toString()));
       }
       if ((jsonObj.get("externalName") != null && !jsonObj.get("externalName").isJsonNull()) && !jsonObj.get("externalName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `externalName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `externalName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalName").toString()));
       }
       if ((jsonObj.get("externalTrafficPolicy") != null && !jsonObj.get("externalTrafficPolicy").isJsonNull()) && !jsonObj.get("externalTrafficPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `externalTrafficPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalTrafficPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `externalTrafficPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalTrafficPolicy").toString()));
       }
       if ((jsonObj.get("internalTrafficPolicy") != null && !jsonObj.get("internalTrafficPolicy").isJsonNull()) && !jsonObj.get("internalTrafficPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `internalTrafficPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internalTrafficPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `internalTrafficPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internalTrafficPolicy").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("ipFamilies") != null && !jsonObj.get("ipFamilies").isJsonNull() && !jsonObj.get("ipFamilies").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ipFamilies` to be an array in the JSON string but got `%s`", jsonObj.get("ipFamilies").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ipFamilies` to be an array in the JSON string but got `%s`", jsonObj.get("ipFamilies").toString()));
       }
       if ((jsonObj.get("ipFamilyPolicy") != null && !jsonObj.get("ipFamilyPolicy").isJsonNull()) && !jsonObj.get("ipFamilyPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ipFamilyPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ipFamilyPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ipFamilyPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ipFamilyPolicy").toString()));
       }
       if ((jsonObj.get("loadBalancerClass") != null && !jsonObj.get("loadBalancerClass").isJsonNull()) && !jsonObj.get("loadBalancerClass").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `loadBalancerClass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loadBalancerClass").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loadBalancerClass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loadBalancerClass").toString()));
       }
       if ((jsonObj.get("loadBalancerIP") != null && !jsonObj.get("loadBalancerIP").isJsonNull()) && !jsonObj.get("loadBalancerIP").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `loadBalancerIP` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loadBalancerIP").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loadBalancerIP` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loadBalancerIP").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("loadBalancerSourceRanges") != null && !jsonObj.get("loadBalancerSourceRanges").isJsonNull() && !jsonObj.get("loadBalancerSourceRanges").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `loadBalancerSourceRanges` to be an array in the JSON string but got `%s`", jsonObj.get("loadBalancerSourceRanges").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `loadBalancerSourceRanges` to be an array in the JSON string but got `%s`", jsonObj.get("loadBalancerSourceRanges").toString()));
       }
       if (jsonObj.get("ports") != null && !jsonObj.get("ports").isJsonNull()) {
         JsonArray jsonArrayports = jsonObj.getAsJsonArray("ports");
         if (jsonArrayports != null) {
           // ensure the json data is an array
           if (!jsonObj.get("ports").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `ports` to be an array in the JSON string but got `%s`", jsonObj.get("ports").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ports` to be an array in the JSON string but got `%s`", jsonObj.get("ports").toString()));
           }
 
           // validate the optional field `ports` (array)
@@ -790,17 +770,17 @@ public class V1ServiceSpec {
         }
       }
       if ((jsonObj.get("sessionAffinity") != null && !jsonObj.get("sessionAffinity").isJsonNull()) && !jsonObj.get("sessionAffinity").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sessionAffinity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sessionAffinity").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sessionAffinity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sessionAffinity").toString()));
       }
       // validate the optional field `sessionAffinityConfig`
       if (jsonObj.get("sessionAffinityConfig") != null && !jsonObj.get("sessionAffinityConfig").isJsonNull()) {
         V1SessionAffinityConfig.validateJsonElement(jsonObj.get("sessionAffinityConfig"));
       }
       if ((jsonObj.get("trafficDistribution") != null && !jsonObj.get("trafficDistribution").isJsonNull()) && !jsonObj.get("trafficDistribution").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `trafficDistribution` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trafficDistribution").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `trafficDistribution` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trafficDistribution").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 

@@ -1,28 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1EnvVarFluent<A>> extends BaseFluent<A>{
+
+  private String name;
+  private String value;
+  private V1EnvVarSourceBuilder valueFrom;
+
   public V1EnvVarFluent() {
   }
   
   public V1EnvVarFluent(V1EnvVar instance) {
     this.copyInstance(instance);
   }
-  private String name;
-  private String value;
-  private V1EnvVarSourceBuilder valueFrom;
+
+  public V1EnvVarSource buildValueFrom() {
+    return this.valueFrom != null ? this.valueFrom.build() : null;
+  }
   
   protected void copyInstance(V1EnvVar instance) {
     instance = instance != null ? instance : new V1EnvVar();
@@ -33,70 +39,16 @@ public class V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1EnvV
     }
   }
   
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public String getValue() {
-    return this.value;
-  }
-  
-  public A withValue(String value) {
-    this.value = value;
-    return (A) this;
-  }
-  
-  public boolean hasValue() {
-    return this.value != null;
-  }
-  
-  public V1EnvVarSource buildValueFrom() {
-    return this.valueFrom != null ? this.valueFrom.build() : null;
-  }
-  
-  public A withValueFrom(V1EnvVarSource valueFrom) {
-    this._visitables.remove("valueFrom");
-    if (valueFrom != null) {
-        this.valueFrom = new V1EnvVarSourceBuilder(valueFrom);
-        this._visitables.get("valueFrom").add(this.valueFrom);
-    } else {
-        this.valueFrom = null;
-        this._visitables.get("valueFrom").remove(this.valueFrom);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasValueFrom() {
-    return this.valueFrom != null;
-  }
-  
-  public ValueFromNested<A> withNewValueFrom() {
-    return new ValueFromNested(null);
-  }
-  
-  public ValueFromNested<A> withNewValueFromLike(V1EnvVarSource item) {
-    return new ValueFromNested(item);
-  }
-  
-  public ValueFromNested<A> editValueFrom() {
-    return this.withNewValueFromLike(Optional.ofNullable(this.buildValueFrom()).orElse(null));
-  }
-  
   public ValueFromNested<A> editOrNewValueFrom() {
     return this.withNewValueFromLike(Optional.ofNullable(this.buildValueFrom()).orElse(new V1EnvVarSourceBuilder().build()));
   }
   
   public ValueFromNested<A> editOrNewValueFromLike(V1EnvVarSource item) {
     return this.withNewValueFromLike(Optional.ofNullable(this.buildValueFrom()).orElse(item));
+  }
+  
+  public ValueFromNested<A> editValueFrom() {
+    return this.withNewValueFromLike(Optional.ofNullable(this.buildValueFrom()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -120,6 +72,26 @@ public class V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1EnvV
       return false;
     }
     return true;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public String getValue() {
+    return this.value;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasValue() {
+    return this.value != null;
+  }
+  
+  public boolean hasValueFrom() {
+    return this.valueFrom != null;
   }
   
   public int hashCode() {
@@ -146,12 +118,44 @@ public class V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1EnvV
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public ValueFromNested<A> withNewValueFrom() {
+    return new ValueFromNested(null);
+  }
+  
+  public ValueFromNested<A> withNewValueFromLike(V1EnvVarSource item) {
+    return new ValueFromNested(item);
+  }
+  
+  public A withValue(String value) {
+    this.value = value;
+    return (A) this;
+  }
+  
+  public A withValueFrom(V1EnvVarSource valueFrom) {
+    this._visitables.remove("valueFrom");
+    if (valueFrom != null) {
+        this.valueFrom = new V1EnvVarSourceBuilder(valueFrom);
+        this._visitables.get("valueFrom").add(this.valueFrom);
+    } else {
+        this.valueFrom = null;
+        this._visitables.get("valueFrom").remove(this.valueFrom);
+    }
+    return (A) this;
+  }
   public class ValueFromNested<N> extends V1EnvVarSourceFluent<ValueFromNested<N>> implements Nested<N>{
+  
+    V1EnvVarSourceBuilder builder;
+  
     ValueFromNested(V1EnvVarSource item) {
       this.builder = new V1EnvVarSourceBuilder(this, item);
     }
-    V1EnvVarSourceBuilder builder;
-    
+  
     public N and() {
       return (N) V1EnvVarFluent.this.withValueFrom(builder.build());
     }
@@ -160,7 +164,5 @@ public class V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1EnvV
       return and();
     }
     
-  
   }
-
 }

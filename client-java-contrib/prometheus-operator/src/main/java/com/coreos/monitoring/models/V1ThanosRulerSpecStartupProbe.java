@@ -29,7 +29,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "StartupProbe indicates that the Pod has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a Pod's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. This is an alpha feature enabled by the StartupProbe feature flag. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecStartupProbe {
@@ -84,7 +84,7 @@ public class V1ThanosRulerSpecStartupProbe {
    *
    * @return exec
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecLifecyclePostStartExec getExec() {
     return exec;
@@ -106,7 +106,7 @@ public class V1ThanosRulerSpecStartupProbe {
    *
    * @return failureThreshold
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.")
@@ -129,7 +129,7 @@ public class V1ThanosRulerSpecStartupProbe {
    *
    * @return httpGet
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecLifecyclePostStartHttpGet getHttpGet() {
     return httpGet;
@@ -151,7 +151,7 @@ public class V1ThanosRulerSpecStartupProbe {
    *
    * @return initialDelaySeconds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Number of seconds after the container has started before liveness probes are initiated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes")
@@ -174,7 +174,7 @@ public class V1ThanosRulerSpecStartupProbe {
    *
    * @return periodSeconds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.")
@@ -198,7 +198,7 @@ public class V1ThanosRulerSpecStartupProbe {
    *
    * @return successThreshold
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness and startup. Minimum value is 1.")
@@ -222,7 +222,7 @@ public class V1ThanosRulerSpecStartupProbe {
    *
    * @return tcpSocket
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecLifecyclePostStartTcpSocket getTcpSocket() {
     return tcpSocket;
@@ -244,7 +244,7 @@ public class V1ThanosRulerSpecStartupProbe {
    *
    * @return timeoutSeconds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes")

@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1NodeStatusBuilder extends V1NodeStatusFluent<V1NodeStatusBuilder> implements VisitableBuilder<V1NodeStatus,V1NodeStatusBuilder>{
+
+  V1NodeStatusFluent<?> fluent;
+
   public V1NodeStatusBuilder() {
     this(new V1NodeStatus());
   }
@@ -11,17 +14,16 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluent<V1NodeStatusBuilder>
     this(fluent, new V1NodeStatus());
   }
   
-  public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent,V1NodeStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1NodeStatusBuilder(V1NodeStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1NodeStatusFluent<?> fluent;
   
+  public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent,V1NodeStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1NodeStatus build() {
     V1NodeStatus buildable = new V1NodeStatus();
     buildable.setAddresses(fluent.buildAddresses());
@@ -30,6 +32,7 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluent<V1NodeStatusBuilder>
     buildable.setConditions(fluent.buildConditions());
     buildable.setConfig(fluent.buildConfig());
     buildable.setDaemonEndpoints(fluent.buildDaemonEndpoints());
+    buildable.setDeclaredFeatures(fluent.getDeclaredFeatures());
     buildable.setFeatures(fluent.buildFeatures());
     buildable.setImages(fluent.buildImages());
     buildable.setNodeInfo(fluent.buildNodeInfo());
@@ -40,5 +43,4 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluent<V1NodeStatusBuilder>
     return buildable;
   }
   
-
 }

@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** Specification of desired alerting rule definitions for Prometheus. */
 @ApiModel(description = "Specification of desired alerting rule definitions for Prometheus.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusRuleSpec {
@@ -49,7 +49,7 @@ public class V1PrometheusRuleSpec {
    *
    * @return groups
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Content of Prometheus rule file")
   public List<V1PrometheusRuleSpecGroups> getGroups() {
     return groups;

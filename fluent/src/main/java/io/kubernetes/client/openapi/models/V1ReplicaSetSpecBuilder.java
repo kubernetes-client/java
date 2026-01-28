@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ReplicaSetSpecBuilder extends V1ReplicaSetSpecFluent<V1ReplicaSetSpecBuilder> implements VisitableBuilder<V1ReplicaSetSpec,V1ReplicaSetSpecBuilder>{
+
+  V1ReplicaSetSpecFluent<?> fluent;
+
   public V1ReplicaSetSpecBuilder() {
     this(new V1ReplicaSetSpec());
   }
@@ -11,17 +14,16 @@ public class V1ReplicaSetSpecBuilder extends V1ReplicaSetSpecFluent<V1ReplicaSet
     this(fluent, new V1ReplicaSetSpec());
   }
   
-  public V1ReplicaSetSpecBuilder(V1ReplicaSetSpecFluent<?> fluent,V1ReplicaSetSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ReplicaSetSpecBuilder(V1ReplicaSetSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ReplicaSetSpecFluent<?> fluent;
   
+  public V1ReplicaSetSpecBuilder(V1ReplicaSetSpecFluent<?> fluent,V1ReplicaSetSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ReplicaSetSpec build() {
     V1ReplicaSetSpec buildable = new V1ReplicaSetSpec();
     buildable.setMinReadySeconds(fluent.getMinReadySeconds());
@@ -31,5 +33,4 @@ public class V1ReplicaSetSpecBuilder extends V1ReplicaSetSpecFluent<V1ReplicaSet
     return buildable;
   }
   
-
 }

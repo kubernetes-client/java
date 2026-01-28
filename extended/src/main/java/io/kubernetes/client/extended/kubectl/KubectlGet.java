@@ -29,10 +29,12 @@ public class KubectlGet<ApiType extends KubernetesObject>
   private ListOptions listOptions;
   private Class<ApiType> apiTypeClass;
   private Class<? extends KubernetesListObject> apiTypeListClass;
+  private boolean allNamespaces;
 
   KubectlGet(Class<ApiType> apiTypeClass) {
     this.apiTypeClass = apiTypeClass;
     this.listOptions = new ListOptions();
+    this.allNamespaces = false;
   }
 
   public KubectlGet<ApiType> apiListTypeClass(
@@ -51,6 +53,11 @@ public class KubectlGet<ApiType extends KubernetesObject>
     return this;
   }
 
+  public KubectlGet<ApiType> allNamespaces() {
+    this.allNamespaces = true;
+    return this;
+  }
+
   public KubectlGetSingle name(String name) {
     return new KubectlGetSingle(name);
   }
@@ -64,7 +71,9 @@ public class KubectlGet<ApiType extends KubernetesObject>
             ? getGenericApi(apiTypeClass)
             : getGenericApi(apiTypeClass, apiTypeListClass);
     try {
-      if (isNamespaced()) {
+      if (allNamespaces) {
+        return (List<ApiType>) api.list(listOptions).throwsApiException().getObject().getItems();
+      } else if (isNamespaced()) {
         return (List<ApiType>)
             api.list(namespace, listOptions).throwsApiException().getObject().getItems();
 

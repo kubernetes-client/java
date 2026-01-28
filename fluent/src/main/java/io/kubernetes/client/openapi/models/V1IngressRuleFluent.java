@@ -1,27 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1IngressRuleFluent<A extends io.kubernetes.client.openapi.models.V1IngressRuleFluent<A>> extends BaseFluent<A>{
+
+  private String host;
+  private V1HTTPIngressRuleValueBuilder http;
+
   public V1IngressRuleFluent() {
   }
   
   public V1IngressRuleFluent(V1IngressRule instance) {
     this.copyInstance(instance);
   }
-  private String host;
-  private V1HTTPIngressRuleValueBuilder http;
+
+  public V1HTTPIngressRuleValue buildHttp() {
+    return this.http != null ? this.http.build() : null;
+  }
   
   protected void copyInstance(V1IngressRule instance) {
     instance = instance != null ? instance : new V1IngressRule();
@@ -29,47 +35,6 @@ public class V1IngressRuleFluent<A extends io.kubernetes.client.openapi.models.V
         this.withHost(instance.getHost());
         this.withHttp(instance.getHttp());
     }
-  }
-  
-  public String getHost() {
-    return this.host;
-  }
-  
-  public A withHost(String host) {
-    this.host = host;
-    return (A) this;
-  }
-  
-  public boolean hasHost() {
-    return this.host != null;
-  }
-  
-  public V1HTTPIngressRuleValue buildHttp() {
-    return this.http != null ? this.http.build() : null;
-  }
-  
-  public A withHttp(V1HTTPIngressRuleValue http) {
-    this._visitables.remove("http");
-    if (http != null) {
-        this.http = new V1HTTPIngressRuleValueBuilder(http);
-        this._visitables.get("http").add(this.http);
-    } else {
-        this.http = null;
-        this._visitables.get("http").remove(this.http);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasHttp() {
-    return this.http != null;
-  }
-  
-  public HttpNested<A> withNewHttp() {
-    return new HttpNested(null);
-  }
-  
-  public HttpNested<A> withNewHttpLike(V1HTTPIngressRuleValue item) {
-    return new HttpNested(item);
   }
   
   public HttpNested<A> editHttp() {
@@ -104,6 +69,18 @@ public class V1IngressRuleFluent<A extends io.kubernetes.client.openapi.models.V
     return true;
   }
   
+  public String getHost() {
+    return this.host;
+  }
+  
+  public boolean hasHost() {
+    return this.host != null;
+  }
+  
+  public boolean hasHttp() {
+    return this.http != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(host, http);
   }
@@ -123,12 +100,39 @@ public class V1IngressRuleFluent<A extends io.kubernetes.client.openapi.models.V
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withHost(String host) {
+    this.host = host;
+    return (A) this;
+  }
+  
+  public A withHttp(V1HTTPIngressRuleValue http) {
+    this._visitables.remove("http");
+    if (http != null) {
+        this.http = new V1HTTPIngressRuleValueBuilder(http);
+        this._visitables.get("http").add(this.http);
+    } else {
+        this.http = null;
+        this._visitables.get("http").remove(this.http);
+    }
+    return (A) this;
+  }
+  
+  public HttpNested<A> withNewHttp() {
+    return new HttpNested(null);
+  }
+  
+  public HttpNested<A> withNewHttpLike(V1HTTPIngressRuleValue item) {
+    return new HttpNested(item);
+  }
   public class HttpNested<N> extends V1HTTPIngressRuleValueFluent<HttpNested<N>> implements Nested<N>{
+  
+    V1HTTPIngressRuleValueBuilder builder;
+  
     HttpNested(V1HTTPIngressRuleValue item) {
       this.builder = new V1HTTPIngressRuleValueBuilder(this, item);
     }
-    V1HTTPIngressRuleValueBuilder builder;
-    
+  
     public N and() {
       return (N) V1IngressRuleFluent.this.withHttp(builder.build());
     }
@@ -137,7 +141,5 @@ public class V1IngressRuleFluent<A extends io.kubernetes.client.openapi.models.V
       return and();
     }
     
-  
   }
-
 }

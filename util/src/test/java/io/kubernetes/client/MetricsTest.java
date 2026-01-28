@@ -14,8 +14,7 @@ package io.kubernetes.client;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.openapi.ApiClient;
@@ -49,12 +48,7 @@ class MetricsTest {
                     .withStatus(503)
                     .withHeader("Content-Type", "text/plain")
                     .withBody("Service Unavailable")));
-    try {
-      metrics.getPodMetrics(namespace);
-      failBecauseExceptionWasNotThrown(ApiException.class);
-    } catch (ApiException ex) {
-      assertThat(ex.getCode()).isEqualTo(503);
-    }
+      assertThrows(ApiException.class, () -> metrics.getPodMetrics(namespace));
   }
 
   @Test
@@ -67,11 +61,6 @@ class MetricsTest {
                     .withStatus(503)
                     .withHeader("Content-Type", "text/plain")
                     .withBody("Service Unavailable")));
-    try {
-      metrics.getNodeMetrics();
-      failBecauseExceptionWasNotThrown(ApiException.class);
-    } catch (ApiException ex) {
-      assertThat(ex.getCode()).isEqualTo(503);
-    }
+      assertThrows(ApiException.class, metrics::getNodeMetrics);
   }
 }

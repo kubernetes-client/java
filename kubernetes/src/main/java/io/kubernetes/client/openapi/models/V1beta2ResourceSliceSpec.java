@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -56,7 +56,7 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceSliceSpec contains the information published by the driver in one ResourceSlice.
  */
 @ApiModel(description = "ResourceSliceSpec contains the information published by the driver in one ResourceSlice.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1beta2ResourceSliceSpec {
   public static final String SERIALIZED_NAME_ALL_NODES = "allNodes";
   @SerializedName(SERIALIZED_NAME_ALL_NODES)
@@ -135,11 +135,11 @@ public class V1beta2ResourceSliceSpec {
   }
 
   /**
-   * Devices lists some or all of the devices in this pool.  Must not have more than 128 entries.
+   * Devices lists some or all of the devices in this pool.  Must not have more than 128 entries. If any device uses taints or consumes counters the limit is 64.  Only one of Devices and SharedCounters can be set in a ResourceSlice.
    * @return devices
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Devices lists some or all of the devices in this pool.  Must not have more than 128 entries.")
+  @ApiModelProperty(value = "Devices lists some or all of the devices in this pool.  Must not have more than 128 entries. If any device uses taints or consumes counters the limit is 64.  Only one of Devices and SharedCounters can be set in a ResourceSlice.")
   public List<V1beta2Device> getDevices() {
     return devices;
   }
@@ -155,11 +155,11 @@ public class V1beta2ResourceSliceSpec {
   }
 
   /**
-   * Driver identifies the DRA driver providing the capacity information. A field selector can be used to list only ResourceSlice objects with a certain driver name.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver. This field is immutable.
+   * Driver identifies the DRA driver providing the capacity information. A field selector can be used to list only ResourceSlice objects with a certain driver name.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver. It should use only lower case characters. This field is immutable.
    * @return driver
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Driver identifies the DRA driver providing the capacity information. A field selector can be used to list only ResourceSlice objects with a certain driver name.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver. This field is immutable.")
+  @ApiModelProperty(required = true, value = "Driver identifies the DRA driver providing the capacity information. A field selector can be used to list only ResourceSlice objects with a certain driver name.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver. It should use only lower case characters. This field is immutable.")
   public String getDriver() {
     return driver;
   }
@@ -263,11 +263,11 @@ public class V1beta2ResourceSliceSpec {
   }
 
   /**
-   * SharedCounters defines a list of counter sets, each of which has a name and a list of counters available.  The names of the SharedCounters must be unique in the ResourceSlice.  The maximum number of counters in all sets is 32.
+   * SharedCounters defines a list of counter sets, each of which has a name and a list of counters available.  The names of the counter sets must be unique in the ResourcePool.  Only one of Devices and SharedCounters can be set in a ResourceSlice.  The maximum number of counter sets is 8.
    * @return sharedCounters
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "SharedCounters defines a list of counter sets, each of which has a name and a list of counters available.  The names of the SharedCounters must be unique in the ResourceSlice.  The maximum number of counters in all sets is 32.")
+  @ApiModelProperty(value = "SharedCounters defines a list of counter sets, each of which has a name and a list of counters available.  The names of the counter sets must be unique in the ResourcePool.  Only one of Devices and SharedCounters can be set in a ResourceSlice.  The maximum number of counter sets is 8.")
   public List<V1beta2CounterSet> getSharedCounters() {
     return sharedCounters;
   }
@@ -335,20 +335,10 @@ public class V1beta2ResourceSliceSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allNodes");
-    openapiFields.add("devices");
-    openapiFields.add("driver");
-    openapiFields.add("nodeName");
-    openapiFields.add("nodeSelector");
-    openapiFields.add("perDeviceNodeSelection");
-    openapiFields.add("pool");
-    openapiFields.add("sharedCounters");
+    openapiFields = new HashSet<String>(Arrays.asList("allNodes", "devices", "driver", "nodeName", "nodeSelector", "perDeviceNodeSelection", "pool", "sharedCounters"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("driver");
-    openapiRequiredFields.add("pool");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("driver", "pool"));
   }
 
   /**
@@ -360,7 +350,7 @@ public class V1beta2ResourceSliceSpec {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1beta2ResourceSliceSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1beta2ResourceSliceSpec is not found in the empty JSON string", V1beta2ResourceSliceSpec.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1beta2ResourceSliceSpec is not found in the empty JSON string", V1beta2ResourceSliceSpec.openapiRequiredFields.toString()));
         }
       }
 
@@ -368,14 +358,14 @@ public class V1beta2ResourceSliceSpec {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1beta2ResourceSliceSpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1beta2ResourceSliceSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1beta2ResourceSliceSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1beta2ResourceSliceSpec.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -384,7 +374,7 @@ public class V1beta2ResourceSliceSpec {
         if (jsonArraydevices != null) {
           // ensure the json data is an array
           if (!jsonObj.get("devices").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `devices` to be an array in the JSON string but got `%s`", jsonObj.get("devices").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `devices` to be an array in the JSON string but got `%s`", jsonObj.get("devices").toString()));
           }
 
           // validate the optional field `devices` (array)
@@ -394,10 +384,10 @@ public class V1beta2ResourceSliceSpec {
         }
       }
       if (!jsonObj.get("driver").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `driver` to be a primitive type in the JSON string but got `%s`", jsonObj.get("driver").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `driver` to be a primitive type in the JSON string but got `%s`", jsonObj.get("driver").toString()));
       }
       if ((jsonObj.get("nodeName") != null && !jsonObj.get("nodeName").isJsonNull()) && !jsonObj.get("nodeName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nodeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nodeName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `nodeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nodeName").toString()));
       }
       // validate the optional field `nodeSelector`
       if (jsonObj.get("nodeSelector") != null && !jsonObj.get("nodeSelector").isJsonNull()) {
@@ -410,7 +400,7 @@ public class V1beta2ResourceSliceSpec {
         if (jsonArraysharedCounters != null) {
           // ensure the json data is an array
           if (!jsonObj.get("sharedCounters").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `sharedCounters` to be an array in the JSON string but got `%s`", jsonObj.get("sharedCounters").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sharedCounters` to be an array in the JSON string but got `%s`", jsonObj.get("sharedCounters").toString()));
           }
 
           // validate the optional field `sharedCounters` (array)

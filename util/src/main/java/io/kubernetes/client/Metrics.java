@@ -20,8 +20,17 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
+import io.kubernetes.client.util.generic.KubernetesApiResponse;
+import io.kubernetes.client.util.generic.options.ListOptions;
+
+import jakarta.annotation.Nullable;
 
 public class Metrics {
+  private static final String API_GROUP = "metrics.k8s.io";
+  private static final String API_VERSION = "v1beta1";
+  private static final String PODS = "pods";
+  private static final String NODES = "nodes";
+
   private ApiClient apiClient;
 
   /** Simple Metrics API constructor, uses default configuration */
@@ -61,17 +70,37 @@ public class Metrics {
         new GenericKubernetesApi<>(
             NodeMetrics.class,
             NodeMetricsList.class,
-            "metrics.k8s.io",
-            "v1beta1",
-            "nodes",
+            Metrics.API_GROUP,
+            Metrics.API_VERSION,
+            Metrics.NODES,
             apiClient);
     return metricsClient.list().throwsApiException().getObject();
   }
 
   public PodMetricsList getPodMetrics(String namespace) throws ApiException {
+    return getPodMetrics(namespace, null);
+  }
+
+  /**
+   * Obtain Pod Metrics in the given Namespace with an optional label selector.
+   * @param namespace     The Namespace to look in.
+   * @param labelSelector The label selector, optional.  Use comma-delimited for multiple labels.
+   * @return  PodMetricList, never null.
+   * @throws ApiException   If the ApiClient cannot complete the request.
+   */
+  public PodMetricsList getPodMetrics(String namespace, @Nullable String labelSelector) throws ApiException {
     GenericKubernetesApi<PodMetrics, PodMetricsList> metricsClient =
-        new GenericKubernetesApi<>(
-            PodMetrics.class, PodMetricsList.class, "metrics.k8s.io", "v1beta1", "pods", apiClient);
-    return metricsClient.list(namespace).throwsApiException().getObject();
+            new GenericKubernetesApi<>(
+                    PodMetrics.class, PodMetricsList.class, Metrics.API_GROUP, Metrics.API_VERSION, Metrics.PODS, apiClient);
+    final KubernetesApiResponse<PodMetricsList> response;
+    if (labelSelector == null || labelSelector.trim().isEmpty()) {
+        response = metricsClient.list(namespace);
+    } else {
+        final ListOptions listOptions = new ListOptions();
+        listOptions.setLabelSelector(labelSelector);
+        response = metricsClient.list(namespace, listOptions);
+    }
+
+    return response.throwsApiException().getObject();
   }
 }

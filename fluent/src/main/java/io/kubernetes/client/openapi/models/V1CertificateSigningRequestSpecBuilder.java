@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1CertificateSigningRequestSpecBuilder extends V1CertificateSigningRequestSpecFluent<V1CertificateSigningRequestSpecBuilder> implements VisitableBuilder<V1CertificateSigningRequestSpec,V1CertificateSigningRequestSpecBuilder>{
+
+  V1CertificateSigningRequestSpecFluent<?> fluent;
+
   public V1CertificateSigningRequestSpecBuilder() {
     this(new V1CertificateSigningRequestSpec());
   }
@@ -11,17 +14,16 @@ public class V1CertificateSigningRequestSpecBuilder extends V1CertificateSigning
     this(fluent, new V1CertificateSigningRequestSpec());
   }
   
-  public V1CertificateSigningRequestSpecBuilder(V1CertificateSigningRequestSpecFluent<?> fluent,V1CertificateSigningRequestSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1CertificateSigningRequestSpecBuilder(V1CertificateSigningRequestSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1CertificateSigningRequestSpecFluent<?> fluent;
   
+  public V1CertificateSigningRequestSpecBuilder(V1CertificateSigningRequestSpecFluent<?> fluent,V1CertificateSigningRequestSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1CertificateSigningRequestSpec build() {
     V1CertificateSigningRequestSpec buildable = new V1CertificateSigningRequestSpec();
     buildable.setExpirationSeconds(fluent.getExpirationSeconds());
@@ -35,5 +37,4 @@ public class V1CertificateSigningRequestSpecBuilder extends V1CertificateSigning
     return buildable;
   }
   
-
 }

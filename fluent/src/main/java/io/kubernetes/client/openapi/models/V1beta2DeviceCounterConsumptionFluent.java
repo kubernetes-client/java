@@ -1,47 +1,38 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
-import java.util.Map;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
 import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1beta2DeviceCounterConsumptionFluent<A extends io.kubernetes.client.openapi.models.V1beta2DeviceCounterConsumptionFluent<A>> extends BaseFluent<A>{
+
+  private String counterSet;
+  private Map<String,V1beta2Counter> counters;
+
   public V1beta2DeviceCounterConsumptionFluent() {
   }
   
   public V1beta2DeviceCounterConsumptionFluent(V1beta2DeviceCounterConsumption instance) {
     this.copyInstance(instance);
   }
-  private String counterSet;
-  private Map<String,V1beta2Counter> counters;
-  
-  protected void copyInstance(V1beta2DeviceCounterConsumption instance) {
-    instance = instance != null ? instance : new V1beta2DeviceCounterConsumption();
-    if (instance != null) {
-        this.withCounterSet(instance.getCounterSet());
-        this.withCounters(instance.getCounters());
+
+  public A addToCounters(Map<String,V1beta2Counter> map) {
+    if (this.counters == null && map != null) {
+      this.counters = new LinkedHashMap();
     }
-  }
-  
-  public String getCounterSet() {
-    return this.counterSet;
-  }
-  
-  public A withCounterSet(String counterSet) {
-    this.counterSet = counterSet;
+    if (map != null) {
+      this.counters.putAll(map);
+    }
     return (A) this;
-  }
-  
-  public boolean hasCounterSet() {
-    return this.counterSet != null;
   }
   
   public A addToCounters(String key,V1beta2Counter value) {
@@ -54,14 +45,52 @@ public class V1beta2DeviceCounterConsumptionFluent<A extends io.kubernetes.clien
     return (A) this;
   }
   
-  public A addToCounters(Map<String,V1beta2Counter> map) {
-    if (this.counters == null && map != null) {
-      this.counters = new LinkedHashMap();
+  protected void copyInstance(V1beta2DeviceCounterConsumption instance) {
+    instance = instance != null ? instance : new V1beta2DeviceCounterConsumption();
+    if (instance != null) {
+        this.withCounterSet(instance.getCounterSet());
+        this.withCounters(instance.getCounters());
     }
-    if (map != null) {
-      this.counters.putAll(map);
+  }
+  
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-    return (A) this;
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
+    V1beta2DeviceCounterConsumptionFluent that = (V1beta2DeviceCounterConsumptionFluent) o;
+    if (!(Objects.equals(counterSet, that.counterSet))) {
+      return false;
+    }
+    if (!(Objects.equals(counters, that.counters))) {
+      return false;
+    }
+    return true;
+  }
+  
+  public String getCounterSet() {
+    return this.counterSet;
+  }
+  
+  public Map<String,V1beta2Counter> getCounters() {
+    return this.counters;
+  }
+  
+  public boolean hasCounterSet() {
+    return this.counterSet != null;
+  }
+  
+  public boolean hasCounters() {
+    return this.counters != null;
+  }
+  
+  public int hashCode() {
+    return Objects.hash(counterSet, counters);
   }
   
   public A removeFromCounters(String key) {
@@ -88,47 +117,6 @@ public class V1beta2DeviceCounterConsumptionFluent<A extends io.kubernetes.clien
     return (A) this;
   }
   
-  public Map<String,V1beta2Counter> getCounters() {
-    return this.counters;
-  }
-  
-  public <K,V>A withCounters(Map<String,V1beta2Counter> counters) {
-    if (counters == null) {
-      this.counters = null;
-    } else {
-      this.counters = new LinkedHashMap(counters);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasCounters() {
-    return this.counters != null;
-  }
-  
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || this.getClass() != o.getClass()) {
-      return false;
-    }
-    if (!(super.equals(o))) {
-      return false;
-    }
-    V1beta2DeviceCounterConsumptionFluent that = (V1beta2DeviceCounterConsumptionFluent) o;
-    if (!(Objects.equals(counterSet, that.counterSet))) {
-      return false;
-    }
-    if (!(Objects.equals(counters, that.counters))) {
-      return false;
-    }
-    return true;
-  }
-  
-  public int hashCode() {
-    return Objects.hash(counterSet, counters);
-  }
-  
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
@@ -145,5 +133,18 @@ public class V1beta2DeviceCounterConsumptionFluent<A extends io.kubernetes.clien
     return sb.toString();
   }
   
-
+  public A withCounterSet(String counterSet) {
+    this.counterSet = counterSet;
+    return (A) this;
+  }
+  
+  public <K,V>A withCounters(Map<String,V1beta2Counter> counters) {
+    if (counters == null) {
+      this.counters = null;
+    } else {
+      this.counters = new LinkedHashMap(counters);
+    }
+    return (A) this;
+  }
+  
 }

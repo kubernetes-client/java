@@ -1,28 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Integer;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1WeightedPodAffinityTermFluent<A extends io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent<A>> extends BaseFluent<A>{
+
+  private V1PodAffinityTermBuilder podAffinityTerm;
+  private Integer weight;
+
   public V1WeightedPodAffinityTermFluent() {
   }
   
   public V1WeightedPodAffinityTermFluent(V1WeightedPodAffinityTerm instance) {
     this.copyInstance(instance);
   }
-  private V1PodAffinityTermBuilder podAffinityTerm;
-  private Integer weight;
+
+  public V1PodAffinityTerm buildPodAffinityTerm() {
+    return this.podAffinityTerm != null ? this.podAffinityTerm.build() : null;
+  }
   
   protected void copyInstance(V1WeightedPodAffinityTerm instance) {
     instance = instance != null ? instance : new V1WeightedPodAffinityTerm();
@@ -30,38 +36,6 @@ public class V1WeightedPodAffinityTermFluent<A extends io.kubernetes.client.open
         this.withPodAffinityTerm(instance.getPodAffinityTerm());
         this.withWeight(instance.getWeight());
     }
-  }
-  
-  public V1PodAffinityTerm buildPodAffinityTerm() {
-    return this.podAffinityTerm != null ? this.podAffinityTerm.build() : null;
-  }
-  
-  public A withPodAffinityTerm(V1PodAffinityTerm podAffinityTerm) {
-    this._visitables.remove("podAffinityTerm");
-    if (podAffinityTerm != null) {
-        this.podAffinityTerm = new V1PodAffinityTermBuilder(podAffinityTerm);
-        this._visitables.get("podAffinityTerm").add(this.podAffinityTerm);
-    } else {
-        this.podAffinityTerm = null;
-        this._visitables.get("podAffinityTerm").remove(this.podAffinityTerm);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasPodAffinityTerm() {
-    return this.podAffinityTerm != null;
-  }
-  
-  public PodAffinityTermNested<A> withNewPodAffinityTerm() {
-    return new PodAffinityTermNested(null);
-  }
-  
-  public PodAffinityTermNested<A> withNewPodAffinityTermLike(V1PodAffinityTerm item) {
-    return new PodAffinityTermNested(item);
-  }
-  
-  public PodAffinityTermNested<A> editPodAffinityTerm() {
-    return this.withNewPodAffinityTermLike(Optional.ofNullable(this.buildPodAffinityTerm()).orElse(null));
   }
   
   public PodAffinityTermNested<A> editOrNewPodAffinityTerm() {
@@ -72,17 +46,8 @@ public class V1WeightedPodAffinityTermFluent<A extends io.kubernetes.client.open
     return this.withNewPodAffinityTermLike(Optional.ofNullable(this.buildPodAffinityTerm()).orElse(item));
   }
   
-  public Integer getWeight() {
-    return this.weight;
-  }
-  
-  public A withWeight(Integer weight) {
-    this.weight = weight;
-    return (A) this;
-  }
-  
-  public boolean hasWeight() {
-    return this.weight != null;
+  public PodAffinityTermNested<A> editPodAffinityTerm() {
+    return this.withNewPodAffinityTermLike(Optional.ofNullable(this.buildPodAffinityTerm()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -105,6 +70,18 @@ public class V1WeightedPodAffinityTermFluent<A extends io.kubernetes.client.open
     return true;
   }
   
+  public Integer getWeight() {
+    return this.weight;
+  }
+  
+  public boolean hasPodAffinityTerm() {
+    return this.podAffinityTerm != null;
+  }
+  
+  public boolean hasWeight() {
+    return this.weight != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(podAffinityTerm, weight);
   }
@@ -124,12 +101,39 @@ public class V1WeightedPodAffinityTermFluent<A extends io.kubernetes.client.open
     sb.append("}");
     return sb.toString();
   }
+  
+  public PodAffinityTermNested<A> withNewPodAffinityTerm() {
+    return new PodAffinityTermNested(null);
+  }
+  
+  public PodAffinityTermNested<A> withNewPodAffinityTermLike(V1PodAffinityTerm item) {
+    return new PodAffinityTermNested(item);
+  }
+  
+  public A withPodAffinityTerm(V1PodAffinityTerm podAffinityTerm) {
+    this._visitables.remove("podAffinityTerm");
+    if (podAffinityTerm != null) {
+        this.podAffinityTerm = new V1PodAffinityTermBuilder(podAffinityTerm);
+        this._visitables.get("podAffinityTerm").add(this.podAffinityTerm);
+    } else {
+        this.podAffinityTerm = null;
+        this._visitables.get("podAffinityTerm").remove(this.podAffinityTerm);
+    }
+    return (A) this;
+  }
+  
+  public A withWeight(Integer weight) {
+    this.weight = weight;
+    return (A) this;
+  }
   public class PodAffinityTermNested<N> extends V1PodAffinityTermFluent<PodAffinityTermNested<N>> implements Nested<N>{
+  
+    V1PodAffinityTermBuilder builder;
+  
     PodAffinityTermNested(V1PodAffinityTerm item) {
       this.builder = new V1PodAffinityTermBuilder(this, item);
     }
-    V1PodAffinityTermBuilder builder;
-    
+  
     public N and() {
       return (N) V1WeightedPodAffinityTermFluent.this.withPodAffinityTerm(builder.build());
     }
@@ -138,7 +142,5 @@ public class V1WeightedPodAffinityTermFluent<A extends io.kubernetes.client.open
       return and();
     }
     
-  
   }
-
 }

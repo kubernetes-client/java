@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1VsphereVirtualDiskVolumeSourceBuilder extends V1VsphereVirtualDiskVolumeSourceFluent<V1VsphereVirtualDiskVolumeSourceBuilder> implements VisitableBuilder<V1VsphereVirtualDiskVolumeSource,V1VsphereVirtualDiskVolumeSourceBuilder>{
+
+  V1VsphereVirtualDiskVolumeSourceFluent<?> fluent;
+
   public V1VsphereVirtualDiskVolumeSourceBuilder() {
     this(new V1VsphereVirtualDiskVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1VsphereVirtualDiskVolumeSourceBuilder extends V1VsphereVirtualDis
     this(fluent, new V1VsphereVirtualDiskVolumeSource());
   }
   
-  public V1VsphereVirtualDiskVolumeSourceBuilder(V1VsphereVirtualDiskVolumeSourceFluent<?> fluent,V1VsphereVirtualDiskVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1VsphereVirtualDiskVolumeSourceBuilder(V1VsphereVirtualDiskVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1VsphereVirtualDiskVolumeSourceFluent<?> fluent;
   
+  public V1VsphereVirtualDiskVolumeSourceBuilder(V1VsphereVirtualDiskVolumeSourceFluent<?> fluent,V1VsphereVirtualDiskVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1VsphereVirtualDiskVolumeSource build() {
     V1VsphereVirtualDiskVolumeSource buildable = new V1VsphereVirtualDiskVolumeSource();
     buildable.setFsType(fluent.getFsType());
@@ -31,5 +33,4 @@ public class V1VsphereVirtualDiskVolumeSourceBuilder extends V1VsphereVirtualDis
     return buildable;
   }
   
-
 }

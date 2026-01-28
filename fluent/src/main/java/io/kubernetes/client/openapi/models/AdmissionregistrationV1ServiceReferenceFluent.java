@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class AdmissionregistrationV1ServiceReferenceFluent<A extends io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReferenceFluent<A>> extends BaseFluent<A>{
+
+  private String name;
+  private String namespace;
+  private String path;
+  private Integer port;
+
   public AdmissionregistrationV1ServiceReferenceFluent() {
   }
   
   public AdmissionregistrationV1ServiceReferenceFluent(AdmissionregistrationV1ServiceReference instance) {
     this.copyInstance(instance);
   }
-  private String name;
-  private String namespace;
-  private String path;
-  private Integer port;
-  
+
   protected void copyInstance(AdmissionregistrationV1ServiceReference instance) {
     instance = instance != null ? instance : new AdmissionregistrationV1ServiceReference();
     if (instance != null) {
@@ -32,58 +34,6 @@ public class AdmissionregistrationV1ServiceReferenceFluent<A extends io.kubernet
         this.withPath(instance.getPath());
         this.withPort(instance.getPort());
     }
-  }
-  
-  public String getName() {
-    return this.name;
-  }
-  
-  public A withName(String name) {
-    this.name = name;
-    return (A) this;
-  }
-  
-  public boolean hasName() {
-    return this.name != null;
-  }
-  
-  public String getNamespace() {
-    return this.namespace;
-  }
-  
-  public A withNamespace(String namespace) {
-    this.namespace = namespace;
-    return (A) this;
-  }
-  
-  public boolean hasNamespace() {
-    return this.namespace != null;
-  }
-  
-  public String getPath() {
-    return this.path;
-  }
-  
-  public A withPath(String path) {
-    this.path = path;
-    return (A) this;
-  }
-  
-  public boolean hasPath() {
-    return this.path != null;
-  }
-  
-  public Integer getPort() {
-    return this.port;
-  }
-  
-  public A withPort(Integer port) {
-    this.port = port;
-    return (A) this;
-  }
-  
-  public boolean hasPort() {
-    return this.port != null;
   }
   
   public boolean equals(Object o) {
@@ -110,6 +60,38 @@ public class AdmissionregistrationV1ServiceReferenceFluent<A extends io.kubernet
       return false;
     }
     return true;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public String getNamespace() {
+    return this.namespace;
+  }
+  
+  public String getPath() {
+    return this.path;
+  }
+  
+  public Integer getPort() {
+    return this.port;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public boolean hasNamespace() {
+    return this.namespace != null;
+  }
+  
+  public boolean hasPath() {
+    return this.path != null;
+  }
+  
+  public boolean hasPort() {
+    return this.port != null;
   }
   
   public int hashCode() {
@@ -142,5 +124,24 @@ public class AdmissionregistrationV1ServiceReferenceFluent<A extends io.kubernet
     return sb.toString();
   }
   
-
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public A withNamespace(String namespace) {
+    this.namespace = namespace;
+    return (A) this;
+  }
+  
+  public A withPath(String path) {
+    this.path = path;
+    return (A) this;
+  }
+  
+  public A withPort(Integer port) {
+    this.port = port;
+    return (A) this;
+  }
+  
 }

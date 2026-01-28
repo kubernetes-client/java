@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "APIServerConfig allows specifying a host and auth methods to access apiserver. If left empty, Prometheus is assumed to run inside of the cluster and will discover API servers automatically and use the pod's CA certificate and bearer token file at /var/run/secrets/kubernetes.io/serviceaccount/.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecApiserverConfig {
@@ -67,7 +67,7 @@ public class V1PrometheusSpecApiserverConfig {
    *
    * @return basicAuth
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecApiserverConfigBasicAuth getBasicAuth() {
     return basicAuth;
@@ -88,7 +88,7 @@ public class V1PrometheusSpecApiserverConfig {
    *
    * @return bearerToken
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Bearer token for accessing apiserver.")
   public String getBearerToken() {
     return bearerToken;
@@ -109,7 +109,7 @@ public class V1PrometheusSpecApiserverConfig {
    *
    * @return bearerTokenFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "File to read bearer token for accessing apiserver.")
   public String getBearerTokenFile() {
     return bearerTokenFile;
@@ -155,7 +155,7 @@ public class V1PrometheusSpecApiserverConfig {
    *
    * @return tlsConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecApiserverConfigTlsConfig getTlsConfig() {
     return tlsConfig;

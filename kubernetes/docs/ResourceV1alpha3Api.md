@@ -10,8 +10,11 @@ All URIs are relative to *http://localhost*
 | [**getAPIResources**](ResourceV1alpha3Api.md#getAPIResources) | **GET** /apis/resource.k8s.io/v1alpha3/ |  |
 | [**listDeviceTaintRule**](ResourceV1alpha3Api.md#listDeviceTaintRule) | **GET** /apis/resource.k8s.io/v1alpha3/devicetaintrules |  |
 | [**patchDeviceTaintRule**](ResourceV1alpha3Api.md#patchDeviceTaintRule) | **PATCH** /apis/resource.k8s.io/v1alpha3/devicetaintrules/{name} |  |
+| [**patchDeviceTaintRuleStatus**](ResourceV1alpha3Api.md#patchDeviceTaintRuleStatus) | **PATCH** /apis/resource.k8s.io/v1alpha3/devicetaintrules/{name}/status |  |
 | [**readDeviceTaintRule**](ResourceV1alpha3Api.md#readDeviceTaintRule) | **GET** /apis/resource.k8s.io/v1alpha3/devicetaintrules/{name} |  |
+| [**readDeviceTaintRuleStatus**](ResourceV1alpha3Api.md#readDeviceTaintRuleStatus) | **GET** /apis/resource.k8s.io/v1alpha3/devicetaintrules/{name}/status |  |
 | [**replaceDeviceTaintRule**](ResourceV1alpha3Api.md#replaceDeviceTaintRule) | **PUT** /apis/resource.k8s.io/v1alpha3/devicetaintrules/{name} |  |
+| [**replaceDeviceTaintRuleStatus**](ResourceV1alpha3Api.md#replaceDeviceTaintRuleStatus) | **PUT** /apis/resource.k8s.io/v1alpha3/devicetaintrules/{name}/status |  |
 
 
 <a id="createDeviceTaintRule"></a>
@@ -564,6 +567,95 @@ public class Example {
 | **201** | Created |  -  |
 | **401** | Unauthorized |  -  |
 
+<a id="patchDeviceTaintRuleStatus"></a>
+# **patchDeviceTaintRuleStatus**
+> V1alpha3DeviceTaintRule patchDeviceTaintRuleStatus(name, body).pretty(pretty).dryRun(dryRun).fieldManager(fieldManager).fieldValidation(fieldValidation).force(force).execute();
+
+
+
+partially update status of the specified DeviceTaintRule
+
+### Example
+```java
+// Import classes:
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.auth.*;
+import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.openapi.apis.ResourceV1alpha3Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: BearerToken
+    ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+    BearerToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //BearerToken.setApiKeyPrefix("Token");
+
+    ResourceV1alpha3Api apiInstance = new ResourceV1alpha3Api(defaultClient);
+    String name = "name_example"; // String | name of the DeviceTaintRule
+    V1Patch body = new V1Patch(); // V1Patch | 
+    String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget).
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered.
+    Boolean force = true; // Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
+    try {
+      V1alpha3DeviceTaintRule result = apiInstance.patchDeviceTaintRuleStatus(name, body)
+            .pretty(pretty)
+            .dryRun(dryRun)
+            .fieldManager(fieldManager)
+            .fieldValidation(fieldValidation)
+            .force(force)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ResourceV1alpha3Api#patchDeviceTaintRuleStatus");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| name of the DeviceTaintRule | |
+| **body** | **V1Patch**|  | |
+| **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). | [optional] |
+| **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] |
+| **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional] |
+| **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional] |
+| **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional] |
+
+### Return type
+
+[**V1alpha3DeviceTaintRule**](V1alpha3DeviceTaintRule.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/cbor
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **201** | Created |  -  |
+| **401** | Unauthorized |  -  |
+
 <a id="readDeviceTaintRule"></a>
 # **readDeviceTaintRule**
 > V1alpha3DeviceTaintRule readDeviceTaintRule(name).pretty(pretty).execute();
@@ -603,6 +695,80 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ResourceV1alpha3Api#readDeviceTaintRule");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| name of the DeviceTaintRule | |
+| **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). | [optional] |
+
+### Return type
+
+[**V1alpha3DeviceTaintRule**](V1alpha3DeviceTaintRule.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/cbor
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+
+<a id="readDeviceTaintRuleStatus"></a>
+# **readDeviceTaintRuleStatus**
+> V1alpha3DeviceTaintRule readDeviceTaintRuleStatus(name).pretty(pretty).execute();
+
+
+
+read status of the specified DeviceTaintRule
+
+### Example
+```java
+// Import classes:
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.auth.*;
+import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.openapi.apis.ResourceV1alpha3Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: BearerToken
+    ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+    BearerToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //BearerToken.setApiKeyPrefix("Token");
+
+    ResourceV1alpha3Api apiInstance = new ResourceV1alpha3Api(defaultClient);
+    String name = "name_example"; // String | name of the DeviceTaintRule
+    String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget).
+    try {
+      V1alpha3DeviceTaintRule result = apiInstance.readDeviceTaintRuleStatus(name)
+            .pretty(pretty)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ResourceV1alpha3Api#readDeviceTaintRuleStatus");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -684,6 +850,92 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ResourceV1alpha3Api#replaceDeviceTaintRule");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| name of the DeviceTaintRule | |
+| **body** | [**V1alpha3DeviceTaintRule**](V1alpha3DeviceTaintRule.md)|  | |
+| **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). | [optional] |
+| **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] |
+| **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] |
+| **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional] |
+
+### Return type
+
+[**V1alpha3DeviceTaintRule**](V1alpha3DeviceTaintRule.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/cbor
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **201** | Created |  -  |
+| **401** | Unauthorized |  -  |
+
+<a id="replaceDeviceTaintRuleStatus"></a>
+# **replaceDeviceTaintRuleStatus**
+> V1alpha3DeviceTaintRule replaceDeviceTaintRuleStatus(name, body).pretty(pretty).dryRun(dryRun).fieldManager(fieldManager).fieldValidation(fieldValidation).execute();
+
+
+
+replace status of the specified DeviceTaintRule
+
+### Example
+```java
+// Import classes:
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.auth.*;
+import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.openapi.apis.ResourceV1alpha3Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: BearerToken
+    ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+    BearerToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //BearerToken.setApiKeyPrefix("Token");
+
+    ResourceV1alpha3Api apiInstance = new ResourceV1alpha3Api(defaultClient);
+    String name = "name_example"; // String | name of the DeviceTaintRule
+    V1alpha3DeviceTaintRule body = new V1alpha3DeviceTaintRule(); // V1alpha3DeviceTaintRule | 
+    String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed. Defaults to 'false' unless the user-agent indicates a browser or command-line HTTP tool (curl and wget).
+    String dryRun = "dryRun_example"; // String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+    String fieldManager = "fieldManager_example"; // String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+    String fieldValidation = "fieldValidation_example"; // String | fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered.
+    try {
+      V1alpha3DeviceTaintRule result = apiInstance.replaceDeviceTaintRuleStatus(name, body)
+            .pretty(pretty)
+            .dryRun(dryRun)
+            .fieldManager(fieldManager)
+            .fieldValidation(fieldValidation)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ResourceV1alpha3Api#replaceDeviceTaintRuleStatus");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

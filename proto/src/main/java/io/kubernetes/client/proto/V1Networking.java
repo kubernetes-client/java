@@ -10754,6 +10754,8 @@ public final class V1Networking {
     /**
      * <pre>
      * kind is the type of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -10762,6 +10764,8 @@ public final class V1Networking {
     /**
      * <pre>
      * kind is the type of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -10770,6 +10774,8 @@ public final class V1Networking {
     /**
      * <pre>
      * kind is the type of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -10780,6 +10786,8 @@ public final class V1Networking {
     /**
      * <pre>
      * name is the name of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -10788,6 +10796,8 @@ public final class V1Networking {
     /**
      * <pre>
      * name is the name of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -10796,6 +10806,8 @@ public final class V1Networking {
     /**
      * <pre>
      * name is the name of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -11050,6 +11062,8 @@ public final class V1Networking {
     /**
      * <pre>
      * kind is the type of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -11060,6 +11074,8 @@ public final class V1Networking {
     /**
      * <pre>
      * kind is the type of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -11081,6 +11097,8 @@ public final class V1Networking {
     /**
      * <pre>
      * kind is the type of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -11104,6 +11122,8 @@ public final class V1Networking {
     /**
      * <pre>
      * name is the name of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -11114,6 +11134,8 @@ public final class V1Networking {
     /**
      * <pre>
      * name is the name of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -11135,6 +11157,8 @@ public final class V1Networking {
     /**
      * <pre>
      * name is the name of resource being referenced.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -11823,6 +11847,8 @@ public final class V1Networking {
       /**
        * <pre>
        * kind is the type of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11833,6 +11859,8 @@ public final class V1Networking {
       /**
        * <pre>
        * kind is the type of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11854,6 +11882,8 @@ public final class V1Networking {
       /**
        * <pre>
        * kind is the type of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11874,6 +11904,8 @@ public final class V1Networking {
       /**
        * <pre>
        * kind is the type of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11891,6 +11923,8 @@ public final class V1Networking {
       /**
        * <pre>
        * kind is the type of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11904,6 +11938,8 @@ public final class V1Networking {
       /**
        * <pre>
        * kind is the type of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11923,6 +11959,8 @@ public final class V1Networking {
       /**
        * <pre>
        * name is the name of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -11933,6 +11971,8 @@ public final class V1Networking {
       /**
        * <pre>
        * name is the name of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -11954,6 +11994,8 @@ public final class V1Networking {
       /**
        * <pre>
        * name is the name of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -11974,6 +12016,8 @@ public final class V1Networking {
       /**
        * <pre>
        * name is the name of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -11991,6 +12035,8 @@ public final class V1Networking {
       /**
        * <pre>
        * name is the name of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -12004,6 +12050,8 @@ public final class V1Networking {
       /**
        * <pre>
        * name is the name of resource being referenced.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -12352,6 +12400,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
+     * +k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -12363,6 +12412,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
+     * +k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -12374,6 +12424,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
+     * +k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -12553,6 +12604,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
+     * +k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -12566,6 +12618,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
+     * +k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -12579,6 +12632,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
+     * +k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13080,6 +13134,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13093,6 +13148,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13110,6 +13166,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13133,6 +13190,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13154,6 +13212,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13181,6 +13240,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13201,6 +13261,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13216,6 +13277,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13234,6 +13296,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>

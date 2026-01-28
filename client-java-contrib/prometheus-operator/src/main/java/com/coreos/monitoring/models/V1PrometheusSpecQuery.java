@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** QuerySpec defines the query command line flags when starting Prometheus. */
 @ApiModel(description = "QuerySpec defines the query command line flags when starting Prometheus.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecQuery {
@@ -54,7 +54,7 @@ public class V1PrometheusSpecQuery {
    *
    * @return lookbackDelta
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "The delta difference allowed for retrieving metrics during expression evaluations.")
   public String getLookbackDelta() {
@@ -76,7 +76,7 @@ public class V1PrometheusSpecQuery {
    *
    * @return maxConcurrency
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of concurrent queries that can be run at once.")
   public Integer getMaxConcurrency() {
     return maxConcurrency;
@@ -99,7 +99,7 @@ public class V1PrometheusSpecQuery {
    *
    * @return maxSamples
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Maximum number of samples a single query can load into memory. Note that queries will fail if they would load more samples than this into memory, so this also limits the number of samples a query can return.")
@@ -122,7 +122,7 @@ public class V1PrometheusSpecQuery {
    *
    * @return timeout
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Maximum time a query may take before being aborted.")
   public String getTimeout() {
     return timeout;

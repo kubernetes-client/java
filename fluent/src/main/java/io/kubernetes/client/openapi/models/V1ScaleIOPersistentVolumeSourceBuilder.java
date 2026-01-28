@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ScaleIOPersistentVolumeSourceBuilder extends V1ScaleIOPersistentVolumeSourceFluent<V1ScaleIOPersistentVolumeSourceBuilder> implements VisitableBuilder<V1ScaleIOPersistentVolumeSource,V1ScaleIOPersistentVolumeSourceBuilder>{
+
+  V1ScaleIOPersistentVolumeSourceFluent<?> fluent;
+
   public V1ScaleIOPersistentVolumeSourceBuilder() {
     this(new V1ScaleIOPersistentVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1ScaleIOPersistentVolumeSourceBuilder extends V1ScaleIOPersistentV
     this(fluent, new V1ScaleIOPersistentVolumeSource());
   }
   
-  public V1ScaleIOPersistentVolumeSourceBuilder(V1ScaleIOPersistentVolumeSourceFluent<?> fluent,V1ScaleIOPersistentVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ScaleIOPersistentVolumeSourceBuilder(V1ScaleIOPersistentVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ScaleIOPersistentVolumeSourceFluent<?> fluent;
   
+  public V1ScaleIOPersistentVolumeSourceBuilder(V1ScaleIOPersistentVolumeSourceFluent<?> fluent,V1ScaleIOPersistentVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ScaleIOPersistentVolumeSource build() {
     V1ScaleIOPersistentVolumeSource buildable = new V1ScaleIOPersistentVolumeSource();
     buildable.setFsType(fluent.getFsType());
@@ -37,5 +39,4 @@ public class V1ScaleIOPersistentVolumeSourceBuilder extends V1ScaleIOPersistentV
     return buildable;
   }
   
-
 }

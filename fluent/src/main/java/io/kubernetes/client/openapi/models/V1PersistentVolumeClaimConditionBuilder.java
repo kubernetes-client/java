@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PersistentVolumeClaimConditionBuilder extends V1PersistentVolumeClaimConditionFluent<V1PersistentVolumeClaimConditionBuilder> implements VisitableBuilder<V1PersistentVolumeClaimCondition,V1PersistentVolumeClaimConditionBuilder>{
+
+  V1PersistentVolumeClaimConditionFluent<?> fluent;
+
   public V1PersistentVolumeClaimConditionBuilder() {
     this(new V1PersistentVolumeClaimCondition());
   }
@@ -11,17 +14,16 @@ public class V1PersistentVolumeClaimConditionBuilder extends V1PersistentVolumeC
     this(fluent, new V1PersistentVolumeClaimCondition());
   }
   
-  public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimConditionFluent<?> fluent,V1PersistentVolumeClaimCondition instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimCondition instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PersistentVolumeClaimConditionFluent<?> fluent;
   
+  public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimConditionFluent<?> fluent,V1PersistentVolumeClaimCondition instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PersistentVolumeClaimCondition build() {
     V1PersistentVolumeClaimCondition buildable = new V1PersistentVolumeClaimCondition();
     buildable.setLastProbeTime(fluent.getLastProbeTime());
@@ -33,5 +35,4 @@ public class V1PersistentVolumeClaimConditionBuilder extends V1PersistentVolumeC
     return buildable;
   }
   
-
 }

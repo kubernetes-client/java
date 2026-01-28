@@ -1,60 +1,38 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1beta2DeviceSelectorFluent<A extends io.kubernetes.client.openapi.models.V1beta2DeviceSelectorFluent<A>> extends BaseFluent<A>{
+
+  private V1beta2CELDeviceSelectorBuilder cel;
+
   public V1beta2DeviceSelectorFluent() {
   }
   
   public V1beta2DeviceSelectorFluent(V1beta2DeviceSelector instance) {
     this.copyInstance(instance);
   }
-  private V1beta2CELDeviceSelectorBuilder cel;
+
+  public V1beta2CELDeviceSelector buildCel() {
+    return this.cel != null ? this.cel.build() : null;
+  }
   
   protected void copyInstance(V1beta2DeviceSelector instance) {
     instance = instance != null ? instance : new V1beta2DeviceSelector();
     if (instance != null) {
       this.withCel(instance.getCel());
     }
-  }
-  
-  public V1beta2CELDeviceSelector buildCel() {
-    return this.cel != null ? this.cel.build() : null;
-  }
-  
-  public A withCel(V1beta2CELDeviceSelector cel) {
-    this._visitables.remove("cel");
-    if (cel != null) {
-        this.cel = new V1beta2CELDeviceSelectorBuilder(cel);
-        this._visitables.get("cel").add(this.cel);
-    } else {
-        this.cel = null;
-        this._visitables.get("cel").remove(this.cel);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasCel() {
-    return this.cel != null;
-  }
-  
-  public CelNested<A> withNewCel() {
-    return new CelNested(null);
-  }
-  
-  public CelNested<A> withNewCelLike(V1beta2CELDeviceSelector item) {
-    return new CelNested(item);
   }
   
   public CelNested<A> editCel() {
@@ -86,6 +64,10 @@ public class V1beta2DeviceSelectorFluent<A extends io.kubernetes.client.openapi.
     return true;
   }
   
+  public boolean hasCel() {
+    return this.cel != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(cel);
   }
@@ -100,12 +82,34 @@ public class V1beta2DeviceSelectorFluent<A extends io.kubernetes.client.openapi.
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withCel(V1beta2CELDeviceSelector cel) {
+    this._visitables.remove("cel");
+    if (cel != null) {
+        this.cel = new V1beta2CELDeviceSelectorBuilder(cel);
+        this._visitables.get("cel").add(this.cel);
+    } else {
+        this.cel = null;
+        this._visitables.get("cel").remove(this.cel);
+    }
+    return (A) this;
+  }
+  
+  public CelNested<A> withNewCel() {
+    return new CelNested(null);
+  }
+  
+  public CelNested<A> withNewCelLike(V1beta2CELDeviceSelector item) {
+    return new CelNested(item);
+  }
   public class CelNested<N> extends V1beta2CELDeviceSelectorFluent<CelNested<N>> implements Nested<N>{
+  
+    V1beta2CELDeviceSelectorBuilder builder;
+  
     CelNested(V1beta2CELDeviceSelector item) {
       this.builder = new V1beta2CELDeviceSelectorBuilder(this, item);
     }
-    V1beta2CELDeviceSelectorBuilder builder;
-    
+  
     public N and() {
       return (N) V1beta2DeviceSelectorFluent.this.withCel(builder.build());
     }
@@ -114,7 +118,5 @@ public class V1beta2DeviceSelectorFluent<A extends io.kubernetes.client.openapi.
       return and();
     }
     
-  
   }
-
 }

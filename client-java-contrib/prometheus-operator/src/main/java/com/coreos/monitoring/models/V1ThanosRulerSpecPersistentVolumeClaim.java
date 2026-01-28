@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecPersistentVolumeClaim {
@@ -75,7 +75,7 @@ public class V1ThanosRulerSpecPersistentVolumeClaim {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Will force the ReadOnly setting in VolumeMounts. Default false.")
   public Boolean getReadOnly() {
     return readOnly;

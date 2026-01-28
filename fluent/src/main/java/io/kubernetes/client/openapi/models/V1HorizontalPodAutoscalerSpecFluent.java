@@ -1,30 +1,36 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Integer;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent<A>> extends BaseFluent<A>{
+
+  private Integer maxReplicas;
+  private Integer minReplicas;
+  private V1CrossVersionObjectReferenceBuilder scaleTargetRef;
+  private Integer targetCPUUtilizationPercentage;
+
   public V1HorizontalPodAutoscalerSpecFluent() {
   }
   
   public V1HorizontalPodAutoscalerSpecFluent(V1HorizontalPodAutoscalerSpec instance) {
     this.copyInstance(instance);
   }
-  private Integer maxReplicas;
-  private Integer minReplicas;
-  private V1CrossVersionObjectReferenceBuilder scaleTargetRef;
-  private Integer targetCPUUtilizationPercentage;
+
+  public V1CrossVersionObjectReference buildScaleTargetRef() {
+    return this.scaleTargetRef != null ? this.scaleTargetRef.build() : null;
+  }
   
   protected void copyInstance(V1HorizontalPodAutoscalerSpec instance) {
     instance = instance != null ? instance : new V1HorizontalPodAutoscalerSpec();
@@ -36,64 +42,6 @@ public class V1HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
     }
   }
   
-  public Integer getMaxReplicas() {
-    return this.maxReplicas;
-  }
-  
-  public A withMaxReplicas(Integer maxReplicas) {
-    this.maxReplicas = maxReplicas;
-    return (A) this;
-  }
-  
-  public boolean hasMaxReplicas() {
-    return this.maxReplicas != null;
-  }
-  
-  public Integer getMinReplicas() {
-    return this.minReplicas;
-  }
-  
-  public A withMinReplicas(Integer minReplicas) {
-    this.minReplicas = minReplicas;
-    return (A) this;
-  }
-  
-  public boolean hasMinReplicas() {
-    return this.minReplicas != null;
-  }
-  
-  public V1CrossVersionObjectReference buildScaleTargetRef() {
-    return this.scaleTargetRef != null ? this.scaleTargetRef.build() : null;
-  }
-  
-  public A withScaleTargetRef(V1CrossVersionObjectReference scaleTargetRef) {
-    this._visitables.remove("scaleTargetRef");
-    if (scaleTargetRef != null) {
-        this.scaleTargetRef = new V1CrossVersionObjectReferenceBuilder(scaleTargetRef);
-        this._visitables.get("scaleTargetRef").add(this.scaleTargetRef);
-    } else {
-        this.scaleTargetRef = null;
-        this._visitables.get("scaleTargetRef").remove(this.scaleTargetRef);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasScaleTargetRef() {
-    return this.scaleTargetRef != null;
-  }
-  
-  public ScaleTargetRefNested<A> withNewScaleTargetRef() {
-    return new ScaleTargetRefNested(null);
-  }
-  
-  public ScaleTargetRefNested<A> withNewScaleTargetRefLike(V1CrossVersionObjectReference item) {
-    return new ScaleTargetRefNested(item);
-  }
-  
-  public ScaleTargetRefNested<A> editScaleTargetRef() {
-    return this.withNewScaleTargetRefLike(Optional.ofNullable(this.buildScaleTargetRef()).orElse(null));
-  }
-  
   public ScaleTargetRefNested<A> editOrNewScaleTargetRef() {
     return this.withNewScaleTargetRefLike(Optional.ofNullable(this.buildScaleTargetRef()).orElse(new V1CrossVersionObjectReferenceBuilder().build()));
   }
@@ -102,17 +50,8 @@ public class V1HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
     return this.withNewScaleTargetRefLike(Optional.ofNullable(this.buildScaleTargetRef()).orElse(item));
   }
   
-  public Integer getTargetCPUUtilizationPercentage() {
-    return this.targetCPUUtilizationPercentage;
-  }
-  
-  public A withTargetCPUUtilizationPercentage(Integer targetCPUUtilizationPercentage) {
-    this.targetCPUUtilizationPercentage = targetCPUUtilizationPercentage;
-    return (A) this;
-  }
-  
-  public boolean hasTargetCPUUtilizationPercentage() {
-    return this.targetCPUUtilizationPercentage != null;
+  public ScaleTargetRefNested<A> editScaleTargetRef() {
+    return this.withNewScaleTargetRefLike(Optional.ofNullable(this.buildScaleTargetRef()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -139,6 +78,34 @@ public class V1HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
       return false;
     }
     return true;
+  }
+  
+  public Integer getMaxReplicas() {
+    return this.maxReplicas;
+  }
+  
+  public Integer getMinReplicas() {
+    return this.minReplicas;
+  }
+  
+  public Integer getTargetCPUUtilizationPercentage() {
+    return this.targetCPUUtilizationPercentage;
+  }
+  
+  public boolean hasMaxReplicas() {
+    return this.maxReplicas != null;
+  }
+  
+  public boolean hasMinReplicas() {
+    return this.minReplicas != null;
+  }
+  
+  public boolean hasScaleTargetRef() {
+    return this.scaleTargetRef != null;
+  }
+  
+  public boolean hasTargetCPUUtilizationPercentage() {
+    return this.targetCPUUtilizationPercentage != null;
   }
   
   public int hashCode() {
@@ -170,12 +137,49 @@ public class V1HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withMaxReplicas(Integer maxReplicas) {
+    this.maxReplicas = maxReplicas;
+    return (A) this;
+  }
+  
+  public A withMinReplicas(Integer minReplicas) {
+    this.minReplicas = minReplicas;
+    return (A) this;
+  }
+  
+  public ScaleTargetRefNested<A> withNewScaleTargetRef() {
+    return new ScaleTargetRefNested(null);
+  }
+  
+  public ScaleTargetRefNested<A> withNewScaleTargetRefLike(V1CrossVersionObjectReference item) {
+    return new ScaleTargetRefNested(item);
+  }
+  
+  public A withScaleTargetRef(V1CrossVersionObjectReference scaleTargetRef) {
+    this._visitables.remove("scaleTargetRef");
+    if (scaleTargetRef != null) {
+        this.scaleTargetRef = new V1CrossVersionObjectReferenceBuilder(scaleTargetRef);
+        this._visitables.get("scaleTargetRef").add(this.scaleTargetRef);
+    } else {
+        this.scaleTargetRef = null;
+        this._visitables.get("scaleTargetRef").remove(this.scaleTargetRef);
+    }
+    return (A) this;
+  }
+  
+  public A withTargetCPUUtilizationPercentage(Integer targetCPUUtilizationPercentage) {
+    this.targetCPUUtilizationPercentage = targetCPUUtilizationPercentage;
+    return (A) this;
+  }
   public class ScaleTargetRefNested<N> extends V1CrossVersionObjectReferenceFluent<ScaleTargetRefNested<N>> implements Nested<N>{
+  
+    V1CrossVersionObjectReferenceBuilder builder;
+  
     ScaleTargetRefNested(V1CrossVersionObjectReference item) {
       this.builder = new V1CrossVersionObjectReferenceBuilder(this, item);
     }
-    V1CrossVersionObjectReferenceBuilder builder;
-    
+  
     public N and() {
       return (N) V1HorizontalPodAutoscalerSpecFluent.this.withScaleTargetRef(builder.build());
     }
@@ -184,7 +188,5 @@ public class V1HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
       return and();
     }
     
-  
   }
-
 }

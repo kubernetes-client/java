@@ -1,44 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1SleepActionFluent<A extends io.kubernetes.client.openapi.models.V1SleepActionFluent<A>> extends BaseFluent<A>{
+
+  private Long seconds;
+
   public V1SleepActionFluent() {
   }
   
   public V1SleepActionFluent(V1SleepAction instance) {
     this.copyInstance(instance);
   }
-  private Long seconds;
-  
+
   protected void copyInstance(V1SleepAction instance) {
     instance = instance != null ? instance : new V1SleepAction();
     if (instance != null) {
       this.withSeconds(instance.getSeconds());
     }
-  }
-  
-  public Long getSeconds() {
-    return this.seconds;
-  }
-  
-  public A withSeconds(Long seconds) {
-    this.seconds = seconds;
-    return (A) this;
-  }
-  
-  public boolean hasSeconds() {
-    return this.seconds != null;
   }
   
   public boolean equals(Object o) {
@@ -58,6 +47,14 @@ public class V1SleepActionFluent<A extends io.kubernetes.client.openapi.models.V
     return true;
   }
   
+  public Long getSeconds() {
+    return this.seconds;
+  }
+  
+  public boolean hasSeconds() {
+    return this.seconds != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(seconds);
   }
@@ -73,5 +70,9 @@ public class V1SleepActionFluent<A extends io.kubernetes.client.openapi.models.V
     return sb.toString();
   }
   
-
+  public A withSeconds(Long seconds) {
+    this.seconds = seconds;
+    return (A) this;
+  }
+  
 }

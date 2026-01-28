@@ -137,7 +137,7 @@ class KubernetesManifestTest {
     apiServer.resetScenarios();
     apiServer.resetRequests();
     apiServer.stubFor(
-        post(urlEqualTo("/api/v1/namespaces"))
+        post(urlPathEqualTo("/api/v1/namespaces"))
             .willReturn(
                 aResponse()
                     .withHeader("Content-Type", "application/json")
@@ -146,7 +146,7 @@ class KubernetesManifestTest {
                             .getJSON()
                             .serialize(returningCreatedNamespace))));
     apiServer.stubFor(
-        post(urlEqualTo("/api/v1/namespaces/spring-boot-test-namespace/serviceaccounts"))
+        post(urlPathEqualTo("/api/v1/namespaces/spring-boot-test-namespace/serviceaccounts"))
             .willReturn(
                 aResponse()
                     .withHeader("Content-Type", "application/json")

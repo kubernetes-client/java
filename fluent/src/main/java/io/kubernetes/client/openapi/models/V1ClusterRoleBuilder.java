@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ClusterRoleBuilder extends V1ClusterRoleFluent<V1ClusterRoleBuilder> implements VisitableBuilder<V1ClusterRole,V1ClusterRoleBuilder>{
+
+  V1ClusterRoleFluent<?> fluent;
+
   public V1ClusterRoleBuilder() {
     this(new V1ClusterRole());
   }
@@ -11,17 +14,16 @@ public class V1ClusterRoleBuilder extends V1ClusterRoleFluent<V1ClusterRoleBuild
     this(fluent, new V1ClusterRole());
   }
   
-  public V1ClusterRoleBuilder(V1ClusterRoleFluent<?> fluent,V1ClusterRole instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ClusterRoleBuilder(V1ClusterRole instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ClusterRoleFluent<?> fluent;
   
+  public V1ClusterRoleBuilder(V1ClusterRoleFluent<?> fluent,V1ClusterRole instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ClusterRole build() {
     V1ClusterRole buildable = new V1ClusterRole();
     buildable.setAggregationRule(fluent.buildAggregationRule());
@@ -32,5 +34,4 @@ public class V1ClusterRoleBuilder extends V1ClusterRoleFluent<V1ClusterRoleBuild
     return buildable;
   }
   
-
 }

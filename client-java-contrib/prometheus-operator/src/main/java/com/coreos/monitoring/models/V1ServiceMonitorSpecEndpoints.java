@@ -23,7 +23,7 @@ import java.util.Objects;
 
 /** Endpoint defines a scrapeable endpoint serving Prometheus metrics. */
 @ApiModel(description = "Endpoint defines a scrapeable endpoint serving Prometheus metrics.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ServiceMonitorSpecEndpoints {
@@ -118,7 +118,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return basicAuth
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecBasicAuth getBasicAuth() {
     return basicAuth;
@@ -139,7 +139,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return bearerTokenFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "File to read bearer token for scraping targets.")
   public String getBearerTokenFile() {
     return bearerTokenFile;
@@ -161,7 +161,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return bearerTokenSecret
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecBearerTokenSecret getBearerTokenSecret() {
     return bearerTokenSecret;
@@ -182,7 +182,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return honorLabels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "HonorLabels chooses the metric's labels on collisions with target labels.")
   public Boolean getHonorLabels() {
@@ -204,7 +204,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return honorTimestamps
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "HonorTimestamps controls whether Prometheus respects the timestamps present in scraped data.")
@@ -227,7 +227,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return interval
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Interval at which metrics should be scraped")
   public String getInterval() {
     return interval;
@@ -258,7 +258,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return metricRelabelings
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MetricRelabelConfigs to apply to samples before ingestion.")
   public List<V1ServiceMonitorSpecMetricRelabelings> getMetricRelabelings() {
     return metricRelabelings;
@@ -287,7 +287,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return params
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional HTTP URL parameters")
   public Map<String, List<String>> getParams() {
     return params;
@@ -308,7 +308,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return path
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "HTTP path to scrape for metrics.")
   public String getPath() {
     return path;
@@ -329,7 +329,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return port
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the service port this endpoint refers to. Mutually exclusive with targetPort.")
@@ -352,7 +352,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return proxyUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "ProxyURL eg http://proxyserver:2195 Directs scrapes to proxy through this endpoint.")
   public String getProxyUrl() {
@@ -385,7 +385,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return relabelings
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "RelabelConfigs to apply to samples before scraping. More info: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config")
@@ -408,7 +408,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return scheme
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "HTTP scheme to use for scraping.")
   public String getScheme() {
     return scheme;
@@ -429,7 +429,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return scrapeTimeout
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timeout after which the scrape is ended")
   public String getScrapeTimeout() {
     return scrapeTimeout;
@@ -450,7 +450,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return targetPort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name or number of the pod port this endpoint refers to. Mutually exclusive with port.")
@@ -473,7 +473,7 @@ public class V1ServiceMonitorSpecEndpoints {
    *
    * @return tlsConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecTlsConfig getTlsConfig() {
     return tlsConfig;

@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * NodeSystemInfo is a set of ids/uuids to uniquely identify the node.
  */
 @ApiModel(description = "NodeSystemInfo is a set of ids/uuids to uniquely identify the node.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1NodeSystemInfo {
   public static final String SERIALIZED_NAME_ARCHITECTURE = "architecture";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURE)
@@ -395,31 +395,10 @@ public class V1NodeSystemInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("architecture");
-    openapiFields.add("bootID");
-    openapiFields.add("containerRuntimeVersion");
-    openapiFields.add("kernelVersion");
-    openapiFields.add("kubeProxyVersion");
-    openapiFields.add("kubeletVersion");
-    openapiFields.add("machineID");
-    openapiFields.add("operatingSystem");
-    openapiFields.add("osImage");
-    openapiFields.add("swap");
-    openapiFields.add("systemUUID");
+    openapiFields = new HashSet<String>(Arrays.asList("architecture", "bootID", "containerRuntimeVersion", "kernelVersion", "kubeProxyVersion", "kubeletVersion", "machineID", "operatingSystem", "osImage", "swap", "systemUUID"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("architecture");
-    openapiRequiredFields.add("bootID");
-    openapiRequiredFields.add("containerRuntimeVersion");
-    openapiRequiredFields.add("kernelVersion");
-    openapiRequiredFields.add("kubeProxyVersion");
-    openapiRequiredFields.add("kubeletVersion");
-    openapiRequiredFields.add("machineID");
-    openapiRequiredFields.add("operatingSystem");
-    openapiRequiredFields.add("osImage");
-    openapiRequiredFields.add("systemUUID");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("architecture", "bootID", "containerRuntimeVersion", "kernelVersion", "kubeProxyVersion", "kubeletVersion", "machineID", "operatingSystem", "osImage", "systemUUID"));
   }
 
   /**
@@ -431,7 +410,7 @@ public class V1NodeSystemInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NodeSystemInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1NodeSystemInfo is not found in the empty JSON string", V1NodeSystemInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1NodeSystemInfo is not found in the empty JSON string", V1NodeSystemInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -439,50 +418,50 @@ public class V1NodeSystemInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1NodeSystemInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1NodeSystemInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1NodeSystemInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1NodeSystemInfo.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("architecture").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
       }
       if (!jsonObj.get("bootID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bootID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bootID").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bootID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bootID").toString()));
       }
       if (!jsonObj.get("containerRuntimeVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `containerRuntimeVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerRuntimeVersion").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `containerRuntimeVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerRuntimeVersion").toString()));
       }
       if (!jsonObj.get("kernelVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `kernelVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kernelVersion").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kernelVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kernelVersion").toString()));
       }
       if (!jsonObj.get("kubeProxyVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `kubeProxyVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kubeProxyVersion").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kubeProxyVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kubeProxyVersion").toString()));
       }
       if (!jsonObj.get("kubeletVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `kubeletVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kubeletVersion").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kubeletVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kubeletVersion").toString()));
       }
       if (!jsonObj.get("machineID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `machineID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("machineID").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `machineID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("machineID").toString()));
       }
       if (!jsonObj.get("operatingSystem").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operatingSystem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operatingSystem").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operatingSystem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operatingSystem").toString()));
       }
       if (!jsonObj.get("osImage").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `osImage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("osImage").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `osImage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("osImage").toString()));
       }
       // validate the optional field `swap`
       if (jsonObj.get("swap") != null && !jsonObj.get("swap").isJsonNull()) {
         V1NodeSwapStatus.validateJsonElement(jsonObj.get("swap"));
       }
       if (!jsonObj.get("systemUUID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `systemUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("systemUUID").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `systemUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("systemUUID").toString()));
       }
   }
 

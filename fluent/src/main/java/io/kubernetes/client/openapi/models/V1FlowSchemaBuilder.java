@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1FlowSchemaBuilder extends V1FlowSchemaFluent<V1FlowSchemaBuilder> implements VisitableBuilder<V1FlowSchema,V1FlowSchemaBuilder>{
+
+  V1FlowSchemaFluent<?> fluent;
+
   public V1FlowSchemaBuilder() {
     this(new V1FlowSchema());
   }
@@ -11,17 +14,16 @@ public class V1FlowSchemaBuilder extends V1FlowSchemaFluent<V1FlowSchemaBuilder>
     this(fluent, new V1FlowSchema());
   }
   
-  public V1FlowSchemaBuilder(V1FlowSchemaFluent<?> fluent,V1FlowSchema instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1FlowSchemaBuilder(V1FlowSchema instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1FlowSchemaFluent<?> fluent;
   
+  public V1FlowSchemaBuilder(V1FlowSchemaFluent<?> fluent,V1FlowSchema instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1FlowSchema build() {
     V1FlowSchema buildable = new V1FlowSchema();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -32,5 +34,4 @@ public class V1FlowSchemaBuilder extends V1FlowSchemaFluent<V1FlowSchemaBuilder>
     return buildable;
   }
   
-
 }

@@ -1,14 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Object;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
 import java.util.List;
-import java.lang.String;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 /**
@@ -16,34 +16,23 @@ import java.util.function.Predicate;
  */
 @SuppressWarnings("unchecked")
 public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1ExecActionFluent<A>> extends BaseFluent<A>{
+
+  private List<String> command;
+
   public V1ExecActionFluent() {
   }
   
   public V1ExecActionFluent(V1ExecAction instance) {
     this.copyInstance(instance);
   }
-  private List<String> command;
-  
-  protected void copyInstance(V1ExecAction instance) {
-    instance = instance != null ? instance : new V1ExecAction();
-    if (instance != null) {
-      this.withCommand(instance.getCommand());
-    }
-  }
-  
-  public A addToCommand(int index,String item) {
+
+  public A addAllToCommand(Collection<String> items) {
     if (this.command == null) {
       this.command = new ArrayList();
     }
-    this.command.add(index, item);
-    return (A) this;
-  }
-  
-  public A setToCommand(int index,String item) {
-    if (this.command == null) {
-      this.command = new ArrayList();
+    for (String item : items) {
+      this.command.add(item);
     }
-    this.command.set(index, item);
     return (A) this;
   }
   
@@ -57,34 +46,36 @@ public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1
     return (A) this;
   }
   
-  public A addAllToCommand(Collection<String> items) {
+  public A addToCommand(int index,String item) {
     if (this.command == null) {
       this.command = new ArrayList();
     }
-    for (String item : items) {
-      this.command.add(item);
-    }
+    this.command.add(index, item);
     return (A) this;
   }
   
-  public A removeFromCommand(String... items) {
-    if (this.command == null) {
-      return (A) this;
+  protected void copyInstance(V1ExecAction instance) {
+    instance = instance != null ? instance : new V1ExecAction();
+    if (instance != null) {
+      this.withCommand(instance.getCommand());
     }
-    for (String item : items) {
-      this.command.remove(item);
-    }
-    return (A) this;
   }
   
-  public A removeAllFromCommand(Collection<String> items) {
-    if (this.command == null) {
-      return (A) this;
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-    for (String item : items) {
-      this.command.remove(item);
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
     }
-    return (A) this;
+    if (!(super.equals(o))) {
+      return false;
+    }
+    V1ExecActionFluent that = (V1ExecActionFluent) o;
+    if (!(Objects.equals(command, that.command))) {
+      return false;
+    }
+    return true;
   }
   
   public List<String> getCommand() {
@@ -112,6 +103,10 @@ public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1
       return null;
   }
   
+  public boolean hasCommand() {
+    return this.command != null && !(this.command.isEmpty());
+  }
+  
   public boolean hasMatchingCommand(Predicate<String> predicate) {
       for (String item : command) {
         if (predicate.test(item)) {
@@ -119,6 +114,49 @@ public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1
         }
       }
       return false;
+  }
+  
+  public int hashCode() {
+    return Objects.hash(command);
+  }
+  
+  public A removeAllFromCommand(Collection<String> items) {
+    if (this.command == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.command.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromCommand(String... items) {
+    if (this.command == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.command.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A setToCommand(int index,String item) {
+    if (this.command == null) {
+      this.command = new ArrayList();
+    }
+    this.command.set(index, item);
+    return (A) this;
+  }
+  
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (!(command == null) && !(command.isEmpty())) {
+        sb.append("command:");
+        sb.append(command);
+    }
+    sb.append("}");
+    return sb.toString();
   }
   
   public A withCommand(List<String> command) {
@@ -146,41 +184,4 @@ public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1
     return (A) this;
   }
   
-  public boolean hasCommand() {
-    return this.command != null && !(this.command.isEmpty());
-  }
-  
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || this.getClass() != o.getClass()) {
-      return false;
-    }
-    if (!(super.equals(o))) {
-      return false;
-    }
-    V1ExecActionFluent that = (V1ExecActionFluent) o;
-    if (!(Objects.equals(command, that.command))) {
-      return false;
-    }
-    return true;
-  }
-  
-  public int hashCode() {
-    return Objects.hash(command);
-  }
-  
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("{");
-    if (!(command == null) && !(command.isEmpty())) {
-        sb.append("command:");
-        sb.append(command);
-    }
-    sb.append("}");
-    return sb.toString();
-  }
-  
-
 }

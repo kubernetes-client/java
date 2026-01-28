@@ -97,6 +97,56 @@ class KubectlGetTest {
   }
 
   @Test
+  void getAllNamespacePodsWithAllNamespacesFlag() throws KubectlException {
+    V1PodList podList =
+        new V1PodList()
+            .items(
+                Arrays.asList(
+                    new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo1")),
+                    new V1Pod().metadata(new V1ObjectMeta().namespace("kube-system").name("foo2"))));
+    apiServer.stubFor(
+        get(urlPathEqualTo("/api/v1/pods"))
+            .willReturn(
+                aResponse().withStatus(200).withBody(apiClient.getJSON().serialize(podList))));
+
+    List<V1Pod> pods =
+        Kubectl.get(V1Pod.class)
+            .apiClient(apiClient)
+            .skipDiscovery()
+            .allNamespaces()
+            .execute();
+
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
+    assertThat(pods).hasSize(2);
+  }
+
+  @Test
+  void getAllNamespacesFlagOverridesNamespace() throws KubectlException {
+    V1PodList podList =
+        new V1PodList()
+            .items(
+                Arrays.asList(
+                    new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo1")),
+                    new V1Pod().metadata(new V1ObjectMeta().namespace("kube-system").name("foo2"))));
+    apiServer.stubFor(
+        get(urlPathEqualTo("/api/v1/pods"))
+            .willReturn(
+                aResponse().withStatus(200).withBody(apiClient.getJSON().serialize(podList))));
+
+    // When allNamespaces() is called, it should ignore the namespace setting
+    List<V1Pod> pods =
+        Kubectl.get(V1Pod.class)
+            .apiClient(apiClient)
+            .skipDiscovery()
+            .namespace("default")
+            .allNamespaces()
+            .execute();
+
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
+    assertThat(pods).hasSize(2);
+  }
+
+  @Test
   void getDefaultNamespaceOnePod() throws KubectlException {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo1"));
     apiServer.stubFor(

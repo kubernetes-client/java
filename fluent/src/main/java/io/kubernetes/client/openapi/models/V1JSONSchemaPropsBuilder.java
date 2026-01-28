@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluent<V1JSONSchemaPropsBuilder> implements VisitableBuilder<V1JSONSchemaProps,V1JSONSchemaPropsBuilder>{
+
+  V1JSONSchemaPropsFluent<?> fluent;
+
   public V1JSONSchemaPropsBuilder() {
     this(new V1JSONSchemaProps());
   }
@@ -11,17 +14,16 @@ public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluent<V1JSONSche
     this(fluent, new V1JSONSchemaProps());
   }
   
-  public V1JSONSchemaPropsBuilder(V1JSONSchemaPropsFluent<?> fluent,V1JSONSchemaProps instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1JSONSchemaPropsBuilder(V1JSONSchemaProps instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1JSONSchemaPropsFluent<?> fluent;
   
+  public V1JSONSchemaPropsBuilder(V1JSONSchemaPropsFluent<?> fluent,V1JSONSchemaProps instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1JSONSchemaProps build() {
     V1JSONSchemaProps buildable = new V1JSONSchemaProps();
     buildable.set$Ref(fluent.getRef());
@@ -64,5 +66,4 @@ public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluent<V1JSONSche
     return buildable;
   }
   
-
 }

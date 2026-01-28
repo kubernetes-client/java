@@ -1,44 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ClientIPConfigFluent<A extends io.kubernetes.client.openapi.models.V1ClientIPConfigFluent<A>> extends BaseFluent<A>{
+
+  private Integer timeoutSeconds;
+
   public V1ClientIPConfigFluent() {
   }
   
   public V1ClientIPConfigFluent(V1ClientIPConfig instance) {
     this.copyInstance(instance);
   }
-  private Integer timeoutSeconds;
-  
+
   protected void copyInstance(V1ClientIPConfig instance) {
     instance = instance != null ? instance : new V1ClientIPConfig();
     if (instance != null) {
       this.withTimeoutSeconds(instance.getTimeoutSeconds());
     }
-  }
-  
-  public Integer getTimeoutSeconds() {
-    return this.timeoutSeconds;
-  }
-  
-  public A withTimeoutSeconds(Integer timeoutSeconds) {
-    this.timeoutSeconds = timeoutSeconds;
-    return (A) this;
-  }
-  
-  public boolean hasTimeoutSeconds() {
-    return this.timeoutSeconds != null;
   }
   
   public boolean equals(Object o) {
@@ -58,6 +47,14 @@ public class V1ClientIPConfigFluent<A extends io.kubernetes.client.openapi.model
     return true;
   }
   
+  public Integer getTimeoutSeconds() {
+    return this.timeoutSeconds;
+  }
+  
+  public boolean hasTimeoutSeconds() {
+    return this.timeoutSeconds != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(timeoutSeconds);
   }
@@ -73,5 +70,9 @@ public class V1ClientIPConfigFluent<A extends io.kubernetes.client.openapi.model
     return sb.toString();
   }
   
-
+  public A withTimeoutSeconds(Integer timeoutSeconds) {
+    this.timeoutSeconds = timeoutSeconds;
+    return (A) this;
+  }
+  
 }

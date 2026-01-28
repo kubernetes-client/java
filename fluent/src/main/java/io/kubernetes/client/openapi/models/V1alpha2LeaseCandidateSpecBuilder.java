@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1alpha2LeaseCandidateSpecBuilder extends V1alpha2LeaseCandidateSpecFluent<V1alpha2LeaseCandidateSpecBuilder> implements VisitableBuilder<V1alpha2LeaseCandidateSpec,V1alpha2LeaseCandidateSpecBuilder>{
+
+  V1alpha2LeaseCandidateSpecFluent<?> fluent;
+
   public V1alpha2LeaseCandidateSpecBuilder() {
     this(new V1alpha2LeaseCandidateSpec());
   }
@@ -11,17 +14,16 @@ public class V1alpha2LeaseCandidateSpecBuilder extends V1alpha2LeaseCandidateSpe
     this(fluent, new V1alpha2LeaseCandidateSpec());
   }
   
-  public V1alpha2LeaseCandidateSpecBuilder(V1alpha2LeaseCandidateSpecFluent<?> fluent,V1alpha2LeaseCandidateSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1alpha2LeaseCandidateSpecBuilder(V1alpha2LeaseCandidateSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1alpha2LeaseCandidateSpecFluent<?> fluent;
   
+  public V1alpha2LeaseCandidateSpecBuilder(V1alpha2LeaseCandidateSpecFluent<?> fluent,V1alpha2LeaseCandidateSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1alpha2LeaseCandidateSpec build() {
     V1alpha2LeaseCandidateSpec buildable = new V1alpha2LeaseCandidateSpec();
     buildable.setBinaryVersion(fluent.getBinaryVersion());
@@ -33,5 +35,4 @@ public class V1alpha2LeaseCandidateSpecBuilder extends V1alpha2LeaseCandidateSpe
     return buildable;
   }
   
-
 }

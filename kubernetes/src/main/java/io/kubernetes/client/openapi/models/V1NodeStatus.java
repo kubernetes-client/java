@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -64,7 +64,7 @@ import io.kubernetes.client.openapi.JSON;
  * NodeStatus is information about the current status of a node.
  */
 @ApiModel(description = "NodeStatus is information about the current status of a node.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1NodeStatus {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
@@ -95,6 +95,11 @@ public class V1NodeStatus {
   @SerializedName(SERIALIZED_NAME_DAEMON_ENDPOINTS)
   @jakarta.annotation.Nullable
   private V1NodeDaemonEndpoints daemonEndpoints;
+
+  public static final String SERIALIZED_NAME_DECLARED_FEATURES = "declaredFeatures";
+  @SerializedName(SERIALIZED_NAME_DECLARED_FEATURES)
+  @jakarta.annotation.Nullable
+  private List<String> declaredFeatures = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_FEATURES = "features";
   @SerializedName(SERIALIZED_NAME_FEATURES)
@@ -286,6 +291,34 @@ public class V1NodeStatus {
   }
 
 
+  public V1NodeStatus declaredFeatures(@jakarta.annotation.Nullable List<String> declaredFeatures) {
+    this.declaredFeatures = declaredFeatures;
+    return this;
+  }
+
+  public V1NodeStatus addDeclaredFeaturesItem(String declaredFeaturesItem) {
+    if (this.declaredFeatures == null) {
+      this.declaredFeatures = new ArrayList<>();
+    }
+    this.declaredFeatures.add(declaredFeaturesItem);
+    return this;
+  }
+
+  /**
+   * DeclaredFeatures represents the features related to feature gates that are declared by the node.
+   * @return declaredFeatures
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "DeclaredFeatures represents the features related to feature gates that are declared by the node.")
+  public List<String> getDeclaredFeatures() {
+    return declaredFeatures;
+  }
+
+  public void setDeclaredFeatures(@jakarta.annotation.Nullable List<String> declaredFeatures) {
+    this.declaredFeatures = declaredFeatures;
+  }
+
+
   public V1NodeStatus features(@jakarta.annotation.Nullable V1NodeFeatures features) {
     this.features = features;
     return this;
@@ -474,6 +507,7 @@ public class V1NodeStatus {
         Objects.equals(this.conditions, v1NodeStatus.conditions) &&
         Objects.equals(this.config, v1NodeStatus.config) &&
         Objects.equals(this.daemonEndpoints, v1NodeStatus.daemonEndpoints) &&
+        Objects.equals(this.declaredFeatures, v1NodeStatus.declaredFeatures) &&
         Objects.equals(this.features, v1NodeStatus.features) &&
         Objects.equals(this.images, v1NodeStatus.images) &&
         Objects.equals(this.nodeInfo, v1NodeStatus.nodeInfo) &&
@@ -485,7 +519,7 @@ public class V1NodeStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addresses, allocatable, capacity, conditions, config, daemonEndpoints, features, images, nodeInfo, phase, runtimeHandlers, volumesAttached, volumesInUse);
+    return Objects.hash(addresses, allocatable, capacity, conditions, config, daemonEndpoints, declaredFeatures, features, images, nodeInfo, phase, runtimeHandlers, volumesAttached, volumesInUse);
   }
 
   @Override
@@ -498,6 +532,7 @@ public class V1NodeStatus {
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    daemonEndpoints: ").append(toIndentedString(daemonEndpoints)).append("\n");
+    sb.append("    declaredFeatures: ").append(toIndentedString(declaredFeatures)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    images: ").append(toIndentedString(images)).append("\n");
     sb.append("    nodeInfo: ").append(toIndentedString(nodeInfo)).append("\n");
@@ -526,23 +561,10 @@ public class V1NodeStatus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("addresses");
-    openapiFields.add("allocatable");
-    openapiFields.add("capacity");
-    openapiFields.add("conditions");
-    openapiFields.add("config");
-    openapiFields.add("daemonEndpoints");
-    openapiFields.add("features");
-    openapiFields.add("images");
-    openapiFields.add("nodeInfo");
-    openapiFields.add("phase");
-    openapiFields.add("runtimeHandlers");
-    openapiFields.add("volumesAttached");
-    openapiFields.add("volumesInUse");
+    openapiFields = new HashSet<String>(Arrays.asList("addresses", "allocatable", "capacity", "conditions", "config", "daemonEndpoints", "declaredFeatures", "features", "images", "nodeInfo", "phase", "runtimeHandlers", "volumesAttached", "volumesInUse"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -554,7 +576,7 @@ public class V1NodeStatus {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1NodeStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1NodeStatus is not found in the empty JSON string", V1NodeStatus.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1NodeStatus is not found in the empty JSON string", V1NodeStatus.openapiRequiredFields.toString()));
         }
       }
 
@@ -562,7 +584,7 @@ public class V1NodeStatus {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1NodeStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1NodeStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1NodeStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -571,7 +593,7 @@ public class V1NodeStatus {
         if (jsonArrayaddresses != null) {
           // ensure the json data is an array
           if (!jsonObj.get("addresses").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `addresses` to be an array in the JSON string but got `%s`", jsonObj.get("addresses").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `addresses` to be an array in the JSON string but got `%s`", jsonObj.get("addresses").toString()));
           }
 
           // validate the optional field `addresses` (array)
@@ -585,7 +607,7 @@ public class V1NodeStatus {
         if (jsonArrayconditions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("conditions").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
           }
 
           // validate the optional field `conditions` (array)
@@ -602,6 +624,10 @@ public class V1NodeStatus {
       if (jsonObj.get("daemonEndpoints") != null && !jsonObj.get("daemonEndpoints").isJsonNull()) {
         V1NodeDaemonEndpoints.validateJsonElement(jsonObj.get("daemonEndpoints"));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("declaredFeatures") != null && !jsonObj.get("declaredFeatures").isJsonNull() && !jsonObj.get("declaredFeatures").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `declaredFeatures` to be an array in the JSON string but got `%s`", jsonObj.get("declaredFeatures").toString()));
+      }
       // validate the optional field `features`
       if (jsonObj.get("features") != null && !jsonObj.get("features").isJsonNull()) {
         V1NodeFeatures.validateJsonElement(jsonObj.get("features"));
@@ -611,7 +637,7 @@ public class V1NodeStatus {
         if (jsonArrayimages != null) {
           // ensure the json data is an array
           if (!jsonObj.get("images").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `images` to be an array in the JSON string but got `%s`", jsonObj.get("images").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `images` to be an array in the JSON string but got `%s`", jsonObj.get("images").toString()));
           }
 
           // validate the optional field `images` (array)
@@ -625,14 +651,14 @@ public class V1NodeStatus {
         V1NodeSystemInfo.validateJsonElement(jsonObj.get("nodeInfo"));
       }
       if ((jsonObj.get("phase") != null && !jsonObj.get("phase").isJsonNull()) && !jsonObj.get("phase").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `phase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phase").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `phase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phase").toString()));
       }
       if (jsonObj.get("runtimeHandlers") != null && !jsonObj.get("runtimeHandlers").isJsonNull()) {
         JsonArray jsonArrayruntimeHandlers = jsonObj.getAsJsonArray("runtimeHandlers");
         if (jsonArrayruntimeHandlers != null) {
           // ensure the json data is an array
           if (!jsonObj.get("runtimeHandlers").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `runtimeHandlers` to be an array in the JSON string but got `%s`", jsonObj.get("runtimeHandlers").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `runtimeHandlers` to be an array in the JSON string but got `%s`", jsonObj.get("runtimeHandlers").toString()));
           }
 
           // validate the optional field `runtimeHandlers` (array)
@@ -646,7 +672,7 @@ public class V1NodeStatus {
         if (jsonArrayvolumesAttached != null) {
           // ensure the json data is an array
           if (!jsonObj.get("volumesAttached").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `volumesAttached` to be an array in the JSON string but got `%s`", jsonObj.get("volumesAttached").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `volumesAttached` to be an array in the JSON string but got `%s`", jsonObj.get("volumesAttached").toString()));
           }
 
           // validate the optional field `volumesAttached` (array)
@@ -657,7 +683,7 @@ public class V1NodeStatus {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("volumesInUse") != null && !jsonObj.get("volumesInUse").isJsonNull() && !jsonObj.get("volumesInUse").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `volumesInUse` to be an array in the JSON string but got `%s`", jsonObj.get("volumesInUse").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `volumesInUse` to be an array in the JSON string but got `%s`", jsonObj.get("volumesInUse").toString()));
       }
   }
 

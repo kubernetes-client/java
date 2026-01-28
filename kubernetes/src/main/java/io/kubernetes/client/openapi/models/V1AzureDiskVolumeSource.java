@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.
  */
 @ApiModel(description = "AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1AzureDiskVolumeSource {
   public static final String SERIALIZED_NAME_CACHING_MODE = "cachingMode";
   @SerializedName(SERIALIZED_NAME_CACHING_MODE)
@@ -259,18 +259,10 @@ public class V1AzureDiskVolumeSource {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cachingMode");
-    openapiFields.add("diskName");
-    openapiFields.add("diskURI");
-    openapiFields.add("fsType");
-    openapiFields.add("kind");
-    openapiFields.add("readOnly");
+    openapiFields = new HashSet<String>(Arrays.asList("cachingMode", "diskName", "diskURI", "fsType", "kind", "readOnly"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("diskName");
-    openapiRequiredFields.add("diskURI");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("diskName", "diskURI"));
   }
 
   /**
@@ -282,7 +274,7 @@ public class V1AzureDiskVolumeSource {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1AzureDiskVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1AzureDiskVolumeSource is not found in the empty JSON string", V1AzureDiskVolumeSource.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1AzureDiskVolumeSource is not found in the empty JSON string", V1AzureDiskVolumeSource.openapiRequiredFields.toString()));
         }
       }
 
@@ -290,31 +282,31 @@ public class V1AzureDiskVolumeSource {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1AzureDiskVolumeSource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1AzureDiskVolumeSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1AzureDiskVolumeSource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1AzureDiskVolumeSource.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cachingMode") != null && !jsonObj.get("cachingMode").isJsonNull()) && !jsonObj.get("cachingMode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cachingMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cachingMode").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cachingMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cachingMode").toString()));
       }
       if (!jsonObj.get("diskName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `diskName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("diskName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `diskName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("diskName").toString()));
       }
       if (!jsonObj.get("diskURI").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `diskURI` to be a primitive type in the JSON string but got `%s`", jsonObj.get("diskURI").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `diskURI` to be a primitive type in the JSON string but got `%s`", jsonObj.get("diskURI").toString()));
       }
       if ((jsonObj.get("fsType") != null && !jsonObj.get("fsType").isJsonNull()) && !jsonObj.get("fsType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fsType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsType").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `fsType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsType").toString()));
       }
       if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }
   }
 

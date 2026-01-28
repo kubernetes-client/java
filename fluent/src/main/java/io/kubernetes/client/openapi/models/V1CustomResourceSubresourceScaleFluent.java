@@ -1,27 +1,29 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1CustomResourceSubresourceScaleFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleFluent<A>> extends BaseFluent<A>{
+
+  private String labelSelectorPath;
+  private String specReplicasPath;
+  private String statusReplicasPath;
+
   public V1CustomResourceSubresourceScaleFluent() {
   }
   
   public V1CustomResourceSubresourceScaleFluent(V1CustomResourceSubresourceScale instance) {
     this.copyInstance(instance);
   }
-  private String labelSelectorPath;
-  private String specReplicasPath;
-  private String statusReplicasPath;
-  
+
   protected void copyInstance(V1CustomResourceSubresourceScale instance) {
     instance = instance != null ? instance : new V1CustomResourceSubresourceScale();
     if (instance != null) {
@@ -29,45 +31,6 @@ public class V1CustomResourceSubresourceScaleFluent<A extends io.kubernetes.clie
         this.withSpecReplicasPath(instance.getSpecReplicasPath());
         this.withStatusReplicasPath(instance.getStatusReplicasPath());
     }
-  }
-  
-  public String getLabelSelectorPath() {
-    return this.labelSelectorPath;
-  }
-  
-  public A withLabelSelectorPath(String labelSelectorPath) {
-    this.labelSelectorPath = labelSelectorPath;
-    return (A) this;
-  }
-  
-  public boolean hasLabelSelectorPath() {
-    return this.labelSelectorPath != null;
-  }
-  
-  public String getSpecReplicasPath() {
-    return this.specReplicasPath;
-  }
-  
-  public A withSpecReplicasPath(String specReplicasPath) {
-    this.specReplicasPath = specReplicasPath;
-    return (A) this;
-  }
-  
-  public boolean hasSpecReplicasPath() {
-    return this.specReplicasPath != null;
-  }
-  
-  public String getStatusReplicasPath() {
-    return this.statusReplicasPath;
-  }
-  
-  public A withStatusReplicasPath(String statusReplicasPath) {
-    this.statusReplicasPath = statusReplicasPath;
-    return (A) this;
-  }
-  
-  public boolean hasStatusReplicasPath() {
-    return this.statusReplicasPath != null;
   }
   
   public boolean equals(Object o) {
@@ -91,6 +54,30 @@ public class V1CustomResourceSubresourceScaleFluent<A extends io.kubernetes.clie
       return false;
     }
     return true;
+  }
+  
+  public String getLabelSelectorPath() {
+    return this.labelSelectorPath;
+  }
+  
+  public String getSpecReplicasPath() {
+    return this.specReplicasPath;
+  }
+  
+  public String getStatusReplicasPath() {
+    return this.statusReplicasPath;
+  }
+  
+  public boolean hasLabelSelectorPath() {
+    return this.labelSelectorPath != null;
+  }
+  
+  public boolean hasSpecReplicasPath() {
+    return this.specReplicasPath != null;
+  }
+  
+  public boolean hasStatusReplicasPath() {
+    return this.statusReplicasPath != null;
   }
   
   public int hashCode() {
@@ -118,5 +105,19 @@ public class V1CustomResourceSubresourceScaleFluent<A extends io.kubernetes.clie
     return sb.toString();
   }
   
-
+  public A withLabelSelectorPath(String labelSelectorPath) {
+    this.labelSelectorPath = labelSelectorPath;
+    return (A) this;
+  }
+  
+  public A withSpecReplicasPath(String specReplicasPath) {
+    this.specReplicasPath = specReplicasPath;
+    return (A) this;
+  }
+  
+  public A withStatusReplicasPath(String statusReplicasPath) {
+    this.statusReplicasPath = statusReplicasPath;
+    return (A) this;
+  }
+  
 }

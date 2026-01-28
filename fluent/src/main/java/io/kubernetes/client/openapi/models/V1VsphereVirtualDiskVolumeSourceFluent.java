@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1VsphereVirtualDiskVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
+
+  private String fsType;
+  private String storagePolicyID;
+  private String storagePolicyName;
+  private String volumePath;
+
   public V1VsphereVirtualDiskVolumeSourceFluent() {
   }
   
   public V1VsphereVirtualDiskVolumeSourceFluent(V1VsphereVirtualDiskVolumeSource instance) {
     this.copyInstance(instance);
   }
-  private String fsType;
-  private String storagePolicyID;
-  private String storagePolicyName;
-  private String volumePath;
-  
+
   protected void copyInstance(V1VsphereVirtualDiskVolumeSource instance) {
     instance = instance != null ? instance : new V1VsphereVirtualDiskVolumeSource();
     if (instance != null) {
@@ -31,58 +33,6 @@ public class V1VsphereVirtualDiskVolumeSourceFluent<A extends io.kubernetes.clie
         this.withStoragePolicyName(instance.getStoragePolicyName());
         this.withVolumePath(instance.getVolumePath());
     }
-  }
-  
-  public String getFsType() {
-    return this.fsType;
-  }
-  
-  public A withFsType(String fsType) {
-    this.fsType = fsType;
-    return (A) this;
-  }
-  
-  public boolean hasFsType() {
-    return this.fsType != null;
-  }
-  
-  public String getStoragePolicyID() {
-    return this.storagePolicyID;
-  }
-  
-  public A withStoragePolicyID(String storagePolicyID) {
-    this.storagePolicyID = storagePolicyID;
-    return (A) this;
-  }
-  
-  public boolean hasStoragePolicyID() {
-    return this.storagePolicyID != null;
-  }
-  
-  public String getStoragePolicyName() {
-    return this.storagePolicyName;
-  }
-  
-  public A withStoragePolicyName(String storagePolicyName) {
-    this.storagePolicyName = storagePolicyName;
-    return (A) this;
-  }
-  
-  public boolean hasStoragePolicyName() {
-    return this.storagePolicyName != null;
-  }
-  
-  public String getVolumePath() {
-    return this.volumePath;
-  }
-  
-  public A withVolumePath(String volumePath) {
-    this.volumePath = volumePath;
-    return (A) this;
-  }
-  
-  public boolean hasVolumePath() {
-    return this.volumePath != null;
   }
   
   public boolean equals(Object o) {
@@ -109,6 +59,38 @@ public class V1VsphereVirtualDiskVolumeSourceFluent<A extends io.kubernetes.clie
       return false;
     }
     return true;
+  }
+  
+  public String getFsType() {
+    return this.fsType;
+  }
+  
+  public String getStoragePolicyID() {
+    return this.storagePolicyID;
+  }
+  
+  public String getStoragePolicyName() {
+    return this.storagePolicyName;
+  }
+  
+  public String getVolumePath() {
+    return this.volumePath;
+  }
+  
+  public boolean hasFsType() {
+    return this.fsType != null;
+  }
+  
+  public boolean hasStoragePolicyID() {
+    return this.storagePolicyID != null;
+  }
+  
+  public boolean hasStoragePolicyName() {
+    return this.storagePolicyName != null;
+  }
+  
+  public boolean hasVolumePath() {
+    return this.volumePath != null;
   }
   
   public int hashCode() {
@@ -141,5 +123,24 @@ public class V1VsphereVirtualDiskVolumeSourceFluent<A extends io.kubernetes.clie
     return sb.toString();
   }
   
-
+  public A withFsType(String fsType) {
+    this.fsType = fsType;
+    return (A) this;
+  }
+  
+  public A withStoragePolicyID(String storagePolicyID) {
+    this.storagePolicyID = storagePolicyID;
+    return (A) this;
+  }
+  
+  public A withStoragePolicyName(String storagePolicyName) {
+    this.storagePolicyName = storagePolicyName;
+    return (A) this;
+  }
+  
+  public A withVolumePath(String volumePath) {
+    this.volumePath = volumePath;
+    return (A) this;
+  }
+  
 }

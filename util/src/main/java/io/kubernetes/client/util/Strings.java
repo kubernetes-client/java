@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 public final class Strings {
 

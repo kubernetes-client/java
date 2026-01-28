@@ -1,25 +1,20 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.models.V1NodeSystemInfoFluent<A>> extends BaseFluent<A>{
-  public V1NodeSystemInfoFluent() {
-  }
-  
-  public V1NodeSystemInfoFluent(V1NodeSystemInfo instance) {
-    this.copyInstance(instance);
-  }
+
   private String architecture;
   private String bootID;
   private String containerRuntimeVersion;
@@ -31,6 +26,17 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
   private String osImage;
   private V1NodeSwapStatusBuilder swap;
   private String systemUUID;
+
+  public V1NodeSystemInfoFluent() {
+  }
+  
+  public V1NodeSystemInfoFluent(V1NodeSystemInfo instance) {
+    this.copyInstance(instance);
+  }
+
+  public V1NodeSwapStatus buildSwap() {
+    return this.swap != null ? this.swap.build() : null;
+  }
   
   protected void copyInstance(V1NodeSystemInfo instance) {
     instance = instance != null ? instance : new V1NodeSystemInfo();
@@ -49,155 +55,6 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
     }
   }
   
-  public String getArchitecture() {
-    return this.architecture;
-  }
-  
-  public A withArchitecture(String architecture) {
-    this.architecture = architecture;
-    return (A) this;
-  }
-  
-  public boolean hasArchitecture() {
-    return this.architecture != null;
-  }
-  
-  public String getBootID() {
-    return this.bootID;
-  }
-  
-  public A withBootID(String bootID) {
-    this.bootID = bootID;
-    return (A) this;
-  }
-  
-  public boolean hasBootID() {
-    return this.bootID != null;
-  }
-  
-  public String getContainerRuntimeVersion() {
-    return this.containerRuntimeVersion;
-  }
-  
-  public A withContainerRuntimeVersion(String containerRuntimeVersion) {
-    this.containerRuntimeVersion = containerRuntimeVersion;
-    return (A) this;
-  }
-  
-  public boolean hasContainerRuntimeVersion() {
-    return this.containerRuntimeVersion != null;
-  }
-  
-  public String getKernelVersion() {
-    return this.kernelVersion;
-  }
-  
-  public A withKernelVersion(String kernelVersion) {
-    this.kernelVersion = kernelVersion;
-    return (A) this;
-  }
-  
-  public boolean hasKernelVersion() {
-    return this.kernelVersion != null;
-  }
-  
-  public String getKubeProxyVersion() {
-    return this.kubeProxyVersion;
-  }
-  
-  public A withKubeProxyVersion(String kubeProxyVersion) {
-    this.kubeProxyVersion = kubeProxyVersion;
-    return (A) this;
-  }
-  
-  public boolean hasKubeProxyVersion() {
-    return this.kubeProxyVersion != null;
-  }
-  
-  public String getKubeletVersion() {
-    return this.kubeletVersion;
-  }
-  
-  public A withKubeletVersion(String kubeletVersion) {
-    this.kubeletVersion = kubeletVersion;
-    return (A) this;
-  }
-  
-  public boolean hasKubeletVersion() {
-    return this.kubeletVersion != null;
-  }
-  
-  public String getMachineID() {
-    return this.machineID;
-  }
-  
-  public A withMachineID(String machineID) {
-    this.machineID = machineID;
-    return (A) this;
-  }
-  
-  public boolean hasMachineID() {
-    return this.machineID != null;
-  }
-  
-  public String getOperatingSystem() {
-    return this.operatingSystem;
-  }
-  
-  public A withOperatingSystem(String operatingSystem) {
-    this.operatingSystem = operatingSystem;
-    return (A) this;
-  }
-  
-  public boolean hasOperatingSystem() {
-    return this.operatingSystem != null;
-  }
-  
-  public String getOsImage() {
-    return this.osImage;
-  }
-  
-  public A withOsImage(String osImage) {
-    this.osImage = osImage;
-    return (A) this;
-  }
-  
-  public boolean hasOsImage() {
-    return this.osImage != null;
-  }
-  
-  public V1NodeSwapStatus buildSwap() {
-    return this.swap != null ? this.swap.build() : null;
-  }
-  
-  public A withSwap(V1NodeSwapStatus swap) {
-    this._visitables.remove("swap");
-    if (swap != null) {
-        this.swap = new V1NodeSwapStatusBuilder(swap);
-        this._visitables.get("swap").add(this.swap);
-    } else {
-        this.swap = null;
-        this._visitables.get("swap").remove(this.swap);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasSwap() {
-    return this.swap != null;
-  }
-  
-  public SwapNested<A> withNewSwap() {
-    return new SwapNested(null);
-  }
-  
-  public SwapNested<A> withNewSwapLike(V1NodeSwapStatus item) {
-    return new SwapNested(item);
-  }
-  
-  public SwapNested<A> editSwap() {
-    return this.withNewSwapLike(Optional.ofNullable(this.buildSwap()).orElse(null));
-  }
-  
   public SwapNested<A> editOrNewSwap() {
     return this.withNewSwapLike(Optional.ofNullable(this.buildSwap()).orElse(new V1NodeSwapStatusBuilder().build()));
   }
@@ -206,17 +63,8 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
     return this.withNewSwapLike(Optional.ofNullable(this.buildSwap()).orElse(item));
   }
   
-  public String getSystemUUID() {
-    return this.systemUUID;
-  }
-  
-  public A withSystemUUID(String systemUUID) {
-    this.systemUUID = systemUUID;
-    return (A) this;
-  }
-  
-  public boolean hasSystemUUID() {
-    return this.systemUUID != null;
+  public SwapNested<A> editSwap() {
+    return this.withNewSwapLike(Optional.ofNullable(this.buildSwap()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -264,6 +112,90 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
       return false;
     }
     return true;
+  }
+  
+  public String getArchitecture() {
+    return this.architecture;
+  }
+  
+  public String getBootID() {
+    return this.bootID;
+  }
+  
+  public String getContainerRuntimeVersion() {
+    return this.containerRuntimeVersion;
+  }
+  
+  public String getKernelVersion() {
+    return this.kernelVersion;
+  }
+  
+  public String getKubeProxyVersion() {
+    return this.kubeProxyVersion;
+  }
+  
+  public String getKubeletVersion() {
+    return this.kubeletVersion;
+  }
+  
+  public String getMachineID() {
+    return this.machineID;
+  }
+  
+  public String getOperatingSystem() {
+    return this.operatingSystem;
+  }
+  
+  public String getOsImage() {
+    return this.osImage;
+  }
+  
+  public String getSystemUUID() {
+    return this.systemUUID;
+  }
+  
+  public boolean hasArchitecture() {
+    return this.architecture != null;
+  }
+  
+  public boolean hasBootID() {
+    return this.bootID != null;
+  }
+  
+  public boolean hasContainerRuntimeVersion() {
+    return this.containerRuntimeVersion != null;
+  }
+  
+  public boolean hasKernelVersion() {
+    return this.kernelVersion != null;
+  }
+  
+  public boolean hasKubeProxyVersion() {
+    return this.kubeProxyVersion != null;
+  }
+  
+  public boolean hasKubeletVersion() {
+    return this.kubeletVersion != null;
+  }
+  
+  public boolean hasMachineID() {
+    return this.machineID != null;
+  }
+  
+  public boolean hasOperatingSystem() {
+    return this.operatingSystem != null;
+  }
+  
+  public boolean hasOsImage() {
+    return this.osImage != null;
+  }
+  
+  public boolean hasSwap() {
+    return this.swap != null;
+  }
+  
+  public boolean hasSystemUUID() {
+    return this.systemUUID != null;
   }
   
   public int hashCode() {
@@ -330,12 +262,84 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withArchitecture(String architecture) {
+    this.architecture = architecture;
+    return (A) this;
+  }
+  
+  public A withBootID(String bootID) {
+    this.bootID = bootID;
+    return (A) this;
+  }
+  
+  public A withContainerRuntimeVersion(String containerRuntimeVersion) {
+    this.containerRuntimeVersion = containerRuntimeVersion;
+    return (A) this;
+  }
+  
+  public A withKernelVersion(String kernelVersion) {
+    this.kernelVersion = kernelVersion;
+    return (A) this;
+  }
+  
+  public A withKubeProxyVersion(String kubeProxyVersion) {
+    this.kubeProxyVersion = kubeProxyVersion;
+    return (A) this;
+  }
+  
+  public A withKubeletVersion(String kubeletVersion) {
+    this.kubeletVersion = kubeletVersion;
+    return (A) this;
+  }
+  
+  public A withMachineID(String machineID) {
+    this.machineID = machineID;
+    return (A) this;
+  }
+  
+  public SwapNested<A> withNewSwap() {
+    return new SwapNested(null);
+  }
+  
+  public SwapNested<A> withNewSwapLike(V1NodeSwapStatus item) {
+    return new SwapNested(item);
+  }
+  
+  public A withOperatingSystem(String operatingSystem) {
+    this.operatingSystem = operatingSystem;
+    return (A) this;
+  }
+  
+  public A withOsImage(String osImage) {
+    this.osImage = osImage;
+    return (A) this;
+  }
+  
+  public A withSwap(V1NodeSwapStatus swap) {
+    this._visitables.remove("swap");
+    if (swap != null) {
+        this.swap = new V1NodeSwapStatusBuilder(swap);
+        this._visitables.get("swap").add(this.swap);
+    } else {
+        this.swap = null;
+        this._visitables.get("swap").remove(this.swap);
+    }
+    return (A) this;
+  }
+  
+  public A withSystemUUID(String systemUUID) {
+    this.systemUUID = systemUUID;
+    return (A) this;
+  }
   public class SwapNested<N> extends V1NodeSwapStatusFluent<SwapNested<N>> implements Nested<N>{
+  
+    V1NodeSwapStatusBuilder builder;
+  
     SwapNested(V1NodeSwapStatus item) {
       this.builder = new V1NodeSwapStatusBuilder(this, item);
     }
-    V1NodeSwapStatusBuilder builder;
-    
+  
     public N and() {
       return (N) V1NodeSystemInfoFluent.this.withSwap(builder.build());
     }
@@ -344,7 +348,5 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
       return and();
     }
     
-  
   }
-
 }

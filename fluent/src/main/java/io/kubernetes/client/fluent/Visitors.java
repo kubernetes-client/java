@@ -1,26 +1,67 @@
 package io.kubernetes.client.fluent;
 
-import java.util.Optional;
-import java.util.ArrayList;
+import java.lang.Class;
 import java.lang.String;
-import java.lang.reflect.GenericArrayType;
-import java.util.LinkedHashMap;
 import java.lang.reflect.Array;
+import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-import java.lang.Class;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 public final class Visitors{
+
+  
   private Visitors() {
     //Utility Class
   }
+
+  private static Class<?> getClass(Type type) {
+    if (type instanceof Class) {
+          return (Class) type;
+        } else if (type instanceof ParameterizedType) {
+          return getClass(((ParameterizedType) type).getRawType());
+        } else if (type instanceof GenericArrayType) {
+          Type componentType = ((GenericArrayType) type).getGenericComponentType();
+          Class<?> componentClass = getClass(componentType);
+          if (componentClass != null) {
+            return Array.newInstance(componentClass, 0).getClass();
+          } else {
+            return null;
+          }
+        } else {
+          return null;
+        }
+  }
   
+  private static <T>Optional<Type> getMatchingInterface(Class<?> targetInterface,Type... candidates) {
+    if (candidates == null || candidates.length == 0) {
+          return Optional.empty();
+        }
+        Optional<Type> match = Arrays.stream(candidates).filter(c -> getRawName(c).equals(targetInterface.getTypeName()))
+            .findFirst();
+        if (match.isPresent()) {
+          return match;
+        } else {
+          for (Type candidate : candidates) {
+            if (candidate instanceof Class) {
+              Class c = (Class) candidate;
+              Optional<Type> next = getMatchingInterface(targetInterface, c.getGenericInterfaces());
+              if (next.isPresent()) {
+                return Optional.of(c);
+              }
+            }
+          }
+          return Optional.empty();
+        }
+  }
   
-  public static <T>Visitor<T> newVisitor(Class<T> type,Visitor<T> visitor) {
-    return new DelegatingVisitor<T>(type, visitor);
+  private static String getRawName(Type type) {
+    return type instanceof ParameterizedType ? ((ParameterizedType) type).getRawType().getTypeName() : type.getTypeName();
   }
   
   protected static <T>List<Class> getTypeArguments(Class<T> baseClass,Class<? extends T> childClass) {
@@ -79,49 +120,8 @@ public final class Visitors{
         return typeArgumentsAsClasses;
   }
   
-  private static String getRawName(Type type) {
-    return type instanceof ParameterizedType ? ((ParameterizedType) type).getRawType().getTypeName() : type.getTypeName();
+  public static <T>Visitor<T> newVisitor(Class<T> type,Visitor<T> visitor) {
+    return new DelegatingVisitor<T>(type, visitor);
   }
   
-  private static Class<?> getClass(Type type) {
-    if (type instanceof Class) {
-          return (Class) type;
-        } else if (type instanceof ParameterizedType) {
-          return getClass(((ParameterizedType) type).getRawType());
-        } else if (type instanceof GenericArrayType) {
-          Type componentType = ((GenericArrayType) type).getGenericComponentType();
-          Class<?> componentClass = getClass(componentType);
-          if (componentClass != null) {
-            return Array.newInstance(componentClass, 0).getClass();
-          } else {
-            return null;
-          }
-        } else {
-          return null;
-        }
-  }
-  
-  private static <T>Optional<Type> getMatchingInterface(Class<?> targetInterface,Type... candidates) {
-    if (candidates == null || candidates.length == 0) {
-          return Optional.empty();
-        }
-        Optional<Type> match = Arrays.stream(candidates).filter(c -> getRawName(c).equals(targetInterface.getTypeName()))
-            .findFirst();
-        if (match.isPresent()) {
-          return match;
-        } else {
-          for (Type candidate : candidates) {
-            if (candidate instanceof Class) {
-              Class c = (Class) candidate;
-              Optional<Type> next = getMatchingInterface(targetInterface, c.getGenericInterfaces());
-              if (next.isPresent()) {
-                return Optional.of(c);
-              }
-            }
-          }
-          return Optional.empty();
-        }
-  }
-  
-
 }

@@ -446,6 +446,8 @@ public final class V1alpha1Scheduling {
      * at the same time for the scheduler to admit the entire group.
      * It must be a positive integer.
      * +required
+     * +k8s:required
+     * +k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 minCount = 1;</code>
@@ -457,6 +459,8 @@ public final class V1alpha1Scheduling {
      * at the same time for the scheduler to admit the entire group.
      * It must be a positive integer.
      * +required
+     * +k8s:required
+     * +k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 minCount = 1;</code>
@@ -553,6 +557,8 @@ public final class V1alpha1Scheduling {
      * at the same time for the scheduler to admit the entire group.
      * It must be a positive integer.
      * +required
+     * +k8s:required
+     * +k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 minCount = 1;</code>
@@ -566,6 +572,8 @@ public final class V1alpha1Scheduling {
      * at the same time for the scheduler to admit the entire group.
      * It must be a positive integer.
      * +required
+     * +k8s:required
+     * +k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 minCount = 1;</code>
@@ -900,6 +908,8 @@ public final class V1alpha1Scheduling {
        * at the same time for the scheduler to admit the entire group.
        * It must be a positive integer.
        * +required
+       * +k8s:required
+       * +k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 minCount = 1;</code>
@@ -913,6 +923,8 @@ public final class V1alpha1Scheduling {
        * at the same time for the scheduler to admit the entire group.
        * It must be a positive integer.
        * +required
+       * +k8s:required
+       * +k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 minCount = 1;</code>
@@ -926,6 +938,8 @@ public final class V1alpha1Scheduling {
        * at the same time for the scheduler to admit the entire group.
        * It must be a positive integer.
        * +required
+       * +k8s:required
+       * +k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 minCount = 1;</code>
@@ -942,6 +956,8 @@ public final class V1alpha1Scheduling {
        * at the same time for the scheduler to admit the entire group.
        * It must be a positive integer.
        * +required
+       * +k8s:required
+       * +k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 minCount = 1;</code>
@@ -1014,6 +1030,8 @@ public final class V1alpha1Scheduling {
      * Name is a unique identifier for the PodGroup within the Workload.
      * It must be a DNS label. This field is immutable.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-short-name
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -1024,6 +1042,8 @@ public final class V1alpha1Scheduling {
      * Name is a unique identifier for the PodGroup within the Workload.
      * It must be a DNS label. This field is immutable.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-short-name
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -1034,6 +1054,8 @@ public final class V1alpha1Scheduling {
      * Name is a unique identifier for the PodGroup within the Workload.
      * It must be a DNS label. This field is immutable.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-short-name
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -1172,6 +1194,8 @@ public final class V1alpha1Scheduling {
      * Name is a unique identifier for the PodGroup within the Workload.
      * It must be a DNS label. This field is immutable.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-short-name
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -1184,6 +1208,8 @@ public final class V1alpha1Scheduling {
      * Name is a unique identifier for the PodGroup within the Workload.
      * It must be a DNS label. This field is immutable.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-short-name
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -1207,6 +1233,8 @@ public final class V1alpha1Scheduling {
      * Name is a unique identifier for the PodGroup within the Workload.
      * It must be a DNS label. This field is immutable.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-short-name
      * </pre>
      *
      * <code>optional string name = 1;</code>
@@ -1621,6 +1649,8 @@ public final class V1alpha1Scheduling {
        * Name is a unique identifier for the PodGroup within the Workload.
        * It must be a DNS label. This field is immutable.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-short-name
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -1633,6 +1663,8 @@ public final class V1alpha1Scheduling {
        * Name is a unique identifier for the PodGroup within the Workload.
        * It must be a DNS label. This field is immutable.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-short-name
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -1656,6 +1688,8 @@ public final class V1alpha1Scheduling {
        * Name is a unique identifier for the PodGroup within the Workload.
        * It must be a DNS label. This field is immutable.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-short-name
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -1678,6 +1712,8 @@ public final class V1alpha1Scheduling {
        * Name is a unique identifier for the PodGroup within the Workload.
        * It must be a DNS label. This field is immutable.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-short-name
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -1697,6 +1733,8 @@ public final class V1alpha1Scheduling {
        * Name is a unique identifier for the PodGroup within the Workload.
        * It must be a DNS label. This field is immutable.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-short-name
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -1712,6 +1750,8 @@ public final class V1alpha1Scheduling {
        * Name is a unique identifier for the PodGroup within the Workload.
        * It must be a DNS label. This field is immutable.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-short-name
        * </pre>
        *
        * <code>optional string name = 1;</code>
@@ -1951,7 +1991,9 @@ public final class V1alpha1Scheduling {
      * Basic specifies that the pods in this group should be scheduled using
      * standard Kubernetes scheduling behavior.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -1962,7 +2004,9 @@ public final class V1alpha1Scheduling {
      * Basic specifies that the pods in this group should be scheduled using
      * standard Kubernetes scheduling behavior.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -1973,7 +2017,9 @@ public final class V1alpha1Scheduling {
      * Basic specifies that the pods in this group should be scheduled using
      * standard Kubernetes scheduling behavior.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -1985,7 +2031,9 @@ public final class V1alpha1Scheduling {
      * Gang specifies that the pods in this group should be scheduled using
      * all-or-nothing semantics.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -1996,7 +2044,9 @@ public final class V1alpha1Scheduling {
      * Gang specifies that the pods in this group should be scheduled using
      * all-or-nothing semantics.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2007,7 +2057,9 @@ public final class V1alpha1Scheduling {
      * Gang specifies that the pods in this group should be scheduled using
      * all-or-nothing semantics.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2123,7 +2175,9 @@ public final class V1alpha1Scheduling {
      * Basic specifies that the pods in this group should be scheduled using
      * standard Kubernetes scheduling behavior.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2136,7 +2190,9 @@ public final class V1alpha1Scheduling {
      * Basic specifies that the pods in this group should be scheduled using
      * standard Kubernetes scheduling behavior.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2149,7 +2205,9 @@ public final class V1alpha1Scheduling {
      * Basic specifies that the pods in this group should be scheduled using
      * standard Kubernetes scheduling behavior.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2165,7 +2223,9 @@ public final class V1alpha1Scheduling {
      * Gang specifies that the pods in this group should be scheduled using
      * all-or-nothing semantics.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2178,7 +2238,9 @@ public final class V1alpha1Scheduling {
      * Gang specifies that the pods in this group should be scheduled using
      * all-or-nothing semantics.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2191,7 +2253,9 @@ public final class V1alpha1Scheduling {
      * Gang specifies that the pods in this group should be scheduled using
      * all-or-nothing semantics.
      * +optional
+     * +k8s:optional
      * +oneOf=PolicySelection
+     * +k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2570,7 +2634,9 @@ public final class V1alpha1Scheduling {
        * Basic specifies that the pods in this group should be scheduled using
        * standard Kubernetes scheduling behavior.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2583,7 +2649,9 @@ public final class V1alpha1Scheduling {
        * Basic specifies that the pods in this group should be scheduled using
        * standard Kubernetes scheduling behavior.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2600,7 +2668,9 @@ public final class V1alpha1Scheduling {
        * Basic specifies that the pods in this group should be scheduled using
        * standard Kubernetes scheduling behavior.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2623,7 +2693,9 @@ public final class V1alpha1Scheduling {
        * Basic specifies that the pods in this group should be scheduled using
        * standard Kubernetes scheduling behavior.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2644,7 +2716,9 @@ public final class V1alpha1Scheduling {
        * Basic specifies that the pods in this group should be scheduled using
        * standard Kubernetes scheduling behavior.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2671,7 +2745,9 @@ public final class V1alpha1Scheduling {
        * Basic specifies that the pods in this group should be scheduled using
        * standard Kubernetes scheduling behavior.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2691,7 +2767,9 @@ public final class V1alpha1Scheduling {
        * Basic specifies that the pods in this group should be scheduled using
        * standard Kubernetes scheduling behavior.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2706,7 +2784,9 @@ public final class V1alpha1Scheduling {
        * Basic specifies that the pods in this group should be scheduled using
        * standard Kubernetes scheduling behavior.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2724,7 +2804,9 @@ public final class V1alpha1Scheduling {
        * Basic specifies that the pods in this group should be scheduled using
        * standard Kubernetes scheduling behavior.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.BasicSchedulingPolicy basic = 2;</code>
@@ -2751,7 +2833,9 @@ public final class V1alpha1Scheduling {
        * Gang specifies that the pods in this group should be scheduled using
        * all-or-nothing semantics.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2764,7 +2848,9 @@ public final class V1alpha1Scheduling {
        * Gang specifies that the pods in this group should be scheduled using
        * all-or-nothing semantics.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2781,7 +2867,9 @@ public final class V1alpha1Scheduling {
        * Gang specifies that the pods in this group should be scheduled using
        * all-or-nothing semantics.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2804,7 +2892,9 @@ public final class V1alpha1Scheduling {
        * Gang specifies that the pods in this group should be scheduled using
        * all-or-nothing semantics.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2825,7 +2915,9 @@ public final class V1alpha1Scheduling {
        * Gang specifies that the pods in this group should be scheduled using
        * all-or-nothing semantics.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2852,7 +2944,9 @@ public final class V1alpha1Scheduling {
        * Gang specifies that the pods in this group should be scheduled using
        * all-or-nothing semantics.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2872,7 +2966,9 @@ public final class V1alpha1Scheduling {
        * Gang specifies that the pods in this group should be scheduled using
        * all-or-nothing semantics.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2887,7 +2983,9 @@ public final class V1alpha1Scheduling {
        * Gang specifies that the pods in this group should be scheduled using
        * all-or-nothing semantics.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -2905,7 +3003,9 @@ public final class V1alpha1Scheduling {
        * Gang specifies that the pods in this group should be scheduled using
        * all-or-nothing semantics.
        * +optional
+       * +k8s:optional
        * +oneOf=PolicySelection
+       * +k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.GangSchedulingPolicy gang = 3;</code>
@@ -3015,6 +3115,7 @@ public final class V1alpha1Scheduling {
      * <pre>
      * value represents the integer value of this priority class. This is the actual priority that pods
      * receive when they have the name of this class in their pod spec.
+     * +optional
      * </pre>
      *
      * <code>optional int32 value = 2;</code>
@@ -3024,6 +3125,7 @@ public final class V1alpha1Scheduling {
      * <pre>
      * value represents the integer value of this priority class. This is the actual priority that pods
      * receive when they have the name of this class in their pod spec.
+     * +optional
      * </pre>
      *
      * <code>optional int32 value = 2;</code>
@@ -3286,6 +3388,7 @@ public final class V1alpha1Scheduling {
      * <pre>
      * value represents the integer value of this priority class. This is the actual priority that pods
      * receive when they have the name of this class in their pod spec.
+     * +optional
      * </pre>
      *
      * <code>optional int32 value = 2;</code>
@@ -3297,6 +3400,7 @@ public final class V1alpha1Scheduling {
      * <pre>
      * value represents the integer value of this priority class. This is the actual priority that pods
      * receive when they have the name of this class in their pod spec.
+     * +optional
      * </pre>
      *
      * <code>optional int32 value = 2;</code>
@@ -4071,6 +4175,7 @@ public final class V1alpha1Scheduling {
        * <pre>
        * value represents the integer value of this priority class. This is the actual priority that pods
        * receive when they have the name of this class in their pod spec.
+       * +optional
        * </pre>
        *
        * <code>optional int32 value = 2;</code>
@@ -4082,6 +4187,7 @@ public final class V1alpha1Scheduling {
        * <pre>
        * value represents the integer value of this priority class. This is the actual priority that pods
        * receive when they have the name of this class in their pod spec.
+       * +optional
        * </pre>
        *
        * <code>optional int32 value = 2;</code>
@@ -4093,6 +4199,7 @@ public final class V1alpha1Scheduling {
        * <pre>
        * value represents the integer value of this priority class. This is the actual priority that pods
        * receive when they have the name of this class in their pod spec.
+       * +optional
        * </pre>
        *
        * <code>optional int32 value = 2;</code>
@@ -4107,6 +4214,7 @@ public final class V1alpha1Scheduling {
        * <pre>
        * value represents the integer value of this priority class. This is the actual priority that pods
        * receive when they have the name of this class in their pod spec.
+       * +optional
        * </pre>
        *
        * <code>optional int32 value = 2;</code>
@@ -5673,6 +5781,8 @@ public final class V1alpha1Scheduling {
      * For any other third-party types, setting APIGroup is required.
      * It must be a DNS subdomain.
      * +optional
+     * +k8s:optional
+     * +k8s:format=k8s-long-name
      * </pre>
      *
      * <code>optional string apiGroup = 1;</code>
@@ -5685,6 +5795,8 @@ public final class V1alpha1Scheduling {
      * For any other third-party types, setting APIGroup is required.
      * It must be a DNS subdomain.
      * +optional
+     * +k8s:optional
+     * +k8s:format=k8s-long-name
      * </pre>
      *
      * <code>optional string apiGroup = 1;</code>
@@ -5697,6 +5809,8 @@ public final class V1alpha1Scheduling {
      * For any other third-party types, setting APIGroup is required.
      * It must be a DNS subdomain.
      * +optional
+     * +k8s:optional
+     * +k8s:format=k8s-long-name
      * </pre>
      *
      * <code>optional string apiGroup = 1;</code>
@@ -5709,6 +5823,8 @@ public final class V1alpha1Scheduling {
      * Kind is the type of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -5719,6 +5835,8 @@ public final class V1alpha1Scheduling {
      * Kind is the type of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -5729,6 +5847,8 @@ public final class V1alpha1Scheduling {
      * Kind is the type of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -5741,6 +5861,8 @@ public final class V1alpha1Scheduling {
      * Name is the name of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -5751,6 +5873,8 @@ public final class V1alpha1Scheduling {
      * Name is the name of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -5761,6 +5885,8 @@ public final class V1alpha1Scheduling {
      * Name is the name of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -5874,6 +6000,8 @@ public final class V1alpha1Scheduling {
      * For any other third-party types, setting APIGroup is required.
      * It must be a DNS subdomain.
      * +optional
+     * +k8s:optional
+     * +k8s:format=k8s-long-name
      * </pre>
      *
      * <code>optional string apiGroup = 1;</code>
@@ -5888,6 +6016,8 @@ public final class V1alpha1Scheduling {
      * For any other third-party types, setting APIGroup is required.
      * It must be a DNS subdomain.
      * +optional
+     * +k8s:optional
+     * +k8s:format=k8s-long-name
      * </pre>
      *
      * <code>optional string apiGroup = 1;</code>
@@ -5913,6 +6043,8 @@ public final class V1alpha1Scheduling {
      * For any other third-party types, setting APIGroup is required.
      * It must be a DNS subdomain.
      * +optional
+     * +k8s:optional
+     * +k8s:format=k8s-long-name
      * </pre>
      *
      * <code>optional string apiGroup = 1;</code>
@@ -5938,6 +6070,8 @@ public final class V1alpha1Scheduling {
      * Kind is the type of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -5950,6 +6084,8 @@ public final class V1alpha1Scheduling {
      * Kind is the type of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -5973,6 +6109,8 @@ public final class V1alpha1Scheduling {
      * Kind is the type of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -5998,6 +6136,8 @@ public final class V1alpha1Scheduling {
      * Name is the name of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -6010,6 +6150,8 @@ public final class V1alpha1Scheduling {
      * Name is the name of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -6033,6 +6175,8 @@ public final class V1alpha1Scheduling {
      * Name is the name of resource being referenced.
      * It must be a path segment name.
      * +required
+     * +k8s:required
+     * +k8s:format=k8s-path-segment-name
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -6431,6 +6575,8 @@ public final class V1alpha1Scheduling {
        * For any other third-party types, setting APIGroup is required.
        * It must be a DNS subdomain.
        * +optional
+       * +k8s:optional
+       * +k8s:format=k8s-long-name
        * </pre>
        *
        * <code>optional string apiGroup = 1;</code>
@@ -6445,6 +6591,8 @@ public final class V1alpha1Scheduling {
        * For any other third-party types, setting APIGroup is required.
        * It must be a DNS subdomain.
        * +optional
+       * +k8s:optional
+       * +k8s:format=k8s-long-name
        * </pre>
        *
        * <code>optional string apiGroup = 1;</code>
@@ -6470,6 +6618,8 @@ public final class V1alpha1Scheduling {
        * For any other third-party types, setting APIGroup is required.
        * It must be a DNS subdomain.
        * +optional
+       * +k8s:optional
+       * +k8s:format=k8s-long-name
        * </pre>
        *
        * <code>optional string apiGroup = 1;</code>
@@ -6494,6 +6644,8 @@ public final class V1alpha1Scheduling {
        * For any other third-party types, setting APIGroup is required.
        * It must be a DNS subdomain.
        * +optional
+       * +k8s:optional
+       * +k8s:format=k8s-long-name
        * </pre>
        *
        * <code>optional string apiGroup = 1;</code>
@@ -6515,6 +6667,8 @@ public final class V1alpha1Scheduling {
        * For any other third-party types, setting APIGroup is required.
        * It must be a DNS subdomain.
        * +optional
+       * +k8s:optional
+       * +k8s:format=k8s-long-name
        * </pre>
        *
        * <code>optional string apiGroup = 1;</code>
@@ -6532,6 +6686,8 @@ public final class V1alpha1Scheduling {
        * For any other third-party types, setting APIGroup is required.
        * It must be a DNS subdomain.
        * +optional
+       * +k8s:optional
+       * +k8s:format=k8s-long-name
        * </pre>
        *
        * <code>optional string apiGroup = 1;</code>
@@ -6553,6 +6709,8 @@ public final class V1alpha1Scheduling {
        * Kind is the type of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -6565,6 +6723,8 @@ public final class V1alpha1Scheduling {
        * Kind is the type of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -6588,6 +6748,8 @@ public final class V1alpha1Scheduling {
        * Kind is the type of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -6610,6 +6772,8 @@ public final class V1alpha1Scheduling {
        * Kind is the type of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -6629,6 +6793,8 @@ public final class V1alpha1Scheduling {
        * Kind is the type of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -6644,6 +6810,8 @@ public final class V1alpha1Scheduling {
        * Kind is the type of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -6665,6 +6833,8 @@ public final class V1alpha1Scheduling {
        * Name is the name of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -6677,6 +6847,8 @@ public final class V1alpha1Scheduling {
        * Name is the name of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -6700,6 +6872,8 @@ public final class V1alpha1Scheduling {
        * Name is the name of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -6722,6 +6896,8 @@ public final class V1alpha1Scheduling {
        * Name is the name of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -6741,6 +6917,8 @@ public final class V1alpha1Scheduling {
        * Name is the name of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -6756,6 +6934,8 @@ public final class V1alpha1Scheduling {
        * Name is the name of resource being referenced.
        * It must be a path segment name.
        * +required
+       * +k8s:required
+       * +k8s:format=k8s-path-segment-name
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -9006,6 +9186,8 @@ public final class V1alpha1Scheduling {
      * to provide a link back to the original workload definition.
      * When set, it cannot be changed.
      * +optional
+     * +k8s:optional
+     * +k8s:update=NoModify
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9018,6 +9200,8 @@ public final class V1alpha1Scheduling {
      * to provide a link back to the original workload definition.
      * When set, it cannot be changed.
      * +optional
+     * +k8s:optional
+     * +k8s:update=NoModify
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9030,6 +9214,8 @@ public final class V1alpha1Scheduling {
      * to provide a link back to the original workload definition.
      * When set, it cannot be changed.
      * +optional
+     * +k8s:optional
+     * +k8s:update=NoModify
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9043,6 +9229,11 @@ public final class V1alpha1Scheduling {
      * +required
      * +listType=map
      * +listMapKey=name
+     * +k8s:required
+     * +k8s:listType=map
+     * +k8s:listMapKey=name
+     * +k8s:maxItems=8
+     * +k8s:immutable
      * </pre>
      *
      * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9056,6 +9247,11 @@ public final class V1alpha1Scheduling {
      * +required
      * +listType=map
      * +listMapKey=name
+     * +k8s:required
+     * +k8s:listType=map
+     * +k8s:listMapKey=name
+     * +k8s:maxItems=8
+     * +k8s:immutable
      * </pre>
      *
      * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9068,6 +9264,11 @@ public final class V1alpha1Scheduling {
      * +required
      * +listType=map
      * +listMapKey=name
+     * +k8s:required
+     * +k8s:listType=map
+     * +k8s:listMapKey=name
+     * +k8s:maxItems=8
+     * +k8s:immutable
      * </pre>
      *
      * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9080,6 +9281,11 @@ public final class V1alpha1Scheduling {
      * +required
      * +listType=map
      * +listMapKey=name
+     * +k8s:required
+     * +k8s:listType=map
+     * +k8s:listMapKey=name
+     * +k8s:maxItems=8
+     * +k8s:immutable
      * </pre>
      *
      * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9093,6 +9299,11 @@ public final class V1alpha1Scheduling {
      * +required
      * +listType=map
      * +listMapKey=name
+     * +k8s:required
+     * +k8s:listType=map
+     * +k8s:listMapKey=name
+     * +k8s:maxItems=8
+     * +k8s:immutable
      * </pre>
      *
      * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9211,6 +9422,8 @@ public final class V1alpha1Scheduling {
      * to provide a link back to the original workload definition.
      * When set, it cannot be changed.
      * +optional
+     * +k8s:optional
+     * +k8s:update=NoModify
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9225,6 +9438,8 @@ public final class V1alpha1Scheduling {
      * to provide a link back to the original workload definition.
      * When set, it cannot be changed.
      * +optional
+     * +k8s:optional
+     * +k8s:update=NoModify
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9239,6 +9454,8 @@ public final class V1alpha1Scheduling {
      * to provide a link back to the original workload definition.
      * When set, it cannot be changed.
      * +optional
+     * +k8s:optional
+     * +k8s:update=NoModify
      * </pre>
      *
      * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9256,6 +9473,11 @@ public final class V1alpha1Scheduling {
      * +required
      * +listType=map
      * +listMapKey=name
+     * +k8s:required
+     * +k8s:listType=map
+     * +k8s:listMapKey=name
+     * +k8s:maxItems=8
+     * +k8s:immutable
      * </pre>
      *
      * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9270,6 +9492,11 @@ public final class V1alpha1Scheduling {
      * +required
      * +listType=map
      * +listMapKey=name
+     * +k8s:required
+     * +k8s:listType=map
+     * +k8s:listMapKey=name
+     * +k8s:maxItems=8
+     * +k8s:immutable
      * </pre>
      *
      * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9285,6 +9512,11 @@ public final class V1alpha1Scheduling {
      * +required
      * +listType=map
      * +listMapKey=name
+     * +k8s:required
+     * +k8s:listType=map
+     * +k8s:listMapKey=name
+     * +k8s:maxItems=8
+     * +k8s:immutable
      * </pre>
      *
      * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9299,6 +9531,11 @@ public final class V1alpha1Scheduling {
      * +required
      * +listType=map
      * +listMapKey=name
+     * +k8s:required
+     * +k8s:listType=map
+     * +k8s:listMapKey=name
+     * +k8s:maxItems=8
+     * +k8s:immutable
      * </pre>
      *
      * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9313,6 +9550,11 @@ public final class V1alpha1Scheduling {
      * +required
      * +listType=map
      * +listMapKey=name
+     * +k8s:required
+     * +k8s:listType=map
+     * +k8s:listMapKey=name
+     * +k8s:maxItems=8
+     * +k8s:immutable
      * </pre>
      *
      * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9715,6 +9957,8 @@ public final class V1alpha1Scheduling {
        * to provide a link back to the original workload definition.
        * When set, it cannot be changed.
        * +optional
+       * +k8s:optional
+       * +k8s:update=NoModify
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9729,6 +9973,8 @@ public final class V1alpha1Scheduling {
        * to provide a link back to the original workload definition.
        * When set, it cannot be changed.
        * +optional
+       * +k8s:optional
+       * +k8s:update=NoModify
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9747,6 +9993,8 @@ public final class V1alpha1Scheduling {
        * to provide a link back to the original workload definition.
        * When set, it cannot be changed.
        * +optional
+       * +k8s:optional
+       * +k8s:update=NoModify
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9771,6 +10019,8 @@ public final class V1alpha1Scheduling {
        * to provide a link back to the original workload definition.
        * When set, it cannot be changed.
        * +optional
+       * +k8s:optional
+       * +k8s:update=NoModify
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9793,6 +10043,8 @@ public final class V1alpha1Scheduling {
        * to provide a link back to the original workload definition.
        * When set, it cannot be changed.
        * +optional
+       * +k8s:optional
+       * +k8s:update=NoModify
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9821,6 +10073,8 @@ public final class V1alpha1Scheduling {
        * to provide a link back to the original workload definition.
        * When set, it cannot be changed.
        * +optional
+       * +k8s:optional
+       * +k8s:update=NoModify
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9842,6 +10096,8 @@ public final class V1alpha1Scheduling {
        * to provide a link back to the original workload definition.
        * When set, it cannot be changed.
        * +optional
+       * +k8s:optional
+       * +k8s:update=NoModify
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9858,6 +10114,8 @@ public final class V1alpha1Scheduling {
        * to provide a link back to the original workload definition.
        * When set, it cannot be changed.
        * +optional
+       * +k8s:optional
+       * +k8s:update=NoModify
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9877,6 +10135,8 @@ public final class V1alpha1Scheduling {
        * to provide a link back to the original workload definition.
        * When set, it cannot be changed.
        * +optional
+       * +k8s:optional
+       * +k8s:update=NoModify
        * </pre>
        *
        * <code>optional .k8s.io.api.scheduling.v1alpha1.TypedLocalObjectReference controllerRef = 1;</code>
@@ -9914,6 +10174,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9932,6 +10197,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9950,6 +10220,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9968,6 +10243,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -9993,6 +10273,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10015,6 +10300,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10039,6 +10329,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10064,6 +10359,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10086,6 +10386,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10108,6 +10413,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10131,6 +10441,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10152,6 +10467,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10173,6 +10493,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10188,6 +10513,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10206,6 +10536,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10225,6 +10560,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10240,6 +10580,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>
@@ -10256,6 +10601,11 @@ public final class V1alpha1Scheduling {
        * +required
        * +listType=map
        * +listMapKey=name
+       * +k8s:required
+       * +k8s:listType=map
+       * +k8s:listMapKey=name
+       * +k8s:maxItems=8
+       * +k8s:immutable
        * </pre>
        *
        * <code>repeated .k8s.io.api.scheduling.v1alpha1.PodGroup podGroups = 2;</code>

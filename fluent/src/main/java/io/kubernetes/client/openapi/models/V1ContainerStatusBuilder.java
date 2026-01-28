@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ContainerStatusBuilder extends V1ContainerStatusFluent<V1ContainerStatusBuilder> implements VisitableBuilder<V1ContainerStatus,V1ContainerStatusBuilder>{
+
+  V1ContainerStatusFluent<?> fluent;
+
   public V1ContainerStatusBuilder() {
     this(new V1ContainerStatus());
   }
@@ -11,17 +14,16 @@ public class V1ContainerStatusBuilder extends V1ContainerStatusFluent<V1Containe
     this(fluent, new V1ContainerStatus());
   }
   
-  public V1ContainerStatusBuilder(V1ContainerStatusFluent<?> fluent,V1ContainerStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ContainerStatusBuilder(V1ContainerStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ContainerStatusFluent<?> fluent;
   
+  public V1ContainerStatusBuilder(V1ContainerStatusFluent<?> fluent,V1ContainerStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ContainerStatus build() {
     V1ContainerStatus buildable = new V1ContainerStatus();
     buildable.setAllocatedResources(fluent.getAllocatedResources());
@@ -42,5 +44,4 @@ public class V1ContainerStatusBuilder extends V1ContainerStatusFluent<V1Containe
     return buildable;
   }
   
-
 }

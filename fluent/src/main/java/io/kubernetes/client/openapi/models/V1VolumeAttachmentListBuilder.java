@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1VolumeAttachmentListBuilder extends V1VolumeAttachmentListFluent<V1VolumeAttachmentListBuilder> implements VisitableBuilder<V1VolumeAttachmentList,V1VolumeAttachmentListBuilder>{
+
+  V1VolumeAttachmentListFluent<?> fluent;
+
   public V1VolumeAttachmentListBuilder() {
     this(new V1VolumeAttachmentList());
   }
@@ -11,17 +14,16 @@ public class V1VolumeAttachmentListBuilder extends V1VolumeAttachmentListFluent<
     this(fluent, new V1VolumeAttachmentList());
   }
   
-  public V1VolumeAttachmentListBuilder(V1VolumeAttachmentListFluent<?> fluent,V1VolumeAttachmentList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1VolumeAttachmentListBuilder(V1VolumeAttachmentList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1VolumeAttachmentListFluent<?> fluent;
   
+  public V1VolumeAttachmentListBuilder(V1VolumeAttachmentListFluent<?> fluent,V1VolumeAttachmentList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1VolumeAttachmentList build() {
     V1VolumeAttachmentList buildable = new V1VolumeAttachmentList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1VolumeAttachmentListBuilder extends V1VolumeAttachmentListFluent<
     return buildable;
   }
   
-
 }

@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PriorityClassListBuilder extends V1PriorityClassListFluent<V1PriorityClassListBuilder> implements VisitableBuilder<V1PriorityClassList,V1PriorityClassListBuilder>{
+
+  V1PriorityClassListFluent<?> fluent;
+
   public V1PriorityClassListBuilder() {
     this(new V1PriorityClassList());
   }
@@ -11,17 +14,16 @@ public class V1PriorityClassListBuilder extends V1PriorityClassListFluent<V1Prio
     this(fluent, new V1PriorityClassList());
   }
   
-  public V1PriorityClassListBuilder(V1PriorityClassListFluent<?> fluent,V1PriorityClassList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PriorityClassListBuilder(V1PriorityClassList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PriorityClassListFluent<?> fluent;
   
+  public V1PriorityClassListBuilder(V1PriorityClassListFluent<?> fluent,V1PriorityClassList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PriorityClassList build() {
     V1PriorityClassList buildable = new V1PriorityClassList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1PriorityClassListBuilder extends V1PriorityClassListFluent<V1Prio
     return buildable;
   }
   
-
 }

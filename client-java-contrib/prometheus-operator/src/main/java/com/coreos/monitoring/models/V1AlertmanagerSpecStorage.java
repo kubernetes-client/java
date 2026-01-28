@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Storage is the definition of how storage will be used by the Alertmanager instances.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1AlertmanagerSpecStorage {
@@ -46,7 +46,7 @@ public class V1AlertmanagerSpecStorage {
    *
    * @return emptyDir
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecStorageEmptyDir getEmptyDir() {
     return emptyDir;
@@ -68,7 +68,7 @@ public class V1AlertmanagerSpecStorage {
    *
    * @return volumeClaimTemplate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecStorageVolumeClaimTemplate getVolumeClaimTemplate() {
     return volumeClaimTemplate;

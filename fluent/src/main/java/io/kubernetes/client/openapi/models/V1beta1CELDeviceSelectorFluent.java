@@ -1,43 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1beta1CELDeviceSelectorFluent<A extends io.kubernetes.client.openapi.models.V1beta1CELDeviceSelectorFluent<A>> extends BaseFluent<A>{
+
+  private String expression;
+
   public V1beta1CELDeviceSelectorFluent() {
   }
   
   public V1beta1CELDeviceSelectorFluent(V1beta1CELDeviceSelector instance) {
     this.copyInstance(instance);
   }
-  private String expression;
-  
+
   protected void copyInstance(V1beta1CELDeviceSelector instance) {
     instance = instance != null ? instance : new V1beta1CELDeviceSelector();
     if (instance != null) {
       this.withExpression(instance.getExpression());
     }
-  }
-  
-  public String getExpression() {
-    return this.expression;
-  }
-  
-  public A withExpression(String expression) {
-    this.expression = expression;
-    return (A) this;
-  }
-  
-  public boolean hasExpression() {
-    return this.expression != null;
   }
   
   public boolean equals(Object o) {
@@ -57,6 +46,14 @@ public class V1beta1CELDeviceSelectorFluent<A extends io.kubernetes.client.opena
     return true;
   }
   
+  public String getExpression() {
+    return this.expression;
+  }
+  
+  public boolean hasExpression() {
+    return this.expression != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(expression);
   }
@@ -72,5 +69,9 @@ public class V1beta1CELDeviceSelectorFluent<A extends io.kubernetes.client.opena
     return sb.toString();
   }
   
-
+  public A withExpression(String expression) {
+    this.expression = expression;
+    return (A) this;
+  }
+  
 }

@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1IngressPortStatusFluent<A extends io.kubernetes.client.openapi.models.V1IngressPortStatusFluent<A>> extends BaseFluent<A>{
+
+  private String error;
+  private Integer port;
+  private String protocol;
+
   public V1IngressPortStatusFluent() {
   }
   
   public V1IngressPortStatusFluent(V1IngressPortStatus instance) {
     this.copyInstance(instance);
   }
-  private String error;
-  private Integer port;
-  private String protocol;
-  
+
   protected void copyInstance(V1IngressPortStatus instance) {
     instance = instance != null ? instance : new V1IngressPortStatus();
     if (instance != null) {
@@ -30,45 +32,6 @@ public class V1IngressPortStatusFluent<A extends io.kubernetes.client.openapi.mo
         this.withPort(instance.getPort());
         this.withProtocol(instance.getProtocol());
     }
-  }
-  
-  public String getError() {
-    return this.error;
-  }
-  
-  public A withError(String error) {
-    this.error = error;
-    return (A) this;
-  }
-  
-  public boolean hasError() {
-    return this.error != null;
-  }
-  
-  public Integer getPort() {
-    return this.port;
-  }
-  
-  public A withPort(Integer port) {
-    this.port = port;
-    return (A) this;
-  }
-  
-  public boolean hasPort() {
-    return this.port != null;
-  }
-  
-  public String getProtocol() {
-    return this.protocol;
-  }
-  
-  public A withProtocol(String protocol) {
-    this.protocol = protocol;
-    return (A) this;
-  }
-  
-  public boolean hasProtocol() {
-    return this.protocol != null;
   }
   
   public boolean equals(Object o) {
@@ -92,6 +55,30 @@ public class V1IngressPortStatusFluent<A extends io.kubernetes.client.openapi.mo
       return false;
     }
     return true;
+  }
+  
+  public String getError() {
+    return this.error;
+  }
+  
+  public Integer getPort() {
+    return this.port;
+  }
+  
+  public String getProtocol() {
+    return this.protocol;
+  }
+  
+  public boolean hasError() {
+    return this.error != null;
+  }
+  
+  public boolean hasPort() {
+    return this.port != null;
+  }
+  
+  public boolean hasProtocol() {
+    return this.protocol != null;
   }
   
   public int hashCode() {
@@ -119,5 +106,19 @@ public class V1IngressPortStatusFluent<A extends io.kubernetes.client.openapi.mo
     return sb.toString();
   }
   
-
+  public A withError(String error) {
+    this.error = error;
+    return (A) this;
+  }
+  
+  public A withPort(Integer port) {
+    this.port = port;
+    return (A) this;
+  }
+  
+  public A withProtocol(String protocol) {
+    this.protocol = protocol;
+    return (A) this;
+  }
+  
 }

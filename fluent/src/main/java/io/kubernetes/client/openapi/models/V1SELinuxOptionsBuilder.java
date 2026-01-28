@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluent<V1SELinuxOptionsBuilder> implements VisitableBuilder<V1SELinuxOptions,V1SELinuxOptionsBuilder>{
+
+  V1SELinuxOptionsFluent<?> fluent;
+
   public V1SELinuxOptionsBuilder() {
     this(new V1SELinuxOptions());
   }
@@ -11,17 +14,16 @@ public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluent<V1SELinuxOpt
     this(fluent, new V1SELinuxOptions());
   }
   
-  public V1SELinuxOptionsBuilder(V1SELinuxOptionsFluent<?> fluent,V1SELinuxOptions instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1SELinuxOptionsBuilder(V1SELinuxOptions instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1SELinuxOptionsFluent<?> fluent;
   
+  public V1SELinuxOptionsBuilder(V1SELinuxOptionsFluent<?> fluent,V1SELinuxOptions instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1SELinuxOptions build() {
     V1SELinuxOptions buildable = new V1SELinuxOptions();
     buildable.setLevel(fluent.getLevel());
@@ -31,5 +33,4 @@ public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluent<V1SELinuxOpt
     return buildable;
   }
   
-
 }

@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1LimitRangeItemBuilder extends V1LimitRangeItemFluent<V1LimitRangeItemBuilder> implements VisitableBuilder<V1LimitRangeItem,V1LimitRangeItemBuilder>{
+
+  V1LimitRangeItemFluent<?> fluent;
+
   public V1LimitRangeItemBuilder() {
     this(new V1LimitRangeItem());
   }
@@ -11,17 +14,16 @@ public class V1LimitRangeItemBuilder extends V1LimitRangeItemFluent<V1LimitRange
     this(fluent, new V1LimitRangeItem());
   }
   
-  public V1LimitRangeItemBuilder(V1LimitRangeItemFluent<?> fluent,V1LimitRangeItem instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1LimitRangeItemBuilder(V1LimitRangeItem instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1LimitRangeItemFluent<?> fluent;
   
+  public V1LimitRangeItemBuilder(V1LimitRangeItemFluent<?> fluent,V1LimitRangeItem instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1LimitRangeItem build() {
     V1LimitRangeItem buildable = new V1LimitRangeItem();
     buildable.setDefault(fluent.getDefault());
@@ -33,5 +35,4 @@ public class V1LimitRangeItemBuilder extends V1LimitRangeItemFluent<V1LimitRange
     return buildable;
   }
   
-
 }

@@ -1,44 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1StatefulSetOrdinalsFluent<A extends io.kubernetes.client.openapi.models.V1StatefulSetOrdinalsFluent<A>> extends BaseFluent<A>{
+
+  private Integer start;
+
   public V1StatefulSetOrdinalsFluent() {
   }
   
   public V1StatefulSetOrdinalsFluent(V1StatefulSetOrdinals instance) {
     this.copyInstance(instance);
   }
-  private Integer start;
-  
+
   protected void copyInstance(V1StatefulSetOrdinals instance) {
     instance = instance != null ? instance : new V1StatefulSetOrdinals();
     if (instance != null) {
       this.withStart(instance.getStart());
     }
-  }
-  
-  public Integer getStart() {
-    return this.start;
-  }
-  
-  public A withStart(Integer start) {
-    this.start = start;
-    return (A) this;
-  }
-  
-  public boolean hasStart() {
-    return this.start != null;
   }
   
   public boolean equals(Object o) {
@@ -58,6 +47,14 @@ public class V1StatefulSetOrdinalsFluent<A extends io.kubernetes.client.openapi.
     return true;
   }
   
+  public Integer getStart() {
+    return this.start;
+  }
+  
+  public boolean hasStart() {
+    return this.start != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(start);
   }
@@ -73,5 +70,9 @@ public class V1StatefulSetOrdinalsFluent<A extends io.kubernetes.client.openapi.
     return sb.toString();
   }
   
-
+  public A withStart(Integer start) {
+    this.start = start;
+    return (A) this;
+  }
+  
 }

@@ -1,28 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1beta1CapacityRequestPolicyRangeFluent<A extends io.kubernetes.client.openapi.models.V1beta1CapacityRequestPolicyRangeFluent<A>> extends BaseFluent<A>{
+
+  private Quantity max;
+  private Quantity min;
+  private Quantity step;
+
   public V1beta1CapacityRequestPolicyRangeFluent() {
   }
   
   public V1beta1CapacityRequestPolicyRangeFluent(V1beta1CapacityRequestPolicyRange instance) {
     this.copyInstance(instance);
   }
-  private Quantity max;
-  private Quantity min;
-  private Quantity step;
-  
+
   protected void copyInstance(V1beta1CapacityRequestPolicyRange instance) {
     instance = instance != null ? instance : new V1beta1CapacityRequestPolicyRange();
     if (instance != null) {
@@ -30,57 +32,6 @@ public class V1beta1CapacityRequestPolicyRangeFluent<A extends io.kubernetes.cli
         this.withMin(instance.getMin());
         this.withStep(instance.getStep());
     }
-  }
-  
-  public Quantity getMax() {
-    return this.max;
-  }
-  
-  public A withMax(Quantity max) {
-    this.max = max;
-    return (A) this;
-  }
-  
-  public boolean hasMax() {
-    return this.max != null;
-  }
-  
-  public A withNewMax(String value) {
-    return (A) this.withMax(new Quantity(value));
-  }
-  
-  public Quantity getMin() {
-    return this.min;
-  }
-  
-  public A withMin(Quantity min) {
-    this.min = min;
-    return (A) this;
-  }
-  
-  public boolean hasMin() {
-    return this.min != null;
-  }
-  
-  public A withNewMin(String value) {
-    return (A) this.withMin(new Quantity(value));
-  }
-  
-  public Quantity getStep() {
-    return this.step;
-  }
-  
-  public A withStep(Quantity step) {
-    this.step = step;
-    return (A) this;
-  }
-  
-  public boolean hasStep() {
-    return this.step != null;
-  }
-  
-  public A withNewStep(String value) {
-    return (A) this.withStep(new Quantity(value));
   }
   
   public boolean equals(Object o) {
@@ -104,6 +55,30 @@ public class V1beta1CapacityRequestPolicyRangeFluent<A extends io.kubernetes.cli
       return false;
     }
     return true;
+  }
+  
+  public Quantity getMax() {
+    return this.max;
+  }
+  
+  public Quantity getMin() {
+    return this.min;
+  }
+  
+  public Quantity getStep() {
+    return this.step;
+  }
+  
+  public boolean hasMax() {
+    return this.max != null;
+  }
+  
+  public boolean hasMin() {
+    return this.min != null;
+  }
+  
+  public boolean hasStep() {
+    return this.step != null;
   }
   
   public int hashCode() {
@@ -131,5 +106,31 @@ public class V1beta1CapacityRequestPolicyRangeFluent<A extends io.kubernetes.cli
     return sb.toString();
   }
   
-
+  public A withMax(Quantity max) {
+    this.max = max;
+    return (A) this;
+  }
+  
+  public A withMin(Quantity min) {
+    this.min = min;
+    return (A) this;
+  }
+  
+  public A withNewMax(String value) {
+    return (A) this.withMax(new Quantity(value));
+  }
+  
+  public A withNewMin(String value) {
+    return (A) this.withMin(new Quantity(value));
+  }
+  
+  public A withNewStep(String value) {
+    return (A) this.withStep(new Quantity(value));
+  }
+  
+  public A withStep(Quantity step) {
+    this.step = step;
+    return (A) this;
+  }
+  
 }

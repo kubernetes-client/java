@@ -1,69 +1,44 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
-import java.util.LinkedHashMap;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
-import java.lang.Object;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Boolean;
+import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1FlexVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1FlexVolumeSourceFluent<A>> extends BaseFluent<A>{
+
+  private String driver;
+  private String fsType;
+  private Map<String,String> options;
+  private Boolean readOnly;
+  private V1LocalObjectReferenceBuilder secretRef;
+
   public V1FlexVolumeSourceFluent() {
   }
   
   public V1FlexVolumeSourceFluent(V1FlexVolumeSource instance) {
     this.copyInstance(instance);
   }
-  private String driver;
-  private String fsType;
-  private Map<String,String> options;
-  private Boolean readOnly;
-  private V1LocalObjectReferenceBuilder secretRef;
-  
-  protected void copyInstance(V1FlexVolumeSource instance) {
-    instance = instance != null ? instance : new V1FlexVolumeSource();
-    if (instance != null) {
-        this.withDriver(instance.getDriver());
-        this.withFsType(instance.getFsType());
-        this.withOptions(instance.getOptions());
-        this.withReadOnly(instance.getReadOnly());
-        this.withSecretRef(instance.getSecretRef());
+
+  public A addToOptions(Map<String,String> map) {
+    if (this.options == null && map != null) {
+      this.options = new LinkedHashMap();
     }
-  }
-  
-  public String getDriver() {
-    return this.driver;
-  }
-  
-  public A withDriver(String driver) {
-    this.driver = driver;
+    if (map != null) {
+      this.options.putAll(map);
+    }
     return (A) this;
-  }
-  
-  public boolean hasDriver() {
-    return this.driver != null;
-  }
-  
-  public String getFsType() {
-    return this.fsType;
-  }
-  
-  public A withFsType(String fsType) {
-    this.fsType = fsType;
-    return (A) this;
-  }
-  
-  public boolean hasFsType() {
-    return this.fsType != null;
   }
   
   public A addToOptions(String key,String value) {
@@ -76,100 +51,19 @@ public class V1FlexVolumeSourceFluent<A extends io.kubernetes.client.openapi.mod
     return (A) this;
   }
   
-  public A addToOptions(Map<String,String> map) {
-    if (this.options == null && map != null) {
-      this.options = new LinkedHashMap();
-    }
-    if (map != null) {
-      this.options.putAll(map);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromOptions(String key) {
-    if (this.options == null) {
-      return (A) this;
-    }
-    if (key != null && this.options != null) {
-      this.options.remove(key);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromOptions(Map<String,String> map) {
-    if (this.options == null) {
-      return (A) this;
-    }
-    if (map != null) {
-      for (Object key : map.keySet()) {
-        if (this.options != null) {
-          this.options.remove(key);
-        }
-      }
-    }
-    return (A) this;
-  }
-  
-  public Map<String,String> getOptions() {
-    return this.options;
-  }
-  
-  public <K,V>A withOptions(Map<String,String> options) {
-    if (options == null) {
-      this.options = null;
-    } else {
-      this.options = new LinkedHashMap(options);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasOptions() {
-    return this.options != null;
-  }
-  
-  public Boolean getReadOnly() {
-    return this.readOnly;
-  }
-  
-  public A withReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-    return (A) this;
-  }
-  
-  public boolean hasReadOnly() {
-    return this.readOnly != null;
-  }
-  
   public V1LocalObjectReference buildSecretRef() {
     return this.secretRef != null ? this.secretRef.build() : null;
   }
   
-  public A withSecretRef(V1LocalObjectReference secretRef) {
-    this._visitables.remove("secretRef");
-    if (secretRef != null) {
-        this.secretRef = new V1LocalObjectReferenceBuilder(secretRef);
-        this._visitables.get("secretRef").add(this.secretRef);
-    } else {
-        this.secretRef = null;
-        this._visitables.get("secretRef").remove(this.secretRef);
+  protected void copyInstance(V1FlexVolumeSource instance) {
+    instance = instance != null ? instance : new V1FlexVolumeSource();
+    if (instance != null) {
+        this.withDriver(instance.getDriver());
+        this.withFsType(instance.getFsType());
+        this.withOptions(instance.getOptions());
+        this.withReadOnly(instance.getReadOnly());
+        this.withSecretRef(instance.getSecretRef());
     }
-    return (A) this;
-  }
-  
-  public boolean hasSecretRef() {
-    return this.secretRef != null;
-  }
-  
-  public SecretRefNested<A> withNewSecretRef() {
-    return new SecretRefNested(null);
-  }
-  
-  public SecretRefNested<A> withNewSecretRefLike(V1LocalObjectReference item) {
-    return new SecretRefNested(item);
-  }
-  
-  public SecretRefNested<A> editSecretRef() {
-    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(null));
   }
   
   public SecretRefNested<A> editOrNewSecretRef() {
@@ -178,6 +72,10 @@ public class V1FlexVolumeSourceFluent<A extends io.kubernetes.client.openapi.mod
   
   public SecretRefNested<A> editOrNewSecretRefLike(V1LocalObjectReference item) {
     return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(item));
+  }
+  
+  public SecretRefNested<A> editSecretRef() {
+    return this.withNewSecretRefLike(Optional.ofNullable(this.buildSecretRef()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -209,8 +107,68 @@ public class V1FlexVolumeSourceFluent<A extends io.kubernetes.client.openapi.mod
     return true;
   }
   
+  public String getDriver() {
+    return this.driver;
+  }
+  
+  public String getFsType() {
+    return this.fsType;
+  }
+  
+  public Map<String,String> getOptions() {
+    return this.options;
+  }
+  
+  public Boolean getReadOnly() {
+    return this.readOnly;
+  }
+  
+  public boolean hasDriver() {
+    return this.driver != null;
+  }
+  
+  public boolean hasFsType() {
+    return this.fsType != null;
+  }
+  
+  public boolean hasOptions() {
+    return this.options != null;
+  }
+  
+  public boolean hasReadOnly() {
+    return this.readOnly != null;
+  }
+  
+  public boolean hasSecretRef() {
+    return this.secretRef != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(driver, fsType, options, readOnly, secretRef);
+  }
+  
+  public A removeFromOptions(String key) {
+    if (this.options == null) {
+      return (A) this;
+    }
+    if (key != null && this.options != null) {
+      this.options.remove(key);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromOptions(Map<String,String> map) {
+    if (this.options == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.options != null) {
+          this.options.remove(key);
+        }
+      }
+    }
+    return (A) this;
   }
   
   public String toString() {
@@ -244,15 +202,61 @@ public class V1FlexVolumeSourceFluent<A extends io.kubernetes.client.openapi.mod
     return sb.toString();
   }
   
+  public A withDriver(String driver) {
+    this.driver = driver;
+    return (A) this;
+  }
+  
+  public A withFsType(String fsType) {
+    this.fsType = fsType;
+    return (A) this;
+  }
+  
+  public SecretRefNested<A> withNewSecretRef() {
+    return new SecretRefNested(null);
+  }
+  
+  public SecretRefNested<A> withNewSecretRefLike(V1LocalObjectReference item) {
+    return new SecretRefNested(item);
+  }
+  
+  public <K,V>A withOptions(Map<String,String> options) {
+    if (options == null) {
+      this.options = null;
+    } else {
+      this.options = new LinkedHashMap(options);
+    }
+    return (A) this;
+  }
+  
   public A withReadOnly() {
     return withReadOnly(true);
   }
+  
+  public A withReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return (A) this;
+  }
+  
+  public A withSecretRef(V1LocalObjectReference secretRef) {
+    this._visitables.remove("secretRef");
+    if (secretRef != null) {
+        this.secretRef = new V1LocalObjectReferenceBuilder(secretRef);
+        this._visitables.get("secretRef").add(this.secretRef);
+    } else {
+        this.secretRef = null;
+        this._visitables.get("secretRef").remove(this.secretRef);
+    }
+    return (A) this;
+  }
   public class SecretRefNested<N> extends V1LocalObjectReferenceFluent<SecretRefNested<N>> implements Nested<N>{
+  
+    V1LocalObjectReferenceBuilder builder;
+  
     SecretRefNested(V1LocalObjectReference item) {
       this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }
-    V1LocalObjectReferenceBuilder builder;
-    
+  
     public N and() {
       return (N) V1FlexVolumeSourceFluent.this.withSecretRef(builder.build());
     }
@@ -261,7 +265,5 @@ public class V1FlexVolumeSourceFluent<A extends io.kubernetes.client.openapi.mod
       return and();
     }
     
-  
   }
-
 }

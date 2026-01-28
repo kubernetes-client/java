@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1SecretKeySelectorBuilder extends V1SecretKeySelectorFluent<V1SecretKeySelectorBuilder> implements VisitableBuilder<V1SecretKeySelector,V1SecretKeySelectorBuilder>{
+
+  V1SecretKeySelectorFluent<?> fluent;
+
   public V1SecretKeySelectorBuilder() {
     this(new V1SecretKeySelector());
   }
@@ -11,17 +14,16 @@ public class V1SecretKeySelectorBuilder extends V1SecretKeySelectorFluent<V1Secr
     this(fluent, new V1SecretKeySelector());
   }
   
-  public V1SecretKeySelectorBuilder(V1SecretKeySelectorFluent<?> fluent,V1SecretKeySelector instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1SecretKeySelectorBuilder(V1SecretKeySelector instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1SecretKeySelectorFluent<?> fluent;
   
+  public V1SecretKeySelectorBuilder(V1SecretKeySelectorFluent<?> fluent,V1SecretKeySelector instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1SecretKeySelector build() {
     V1SecretKeySelector buildable = new V1SecretKeySelector();
     buildable.setKey(fluent.getKey());
@@ -30,5 +32,4 @@ public class V1SecretKeySelectorBuilder extends V1SecretKeySelectorFluent<V1Secr
     return buildable;
   }
   
-
 }

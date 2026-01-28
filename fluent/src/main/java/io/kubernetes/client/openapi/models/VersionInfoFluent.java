@@ -1,23 +1,18 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class VersionInfoFluent<A extends io.kubernetes.client.openapi.models.VersionInfoFluent<A>> extends BaseFluent<A>{
-  public VersionInfoFluent() {
-  }
-  
-  public VersionInfoFluent(VersionInfo instance) {
-    this.copyInstance(instance);
-  }
+
   private String buildDate;
   private String compiler;
   private String emulationMajor;
@@ -31,7 +26,14 @@ public class VersionInfoFluent<A extends io.kubernetes.client.openapi.models.Ver
   private String minCompatibilityMinor;
   private String minor;
   private String platform;
+
+  public VersionInfoFluent() {
+  }
   
+  public VersionInfoFluent(VersionInfo instance) {
+    this.copyInstance(instance);
+  }
+
   protected void copyInstance(VersionInfo instance) {
     instance = instance != null ? instance : new VersionInfo();
     if (instance != null) {
@@ -49,175 +51,6 @@ public class VersionInfoFluent<A extends io.kubernetes.client.openapi.models.Ver
         this.withMinor(instance.getMinor());
         this.withPlatform(instance.getPlatform());
     }
-  }
-  
-  public String getBuildDate() {
-    return this.buildDate;
-  }
-  
-  public A withBuildDate(String buildDate) {
-    this.buildDate = buildDate;
-    return (A) this;
-  }
-  
-  public boolean hasBuildDate() {
-    return this.buildDate != null;
-  }
-  
-  public String getCompiler() {
-    return this.compiler;
-  }
-  
-  public A withCompiler(String compiler) {
-    this.compiler = compiler;
-    return (A) this;
-  }
-  
-  public boolean hasCompiler() {
-    return this.compiler != null;
-  }
-  
-  public String getEmulationMajor() {
-    return this.emulationMajor;
-  }
-  
-  public A withEmulationMajor(String emulationMajor) {
-    this.emulationMajor = emulationMajor;
-    return (A) this;
-  }
-  
-  public boolean hasEmulationMajor() {
-    return this.emulationMajor != null;
-  }
-  
-  public String getEmulationMinor() {
-    return this.emulationMinor;
-  }
-  
-  public A withEmulationMinor(String emulationMinor) {
-    this.emulationMinor = emulationMinor;
-    return (A) this;
-  }
-  
-  public boolean hasEmulationMinor() {
-    return this.emulationMinor != null;
-  }
-  
-  public String getGitCommit() {
-    return this.gitCommit;
-  }
-  
-  public A withGitCommit(String gitCommit) {
-    this.gitCommit = gitCommit;
-    return (A) this;
-  }
-  
-  public boolean hasGitCommit() {
-    return this.gitCommit != null;
-  }
-  
-  public String getGitTreeState() {
-    return this.gitTreeState;
-  }
-  
-  public A withGitTreeState(String gitTreeState) {
-    this.gitTreeState = gitTreeState;
-    return (A) this;
-  }
-  
-  public boolean hasGitTreeState() {
-    return this.gitTreeState != null;
-  }
-  
-  public String getGitVersion() {
-    return this.gitVersion;
-  }
-  
-  public A withGitVersion(String gitVersion) {
-    this.gitVersion = gitVersion;
-    return (A) this;
-  }
-  
-  public boolean hasGitVersion() {
-    return this.gitVersion != null;
-  }
-  
-  public String getGoVersion() {
-    return this.goVersion;
-  }
-  
-  public A withGoVersion(String goVersion) {
-    this.goVersion = goVersion;
-    return (A) this;
-  }
-  
-  public boolean hasGoVersion() {
-    return this.goVersion != null;
-  }
-  
-  public String getMajor() {
-    return this.major;
-  }
-  
-  public A withMajor(String major) {
-    this.major = major;
-    return (A) this;
-  }
-  
-  public boolean hasMajor() {
-    return this.major != null;
-  }
-  
-  public String getMinCompatibilityMajor() {
-    return this.minCompatibilityMajor;
-  }
-  
-  public A withMinCompatibilityMajor(String minCompatibilityMajor) {
-    this.minCompatibilityMajor = minCompatibilityMajor;
-    return (A) this;
-  }
-  
-  public boolean hasMinCompatibilityMajor() {
-    return this.minCompatibilityMajor != null;
-  }
-  
-  public String getMinCompatibilityMinor() {
-    return this.minCompatibilityMinor;
-  }
-  
-  public A withMinCompatibilityMinor(String minCompatibilityMinor) {
-    this.minCompatibilityMinor = minCompatibilityMinor;
-    return (A) this;
-  }
-  
-  public boolean hasMinCompatibilityMinor() {
-    return this.minCompatibilityMinor != null;
-  }
-  
-  public String getMinor() {
-    return this.minor;
-  }
-  
-  public A withMinor(String minor) {
-    this.minor = minor;
-    return (A) this;
-  }
-  
-  public boolean hasMinor() {
-    return this.minor != null;
-  }
-  
-  public String getPlatform() {
-    return this.platform;
-  }
-  
-  public A withPlatform(String platform) {
-    this.platform = platform;
-    return (A) this;
-  }
-  
-  public boolean hasPlatform() {
-    return this.platform != null;
   }
   
   public boolean equals(Object o) {
@@ -271,6 +104,110 @@ public class VersionInfoFluent<A extends io.kubernetes.client.openapi.models.Ver
       return false;
     }
     return true;
+  }
+  
+  public String getBuildDate() {
+    return this.buildDate;
+  }
+  
+  public String getCompiler() {
+    return this.compiler;
+  }
+  
+  public String getEmulationMajor() {
+    return this.emulationMajor;
+  }
+  
+  public String getEmulationMinor() {
+    return this.emulationMinor;
+  }
+  
+  public String getGitCommit() {
+    return this.gitCommit;
+  }
+  
+  public String getGitTreeState() {
+    return this.gitTreeState;
+  }
+  
+  public String getGitVersion() {
+    return this.gitVersion;
+  }
+  
+  public String getGoVersion() {
+    return this.goVersion;
+  }
+  
+  public String getMajor() {
+    return this.major;
+  }
+  
+  public String getMinCompatibilityMajor() {
+    return this.minCompatibilityMajor;
+  }
+  
+  public String getMinCompatibilityMinor() {
+    return this.minCompatibilityMinor;
+  }
+  
+  public String getMinor() {
+    return this.minor;
+  }
+  
+  public String getPlatform() {
+    return this.platform;
+  }
+  
+  public boolean hasBuildDate() {
+    return this.buildDate != null;
+  }
+  
+  public boolean hasCompiler() {
+    return this.compiler != null;
+  }
+  
+  public boolean hasEmulationMajor() {
+    return this.emulationMajor != null;
+  }
+  
+  public boolean hasEmulationMinor() {
+    return this.emulationMinor != null;
+  }
+  
+  public boolean hasGitCommit() {
+    return this.gitCommit != null;
+  }
+  
+  public boolean hasGitTreeState() {
+    return this.gitTreeState != null;
+  }
+  
+  public boolean hasGitVersion() {
+    return this.gitVersion != null;
+  }
+  
+  public boolean hasGoVersion() {
+    return this.goVersion != null;
+  }
+  
+  public boolean hasMajor() {
+    return this.major != null;
+  }
+  
+  public boolean hasMinCompatibilityMajor() {
+    return this.minCompatibilityMajor != null;
+  }
+  
+  public boolean hasMinCompatibilityMinor() {
+    return this.minCompatibilityMinor != null;
+  }
+  
+  public boolean hasMinor() {
+    return this.minor != null;
+  }
+  
+  public boolean hasPlatform() {
+    return this.platform != null;
   }
   
   public int hashCode() {
@@ -348,5 +285,69 @@ public class VersionInfoFluent<A extends io.kubernetes.client.openapi.models.Ver
     return sb.toString();
   }
   
-
+  public A withBuildDate(String buildDate) {
+    this.buildDate = buildDate;
+    return (A) this;
+  }
+  
+  public A withCompiler(String compiler) {
+    this.compiler = compiler;
+    return (A) this;
+  }
+  
+  public A withEmulationMajor(String emulationMajor) {
+    this.emulationMajor = emulationMajor;
+    return (A) this;
+  }
+  
+  public A withEmulationMinor(String emulationMinor) {
+    this.emulationMinor = emulationMinor;
+    return (A) this;
+  }
+  
+  public A withGitCommit(String gitCommit) {
+    this.gitCommit = gitCommit;
+    return (A) this;
+  }
+  
+  public A withGitTreeState(String gitTreeState) {
+    this.gitTreeState = gitTreeState;
+    return (A) this;
+  }
+  
+  public A withGitVersion(String gitVersion) {
+    this.gitVersion = gitVersion;
+    return (A) this;
+  }
+  
+  public A withGoVersion(String goVersion) {
+    this.goVersion = goVersion;
+    return (A) this;
+  }
+  
+  public A withMajor(String major) {
+    this.major = major;
+    return (A) this;
+  }
+  
+  public A withMinCompatibilityMajor(String minCompatibilityMajor) {
+    this.minCompatibilityMajor = minCompatibilityMajor;
+    return (A) this;
+  }
+  
+  public A withMinCompatibilityMinor(String minCompatibilityMinor) {
+    this.minCompatibilityMinor = minCompatibilityMinor;
+    return (A) this;
+  }
+  
+  public A withMinor(String minor) {
+    this.minor = minor;
+    return (A) this;
+  }
+  
+  public A withPlatform(String platform) {
+    this.platform = platform;
+    return (A) this;
+  }
+  
 }

@@ -14,7 +14,7 @@ package io.kubernetes.client.examples;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
@@ -44,7 +44,7 @@ class ExampleTest {
     V1Namespace ns1 = new V1Namespace().metadata(new V1ObjectMeta().name("name"));
 
     apiServer.stubFor(
-        get(urlEqualTo("/api/v1/namespaces/name"))
+        get(urlPathEqualTo("/api/v1/namespaces/name"))
             .willReturn(
                 aResponse()
                     .withHeader("Content-Type", "application/json")

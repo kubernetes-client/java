@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ServerAddressByClientCIDRFluent<A extends io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<A>> extends BaseFluent<A>{
+
+  private String clientCIDR;
+  private String serverAddress;
+
   public V1ServerAddressByClientCIDRFluent() {
   }
   
   public V1ServerAddressByClientCIDRFluent(V1ServerAddressByClientCIDR instance) {
     this.copyInstance(instance);
   }
-  private String clientCIDR;
-  private String serverAddress;
-  
+
   protected void copyInstance(V1ServerAddressByClientCIDR instance) {
     instance = instance != null ? instance : new V1ServerAddressByClientCIDR();
     if (instance != null) {
         this.withClientCIDR(instance.getClientCIDR());
         this.withServerAddress(instance.getServerAddress());
     }
-  }
-  
-  public String getClientCIDR() {
-    return this.clientCIDR;
-  }
-  
-  public A withClientCIDR(String clientCIDR) {
-    this.clientCIDR = clientCIDR;
-    return (A) this;
-  }
-  
-  public boolean hasClientCIDR() {
-    return this.clientCIDR != null;
-  }
-  
-  public String getServerAddress() {
-    return this.serverAddress;
-  }
-  
-  public A withServerAddress(String serverAddress) {
-    this.serverAddress = serverAddress;
-    return (A) this;
-  }
-  
-  public boolean hasServerAddress() {
-    return this.serverAddress != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1ServerAddressByClientCIDRFluent<A extends io.kubernetes.client.op
     return true;
   }
   
+  public String getClientCIDR() {
+    return this.clientCIDR;
+  }
+  
+  public String getServerAddress() {
+    return this.serverAddress;
+  }
+  
+  public boolean hasClientCIDR() {
+    return this.clientCIDR != null;
+  }
+  
+  public boolean hasServerAddress() {
+    return this.serverAddress != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(clientCIDR, serverAddress);
   }
@@ -95,5 +87,14 @@ public class V1ServerAddressByClientCIDRFluent<A extends io.kubernetes.client.op
     return sb.toString();
   }
   
-
+  public A withClientCIDR(String clientCIDR) {
+    this.clientCIDR = clientCIDR;
+    return (A) this;
+  }
+  
+  public A withServerAddress(String serverAddress) {
+    this.serverAddress = serverAddress;
+    return (A) this;
+  }
+  
 }

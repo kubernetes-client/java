@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1EventSourceFluent<A extends io.kubernetes.client.openapi.models.V1EventSourceFluent<A>> extends BaseFluent<A>{
+
+  private String component;
+  private String host;
+
   public V1EventSourceFluent() {
   }
   
   public V1EventSourceFluent(V1EventSource instance) {
     this.copyInstance(instance);
   }
-  private String component;
-  private String host;
-  
+
   protected void copyInstance(V1EventSource instance) {
     instance = instance != null ? instance : new V1EventSource();
     if (instance != null) {
         this.withComponent(instance.getComponent());
         this.withHost(instance.getHost());
     }
-  }
-  
-  public String getComponent() {
-    return this.component;
-  }
-  
-  public A withComponent(String component) {
-    this.component = component;
-    return (A) this;
-  }
-  
-  public boolean hasComponent() {
-    return this.component != null;
-  }
-  
-  public String getHost() {
-    return this.host;
-  }
-  
-  public A withHost(String host) {
-    this.host = host;
-    return (A) this;
-  }
-  
-  public boolean hasHost() {
-    return this.host != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1EventSourceFluent<A extends io.kubernetes.client.openapi.models.V
     return true;
   }
   
+  public String getComponent() {
+    return this.component;
+  }
+  
+  public String getHost() {
+    return this.host;
+  }
+  
+  public boolean hasComponent() {
+    return this.component != null;
+  }
+  
+  public boolean hasHost() {
+    return this.host != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(component, host);
   }
@@ -95,5 +87,14 @@ public class V1EventSourceFluent<A extends io.kubernetes.client.openapi.models.V
     return sb.toString();
   }
   
-
+  public A withComponent(String component) {
+    this.component = component;
+    return (A) this;
+  }
+  
+  public A withHost(String host) {
+    this.host = host;
+    return (A) this;
+  }
+  
 }

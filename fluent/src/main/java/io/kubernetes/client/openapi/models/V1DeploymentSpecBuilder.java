@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1DeploymentSpecBuilder extends V1DeploymentSpecFluent<V1DeploymentSpecBuilder> implements VisitableBuilder<V1DeploymentSpec,V1DeploymentSpecBuilder>{
+
+  V1DeploymentSpecFluent<?> fluent;
+
   public V1DeploymentSpecBuilder() {
     this(new V1DeploymentSpec());
   }
@@ -11,17 +14,16 @@ public class V1DeploymentSpecBuilder extends V1DeploymentSpecFluent<V1Deployment
     this(fluent, new V1DeploymentSpec());
   }
   
-  public V1DeploymentSpecBuilder(V1DeploymentSpecFluent<?> fluent,V1DeploymentSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1DeploymentSpecBuilder(V1DeploymentSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1DeploymentSpecFluent<?> fluent;
   
+  public V1DeploymentSpecBuilder(V1DeploymentSpecFluent<?> fluent,V1DeploymentSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1DeploymentSpec build() {
     V1DeploymentSpec buildable = new V1DeploymentSpec();
     buildable.setMinReadySeconds(fluent.getMinReadySeconds());
@@ -35,5 +37,4 @@ public class V1DeploymentSpecBuilder extends V1DeploymentSpecFluent<V1Deployment
     return buildable;
   }
   
-
 }

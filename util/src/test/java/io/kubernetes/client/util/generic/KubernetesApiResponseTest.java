@@ -15,7 +15,7 @@ package io.kubernetes.client.util.generic;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -51,7 +51,7 @@ class KubernetesApiResponseTest {
   void errorStatusHandler() throws ApiException {
     V1Status forbiddenStatus = new V1Status().code(403).message("Forbidden");
     apiServer.stubFor(
-        delete(urlEqualTo("/api/v1/namespaces/default/pods/foo"))
+        delete(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
             .willReturn(aResponse().withStatus(403).withBody(new Gson().toJson(forbiddenStatus))));
     AtomicBoolean catched = new AtomicBoolean(false);
     assertThat(
@@ -69,7 +69,7 @@ class KubernetesApiResponseTest {
   void notDeserializableResponse() {
     String message = "-foobar";
     apiServer.stubFor(
-        get(urlEqualTo("/api/v1/namespaces/default/pods/foo"))
+        get(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
             .willReturn(aResponse().withStatus(403).withBody(message)));
     KubernetesApiResponse response = podClient.get("default", "foo");
     assertThat(response.isSuccess()).isFalse();

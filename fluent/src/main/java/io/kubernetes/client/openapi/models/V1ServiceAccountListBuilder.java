@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ServiceAccountListBuilder extends V1ServiceAccountListFluent<V1ServiceAccountListBuilder> implements VisitableBuilder<V1ServiceAccountList,V1ServiceAccountListBuilder>{
+
+  V1ServiceAccountListFluent<?> fluent;
+
   public V1ServiceAccountListBuilder() {
     this(new V1ServiceAccountList());
   }
@@ -11,17 +14,16 @@ public class V1ServiceAccountListBuilder extends V1ServiceAccountListFluent<V1Se
     this(fluent, new V1ServiceAccountList());
   }
   
-  public V1ServiceAccountListBuilder(V1ServiceAccountListFluent<?> fluent,V1ServiceAccountList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ServiceAccountListBuilder(V1ServiceAccountList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ServiceAccountListFluent<?> fluent;
   
+  public V1ServiceAccountListBuilder(V1ServiceAccountListFluent<?> fluent,V1ServiceAccountList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ServiceAccountList build() {
     V1ServiceAccountList buildable = new V1ServiceAccountList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1ServiceAccountListBuilder extends V1ServiceAccountListFluent<V1Se
     return buildable;
   }
   
-
 }

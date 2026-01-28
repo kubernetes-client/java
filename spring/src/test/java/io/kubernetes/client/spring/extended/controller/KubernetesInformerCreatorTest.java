@@ -16,7 +16,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -126,9 +125,11 @@ class KubernetesInformerCreatorTest {
         get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
+            .atPriority(1)
             .willReturn(
                 aResponse()
                     .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
                     .withBody(
                         JSON.serialize(
                                 new V1PodList()
@@ -138,15 +139,22 @@ class KubernetesInformerCreatorTest {
         get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
-            .willReturn(aResponse().withStatus(200).withBody("{}")));
+            .atPriority(2)
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
 
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
+            .atPriority(1)
             .willReturn(
                 aResponse()
                     .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
                     .withBody(
                         JSON.serialize(
                                 new V1ConfigMapList()
@@ -156,7 +164,12 @@ class KubernetesInformerCreatorTest {
         get(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
-            .willReturn(aResponse().withStatus(200).withBody("{}")));
+            .atPriority(2)
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
 
     // These will be released for each web call above.
     getCount.acquire(2);
