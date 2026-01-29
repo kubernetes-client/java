@@ -220,6 +220,7 @@ class GenericKubernetesApiTest {
 
     apiServer.stubFor(
         patch(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1/status"))
+            .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_JSON_PATCH))
             .willReturn(aResponse().withStatus(200).withBody(new JSON().serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.updateStatus(foo1, t -> t.getStatus());
     assertThat(jobListResp.isSuccess()).isTrue();
