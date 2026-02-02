@@ -237,10 +237,10 @@ public class Readiness {
         Integer readyReplicas = status.getReadyReplicas();
 
         if (replicas == null) {
-            replicas = 1;
+            return false;
         }
         if (readyReplicas == null) {
-            readyReplicas = 0;
+            return false;
         }
 
         return replicas.equals(readyReplicas);
