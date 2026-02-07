@@ -94,5 +94,5 @@ jobs:
         if: ${{ github.event.inputs.dry-run != 'true' }}
         uses: ncipollo/release-action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           tag: v${{ github.event.inputs.releaseVersion }}
