@@ -169,10 +169,10 @@ public class Watch<T> implements Watchable<T>, Closeable {
 
   protected Response<T> parseLine(String line) throws IOException {
     if (!isStatus(line)) {
-      return json.deserialize(line, watchType);
+      return json.getGson().fromJson(line, watchType);
     }
     Type statusType = new TypeToken<Response<V1Status>>() {}.getType();
-    Response<V1Status> status = json.deserialize(line, statusType);
+    Response<V1Status> status = json.getGson().fromJson(line, statusType);
     return new Response<T>(status.type, status.object);
   }
 
