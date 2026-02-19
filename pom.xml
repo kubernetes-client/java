@@ -438,7 +438,7 @@
         <plugin>
           <groupId>org.codehaus.gmavenplus</groupId>
           <artifactId>gmavenplus-plugin</artifactId>
-          <version>4.3.0</version>
+          <version>4.3.1</version>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
