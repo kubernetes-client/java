@@ -40,6 +40,7 @@ import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import java.util.Collections;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicReference;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootTest
 class KubernetesInformerCreatorTest {
 
+  // Static so CountRequestAction (a static inner class used by WireMock) can record violations.
+  // Reset at the start of each test via orderingViolation.set(null).
+  private static final AtomicReference<Throwable> orderingViolation = new AtomicReference<>();
+
   public static class CountRequestAction extends PostServeAction {
     @Override
     public String getName() {
@@ -58,7 +63,12 @@ class KubernetesInformerCreatorTest {
 
     @Override
     public void doAction(ServeEvent serveEvent, Admin admin, Parameters parameters) {
+      Object prereq = parameters.get("prerequisite");
       CountDownLatch latch = (CountDownLatch) parameters.get("semaphore");
+      if (prereq instanceof CountDownLatch prerequisite && prerequisite.getCount() > 0) {
+        orderingViolation.compareAndSet(
+            null, new AssertionError("watch request received before list was completed"));
+      }
       latch.countDown();
     }
   }
@@ -107,6 +117,8 @@ class KubernetesInformerCreatorTest {
     assertThat(podInformer).isNotNull();
     assertThat(configMapInformer).isNotNull();
 
+    orderingViolation.set(null);
+
     CountDownLatch podGetLatch = new CountDownLatch(1);
     CountDownLatch podWatchLatch = new CountDownLatch(1);
     CountDownLatch configMapGetLatch = new CountDownLatch(1);
@@ -117,8 +129,10 @@ class KubernetesInformerCreatorTest {
     Parameters configMapWatchParams = new Parameters();
     podGetParams.put("semaphore", podGetLatch);
     podWatchParams.put("semaphore", podWatchLatch);
+    podWatchParams.put("prerequisite", podGetLatch);
     configMapGetParams.put("semaphore", configMapGetLatch);
     configMapWatchParams.put("semaphore", configMapWatchLatch);
+    configMapWatchParams.put("prerequisite", configMapGetLatch);
 
     V1Pod foo1 =
         new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
@@ -200,5 +214,6 @@ class KubernetesInformerCreatorTest {
 
     assertThat(new Lister<>(podInformer.getIndexer()).list()).hasSize(1);
     assertThat(new Lister<>(configMapInformer.getIndexer()).list()).hasSize(1);
+    assertThat(orderingViolation.get()).isNull();
   }
 }
