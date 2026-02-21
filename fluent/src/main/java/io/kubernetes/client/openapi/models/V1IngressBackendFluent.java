@@ -1,27 +1,37 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.util.Optional;
-import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.models.V1IngressBackendFluent<A>> extends BaseFluent<A>{
+
+  private V1TypedLocalObjectReferenceBuilder resource;
+  private V1IngressServiceBackendBuilder service;
+
   public V1IngressBackendFluent() {
   }
   
   public V1IngressBackendFluent(V1IngressBackend instance) {
     this.copyInstance(instance);
   }
-  private V1TypedLocalObjectReferenceBuilder resource;
-  private V1IngressServiceBackendBuilder service;
+
+  public V1TypedLocalObjectReference buildResource() {
+    return this.resource != null ? this.resource.build() : null;
+  }
+  
+  public V1IngressServiceBackend buildService() {
+    return this.service != null ? this.service.build() : null;
+  }
   
   protected void copyInstance(V1IngressBackend instance) {
     instance = instance != null ? instance : new V1IngressBackend();
@@ -29,38 +39,6 @@ public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.model
         this.withResource(instance.getResource());
         this.withService(instance.getService());
     }
-  }
-  
-  public V1TypedLocalObjectReference buildResource() {
-    return this.resource != null ? this.resource.build() : null;
-  }
-  
-  public A withResource(V1TypedLocalObjectReference resource) {
-    this._visitables.remove("resource");
-    if (resource != null) {
-        this.resource = new V1TypedLocalObjectReferenceBuilder(resource);
-        this._visitables.get("resource").add(this.resource);
-    } else {
-        this.resource = null;
-        this._visitables.get("resource").remove(this.resource);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasResource() {
-    return this.resource != null;
-  }
-  
-  public ResourceNested<A> withNewResource() {
-    return new ResourceNested(null);
-  }
-  
-  public ResourceNested<A> withNewResourceLike(V1TypedLocalObjectReference item) {
-    return new ResourceNested(item);
-  }
-  
-  public ResourceNested<A> editResource() {
-    return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(null));
   }
   
   public ResourceNested<A> editOrNewResource() {
@@ -71,44 +49,20 @@ public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.model
     return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(item));
   }
   
-  public V1IngressServiceBackend buildService() {
-    return this.service != null ? this.service.build() : null;
-  }
-  
-  public A withService(V1IngressServiceBackend service) {
-    this._visitables.remove("service");
-    if (service != null) {
-        this.service = new V1IngressServiceBackendBuilder(service);
-        this._visitables.get("service").add(this.service);
-    } else {
-        this.service = null;
-        this._visitables.get("service").remove(this.service);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasService() {
-    return this.service != null;
-  }
-  
-  public ServiceNested<A> withNewService() {
-    return new ServiceNested(null);
-  }
-  
-  public ServiceNested<A> withNewServiceLike(V1IngressServiceBackend item) {
-    return new ServiceNested(item);
-  }
-  
-  public ServiceNested<A> editService() {
-    return this.withNewServiceLike(Optional.ofNullable(this.buildService()).orElse(null));
-  }
-  
   public ServiceNested<A> editOrNewService() {
     return this.withNewServiceLike(Optional.ofNullable(this.buildService()).orElse(new V1IngressServiceBackendBuilder().build()));
   }
   
   public ServiceNested<A> editOrNewServiceLike(V1IngressServiceBackend item) {
     return this.withNewServiceLike(Optional.ofNullable(this.buildService()).orElse(item));
+  }
+  
+  public ResourceNested<A> editResource() {
+    return this.withNewResourceLike(Optional.ofNullable(this.buildResource()).orElse(null));
+  }
+  
+  public ServiceNested<A> editService() {
+    return this.withNewServiceLike(Optional.ofNullable(this.buildService()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -131,6 +85,14 @@ public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.model
     return true;
   }
   
+  public boolean hasResource() {
+    return this.resource != null;
+  }
+  
+  public boolean hasService() {
+    return this.service != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(resource, service);
   }
@@ -150,12 +112,54 @@ public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.model
     sb.append("}");
     return sb.toString();
   }
+  
+  public ResourceNested<A> withNewResource() {
+    return new ResourceNested(null);
+  }
+  
+  public ResourceNested<A> withNewResourceLike(V1TypedLocalObjectReference item) {
+    return new ResourceNested(item);
+  }
+  
+  public ServiceNested<A> withNewService() {
+    return new ServiceNested(null);
+  }
+  
+  public ServiceNested<A> withNewServiceLike(V1IngressServiceBackend item) {
+    return new ServiceNested(item);
+  }
+  
+  public A withResource(V1TypedLocalObjectReference resource) {
+    this._visitables.remove("resource");
+    if (resource != null) {
+        this.resource = new V1TypedLocalObjectReferenceBuilder(resource);
+        this._visitables.get("resource").add(this.resource);
+    } else {
+        this.resource = null;
+        this._visitables.get("resource").remove(this.resource);
+    }
+    return (A) this;
+  }
+  
+  public A withService(V1IngressServiceBackend service) {
+    this._visitables.remove("service");
+    if (service != null) {
+        this.service = new V1IngressServiceBackendBuilder(service);
+        this._visitables.get("service").add(this.service);
+    } else {
+        this.service = null;
+        this._visitables.get("service").remove(this.service);
+    }
+    return (A) this;
+  }
   public class ResourceNested<N> extends V1TypedLocalObjectReferenceFluent<ResourceNested<N>> implements Nested<N>{
+  
+    V1TypedLocalObjectReferenceBuilder builder;
+  
     ResourceNested(V1TypedLocalObjectReference item) {
       this.builder = new V1TypedLocalObjectReferenceBuilder(this, item);
     }
-    V1TypedLocalObjectReferenceBuilder builder;
-    
+  
     public N and() {
       return (N) V1IngressBackendFluent.this.withResource(builder.build());
     }
@@ -164,14 +168,15 @@ public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.model
       return and();
     }
     
-  
   }
   public class ServiceNested<N> extends V1IngressServiceBackendFluent<ServiceNested<N>> implements Nested<N>{
+  
+    V1IngressServiceBackendBuilder builder;
+  
     ServiceNested(V1IngressServiceBackend item) {
       this.builder = new V1IngressServiceBackendBuilder(this, item);
     }
-    V1IngressServiceBackendBuilder builder;
-    
+  
     public N and() {
       return (N) V1IngressBackendFluent.this.withService(builder.build());
     }
@@ -180,7 +185,5 @@ public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.model
       return and();
     }
     
-  
   }
-
 }

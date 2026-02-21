@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** RemoteWriteSpec defines the remote_write configuration for prometheus. */
 @ApiModel(description = "RemoteWriteSpec defines the remote_write configuration for prometheus.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecRemoteWrite {
@@ -81,7 +81,7 @@ public class V1PrometheusSpecRemoteWrite {
    *
    * @return basicAuth
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecBasicAuth getBasicAuth() {
     return basicAuth;
@@ -102,7 +102,7 @@ public class V1PrometheusSpecRemoteWrite {
    *
    * @return bearerToken
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "File to read bearer token for remote write.")
   public String getBearerToken() {
     return bearerToken;
@@ -123,7 +123,7 @@ public class V1PrometheusSpecRemoteWrite {
    *
    * @return bearerTokenFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "File to read bearer token for remote write.")
   public String getBearerTokenFile() {
     return bearerTokenFile;
@@ -144,7 +144,7 @@ public class V1PrometheusSpecRemoteWrite {
    *
    * @return proxyUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional ProxyURL")
   public String getProxyUrl() {
     return proxyUrl;
@@ -165,7 +165,7 @@ public class V1PrometheusSpecRemoteWrite {
    *
    * @return queueConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecQueueConfig getQueueConfig() {
     return queueConfig;
@@ -186,7 +186,7 @@ public class V1PrometheusSpecRemoteWrite {
    *
    * @return remoteTimeout
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timeout for requests to the remote write endpoint.")
   public String getRemoteTimeout() {
     return remoteTimeout;
@@ -207,7 +207,7 @@ public class V1PrometheusSpecRemoteWrite {
    *
    * @return tlsConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecTlsConfig1 getTlsConfig() {
     return tlsConfig;
@@ -258,7 +258,7 @@ public class V1PrometheusSpecRemoteWrite {
    *
    * @return writeRelabelConfigs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The list of remote write relabel configurations.")
   public List<V1ServiceMonitorSpecMetricRelabelings> getWriteRelabelConfigs() {
     return writeRelabelConfigs;

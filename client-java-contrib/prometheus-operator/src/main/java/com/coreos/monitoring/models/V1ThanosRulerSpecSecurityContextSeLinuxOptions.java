@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "The SELinux context to be applied to the container. If unspecified, the container runtime will allocate a random SELinux context for each container.  May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecSecurityContextSeLinuxOptions {
@@ -61,7 +61,7 @@ public class V1ThanosRulerSpecSecurityContextSeLinuxOptions {
    *
    * @return level
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Level is SELinux level label that applies to the container.")
   public String getLevel() {
     return level;
@@ -82,7 +82,7 @@ public class V1ThanosRulerSpecSecurityContextSeLinuxOptions {
    *
    * @return role
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Role is a SELinux role label that applies to the container.")
   public String getRole() {
     return role;
@@ -103,7 +103,7 @@ public class V1ThanosRulerSpecSecurityContextSeLinuxOptions {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type is a SELinux type label that applies to the container.")
   public String getType() {
     return type;
@@ -124,7 +124,7 @@ public class V1ThanosRulerSpecSecurityContextSeLinuxOptions {
    *
    * @return user
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "User is a SELinux user label that applies to the container.")
   public String getUser() {
     return user;

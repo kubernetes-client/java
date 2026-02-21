@@ -1,19 +1,36 @@
 package io.kubernetes.client.fluent;
 
-import java.util.LinkedHashSet;
-import java.util.stream.Collectors;
-import java.util.Set;
-import java.util.Optional;
-import java.util.ArrayList;
-import java.util.Objects;
 import java.lang.Object;
-import java.util.List;
 import java.lang.String;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 public class BaseFluent<F>{
-  
+
   public static final String VISIT = "visit";
   public final VisitableMap _visitables = new VisitableMap();
+
+  
+  public static <T>List<T> aggregate(List<? extends T>... lists) {
+    return new ArrayList(Arrays.stream(lists).filter(Objects::nonNull).collect(Collectors.toList()));
+  }
+  
+  public static <T>Set<T> aggregate(Set<? extends T>... sets) {
+    return new LinkedHashSet(Arrays.stream(sets).filter(Objects::nonNull).collect(Collectors.toSet()));
+  }
+  
+  public static <T>List<T> build(List<? extends io.kubernetes.client.fluent.Builder<? extends T>> list) {
+    return list == null ? null : list.stream().map(Builder::build).collect(Collectors.toList());
+  }
+  
+  public static <T>Set<T> build(Set<? extends io.kubernetes.client.fluent.Builder<? extends T>> set) {
+    return set == null ? null : new LinkedHashSet<T>(set.stream().map(Builder::build).collect(Collectors.toSet()));
+  }
   
   public static <T>VisitableBuilder<T,?> builderOf(T item) {
     if (item instanceof Editable) {
@@ -38,20 +55,14 @@ public class BaseFluent<F>{
         }
   }
   
-  public static <T>List<T> build(List<? extends io.kubernetes.client.fluent.Builder<? extends T>> list) {
-    return list == null ? null : list.stream().map(Builder::build).collect(Collectors.toList());
-  }
-  
-  public static <T>Set<T> build(Set<? extends io.kubernetes.client.fluent.Builder<? extends T>> set) {
-    return set == null ? null : new LinkedHashSet<T>(set.stream().map(Builder::build).collect(Collectors.toSet()));
-  }
-  
-  public static <T>List<T> aggregate(List<? extends T>... lists) {
-    return new ArrayList(Arrays.stream(lists).filter(Objects::nonNull).collect(Collectors.toList()));
-  }
-  
-  public static <T>Set<T> aggregate(Set<? extends T>... sets) {
-    return new LinkedHashSet(Arrays.stream(sets).filter(Objects::nonNull).collect(Collectors.toSet()));
+  public boolean equals(Object obj) {
+    if (this == obj)
+          return true;
+        if (obj == null)
+          return false;
+        if (getClass() != obj.getClass())
+          return false;
+        return true;
   }
   
   public Optional<VisitableMap> getVisitableMap() {
@@ -65,15 +76,4 @@ public class BaseFluent<F>{
         return result;
   }
   
-  public boolean equals(Object obj) {
-    if (this == obj)
-          return true;
-        if (obj == null)
-          return false;
-        if (getClass() != obj.getClass())
-          return false;
-        return true;
-  }
-  
-
 }

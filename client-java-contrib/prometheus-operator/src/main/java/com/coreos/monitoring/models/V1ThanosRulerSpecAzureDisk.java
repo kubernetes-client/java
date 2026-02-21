@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecAzureDisk {
@@ -66,7 +66,7 @@ public class V1ThanosRulerSpecAzureDisk {
    *
    * @return cachingMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Host Caching mode: None, Read Only, Read Write.")
   public String getCachingMode() {
     return cachingMode;
@@ -129,7 +129,7 @@ public class V1ThanosRulerSpecAzureDisk {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
@@ -154,7 +154,7 @@ public class V1ThanosRulerSpecAzureDisk {
    *
    * @return kind
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Expected values Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared")
@@ -177,7 +177,7 @@ public class V1ThanosRulerSpecAzureDisk {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")

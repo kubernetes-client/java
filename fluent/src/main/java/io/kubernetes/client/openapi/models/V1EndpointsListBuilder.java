@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1EndpointsListBuilder extends V1EndpointsListFluent<V1EndpointsListBuilder> implements VisitableBuilder<V1EndpointsList,V1EndpointsListBuilder>{
+
+  V1EndpointsListFluent<?> fluent;
+
   public V1EndpointsListBuilder() {
     this(new V1EndpointsList());
   }
@@ -11,17 +14,16 @@ public class V1EndpointsListBuilder extends V1EndpointsListFluent<V1EndpointsLis
     this(fluent, new V1EndpointsList());
   }
   
-  public V1EndpointsListBuilder(V1EndpointsListFluent<?> fluent,V1EndpointsList instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1EndpointsListBuilder(V1EndpointsList instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1EndpointsListFluent<?> fluent;
   
+  public V1EndpointsListBuilder(V1EndpointsListFluent<?> fluent,V1EndpointsList instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1EndpointsList build() {
     V1EndpointsList buildable = new V1EndpointsList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -31,5 +33,4 @@ public class V1EndpointsListBuilder extends V1EndpointsListFluent<V1EndpointsLis
     return buildable;
   }
   
-
 }

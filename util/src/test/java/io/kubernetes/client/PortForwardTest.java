@@ -190,4 +190,41 @@ class PortForwardTest {
 
     assertThat(thrownException).isInstanceOf(IOException.class);
   }
+
+  @Test
+  void portForwardResultCloseable() throws IOException {
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    List<Integer> ports = new ArrayList<>();
+    ports.add(80);
+
+    final PortForwardResult result = new PortForwardResult(handler, ports);
+
+    handler.open("wss", null);
+
+    // Initially, handler should not be closed
+    assertThat(result.isClosed()).isFalse();
+
+    // Close the result
+    result.close();
+
+    // After closing, handler should be closed
+    assertThat(result.isClosed()).isTrue();
+  }
+
+  @Test
+  void portForwardResultTryWithResources() throws IOException {
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    List<Integer> ports = new ArrayList<>();
+    ports.add(80);
+
+    handler.open("wss", null);
+
+    try (PortForwardResult result = new PortForwardResult(handler, ports)) {
+      // Handler should be open inside try block
+      assertThat(result.isClosed()).isFalse();
+    }
+
+    // Handler should be closed after try-with-resources block
+    assertThat(handler.isClosed()).isTrue();
+  }
 }

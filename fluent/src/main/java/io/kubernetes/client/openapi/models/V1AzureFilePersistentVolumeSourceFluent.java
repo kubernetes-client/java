@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1AzureFilePersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+
+  private Boolean readOnly;
+  private String secretName;
+  private String secretNamespace;
+  private String shareName;
+
   public V1AzureFilePersistentVolumeSourceFluent() {
   }
   
   public V1AzureFilePersistentVolumeSourceFluent(V1AzureFilePersistentVolumeSource instance) {
     this.copyInstance(instance);
   }
-  private Boolean readOnly;
-  private String secretName;
-  private String secretNamespace;
-  private String shareName;
-  
+
   protected void copyInstance(V1AzureFilePersistentVolumeSource instance) {
     instance = instance != null ? instance : new V1AzureFilePersistentVolumeSource();
     if (instance != null) {
@@ -32,58 +34,6 @@ public class V1AzureFilePersistentVolumeSourceFluent<A extends io.kubernetes.cli
         this.withSecretNamespace(instance.getSecretNamespace());
         this.withShareName(instance.getShareName());
     }
-  }
-  
-  public Boolean getReadOnly() {
-    return this.readOnly;
-  }
-  
-  public A withReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-    return (A) this;
-  }
-  
-  public boolean hasReadOnly() {
-    return this.readOnly != null;
-  }
-  
-  public String getSecretName() {
-    return this.secretName;
-  }
-  
-  public A withSecretName(String secretName) {
-    this.secretName = secretName;
-    return (A) this;
-  }
-  
-  public boolean hasSecretName() {
-    return this.secretName != null;
-  }
-  
-  public String getSecretNamespace() {
-    return this.secretNamespace;
-  }
-  
-  public A withSecretNamespace(String secretNamespace) {
-    this.secretNamespace = secretNamespace;
-    return (A) this;
-  }
-  
-  public boolean hasSecretNamespace() {
-    return this.secretNamespace != null;
-  }
-  
-  public String getShareName() {
-    return this.shareName;
-  }
-  
-  public A withShareName(String shareName) {
-    this.shareName = shareName;
-    return (A) this;
-  }
-  
-  public boolean hasShareName() {
-    return this.shareName != null;
   }
   
   public boolean equals(Object o) {
@@ -110,6 +60,38 @@ public class V1AzureFilePersistentVolumeSourceFluent<A extends io.kubernetes.cli
       return false;
     }
     return true;
+  }
+  
+  public Boolean getReadOnly() {
+    return this.readOnly;
+  }
+  
+  public String getSecretName() {
+    return this.secretName;
+  }
+  
+  public String getSecretNamespace() {
+    return this.secretNamespace;
+  }
+  
+  public String getShareName() {
+    return this.shareName;
+  }
+  
+  public boolean hasReadOnly() {
+    return this.readOnly != null;
+  }
+  
+  public boolean hasSecretName() {
+    return this.secretName != null;
+  }
+  
+  public boolean hasSecretNamespace() {
+    return this.secretNamespace != null;
+  }
+  
+  public boolean hasShareName() {
+    return this.shareName != null;
   }
   
   public int hashCode() {
@@ -146,5 +128,24 @@ public class V1AzureFilePersistentVolumeSourceFluent<A extends io.kubernetes.cli
     return withReadOnly(true);
   }
   
-
+  public A withReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return (A) this;
+  }
+  
+  public A withSecretName(String secretName) {
+    this.secretName = secretName;
+    return (A) this;
+  }
+  
+  public A withSecretNamespace(String secretNamespace) {
+    this.secretNamespace = secretNamespace;
+    return (A) this;
+  }
+  
+  public A withShareName(String shareName) {
+    this.shareName = shareName;
+    return (A) this;
+  }
+  
 }

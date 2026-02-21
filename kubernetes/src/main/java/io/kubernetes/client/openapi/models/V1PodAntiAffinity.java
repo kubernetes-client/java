@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * Pod anti affinity is a group of inter pod anti affinity scheduling rules.
  */
 @ApiModel(description = "Pod anti affinity is a group of inter pod anti affinity scheduling rules.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PodAntiAffinity {
   public static final String SERIALIZED_NAME_PREFERRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION = "preferredDuringSchedulingIgnoredDuringExecution";
   @SerializedName(SERIALIZED_NAME_PREFERRED_DURING_SCHEDULING_IGNORED_DURING_EXECUTION)
@@ -171,12 +171,10 @@ public class V1PodAntiAffinity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("preferredDuringSchedulingIgnoredDuringExecution");
-    openapiFields.add("requiredDuringSchedulingIgnoredDuringExecution");
+    openapiFields = new HashSet<String>(Arrays.asList("preferredDuringSchedulingIgnoredDuringExecution", "requiredDuringSchedulingIgnoredDuringExecution"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -188,7 +186,7 @@ public class V1PodAntiAffinity {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodAntiAffinity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodAntiAffinity is not found in the empty JSON string", V1PodAntiAffinity.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1PodAntiAffinity is not found in the empty JSON string", V1PodAntiAffinity.openapiRequiredFields.toString()));
         }
       }
 
@@ -196,7 +194,7 @@ public class V1PodAntiAffinity {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodAntiAffinity.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodAntiAffinity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PodAntiAffinity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -205,7 +203,7 @@ public class V1PodAntiAffinity {
         if (jsonArraypreferredDuringSchedulingIgnoredDuringExecution != null) {
           // ensure the json data is an array
           if (!jsonObj.get("preferredDuringSchedulingIgnoredDuringExecution").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `preferredDuringSchedulingIgnoredDuringExecution` to be an array in the JSON string but got `%s`", jsonObj.get("preferredDuringSchedulingIgnoredDuringExecution").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `preferredDuringSchedulingIgnoredDuringExecution` to be an array in the JSON string but got `%s`", jsonObj.get("preferredDuringSchedulingIgnoredDuringExecution").toString()));
           }
 
           // validate the optional field `preferredDuringSchedulingIgnoredDuringExecution` (array)
@@ -219,7 +217,7 @@ public class V1PodAntiAffinity {
         if (jsonArrayrequiredDuringSchedulingIgnoredDuringExecution != null) {
           // ensure the json data is an array
           if (!jsonObj.get("requiredDuringSchedulingIgnoredDuringExecution").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `requiredDuringSchedulingIgnoredDuringExecution` to be an array in the JSON string but got `%s`", jsonObj.get("requiredDuringSchedulingIgnoredDuringExecution").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `requiredDuringSchedulingIgnoredDuringExecution` to be an array in the JSON string but got `%s`", jsonObj.get("requiredDuringSchedulingIgnoredDuringExecution").toString()));
           }
 
           // validate the optional field `requiredDuringSchedulingIgnoredDuringExecution` (array)

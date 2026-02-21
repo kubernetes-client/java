@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Thanos configuration allows configuring various aspects of a Prometheus server in a Thanos environment.   This section is experimental, it may change significantly without deprecation notice in any release.   This is experimental and may change significantly without backward compatibility in any release.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecThanos {
@@ -91,7 +91,7 @@ public class V1PrometheusSpecThanos {
    *
    * @return baseImage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Thanos base image if other than default.")
   public String getBaseImage() {
     return baseImage;
@@ -113,7 +113,7 @@ public class V1PrometheusSpecThanos {
    *
    * @return grpcServerTlsConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecGrpcServerTlsConfig getGrpcServerTlsConfig() {
     return grpcServerTlsConfig;
@@ -136,7 +136,7 @@ public class V1PrometheusSpecThanos {
    *
    * @return image
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Image if specified has precedence over baseImage, tag and sha combinations. Specifying the version is still necessary to ensure the Prometheus Operator knows what version of Thanos is being configured.")
@@ -160,7 +160,7 @@ public class V1PrometheusSpecThanos {
    *
    * @return listenLocal
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ListenLocal makes the Thanos sidecar listen on loopback, so that it does not bind against the Pod IP.")
@@ -184,7 +184,7 @@ public class V1PrometheusSpecThanos {
    *
    * @return objectStorageConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecObjectStorageConfig getObjectStorageConfig() {
     return objectStorageConfig;
@@ -205,7 +205,7 @@ public class V1PrometheusSpecThanos {
    *
    * @return resources
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecThanosResources getResources() {
     return resources;
@@ -228,7 +228,7 @@ public class V1PrometheusSpecThanos {
    *
    * @return sha
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "SHA of Thanos container image to be deployed. Defaults to the value of `version`. Similar to a tag, but the SHA explicitly deploys an immutable container image. Version and Tag are ignored if SHA is set.")
@@ -252,7 +252,7 @@ public class V1PrometheusSpecThanos {
    *
    * @return tag
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Tag of Thanos sidecar container image to be deployed. Defaults to the value of `version`. Version is ignored if Tag is set.")
@@ -275,7 +275,7 @@ public class V1PrometheusSpecThanos {
    *
    * @return tracingConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecTracingConfig getTracingConfig() {
     return tracingConfig;
@@ -296,7 +296,7 @@ public class V1PrometheusSpecThanos {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Version describes the version of Thanos to use.")
   public String getVersion() {
     return version;

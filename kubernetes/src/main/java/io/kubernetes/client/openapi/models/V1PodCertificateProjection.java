@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,6 +22,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodCertificateProjection provides a private key and X.509 certificate in the pod filesystem.
  */
 @ApiModel(description = "PodCertificateProjection provides a private key and X.509 certificate in the pod filesystem.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PodCertificateProjection {
   public static final String SERIALIZED_NAME_CERTIFICATE_CHAIN_PATH = "certificateChainPath";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_CHAIN_PATH)
@@ -81,6 +83,11 @@ public class V1PodCertificateProjection {
   @SerializedName(SERIALIZED_NAME_SIGNER_NAME)
   @jakarta.annotation.Nonnull
   private String signerName;
+
+  public static final String SERIALIZED_NAME_USER_ANNOTATIONS = "userAnnotations";
+  @SerializedName(SERIALIZED_NAME_USER_ANNOTATIONS)
+  @jakarta.annotation.Nullable
+  private Map<String, String> userAnnotations = new HashMap<>();
 
   public V1PodCertificateProjection() {
   }
@@ -205,6 +212,34 @@ public class V1PodCertificateProjection {
   }
 
 
+  public V1PodCertificateProjection userAnnotations(@jakarta.annotation.Nullable Map<String, String> userAnnotations) {
+    this.userAnnotations = userAnnotations;
+    return this;
+  }
+
+  public V1PodCertificateProjection putUserAnnotationsItem(String key, String userAnnotationsItem) {
+    if (this.userAnnotations == null) {
+      this.userAnnotations = new HashMap<>();
+    }
+    this.userAnnotations.put(key, userAnnotationsItem);
+    return this;
+  }
+
+  /**
+   * userAnnotations allow pod authors to pass additional information to the signer implementation.  Kubernetes does not restrict or validate this metadata in any way.  These values are copied verbatim into the &#x60;spec.unverifiedUserAnnotations&#x60; field of the PodCertificateRequest objects that Kubelet creates.  Entries are subject to the same validation as object metadata annotations, with the addition that all keys must be domain-prefixed. No restrictions are placed on values, except an overall size limitation on the entire field.  Signers should document the keys and values they support. Signers should deny requests that contain keys they do not recognize.
+   * @return userAnnotations
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "userAnnotations allow pod authors to pass additional information to the signer implementation.  Kubernetes does not restrict or validate this metadata in any way.  These values are copied verbatim into the `spec.unverifiedUserAnnotations` field of the PodCertificateRequest objects that Kubelet creates.  Entries are subject to the same validation as object metadata annotations, with the addition that all keys must be domain-prefixed. No restrictions are placed on values, except an overall size limitation on the entire field.  Signers should document the keys and values they support. Signers should deny requests that contain keys they do not recognize.")
+  public Map<String, String> getUserAnnotations() {
+    return userAnnotations;
+  }
+
+  public void setUserAnnotations(@jakarta.annotation.Nullable Map<String, String> userAnnotations) {
+    this.userAnnotations = userAnnotations;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -220,12 +255,13 @@ public class V1PodCertificateProjection {
         Objects.equals(this.keyPath, v1PodCertificateProjection.keyPath) &&
         Objects.equals(this.keyType, v1PodCertificateProjection.keyType) &&
         Objects.equals(this.maxExpirationSeconds, v1PodCertificateProjection.maxExpirationSeconds) &&
-        Objects.equals(this.signerName, v1PodCertificateProjection.signerName);
+        Objects.equals(this.signerName, v1PodCertificateProjection.signerName) &&
+        Objects.equals(this.userAnnotations, v1PodCertificateProjection.userAnnotations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateChainPath, credentialBundlePath, keyPath, keyType, maxExpirationSeconds, signerName);
+    return Objects.hash(certificateChainPath, credentialBundlePath, keyPath, keyType, maxExpirationSeconds, signerName, userAnnotations);
   }
 
   @Override
@@ -238,6 +274,7 @@ public class V1PodCertificateProjection {
     sb.append("    keyType: ").append(toIndentedString(keyType)).append("\n");
     sb.append("    maxExpirationSeconds: ").append(toIndentedString(maxExpirationSeconds)).append("\n");
     sb.append("    signerName: ").append(toIndentedString(signerName)).append("\n");
+    sb.append("    userAnnotations: ").append(toIndentedString(userAnnotations)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -259,18 +296,10 @@ public class V1PodCertificateProjection {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("certificateChainPath");
-    openapiFields.add("credentialBundlePath");
-    openapiFields.add("keyPath");
-    openapiFields.add("keyType");
-    openapiFields.add("maxExpirationSeconds");
-    openapiFields.add("signerName");
+    openapiFields = new HashSet<String>(Arrays.asList("certificateChainPath", "credentialBundlePath", "keyPath", "keyType", "maxExpirationSeconds", "signerName", "userAnnotations"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("keyType");
-    openapiRequiredFields.add("signerName");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("keyType", "signerName"));
   }
 
   /**
@@ -282,7 +311,7 @@ public class V1PodCertificateProjection {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodCertificateProjection.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodCertificateProjection is not found in the empty JSON string", V1PodCertificateProjection.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1PodCertificateProjection is not found in the empty JSON string", V1PodCertificateProjection.openapiRequiredFields.toString()));
         }
       }
 
@@ -290,31 +319,31 @@ public class V1PodCertificateProjection {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodCertificateProjection.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodCertificateProjection` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PodCertificateProjection` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1PodCertificateProjection.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("certificateChainPath") != null && !jsonObj.get("certificateChainPath").isJsonNull()) && !jsonObj.get("certificateChainPath").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificateChainPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificateChainPath").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificateChainPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificateChainPath").toString()));
       }
       if ((jsonObj.get("credentialBundlePath") != null && !jsonObj.get("credentialBundlePath").isJsonNull()) && !jsonObj.get("credentialBundlePath").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `credentialBundlePath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("credentialBundlePath").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `credentialBundlePath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("credentialBundlePath").toString()));
       }
       if ((jsonObj.get("keyPath") != null && !jsonObj.get("keyPath").isJsonNull()) && !jsonObj.get("keyPath").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `keyPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keyPath").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `keyPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keyPath").toString()));
       }
       if (!jsonObj.get("keyType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `keyType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keyType").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `keyType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keyType").toString()));
       }
       if (!jsonObj.get("signerName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `signerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signerName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `signerName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signerName").toString()));
       }
   }
 

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** /--rules.*_/ command-line arguments. */
 @ApiModel(description = "/--rules.*_/ command-line arguments.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecRules {
@@ -39,7 +39,7 @@ public class V1PrometheusSpecRules {
    *
    * @return alert
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecRulesAlert getAlert() {
     return alert;

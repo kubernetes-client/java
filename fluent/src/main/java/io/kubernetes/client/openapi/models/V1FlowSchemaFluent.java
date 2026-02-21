@@ -1,30 +1,44 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Object;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
-import java.lang.String;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Optional;
 import java.util.Objects;
-import java.lang.Object;
+import java.util.Optional;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1FlowSchemaFluent<A extends io.kubernetes.client.openapi.models.V1FlowSchemaFluent<A>> extends BaseFluent<A>{
+
+  private String apiVersion;
+  private String kind;
+  private V1ObjectMetaBuilder metadata;
+  private V1FlowSchemaSpecBuilder spec;
+  private V1FlowSchemaStatusBuilder status;
+
   public V1FlowSchemaFluent() {
   }
   
   public V1FlowSchemaFluent(V1FlowSchema instance) {
     this.copyInstance(instance);
   }
-  private String apiVersion;
-  private String kind;
-  private V1ObjectMetaBuilder metadata;
-  private V1FlowSchemaSpecBuilder spec;
-  private V1FlowSchemaStatusBuilder status;
+
+  public V1ObjectMeta buildMetadata() {
+    return this.metadata != null ? this.metadata.build() : null;
+  }
+  
+  public V1FlowSchemaSpec buildSpec() {
+    return this.spec != null ? this.spec.build() : null;
+  }
+  
+  public V1FlowSchemaStatus buildStatus() {
+    return this.status != null ? this.status.build() : null;
+  }
   
   protected void copyInstance(V1FlowSchema instance) {
     instance = instance != null ? instance : new V1FlowSchema();
@@ -35,60 +49,6 @@ public class V1FlowSchemaFluent<A extends io.kubernetes.client.openapi.models.V1
         this.withSpec(instance.getSpec());
         this.withStatus(instance.getStatus());
     }
-  }
-  
-  public String getApiVersion() {
-    return this.apiVersion;
-  }
-  
-  public A withApiVersion(String apiVersion) {
-    this.apiVersion = apiVersion;
-    return (A) this;
-  }
-  
-  public boolean hasApiVersion() {
-    return this.apiVersion != null;
-  }
-  
-  public String getKind() {
-    return this.kind;
-  }
-  
-  public A withKind(String kind) {
-    this.kind = kind;
-    return (A) this;
-  }
-  
-  public boolean hasKind() {
-    return this.kind != null;
-  }
-  
-  public V1ObjectMeta buildMetadata() {
-    return this.metadata != null ? this.metadata.build() : null;
-  }
-  
-  public A withMetadata(V1ObjectMeta metadata) {
-    this._visitables.remove("metadata");
-    if (metadata != null) {
-        this.metadata = new V1ObjectMetaBuilder(metadata);
-        this._visitables.get("metadata").add(this.metadata);
-    } else {
-        this.metadata = null;
-        this._visitables.get("metadata").remove(this.metadata);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasMetadata() {
-    return this.metadata != null;
-  }
-  
-  public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
-  }
-  
-  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
   }
   
   public MetadataNested<A> editMetadata() {
@@ -103,38 +63,6 @@ public class V1FlowSchemaFluent<A extends io.kubernetes.client.openapi.models.V1
     return this.withNewMetadataLike(Optional.ofNullable(this.buildMetadata()).orElse(item));
   }
   
-  public V1FlowSchemaSpec buildSpec() {
-    return this.spec != null ? this.spec.build() : null;
-  }
-  
-  public A withSpec(V1FlowSchemaSpec spec) {
-    this._visitables.remove("spec");
-    if (spec != null) {
-        this.spec = new V1FlowSchemaSpecBuilder(spec);
-        this._visitables.get("spec").add(this.spec);
-    } else {
-        this.spec = null;
-        this._visitables.get("spec").remove(this.spec);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasSpec() {
-    return this.spec != null;
-  }
-  
-  public SpecNested<A> withNewSpec() {
-    return new SpecNested(null);
-  }
-  
-  public SpecNested<A> withNewSpecLike(V1FlowSchemaSpec item) {
-    return new SpecNested(item);
-  }
-  
-  public SpecNested<A> editSpec() {
-    return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(null));
-  }
-  
   public SpecNested<A> editOrNewSpec() {
     return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(new V1FlowSchemaSpecBuilder().build()));
   }
@@ -143,44 +71,20 @@ public class V1FlowSchemaFluent<A extends io.kubernetes.client.openapi.models.V1
     return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(item));
   }
   
-  public V1FlowSchemaStatus buildStatus() {
-    return this.status != null ? this.status.build() : null;
-  }
-  
-  public A withStatus(V1FlowSchemaStatus status) {
-    this._visitables.remove("status");
-    if (status != null) {
-        this.status = new V1FlowSchemaStatusBuilder(status);
-        this._visitables.get("status").add(this.status);
-    } else {
-        this.status = null;
-        this._visitables.get("status").remove(this.status);
-    }
-    return (A) this;
-  }
-  
-  public boolean hasStatus() {
-    return this.status != null;
-  }
-  
-  public StatusNested<A> withNewStatus() {
-    return new StatusNested(null);
-  }
-  
-  public StatusNested<A> withNewStatusLike(V1FlowSchemaStatus item) {
-    return new StatusNested(item);
-  }
-  
-  public StatusNested<A> editStatus() {
-    return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(null));
-  }
-  
   public StatusNested<A> editOrNewStatus() {
     return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(new V1FlowSchemaStatusBuilder().build()));
   }
   
   public StatusNested<A> editOrNewStatusLike(V1FlowSchemaStatus item) {
     return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(item));
+  }
+  
+  public SpecNested<A> editSpec() {
+    return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(null));
+  }
+  
+  public StatusNested<A> editStatus() {
+    return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -210,6 +114,34 @@ public class V1FlowSchemaFluent<A extends io.kubernetes.client.openapi.models.V1
       return false;
     }
     return true;
+  }
+  
+  public String getApiVersion() {
+    return this.apiVersion;
+  }
+  
+  public String getKind() {
+    return this.kind;
+  }
+  
+  public boolean hasApiVersion() {
+    return this.apiVersion != null;
+  }
+  
+  public boolean hasKind() {
+    return this.kind != null;
+  }
+  
+  public boolean hasMetadata() {
+    return this.metadata != null;
+  }
+  
+  public boolean hasSpec() {
+    return this.spec != null;
+  }
+  
+  public boolean hasStatus() {
+    return this.status != null;
   }
   
   public int hashCode() {
@@ -246,12 +178,84 @@ public class V1FlowSchemaFluent<A extends io.kubernetes.client.openapi.models.V1
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withApiVersion(String apiVersion) {
+    this.apiVersion = apiVersion;
+    return (A) this;
+  }
+  
+  public A withKind(String kind) {
+    this.kind = kind;
+    return (A) this;
+  }
+  
+  public A withMetadata(V1ObjectMeta metadata) {
+    this._visitables.remove("metadata");
+    if (metadata != null) {
+        this.metadata = new V1ObjectMetaBuilder(metadata);
+        this._visitables.get("metadata").add(this.metadata);
+    } else {
+        this.metadata = null;
+        this._visitables.get("metadata").remove(this.metadata);
+    }
+    return (A) this;
+  }
+  
+  public MetadataNested<A> withNewMetadata() {
+    return new MetadataNested(null);
+  }
+  
+  public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+    return new MetadataNested(item);
+  }
+  
+  public SpecNested<A> withNewSpec() {
+    return new SpecNested(null);
+  }
+  
+  public SpecNested<A> withNewSpecLike(V1FlowSchemaSpec item) {
+    return new SpecNested(item);
+  }
+  
+  public StatusNested<A> withNewStatus() {
+    return new StatusNested(null);
+  }
+  
+  public StatusNested<A> withNewStatusLike(V1FlowSchemaStatus item) {
+    return new StatusNested(item);
+  }
+  
+  public A withSpec(V1FlowSchemaSpec spec) {
+    this._visitables.remove("spec");
+    if (spec != null) {
+        this.spec = new V1FlowSchemaSpecBuilder(spec);
+        this._visitables.get("spec").add(this.spec);
+    } else {
+        this.spec = null;
+        this._visitables.get("spec").remove(this.spec);
+    }
+    return (A) this;
+  }
+  
+  public A withStatus(V1FlowSchemaStatus status) {
+    this._visitables.remove("status");
+    if (status != null) {
+        this.status = new V1FlowSchemaStatusBuilder(status);
+        this._visitables.get("status").add(this.status);
+    } else {
+        this.status = null;
+        this._visitables.get("status").remove(this.status);
+    }
+    return (A) this;
+  }
   public class MetadataNested<N> extends V1ObjectMetaFluent<MetadataNested<N>> implements Nested<N>{
+  
+    V1ObjectMetaBuilder builder;
+  
     MetadataNested(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
-    V1ObjectMetaBuilder builder;
-    
+  
     public N and() {
       return (N) V1FlowSchemaFluent.this.withMetadata(builder.build());
     }
@@ -260,14 +264,15 @@ public class V1FlowSchemaFluent<A extends io.kubernetes.client.openapi.models.V1
       return and();
     }
     
-  
   }
   public class SpecNested<N> extends V1FlowSchemaSpecFluent<SpecNested<N>> implements Nested<N>{
+  
+    V1FlowSchemaSpecBuilder builder;
+  
     SpecNested(V1FlowSchemaSpec item) {
       this.builder = new V1FlowSchemaSpecBuilder(this, item);
     }
-    V1FlowSchemaSpecBuilder builder;
-    
+  
     public N and() {
       return (N) V1FlowSchemaFluent.this.withSpec(builder.build());
     }
@@ -276,14 +281,15 @@ public class V1FlowSchemaFluent<A extends io.kubernetes.client.openapi.models.V1
       return and();
     }
     
-  
   }
   public class StatusNested<N> extends V1FlowSchemaStatusFluent<StatusNested<N>> implements Nested<N>{
+  
+    V1FlowSchemaStatusBuilder builder;
+  
     StatusNested(V1FlowSchemaStatus item) {
       this.builder = new V1FlowSchemaStatusBuilder(this, item);
     }
-    V1FlowSchemaStatusBuilder builder;
-    
+  
     public N and() {
       return (N) V1FlowSchemaFluent.this.withStatus(builder.build());
     }
@@ -292,7 +298,5 @@ public class V1FlowSchemaFluent<A extends io.kubernetes.client.openapi.models.V1
       return and();
     }
     
-  
   }
-
 }

@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.
  */
 @ApiModel(description = "PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PodDNSConfig {
   public static final String SERIALIZED_NAME_NAMESERVERS = "nameservers";
   @SerializedName(SERIALIZED_NAME_NAMESERVERS)
@@ -205,13 +205,10 @@ public class V1PodDNSConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("nameservers");
-    openapiFields.add("options");
-    openapiFields.add("searches");
+    openapiFields = new HashSet<String>(Arrays.asList("nameservers", "options", "searches"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -223,7 +220,7 @@ public class V1PodDNSConfig {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodDNSConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodDNSConfig is not found in the empty JSON string", V1PodDNSConfig.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1PodDNSConfig is not found in the empty JSON string", V1PodDNSConfig.openapiRequiredFields.toString()));
         }
       }
 
@@ -231,20 +228,20 @@ public class V1PodDNSConfig {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodDNSConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodDNSConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PodDNSConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("nameservers") != null && !jsonObj.get("nameservers").isJsonNull() && !jsonObj.get("nameservers").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `nameservers` to be an array in the JSON string but got `%s`", jsonObj.get("nameservers").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `nameservers` to be an array in the JSON string but got `%s`", jsonObj.get("nameservers").toString()));
       }
       if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
         JsonArray jsonArrayoptions = jsonObj.getAsJsonArray("options");
         if (jsonArrayoptions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("options").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `options` to be an array in the JSON string but got `%s`", jsonObj.get("options").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `options` to be an array in the JSON string but got `%s`", jsonObj.get("options").toString()));
           }
 
           // validate the optional field `options` (array)
@@ -255,7 +252,7 @@ public class V1PodDNSConfig {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("searches") != null && !jsonObj.get("searches").isJsonNull() && !jsonObj.get("searches").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `searches` to be an array in the JSON string but got `%s`", jsonObj.get("searches").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `searches` to be an array in the JSON string but got `%s`", jsonObj.get("searches").toString()));
       }
   }
 

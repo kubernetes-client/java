@@ -28,7 +28,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Specification of the desired behavior of the Alertmanager cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#spec-and-status")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1AlertmanagerSpec {
@@ -212,7 +212,7 @@ public class V1AlertmanagerSpec {
    *
    * @return additionalPeers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "AdditionalPeers allows injecting a set of additional Alertmanagers to peer with to form a highly available cluster.")
@@ -235,7 +235,7 @@ public class V1AlertmanagerSpec {
    *
    * @return affinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAffinity getAffinity() {
     return affinity;
@@ -256,7 +256,7 @@ public class V1AlertmanagerSpec {
    *
    * @return baseImage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Base image that is used to deploy pods, without tag.")
   public String getBaseImage() {
     return baseImage;
@@ -287,7 +287,7 @@ public class V1AlertmanagerSpec {
    *
    * @return configMaps
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ConfigMaps is a list of ConfigMaps in the same namespace as the Alertmanager object, which shall be mounted into the Alertmanager Pods. The ConfigMaps are mounted into /etc/alertmanager/configmaps/<configmap-name>.")
@@ -313,7 +313,7 @@ public class V1AlertmanagerSpec {
    *
    * @return configSecret
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ConfigSecret is the name of a Kubernetes Secret in the same namespace as the Alertmanager object, which contains configuration for this Alertmanager instance. Defaults to 'alertmanager-<alertmanager-name>' The secret is mounted into /etc/alertmanager/config.")
@@ -345,7 +345,7 @@ public class V1AlertmanagerSpec {
    *
    * @return containers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Containers allows injecting additional containers. This is meant to allow adding an authentication proxy to an Alertmanager pod.")
@@ -369,7 +369,7 @@ public class V1AlertmanagerSpec {
    *
    * @return externalUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The external URL the Alertmanager instances will be available under. This is necessary to generate correct URLs. This is necessary if Alertmanager is not served from root of a DNS name.")
@@ -394,7 +394,7 @@ public class V1AlertmanagerSpec {
    *
    * @return image
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Image if specified has precedence over baseImage, tag and sha combinations. Specifying the version is still necessary to ensure the Prometheus Operator knows what version of Alertmanager is being configured.")
@@ -429,7 +429,7 @@ public class V1AlertmanagerSpec {
    *
    * @return imagePullSecrets
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "An optional list of references to secrets in the same namespace to use for pulling prometheus and alertmanager images from registries see https://kubernetes.io/docs/user-guide/images#specifying-imagepullsecrets-on-a-pod")
@@ -466,7 +466,7 @@ public class V1AlertmanagerSpec {
    *
    * @return initContainers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "InitContainers allows adding initContainers to the pod definition. Those can be used to e.g. fetch secrets for injection into the Alertmanager configuration from external sources. Any errors during the execution of an initContainer will lead to a restart of the Pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/ Using initContainers for any use case other then secret fetching is entirely outside the scope of what the maintainers will support and by doing so, you accept that this behaviour may break at any time without notice.")
@@ -490,7 +490,7 @@ public class V1AlertmanagerSpec {
    *
    * @return listenLocal
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ListenLocal makes the Alertmanager server listen on loopback, so that it does not bind against the Pod IP. Note this is only for the Alertmanager UI, not the gossip communication.")
@@ -513,7 +513,7 @@ public class V1AlertmanagerSpec {
    *
    * @return logFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Log format for Alertmanager to be configured with.")
   public String getLogFormat() {
     return logFormat;
@@ -534,7 +534,7 @@ public class V1AlertmanagerSpec {
    *
    * @return logLevel
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Log level for Alertmanager to be configured with.")
   public String getLogLevel() {
     return logLevel;
@@ -563,7 +563,7 @@ public class V1AlertmanagerSpec {
    *
    * @return nodeSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Define which Nodes the Pods are scheduled on.")
   public Map<String, String> getNodeSelector() {
     return nodeSelector;
@@ -585,7 +585,7 @@ public class V1AlertmanagerSpec {
    *
    * @return paused
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "If set to true all actions on the underlaying managed objects are not goint to be performed, except for delete actions.")
@@ -608,7 +608,7 @@ public class V1AlertmanagerSpec {
    *
    * @return podMetadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1AlertmanagerSpecPodMetadata getPodMetadata() {
     return podMetadata;
@@ -629,7 +629,7 @@ public class V1AlertmanagerSpec {
    *
    * @return portName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Port name used for the pods and governing service. This defaults to web")
   public String getPortName() {
@@ -651,7 +651,7 @@ public class V1AlertmanagerSpec {
    *
    * @return priorityClassName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Priority class assigned to the Pods")
   public String getPriorityClassName() {
     return priorityClassName;
@@ -673,7 +673,7 @@ public class V1AlertmanagerSpec {
    *
    * @return replicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Size is the expected size of the alertmanager cluster. The controller will eventually make the size of the running cluster equal to the expected size.")
@@ -696,7 +696,7 @@ public class V1AlertmanagerSpec {
    *
    * @return resources
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1AlertmanagerSpecResources getResources() {
     return resources;
@@ -718,7 +718,7 @@ public class V1AlertmanagerSpec {
    *
    * @return retention
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Time duration Alertmanager shall retain data for. Default is '120h', and must match the regular expression `[0-9]+(ms|s|m|h)` (milliseconds seconds minutes hours).")
@@ -744,7 +744,7 @@ public class V1AlertmanagerSpec {
    *
    * @return routePrefix
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The route prefix Alertmanager registers HTTP handlers for. This is useful, if using ExternalURL and a proxy is rewriting HTTP routes of a request, and the actual ExternalURL is still true, but the server serves requests under a different route prefix. For example for use with `kubectl proxy`.")
@@ -777,7 +777,7 @@ public class V1AlertmanagerSpec {
    *
    * @return secrets
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Secrets is a list of Secrets in the same namespace as the Alertmanager object, which shall be mounted into the Alertmanager Pods. The Secrets are mounted into /etc/alertmanager/secrets/<secret-name>.")
@@ -800,7 +800,7 @@ public class V1AlertmanagerSpec {
    *
    * @return securityContext
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecSecurityContext1 getSecurityContext() {
     return securityContext;
@@ -821,7 +821,7 @@ public class V1AlertmanagerSpec {
    *
    * @return serviceAccountName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ServiceAccountName is the name of the ServiceAccount to use to run the Prometheus Pods.")
@@ -846,7 +846,7 @@ public class V1AlertmanagerSpec {
    *
    * @return sha
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "SHA of Alertmanager container image to be deployed. Defaults to the value of `version`. Similar to a tag, but the SHA explicitly deploys an immutable container image. Version and Tag are ignored if SHA is set.")
@@ -869,7 +869,7 @@ public class V1AlertmanagerSpec {
    *
    * @return storage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1AlertmanagerSpecStorage getStorage() {
     return storage;
@@ -891,7 +891,7 @@ public class V1AlertmanagerSpec {
    *
    * @return tag
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Tag of Alertmanager container image to be deployed. Defaults to the value of `version`. Version is ignored if Tag is set.")
@@ -922,7 +922,7 @@ public class V1AlertmanagerSpec {
    *
    * @return tolerations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If specified, the pod's tolerations.")
   public List<V1ThanosRulerSpecTolerations> getTolerations() {
     return tolerations;
@@ -943,7 +943,7 @@ public class V1AlertmanagerSpec {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Version the cluster should be on.")
   public String getVersion() {
     return version;
@@ -974,7 +974,7 @@ public class V1AlertmanagerSpec {
    *
    * @return volumeMounts
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "VolumeMounts allows configuration of additional VolumeMounts on the output StatefulSet definition. VolumeMounts specified will be appended to other VolumeMounts in the alertmanager container, that are generated as a result of StorageSpec objects.")
@@ -1007,7 +1007,7 @@ public class V1AlertmanagerSpec {
    *
    * @return volumes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Volumes allows configuration of additional volumes on the output StatefulSet definition. Volumes specified will be appended to other volumes that are generated as a result of StorageSpec objects.")

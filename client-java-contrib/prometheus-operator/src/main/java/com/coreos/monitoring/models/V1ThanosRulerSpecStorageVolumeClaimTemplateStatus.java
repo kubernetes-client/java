@@ -28,7 +28,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Status represents the current information/status of a persistent volume claim. Read-only. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecStorageVolumeClaimTemplateStatus {
@@ -73,7 +73,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateStatus {
    *
    * @return accessModes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "AccessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1")
@@ -105,7 +105,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateStatus {
    *
    * @return capacity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Represents the actual resources of the underlying volume.")
   public Map<String, String> getCapacity() {
     return capacity;
@@ -138,7 +138,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.")
@@ -162,7 +162,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateStatus {
    *
    * @return phase
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Phase represents the current phase of PersistentVolumeClaim.")
   public String getPhase() {
     return phase;

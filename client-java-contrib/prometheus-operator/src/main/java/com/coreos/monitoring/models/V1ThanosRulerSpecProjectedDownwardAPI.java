@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** information about the downwardAPI data to project */
 @ApiModel(description = "information about the downwardAPI data to project")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecProjectedDownwardAPI {
@@ -51,7 +51,7 @@ public class V1ThanosRulerSpecProjectedDownwardAPI {
    *
    * @return items
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Items is a list of DownwardAPIVolume file")
   public List<V1ThanosRulerSpecDownwardAPIItems> getItems() {
     return items;

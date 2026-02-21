@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** RemoteReadSpec defines the remote_read configuration for prometheus. */
 @ApiModel(description = "RemoteReadSpec defines the remote_read configuration for prometheus.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecRemoteRead {
@@ -81,7 +81,7 @@ public class V1PrometheusSpecRemoteRead {
    *
    * @return basicAuth
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecBasicAuth getBasicAuth() {
     return basicAuth;
@@ -102,7 +102,7 @@ public class V1PrometheusSpecRemoteRead {
    *
    * @return bearerToken
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "bearer token for remote read.")
   public String getBearerToken() {
     return bearerToken;
@@ -123,7 +123,7 @@ public class V1PrometheusSpecRemoteRead {
    *
    * @return bearerTokenFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "File to read bearer token for remote read.")
   public String getBearerTokenFile() {
     return bearerTokenFile;
@@ -144,7 +144,7 @@ public class V1PrometheusSpecRemoteRead {
    *
    * @return proxyUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional ProxyURL")
   public String getProxyUrl() {
     return proxyUrl;
@@ -166,7 +166,7 @@ public class V1PrometheusSpecRemoteRead {
    *
    * @return readRecent
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Whether reads should be made for queries for time ranges that the local storage should have complete data for.")
@@ -189,7 +189,7 @@ public class V1PrometheusSpecRemoteRead {
    *
    * @return remoteTimeout
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timeout for requests to the remote read endpoint.")
   public String getRemoteTimeout() {
     return remoteTimeout;
@@ -220,7 +220,7 @@ public class V1PrometheusSpecRemoteRead {
    *
    * @return requiredMatchers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "An optional list of equality matchers which have to be present in a selector to query the remote read endpoint.")
@@ -243,7 +243,7 @@ public class V1PrometheusSpecRemoteRead {
    *
    * @return tlsConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecTlsConfig getTlsConfig() {
     return tlsConfig;

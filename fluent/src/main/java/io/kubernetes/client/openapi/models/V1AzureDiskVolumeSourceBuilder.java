@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1AzureDiskVolumeSourceBuilder extends V1AzureDiskVolumeSourceFluent<V1AzureDiskVolumeSourceBuilder> implements VisitableBuilder<V1AzureDiskVolumeSource,V1AzureDiskVolumeSourceBuilder>{
+
+  V1AzureDiskVolumeSourceFluent<?> fluent;
+
   public V1AzureDiskVolumeSourceBuilder() {
     this(new V1AzureDiskVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1AzureDiskVolumeSourceBuilder extends V1AzureDiskVolumeSourceFluen
     this(fluent, new V1AzureDiskVolumeSource());
   }
   
-  public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSourceFluent<?> fluent,V1AzureDiskVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1AzureDiskVolumeSourceFluent<?> fluent;
   
+  public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSourceFluent<?> fluent,V1AzureDiskVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1AzureDiskVolumeSource build() {
     V1AzureDiskVolumeSource buildable = new V1AzureDiskVolumeSource();
     buildable.setCachingMode(fluent.getCachingMode());
@@ -33,5 +35,4 @@ public class V1AzureDiskVolumeSourceBuilder extends V1AzureDiskVolumeSourceFluen
     return buildable;
   }
   
-
 }

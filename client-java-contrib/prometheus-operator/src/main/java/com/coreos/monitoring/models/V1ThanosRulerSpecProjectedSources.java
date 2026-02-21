@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Projection that may be projected along with other supported volume types */
 @ApiModel(description = "Projection that may be projected along with other supported volume types")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecProjectedSources {
@@ -55,7 +55,7 @@ public class V1ThanosRulerSpecProjectedSources {
    *
    * @return configMap
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecProjectedConfigMap getConfigMap() {
     return configMap;
@@ -77,7 +77,7 @@ public class V1ThanosRulerSpecProjectedSources {
    *
    * @return downwardAPI
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecProjectedDownwardAPI getDownwardAPI() {
     return downwardAPI;
@@ -98,7 +98,7 @@ public class V1ThanosRulerSpecProjectedSources {
    *
    * @return secret
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecProjectedSecret getSecret() {
     return secret;
@@ -120,7 +120,7 @@ public class V1ThanosRulerSpecProjectedSources {
    *
    * @return serviceAccountToken
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecProjectedServiceAccountToken getServiceAccountToken() {
     return serviceAccountToken;

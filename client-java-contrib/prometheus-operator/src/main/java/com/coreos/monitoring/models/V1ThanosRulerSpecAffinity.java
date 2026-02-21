@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** If specified, the pod&#39;s scheduling constraints. */
 @ApiModel(description = "If specified, the pod's scheduling constraints.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecAffinity {
@@ -50,7 +50,7 @@ public class V1ThanosRulerSpecAffinity {
    *
    * @return nodeAffinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAffinityNodeAffinity getNodeAffinity() {
     return nodeAffinity;
@@ -71,7 +71,7 @@ public class V1ThanosRulerSpecAffinity {
    *
    * @return podAffinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAffinityPodAffinity getPodAffinity() {
     return podAffinity;
@@ -93,7 +93,7 @@ public class V1ThanosRulerSpecAffinity {
    *
    * @return podAntiAffinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAffinityPodAntiAffinity getPodAntiAffinity() {
     return podAntiAffinity;

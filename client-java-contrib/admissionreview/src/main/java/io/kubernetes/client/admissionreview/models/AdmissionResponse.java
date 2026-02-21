@@ -24,7 +24,7 @@ import java.util.Objects;
 
 /** AdmissionResponse describes an admission response. */
 @ApiModel(description = "AdmissionResponse describes an admission response.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2021-07-01T14:30:02.888Z[Etc/UTC]")
 public class AdmissionResponse {
@@ -108,7 +108,7 @@ public class AdmissionResponse {
    *
    * @return auditAnnotations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "AuditAnnotations is an unstructured key value map set by remote admission controller (e.g. error=image-blacklisted). MutatingAdmissionWebhook and ValidatingAdmissionWebhook admission controller will prefix the keys with admission webhook name (e.g. imagepolicy.example.com/error=image-blacklisted). AuditAnnotations will be provided by the admission webhook to add additional context to the audit log for this request.")
@@ -131,7 +131,7 @@ public class AdmissionResponse {
    *
    * @return patch
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "The patch body. Currently we only support \"JSONPatch\" which implements RFC 6902.")
   public byte[] getPatch() {
@@ -153,7 +153,7 @@ public class AdmissionResponse {
    *
    * @return patchType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The type of Patch. Currently we only allow \"JSONPatch\".")
   public String getPatchType() {
     return patchType;
@@ -174,7 +174,7 @@ public class AdmissionResponse {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public Status getStatus() {
     return status;
@@ -230,7 +230,7 @@ public class AdmissionResponse {
    *
    * @return warnings
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "warnings is a list of warning messages to return to the requesting API client. Warning messages describe a problem the client making the API request should correct or be aware of. Limit warnings to 120 characters if possible. Warnings over 256 characters and large numbers of warnings may be truncated.")

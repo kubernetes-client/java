@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** Rule describes an alerting or recording rule. */
 @ApiModel(description = "Rule describes an alerting or recording rule.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusRuleSpecRules {
@@ -66,7 +66,7 @@ public class V1PrometheusRuleSpecRules {
    *
    * @return alert
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getAlert() {
     return alert;
@@ -95,7 +95,7 @@ public class V1PrometheusRuleSpecRules {
    *
    * @return annotations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public Map<String, String> getAnnotations() {
     return annotations;
@@ -136,7 +136,7 @@ public class V1PrometheusRuleSpecRules {
    *
    * @return _for
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getFor() {
     return _for;
@@ -165,7 +165,7 @@ public class V1PrometheusRuleSpecRules {
    *
    * @return labels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public Map<String, String> getLabels() {
     return labels;
@@ -186,7 +186,7 @@ public class V1PrometheusRuleSpecRules {
    *
    * @return record
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getRecord() {
     return record;

@@ -21,7 +21,7 @@ import java.util.Objects;
 /** AdmissionRequest describes the admission.Attributes for the admission request. */
 @ApiModel(
     description = "AdmissionRequest describes the admission.Attributes for the admission request.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2021-07-01T14:30:02.888Z[Etc/UTC]")
 public class AdmissionRequest {
@@ -112,7 +112,7 @@ public class AdmissionRequest {
    *
    * @return dryRun
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "DryRun indicates that modifications will definitely not be persisted for this request. Defaults to false.")
@@ -157,7 +157,7 @@ public class AdmissionRequest {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name is the name of the object as presented in the request.  On a CREATE operation, the client may omit name and rely on the server to generate the name.  If that is the case, this field will contain an empty string.")
@@ -180,7 +180,7 @@ public class AdmissionRequest {
    *
    * @return namespace
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Namespace is the namespace associated with the request (if any).")
   public String getNamespace() {
     return namespace;
@@ -201,7 +201,7 @@ public class AdmissionRequest {
    *
    * @return _object
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public Map<String, Object> getObject() {
     return _object;
@@ -222,7 +222,7 @@ public class AdmissionRequest {
    *
    * @return oldObject
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public Map<String, Object> getOldObject() {
     return oldObject;
@@ -267,7 +267,7 @@ public class AdmissionRequest {
    *
    * @return options
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public Map<String, Object> getOptions() {
     return options;
@@ -288,7 +288,7 @@ public class AdmissionRequest {
    *
    * @return requestKind
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public GroupVersionKind getRequestKind() {
     return requestKind;
@@ -309,7 +309,7 @@ public class AdmissionRequest {
    *
    * @return requestResource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public GroupVersionResource getRequestResource() {
     return requestResource;
@@ -333,7 +333,7 @@ public class AdmissionRequest {
    *
    * @return requestSubResource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "RequestSubResource is the name of the subresource of the original API request, if any (for example, \"status\" or \"scale\") If this is specified and differs from the value in \"subResource\", an equivalent match and conversion was performed. See documentation for the \"matchPolicy\" field in the webhook configuration type.")
@@ -377,7 +377,7 @@ public class AdmissionRequest {
    *
    * @return subResource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "SubResource is the subresource being requested, if any (for example, \"status\" or \"scale\")")

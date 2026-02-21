@@ -1,37 +1,64 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Iterator;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.client.openapi.models.V1PriorityLevelConfigurationStatusFluent<A>> extends BaseFluent<A>{
+
+  private ArrayList<V1PriorityLevelConfigurationConditionBuilder> conditions;
+
   public V1PriorityLevelConfigurationStatusFluent() {
   }
   
   public V1PriorityLevelConfigurationStatusFluent(V1PriorityLevelConfigurationStatus instance) {
     this.copyInstance(instance);
   }
-  private ArrayList<V1PriorityLevelConfigurationConditionBuilder> conditions;
-  
-  protected void copyInstance(V1PriorityLevelConfigurationStatus instance) {
-    instance = instance != null ? instance : new V1PriorityLevelConfigurationStatus();
-    if (instance != null) {
-      this.withConditions(instance.getConditions());
+
+  public A addAllToConditions(Collection<V1PriorityLevelConfigurationCondition> items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
     }
+    for (V1PriorityLevelConfigurationCondition item : items) {
+        V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public ConditionsNested<A> addNewCondition() {
+    return new ConditionsNested(-1, null);
+  }
+  
+  public ConditionsNested<A> addNewConditionLike(V1PriorityLevelConfigurationCondition item) {
+    return new ConditionsNested(-1, item);
+  }
+  
+  public A addToConditions(V1PriorityLevelConfigurationCondition... items) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    for (V1PriorityLevelConfigurationCondition item : items) {
+        V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
+        _visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addToConditions(int index,V1PriorityLevelConfigurationCondition item) {
@@ -49,91 +76,12 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
     return (A) this;
   }
   
-  public A setToConditions(int index,V1PriorityLevelConfigurationCondition item) {
-    if (this.conditions == null) {
-      this.conditions = new ArrayList();
-    }
-    V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
-    } else {
-        _visitables.get("conditions").add(builder);
-        conditions.set(index, builder);
-    }
-    return (A) this;
-  }
-  
-  public A addToConditions(V1PriorityLevelConfigurationCondition... items) {
-    if (this.conditions == null) {
-      this.conditions = new ArrayList();
-    }
-    for (V1PriorityLevelConfigurationCondition item : items) {
-        V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
-        this.conditions.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToConditions(Collection<V1PriorityLevelConfigurationCondition> items) {
-    if (this.conditions == null) {
-      this.conditions = new ArrayList();
-    }
-    for (V1PriorityLevelConfigurationCondition item : items) {
-        V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
-        this.conditions.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromConditions(V1PriorityLevelConfigurationCondition... items) {
-    if (this.conditions == null) {
-      return (A) this;
-    }
-    for (V1PriorityLevelConfigurationCondition item : items) {
-        V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
-        _visitables.get("conditions").remove(builder);
-        this.conditions.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromConditions(Collection<V1PriorityLevelConfigurationCondition> items) {
-    if (this.conditions == null) {
-      return (A) this;
-    }
-    for (V1PriorityLevelConfigurationCondition item : items) {
-        V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
-        _visitables.get("conditions").remove(builder);
-        this.conditions.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromConditions(Predicate<V1PriorityLevelConfigurationConditionBuilder> predicate) {
-    if (conditions == null) {
-      return (A) this;
-    }
-    Iterator<V1PriorityLevelConfigurationConditionBuilder> each = conditions.iterator();
-    List visitables = _visitables.get("conditions");
-    while (each.hasNext()) {
-        V1PriorityLevelConfigurationConditionBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
+  public V1PriorityLevelConfigurationCondition buildCondition(int index) {
+    return this.conditions.get(index).build();
   }
   
   public List<V1PriorityLevelConfigurationCondition> buildConditions() {
     return this.conditions != null ? build(conditions) : null;
-  }
-  
-  public V1PriorityLevelConfigurationCondition buildCondition(int index) {
-    return this.conditions.get(index).build();
   }
   
   public V1PriorityLevelConfigurationCondition buildFirstCondition() {
@@ -153,61 +101,15 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
       return null;
   }
   
-  public boolean hasMatchingCondition(Predicate<V1PriorityLevelConfigurationConditionBuilder> predicate) {
-      for (V1PriorityLevelConfigurationConditionBuilder item : conditions) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withConditions(List<V1PriorityLevelConfigurationCondition> conditions) {
-    if (this.conditions != null) {
-      this._visitables.get("conditions").clear();
+  protected void copyInstance(V1PriorityLevelConfigurationStatus instance) {
+    instance = instance != null ? instance : new V1PriorityLevelConfigurationStatus();
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
     }
-    if (conditions != null) {
-        this.conditions = new ArrayList();
-        for (V1PriorityLevelConfigurationCondition item : conditions) {
-          this.addToConditions(item);
-        }
-    } else {
-      this.conditions = null;
-    }
-    return (A) this;
-  }
-  
-  public A withConditions(V1PriorityLevelConfigurationCondition... conditions) {
-    if (this.conditions != null) {
-        this.conditions.clear();
-        _visitables.remove("conditions");
-    }
-    if (conditions != null) {
-      for (V1PriorityLevelConfigurationCondition item : conditions) {
-        this.addToConditions(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasConditions() {
-    return this.conditions != null && !(this.conditions.isEmpty());
-  }
-  
-  public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
-  }
-  
-  public ConditionsNested<A> addNewConditionLike(V1PriorityLevelConfigurationCondition item) {
-    return new ConditionsNested(-1, item);
-  }
-  
-  public ConditionsNested<A> setNewConditionLike(int index,V1PriorityLevelConfigurationCondition item) {
-    return new ConditionsNested(index, item);
   }
   
   public ConditionsNested<A> editCondition(int index) {
-    if (index <= conditions.size()) {
+    if (conditions.size() <= index) {
       throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "conditions"));
     }
     return this.setNewConditionLike(index, this.buildCondition(index));
@@ -259,8 +161,80 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
     return true;
   }
   
+  public boolean hasConditions() {
+    return this.conditions != null && !(this.conditions.isEmpty());
+  }
+  
+  public boolean hasMatchingCondition(Predicate<V1PriorityLevelConfigurationConditionBuilder> predicate) {
+      for (V1PriorityLevelConfigurationConditionBuilder item : conditions) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
   public int hashCode() {
     return Objects.hash(conditions);
+  }
+  
+  public A removeAllFromConditions(Collection<V1PriorityLevelConfigurationCondition> items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1PriorityLevelConfigurationCondition item : items) {
+        V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromConditions(V1PriorityLevelConfigurationCondition... items) {
+    if (this.conditions == null) {
+      return (A) this;
+    }
+    for (V1PriorityLevelConfigurationCondition item : items) {
+        V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
+        _visitables.get("conditions").remove(builder);
+        this.conditions.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromConditions(Predicate<V1PriorityLevelConfigurationConditionBuilder> predicate) {
+    if (conditions == null) {
+      return (A) this;
+    }
+    Iterator<V1PriorityLevelConfigurationConditionBuilder> each = conditions.iterator();
+    List visitables = _visitables.get("conditions");
+    while (each.hasNext()) {
+        V1PriorityLevelConfigurationConditionBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public ConditionsNested<A> setNewConditionLike(int index,V1PriorityLevelConfigurationCondition item) {
+    return new ConditionsNested(index, item);
+  }
+  
+  public A setToConditions(int index,V1PriorityLevelConfigurationCondition item) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList();
+    }
+    V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) {
+        _visitables.get("conditions").add(builder);
+        conditions.add(builder);
+    } else {
+        _visitables.get("conditions").add(builder);
+        conditions.set(index, builder);
+    }
+    return (A) this;
   }
   
   public String toString() {
@@ -273,14 +247,44 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
     sb.append("}");
     return sb.toString();
   }
+  
+  public A withConditions(List<V1PriorityLevelConfigurationCondition> conditions) {
+    if (this.conditions != null) {
+      this._visitables.get("conditions").clear();
+    }
+    if (conditions != null) {
+        this.conditions = new ArrayList();
+        for (V1PriorityLevelConfigurationCondition item : conditions) {
+          this.addToConditions(item);
+        }
+    } else {
+      this.conditions = null;
+    }
+    return (A) this;
+  }
+  
+  public A withConditions(V1PriorityLevelConfigurationCondition... conditions) {
+    if (this.conditions != null) {
+        this.conditions.clear();
+        _visitables.remove("conditions");
+    }
+    if (conditions != null) {
+      for (V1PriorityLevelConfigurationCondition item : conditions) {
+        this.addToConditions(item);
+      }
+    }
+    return (A) this;
+  }
   public class ConditionsNested<N> extends V1PriorityLevelConfigurationConditionFluent<ConditionsNested<N>> implements Nested<N>{
+  
+    V1PriorityLevelConfigurationConditionBuilder builder;
+    int index;
+  
     ConditionsNested(int index,V1PriorityLevelConfigurationCondition item) {
       this.index = index;
       this.builder = new V1PriorityLevelConfigurationConditionBuilder(this, item);
     }
-    V1PriorityLevelConfigurationConditionBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1PriorityLevelConfigurationStatusFluent.this.setToConditions(index, builder.build());
     }
@@ -289,7 +293,5 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
       return and();
     }
     
-  
   }
-
 }

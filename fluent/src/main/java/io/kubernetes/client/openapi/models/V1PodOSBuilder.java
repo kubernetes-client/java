@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1PodOSBuilder extends V1PodOSFluent<V1PodOSBuilder> implements VisitableBuilder<V1PodOS,V1PodOSBuilder>{
+
+  V1PodOSFluent<?> fluent;
+
   public V1PodOSBuilder() {
     this(new V1PodOS());
   }
@@ -11,22 +14,20 @@ public class V1PodOSBuilder extends V1PodOSFluent<V1PodOSBuilder> implements Vis
     this(fluent, new V1PodOS());
   }
   
-  public V1PodOSBuilder(V1PodOSFluent<?> fluent,V1PodOS instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1PodOSBuilder(V1PodOS instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1PodOSFluent<?> fluent;
   
+  public V1PodOSBuilder(V1PodOSFluent<?> fluent,V1PodOS instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1PodOS build() {
     V1PodOS buildable = new V1PodOS();
     buildable.setName(fluent.getName());
     return buildable;
   }
   
-
 }

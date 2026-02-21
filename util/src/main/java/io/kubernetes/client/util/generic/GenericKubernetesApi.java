@@ -53,7 +53,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import okhttp3.Call;
 import okhttp3.HttpUrl;
 import okhttp3.Request;
@@ -883,26 +883,29 @@ public class GenericKubernetesApi<
     boolean isNamespaced = !Strings.isNullOrEmpty(objectMeta.getNamespace());
     return () ->
         //// TODO(yue9944882): judge namespaced object via api discovery
-        isNamespaced
-            ? customObjectsApi.patchNamespacedCustomObjectStatus(
-                this.apiGroup,
-                this.apiVersion,
-                objectMeta.getNamespace(),
-                this.resourcePlural,
-                objectMeta.getName(),
-                Arrays.asList(new StatusPatch(status.apply(object))))
-                .dryRun(updateOptions.getDryRun())
-                .fieldManager(updateOptions.getFieldManager())
-                .buildCall(null)
-            : customObjectsApi.patchClusterCustomObjectStatus(
-                this.apiGroup,
-                this.apiVersion,
-                this.resourcePlural,
-                objectMeta.getName(),
-                Arrays.asList(new StatusPatch(status.apply(object))))
-                .dryRun(updateOptions.getDryRun())
-                .fieldManager(updateOptions.getFieldManager())
-                .buildCall(null);
+        adaptPatchCall(
+            customObjectsApi.getApiClient(),
+            isNamespaced
+                ? customObjectsApi.patchNamespacedCustomObjectStatus(
+                    this.apiGroup,
+                    this.apiVersion,
+                    objectMeta.getNamespace(),
+                    this.resourcePlural,
+                    objectMeta.getName(),
+                    Arrays.asList(new StatusPatch(status.apply(object))))
+                    .dryRun(updateOptions.getDryRun())
+                    .fieldManager(updateOptions.getFieldManager())
+                    .buildCall(null)
+                : customObjectsApi.patchClusterCustomObjectStatus(
+                    this.apiGroup,
+                    this.apiVersion,
+                    this.resourcePlural,
+                    objectMeta.getName(),
+                    Arrays.asList(new StatusPatch(status.apply(object))))
+                    .dryRun(updateOptions.getDryRun())
+                    .fieldManager(updateOptions.getFieldManager())
+                    .buildCall(null),
+            V1Patch.PATCH_FORMAT_JSON_PATCH);
   }
 
   /**

@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PodMetadata contains Labels and Annotations gets propagated to the thanos ruler pods.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecPodMetadata {
@@ -58,7 +58,7 @@ public class V1ThanosRulerSpecPodMetadata {
    *
    * @return annotations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations")
@@ -91,7 +91,7 @@ public class V1ThanosRulerSpecPodMetadata {
    *
    * @return labels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels")

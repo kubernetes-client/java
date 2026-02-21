@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** QueueConfig allows tuning of the remote write queue parameters. */
 @ApiModel(description = "QueueConfig allows tuning of the remote write queue parameters.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecQueueConfig {
@@ -74,7 +74,7 @@ public class V1PrometheusSpecQueueConfig {
    *
    * @return batchSendDeadline
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "BatchSendDeadline is the maximum time a sample will wait in buffer.")
   public String getBatchSendDeadline() {
     return batchSendDeadline;
@@ -95,7 +95,7 @@ public class V1PrometheusSpecQueueConfig {
    *
    * @return capacity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Capacity is the number of samples to buffer per shard before we start dropping them.")
@@ -118,7 +118,7 @@ public class V1PrometheusSpecQueueConfig {
    *
    * @return maxBackoff
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MaxBackoff is the maximum retry delay.")
   public String getMaxBackoff() {
     return maxBackoff;
@@ -139,7 +139,7 @@ public class V1PrometheusSpecQueueConfig {
    *
    * @return maxRetries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "MaxRetries is the maximum number of times to retry a batch on recoverable errors.")
   public Integer getMaxRetries() {
@@ -161,7 +161,7 @@ public class V1PrometheusSpecQueueConfig {
    *
    * @return maxSamplesPerSend
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MaxSamplesPerSend is the maximum number of samples per send.")
   public Integer getMaxSamplesPerSend() {
     return maxSamplesPerSend;
@@ -182,7 +182,7 @@ public class V1PrometheusSpecQueueConfig {
    *
    * @return maxShards
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "MaxShards is the maximum number of shards, i.e. amount of concurrency.")
   public Integer getMaxShards() {
@@ -204,7 +204,7 @@ public class V1PrometheusSpecQueueConfig {
    *
    * @return minBackoff
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MinBackoff is the initial retry delay. Gets doubled for every retry.")
   public String getMinBackoff() {
     return minBackoff;
@@ -225,7 +225,7 @@ public class V1PrometheusSpecQueueConfig {
    *
    * @return minShards
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "MinShards is the minimum number of shards, i.e. amount of concurrency.")
   public Integer getMinShards() {

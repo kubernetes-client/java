@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** The ConfigMap to select from */
 @ApiModel(description = "The ConfigMap to select from")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecConfigMapRef {
@@ -46,7 +46,7 @@ public class V1ThanosRulerSpecConfigMapRef {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?")
@@ -69,7 +69,7 @@ public class V1ThanosRulerSpecConfigMapRef {
    *
    * @return optional
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specify whether the ConfigMap must be defined")
   public Boolean getOptional() {
     return optional;

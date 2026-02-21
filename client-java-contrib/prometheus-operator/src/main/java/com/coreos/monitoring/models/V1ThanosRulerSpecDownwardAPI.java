@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "DownwardAPI represents downward API about the pod that should populate this volume")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecDownwardAPI {
@@ -51,7 +51,7 @@ public class V1ThanosRulerSpecDownwardAPI {
    *
    * @return defaultMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Optional: mode bits to use on created files by default. Must be a value between 0 and 0777. Defaults to 0644. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
@@ -82,7 +82,7 @@ public class V1ThanosRulerSpecDownwardAPI {
    *
    * @return items
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Items is a list of downward API volume file")
   public List<V1ThanosRulerSpecDownwardAPIItems> getItems() {
     return items;

@@ -28,7 +28,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecAffinityPodAffinityRequiredDuringSchedulingIgnoredDuringExecution {
@@ -60,7 +60,7 @@ public class V1ThanosRulerSpecAffinityPodAffinityRequiredDuringSchedulingIgnored
    *
    * @return labelSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAffinityPodAffinityPodAffinityTermLabelSelector getLabelSelector() {
     return labelSelector;
@@ -93,7 +93,7 @@ public class V1ThanosRulerSpecAffinityPodAffinityRequiredDuringSchedulingIgnored
    *
    * @return namespaces
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means \"this pod's namespace\"")

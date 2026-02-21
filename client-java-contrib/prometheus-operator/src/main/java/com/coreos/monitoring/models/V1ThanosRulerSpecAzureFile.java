@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "AzureFile represents an Azure File Service mount on the host and bind mount to the pod.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecAzureFile {
@@ -51,7 +51,7 @@ public class V1ThanosRulerSpecAzureFile {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")

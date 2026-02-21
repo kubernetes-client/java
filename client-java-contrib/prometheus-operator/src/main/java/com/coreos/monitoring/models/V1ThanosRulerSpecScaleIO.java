@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ScaleIO represents a ScaleIO persistent volume attached and mounted on Kubernetes nodes.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecScaleIO {
@@ -87,7 +87,7 @@ public class V1ThanosRulerSpecScaleIO {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Default is \"xfs\".")
@@ -130,7 +130,7 @@ public class V1ThanosRulerSpecScaleIO {
    *
    * @return protectionDomain
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name of the ScaleIO Protection Domain for the configured storage.")
   public String getProtectionDomain() {
     return protectionDomain;
@@ -151,7 +151,7 @@ public class V1ThanosRulerSpecScaleIO {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
@@ -194,7 +194,7 @@ public class V1ThanosRulerSpecScaleIO {
    *
    * @return sslEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Flag to enable/disable SSL communication with Gateway, default false")
   public Boolean getSslEnabled() {
     return sslEnabled;
@@ -216,7 +216,7 @@ public class V1ThanosRulerSpecScaleIO {
    *
    * @return storageMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.")
@@ -239,7 +239,7 @@ public class V1ThanosRulerSpecScaleIO {
    *
    * @return storagePool
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The ScaleIO Storage Pool associated with the protection domain.")
   public String getStoragePool() {
     return storagePool;
@@ -283,7 +283,7 @@ public class V1ThanosRulerSpecScaleIO {
    *
    * @return volumeName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The name of a volume already created in the ScaleIO system that is associated with this volume source.")

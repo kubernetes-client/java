@@ -28,7 +28,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Specification of the desired behavior of the Prometheus cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#spec-and-status")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpec {
@@ -352,7 +352,7 @@ public class V1PrometheusSpec {
    *
    * @return additionalAlertManagerConfigs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecAdditionalAlertManagerConfigs getAdditionalAlertManagerConfigs() {
     return additionalAlertManagerConfigs;
@@ -375,7 +375,7 @@ public class V1PrometheusSpec {
    *
    * @return additionalAlertRelabelConfigs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecAdditionalAlertRelabelConfigs getAdditionalAlertRelabelConfigs() {
     return additionalAlertRelabelConfigs;
@@ -398,7 +398,7 @@ public class V1PrometheusSpec {
    *
    * @return additionalScrapeConfigs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecAdditionalScrapeConfigs getAdditionalScrapeConfigs() {
     return additionalScrapeConfigs;
@@ -420,7 +420,7 @@ public class V1PrometheusSpec {
    *
    * @return affinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAffinity getAffinity() {
     return affinity;
@@ -441,7 +441,7 @@ public class V1PrometheusSpec {
    *
    * @return alerting
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecAlerting getAlerting() {
     return alerting;
@@ -462,7 +462,7 @@ public class V1PrometheusSpec {
    *
    * @return apiserverConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecApiserverConfig getApiserverConfig() {
     return apiserverConfig;
@@ -484,7 +484,7 @@ public class V1PrometheusSpec {
    *
    * @return arbitraryFSAccessThroughSMs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecArbitraryFSAccessThroughSMs getArbitraryFSAccessThroughSMs() {
     return arbitraryFSAccessThroughSMs;
@@ -506,7 +506,7 @@ public class V1PrometheusSpec {
    *
    * @return baseImage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Base image to use for a Prometheus deployment.")
   public String getBaseImage() {
     return baseImage;
@@ -537,7 +537,7 @@ public class V1PrometheusSpec {
    *
    * @return configMaps
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ConfigMaps is a list of ConfigMaps in the same namespace as the Prometheus object, which shall be mounted into the Prometheus Pods. The ConfigMaps are mounted into /etc/prometheus/configmaps/<configmap-name>.")
@@ -576,7 +576,7 @@ public class V1PrometheusSpec {
    *
    * @return containers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Containers allows injecting additional containers or modifying operator generated containers. This can be used to allow adding an authentication proxy to a Prometheus pod or to change the behavior of an operator generated container. Containers described here modify an operator generated container if they share the same name and modifications are done via a strategic merge patch. The current container names are: `prometheus`, `prometheus-config-reloader`, `rules-configmap-reloader`, and `thanos-sidecar`. Overriding containers is entirely outside the scope of what the maintainers will support and by doing so, you accept that this behaviour may break at any time without notice.")
@@ -599,7 +599,7 @@ public class V1PrometheusSpec {
    *
    * @return disableCompaction
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Disable prometheus compaction.")
   public Boolean getDisableCompaction() {
     return disableCompaction;
@@ -625,7 +625,7 @@ public class V1PrometheusSpec {
    *
    * @return enableAdminAPI
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Enable access to prometheus web admin API. Defaults to the value of `false`. WARNING: Enabling the admin APIs enables mutating endpoints, to delete data, shutdown Prometheus, and more. Enabling this should be done with care and the user is advised to add additional authentication authorization via a proxy to ensure only clients authorized to perform these actions can do so. For more information see https://prometheus.io/docs/prometheus/latest/querying/api/#tsdb-admin-apis")
@@ -650,7 +650,7 @@ public class V1PrometheusSpec {
    *
    * @return enforcedNamespaceLabel
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "EnforcedNamespaceLabel enforces adding a namespace label of origin for each alert and metric that is user created. The label value will always be the namespace of the object that is being created.")
@@ -673,7 +673,7 @@ public class V1PrometheusSpec {
    *
    * @return evaluationInterval
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Interval between consecutive evaluations.")
   public String getEvaluationInterval() {
     return evaluationInterval;
@@ -703,7 +703,7 @@ public class V1PrometheusSpec {
    *
    * @return externalLabels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The labels to add to any time series or alerts when communicating with external systems (federation, remote storage, Alertmanager).")
@@ -727,7 +727,7 @@ public class V1PrometheusSpec {
    *
    * @return externalUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The external URL the Prometheus instances will be available under. This is necessary to generate correct URLs. This is necessary if Prometheus is not served from root of a DNS name.")
@@ -752,7 +752,7 @@ public class V1PrometheusSpec {
    *
    * @return ignoreNamespaceSelectors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "IgnoreNamespaceSelectors if set to true will ignore NamespaceSelector settings from the podmonitor and servicemonitor configs, and they will only discover endpoints within their current namespace.  Defaults to false.")
@@ -777,7 +777,7 @@ public class V1PrometheusSpec {
    *
    * @return image
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Image if specified has precedence over baseImage, tag and sha combinations. Specifying the version is still necessary to ensure the Prometheus Operator knows what version of Prometheus is being configured.")
@@ -812,7 +812,7 @@ public class V1PrometheusSpec {
    *
    * @return imagePullSecrets
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "An optional list of references to secrets in the same namespace to use for pulling prometheus and alertmanager images from registries see https://kubernetes.io/docs/user-guide/images#specifying-imagepullsecrets-on-a-pod")
@@ -849,7 +849,7 @@ public class V1PrometheusSpec {
    *
    * @return initContainers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "InitContainers allows adding initContainers to the pod definition. Those can be used to e.g. fetch secrets for injection into the Prometheus configuration from external sources. Any errors during the execution of an initContainer will lead to a restart of the Pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/ Using initContainers for any use case other then secret fetching is entirely outside the scope of what the maintainers will support and by doing so, you accept that this behaviour may break at any time without notice.")
@@ -873,7 +873,7 @@ public class V1PrometheusSpec {
    *
    * @return listenLocal
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ListenLocal makes the Prometheus server listen on loopback, so that it does not bind against the Pod IP.")
@@ -896,7 +896,7 @@ public class V1PrometheusSpec {
    *
    * @return logFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Log format for Prometheus to be configured with.")
   public String getLogFormat() {
     return logFormat;
@@ -917,7 +917,7 @@ public class V1PrometheusSpec {
    *
    * @return logLevel
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Log level for Prometheus to be configured with.")
   public String getLogLevel() {
     return logLevel;
@@ -946,7 +946,7 @@ public class V1PrometheusSpec {
    *
    * @return nodeSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Define which Nodes the Pods are scheduled on.")
   public Map<String, String> getNodeSelector() {
     return nodeSelector;
@@ -968,7 +968,7 @@ public class V1PrometheusSpec {
    *
    * @return overrideHonorLabels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "OverrideHonorLabels if set to true overrides all user configured honor_labels. If HonorLabels is set in ServiceMonitor or PodMonitor to true, this overrides honor_labels to false.")
@@ -991,7 +991,7 @@ public class V1PrometheusSpec {
    *
    * @return overrideHonorTimestamps
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "OverrideHonorTimestamps allows to globally enforce honoring timestamps in all scrape configs.")
@@ -1015,7 +1015,7 @@ public class V1PrometheusSpec {
    *
    * @return paused
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "When a Prometheus deployment is paused, no actions except for deletion will be performed on the underlying objects.")
@@ -1038,7 +1038,7 @@ public class V1PrometheusSpec {
    *
    * @return podMetadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecPodMetadata getPodMetadata() {
     return podMetadata;
@@ -1060,7 +1060,7 @@ public class V1PrometheusSpec {
    *
    * @return podMonitorNamespaceSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecPodMonitorNamespaceSelector getPodMonitorNamespaceSelector() {
     return podMonitorNamespaceSelector;
@@ -1083,7 +1083,7 @@ public class V1PrometheusSpec {
    *
    * @return podMonitorSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecPodMonitorSelector getPodMonitorSelector() {
     return podMonitorSelector;
@@ -1104,7 +1104,7 @@ public class V1PrometheusSpec {
    *
    * @return portName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Port name used for the pods and governing service. This defaults to web")
   public String getPortName() {
@@ -1126,7 +1126,7 @@ public class V1PrometheusSpec {
    *
    * @return priorityClassName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Priority class assigned to the Pods")
   public String getPriorityClassName() {
     return priorityClassName;
@@ -1149,7 +1149,7 @@ public class V1PrometheusSpec {
    *
    * @return prometheusExternalLabelName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of Prometheus external label used to denote Prometheus instance name. Defaults to the value of `prometheus`. External label will _not_ be added when value is set to empty string (`\"\"`).")
@@ -1172,7 +1172,7 @@ public class V1PrometheusSpec {
    *
    * @return query
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecQuery getQuery() {
     return query;
@@ -1202,7 +1202,7 @@ public class V1PrometheusSpec {
    *
    * @return remoteRead
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "If specified, the remote_read spec. This is an experimental feature, it may change in any upcoming release in a breaking way.")
@@ -1234,7 +1234,7 @@ public class V1PrometheusSpec {
    *
    * @return remoteWrite
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "If specified, the remote_write spec. This is an experimental feature, it may change in any upcoming release in a breaking way.")
@@ -1259,7 +1259,7 @@ public class V1PrometheusSpec {
    *
    * @return replicaExternalLabelName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of Prometheus external label used to denote replica name. Defaults to the value of `prometheus_replica`. External label will _not_ be added when value is set to empty string (`\"\"`).")
@@ -1282,7 +1282,7 @@ public class V1PrometheusSpec {
    *
    * @return replicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of instances to deploy for a Prometheus deployment.")
   public Integer getReplicas() {
     return replicas;
@@ -1303,7 +1303,7 @@ public class V1PrometheusSpec {
    *
    * @return resources
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1AlertmanagerSpecResources getResources() {
     return resources;
@@ -1326,7 +1326,7 @@ public class V1PrometheusSpec {
    *
    * @return retention
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Time duration Prometheus shall retain data for. Default is '24h', and must match the regular expression `[0-9]+(ms|s|m|h|d|w|y)` (milliseconds seconds minutes hours days weeks years).")
@@ -1349,7 +1349,7 @@ public class V1PrometheusSpec {
    *
    * @return retentionSize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Maximum amount of disk space used by blocks.")
   public String getRetentionSize() {
     return retentionSize;
@@ -1373,7 +1373,7 @@ public class V1PrometheusSpec {
    *
    * @return routePrefix
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The route prefix Prometheus registers HTTP handlers for. This is useful, if using ExternalURL and a proxy is rewriting HTTP routes of a request, and the actual ExternalURL is still true, but the server serves requests under a different route prefix. For example for use with `kubectl proxy`.")
@@ -1397,7 +1397,7 @@ public class V1PrometheusSpec {
    *
    * @return ruleNamespaceSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecRuleNamespaceSelector getRuleNamespaceSelector() {
     return ruleNamespaceSelector;
@@ -1419,7 +1419,7 @@ public class V1PrometheusSpec {
    *
    * @return ruleSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecRuleSelector getRuleSelector() {
     return ruleSelector;
@@ -1440,7 +1440,7 @@ public class V1PrometheusSpec {
    *
    * @return rules
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecRules getRules() {
     return rules;
@@ -1461,7 +1461,7 @@ public class V1PrometheusSpec {
    *
    * @return scrapeInterval
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Interval between consecutive scrapes.")
   public String getScrapeInterval() {
     return scrapeInterval;
@@ -1492,7 +1492,7 @@ public class V1PrometheusSpec {
    *
    * @return secrets
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Secrets is a list of Secrets in the same namespace as the Prometheus object, which shall be mounted into the Prometheus Pods. The Secrets are mounted into /etc/prometheus/secrets/<secret-name>.")
@@ -1515,7 +1515,7 @@ public class V1PrometheusSpec {
    *
    * @return securityContext
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecSecurityContext1 getSecurityContext() {
     return securityContext;
@@ -1536,7 +1536,7 @@ public class V1PrometheusSpec {
    *
    * @return serviceAccountName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ServiceAccountName is the name of the ServiceAccount to use to run the Prometheus Pods.")
@@ -1560,7 +1560,7 @@ public class V1PrometheusSpec {
    *
    * @return serviceMonitorNamespaceSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecServiceMonitorNamespaceSelector getServiceMonitorNamespaceSelector() {
     return serviceMonitorNamespaceSelector;
@@ -1583,7 +1583,7 @@ public class V1PrometheusSpec {
    *
    * @return serviceMonitorSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecServiceMonitorSelector getServiceMonitorSelector() {
     return serviceMonitorSelector;
@@ -1607,7 +1607,7 @@ public class V1PrometheusSpec {
    *
    * @return sha
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "SHA of Prometheus container image to be deployed. Defaults to the value of `version`. Similar to a tag, but the SHA explicitly deploys an immutable container image. Version and Tag are ignored if SHA is set.")
@@ -1630,7 +1630,7 @@ public class V1PrometheusSpec {
    *
    * @return storage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecStorage getStorage() {
     return storage;
@@ -1652,7 +1652,7 @@ public class V1PrometheusSpec {
    *
    * @return tag
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Tag of Prometheus container image to be deployed. Defaults to the value of `version`. Version is ignored if Tag is set.")
@@ -1675,7 +1675,7 @@ public class V1PrometheusSpec {
    *
    * @return thanos
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecThanos getThanos() {
     return thanos;
@@ -1704,7 +1704,7 @@ public class V1PrometheusSpec {
    *
    * @return tolerations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If specified, the pod's tolerations.")
   public List<V1ThanosRulerSpecTolerations> getTolerations() {
     return tolerations;
@@ -1725,7 +1725,7 @@ public class V1PrometheusSpec {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Version of Prometheus to be deployed.")
   public String getVersion() {
     return version;
@@ -1756,7 +1756,7 @@ public class V1PrometheusSpec {
    *
    * @return volumeMounts
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "VolumeMounts allows configuration of additional VolumeMounts on the output StatefulSet definition. VolumeMounts specified will be appended to other VolumeMounts in the prometheus container, that are generated as a result of StorageSpec objects.")
@@ -1789,7 +1789,7 @@ public class V1PrometheusSpec {
    *
    * @return volumes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Volumes allows configuration of additional volumes on the output StatefulSet definition. Volumes specified will be appended to other volumes that are generated as a result of StorageSpec objects.")
@@ -1813,7 +1813,7 @@ public class V1PrometheusSpec {
    *
    * @return walCompression
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Enable compression of the write-ahead log using Snappy. This flag is only available in versions of Prometheus >= 2.11.0.")

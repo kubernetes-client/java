@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ISCSI represents an ISCSI Disk resource that is attached to a kubelet's host machine and then exposed to the pod. More info: https://examples.k8s.io/volumes/iscsi/README.md")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecIscsi {
@@ -96,7 +96,7 @@ public class V1ThanosRulerSpecIscsi {
    *
    * @return chapAuthDiscovery
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "whether support iSCSI Discovery CHAP authentication")
   public Boolean getChapAuthDiscovery() {
     return chapAuthDiscovery;
@@ -117,7 +117,7 @@ public class V1ThanosRulerSpecIscsi {
    *
    * @return chapAuthSession
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "whether support iSCSI Session CHAP authentication")
   public Boolean getChapAuthSession() {
     return chapAuthSession;
@@ -142,7 +142,7 @@ public class V1ThanosRulerSpecIscsi {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi TODO: how do we prevent errors in the filesystem from compromising the machine")
@@ -167,7 +167,7 @@ public class V1ThanosRulerSpecIscsi {
    *
    * @return initiatorName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.")
@@ -210,7 +210,7 @@ public class V1ThanosRulerSpecIscsi {
    *
    * @return iscsiInterface
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "iSCSI Interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).")
   public String getIscsiInterface() {
@@ -261,7 +261,7 @@ public class V1ThanosRulerSpecIscsi {
    *
    * @return portals
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "iSCSI Target Portal List. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).")
@@ -284,7 +284,7 @@ public class V1ThanosRulerSpecIscsi {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.")
   public Boolean getReadOnly() {
@@ -306,7 +306,7 @@ public class V1ThanosRulerSpecIscsi {
    *
    * @return secretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecIscsiSecretRef getSecretRef() {
     return secretRef;

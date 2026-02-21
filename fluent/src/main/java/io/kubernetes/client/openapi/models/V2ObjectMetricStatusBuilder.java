@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V2ObjectMetricStatusBuilder extends V2ObjectMetricStatusFluent<V2ObjectMetricStatusBuilder> implements VisitableBuilder<V2ObjectMetricStatus,V2ObjectMetricStatusBuilder>{
+
+  V2ObjectMetricStatusFluent<?> fluent;
+
   public V2ObjectMetricStatusBuilder() {
     this(new V2ObjectMetricStatus());
   }
@@ -11,17 +14,16 @@ public class V2ObjectMetricStatusBuilder extends V2ObjectMetricStatusFluent<V2Ob
     this(fluent, new V2ObjectMetricStatus());
   }
   
-  public V2ObjectMetricStatusBuilder(V2ObjectMetricStatusFluent<?> fluent,V2ObjectMetricStatus instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V2ObjectMetricStatusBuilder(V2ObjectMetricStatus instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V2ObjectMetricStatusFluent<?> fluent;
   
+  public V2ObjectMetricStatusBuilder(V2ObjectMetricStatusFluent<?> fluent,V2ObjectMetricStatus instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V2ObjectMetricStatus build() {
     V2ObjectMetricStatus buildable = new V2ObjectMetricStatus();
     buildable.setCurrent(fluent.buildCurrent());
@@ -30,5 +32,4 @@ public class V2ObjectMetricStatusBuilder extends V2ObjectMetricStatusFluent<V2Ob
     return buildable;
   }
   
-
 }

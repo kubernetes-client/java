@@ -27,7 +27,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PodMetricsEndpoint defines a scrapeable endpoint of a Kubernetes Pod serving Prometheus metrics.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PodMonitorSpecPodMetricsEndpoints {
@@ -102,7 +102,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return honorLabels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "HonorLabels chooses the metric's labels on collisions with target labels.")
   public Boolean getHonorLabels() {
@@ -124,7 +124,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return honorTimestamps
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "HonorTimestamps controls whether Prometheus respects the timestamps present in scraped data.")
@@ -147,7 +147,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return interval
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Interval at which metrics should be scraped")
   public String getInterval() {
     return interval;
@@ -178,7 +178,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return metricRelabelings
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "MetricRelabelConfigs to apply to samples before ingestion.")
   public List<V1ServiceMonitorSpecMetricRelabelings> getMetricRelabelings() {
     return metricRelabelings;
@@ -207,7 +207,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return params
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional HTTP URL parameters")
   public Map<String, List<String>> getParams() {
     return params;
@@ -228,7 +228,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return path
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "HTTP path to scrape for metrics.")
   public String getPath() {
     return path;
@@ -249,7 +249,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return port
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Name of the pod port this endpoint refers to. Mutually exclusive with targetPort.")
   public String getPort() {
@@ -271,7 +271,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return proxyUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "ProxyURL eg http://proxyserver:2195 Directs scrapes to proxy through this endpoint.")
   public String getProxyUrl() {
@@ -304,7 +304,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return relabelings
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "RelabelConfigs to apply to samples before ingestion. More info: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config")
@@ -327,7 +327,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return scheme
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "HTTP scheme to use for scraping.")
   public String getScheme() {
     return scheme;
@@ -348,7 +348,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return scrapeTimeout
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Timeout after which the scrape is ended")
   public String getScrapeTimeout() {
     return scrapeTimeout;
@@ -369,7 +369,7 @@ public class V1PodMonitorSpecPodMetricsEndpoints {
    *
    * @return targetPort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Deprecated: Use 'port' instead.")
   public Object getTargetPort() {
     return targetPort;

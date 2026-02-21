@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ServiceSpecBuilder extends V1ServiceSpecFluent<V1ServiceSpecBuilder> implements VisitableBuilder<V1ServiceSpec,V1ServiceSpecBuilder>{
+
+  V1ServiceSpecFluent<?> fluent;
+
   public V1ServiceSpecBuilder() {
     this(new V1ServiceSpec());
   }
@@ -11,17 +14,16 @@ public class V1ServiceSpecBuilder extends V1ServiceSpecFluent<V1ServiceSpecBuild
     this(fluent, new V1ServiceSpec());
   }
   
-  public V1ServiceSpecBuilder(V1ServiceSpecFluent<?> fluent,V1ServiceSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ServiceSpecBuilder(V1ServiceSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ServiceSpecFluent<?> fluent;
   
+  public V1ServiceSpecBuilder(V1ServiceSpecFluent<?> fluent,V1ServiceSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ServiceSpec build() {
     V1ServiceSpec buildable = new V1ServiceSpec();
     buildable.setAllocateLoadBalancerNodePorts(fluent.getAllocateLoadBalancerNodePorts());
@@ -47,5 +49,4 @@ public class V1ServiceSpecBuilder extends V1ServiceSpecFluent<V1ServiceSpecBuild
     return buildable;
   }
   
-
 }

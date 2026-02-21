@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Struct containing the client cert file for the targets. */
 @ApiModel(description = "Struct containing the client cert file for the targets.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ServiceMonitorSpecTlsConfigCert {
@@ -45,7 +45,7 @@ public class V1ServiceMonitorSpecTlsConfigCert {
    *
    * @return configMap
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecTlsConfigCaConfigMap getConfigMap() {
     return configMap;
@@ -66,7 +66,7 @@ public class V1ServiceMonitorSpecTlsConfigCert {
    *
    * @return secret
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecTlsConfigCaSecret getSecret() {
     return secret;

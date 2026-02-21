@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "FC represents a Fibre Channel resource that is attached to a kubelet's host machine and then exposed to the pod.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecFc {
@@ -69,7 +69,7 @@ public class V1ThanosRulerSpecFc {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. TODO: how do we prevent errors in the filesystem from compromising the machine")
@@ -92,7 +92,7 @@ public class V1ThanosRulerSpecFc {
    *
    * @return lun
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional: FC target lun number")
   public Integer getLun() {
     return lun;
@@ -114,7 +114,7 @@ public class V1ThanosRulerSpecFc {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
@@ -145,7 +145,7 @@ public class V1ThanosRulerSpecFc {
    *
    * @return targetWWNs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional: FC target worldwide names (WWNs)")
   public List<String> getTargetWWNs() {
     return targetWWNs;
@@ -175,7 +175,7 @@ public class V1ThanosRulerSpecFc {
    *
    * @return wwids
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.")

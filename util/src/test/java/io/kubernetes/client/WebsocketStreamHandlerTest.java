@@ -168,6 +168,24 @@ class WebsocketStreamHandlerTest {
     }).isInstanceOf(IOException.class);
   }
 
+  @Test
+  void handlerIsClosed() throws IOException {
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    MockWebSocket mockWebSocket = new MockWebSocket();
+
+    handler.open(testProtocol, mockWebSocket);
+
+    // Initially, handler should not be closed
+    assertThat(handler.isClosed()).isFalse();
+
+    // Close the handler
+    handler.close();
+
+    // After closing, handler should be closed
+    assertThat(handler.isClosed()).isTrue();
+    assertThat(mockWebSocket.closed).isTrue();
+  }
+
   private static class MockWebSocket implements WebSocket {
     byte[] data;
     private boolean closed = false;

@@ -28,7 +28,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Specification of the desired behavior of the ThanosRuler cluster. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#spec-and-status")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpec {
@@ -228,7 +228,7 @@ public class V1ThanosRulerSpec {
    *
    * @return affinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAffinity getAffinity() {
     return affinity;
@@ -259,7 +259,7 @@ public class V1ThanosRulerSpec {
    *
    * @return alertDropLabels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "AlertDropLabels configure the label names which should be dropped in ThanosRuler alerts. If `labels` field is not provided, `thanos_ruler_replica` will be dropped in alerts by default.")
@@ -283,7 +283,7 @@ public class V1ThanosRulerSpec {
    *
    * @return alertQueryUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The external Query URL the Thanos Ruler will set in the 'Source' field of all alerts. Maps to the '--alert.query-url' CLI arg.")
@@ -307,7 +307,7 @@ public class V1ThanosRulerSpec {
    *
    * @return alertmanagersConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAlertmanagersConfig getAlertmanagersConfig() {
     return alertmanagersConfig;
@@ -338,7 +338,7 @@ public class V1ThanosRulerSpec {
    *
    * @return alertmanagersUrl
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Define URLs to send alerts to Alertmanager.  For Thanos v0.10.0 and higher, AlertManagersConfig should be used instead.  Note: this field will be ignored if AlertManagersConfig is specified. Maps to the `alertmanagers.url` arg.")
@@ -376,7 +376,7 @@ public class V1ThanosRulerSpec {
    *
    * @return containers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Containers allows injecting additional containers or modifying operator generated containers. This can be used to allow adding an authentication proxy to a ThanosRuler pod or to change the behavior of an operator generated container. Containers described here modify an operator generated container if they share the same name and modifications are done via a strategic merge patch. The current container names are: `thanos-ruler` and `rules-configmap-reloader`. Overriding containers is entirely outside the scope of what the maintainers will support and by doing so, you accept that this behaviour may break at any time without notice.")
@@ -401,7 +401,7 @@ public class V1ThanosRulerSpec {
    *
    * @return enforcedNamespaceLabel
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "EnforcedNamespaceLabel enforces adding a namespace label of origin for each alert and metric that is user created. The label value will always be the namespace of the object that is being created.")
@@ -424,7 +424,7 @@ public class V1ThanosRulerSpec {
    *
    * @return evaluationInterval
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Interval between consecutive evaluations.")
   public String getEvaluationInterval() {
     return evaluationInterval;
@@ -446,7 +446,7 @@ public class V1ThanosRulerSpec {
    *
    * @return externalPrefix
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The external URL the Thanos Ruler instances will be available under. This is necessary to generate correct URLs. This is necessary if Thanos Ruler is not served from root of a DNS name.")
@@ -470,7 +470,7 @@ public class V1ThanosRulerSpec {
    *
    * @return grpcServerTlsConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecGrpcServerTlsConfig getGrpcServerTlsConfig() {
     return grpcServerTlsConfig;
@@ -491,7 +491,7 @@ public class V1ThanosRulerSpec {
    *
    * @return image
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Thanos container image URL.")
   public String getImage() {
     return image;
@@ -524,7 +524,7 @@ public class V1ThanosRulerSpec {
    *
    * @return imagePullSecrets
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "An optional list of references to secrets in the same namespace to use for pulling thanos images from registries see http://kubernetes.io/docs/user-guide/images#specifying-imagepullsecrets-on-a-pod")
@@ -561,7 +561,7 @@ public class V1ThanosRulerSpec {
    *
    * @return initContainers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "InitContainers allows adding initContainers to the pod definition. Those can be used to e.g. fetch secrets for injection into the ThanosRuler configuration from external sources. Any errors during the execution of an initContainer will lead to a restart of the Pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/ Using initContainers for any use case other then secret fetching is entirely outside the scope of what the maintainers will support and by doing so, you accept that this behaviour may break at any time without notice.")
@@ -593,7 +593,7 @@ public class V1ThanosRulerSpec {
    *
    * @return labels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Labels configure the external label pairs to ThanosRuler. If not provided, default replica label `thanos_ruler_replica` will be added as a label and be dropped in alerts.")
@@ -617,7 +617,7 @@ public class V1ThanosRulerSpec {
    *
    * @return listenLocal
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ListenLocal makes the Thanos ruler listen on loopback, so that it does not bind against the Pod IP.")
@@ -640,7 +640,7 @@ public class V1ThanosRulerSpec {
    *
    * @return logFormat
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Log format for ThanosRuler to be configured with.")
   public String getLogFormat() {
     return logFormat;
@@ -661,7 +661,7 @@ public class V1ThanosRulerSpec {
    *
    * @return logLevel
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Log level for ThanosRuler to be configured with.")
   public String getLogLevel() {
     return logLevel;
@@ -690,7 +690,7 @@ public class V1ThanosRulerSpec {
    *
    * @return nodeSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Define which Nodes the Pods are scheduled on.")
   public Map<String, String> getNodeSelector() {
     return nodeSelector;
@@ -712,7 +712,7 @@ public class V1ThanosRulerSpec {
    *
    * @return objectStorageConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecObjectStorageConfig getObjectStorageConfig() {
     return objectStorageConfig;
@@ -734,7 +734,7 @@ public class V1ThanosRulerSpec {
    *
    * @return paused
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "When a ThanosRuler deployment is paused, no actions except for deletion will be performed on the underlying objects.")
@@ -757,7 +757,7 @@ public class V1ThanosRulerSpec {
    *
    * @return podMetadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecPodMetadata getPodMetadata() {
     return podMetadata;
@@ -778,7 +778,7 @@ public class V1ThanosRulerSpec {
    *
    * @return portName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Port name used for the pods and governing service. This defaults to web")
   public String getPortName() {
@@ -800,7 +800,7 @@ public class V1ThanosRulerSpec {
    *
    * @return priorityClassName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Priority class assigned to the Pods")
   public String getPriorityClassName() {
     return priorityClassName;
@@ -821,7 +821,7 @@ public class V1ThanosRulerSpec {
    *
    * @return queryConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecQueryConfig getQueryConfig() {
     return queryConfig;
@@ -851,7 +851,7 @@ public class V1ThanosRulerSpec {
    *
    * @return queryEndpoints
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "QueryEndpoints defines Thanos querier endpoints from which to query metrics. Maps to the --query flag of thanos ruler.")
@@ -874,7 +874,7 @@ public class V1ThanosRulerSpec {
    *
    * @return replicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of thanos ruler instances to deploy.")
   public Integer getReplicas() {
     return replicas;
@@ -895,7 +895,7 @@ public class V1ThanosRulerSpec {
    *
    * @return resources
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecResources1 getResources() {
     return resources;
@@ -918,7 +918,7 @@ public class V1ThanosRulerSpec {
    *
    * @return retention
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Time duration ThanosRuler shall retain data for. Default is '24h', and must match the regular expression `[0-9]+(ms|s|m|h|d|w|y)` (milliseconds seconds minutes hours days weeks years).")
@@ -942,7 +942,7 @@ public class V1ThanosRulerSpec {
    *
    * @return routePrefix
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The route prefix ThanosRuler registers HTTP handlers for. This allows thanos UI to be served on a sub-path.")
@@ -966,7 +966,7 @@ public class V1ThanosRulerSpec {
    *
    * @return ruleNamespaceSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecRuleNamespaceSelector getRuleNamespaceSelector() {
     return ruleNamespaceSelector;
@@ -988,7 +988,7 @@ public class V1ThanosRulerSpec {
    *
    * @return ruleSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecRuleSelector getRuleSelector() {
     return ruleSelector;
@@ -1009,7 +1009,7 @@ public class V1ThanosRulerSpec {
    *
    * @return securityContext
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecSecurityContext1 getSecurityContext() {
     return securityContext;
@@ -1030,7 +1030,7 @@ public class V1ThanosRulerSpec {
    *
    * @return serviceAccountName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ServiceAccountName is the name of the ServiceAccount to use to run the Thanos Ruler Pods.")
@@ -1053,7 +1053,7 @@ public class V1ThanosRulerSpec {
    *
    * @return storage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecStorage getStorage() {
     return storage;
@@ -1082,7 +1082,7 @@ public class V1ThanosRulerSpec {
    *
    * @return tolerations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If specified, the pod's tolerations.")
   public List<V1ThanosRulerSpecTolerations> getTolerations() {
     return tolerations;
@@ -1103,7 +1103,7 @@ public class V1ThanosRulerSpec {
    *
    * @return tracingConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecTracingConfig getTracingConfig() {
     return tracingConfig;
@@ -1134,7 +1134,7 @@ public class V1ThanosRulerSpec {
    *
    * @return volumes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Volumes allows configuration of additional volumes on the output StatefulSet definition. Volumes specified will be appended to other volumes that are generated as a result of StorageSpec objects.")

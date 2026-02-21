@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Volume represents a named volume in a pod that may be accessed by any container in the pod.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecVolumes {
@@ -182,7 +182,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return awsElasticBlockStore
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAwsElasticBlockStore getAwsElasticBlockStore() {
     return awsElasticBlockStore;
@@ -203,7 +203,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return azureDisk
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAzureDisk getAzureDisk() {
     return azureDisk;
@@ -224,7 +224,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return azureFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAzureFile getAzureFile() {
     return azureFile;
@@ -245,7 +245,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return cephfs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecCephfs getCephfs() {
     return cephfs;
@@ -266,7 +266,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return cinder
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecCinder getCinder() {
     return cinder;
@@ -287,7 +287,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return configMap
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecConfigMap getConfigMap() {
     return configMap;
@@ -308,7 +308,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return csi
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecCsi getCsi() {
     return csi;
@@ -329,7 +329,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return downwardAPI
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecDownwardAPI getDownwardAPI() {
     return downwardAPI;
@@ -350,7 +350,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return emptyDir
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecEmptyDir getEmptyDir() {
     return emptyDir;
@@ -371,7 +371,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return fc
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecFc getFc() {
     return fc;
@@ -392,7 +392,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return flexVolume
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecFlexVolume getFlexVolume() {
     return flexVolume;
@@ -413,7 +413,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return flocker
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecFlocker getFlocker() {
     return flocker;
@@ -435,7 +435,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return gcePersistentDisk
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecGcePersistentDisk getGcePersistentDisk() {
     return gcePersistentDisk;
@@ -456,7 +456,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return gitRepo
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecGitRepo getGitRepo() {
     return gitRepo;
@@ -477,7 +477,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return glusterfs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecGlusterfs getGlusterfs() {
     return glusterfs;
@@ -498,7 +498,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return hostPath
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecHostPath getHostPath() {
     return hostPath;
@@ -519,7 +519,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return iscsi
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecIscsi getIscsi() {
     return iscsi;
@@ -564,7 +564,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return nfs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecNfs getNfs() {
     return nfs;
@@ -586,7 +586,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return persistentVolumeClaim
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecPersistentVolumeClaim getPersistentVolumeClaim() {
     return persistentVolumeClaim;
@@ -609,7 +609,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return photonPersistentDisk
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecPhotonPersistentDisk getPhotonPersistentDisk() {
     return photonPersistentDisk;
@@ -630,7 +630,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return portworxVolume
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecPortworxVolume getPortworxVolume() {
     return portworxVolume;
@@ -651,7 +651,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return projected
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecProjected getProjected() {
     return projected;
@@ -672,7 +672,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return quobyte
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecQuobyte getQuobyte() {
     return quobyte;
@@ -693,7 +693,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return rbd
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecRbd getRbd() {
     return rbd;
@@ -714,7 +714,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return scaleIO
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecScaleIO getScaleIO() {
     return scaleIO;
@@ -735,7 +735,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return secret
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecSecret getSecret() {
     return secret;
@@ -756,7 +756,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return storageos
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecStorageos getStorageos() {
     return storageos;
@@ -777,7 +777,7 @@ public class V1ThanosRulerSpecVolumes {
    *
    * @return vsphereVolume
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecVsphereVolume getVsphereVolume() {
     return vsphereVolume;

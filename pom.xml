@@ -50,10 +50,12 @@
     <snakeyaml.version>2.5</snakeyaml.version>
     <slf4j.version>2.0.17</slf4j.version>
     <caffeine.version>2.9.3</caffeine.version>
-    <protobuf.version>4.33.1</protobuf.version>
+    <protobuf.version>4.33.5</protobuf.version>
     <junit-jupiter.version>5.13.4</junit-jupiter.version>
+    <junit-jupiter.version>5.13.4</junit-jupiter.version>
+    <junit-jupiter-params.version>${junit-jupiter.version}</junit-jupiter-params.version>
     <bucket4j.version>8.10.1</bucket4j.version>
-    <bouncycastle.version>1.82</bouncycastle.version>
+    <bouncycastle.version>1.83</bouncycastle.version>
     <gson.version>2.13.2</gson.version>
     <jackson.version>2.20.1</jackson.version>
     <jsr305.version>3.0.2</jsr305.version>
@@ -65,8 +67,8 @@
     <apache.commons.collections4.version>4.5.0</apache.commons.collections4.version>
     <apache.commons.compress>1.28.0</apache.commons.compress>
     <apache.commons.io>2.21.0</apache.commons.io>
-    <common.codec.version>1.20.0</common.codec.version>
-    <spring.boot.version>4.0.0</spring.boot.version>
+    <common.codec.version>1.21.0</common.codec.version>
+    <spring.boot.version>4.0.3</spring.boot.version>
     <spring.version>6.2.12</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
@@ -102,6 +104,14 @@
       <organizationUrl>https://kubernetes.io</organizationUrl>
     </developer>
   </developers>
+  <!--
+  NOTE:
+    Dependencies declared in dependencyManagement may appear unused in individual
+    modules, but are required to provide versions for child modules that declare
+    dependencies without explicit versions. Do not remove entries without verifying
+    all module POMs.
+-->
+
 
   <dependencyManagement>
     <dependencies>
@@ -153,7 +163,7 @@
       <dependency>
         <groupId>software.amazon.awssdk</groupId>
         <artifactId>sts</artifactId>
-        <version>2.39.1</version>
+        <version>2.41.33</version>
       </dependency>
       <dependency>
         <groupId>com.google.protobuf</groupId>
@@ -241,11 +251,6 @@
         <version>${swagger-core.version}</version>
       </dependency>
       <dependency>
-        <groupId>javax.annotation</groupId>
-        <artifactId>javax.annotation-api</artifactId>
-        <version>${javax.annotation.version}</version>
-      </dependency>
-      <dependency>
         <groupId>jakarta.annotation</groupId>
         <artifactId>jakarta.annotation-api</artifactId>
         <version>${jakarta.annotation.version}</version>
@@ -258,14 +263,19 @@
       <dependency>
         <groupId>com.google.auth</groupId>
         <artifactId>google-auth-library-oauth2-http</artifactId>
-        <version>1.40.0</version>
+        <version>1.43.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jetbrains</groupId>
+        <artifactId>annotations</artifactId>
+        <version>26.1.0</version>
       </dependency>
 
       <!-- tests -->
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
-        <version>1.5.21</version>
+        <version>1.5.32</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -275,9 +285,15 @@
         <scope>test</scope>
       </dependency>
       <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-params</artifactId>
+        <version>${junit-jupiter.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-junit-jupiter</artifactId>
-        <version>5.20.0</version>
+        <version>5.21.0</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -318,7 +334,7 @@
       <dependency>
         <groupId>org.assertj</groupId>
         <artifactId>assertj-core</artifactId>
-        <version>3.27.6</version>
+        <version>3.27.7</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -349,7 +365,7 @@
         <plugin>
           <groupId>com.diffplug.spotless</groupId>
           <artifactId>spotless-maven-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>3.2.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.felix</groupId>
@@ -385,17 +401,17 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
-          <version>3.3.1</version>
+          <version>3.4.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>3.3.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.14.1</version>
+          <version>3.15.0</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -418,7 +434,7 @@
         <plugin>
           <groupId>org.codehaus.gmavenplus</groupId>
           <artifactId>gmavenplus-plugin</artifactId>
-          <version>4.2.1</version>
+          <version>4.3.1</version>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
@@ -437,7 +453,7 @@
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>3.3.1</version>
+        <version>3.4.0</version>
         <executions>
             <execution>
                 <id>attach-sources</id>
@@ -450,7 +466,7 @@
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.7.1</version>
+        <version>3.8.0</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -506,6 +522,17 @@
                 <name>Forbids new Yaml()</name>
                 <searchRegex>^.*new Yaml\(\).*$</searchRegex>
                 <replacement>INVALID CONSTRUCTOR (SNAKEYAML)</replacement>
+              </replaceRegex>
+            </format>
+            <!-- forbids javax.annotation imports - use jakarta.annotation instead -->
+            <format>
+              <includes>
+                <include>src/**/*.java</include>
+              </includes>
+              <replaceRegex>
+                <name>Forbids javax.annotation imports</name>
+                <searchRegex>^import (static )?javax\.annotation\..*;$</searchRegex>
+                <replacement>INVALID IMPORTS (JAVAX.ANNOTATION) - use jakarta.annotation instead</replacement>
               </replaceRegex>
             </format>
           </formats>

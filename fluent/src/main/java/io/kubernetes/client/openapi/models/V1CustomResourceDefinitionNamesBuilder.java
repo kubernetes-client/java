@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1CustomResourceDefinitionNamesBuilder extends V1CustomResourceDefinitionNamesFluent<V1CustomResourceDefinitionNamesBuilder> implements VisitableBuilder<V1CustomResourceDefinitionNames,V1CustomResourceDefinitionNamesBuilder>{
+
+  V1CustomResourceDefinitionNamesFluent<?> fluent;
+
   public V1CustomResourceDefinitionNamesBuilder() {
     this(new V1CustomResourceDefinitionNames());
   }
@@ -11,17 +14,16 @@ public class V1CustomResourceDefinitionNamesBuilder extends V1CustomResourceDefi
     this(fluent, new V1CustomResourceDefinitionNames());
   }
   
-  public V1CustomResourceDefinitionNamesBuilder(V1CustomResourceDefinitionNamesFluent<?> fluent,V1CustomResourceDefinitionNames instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1CustomResourceDefinitionNamesBuilder(V1CustomResourceDefinitionNames instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1CustomResourceDefinitionNamesFluent<?> fluent;
   
+  public V1CustomResourceDefinitionNamesBuilder(V1CustomResourceDefinitionNamesFluent<?> fluent,V1CustomResourceDefinitionNames instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1CustomResourceDefinitionNames build() {
     V1CustomResourceDefinitionNames buildable = new V1CustomResourceDefinitionNames();
     buildable.setCategories(fluent.getCategories());
@@ -33,5 +35,4 @@ public class V1CustomResourceDefinitionNamesBuilder extends V1CustomResourceDefi
     return buildable;
   }
   
-
 }

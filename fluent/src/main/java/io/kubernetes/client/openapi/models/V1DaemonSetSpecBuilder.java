@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1DaemonSetSpecBuilder extends V1DaemonSetSpecFluent<V1DaemonSetSpecBuilder> implements VisitableBuilder<V1DaemonSetSpec,V1DaemonSetSpecBuilder>{
+
+  V1DaemonSetSpecFluent<?> fluent;
+
   public V1DaemonSetSpecBuilder() {
     this(new V1DaemonSetSpec());
   }
@@ -11,17 +14,16 @@ public class V1DaemonSetSpecBuilder extends V1DaemonSetSpecFluent<V1DaemonSetSpe
     this(fluent, new V1DaemonSetSpec());
   }
   
-  public V1DaemonSetSpecBuilder(V1DaemonSetSpecFluent<?> fluent,V1DaemonSetSpec instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1DaemonSetSpecBuilder(V1DaemonSetSpec instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1DaemonSetSpecFluent<?> fluent;
   
+  public V1DaemonSetSpecBuilder(V1DaemonSetSpecFluent<?> fluent,V1DaemonSetSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1DaemonSetSpec build() {
     V1DaemonSetSpec buildable = new V1DaemonSetSpec();
     buildable.setMinReadySeconds(fluent.getMinReadySeconds());
@@ -32,5 +34,4 @@ public class V1DaemonSetSpecBuilder extends V1DaemonSetSpecFluent<V1DaemonSetSpe
     return buildable;
   }
   
-
 }

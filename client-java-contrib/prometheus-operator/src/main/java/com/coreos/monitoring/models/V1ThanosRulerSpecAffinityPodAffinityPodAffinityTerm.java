@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** Required. A pod affinity term, associated with the corresponding weight. */
 @ApiModel(description = "Required. A pod affinity term, associated with the corresponding weight.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecAffinityPodAffinityPodAffinityTerm {
@@ -52,7 +52,7 @@ public class V1ThanosRulerSpecAffinityPodAffinityPodAffinityTerm {
    *
    * @return labelSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecAffinityPodAffinityPodAffinityTermLabelSelector getLabelSelector() {
     return labelSelector;
@@ -84,7 +84,7 @@ public class V1ThanosRulerSpecAffinityPodAffinityPodAffinityTerm {
    *
    * @return namespaces
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "namespaces specifies which namespaces the labelSelector applies to (matches against); null or empty list means \"this pod's namespace\"")

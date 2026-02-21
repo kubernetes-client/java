@@ -1,146 +1,85 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Boolean;
+import java.lang.Long;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.lang.Long;
-import java.util.Iterator;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
+import java.util.Iterator;
 import java.util.List;
-import java.lang.Boolean;
+import java.util.Objects;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent<A>> extends BaseFluent<A>{
-  public V1CSIDriverSpecFluent() {
-  }
-  
-  public V1CSIDriverSpecFluent(V1CSIDriverSpec instance) {
-    this.copyInstance(instance);
-  }
+
   private Boolean attachRequired;
   private String fsGroupPolicy;
   private Long nodeAllocatableUpdatePeriodSeconds;
   private Boolean podInfoOnMount;
   private Boolean requiresRepublish;
   private Boolean seLinuxMount;
+  private Boolean serviceAccountTokenInSecrets;
   private Boolean storageCapacity;
   private ArrayList<StorageV1TokenRequestBuilder> tokenRequests;
   private List<String> volumeLifecycleModes;
+
+  public V1CSIDriverSpecFluent() {
+  }
   
-  protected void copyInstance(V1CSIDriverSpec instance) {
-    instance = instance != null ? instance : new V1CSIDriverSpec();
-    if (instance != null) {
-        this.withAttachRequired(instance.getAttachRequired());
-        this.withFsGroupPolicy(instance.getFsGroupPolicy());
-        this.withNodeAllocatableUpdatePeriodSeconds(instance.getNodeAllocatableUpdatePeriodSeconds());
-        this.withPodInfoOnMount(instance.getPodInfoOnMount());
-        this.withRequiresRepublish(instance.getRequiresRepublish());
-        this.withSeLinuxMount(instance.getSeLinuxMount());
-        this.withStorageCapacity(instance.getStorageCapacity());
-        this.withTokenRequests(instance.getTokenRequests());
-        this.withVolumeLifecycleModes(instance.getVolumeLifecycleModes());
+  public V1CSIDriverSpecFluent(V1CSIDriverSpec instance) {
+    this.copyInstance(instance);
+  }
+
+  public A addAllToTokenRequests(Collection<StorageV1TokenRequest> items) {
+    if (this.tokenRequests == null) {
+      this.tokenRequests = new ArrayList();
     }
-  }
-  
-  public Boolean getAttachRequired() {
-    return this.attachRequired;
-  }
-  
-  public A withAttachRequired(Boolean attachRequired) {
-    this.attachRequired = attachRequired;
+    for (StorageV1TokenRequest item : items) {
+        StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
+        _visitables.get("tokenRequests").add(builder);
+        this.tokenRequests.add(builder);
+    }
     return (A) this;
   }
   
-  public boolean hasAttachRequired() {
-    return this.attachRequired != null;
-  }
-  
-  public String getFsGroupPolicy() {
-    return this.fsGroupPolicy;
-  }
-  
-  public A withFsGroupPolicy(String fsGroupPolicy) {
-    this.fsGroupPolicy = fsGroupPolicy;
+  public A addAllToVolumeLifecycleModes(Collection<String> items) {
+    if (this.volumeLifecycleModes == null) {
+      this.volumeLifecycleModes = new ArrayList();
+    }
+    for (String item : items) {
+      this.volumeLifecycleModes.add(item);
+    }
     return (A) this;
   }
   
-  public boolean hasFsGroupPolicy() {
-    return this.fsGroupPolicy != null;
+  public TokenRequestsNested<A> addNewTokenRequest() {
+    return new TokenRequestsNested(-1, null);
   }
   
-  public Long getNodeAllocatableUpdatePeriodSeconds() {
-    return this.nodeAllocatableUpdatePeriodSeconds;
+  public TokenRequestsNested<A> addNewTokenRequestLike(StorageV1TokenRequest item) {
+    return new TokenRequestsNested(-1, item);
   }
   
-  public A withNodeAllocatableUpdatePeriodSeconds(Long nodeAllocatableUpdatePeriodSeconds) {
-    this.nodeAllocatableUpdatePeriodSeconds = nodeAllocatableUpdatePeriodSeconds;
+  public A addToTokenRequests(StorageV1TokenRequest... items) {
+    if (this.tokenRequests == null) {
+      this.tokenRequests = new ArrayList();
+    }
+    for (StorageV1TokenRequest item : items) {
+        StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
+        _visitables.get("tokenRequests").add(builder);
+        this.tokenRequests.add(builder);
+    }
     return (A) this;
-  }
-  
-  public boolean hasNodeAllocatableUpdatePeriodSeconds() {
-    return this.nodeAllocatableUpdatePeriodSeconds != null;
-  }
-  
-  public Boolean getPodInfoOnMount() {
-    return this.podInfoOnMount;
-  }
-  
-  public A withPodInfoOnMount(Boolean podInfoOnMount) {
-    this.podInfoOnMount = podInfoOnMount;
-    return (A) this;
-  }
-  
-  public boolean hasPodInfoOnMount() {
-    return this.podInfoOnMount != null;
-  }
-  
-  public Boolean getRequiresRepublish() {
-    return this.requiresRepublish;
-  }
-  
-  public A withRequiresRepublish(Boolean requiresRepublish) {
-    this.requiresRepublish = requiresRepublish;
-    return (A) this;
-  }
-  
-  public boolean hasRequiresRepublish() {
-    return this.requiresRepublish != null;
-  }
-  
-  public Boolean getSeLinuxMount() {
-    return this.seLinuxMount;
-  }
-  
-  public A withSeLinuxMount(Boolean seLinuxMount) {
-    this.seLinuxMount = seLinuxMount;
-    return (A) this;
-  }
-  
-  public boolean hasSeLinuxMount() {
-    return this.seLinuxMount != null;
-  }
-  
-  public Boolean getStorageCapacity() {
-    return this.storageCapacity;
-  }
-  
-  public A withStorageCapacity(Boolean storageCapacity) {
-    this.storageCapacity = storageCapacity;
-    return (A) this;
-  }
-  
-  public boolean hasStorageCapacity() {
-    return this.storageCapacity != null;
   }
   
   public A addToTokenRequests(int index,StorageV1TokenRequest item) {
@@ -158,91 +97,22 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
     return (A) this;
   }
   
-  public A setToTokenRequests(int index,StorageV1TokenRequest item) {
-    if (this.tokenRequests == null) {
-      this.tokenRequests = new ArrayList();
+  public A addToVolumeLifecycleModes(String... items) {
+    if (this.volumeLifecycleModes == null) {
+      this.volumeLifecycleModes = new ArrayList();
     }
-    StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-    if (index < 0 || index >= tokenRequests.size()) {
-        _visitables.get("tokenRequests").add(builder);
-        tokenRequests.add(builder);
-    } else {
-        _visitables.get("tokenRequests").add(builder);
-        tokenRequests.set(index, builder);
+    for (String item : items) {
+      this.volumeLifecycleModes.add(item);
     }
     return (A) this;
   }
   
-  public A addToTokenRequests(StorageV1TokenRequest... items) {
-    if (this.tokenRequests == null) {
-      this.tokenRequests = new ArrayList();
+  public A addToVolumeLifecycleModes(int index,String item) {
+    if (this.volumeLifecycleModes == null) {
+      this.volumeLifecycleModes = new ArrayList();
     }
-    for (StorageV1TokenRequest item : items) {
-        StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-        _visitables.get("tokenRequests").add(builder);
-        this.tokenRequests.add(builder);
-    }
+    this.volumeLifecycleModes.add(index, item);
     return (A) this;
-  }
-  
-  public A addAllToTokenRequests(Collection<StorageV1TokenRequest> items) {
-    if (this.tokenRequests == null) {
-      this.tokenRequests = new ArrayList();
-    }
-    for (StorageV1TokenRequest item : items) {
-        StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-        _visitables.get("tokenRequests").add(builder);
-        this.tokenRequests.add(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromTokenRequests(StorageV1TokenRequest... items) {
-    if (this.tokenRequests == null) {
-      return (A) this;
-    }
-    for (StorageV1TokenRequest item : items) {
-        StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-        _visitables.get("tokenRequests").remove(builder);
-        this.tokenRequests.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromTokenRequests(Collection<StorageV1TokenRequest> items) {
-    if (this.tokenRequests == null) {
-      return (A) this;
-    }
-    for (StorageV1TokenRequest item : items) {
-        StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-        _visitables.get("tokenRequests").remove(builder);
-        this.tokenRequests.remove(builder);
-    }
-    return (A) this;
-  }
-  
-  public A removeMatchingFromTokenRequests(Predicate<StorageV1TokenRequestBuilder> predicate) {
-    if (tokenRequests == null) {
-      return (A) this;
-    }
-    Iterator<StorageV1TokenRequestBuilder> each = tokenRequests.iterator();
-    List visitables = _visitables.get("tokenRequests");
-    while (each.hasNext()) {
-        StorageV1TokenRequestBuilder builder = each.next();
-        if (predicate.test(builder)) {
-            visitables.remove(builder);
-            each.remove();
-        }
-    }
-    return (A) this;
-  }
-  
-  public List<StorageV1TokenRequest> buildTokenRequests() {
-    return this.tokenRequests != null ? build(tokenRequests) : null;
-  }
-  
-  public StorageV1TokenRequest buildTokenRequest(int index) {
-    return this.tokenRequests.get(index).build();
   }
   
   public StorageV1TokenRequest buildFirstTokenRequest() {
@@ -262,64 +132,28 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
       return null;
   }
   
-  public boolean hasMatchingTokenRequest(Predicate<StorageV1TokenRequestBuilder> predicate) {
-      for (StorageV1TokenRequestBuilder item : tokenRequests) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
+  public StorageV1TokenRequest buildTokenRequest(int index) {
+    return this.tokenRequests.get(index).build();
   }
   
-  public A withTokenRequests(List<StorageV1TokenRequest> tokenRequests) {
-    if (this.tokenRequests != null) {
-      this._visitables.get("tokenRequests").clear();
+  public List<StorageV1TokenRequest> buildTokenRequests() {
+    return this.tokenRequests != null ? build(tokenRequests) : null;
+  }
+  
+  protected void copyInstance(V1CSIDriverSpec instance) {
+    instance = instance != null ? instance : new V1CSIDriverSpec();
+    if (instance != null) {
+        this.withAttachRequired(instance.getAttachRequired());
+        this.withFsGroupPolicy(instance.getFsGroupPolicy());
+        this.withNodeAllocatableUpdatePeriodSeconds(instance.getNodeAllocatableUpdatePeriodSeconds());
+        this.withPodInfoOnMount(instance.getPodInfoOnMount());
+        this.withRequiresRepublish(instance.getRequiresRepublish());
+        this.withSeLinuxMount(instance.getSeLinuxMount());
+        this.withServiceAccountTokenInSecrets(instance.getServiceAccountTokenInSecrets());
+        this.withStorageCapacity(instance.getStorageCapacity());
+        this.withTokenRequests(instance.getTokenRequests());
+        this.withVolumeLifecycleModes(instance.getVolumeLifecycleModes());
     }
-    if (tokenRequests != null) {
-        this.tokenRequests = new ArrayList();
-        for (StorageV1TokenRequest item : tokenRequests) {
-          this.addToTokenRequests(item);
-        }
-    } else {
-      this.tokenRequests = null;
-    }
-    return (A) this;
-  }
-  
-  public A withTokenRequests(StorageV1TokenRequest... tokenRequests) {
-    if (this.tokenRequests != null) {
-        this.tokenRequests.clear();
-        _visitables.remove("tokenRequests");
-    }
-    if (tokenRequests != null) {
-      for (StorageV1TokenRequest item : tokenRequests) {
-        this.addToTokenRequests(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasTokenRequests() {
-    return this.tokenRequests != null && !(this.tokenRequests.isEmpty());
-  }
-  
-  public TokenRequestsNested<A> addNewTokenRequest() {
-    return new TokenRequestsNested(-1, null);
-  }
-  
-  public TokenRequestsNested<A> addNewTokenRequestLike(StorageV1TokenRequest item) {
-    return new TokenRequestsNested(-1, item);
-  }
-  
-  public TokenRequestsNested<A> setNewTokenRequestLike(int index,StorageV1TokenRequest item) {
-    return new TokenRequestsNested(index, item);
-  }
-  
-  public TokenRequestsNested<A> editTokenRequest(int index) {
-    if (index <= tokenRequests.size()) {
-      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "tokenRequests"));
-    }
-    return this.setNewTokenRequestLike(index, this.buildTokenRequest(index));
   }
   
   public TokenRequestsNested<A> editFirstTokenRequest() {
@@ -351,123 +185,11 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
     return this.setNewTokenRequestLike(index, this.buildTokenRequest(index));
   }
   
-  public A addToVolumeLifecycleModes(int index,String item) {
-    if (this.volumeLifecycleModes == null) {
-      this.volumeLifecycleModes = new ArrayList();
+  public TokenRequestsNested<A> editTokenRequest(int index) {
+    if (tokenRequests.size() <= index) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "tokenRequests"));
     }
-    this.volumeLifecycleModes.add(index, item);
-    return (A) this;
-  }
-  
-  public A setToVolumeLifecycleModes(int index,String item) {
-    if (this.volumeLifecycleModes == null) {
-      this.volumeLifecycleModes = new ArrayList();
-    }
-    this.volumeLifecycleModes.set(index, item);
-    return (A) this;
-  }
-  
-  public A addToVolumeLifecycleModes(String... items) {
-    if (this.volumeLifecycleModes == null) {
-      this.volumeLifecycleModes = new ArrayList();
-    }
-    for (String item : items) {
-      this.volumeLifecycleModes.add(item);
-    }
-    return (A) this;
-  }
-  
-  public A addAllToVolumeLifecycleModes(Collection<String> items) {
-    if (this.volumeLifecycleModes == null) {
-      this.volumeLifecycleModes = new ArrayList();
-    }
-    for (String item : items) {
-      this.volumeLifecycleModes.add(item);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromVolumeLifecycleModes(String... items) {
-    if (this.volumeLifecycleModes == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.volumeLifecycleModes.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public A removeAllFromVolumeLifecycleModes(Collection<String> items) {
-    if (this.volumeLifecycleModes == null) {
-      return (A) this;
-    }
-    for (String item : items) {
-      this.volumeLifecycleModes.remove(item);
-    }
-    return (A) this;
-  }
-  
-  public List<String> getVolumeLifecycleModes() {
-    return this.volumeLifecycleModes;
-  }
-  
-  public String getVolumeLifecycleMode(int index) {
-    return this.volumeLifecycleModes.get(index);
-  }
-  
-  public String getFirstVolumeLifecycleMode() {
-    return this.volumeLifecycleModes.get(0);
-  }
-  
-  public String getLastVolumeLifecycleMode() {
-    return this.volumeLifecycleModes.get(volumeLifecycleModes.size() - 1);
-  }
-  
-  public String getMatchingVolumeLifecycleMode(Predicate<String> predicate) {
-      for (String item : volumeLifecycleModes) {
-        if (predicate.test(item)) {
-          return item;
-        }
-      }
-      return null;
-  }
-  
-  public boolean hasMatchingVolumeLifecycleMode(Predicate<String> predicate) {
-      for (String item : volumeLifecycleModes) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
-  }
-  
-  public A withVolumeLifecycleModes(List<String> volumeLifecycleModes) {
-    if (volumeLifecycleModes != null) {
-        this.volumeLifecycleModes = new ArrayList();
-        for (String item : volumeLifecycleModes) {
-          this.addToVolumeLifecycleModes(item);
-        }
-    } else {
-      this.volumeLifecycleModes = null;
-    }
-    return (A) this;
-  }
-  
-  public A withVolumeLifecycleModes(String... volumeLifecycleModes) {
-    if (this.volumeLifecycleModes != null) {
-        this.volumeLifecycleModes.clear();
-        _visitables.remove("volumeLifecycleModes");
-    }
-    if (volumeLifecycleModes != null) {
-      for (String item : volumeLifecycleModes) {
-        this.addToVolumeLifecycleModes(item);
-      }
-    }
-    return (A) this;
-  }
-  
-  public boolean hasVolumeLifecycleModes() {
-    return this.volumeLifecycleModes != null && !(this.volumeLifecycleModes.isEmpty());
+    return this.setNewTokenRequestLike(index, this.buildTokenRequest(index));
   }
   
   public boolean equals(Object o) {
@@ -499,6 +221,9 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
     if (!(Objects.equals(seLinuxMount, that.seLinuxMount))) {
       return false;
     }
+    if (!(Objects.equals(serviceAccountTokenInSecrets, that.serviceAccountTokenInSecrets))) {
+      return false;
+    }
     if (!(Objects.equals(storageCapacity, that.storageCapacity))) {
       return false;
     }
@@ -511,8 +236,210 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
     return true;
   }
   
+  public Boolean getAttachRequired() {
+    return this.attachRequired;
+  }
+  
+  public String getFirstVolumeLifecycleMode() {
+    return this.volumeLifecycleModes.get(0);
+  }
+  
+  public String getFsGroupPolicy() {
+    return this.fsGroupPolicy;
+  }
+  
+  public String getLastVolumeLifecycleMode() {
+    return this.volumeLifecycleModes.get(volumeLifecycleModes.size() - 1);
+  }
+  
+  public String getMatchingVolumeLifecycleMode(Predicate<String> predicate) {
+      for (String item : volumeLifecycleModes) {
+        if (predicate.test(item)) {
+          return item;
+        }
+      }
+      return null;
+  }
+  
+  public Long getNodeAllocatableUpdatePeriodSeconds() {
+    return this.nodeAllocatableUpdatePeriodSeconds;
+  }
+  
+  public Boolean getPodInfoOnMount() {
+    return this.podInfoOnMount;
+  }
+  
+  public Boolean getRequiresRepublish() {
+    return this.requiresRepublish;
+  }
+  
+  public Boolean getSeLinuxMount() {
+    return this.seLinuxMount;
+  }
+  
+  public Boolean getServiceAccountTokenInSecrets() {
+    return this.serviceAccountTokenInSecrets;
+  }
+  
+  public Boolean getStorageCapacity() {
+    return this.storageCapacity;
+  }
+  
+  public String getVolumeLifecycleMode(int index) {
+    return this.volumeLifecycleModes.get(index);
+  }
+  
+  public List<String> getVolumeLifecycleModes() {
+    return this.volumeLifecycleModes;
+  }
+  
+  public boolean hasAttachRequired() {
+    return this.attachRequired != null;
+  }
+  
+  public boolean hasFsGroupPolicy() {
+    return this.fsGroupPolicy != null;
+  }
+  
+  public boolean hasMatchingTokenRequest(Predicate<StorageV1TokenRequestBuilder> predicate) {
+      for (StorageV1TokenRequestBuilder item : tokenRequests) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasMatchingVolumeLifecycleMode(Predicate<String> predicate) {
+      for (String item : volumeLifecycleModes) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public boolean hasNodeAllocatableUpdatePeriodSeconds() {
+    return this.nodeAllocatableUpdatePeriodSeconds != null;
+  }
+  
+  public boolean hasPodInfoOnMount() {
+    return this.podInfoOnMount != null;
+  }
+  
+  public boolean hasRequiresRepublish() {
+    return this.requiresRepublish != null;
+  }
+  
+  public boolean hasSeLinuxMount() {
+    return this.seLinuxMount != null;
+  }
+  
+  public boolean hasServiceAccountTokenInSecrets() {
+    return this.serviceAccountTokenInSecrets != null;
+  }
+  
+  public boolean hasStorageCapacity() {
+    return this.storageCapacity != null;
+  }
+  
+  public boolean hasTokenRequests() {
+    return this.tokenRequests != null && !(this.tokenRequests.isEmpty());
+  }
+  
+  public boolean hasVolumeLifecycleModes() {
+    return this.volumeLifecycleModes != null && !(this.volumeLifecycleModes.isEmpty());
+  }
+  
   public int hashCode() {
-    return Objects.hash(attachRequired, fsGroupPolicy, nodeAllocatableUpdatePeriodSeconds, podInfoOnMount, requiresRepublish, seLinuxMount, storageCapacity, tokenRequests, volumeLifecycleModes);
+    return Objects.hash(attachRequired, fsGroupPolicy, nodeAllocatableUpdatePeriodSeconds, podInfoOnMount, requiresRepublish, seLinuxMount, serviceAccountTokenInSecrets, storageCapacity, tokenRequests, volumeLifecycleModes);
+  }
+  
+  public A removeAllFromTokenRequests(Collection<StorageV1TokenRequest> items) {
+    if (this.tokenRequests == null) {
+      return (A) this;
+    }
+    for (StorageV1TokenRequest item : items) {
+        StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
+        _visitables.get("tokenRequests").remove(builder);
+        this.tokenRequests.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeAllFromVolumeLifecycleModes(Collection<String> items) {
+    if (this.volumeLifecycleModes == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.volumeLifecycleModes.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromTokenRequests(StorageV1TokenRequest... items) {
+    if (this.tokenRequests == null) {
+      return (A) this;
+    }
+    for (StorageV1TokenRequest item : items) {
+        StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
+        _visitables.get("tokenRequests").remove(builder);
+        this.tokenRequests.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromVolumeLifecycleModes(String... items) {
+    if (this.volumeLifecycleModes == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.volumeLifecycleModes.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromTokenRequests(Predicate<StorageV1TokenRequestBuilder> predicate) {
+    if (tokenRequests == null) {
+      return (A) this;
+    }
+    Iterator<StorageV1TokenRequestBuilder> each = tokenRequests.iterator();
+    List visitables = _visitables.get("tokenRequests");
+    while (each.hasNext()) {
+        StorageV1TokenRequestBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public TokenRequestsNested<A> setNewTokenRequestLike(int index,StorageV1TokenRequest item) {
+    return new TokenRequestsNested(index, item);
+  }
+  
+  public A setToTokenRequests(int index,StorageV1TokenRequest item) {
+    if (this.tokenRequests == null) {
+      this.tokenRequests = new ArrayList();
+    }
+    StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
+    if (index < 0 || index >= tokenRequests.size()) {
+        _visitables.get("tokenRequests").add(builder);
+        tokenRequests.add(builder);
+    } else {
+        _visitables.get("tokenRequests").add(builder);
+        tokenRequests.set(index, builder);
+    }
+    return (A) this;
+  }
+  
+  public A setToVolumeLifecycleModes(int index,String item) {
+    if (this.volumeLifecycleModes == null) {
+      this.volumeLifecycleModes = new ArrayList();
+    }
+    this.volumeLifecycleModes.set(index, item);
+    return (A) this;
   }
   
   public String toString() {
@@ -548,6 +475,11 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
         sb.append(seLinuxMount);
         sb.append(",");
     }
+    if (!(serviceAccountTokenInSecrets == null)) {
+        sb.append("serviceAccountTokenInSecrets:");
+        sb.append(serviceAccountTokenInSecrets);
+        sb.append(",");
+    }
     if (!(storageCapacity == null)) {
         sb.append("storageCapacity:");
         sb.append(storageCapacity);
@@ -570,29 +502,128 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
     return withAttachRequired(true);
   }
   
+  public A withAttachRequired(Boolean attachRequired) {
+    this.attachRequired = attachRequired;
+    return (A) this;
+  }
+  
+  public A withFsGroupPolicy(String fsGroupPolicy) {
+    this.fsGroupPolicy = fsGroupPolicy;
+    return (A) this;
+  }
+  
+  public A withNodeAllocatableUpdatePeriodSeconds(Long nodeAllocatableUpdatePeriodSeconds) {
+    this.nodeAllocatableUpdatePeriodSeconds = nodeAllocatableUpdatePeriodSeconds;
+    return (A) this;
+  }
+  
   public A withPodInfoOnMount() {
     return withPodInfoOnMount(true);
+  }
+  
+  public A withPodInfoOnMount(Boolean podInfoOnMount) {
+    this.podInfoOnMount = podInfoOnMount;
+    return (A) this;
   }
   
   public A withRequiresRepublish() {
     return withRequiresRepublish(true);
   }
   
+  public A withRequiresRepublish(Boolean requiresRepublish) {
+    this.requiresRepublish = requiresRepublish;
+    return (A) this;
+  }
+  
   public A withSeLinuxMount() {
     return withSeLinuxMount(true);
+  }
+  
+  public A withSeLinuxMount(Boolean seLinuxMount) {
+    this.seLinuxMount = seLinuxMount;
+    return (A) this;
+  }
+  
+  public A withServiceAccountTokenInSecrets() {
+    return withServiceAccountTokenInSecrets(true);
+  }
+  
+  public A withServiceAccountTokenInSecrets(Boolean serviceAccountTokenInSecrets) {
+    this.serviceAccountTokenInSecrets = serviceAccountTokenInSecrets;
+    return (A) this;
   }
   
   public A withStorageCapacity() {
     return withStorageCapacity(true);
   }
+  
+  public A withStorageCapacity(Boolean storageCapacity) {
+    this.storageCapacity = storageCapacity;
+    return (A) this;
+  }
+  
+  public A withTokenRequests(List<StorageV1TokenRequest> tokenRequests) {
+    if (this.tokenRequests != null) {
+      this._visitables.get("tokenRequests").clear();
+    }
+    if (tokenRequests != null) {
+        this.tokenRequests = new ArrayList();
+        for (StorageV1TokenRequest item : tokenRequests) {
+          this.addToTokenRequests(item);
+        }
+    } else {
+      this.tokenRequests = null;
+    }
+    return (A) this;
+  }
+  
+  public A withTokenRequests(StorageV1TokenRequest... tokenRequests) {
+    if (this.tokenRequests != null) {
+        this.tokenRequests.clear();
+        _visitables.remove("tokenRequests");
+    }
+    if (tokenRequests != null) {
+      for (StorageV1TokenRequest item : tokenRequests) {
+        this.addToTokenRequests(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public A withVolumeLifecycleModes(List<String> volumeLifecycleModes) {
+    if (volumeLifecycleModes != null) {
+        this.volumeLifecycleModes = new ArrayList();
+        for (String item : volumeLifecycleModes) {
+          this.addToVolumeLifecycleModes(item);
+        }
+    } else {
+      this.volumeLifecycleModes = null;
+    }
+    return (A) this;
+  }
+  
+  public A withVolumeLifecycleModes(String... volumeLifecycleModes) {
+    if (this.volumeLifecycleModes != null) {
+        this.volumeLifecycleModes.clear();
+        _visitables.remove("volumeLifecycleModes");
+    }
+    if (volumeLifecycleModes != null) {
+      for (String item : volumeLifecycleModes) {
+        this.addToVolumeLifecycleModes(item);
+      }
+    }
+    return (A) this;
+  }
   public class TokenRequestsNested<N> extends StorageV1TokenRequestFluent<TokenRequestsNested<N>> implements Nested<N>{
+  
+    StorageV1TokenRequestBuilder builder;
+    int index;
+  
     TokenRequestsNested(int index,StorageV1TokenRequest item) {
       this.index = index;
       this.builder = new StorageV1TokenRequestBuilder(this, item);
     }
-    StorageV1TokenRequestBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1CSIDriverSpecFluent.this.setToTokenRequests(index, builder.build());
     }
@@ -601,7 +632,5 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
       return and();
     }
     
-  
   }
-
 }

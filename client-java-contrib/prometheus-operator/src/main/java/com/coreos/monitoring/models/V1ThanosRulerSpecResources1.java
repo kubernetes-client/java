@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Resources defines the resource requirements for single Pods. If not provided, no requests/limits will be set")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecResources1 {
@@ -60,7 +60,7 @@ public class V1ThanosRulerSpecResources1 {
    *
    * @return limits
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/")
@@ -94,7 +94,7 @@ public class V1ThanosRulerSpecResources1 {
    *
    * @return requests
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/")

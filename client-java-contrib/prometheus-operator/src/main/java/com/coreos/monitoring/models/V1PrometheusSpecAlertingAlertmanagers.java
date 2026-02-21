@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "AlertmanagerEndpoints defines a selection of a single Endpoints object containing alertmanager IPs to fire alerts against.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecAlertingAlertmanagers {
@@ -80,7 +80,7 @@ public class V1PrometheusSpecAlertingAlertmanagers {
    *
    * @return apiVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Version of the Alertmanager API that Prometheus uses to send alerts. It can be \"v1\" or \"v2\".")
@@ -103,7 +103,7 @@ public class V1PrometheusSpecAlertingAlertmanagers {
    *
    * @return bearerTokenFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "BearerTokenFile to read from filesystem to use when authenticating to Alertmanager.")
   public String getBearerTokenFile() {
@@ -165,7 +165,7 @@ public class V1PrometheusSpecAlertingAlertmanagers {
    *
    * @return pathPrefix
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Prefix for the HTTP path alerts are pushed to.")
   public String getPathPrefix() {
     return pathPrefix;
@@ -206,7 +206,7 @@ public class V1PrometheusSpecAlertingAlertmanagers {
    *
    * @return scheme
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Scheme to use when firing alerts.")
   public String getScheme() {
     return scheme;
@@ -228,7 +228,7 @@ public class V1PrometheusSpecAlertingAlertmanagers {
    *
    * @return tlsConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PrometheusSpecAlertingTlsConfig getTlsConfig() {
     return tlsConfig;

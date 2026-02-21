@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecLifecyclePostStart {
@@ -56,7 +56,7 @@ public class V1ThanosRulerSpecLifecyclePostStart {
    *
    * @return exec
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecLifecyclePostStartExec getExec() {
     return exec;
@@ -78,7 +78,7 @@ public class V1ThanosRulerSpecLifecyclePostStart {
    *
    * @return httpGet
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecLifecyclePostStartHttpGet getHttpGet() {
     return httpGet;
@@ -100,7 +100,7 @@ public class V1ThanosRulerSpecLifecyclePostStart {
    *
    * @return tcpSocket
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecLifecyclePostStartTcpSocket getTcpSocket() {
     return tcpSocket;

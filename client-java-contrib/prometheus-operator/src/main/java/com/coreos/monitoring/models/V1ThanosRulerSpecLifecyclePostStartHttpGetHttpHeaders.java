@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** HTTPHeader describes a custom header to be used in HTTP probes */
 @ApiModel(description = "HTTPHeader describes a custom header to be used in HTTP probes")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecLifecyclePostStartHttpGetHttpHeaders {

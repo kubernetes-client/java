@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1NamedRuleWithOperationsBuilder extends V1NamedRuleWithOperationsFluent<V1NamedRuleWithOperationsBuilder> implements VisitableBuilder<V1NamedRuleWithOperations,V1NamedRuleWithOperationsBuilder>{
+
+  V1NamedRuleWithOperationsFluent<?> fluent;
+
   public V1NamedRuleWithOperationsBuilder() {
     this(new V1NamedRuleWithOperations());
   }
@@ -11,17 +14,16 @@ public class V1NamedRuleWithOperationsBuilder extends V1NamedRuleWithOperationsF
     this(fluent, new V1NamedRuleWithOperations());
   }
   
-  public V1NamedRuleWithOperationsBuilder(V1NamedRuleWithOperationsFluent<?> fluent,V1NamedRuleWithOperations instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1NamedRuleWithOperationsBuilder(V1NamedRuleWithOperations instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1NamedRuleWithOperationsFluent<?> fluent;
   
+  public V1NamedRuleWithOperationsBuilder(V1NamedRuleWithOperationsFluent<?> fluent,V1NamedRuleWithOperations instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1NamedRuleWithOperations build() {
     V1NamedRuleWithOperations buildable = new V1NamedRuleWithOperations();
     buildable.setApiGroups(fluent.getApiGroups());
@@ -33,5 +35,4 @@ public class V1NamedRuleWithOperationsBuilder extends V1NamedRuleWithOperationsF
     return buildable;
   }
   
-
 }

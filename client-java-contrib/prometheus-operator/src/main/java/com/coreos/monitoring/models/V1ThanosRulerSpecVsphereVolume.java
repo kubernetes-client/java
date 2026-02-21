@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecVsphereVolume {
@@ -58,7 +58,7 @@ public class V1ThanosRulerSpecVsphereVolume {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
@@ -81,7 +81,7 @@ public class V1ThanosRulerSpecVsphereVolume {
    *
    * @return storagePolicyID
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Storage Policy Based Management (SPBM) profile ID associated with the StoragePolicyName.")
@@ -104,7 +104,7 @@ public class V1ThanosRulerSpecVsphereVolume {
    *
    * @return storagePolicyName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Storage Policy Based Management (SPBM) profile name.")
   public String getStoragePolicyName() {
     return storagePolicyName;

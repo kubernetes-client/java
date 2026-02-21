@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.
  */
 @ApiModel(description = "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha1ServerStorageVersion {
   public static final String SERIALIZED_NAME_API_SERVER_I_D = "apiServerID";
   @SerializedName(SERIALIZED_NAME_API_SERVER_I_D)
@@ -223,14 +223,10 @@ public class V1alpha1ServerStorageVersion {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("apiServerID");
-    openapiFields.add("decodableVersions");
-    openapiFields.add("encodingVersion");
-    openapiFields.add("servedVersions");
+    openapiFields = new HashSet<String>(Arrays.asList("apiServerID", "decodableVersions", "encodingVersion", "servedVersions"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -242,7 +238,7 @@ public class V1alpha1ServerStorageVersion {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1ServerStorageVersion.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1alpha1ServerStorageVersion is not found in the empty JSON string", V1alpha1ServerStorageVersion.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1alpha1ServerStorageVersion is not found in the empty JSON string", V1alpha1ServerStorageVersion.openapiRequiredFields.toString()));
         }
       }
 
@@ -250,23 +246,23 @@ public class V1alpha1ServerStorageVersion {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1alpha1ServerStorageVersion.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha1ServerStorageVersion` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1alpha1ServerStorageVersion` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiServerID") != null && !jsonObj.get("apiServerID").isJsonNull()) && !jsonObj.get("apiServerID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `apiServerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiServerID").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiServerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiServerID").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("decodableVersions") != null && !jsonObj.get("decodableVersions").isJsonNull() && !jsonObj.get("decodableVersions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `decodableVersions` to be an array in the JSON string but got `%s`", jsonObj.get("decodableVersions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `decodableVersions` to be an array in the JSON string but got `%s`", jsonObj.get("decodableVersions").toString()));
       }
       if ((jsonObj.get("encodingVersion") != null && !jsonObj.get("encodingVersion").isJsonNull()) && !jsonObj.get("encodingVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `encodingVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encodingVersion").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `encodingVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encodingVersion").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("servedVersions") != null && !jsonObj.get("servedVersions").isJsonNull() && !jsonObj.get("servedVersions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `servedVersions` to be an array in the JSON string but got `%s`", jsonObj.get("servedVersions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `servedVersions` to be an array in the JSON string but got `%s`", jsonObj.get("servedVersions").toString()));
       }
   }
 

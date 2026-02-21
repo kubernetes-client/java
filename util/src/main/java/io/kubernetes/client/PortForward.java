@@ -133,7 +133,7 @@ public class PortForward {
    * PortForwardResult contains the result of an Attach call, it includes streams for stdout stderr
    * and stdin.
    */
-  public static class PortForwardResult {
+  public static class PortForwardResult implements java.io.Closeable {
     private WebSocketStreamHandler handler;
     private HashMap<Integer, Integer> streams;
     private List<Integer> ports;
@@ -149,6 +149,23 @@ public class PortForward {
       this.handler = handler;
       this.streams = new HashMap<>();
       this.ports = ports;
+    }
+
+    /**
+     * Check if the underlying handler is closed.
+     *
+     * @return true if the handler is closed, false otherwise.
+     */
+    public boolean isClosed() {
+      return handler.isClosed();
+    }
+
+    /**
+     * Close the underlying WebSocketStreamHandler.
+     */
+    @Override
+    public void close() {
+      handler.close();
     }
 
     /** Initialize the connection. Must be called after the web socket has been opened. */

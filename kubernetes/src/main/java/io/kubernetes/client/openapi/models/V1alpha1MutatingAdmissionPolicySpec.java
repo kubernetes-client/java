@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -57,7 +57,7 @@ import io.kubernetes.client.openapi.JSON;
  * MutatingAdmissionPolicySpec is the specification of the desired behavior of the admission policy.
  */
 @ApiModel(description = "MutatingAdmissionPolicySpec is the specification of the desired behavior of the admission policy.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha1MutatingAdmissionPolicySpec {
   public static final String SERIALIZED_NAME_FAILURE_POLICY = "failurePolicy";
   @SerializedName(SERIALIZED_NAME_FAILURE_POLICY)
@@ -317,17 +317,10 @@ public class V1alpha1MutatingAdmissionPolicySpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("failurePolicy");
-    openapiFields.add("matchConditions");
-    openapiFields.add("matchConstraints");
-    openapiFields.add("mutations");
-    openapiFields.add("paramKind");
-    openapiFields.add("reinvocationPolicy");
-    openapiFields.add("variables");
+    openapiFields = new HashSet<String>(Arrays.asList("failurePolicy", "matchConditions", "matchConstraints", "mutations", "paramKind", "reinvocationPolicy", "variables"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -339,7 +332,7 @@ public class V1alpha1MutatingAdmissionPolicySpec {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1alpha1MutatingAdmissionPolicySpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1alpha1MutatingAdmissionPolicySpec is not found in the empty JSON string", V1alpha1MutatingAdmissionPolicySpec.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1alpha1MutatingAdmissionPolicySpec is not found in the empty JSON string", V1alpha1MutatingAdmissionPolicySpec.openapiRequiredFields.toString()));
         }
       }
 
@@ -347,19 +340,19 @@ public class V1alpha1MutatingAdmissionPolicySpec {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1alpha1MutatingAdmissionPolicySpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha1MutatingAdmissionPolicySpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1alpha1MutatingAdmissionPolicySpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("failurePolicy") != null && !jsonObj.get("failurePolicy").isJsonNull()) && !jsonObj.get("failurePolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `failurePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failurePolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `failurePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failurePolicy").toString()));
       }
       if (jsonObj.get("matchConditions") != null && !jsonObj.get("matchConditions").isJsonNull()) {
         JsonArray jsonArraymatchConditions = jsonObj.getAsJsonArray("matchConditions");
         if (jsonArraymatchConditions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("matchConditions").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `matchConditions` to be an array in the JSON string but got `%s`", jsonObj.get("matchConditions").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `matchConditions` to be an array in the JSON string but got `%s`", jsonObj.get("matchConditions").toString()));
           }
 
           // validate the optional field `matchConditions` (array)
@@ -377,7 +370,7 @@ public class V1alpha1MutatingAdmissionPolicySpec {
         if (jsonArraymutations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("mutations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `mutations` to be an array in the JSON string but got `%s`", jsonObj.get("mutations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mutations` to be an array in the JSON string but got `%s`", jsonObj.get("mutations").toString()));
           }
 
           // validate the optional field `mutations` (array)
@@ -391,14 +384,14 @@ public class V1alpha1MutatingAdmissionPolicySpec {
         V1alpha1ParamKind.validateJsonElement(jsonObj.get("paramKind"));
       }
       if ((jsonObj.get("reinvocationPolicy") != null && !jsonObj.get("reinvocationPolicy").isJsonNull()) && !jsonObj.get("reinvocationPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reinvocationPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reinvocationPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reinvocationPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reinvocationPolicy").toString()));
       }
       if (jsonObj.get("variables") != null && !jsonObj.get("variables").isJsonNull()) {
         JsonArray jsonArrayvariables = jsonObj.getAsJsonArray("variables");
         if (jsonArrayvariables != null) {
           // ensure the json data is an array
           if (!jsonObj.get("variables").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `variables` to be an array in the JSON string but got `%s`", jsonObj.get("variables").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `variables` to be an array in the JSON string but got `%s`", jsonObj.get("variables").toString()));
           }
 
           // validate the optional field `variables` (array)

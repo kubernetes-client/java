@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1SecretVolumeSourceBuilder extends V1SecretVolumeSourceFluent<V1SecretVolumeSourceBuilder> implements VisitableBuilder<V1SecretVolumeSource,V1SecretVolumeSourceBuilder>{
+
+  V1SecretVolumeSourceFluent<?> fluent;
+
   public V1SecretVolumeSourceBuilder() {
     this(new V1SecretVolumeSource());
   }
@@ -11,17 +14,16 @@ public class V1SecretVolumeSourceBuilder extends V1SecretVolumeSourceFluent<V1Se
     this(fluent, new V1SecretVolumeSource());
   }
   
-  public V1SecretVolumeSourceBuilder(V1SecretVolumeSourceFluent<?> fluent,V1SecretVolumeSource instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1SecretVolumeSourceBuilder(V1SecretVolumeSource instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1SecretVolumeSourceFluent<?> fluent;
   
+  public V1SecretVolumeSourceBuilder(V1SecretVolumeSourceFluent<?> fluent,V1SecretVolumeSource instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1SecretVolumeSource build() {
     V1SecretVolumeSource buildable = new V1SecretVolumeSource();
     buildable.setDefaultMode(fluent.getDefaultMode());
@@ -31,5 +33,4 @@ public class V1SecretVolumeSourceBuilder extends V1SecretVolumeSourceFluent<V1Se
     return buildable;
   }
   
-
 }

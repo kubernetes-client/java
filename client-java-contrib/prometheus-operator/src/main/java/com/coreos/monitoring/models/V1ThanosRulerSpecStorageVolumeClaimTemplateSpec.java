@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Spec defines the desired characteristics of a volume requested by a pod author. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecStorageVolumeClaimTemplateSpec {
@@ -86,7 +86,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateSpec {
    *
    * @return accessModes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1")
@@ -110,7 +110,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateSpec {
    *
    * @return dataSource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecStorageVolumeClaimTemplateSpecDataSource getDataSource() {
     return dataSource;
@@ -132,7 +132,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateSpec {
    *
    * @return resources
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecStorageVolumeClaimTemplateSpecResources getResources() {
     return resources;
@@ -154,7 +154,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateSpec {
    *
    * @return selector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecStorageVolumeClaimTemplateSpecSelector getSelector() {
     return selector;
@@ -176,7 +176,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateSpec {
    *
    * @return storageClassName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1")
@@ -200,7 +200,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateSpec {
    *
    * @return volumeMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. This is a beta feature.")
@@ -223,7 +223,7 @@ public class V1ThanosRulerSpecStorageVolumeClaimTemplateSpec {
    *
    * @return volumeName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "VolumeName is the binding reference to the PersistentVolume backing this claim.")
   public String getVolumeName() {

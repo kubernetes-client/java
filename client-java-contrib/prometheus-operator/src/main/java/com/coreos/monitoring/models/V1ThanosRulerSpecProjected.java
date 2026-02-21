@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** Items for all in one resources secrets, configmaps, and downward API */
 @ApiModel(description = "Items for all in one resources secrets, configmaps, and downward API")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecProjected {
@@ -49,7 +49,7 @@ public class V1ThanosRulerSpecProjected {
    *
    * @return defaultMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Mode bits to use on created files by default. Must be a value between 0 and 0777. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")

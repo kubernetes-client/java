@@ -22,7 +22,7 @@ import java.util.Objects;
 /** Selector to select which namespaces the Endpoints objects are discovered from. */
 @ApiModel(
     description = "Selector to select which namespaces the Endpoints objects are discovered from.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ServiceMonitorSpecNamespaceSelector {
@@ -47,7 +47,7 @@ public class V1ServiceMonitorSpecNamespaceSelector {
    *
    * @return any
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Boolean describing whether all namespaces are selected in contrast to a list restricting them.")
@@ -78,7 +78,7 @@ public class V1ServiceMonitorSpecNamespaceSelector {
    *
    * @return matchNames
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of namespace names.")
   public List<String> getMatchNames() {
     return matchNames;

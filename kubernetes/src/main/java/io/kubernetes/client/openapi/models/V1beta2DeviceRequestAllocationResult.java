@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -56,7 +56,7 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceRequestAllocationResult contains the allocation result for one request.
  */
 @ApiModel(description = "DeviceRequestAllocationResult contains the allocation result for one request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1beta2DeviceRequestAllocationResult {
   public static final String SERIALIZED_NAME_ADMIN_ACCESS = "adminAccess";
   @SerializedName(SERIALIZED_NAME_ADMIN_ACCESS)
@@ -241,11 +241,11 @@ public class V1beta2DeviceRequestAllocationResult {
   }
 
   /**
-   * Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.
+   * Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver. It should use only lower case characters.
    * @return driver
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver.")
+  @ApiModelProperty(required = true, value = "Driver specifies the name of the DRA driver whose kubelet plugin should be invoked to process the allocation once the claim is needed on a node.  Must be a DNS subdomain and should end with a DNS domain owned by the vendor of the driver. It should use only lower case characters.")
   public String getDriver() {
     return driver;
   }
@@ -405,24 +405,10 @@ public class V1beta2DeviceRequestAllocationResult {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("adminAccess");
-    openapiFields.add("bindingConditions");
-    openapiFields.add("bindingFailureConditions");
-    openapiFields.add("consumedCapacity");
-    openapiFields.add("device");
-    openapiFields.add("driver");
-    openapiFields.add("pool");
-    openapiFields.add("request");
-    openapiFields.add("shareID");
-    openapiFields.add("tolerations");
+    openapiFields = new HashSet<String>(Arrays.asList("adminAccess", "bindingConditions", "bindingFailureConditions", "consumedCapacity", "device", "driver", "pool", "request", "shareID", "tolerations"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("device");
-    openapiRequiredFields.add("driver");
-    openapiRequiredFields.add("pool");
-    openapiRequiredFields.add("request");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("device", "driver", "pool", "request"));
   }
 
   /**
@@ -434,7 +420,7 @@ public class V1beta2DeviceRequestAllocationResult {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1beta2DeviceRequestAllocationResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1beta2DeviceRequestAllocationResult is not found in the empty JSON string", V1beta2DeviceRequestAllocationResult.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1beta2DeviceRequestAllocationResult is not found in the empty JSON string", V1beta2DeviceRequestAllocationResult.openapiRequiredFields.toString()));
         }
       }
 
@@ -442,46 +428,46 @@ public class V1beta2DeviceRequestAllocationResult {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1beta2DeviceRequestAllocationResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1beta2DeviceRequestAllocationResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1beta2DeviceRequestAllocationResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1beta2DeviceRequestAllocationResult.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("bindingConditions") != null && !jsonObj.get("bindingConditions").isJsonNull() && !jsonObj.get("bindingConditions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bindingConditions` to be an array in the JSON string but got `%s`", jsonObj.get("bindingConditions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bindingConditions` to be an array in the JSON string but got `%s`", jsonObj.get("bindingConditions").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bindingFailureConditions") != null && !jsonObj.get("bindingFailureConditions").isJsonNull() && !jsonObj.get("bindingFailureConditions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bindingFailureConditions` to be an array in the JSON string but got `%s`", jsonObj.get("bindingFailureConditions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bindingFailureConditions` to be an array in the JSON string but got `%s`", jsonObj.get("bindingFailureConditions").toString()));
       }
       if (!jsonObj.get("device").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `device` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `device` to be a primitive type in the JSON string but got `%s`", jsonObj.get("device").toString()));
       }
       if (!jsonObj.get("driver").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `driver` to be a primitive type in the JSON string but got `%s`", jsonObj.get("driver").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `driver` to be a primitive type in the JSON string but got `%s`", jsonObj.get("driver").toString()));
       }
       if (!jsonObj.get("pool").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pool` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pool").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pool` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pool").toString()));
       }
       if (!jsonObj.get("request").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `request` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `request` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request").toString()));
       }
       if ((jsonObj.get("shareID") != null && !jsonObj.get("shareID").isJsonNull()) && !jsonObj.get("shareID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shareID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shareID").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `shareID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shareID").toString()));
       }
       if (jsonObj.get("tolerations") != null && !jsonObj.get("tolerations").isJsonNull()) {
         JsonArray jsonArraytolerations = jsonObj.getAsJsonArray("tolerations");
         if (jsonArraytolerations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("tolerations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `tolerations` to be an array in the JSON string but got `%s`", jsonObj.get("tolerations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tolerations` to be an array in the JSON string but got `%s`", jsonObj.get("tolerations").toString()));
           }
 
           // validate the optional field `tolerations` (array)

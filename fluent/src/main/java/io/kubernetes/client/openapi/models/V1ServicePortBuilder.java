@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1ServicePortBuilder extends V1ServicePortFluent<V1ServicePortBuilder> implements VisitableBuilder<V1ServicePort,V1ServicePortBuilder>{
+
+  V1ServicePortFluent<?> fluent;
+
   public V1ServicePortBuilder() {
     this(new V1ServicePort());
   }
@@ -11,17 +14,16 @@ public class V1ServicePortBuilder extends V1ServicePortFluent<V1ServicePortBuild
     this(fluent, new V1ServicePort());
   }
   
-  public V1ServicePortBuilder(V1ServicePortFluent<?> fluent,V1ServicePort instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1ServicePortBuilder(V1ServicePort instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1ServicePortFluent<?> fluent;
   
+  public V1ServicePortBuilder(V1ServicePortFluent<?> fluent,V1ServicePort instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1ServicePort build() {
     V1ServicePort buildable = new V1ServicePort();
     buildable.setAppProtocol(fluent.getAppProtocol());
@@ -33,5 +35,4 @@ public class V1ServicePortBuilder extends V1ServicePortFluent<V1ServicePortBuild
     return buildable;
   }
   
-
 }

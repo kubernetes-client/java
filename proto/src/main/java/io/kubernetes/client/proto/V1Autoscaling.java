@@ -10784,6 +10784,7 @@ public final class V1Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
+     * +k8s:optional
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -10797,6 +10798,7 @@ public final class V1Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
+     * +k8s:optional
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -10806,6 +10808,9 @@ public final class V1Autoscaling {
     /**
      * <pre>
      * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
+     * +required
+     * +k8s:required
+     * +k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -10814,6 +10819,9 @@ public final class V1Autoscaling {
     /**
      * <pre>
      * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
+     * +required
+     * +k8s:required
+     * +k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -10994,6 +11002,7 @@ public final class V1Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
+     * +k8s:optional
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -11009,6 +11018,7 @@ public final class V1Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
+     * +k8s:optional
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -11022,6 +11032,9 @@ public final class V1Autoscaling {
     /**
      * <pre>
      * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
+     * +required
+     * +k8s:required
+     * +k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -11032,6 +11045,9 @@ public final class V1Autoscaling {
     /**
      * <pre>
      * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
+     * +required
+     * +k8s:required
+     * +k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -11642,6 +11658,7 @@ public final class V1Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -11657,6 +11674,7 @@ public final class V1Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -11672,6 +11690,7 @@ public final class V1Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -11690,6 +11709,7 @@ public final class V1Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
+       * +k8s:optional
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -11705,6 +11725,9 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
+       * +required
+       * +k8s:required
+       * +k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>
@@ -11715,6 +11738,9 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
+       * +required
+       * +k8s:required
+       * +k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>
@@ -11725,6 +11751,9 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
+       * +required
+       * +k8s:required
+       * +k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>
@@ -11738,6 +11767,9 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
+       * +required
+       * +k8s:required
+       * +k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>

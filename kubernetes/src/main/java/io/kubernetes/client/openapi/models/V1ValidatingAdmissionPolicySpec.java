@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -58,7 +58,7 @@ import io.kubernetes.client.openapi.JSON;
  * ValidatingAdmissionPolicySpec is the specification of the desired behavior of the AdmissionPolicy.
  */
 @ApiModel(description = "ValidatingAdmissionPolicySpec is the specification of the desired behavior of the AdmissionPolicy.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ValidatingAdmissionPolicySpec {
   public static final String SERIALIZED_NAME_AUDIT_ANNOTATIONS = "auditAnnotations";
   @SerializedName(SERIALIZED_NAME_AUDIT_ANNOTATIONS)
@@ -326,17 +326,10 @@ public class V1ValidatingAdmissionPolicySpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("auditAnnotations");
-    openapiFields.add("failurePolicy");
-    openapiFields.add("matchConditions");
-    openapiFields.add("matchConstraints");
-    openapiFields.add("paramKind");
-    openapiFields.add("validations");
-    openapiFields.add("variables");
+    openapiFields = new HashSet<String>(Arrays.asList("auditAnnotations", "failurePolicy", "matchConditions", "matchConstraints", "paramKind", "validations", "variables"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -348,7 +341,7 @@ public class V1ValidatingAdmissionPolicySpec {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ValidatingAdmissionPolicySpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ValidatingAdmissionPolicySpec is not found in the empty JSON string", V1ValidatingAdmissionPolicySpec.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1ValidatingAdmissionPolicySpec is not found in the empty JSON string", V1ValidatingAdmissionPolicySpec.openapiRequiredFields.toString()));
         }
       }
 
@@ -356,7 +349,7 @@ public class V1ValidatingAdmissionPolicySpec {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ValidatingAdmissionPolicySpec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ValidatingAdmissionPolicySpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1ValidatingAdmissionPolicySpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -365,7 +358,7 @@ public class V1ValidatingAdmissionPolicySpec {
         if (jsonArrayauditAnnotations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("auditAnnotations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `auditAnnotations` to be an array in the JSON string but got `%s`", jsonObj.get("auditAnnotations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auditAnnotations` to be an array in the JSON string but got `%s`", jsonObj.get("auditAnnotations").toString()));
           }
 
           // validate the optional field `auditAnnotations` (array)
@@ -375,14 +368,14 @@ public class V1ValidatingAdmissionPolicySpec {
         }
       }
       if ((jsonObj.get("failurePolicy") != null && !jsonObj.get("failurePolicy").isJsonNull()) && !jsonObj.get("failurePolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `failurePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failurePolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `failurePolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failurePolicy").toString()));
       }
       if (jsonObj.get("matchConditions") != null && !jsonObj.get("matchConditions").isJsonNull()) {
         JsonArray jsonArraymatchConditions = jsonObj.getAsJsonArray("matchConditions");
         if (jsonArraymatchConditions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("matchConditions").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `matchConditions` to be an array in the JSON string but got `%s`", jsonObj.get("matchConditions").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `matchConditions` to be an array in the JSON string but got `%s`", jsonObj.get("matchConditions").toString()));
           }
 
           // validate the optional field `matchConditions` (array)
@@ -404,7 +397,7 @@ public class V1ValidatingAdmissionPolicySpec {
         if (jsonArrayvalidations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("validations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `validations` to be an array in the JSON string but got `%s`", jsonObj.get("validations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `validations` to be an array in the JSON string but got `%s`", jsonObj.get("validations").toString()));
           }
 
           // validate the optional field `validations` (array)
@@ -418,7 +411,7 @@ public class V1ValidatingAdmissionPolicySpec {
         if (jsonArrayvariables != null) {
           // ensure the json data is an array
           if (!jsonObj.get("variables").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `variables` to be an array in the JSON string but got `%s`", jsonObj.get("variables").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `variables` to be an array in the JSON string but got `%s`", jsonObj.get("variables").toString()));
           }
 
           // validate the optional field `variables` (array)

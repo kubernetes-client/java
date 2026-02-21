@@ -1,58 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1ModifyVolumeStatusFluent<A extends io.kubernetes.client.openapi.models.V1ModifyVolumeStatusFluent<A>> extends BaseFluent<A>{
+
+  private String status;
+  private String targetVolumeAttributesClassName;
+
   public V1ModifyVolumeStatusFluent() {
   }
   
   public V1ModifyVolumeStatusFluent(V1ModifyVolumeStatus instance) {
     this.copyInstance(instance);
   }
-  private String status;
-  private String targetVolumeAttributesClassName;
-  
+
   protected void copyInstance(V1ModifyVolumeStatus instance) {
     instance = instance != null ? instance : new V1ModifyVolumeStatus();
     if (instance != null) {
         this.withStatus(instance.getStatus());
         this.withTargetVolumeAttributesClassName(instance.getTargetVolumeAttributesClassName());
     }
-  }
-  
-  public String getStatus() {
-    return this.status;
-  }
-  
-  public A withStatus(String status) {
-    this.status = status;
-    return (A) this;
-  }
-  
-  public boolean hasStatus() {
-    return this.status != null;
-  }
-  
-  public String getTargetVolumeAttributesClassName() {
-    return this.targetVolumeAttributesClassName;
-  }
-  
-  public A withTargetVolumeAttributesClassName(String targetVolumeAttributesClassName) {
-    this.targetVolumeAttributesClassName = targetVolumeAttributesClassName;
-    return (A) this;
-  }
-  
-  public boolean hasTargetVolumeAttributesClassName() {
-    return this.targetVolumeAttributesClassName != null;
   }
   
   public boolean equals(Object o) {
@@ -75,6 +51,22 @@ public class V1ModifyVolumeStatusFluent<A extends io.kubernetes.client.openapi.m
     return true;
   }
   
+  public String getStatus() {
+    return this.status;
+  }
+  
+  public String getTargetVolumeAttributesClassName() {
+    return this.targetVolumeAttributesClassName;
+  }
+  
+  public boolean hasStatus() {
+    return this.status != null;
+  }
+  
+  public boolean hasTargetVolumeAttributesClassName() {
+    return this.targetVolumeAttributesClassName != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(status, targetVolumeAttributesClassName);
   }
@@ -95,5 +87,14 @@ public class V1ModifyVolumeStatusFluent<A extends io.kubernetes.client.openapi.m
     return sb.toString();
   }
   
-
+  public A withStatus(String status) {
+    this.status = status;
+    return (A) this;
+  }
+  
+  public A withTargetVolumeAttributesClassName(String targetVolumeAttributesClassName) {
+    this.targetVolumeAttributesClassName = targetVolumeAttributesClassName;
+    return (A) this;
+  }
+  
 }

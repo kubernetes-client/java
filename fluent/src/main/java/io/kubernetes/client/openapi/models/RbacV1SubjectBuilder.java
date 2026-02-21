@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class RbacV1SubjectBuilder extends RbacV1SubjectFluent<RbacV1SubjectBuilder> implements VisitableBuilder<RbacV1Subject,RbacV1SubjectBuilder>{
+
+  RbacV1SubjectFluent<?> fluent;
+
   public RbacV1SubjectBuilder() {
     this(new RbacV1Subject());
   }
@@ -11,17 +14,16 @@ public class RbacV1SubjectBuilder extends RbacV1SubjectFluent<RbacV1SubjectBuild
     this(fluent, new RbacV1Subject());
   }
   
-  public RbacV1SubjectBuilder(RbacV1SubjectFluent<?> fluent,RbacV1Subject instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public RbacV1SubjectBuilder(RbacV1Subject instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  RbacV1SubjectFluent<?> fluent;
   
+  public RbacV1SubjectBuilder(RbacV1SubjectFluent<?> fluent,RbacV1Subject instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public RbacV1Subject build() {
     RbacV1Subject buildable = new RbacV1Subject();
     buildable.setApiGroup(fluent.getApiGroup());
@@ -31,5 +33,4 @@ public class RbacV1SubjectBuilder extends RbacV1SubjectFluent<RbacV1SubjectBuild
     return buildable;
   }
   
-
 }

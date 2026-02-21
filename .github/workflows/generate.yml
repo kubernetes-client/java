@@ -17,6 +17,11 @@ on:
         required: true
         default: false
         description: If true, skip patching code after generation
+      skip_proto:
+        type: boolean
+        required: false
+        default: false
+        description: If true, skip proto generation
 
 permissions:
   contents: read
@@ -79,6 +84,7 @@ jobs:
           git add .
           git commit -s -m 'Automated openapi generation from ${{ github.event.inputs.kubernetesBranch }}'
       - name: Generate Proto
+        if: ${{ github.event.inputs.skip_proto != 'true' }}
         run: |
           pushd gen/proto
           # Download proto dependencies for the specified Kubernetes branch

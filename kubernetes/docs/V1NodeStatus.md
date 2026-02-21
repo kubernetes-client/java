@@ -14,6 +14,7 @@ NodeStatus is information about the current status of a node.
 |**conditions** | [**List&lt;V1NodeCondition&gt;**](V1NodeCondition.md) | Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/reference/node/node-status/#condition |  [optional] |
 |**config** | [**V1NodeConfigStatus**](V1NodeConfigStatus.md) |  |  [optional] |
 |**daemonEndpoints** | [**V1NodeDaemonEndpoints**](V1NodeDaemonEndpoints.md) |  |  [optional] |
+|**declaredFeatures** | **List&lt;String&gt;** | DeclaredFeatures represents the features related to feature gates that are declared by the node. |  [optional] |
 |**features** | [**V1NodeFeatures**](V1NodeFeatures.md) |  |  [optional] |
 |**images** | [**List&lt;V1ContainerImage&gt;**](V1ContainerImage.md) | List of container images on this node |  [optional] |
 |**nodeInfo** | [**V1NodeSystemInfo**](V1NodeSystemInfo.md) |  |  [optional] |

@@ -1,41 +1,67 @@
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Object;
+import java.lang.RuntimeException;
+import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
-import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.lang.String;
-import java.util.LinkedHashMap;
-import java.util.function.Predicate;
-import java.lang.RuntimeException;
-import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Iterator;
-import java.util.Objects;
 import java.util.Collection;
-import java.lang.Object;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.function.Predicate;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models.V1LabelSelectorFluent<A>> extends BaseFluent<A>{
+
+  private ArrayList<V1LabelSelectorRequirementBuilder> matchExpressions;
+  private Map<String,String> matchLabels;
+
   public V1LabelSelectorFluent() {
   }
   
   public V1LabelSelectorFluent(V1LabelSelector instance) {
     this.copyInstance(instance);
   }
-  private ArrayList<V1LabelSelectorRequirementBuilder> matchExpressions;
-  private Map<String,String> matchLabels;
-  
-  protected void copyInstance(V1LabelSelector instance) {
-    instance = instance != null ? instance : new V1LabelSelector();
-    if (instance != null) {
-        this.withMatchExpressions(instance.getMatchExpressions());
-        this.withMatchLabels(instance.getMatchLabels());
+
+  public A addAllToMatchExpressions(Collection<V1LabelSelectorRequirement> items) {
+    if (this.matchExpressions == null) {
+      this.matchExpressions = new ArrayList();
     }
+    for (V1LabelSelectorRequirement item : items) {
+        V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
+        _visitables.get("matchExpressions").add(builder);
+        this.matchExpressions.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public MatchExpressionsNested<A> addNewMatchExpression() {
+    return new MatchExpressionsNested(-1, null);
+  }
+  
+  public MatchExpressionsNested<A> addNewMatchExpressionLike(V1LabelSelectorRequirement item) {
+    return new MatchExpressionsNested(-1, item);
+  }
+  
+  public A addToMatchExpressions(V1LabelSelectorRequirement... items) {
+    if (this.matchExpressions == null) {
+      this.matchExpressions = new ArrayList();
+    }
+    for (V1LabelSelectorRequirement item : items) {
+        V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
+        _visitables.get("matchExpressions").add(builder);
+        this.matchExpressions.add(builder);
+    }
+    return (A) this;
   }
   
   public A addToMatchExpressions(int index,V1LabelSelectorRequirement item) {
@@ -53,41 +79,148 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
     return (A) this;
   }
   
-  public A setToMatchExpressions(int index,V1LabelSelectorRequirement item) {
-    if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList();
+  public A addToMatchLabels(Map<String,String> map) {
+    if (this.matchLabels == null && map != null) {
+      this.matchLabels = new LinkedHashMap();
     }
-    V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
-    if (index < 0 || index >= matchExpressions.size()) {
-        _visitables.get("matchExpressions").add(builder);
-        matchExpressions.add(builder);
-    } else {
-        _visitables.get("matchExpressions").add(builder);
-        matchExpressions.set(index, builder);
+    if (map != null) {
+      this.matchLabels.putAll(map);
     }
     return (A) this;
   }
   
-  public A addToMatchExpressions(V1LabelSelectorRequirement... items) {
-    if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList();
+  public A addToMatchLabels(String key,String value) {
+    if (this.matchLabels == null && key != null && value != null) {
+      this.matchLabels = new LinkedHashMap();
     }
-    for (V1LabelSelectorRequirement item : items) {
-        V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
-        _visitables.get("matchExpressions").add(builder);
-        this.matchExpressions.add(builder);
+    if (key != null && value != null) {
+      this.matchLabels.put(key, value);
     }
     return (A) this;
   }
   
-  public A addAllToMatchExpressions(Collection<V1LabelSelectorRequirement> items) {
+  public V1LabelSelectorRequirement buildFirstMatchExpression() {
+    return this.matchExpressions.get(0).build();
+  }
+  
+  public V1LabelSelectorRequirement buildLastMatchExpression() {
+    return this.matchExpressions.get(matchExpressions.size() - 1).build();
+  }
+  
+  public V1LabelSelectorRequirement buildMatchExpression(int index) {
+    return this.matchExpressions.get(index).build();
+  }
+  
+  public List<V1LabelSelectorRequirement> buildMatchExpressions() {
+    return this.matchExpressions != null ? build(matchExpressions) : null;
+  }
+  
+  public V1LabelSelectorRequirement buildMatchingMatchExpression(Predicate<V1LabelSelectorRequirementBuilder> predicate) {
+      for (V1LabelSelectorRequirementBuilder item : matchExpressions) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
+  }
+  
+  protected void copyInstance(V1LabelSelector instance) {
+    instance = instance != null ? instance : new V1LabelSelector();
+    if (instance != null) {
+        this.withMatchExpressions(instance.getMatchExpressions());
+        this.withMatchLabels(instance.getMatchLabels());
+    }
+  }
+  
+  public MatchExpressionsNested<A> editFirstMatchExpression() {
+    if (matchExpressions.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "matchExpressions"));
+    }
+    return this.setNewMatchExpressionLike(0, this.buildMatchExpression(0));
+  }
+  
+  public MatchExpressionsNested<A> editLastMatchExpression() {
+    int index = matchExpressions.size() - 1;
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "matchExpressions"));
+    }
+    return this.setNewMatchExpressionLike(index, this.buildMatchExpression(index));
+  }
+  
+  public MatchExpressionsNested<A> editMatchExpression(int index) {
+    if (matchExpressions.size() <= index) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "matchExpressions"));
+    }
+    return this.setNewMatchExpressionLike(index, this.buildMatchExpression(index));
+  }
+  
+  public MatchExpressionsNested<A> editMatchingMatchExpression(Predicate<V1LabelSelectorRequirementBuilder> predicate) {
+    int index = -1;
+    for (int i = 0;i < matchExpressions.size();i++) {
+      if (predicate.test(matchExpressions.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "matchExpressions"));
+    }
+    return this.setNewMatchExpressionLike(index, this.buildMatchExpression(index));
+  }
+  
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
+    V1LabelSelectorFluent that = (V1LabelSelectorFluent) o;
+    if (!(Objects.equals(matchExpressions, that.matchExpressions))) {
+      return false;
+    }
+    if (!(Objects.equals(matchLabels, that.matchLabels))) {
+      return false;
+    }
+    return true;
+  }
+  
+  public Map<String,String> getMatchLabels() {
+    return this.matchLabels;
+  }
+  
+  public boolean hasMatchExpressions() {
+    return this.matchExpressions != null && !(this.matchExpressions.isEmpty());
+  }
+  
+  public boolean hasMatchLabels() {
+    return this.matchLabels != null;
+  }
+  
+  public boolean hasMatchingMatchExpression(Predicate<V1LabelSelectorRequirementBuilder> predicate) {
+      for (V1LabelSelectorRequirementBuilder item : matchExpressions) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
+  public int hashCode() {
+    return Objects.hash(matchExpressions, matchLabels);
+  }
+  
+  public A removeAllFromMatchExpressions(Collection<V1LabelSelectorRequirement> items) {
     if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList();
+      return (A) this;
     }
     for (V1LabelSelectorRequirement item : items) {
         V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
-        _visitables.get("matchExpressions").add(builder);
-        this.matchExpressions.add(builder);
+        _visitables.get("matchExpressions").remove(builder);
+        this.matchExpressions.remove(builder);
     }
     return (A) this;
   }
@@ -104,14 +237,26 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
     return (A) this;
   }
   
-  public A removeAllFromMatchExpressions(Collection<V1LabelSelectorRequirement> items) {
-    if (this.matchExpressions == null) {
+  public A removeFromMatchLabels(String key) {
+    if (this.matchLabels == null) {
       return (A) this;
     }
-    for (V1LabelSelectorRequirement item : items) {
-        V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
-        _visitables.get("matchExpressions").remove(builder);
-        this.matchExpressions.remove(builder);
+    if (key != null && this.matchLabels != null) {
+      this.matchLabels.remove(key);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromMatchLabels(Map<String,String> map) {
+    if (this.matchLabels == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.matchLabels != null) {
+          this.matchLabels.remove(key);
+        }
+      }
     }
     return (A) this;
   }
@@ -132,38 +277,39 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
     return (A) this;
   }
   
-  public List<V1LabelSelectorRequirement> buildMatchExpressions() {
-    return this.matchExpressions != null ? build(matchExpressions) : null;
+  public MatchExpressionsNested<A> setNewMatchExpressionLike(int index,V1LabelSelectorRequirement item) {
+    return new MatchExpressionsNested(index, item);
   }
   
-  public V1LabelSelectorRequirement buildMatchExpression(int index) {
-    return this.matchExpressions.get(index).build();
+  public A setToMatchExpressions(int index,V1LabelSelectorRequirement item) {
+    if (this.matchExpressions == null) {
+      this.matchExpressions = new ArrayList();
+    }
+    V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
+    if (index < 0 || index >= matchExpressions.size()) {
+        _visitables.get("matchExpressions").add(builder);
+        matchExpressions.add(builder);
+    } else {
+        _visitables.get("matchExpressions").add(builder);
+        matchExpressions.set(index, builder);
+    }
+    return (A) this;
   }
   
-  public V1LabelSelectorRequirement buildFirstMatchExpression() {
-    return this.matchExpressions.get(0).build();
-  }
-  
-  public V1LabelSelectorRequirement buildLastMatchExpression() {
-    return this.matchExpressions.get(matchExpressions.size() - 1).build();
-  }
-  
-  public V1LabelSelectorRequirement buildMatchingMatchExpression(Predicate<V1LabelSelectorRequirementBuilder> predicate) {
-      for (V1LabelSelectorRequirementBuilder item : matchExpressions) {
-        if (predicate.test(item)) {
-          return item.build();
-        }
-      }
-      return null;
-  }
-  
-  public boolean hasMatchingMatchExpression(Predicate<V1LabelSelectorRequirementBuilder> predicate) {
-      for (V1LabelSelectorRequirementBuilder item : matchExpressions) {
-        if (predicate.test(item)) {
-          return true;
-        }
-      }
-      return false;
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (!(matchExpressions == null) && !(matchExpressions.isEmpty())) {
+        sb.append("matchExpressions:");
+        sb.append(matchExpressions);
+        sb.append(",");
+    }
+    if (!(matchLabels == null) && !(matchLabels.isEmpty())) {
+        sb.append("matchLabels:");
+        sb.append(matchLabels);
+    }
+    sb.append("}");
+    return sb.toString();
   }
   
   public A withMatchExpressions(List<V1LabelSelectorRequirement> matchExpressions) {
@@ -194,106 +340,6 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
     return (A) this;
   }
   
-  public boolean hasMatchExpressions() {
-    return this.matchExpressions != null && !(this.matchExpressions.isEmpty());
-  }
-  
-  public MatchExpressionsNested<A> addNewMatchExpression() {
-    return new MatchExpressionsNested(-1, null);
-  }
-  
-  public MatchExpressionsNested<A> addNewMatchExpressionLike(V1LabelSelectorRequirement item) {
-    return new MatchExpressionsNested(-1, item);
-  }
-  
-  public MatchExpressionsNested<A> setNewMatchExpressionLike(int index,V1LabelSelectorRequirement item) {
-    return new MatchExpressionsNested(index, item);
-  }
-  
-  public MatchExpressionsNested<A> editMatchExpression(int index) {
-    if (index <= matchExpressions.size()) {
-      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "matchExpressions"));
-    }
-    return this.setNewMatchExpressionLike(index, this.buildMatchExpression(index));
-  }
-  
-  public MatchExpressionsNested<A> editFirstMatchExpression() {
-    if (matchExpressions.size() == 0) {
-      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "matchExpressions"));
-    }
-    return this.setNewMatchExpressionLike(0, this.buildMatchExpression(0));
-  }
-  
-  public MatchExpressionsNested<A> editLastMatchExpression() {
-    int index = matchExpressions.size() - 1;
-    if (index < 0) {
-      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "matchExpressions"));
-    }
-    return this.setNewMatchExpressionLike(index, this.buildMatchExpression(index));
-  }
-  
-  public MatchExpressionsNested<A> editMatchingMatchExpression(Predicate<V1LabelSelectorRequirementBuilder> predicate) {
-    int index = -1;
-    for (int i = 0;i < matchExpressions.size();i++) {
-      if (predicate.test(matchExpressions.get(i))) {
-          index = i;
-          break;
-      }
-    }
-    if (index < 0) {
-      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "matchExpressions"));
-    }
-    return this.setNewMatchExpressionLike(index, this.buildMatchExpression(index));
-  }
-  
-  public A addToMatchLabels(String key,String value) {
-    if (this.matchLabels == null && key != null && value != null) {
-      this.matchLabels = new LinkedHashMap();
-    }
-    if (key != null && value != null) {
-      this.matchLabels.put(key, value);
-    }
-    return (A) this;
-  }
-  
-  public A addToMatchLabels(Map<String,String> map) {
-    if (this.matchLabels == null && map != null) {
-      this.matchLabels = new LinkedHashMap();
-    }
-    if (map != null) {
-      this.matchLabels.putAll(map);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromMatchLabels(String key) {
-    if (this.matchLabels == null) {
-      return (A) this;
-    }
-    if (key != null && this.matchLabels != null) {
-      this.matchLabels.remove(key);
-    }
-    return (A) this;
-  }
-  
-  public A removeFromMatchLabels(Map<String,String> map) {
-    if (this.matchLabels == null) {
-      return (A) this;
-    }
-    if (map != null) {
-      for (Object key : map.keySet()) {
-        if (this.matchLabels != null) {
-          this.matchLabels.remove(key);
-        }
-      }
-    }
-    return (A) this;
-  }
-  
-  public Map<String,String> getMatchLabels() {
-    return this.matchLabels;
-  }
-  
   public <K,V>A withMatchLabels(Map<String,String> matchLabels) {
     if (matchLabels == null) {
       this.matchLabels = null;
@@ -302,58 +348,16 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
     }
     return (A) this;
   }
-  
-  public boolean hasMatchLabels() {
-    return this.matchLabels != null;
-  }
-  
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || this.getClass() != o.getClass()) {
-      return false;
-    }
-    if (!(super.equals(o))) {
-      return false;
-    }
-    V1LabelSelectorFluent that = (V1LabelSelectorFluent) o;
-    if (!(Objects.equals(matchExpressions, that.matchExpressions))) {
-      return false;
-    }
-    if (!(Objects.equals(matchLabels, that.matchLabels))) {
-      return false;
-    }
-    return true;
-  }
-  
-  public int hashCode() {
-    return Objects.hash(matchExpressions, matchLabels);
-  }
-  
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("{");
-    if (!(matchExpressions == null) && !(matchExpressions.isEmpty())) {
-        sb.append("matchExpressions:");
-        sb.append(matchExpressions);
-        sb.append(",");
-    }
-    if (!(matchLabels == null) && !(matchLabels.isEmpty())) {
-        sb.append("matchLabels:");
-        sb.append(matchLabels);
-    }
-    sb.append("}");
-    return sb.toString();
-  }
   public class MatchExpressionsNested<N> extends V1LabelSelectorRequirementFluent<MatchExpressionsNested<N>> implements Nested<N>{
+  
+    V1LabelSelectorRequirementBuilder builder;
+    int index;
+  
     MatchExpressionsNested(int index,V1LabelSelectorRequirement item) {
       this.index = index;
       this.builder = new V1LabelSelectorRequirementBuilder(this, item);
     }
-    V1LabelSelectorRequirementBuilder builder;
-    int index;
-    
+  
     public N and() {
       return (N) V1LabelSelectorFluent.this.setToMatchExpressions(index, builder.build());
     }
@@ -362,7 +366,5 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
       return and();
     }
     
-  
   }
-
 }

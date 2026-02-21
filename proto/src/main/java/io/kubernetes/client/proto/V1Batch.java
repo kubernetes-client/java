@@ -2508,6 +2508,8 @@ public final class V1Batch {
     /**
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -2516,6 +2518,8 @@ public final class V1Batch {
     /**
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -2524,6 +2528,8 @@ public final class V1Batch {
     /**
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -2873,6 +2879,8 @@ public final class V1Batch {
     /**
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -2883,6 +2891,8 @@ public final class V1Batch {
     /**
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -2904,6 +2914,8 @@ public final class V1Batch {
     /**
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+     * +required
+     * +k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -3725,6 +3737,8 @@ public final class V1Batch {
       /**
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>
@@ -3735,6 +3749,8 @@ public final class V1Batch {
       /**
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>
@@ -3756,6 +3772,8 @@ public final class V1Batch {
       /**
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>
@@ -3776,6 +3794,8 @@ public final class V1Batch {
       /**
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>
@@ -3793,6 +3813,8 @@ public final class V1Batch {
       /**
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>
@@ -3806,6 +3828,8 @@ public final class V1Batch {
       /**
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
+       * +required
+       * +k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>

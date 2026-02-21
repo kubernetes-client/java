@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -51,10 +51,10 @@ import java.util.Set;
 import io.kubernetes.client.openapi.JSON;
 
 /**
- * HPAScalingRules configures the scaling behavior for one direction via scaling Policy Rules and a configurable metric tolerance.  Scaling Policy Rules are applied after calculating DesiredReplicas from metrics for the HPA. They can limit the scaling velocity by specifying scaling policies. They can prevent flapping by specifying the stabilization window, so that the number of replicas is not set instantly, instead, the safest value from the stabilization window is chosen.  The tolerance is applied to the metric values and prevents scaling too eagerly for small metric variations. (Note that setting a tolerance requires enabling the alpha HPAConfigurableTolerance feature gate.)
+ * HPAScalingRules configures the scaling behavior for one direction via scaling Policy Rules and a configurable metric tolerance.  Scaling Policy Rules are applied after calculating DesiredReplicas from metrics for the HPA. They can limit the scaling velocity by specifying scaling policies. They can prevent flapping by specifying the stabilization window, so that the number of replicas is not set instantly, instead, the safest value from the stabilization window is chosen.  The tolerance is applied to the metric values and prevents scaling too eagerly for small metric variations. (Note that setting a tolerance requires the beta HPAConfigurableTolerance feature gate to be enabled.)
  */
-@ApiModel(description = "HPAScalingRules configures the scaling behavior for one direction via scaling Policy Rules and a configurable metric tolerance.  Scaling Policy Rules are applied after calculating DesiredReplicas from metrics for the HPA. They can limit the scaling velocity by specifying scaling policies. They can prevent flapping by specifying the stabilization window, so that the number of replicas is not set instantly, instead, the safest value from the stabilization window is chosen.  The tolerance is applied to the metric values and prevents scaling too eagerly for small metric variations. (Note that setting a tolerance requires enabling the alpha HPAConfigurableTolerance feature gate.)")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@ApiModel(description = "HPAScalingRules configures the scaling behavior for one direction via scaling Policy Rules and a configurable metric tolerance.  Scaling Policy Rules are applied after calculating DesiredReplicas from metrics for the HPA. They can limit the scaling velocity by specifying scaling policies. They can prevent flapping by specifying the stabilization window, so that the number of replicas is not set instantly, instead, the safest value from the stabilization window is chosen.  The tolerance is applied to the metric values and prevents scaling too eagerly for small metric variations. (Note that setting a tolerance requires the beta HPAConfigurableTolerance feature gate to be enabled.)")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V2HPAScalingRules {
   public static final String SERIALIZED_NAME_POLICIES = "policies";
   @SerializedName(SERIALIZED_NAME_POLICIES)
@@ -217,14 +217,10 @@ public class V2HPAScalingRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("policies");
-    openapiFields.add("selectPolicy");
-    openapiFields.add("stabilizationWindowSeconds");
-    openapiFields.add("tolerance");
+    openapiFields = new HashSet<String>(Arrays.asList("policies", "selectPolicy", "stabilizationWindowSeconds", "tolerance"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -236,7 +232,7 @@ public class V2HPAScalingRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V2HPAScalingRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V2HPAScalingRules is not found in the empty JSON string", V2HPAScalingRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V2HPAScalingRules is not found in the empty JSON string", V2HPAScalingRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -244,7 +240,7 @@ public class V2HPAScalingRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V2HPAScalingRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V2HPAScalingRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V2HPAScalingRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -253,7 +249,7 @@ public class V2HPAScalingRules {
         if (jsonArraypolicies != null) {
           // ensure the json data is an array
           if (!jsonObj.get("policies").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `policies` to be an array in the JSON string but got `%s`", jsonObj.get("policies").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `policies` to be an array in the JSON string but got `%s`", jsonObj.get("policies").toString()));
           }
 
           // validate the optional field `policies` (array)
@@ -263,10 +259,10 @@ public class V2HPAScalingRules {
         }
       }
       if ((jsonObj.get("selectPolicy") != null && !jsonObj.get("selectPolicy").isJsonNull()) && !jsonObj.get("selectPolicy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `selectPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectPolicy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selectPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selectPolicy").toString()));
       }
       if ((jsonObj.get("tolerance") != null && !jsonObj.get("tolerance").isJsonNull()) && !jsonObj.get("tolerance").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tolerance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tolerance").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tolerance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tolerance").toString()));
       }
   }
 

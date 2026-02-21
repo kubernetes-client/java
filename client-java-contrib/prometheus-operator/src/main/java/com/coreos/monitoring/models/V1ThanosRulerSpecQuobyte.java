@@ -20,7 +20,7 @@ import java.util.Objects;
 /** Quobyte represents a Quobyte mount on the host that shares a pod&#39;s lifetime */
 @ApiModel(
     description = "Quobyte represents a Quobyte mount on the host that shares a pod's lifetime")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecQuobyte {
@@ -65,7 +65,7 @@ public class V1ThanosRulerSpecQuobyte {
    *
    * @return group
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Group to map volume access to Default is no group")
   public String getGroup() {
     return group;
@@ -87,7 +87,7 @@ public class V1ThanosRulerSpecQuobyte {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ReadOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.")
@@ -136,7 +136,7 @@ public class V1ThanosRulerSpecQuobyte {
    *
    * @return tenant
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin")
@@ -159,7 +159,7 @@ public class V1ThanosRulerSpecQuobyte {
    *
    * @return user
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "User to map volume access to Defaults to serivceaccount user")
   public String getUser() {
     return user;

@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "FlexVolume represents a generic volume resource that is provisioned/attached using an exec based plugin.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecFlexVolume {
@@ -90,7 +90,7 @@ public class V1ThanosRulerSpecFlexVolume {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script.")
@@ -121,7 +121,7 @@ public class V1ThanosRulerSpecFlexVolume {
    *
    * @return options
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional: Extra command options if any.")
   public Map<String, String> getOptions() {
     return options;
@@ -143,7 +143,7 @@ public class V1ThanosRulerSpecFlexVolume {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
@@ -166,7 +166,7 @@ public class V1ThanosRulerSpecFlexVolume {
    *
    * @return secretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecFlexVolumeSecretRef getSecretRef() {
     return secretRef;

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Storage spec to specify how storage shall be used. */
 @ApiModel(description = "Storage spec to specify how storage shall be used.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecStorage {
@@ -44,7 +44,7 @@ public class V1ThanosRulerSpecStorage {
    *
    * @return emptyDir
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecStorageEmptyDir getEmptyDir() {
     return emptyDir;
@@ -66,7 +66,7 @@ public class V1ThanosRulerSpecStorage {
    *
    * @return volumeClaimTemplate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecStorageVolumeClaimTemplate getVolumeClaimTemplate() {
     return volumeClaimTemplate;

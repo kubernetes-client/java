@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecValueFromResourceFieldRef {
@@ -55,7 +55,7 @@ public class V1ThanosRulerSpecValueFromResourceFieldRef {
    *
    * @return containerName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Container name: required for volumes, optional for env vars")
   public String getContainerName() {
     return containerName;
@@ -76,7 +76,7 @@ public class V1ThanosRulerSpecValueFromResourceFieldRef {
    *
    * @return divisor
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Specifies the output format of the exposed resources, defaults to \"1\"")
   public String getDivisor() {

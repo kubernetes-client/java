@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** BasicAuth allow an endpoint to authenticate over basic authentication */
 @ApiModel(description = "BasicAuth allow an endpoint to authenticate over basic authentication")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecApiserverConfigBasicAuth {
@@ -45,7 +45,7 @@ public class V1PrometheusSpecApiserverConfigBasicAuth {
    *
    * @return password
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecBasicAuthPassword getPassword() {
     return password;
@@ -67,7 +67,7 @@ public class V1PrometheusSpecApiserverConfigBasicAuth {
    *
    * @return username
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecBasicAuthUsername getUsername() {
     return username;

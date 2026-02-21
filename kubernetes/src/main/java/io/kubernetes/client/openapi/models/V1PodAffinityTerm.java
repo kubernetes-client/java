@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key &lt;topologyKey&gt; matches that of any node on which a pod of the set of pods is running
  */
 @ApiModel(description = "Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PodAffinityTerm {
   public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
   @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR)
@@ -286,17 +286,10 @@ public class V1PodAffinityTerm {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("labelSelector");
-    openapiFields.add("matchLabelKeys");
-    openapiFields.add("mismatchLabelKeys");
-    openapiFields.add("namespaceSelector");
-    openapiFields.add("namespaces");
-    openapiFields.add("topologyKey");
+    openapiFields = new HashSet<String>(Arrays.asList("labelSelector", "matchLabelKeys", "mismatchLabelKeys", "namespaceSelector", "namespaces", "topologyKey"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("topologyKey");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("topologyKey"));
   }
 
   /**
@@ -308,7 +301,7 @@ public class V1PodAffinityTerm {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1PodAffinityTerm.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PodAffinityTerm is not found in the empty JSON string", V1PodAffinityTerm.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1PodAffinityTerm is not found in the empty JSON string", V1PodAffinityTerm.openapiRequiredFields.toString()));
         }
       }
 
@@ -316,14 +309,14 @@ public class V1PodAffinityTerm {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodAffinityTerm.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PodAffinityTerm` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PodAffinityTerm` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1PodAffinityTerm.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -333,11 +326,11 @@ public class V1PodAffinityTerm {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("matchLabelKeys") != null && !jsonObj.get("matchLabelKeys").isJsonNull() && !jsonObj.get("matchLabelKeys").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `matchLabelKeys` to be an array in the JSON string but got `%s`", jsonObj.get("matchLabelKeys").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `matchLabelKeys` to be an array in the JSON string but got `%s`", jsonObj.get("matchLabelKeys").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("mismatchLabelKeys") != null && !jsonObj.get("mismatchLabelKeys").isJsonNull() && !jsonObj.get("mismatchLabelKeys").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mismatchLabelKeys` to be an array in the JSON string but got `%s`", jsonObj.get("mismatchLabelKeys").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mismatchLabelKeys` to be an array in the JSON string but got `%s`", jsonObj.get("mismatchLabelKeys").toString()));
       }
       // validate the optional field `namespaceSelector`
       if (jsonObj.get("namespaceSelector") != null && !jsonObj.get("namespaceSelector").isJsonNull()) {
@@ -345,10 +338,10 @@ public class V1PodAffinityTerm {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("namespaces") != null && !jsonObj.get("namespaces").isJsonNull() && !jsonObj.get("namespaces").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `namespaces` to be an array in the JSON string but got `%s`", jsonObj.get("namespaces").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `namespaces` to be an array in the JSON string but got `%s`", jsonObj.get("namespaces").toString()));
       }
       if (!jsonObj.get("topologyKey").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `topologyKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("topologyKey").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `topologyKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("topologyKey").toString()));
       }
   }
 

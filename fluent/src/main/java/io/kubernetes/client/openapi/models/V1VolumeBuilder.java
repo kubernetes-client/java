@@ -3,6 +3,9 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.Object;
 public class V1VolumeBuilder extends V1VolumeFluent<V1VolumeBuilder> implements VisitableBuilder<V1Volume,V1VolumeBuilder>{
+
+  V1VolumeFluent<?> fluent;
+
   public V1VolumeBuilder() {
     this(new V1Volume());
   }
@@ -11,17 +14,16 @@ public class V1VolumeBuilder extends V1VolumeFluent<V1VolumeBuilder> implements 
     this(fluent, new V1Volume());
   }
   
-  public V1VolumeBuilder(V1VolumeFluent<?> fluent,V1Volume instance) {
-    this.fluent = fluent;
-    fluent.copyInstance(instance);
-  }
-  
   public V1VolumeBuilder(V1Volume instance) {
     this.fluent = this;
     this.copyInstance(instance);
   }
-  V1VolumeFluent<?> fluent;
   
+  public V1VolumeBuilder(V1VolumeFluent<?> fluent,V1Volume instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
   public V1Volume build() {
     V1Volume buildable = new V1Volume();
     buildable.setAwsElasticBlockStore(fluent.buildAwsElasticBlockStore());
@@ -58,5 +60,4 @@ public class V1VolumeBuilder extends V1VolumeFluent<V1VolumeBuilder> implements 
     return buildable;
   }
   
-
 }

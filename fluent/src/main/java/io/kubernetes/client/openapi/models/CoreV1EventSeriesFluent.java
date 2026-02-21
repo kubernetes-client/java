@@ -1,60 +1,36 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
-import java.lang.StringBuilder;
-import java.time.OffsetDateTime;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class CoreV1EventSeriesFluent<A extends io.kubernetes.client.openapi.models.CoreV1EventSeriesFluent<A>> extends BaseFluent<A>{
+
+  private Integer count;
+  private OffsetDateTime lastObservedTime;
+
   public CoreV1EventSeriesFluent() {
   }
   
   public CoreV1EventSeriesFluent(CoreV1EventSeries instance) {
     this.copyInstance(instance);
   }
-  private Integer count;
-  private OffsetDateTime lastObservedTime;
-  
+
   protected void copyInstance(CoreV1EventSeries instance) {
     instance = instance != null ? instance : new CoreV1EventSeries();
     if (instance != null) {
         this.withCount(instance.getCount());
         this.withLastObservedTime(instance.getLastObservedTime());
     }
-  }
-  
-  public Integer getCount() {
-    return this.count;
-  }
-  
-  public A withCount(Integer count) {
-    this.count = count;
-    return (A) this;
-  }
-  
-  public boolean hasCount() {
-    return this.count != null;
-  }
-  
-  public OffsetDateTime getLastObservedTime() {
-    return this.lastObservedTime;
-  }
-  
-  public A withLastObservedTime(OffsetDateTime lastObservedTime) {
-    this.lastObservedTime = lastObservedTime;
-    return (A) this;
-  }
-  
-  public boolean hasLastObservedTime() {
-    return this.lastObservedTime != null;
   }
   
   public boolean equals(Object o) {
@@ -77,6 +53,22 @@ public class CoreV1EventSeriesFluent<A extends io.kubernetes.client.openapi.mode
     return true;
   }
   
+  public Integer getCount() {
+    return this.count;
+  }
+  
+  public OffsetDateTime getLastObservedTime() {
+    return this.lastObservedTime;
+  }
+  
+  public boolean hasCount() {
+    return this.count != null;
+  }
+  
+  public boolean hasLastObservedTime() {
+    return this.lastObservedTime != null;
+  }
+  
   public int hashCode() {
     return Objects.hash(count, lastObservedTime);
   }
@@ -97,5 +89,14 @@ public class CoreV1EventSeriesFluent<A extends io.kubernetes.client.openapi.mode
     return sb.toString();
   }
   
-
+  public A withCount(Integer count) {
+    this.count = count;
+    return (A) this;
+  }
+  
+  public A withLastObservedTime(OffsetDateTime lastObservedTime) {
+    this.lastObservedTime = lastObservedTime;
+    return (A) this;
+  }
+  
 }

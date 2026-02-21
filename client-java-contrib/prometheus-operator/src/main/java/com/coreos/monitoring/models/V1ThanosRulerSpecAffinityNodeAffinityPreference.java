@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** A node selector term, associated with the corresponding weight. */
 @ApiModel(description = "A node selector term, associated with the corresponding weight.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecAffinityNodeAffinityPreference {
@@ -58,7 +58,7 @@ public class V1ThanosRulerSpecAffinityNodeAffinityPreference {
    *
    * @return matchExpressions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of node selector requirements by node's labels.")
   public List<V1ThanosRulerSpecAffinityNodeAffinityPreferenceMatchExpressions>
       getMatchExpressions() {
@@ -92,7 +92,7 @@ public class V1ThanosRulerSpecAffinityNodeAffinityPreference {
    *
    * @return matchFields
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of node selector requirements by node's fields.")
   public List<V1ThanosRulerSpecAffinityNodeAffinityPreferenceMatchExpressions> getMatchFields() {
     return matchFields;

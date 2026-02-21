@@ -1,5 +1,5 @@
 /*
-Copyright 2025 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -60,7 +60,7 @@ import io.kubernetes.client.openapi.JSON;
  * ContainerStatus contains details for the current status of this container.
  */
 @ApiModel(description = "ContainerStatus contains details for the current status of this container.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-11T18:00:16.154662Z[Etc/UTC]", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES = "allocatedResources";
   @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES)
@@ -536,30 +536,10 @@ public class V1ContainerStatus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allocatedResources");
-    openapiFields.add("allocatedResourcesStatus");
-    openapiFields.add("containerID");
-    openapiFields.add("image");
-    openapiFields.add("imageID");
-    openapiFields.add("lastState");
-    openapiFields.add("name");
-    openapiFields.add("ready");
-    openapiFields.add("resources");
-    openapiFields.add("restartCount");
-    openapiFields.add("started");
-    openapiFields.add("state");
-    openapiFields.add("stopSignal");
-    openapiFields.add("user");
-    openapiFields.add("volumeMounts");
+    openapiFields = new HashSet<String>(Arrays.asList("allocatedResources", "allocatedResourcesStatus", "containerID", "image", "imageID", "lastState", "name", "ready", "resources", "restartCount", "started", "state", "stopSignal", "user", "volumeMounts"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("image");
-    openapiRequiredFields.add("imageID");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("ready");
-    openapiRequiredFields.add("restartCount");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("image", "imageID", "name", "ready", "restartCount"));
   }
 
   /**
@@ -571,7 +551,7 @@ public class V1ContainerStatus {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!V1ContainerStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ContainerStatus is not found in the empty JSON string", V1ContainerStatus.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1ContainerStatus is not found in the empty JSON string", V1ContainerStatus.openapiRequiredFields.toString()));
         }
       }
 
@@ -579,14 +559,14 @@ public class V1ContainerStatus {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1ContainerStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ContainerStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1ContainerStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : V1ContainerStatus.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -595,7 +575,7 @@ public class V1ContainerStatus {
         if (jsonArrayallocatedResourcesStatus != null) {
           // ensure the json data is an array
           if (!jsonObj.get("allocatedResourcesStatus").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `allocatedResourcesStatus` to be an array in the JSON string but got `%s`", jsonObj.get("allocatedResourcesStatus").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allocatedResourcesStatus` to be an array in the JSON string but got `%s`", jsonObj.get("allocatedResourcesStatus").toString()));
           }
 
           // validate the optional field `allocatedResourcesStatus` (array)
@@ -605,20 +585,20 @@ public class V1ContainerStatus {
         }
       }
       if ((jsonObj.get("containerID") != null && !jsonObj.get("containerID").isJsonNull()) && !jsonObj.get("containerID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `containerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerID").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `containerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerID").toString()));
       }
       if (!jsonObj.get("image").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
       }
       if (!jsonObj.get("imageID").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `imageID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imageID").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `imageID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imageID").toString()));
       }
       // validate the optional field `lastState`
       if (jsonObj.get("lastState") != null && !jsonObj.get("lastState").isJsonNull()) {
         V1ContainerState.validateJsonElement(jsonObj.get("lastState"));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the optional field `resources`
       if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull()) {
@@ -629,7 +609,7 @@ public class V1ContainerStatus {
         V1ContainerState.validateJsonElement(jsonObj.get("state"));
       }
       if ((jsonObj.get("stopSignal") != null && !jsonObj.get("stopSignal").isJsonNull()) && !jsonObj.get("stopSignal").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `stopSignal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stopSignal").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stopSignal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stopSignal").toString()));
       }
       // validate the optional field `user`
       if (jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) {
@@ -640,7 +620,7 @@ public class V1ContainerStatus {
         if (jsonArrayvolumeMounts != null) {
           // ensure the json data is an array
           if (!jsonObj.get("volumeMounts").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `volumeMounts` to be an array in the JSON string but got `%s`", jsonObj.get("volumeMounts").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `volumeMounts` to be an array in the JSON string but got `%s`", jsonObj.get("volumeMounts").toString()));
           }
 
           // validate the optional field `volumeMounts` (array)

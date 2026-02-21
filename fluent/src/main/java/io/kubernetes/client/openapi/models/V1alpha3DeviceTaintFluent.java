@@ -1,29 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.StringBuilder;
-import java.time.OffsetDateTime;
-import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.BaseFluent;
-import java.util.Objects;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Generated
  */
 @SuppressWarnings("unchecked")
 public class V1alpha3DeviceTaintFluent<A extends io.kubernetes.client.openapi.models.V1alpha3DeviceTaintFluent<A>> extends BaseFluent<A>{
+
+  private String effect;
+  private String key;
+  private OffsetDateTime timeAdded;
+  private String value;
+
   public V1alpha3DeviceTaintFluent() {
   }
   
   public V1alpha3DeviceTaintFluent(V1alpha3DeviceTaint instance) {
     this.copyInstance(instance);
   }
-  private String effect;
-  private String key;
-  private OffsetDateTime timeAdded;
-  private String value;
-  
+
   protected void copyInstance(V1alpha3DeviceTaint instance) {
     instance = instance != null ? instance : new V1alpha3DeviceTaint();
     if (instance != null) {
@@ -32,58 +34,6 @@ public class V1alpha3DeviceTaintFluent<A extends io.kubernetes.client.openapi.mo
         this.withTimeAdded(instance.getTimeAdded());
         this.withValue(instance.getValue());
     }
-  }
-  
-  public String getEffect() {
-    return this.effect;
-  }
-  
-  public A withEffect(String effect) {
-    this.effect = effect;
-    return (A) this;
-  }
-  
-  public boolean hasEffect() {
-    return this.effect != null;
-  }
-  
-  public String getKey() {
-    return this.key;
-  }
-  
-  public A withKey(String key) {
-    this.key = key;
-    return (A) this;
-  }
-  
-  public boolean hasKey() {
-    return this.key != null;
-  }
-  
-  public OffsetDateTime getTimeAdded() {
-    return this.timeAdded;
-  }
-  
-  public A withTimeAdded(OffsetDateTime timeAdded) {
-    this.timeAdded = timeAdded;
-    return (A) this;
-  }
-  
-  public boolean hasTimeAdded() {
-    return this.timeAdded != null;
-  }
-  
-  public String getValue() {
-    return this.value;
-  }
-  
-  public A withValue(String value) {
-    this.value = value;
-    return (A) this;
-  }
-  
-  public boolean hasValue() {
-    return this.value != null;
   }
   
   public boolean equals(Object o) {
@@ -110,6 +60,38 @@ public class V1alpha3DeviceTaintFluent<A extends io.kubernetes.client.openapi.mo
       return false;
     }
     return true;
+  }
+  
+  public String getEffect() {
+    return this.effect;
+  }
+  
+  public String getKey() {
+    return this.key;
+  }
+  
+  public OffsetDateTime getTimeAdded() {
+    return this.timeAdded;
+  }
+  
+  public String getValue() {
+    return this.value;
+  }
+  
+  public boolean hasEffect() {
+    return this.effect != null;
+  }
+  
+  public boolean hasKey() {
+    return this.key != null;
+  }
+  
+  public boolean hasTimeAdded() {
+    return this.timeAdded != null;
+  }
+  
+  public boolean hasValue() {
+    return this.value != null;
   }
   
   public int hashCode() {
@@ -142,5 +124,24 @@ public class V1alpha3DeviceTaintFluent<A extends io.kubernetes.client.openapi.mo
     return sb.toString();
   }
   
-
+  public A withEffect(String effect) {
+    this.effect = effect;
+    return (A) this;
+  }
+  
+  public A withKey(String key) {
+    this.key = key;
+    return (A) this;
+  }
+  
+  public A withTimeAdded(OffsetDateTime timeAdded) {
+    this.timeAdded = timeAdded;
+    return (A) this;
+  }
+  
+  public A withValue(String value) {
+    this.value = value;
+    return (A) this;
+  }
+  
 }

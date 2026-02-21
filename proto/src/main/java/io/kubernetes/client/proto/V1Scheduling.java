@@ -53,6 +53,7 @@ public final class V1Scheduling {
      * <pre>
      * value represents the integer value of this priority class. This is the actual priority that pods
      * receive when they have the name of this class in their pod spec.
+     * +optional
      * </pre>
      *
      * <code>optional int32 value = 2;</code>
@@ -62,6 +63,7 @@ public final class V1Scheduling {
      * <pre>
      * value represents the integer value of this priority class. This is the actual priority that pods
      * receive when they have the name of this class in their pod spec.
+     * +optional
      * </pre>
      *
      * <code>optional int32 value = 2;</code>
@@ -323,6 +325,7 @@ public final class V1Scheduling {
      * <pre>
      * value represents the integer value of this priority class. This is the actual priority that pods
      * receive when they have the name of this class in their pod spec.
+     * +optional
      * </pre>
      *
      * <code>optional int32 value = 2;</code>
@@ -334,6 +337,7 @@ public final class V1Scheduling {
      * <pre>
      * value represents the integer value of this priority class. This is the actual priority that pods
      * receive when they have the name of this class in their pod spec.
+     * +optional
      * </pre>
      *
      * <code>optional int32 value = 2;</code>
@@ -1107,6 +1111,7 @@ public final class V1Scheduling {
        * <pre>
        * value represents the integer value of this priority class. This is the actual priority that pods
        * receive when they have the name of this class in their pod spec.
+       * +optional
        * </pre>
        *
        * <code>optional int32 value = 2;</code>
@@ -1118,6 +1123,7 @@ public final class V1Scheduling {
        * <pre>
        * value represents the integer value of this priority class. This is the actual priority that pods
        * receive when they have the name of this class in their pod spec.
+       * +optional
        * </pre>
        *
        * <code>optional int32 value = 2;</code>
@@ -1129,6 +1135,7 @@ public final class V1Scheduling {
        * <pre>
        * value represents the integer value of this priority class. This is the actual priority that pods
        * receive when they have the name of this class in their pod spec.
+       * +optional
        * </pre>
        *
        * <code>optional int32 value = 2;</code>
@@ -1143,6 +1150,7 @@ public final class V1Scheduling {
        * <pre>
        * value represents the integer value of this priority class. This is the actual priority that pods
        * receive when they have the name of this class in their pod spec.
+       * +optional
        * </pre>
        *
        * <code>optional int32 value = 2;</code>

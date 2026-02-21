@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Required: Selects a field of the pod: only annotations, labels, name and namespace are supported.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecDownwardAPIFieldRef {
@@ -48,7 +48,7 @@ public class V1ThanosRulerSpecDownwardAPIFieldRef {
    *
    * @return apiVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".")
   public String getApiVersion() {

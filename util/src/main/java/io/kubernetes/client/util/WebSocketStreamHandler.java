@@ -117,6 +117,15 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     return this.error;
   }
 
+  /**
+   * Check if the handler is closed.
+   *
+   * @return true if the handler is closed, false otherwise.
+   */
+  public synchronized boolean isClosed() {
+    return state == State.CLOSED;
+  }
+
   @Override
   public synchronized void close() {
     if (state != State.CLOSED) {
@@ -235,6 +244,10 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
 
     private static final int WAIT_MILLIS = 10;
 
+    private static final int FLUSH_WAIT_MILLIS = 1;
+
+    private static final int MAX_FLUSH_ITERATIONS = MAX_WAIT_MILLIS / FLUSH_WAIT_MILLIS;
+
     private final byte stream;
 
     public WebSocketOutputStream(int stream) {
@@ -263,11 +276,11 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
       int i = 0;
       while (WebSocketStreamHandler.this.socket.queueSize() > 0) {
         try {
-          Thread.sleep(100);
+          Thread.sleep(FLUSH_WAIT_MILLIS);
         } catch (InterruptedException ex) {
         }
         // Wait a maximum of 10 seconds.
-        if (i++ > 100) {
+        if (i++ > MAX_FLUSH_ITERATIONS) {
           throw new IOException("Timed out waiting for web-socket to flush.");
         }
       }
