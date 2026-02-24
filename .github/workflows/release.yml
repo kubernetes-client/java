@@ -84,15 +84,19 @@ jobs:
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git v${{ github.event.inputs.releaseVersion }}
       - name: Pull Request
         if: ${{ github.event.inputs.dry-run != 'true' }}
-        uses: repo-sync/pull-request@v2
-        with:
-          source_branch: automated-release-${{ github.event.inputs.releaseVersion }}
-          destination_branch: ${{ github.ref_name }}
-          github_token: ${{ secrets.PAT_TOKEN }}
-          pr_title: "Automated Release: ${{ github.event.inputs.releaseVersion }}"
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          gh pr create \
+            --base ${{ github.ref_name }} \
+            --head automated-release-${{ github.event.inputs.releaseVersion }} \
+            --title "Automated Release: ${{ github.event.inputs.releaseVersion }}" \
+            --body ""
       - name: Publish Release
         if: ${{ github.event.inputs.dry-run != 'true' }}
-        uses: ncipollo/release-action@v1
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          tag: v${{ github.event.inputs.releaseVersion }}
+        env:
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          gh release create v${{ github.event.inputs.releaseVersion }} \
+            --title "v${{ github.event.inputs.releaseVersion }}" \
+            --generate-notes
