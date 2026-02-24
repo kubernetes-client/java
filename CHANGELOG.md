@@ -1,3 +1,150 @@
+# 25.0.0 (November 25, 2025)
+
+* Features
+  * Bump Kubernetes API spec to v1.34.
+  * Add support for v5 of the streaming protocol. ([#3800](https://github.com/kubernetes-client/java/pull/3800))
+  * Add terminal resize support in ExecProcess. ([#3801](https://github.com/kubernetes-client/java/pull/3801))
+  * Enable reuse of cached informers in SharedInformerFactory. ([#3856](https://github.com/kubernetes-client/java/pull/3856))
+  * Add ApiClient integration to ClientBuilder. ([#4152](https://github.com/kubernetes-client/java/pull/4152))
+  * Migrate EKS authentication from AWS SDK 1.x to 2.x. ([#4113](https://github.com/kubernetes-client/java/pull/4113))
+* Bugfixes
+  * Fix missing continue token when building cluster list call. ([#3930](https://github.com/kubernetes-client/java/pull/3930))
+  * Fix NPE in KubectlTop when pods are down. ([#4087](https://github.com/kubernetes-client/java/pull/4087))
+  * Fix fieldManager parameter in makeClusterCreateCallBuilder. ([#4140](https://github.com/kubernetes-client/java/pull/4140))
+  * Fix patch workflow compatibility for Linux environments. ([#4055](https://github.com/kubernetes-client/java/pull/4055))
+* Misc
+  * Remove unused dependencies (jakarta.ws.rs-api and others). ([#3907](https://github.com/kubernetes-client/java/pull/3907), [#3909](https://github.com/kubernetes-client/java/pull/3909))
+  * Refactor to use StandardCharsets. ([#4188](https://github.com/kubernetes-client/java/pull/4188))
+
+# 24.0.0 (May 26, 2025)
+
+* Features
+  * Bump Kubernetes API spec to v1.33.
+* Misc
+  * API client code regenerated for the Kubernetes 1.33 release cycle.
+
+# 23.0.0 (February 24, 2025)
+
+* Features
+  * Bump Kubernetes API spec to v1.32.
+* Misc
+  * API client code regenerated for the Kubernetes 1.32 release cycle.
+
+# 22.0.1 (February 12, 2025)
+
+* Misc
+  * Regenerate OpenAPI models for upstream Kubernetes 1.31 patch release.
+
+# 22.0.0 (November 19, 2024)
+
+* Features
+  * Bump Kubernetes API spec to v1.31.
+* Misc
+  * API client code regenerated for the Kubernetes 1.31 release cycle.
+
+# 21.0.1 (July 30, 2024)
+
+* Misc
+  * Patch release — dependency and stability updates.
+
+# 21.0.0 (June 21, 2024)
+
+* Features
+  * Bump Kubernetes API spec to v1.30.
+* Misc
+  * API client code regenerated for the Kubernetes 1.30 release cycle.
+
+# 20.0.1 (March 13, 2024)
+
+* Misc
+  * Patch release — bug fixes and dependency updates.
+
+# 20.0.0 (February 7, 2024)
+
+* Features
+  * Bump Kubernetes API spec to v1.29.
+* Breaking Changes
+  * Optional parameters are now consolidated into a single options object, changing the method signatures across the generated API client. ([#3019](https://github.com/kubernetes-client/java/pull/3019))
+  * Java 8 support has been removed. Java 11 or later is now required.
+  * A legacy SDK module is available with the `-legacy` suffix (e.g., `20.0.0-legacy`) for users who prefer the previous interface.
+
+# 19.0.1 (March 14, 2024)
+
+* Misc
+  * Patch release — bug fixes and dependency updates.
+
+# 19.0.0 (January 10, 2024)
+
+* Features
+  * Bump Kubernetes API spec to v1.28.
+* Misc
+  * API client code regenerated for the Kubernetes 1.28 release cycle.
+
+# 18.0.1 (July 10, 2023)
+
+* Misc
+  * Patch release — bug fixes and dependency updates.
+
+# 18.0.0 (March 3, 2023)
+
+* Features
+  * Bump Kubernetes API spec to v1.27.
+* Misc
+  * API client code regenerated for the Kubernetes 1.27 release cycle.
+
+# 17.0.2 (April 14, 2023)
+
+* Misc
+  * Patch release — bug fixes and dependency updates.
+
+# 17.0.1 (January 31, 2023)
+
+* Misc
+  * Patch release — bug fixes and dependency updates.
+
+# 17.0.0 (December 8, 2022)
+
+* Features
+  * Bump Kubernetes API spec to v1.26.
+  * Add support for v1 exec credentials.
+* Misc
+  * API client code regenerated for the Kubernetes 1.26 release cycle.
+  * Multiple dependency updates and bug fixes.
+
+# 16.0.3 (January 31, 2023)
+
+* Misc
+  * Patch release — bug fixes and dependency updates.
+
+# 16.0.2 (November 3, 2022)
+
+* Bugfixes
+  * Cherry-picked bug fixes from the main branch.
+
+# 16.0.1 (October 20, 2022)
+
+* Bugfixes
+  * Bump snakeyaml to 1.33 to address security vulnerability.
+
+# 16.0.0 (June 28, 2022)
+
+* Features
+  * Bump Kubernetes API spec to v1.25.
+* Misc
+  * API client code regenerated for the Kubernetes 1.25 release cycle.
+
+# 15.0.2 (January 30, 2023)
+
+* Misc
+  * Patch release — bug fixes and dependency updates.
+
+# 15.0.0
+
+* Features
+  * Bump Kubernetes API spec to v1.24.
+* Misc
+  * API client code regenerated for the Kubernetes 1.24 release cycle.
+
 # 14.0.0
 
 * Feature
