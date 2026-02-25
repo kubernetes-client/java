@@ -39,7 +39,8 @@ import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import java.util.Collections;
-import java.util.concurrent.Semaphore;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicReference;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootTest
 class KubernetesInformerCreatorTest {
 
+  // Static so CountRequestAction (a static inner class used by WireMock) can record violations.
+  // Reset at the start of each test via orderingViolation.set(null).
+  private static final AtomicReference<Throwable> orderingViolation = new AtomicReference<>();
+
   public static class CountRequestAction extends PostServeAction {
     @Override
     public String getName() {
@@ -58,8 +63,13 @@ class KubernetesInformerCreatorTest {
 
     @Override
     public void doAction(ServeEvent serveEvent, Admin admin, Parameters parameters) {
-      Semaphore count = (Semaphore) parameters.get("semaphore");
-      count.release();
+      Object prereq = parameters.get("prerequisite");
+      CountDownLatch latch = (CountDownLatch) parameters.get("semaphore");
+      if (prereq instanceof CountDownLatch prerequisite && prerequisite.getCount() > 0) {
+        orderingViolation.compareAndSet(
+            null, new AssertionError("watch request received before list was completed"));
+      }
+      latch.countDown();
     }
   }
 
@@ -107,12 +117,22 @@ class KubernetesInformerCreatorTest {
     assertThat(podInformer).isNotNull();
     assertThat(configMapInformer).isNotNull();
 
-    Semaphore getCount = new Semaphore(2);
-    Semaphore watchCount = new Semaphore(2);
-    Parameters getParams = new Parameters();
-    Parameters watchParams = new Parameters();
-    getParams.put("semaphore", getCount);
-    watchParams.put("semaphore", watchCount);
+    orderingViolation.set(null);
+
+    CountDownLatch podGetLatch = new CountDownLatch(1);
+    CountDownLatch podWatchLatch = new CountDownLatch(1);
+    CountDownLatch configMapGetLatch = new CountDownLatch(1);
+    CountDownLatch configMapWatchLatch = new CountDownLatch(1);
+    Parameters podGetParams = new Parameters();
+    Parameters podWatchParams = new Parameters();
+    Parameters configMapGetParams = new Parameters();
+    Parameters configMapWatchParams = new Parameters();
+    podGetParams.put("semaphore", podGetLatch);
+    podWatchParams.put("semaphore", podWatchLatch);
+    podWatchParams.put("prerequisite", podGetLatch);
+    configMapGetParams.put("semaphore", configMapGetLatch);
+    configMapWatchParams.put("semaphore", configMapWatchLatch);
+    configMapWatchParams.put("prerequisite", configMapGetLatch);
 
     V1Pod foo1 =
         new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
@@ -123,7 +143,7 @@ class KubernetesInformerCreatorTest {
 
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
-            .withPostServeAction("semaphore", getParams)
+            .withPostServeAction("semaphore", podGetParams)
             .withQueryParam("watch", equalTo("false"))
             .atPriority(1)
             .willReturn(
@@ -137,7 +157,7 @@ class KubernetesInformerCreatorTest {
                                     .items(Collections.singletonList(foo1))))));
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
-            .withPostServeAction("semaphore", watchParams)
+            .withPostServeAction("semaphore", podWatchParams)
             .withQueryParam("watch", equalTo("true"))
             .atPriority(2)
             .willReturn(
@@ -148,7 +168,7 @@ class KubernetesInformerCreatorTest {
 
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
-            .withPostServeAction("semaphore", getParams)
+            .withPostServeAction("semaphore", configMapGetParams)
             .withQueryParam("watch", equalTo("false"))
             .atPriority(1)
             .willReturn(
@@ -162,7 +182,7 @@ class KubernetesInformerCreatorTest {
                                     .items(Collections.singletonList(bar1))))));
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
-            .withPostServeAction("semaphore", watchParams)
+            .withPostServeAction("semaphore", configMapWatchParams)
             .withQueryParam("watch", equalTo("true"))
             .atPriority(2)
             .willReturn(
@@ -171,15 +191,13 @@ class KubernetesInformerCreatorTest {
                     .withHeader("Content-Type", "application/json")
                     .withBody("{}")));
 
-    // These will be released for each web call above.
-    getCount.acquire(2);
-    watchCount.acquire(2);
-
     informerFactory.startAllRegisteredInformers();
 
-    // Wait for the GETs to complete and the watches to start.
-    getCount.acquire(2);
-    watchCount.acquire(2);
+    // Wait for each informer's list and watch to complete independently.
+    podGetLatch.await();
+    podWatchLatch.await();
+    configMapGetLatch.await();
+    configMapWatchLatch.await();
 
     apiServer.verify(
         1,
@@ -196,5 +214,6 @@ class KubernetesInformerCreatorTest {
 
     assertThat(new Lister<>(podInformer.getIndexer()).list()).hasSize(1);
     assertThat(new Lister<>(configMapInformer.getIndexer()).list()).hasSize(1);
+    assertThat(orderingViolation.get()).isNull();
   }
 }
