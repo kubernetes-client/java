@@ -33,6 +33,8 @@ import io.kubernetes.client.util.Watchable;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.BiConsumer;
 import org.awaitility.Awaitility;
@@ -53,16 +55,23 @@ class ReflectorRunnableTest {
   @Mock private BiConsumer<Class<V1Pod>, Throwable> exceptionHandler;
 
   @Test
-  void reflectorRunOnce() throws ApiException {
+  void reflectorRunOnce() throws ApiException, InterruptedException {
     String mockResourceVersion = "1000";
     when(listerWatcher.list(any()))
         .thenReturn(
             new V1PodList().metadata(new V1ListMeta().resourceVersion(mockResourceVersion)));
+    CountDownLatch watchCalledLatch = new CountDownLatch(1);
+    CountDownLatch watchCanReturnLatch = new CountDownLatch(1);
     when(listerWatcher.watch(any()))
         .then(
             (v) -> {
-              Awaitility.await().forever(); // block forever
-              return null;
+              watchCalledLatch.countDown();
+              try {
+                watchCanReturnLatch.await();
+              } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+              }
+              return new MockWatch<>();
             });
     ReflectorRunnable<V1Pod, V1PodList> reflectorRunnable =
         new ReflectorRunnable<V1Pod, V1PodList>(V1Pod.class, listerWatcher, deltaFIFO);
@@ -71,13 +80,15 @@ class ReflectorRunnableTest {
       Thread thread = new Thread(reflectorRunnable::run);
       thread.setDaemon(true);
       thread.start();
-      Awaitility.await()
-          .atMost(Duration.ofSeconds(1))
-          .pollInterval(Duration.ofMillis(100))
-          .until(() -> mockResourceVersion.equals(reflectorRunnable.getLastSyncResourceVersion()));
+      // Wait until watch() has been invoked to avoid a race where stop() is called
+      // before the watch starts (lastSyncResourceVersion is set before watch() is called).
+      assertThat(watchCalledLatch.await(1, TimeUnit.SECONDS)).isTrue();
     } finally {
+      // stop() first (sets isActive=false), then release the watch so the reflector exits cleanly.
       reflectorRunnable.stop();
+      watchCanReturnLatch.countDown();
     }
+    assertThat(reflectorRunnable.getLastSyncResourceVersion()).isEqualTo(mockResourceVersion);
     verify(deltaFIFO, times(1)).replace(any(), any());
     verify(deltaFIFO, never()).add(any());
     verify(listerWatcher, times(1)).list(any());
