@@ -85,6 +85,7 @@ class ReflectorRunnableTest {
     } finally {
       reflectorRunnable.stop();
     }
+    assertThat(reflectorRunnable.getLastSyncResourceVersion()).isEqualTo(mockResourceVersion);
     verify(deltaFIFO, times(1)).replace(any(), any());
     verify(deltaFIFO, never()).add(any());
     verify(listerWatcher, times(1)).list(any());
