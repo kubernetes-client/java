@@ -21,6 +21,7 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
 import org.junit.jupiter.api.Test;
 
 class SharedProcessorTest {
@@ -69,11 +70,12 @@ class SharedProcessorTest {
     TestWorker<V1Pod> slowWorker = new TestWorker<>(null, 0);
     final boolean[] interrupted = {false};
     CountDownLatch latch = new CountDownLatch(1);
+    Semaphore blocker = new Semaphore(0);
     slowWorker.setTask(
         () -> {
           try {
-            // sleep 10s so that it could be interrupted by shutdownNow()
-            Thread.sleep(10 * 1000);
+            // block until interrupted by shutdownNow()
+            blocker.acquire();
           } catch (InterruptedException e) {
             interrupted[0] = true;
           } finally {

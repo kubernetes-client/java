@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -37,7 +38,9 @@ class ExecCallbacksTest {
 
   @Test
   void maxTimeout() throws Exception {
-    Exec exec = getExec((future, io) -> Thread.sleep(30_000L));
+    // Block indefinitely instead of sleeping so the test isn't time-bounded on the remote side;
+    // the exec timeout is what terminates execution.
+    Exec exec = getExec((future, io) -> new Semaphore(0).acquire());
 
     long startTime = System.currentTimeMillis();
     Future<Integer> promise =
