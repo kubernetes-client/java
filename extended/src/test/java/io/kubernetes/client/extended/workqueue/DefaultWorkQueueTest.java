@@ -41,7 +41,6 @@ class DefaultWorkQueueTest {
                 try {
                   for (int j = 0; j < 50; j++) {
                     queue.add(String.valueOf(num));
-                    Thread.sleep(10);
                   }
                 } catch (Exception e) {
                   // empty body
@@ -70,7 +69,6 @@ class DefaultWorkQueueTest {
                     }
 
                     LOGGER.info("Worker {}: begin processing {}", num, item);
-                    Thread.sleep(50);
                     LOGGER.info("Worker {}: done processing {}", num, item);
                     queue.done(item);
                   }

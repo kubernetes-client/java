@@ -45,7 +45,7 @@ class DefaultDelayingQueueTest {
     String item = queue.get();
     queue.done(item);
 
-    Thread.sleep(10 * 1000L);
+    // The time source is injected and static, so no new items will be enqueued spontaneously.
     assertThat(0).isEqualTo(queue.length());
   }
 
