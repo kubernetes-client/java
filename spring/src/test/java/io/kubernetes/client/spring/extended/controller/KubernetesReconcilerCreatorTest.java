@@ -22,6 +22,7 @@ import io.kubernetes.client.extended.controller.DefaultController;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
 import io.kubernetes.client.extended.controller.reconciler.Result;
+import io.kubernetes.client.extended.wait.Wait;
 import io.kubernetes.client.extended.workqueue.WorkQueue;
 import io.kubernetes.client.informer.SharedInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
@@ -46,6 +47,7 @@ import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReco
 import io.kubernetes.client.spring.extended.controller.annotation.UpdateWatchEventFilter;
 import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
 import io.kubernetes.client.util.ClientBuilder;
+import java.time.Duration;
 import java.util.LinkedList;
 import java.util.function.Function;
 import jakarta.annotation.Resource;
@@ -194,9 +196,10 @@ class KubernetesReconcilerCreatorTest {
               }
             });
 
-    Thread.sleep(500);
-
     WorkQueue<Request> workQueue = ((DefaultController) testController).getWorkQueue();
+    boolean itemAdded =
+        Wait.poll(Duration.ofMillis(10), Duration.ofSeconds(5), () -> workQueue.length() >= 1);
+    assertThat(itemAdded).isTrue();
     assertThat(workQueue.length()).isEqualTo(1);
     assertThat(workQueue.get().getName()).isEqualTo("foo");
     sharedInformerFactory.stopAllRegisteredInformers();
