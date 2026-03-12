@@ -32,6 +32,8 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit;
+import org.awaitility.Awaitility;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -121,7 +123,9 @@ class CopyTest {
               }
             });
     t.start();
-    Thread.sleep(2000);
+    Awaitility.await()
+        .atMost(5, TimeUnit.SECONDS)
+        .until(() -> !apiServer.getAllServeEvents().isEmpty());
     t.interrupt();
 
     apiServer.verify(
@@ -137,7 +141,7 @@ class CopyTest {
   }
 
   @Test
-  void copyBinaryDataToPod() throws InterruptedException {
+  void copyBinaryDataToPod
 
     byte[] testSrc = new byte[0];
 
@@ -167,7 +171,9 @@ class CopyTest {
               }
             });
     t.start();
-    Thread.sleep(2000);
+    Awaitility.await()
+        .atMost(5, TimeUnit.SECONDS)
+        .until(() -> !apiServer.getAllServeEvents().isEmpty());
     t.interrupt();
 
     apiServer.verify(
@@ -183,7 +189,7 @@ class CopyTest {
   }
 
   @Test
-  void testCopyDirectoryFromPod(@TempDir Path tempDir) throws Exception {
+  void testCopyDirectoryFromPod
     Copy copy = new Copy(client);
 
     apiServer.stubFor(
@@ -211,7 +217,9 @@ class CopyTest {
               }
             });
     t.start();
-    Thread.sleep(2000);
+    Awaitility.await()
+        .atMost(5, TimeUnit.SECONDS)
+        .until(() -> !apiServer.getAllServeEvents().isEmpty());
     t.interrupt();
 
     apiServer.verify(
