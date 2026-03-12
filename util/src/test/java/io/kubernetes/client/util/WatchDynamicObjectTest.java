@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 
 /** Tests for Watch with DynamicKubernetesObject */
 class WatchDynamicObjectTest {
-  
+
   @Test
   void watchAddedEventShouldPreserveRawData() throws IOException {
     JSON json = new JSON();
@@ -62,7 +62,7 @@ class WatchDynamicObjectTest {
     assertThat(response.object.getRaw().has("spec")).isTrue();
     assertThat(response.object.getRaw().get("spec")).isNotNull();
   }
-  
+
   @Test
   void watchModifiedEventShouldPreserveRawData() throws IOException {
     JSON json = new JSON();
