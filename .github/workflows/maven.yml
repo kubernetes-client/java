@@ -12,6 +12,9 @@ on:
       - '.mvn/**'
       - 'mvnw'
       - 'mvnw.cmd'
+      - '**/*.sh'
+      - 'client-java-contrib/Dockerfile'
+      - 'e2e/**/*.yaml'
       - '.github/workflows/maven.yml'
   pull_request:
     branches: [ "master", "master-java8", "release-**" ]
@@ -21,6 +24,9 @@ on:
       - '.mvn/**'
       - 'mvnw'
       - 'mvnw.cmd'
+      - '**/*.sh'
+      - 'client-java-contrib/Dockerfile'
+      - 'e2e/**/*.yaml'
       - '.github/workflows/maven.yml'
 
 jobs:
