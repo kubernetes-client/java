@@ -36,7 +36,7 @@ maven.install(
         "com.google.code.gson:gson:2.14.0",
         "com.fasterxml.jackson.core:jackson-databind:2.21.2",
         "com.fasterxml.jackson.core:jackson-core:2.21.2",
-        "com.fasterxml.jackson.core:jackson-annotations:2.21.2",
+        "com.fasterxml.jackson.core:jackson-annotations:2.21",
         "io.gsonfire:gson-fire:1.9.0",
         "org.apache.commons:commons-lang3:3.20.0",
         "org.apache.commons:commons-collections4:4.5.0",
@@ -87,6 +87,7 @@ maven.install(
         "https://repo.spring.io/milestone",
     ],
     fetch_sources = True,
+    lock_file = "//:maven_install.json",
 )
 
 use_repo(maven, "maven")
