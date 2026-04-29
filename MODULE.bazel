@@ -86,7 +86,7 @@ maven.install(
         "https://repo1.maven.org/maven2",
         "https://repo.spring.io/milestone",
     ],
-    fetch_sources = True,
+    fetch_sources = False,
     lock_file = "//:maven_install.json",
 )
 

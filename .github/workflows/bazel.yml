@@ -72,10 +72,19 @@ jobs:
           path: |
             ~/.cache/bazel-disk-cache
             ~/.cache/bazel/cache/repos/v1
-          key: bazel-${{ runner.os }}-java${{ matrix.java }}-${{ hashFiles('MODULE.bazel', '.bazelversion') }}
+          key: bazel-${{ runner.os }}-java${{ matrix.java }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
           restore-keys: |
             bazel-${{ runner.os }}-java${{ matrix.java }}-
             bazel-${{ runner.os }}-
+
+      # Re-generate the Maven lock file so it is always consistent with
+      # MODULE.bazel.  The __INPUT_ARTIFACTS_HASH in the committed file is
+      # intentionally set to -1 to signal that the file needs to be regenerated;
+      # REPIN=1 overwrites it with the correct value.  Once the artifact list
+      # stabilises, subsequent runs where MODULE.bazel has not changed are fast
+      # because rules_jvm_external short-circuits on an identical artifact list.
+      - name: Pin Maven dependencies
+        run: REPIN=1 bazel run @maven//:pin
 
       # ----------------------------------------------------------------
       # Build all core modules
