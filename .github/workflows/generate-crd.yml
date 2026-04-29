@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: Run CRD Model Generation
         run: |
           read CRD_SRC_ARGS < <(echo '${{ github.event.inputs.crds }}' | perl -ne 'print join " ", map {"-u $_"} split /,/')
@@ -48,7 +48,7 @@ jobs:
             -p ${{ github.event.inputs.generatingJavaPackage }} \
             -o "$(pwd)/${GEN_DIR}"
           ls -lh ${GEN_DIR}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
         with:
           name: generated-java-crd-model
           path: |

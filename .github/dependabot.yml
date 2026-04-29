@@ -10,3 +10,9 @@ updates:
     schedule:
       interval: "daily"
       time: "03:00"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "master-java8"
+    schedule:
+      interval: "daily"
+      time: "03:00"
