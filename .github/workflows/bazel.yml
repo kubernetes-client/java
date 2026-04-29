@@ -49,13 +49,16 @@ jobs:
           distribution: temurin
           java-version: ${{ matrix.java }}
 
-      # Install Bazelisk which reads the pinned version from .bazelversion
+      # Install Bazelisk which reads the pinned version from .bazelversion.
+      # Install into $HOME/.local/bin (no root required) and add it to PATH.
       - name: Install Bazelisk
         run: |
+          mkdir -p "$HOME/.local/bin"
           curl -fsSL \
             https://github.com/bazelbuild/bazelisk/releases/download/v1.24.1/bazelisk-linux-amd64 \
-            -o /usr/local/bin/bazel
-          chmod +x /usr/local/bin/bazel
+            -o "$HOME/.local/bin/bazel"
+          chmod +x "$HOME/.local/bin/bazel"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
       # ----------------------------------------------------------------
       # Cache layers
