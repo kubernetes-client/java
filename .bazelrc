@@ -30,9 +30,10 @@ build --disk_cache=~/.cache/bazel-disk-cache
 # Enable when running under GitHub Actions:
 #   bazel build --config=ci ...
 # ---------------------------------------------------------------------------
-# Disable the local disk cache on CI; GitHub Actions cache (configured in the
-# workflow) is used to persist the disk cache between runs instead.
-build:ci --disk_cache=
+# The disk cache is intentionally left at its default path
+# (~/.cache/bazel-disk-cache) so the GitHub Actions cache step (configured in
+# .github/workflows/bazel.yml) can save and restore compiled action outputs
+# between runs for faster incremental builds.
 # Show full test output on failure.
 build:ci --test_output=errors
 # Avoid interactive prompts.
