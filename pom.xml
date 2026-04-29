@@ -52,7 +52,7 @@
     <caffeine.version>2.9.3</caffeine.version>
     <protobuf.version>4.34.1</protobuf.version>
     <junit.version>4.13</junit.version>
-    <bucket4j.version>7.6.0</bucket4j.version>
+    <bucket4j.version>8.0.1</bucket4j.version>
     <bouncycastle.version>1.84</bouncycastle.version>
     <jackson.version>2.21.2</jackson.version>
     <jackson.annotations.version>2.21</jackson.annotations.version>
