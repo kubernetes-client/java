@@ -16,6 +16,8 @@ on:
       - 'client-java-contrib/Dockerfile'
       - 'e2e/**/*.yaml'
       - '.github/workflows/maven.yml'
+      - '!spring/**'
+      - '!spring-aot/**'
   pull_request:
     branches: [ "master", "master-java8", "release-**" ]
     paths:
@@ -28,6 +30,8 @@ on:
       - 'client-java-contrib/Dockerfile'
       - 'e2e/**/*.yaml'
       - '.github/workflows/maven.yml'
+      - '!spring/**'
+      - '!spring-aot/**'
 
 jobs:
   verify-format:
