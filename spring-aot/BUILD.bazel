@@ -18,6 +18,7 @@ java_library(
         "@maven//:org_slf4j_slf4j_api",
         "@maven//:org_springframework_boot_spring_boot",
         "@maven//:org_springframework_boot_spring_boot_autoconfigure",
+        "@maven//:org_springframework_spring_beans",
         "@maven//:org_springframework_spring_core",
     ],
 )

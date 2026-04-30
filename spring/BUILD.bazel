@@ -15,8 +15,13 @@ java_library(
         "//kubernetes:client-java-api",
         "@maven//:com_github_ben_manes_caffeine_caffeine",
         "@maven//:io_prometheus_simpleclient",
+        "@maven//:org_apache_commons_commons_lang3",
+        "@maven//:org_slf4j_slf4j_api",
         "@maven//:org_springframework_boot_spring_boot_autoconfigure",
+        "@maven//:org_springframework_spring_beans",
+        "@maven//:org_springframework_spring_context",
         "@maven//:org_springframework_spring_core",
+        "@maven//:org_yaml_snakeyaml",
     ],
 )
 
@@ -30,6 +35,7 @@ java_test_suite(
         "//extended:client-java-extended",
         "//kubernetes:client-java-api",
         "//util:client-java",
+        "@maven//:org_apache_commons_commons_lang3",
         "@maven//:org_assertj_assertj_core",
         "@maven//:org_awaitility_awaitility",
         "@maven//:org_junit_jupiter_junit_jupiter_api",

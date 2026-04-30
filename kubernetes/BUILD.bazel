@@ -28,8 +28,12 @@ java_test_suite(
     runner = "junit5",
     deps = [
         ":client-java-api",
+        "@maven//:com_fasterxml_jackson_core_jackson_core",
+        "@maven//:com_fasterxml_jackson_core_jackson_databind",
+        "@maven//:com_google_code_gson_gson",
         "@maven//:com_squareup_okhttp3_okhttp_jvm",
         "@maven//:com_squareup_okio_okio_jvm",
+        "@maven//:io_gsonfire_gson_fire",
         "@maven//:org_assertj_assertj_core",
         "@maven//:org_junit_jupiter_junit_jupiter_api",
         "@maven//:org_junit_jupiter_junit_jupiter_params",

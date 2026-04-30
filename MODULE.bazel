@@ -65,6 +65,7 @@ maven.install(
         "org.springframework.boot:spring-boot-autoconfigure:4.0.6",
         "org.springframework.boot:spring-boot-actuator:4.0.6",
         "org.springframework.boot:spring-boot-test:4.0.6",
+        "org.springframework:spring-beans:6.2.12",
         "org.springframework:spring-core:6.2.12",
         "org.springframework:spring-context:6.2.12",
         "org.springframework:spring-test:6.2.12",
