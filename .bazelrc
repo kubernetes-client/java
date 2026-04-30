@@ -13,6 +13,15 @@ build --tool_java_language_version=11
 build --tool_java_runtime_version=remotejdk_11
 
 # ---------------------------------------------------------------------------
+# Error Prone configuration
+# ---------------------------------------------------------------------------
+# Bazel's Java rules enable Error Prone by default.  The checks fire on
+# pre-existing patterns in this codebase (e.g. DoubleBraceInitialization,
+# EqualsHashCode) that are not caught by the Maven build.  Disable all
+# Error Prone checks so that the Bazel build stays consistent with Maven.
+build --javacopt=-XepDisableAllChecks
+
+# ---------------------------------------------------------------------------
 # Build settings
 # ---------------------------------------------------------------------------
 build --enable_platform_specific_config
