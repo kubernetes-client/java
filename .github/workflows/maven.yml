@@ -64,9 +64,10 @@ jobs:
       - name: Build with Maven
         shell: bash
         run: |
+          # spring and spring-aot are tested in a dedicated workflow (spring.yml)
+          MODS_OVERRIDES='-pl !spring,!spring-aot'
           if [ $(grep -E '^(8|11)\.' <<< '${{ matrix.java }}') ]; then
             # some module doesn't compile on java platform lower than 17, need to skip them by specifying a profile
-            MODS_OVERRIDES='-pl !spring,!spring-aot'
             EXCLUDED_EXAMPLE_MODULES=`ls examples | grep examples | xargs -I {} echo '!examples/{}'   | tr '\n' ',' | sed 's/.$//'`
             MODS_OVERRIDES=$MODS_OVERRIDES,$EXCLUDED_EXAMPLE_MODULES
           fi
