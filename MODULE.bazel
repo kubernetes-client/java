@@ -49,6 +49,7 @@ maven.install(
         "org.yaml:snakeyaml:2.6",
         "org.slf4j:slf4j-api:2.0.17",
         "org.bouncycastle:bcpkix-jdk18on:1.84",
+        "org.bouncycastle:bcprov-jdk18on:1.84",
         "com.google.protobuf:protobuf-java:4.34.1",
         "org.bitbucket.b_c:jose4j:0.9.6",
         "com.google.auth:google-auth-library-oauth2-http:1.46.0",

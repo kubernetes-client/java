@@ -25,6 +25,7 @@ java_library(
         "@maven//:org_apache_commons_commons_lang3",
         "@maven//:org_bitbucket_b_c_jose4j",
         "@maven//:org_bouncycastle_bcpkix_jdk18on",
+        "@maven//:org_bouncycastle_bcprov_jdk18on",
         "@maven//:org_slf4j_slf4j_api",
         "@maven//:org_yaml_snakeyaml",
         "@maven//:software_amazon_awssdk_auth",
