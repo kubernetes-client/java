@@ -13,10 +13,12 @@ java_library(
     deps = [
         "//extended:client-java-extended",
         "//kubernetes:client-java-api",
+        "//util:client-java",
         "@maven//:com_github_ben_manes_caffeine_caffeine",
         "@maven//:io_prometheus_simpleclient",
         "@maven//:org_apache_commons_commons_lang3",
         "@maven//:org_slf4j_slf4j_api",
+        "@maven//:org_springframework_boot_spring_boot",
         "@maven//:org_springframework_boot_spring_boot_autoconfigure",
         "@maven//:org_springframework_spring_beans",
         "@maven//:org_springframework_spring_context",
@@ -35,6 +37,7 @@ java_test_suite(
         "//extended:client-java-extended",
         "//kubernetes:client-java-api",
         "//util:client-java",
+        "@maven//:jakarta_annotation_jakarta_annotation_api",
         "@maven//:org_apache_commons_commons_lang3",
         "@maven//:org_assertj_assertj_core",
         "@maven//:org_awaitility_awaitility",
@@ -48,5 +51,6 @@ java_test_suite(
         "@maven//:ch_qos_logback_logback_classic",
         "@maven//:org_junit_jupiter_junit_jupiter_engine",
         "@maven//:org_junit_platform_junit_platform_launcher",
+        "@maven//:org_junit_platform_junit_platform_reporting",
     ],
 )

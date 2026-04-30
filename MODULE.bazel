@@ -82,6 +82,7 @@ maven.install(
         "org.junit.platform:junit-platform-launcher:1.13.4",
         "org.junit.platform:junit-platform-commons:1.13.4",
         "org.junit.platform:junit-platform-engine:1.13.4",
+        "org.junit.platform:junit-platform-reporting:1.13.4",
         "org.mockito:mockito-core:5.23.0",
         "org.mockito:mockito-junit-jupiter:5.23.0",
         "uk.org.webcompere:system-stubs-jupiter:2.1.8",
