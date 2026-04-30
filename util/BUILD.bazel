@@ -27,7 +27,12 @@ java_library(
         "@maven//:org_bouncycastle_bcpkix_jdk18on",
         "@maven//:org_slf4j_slf4j_api",
         "@maven//:org_yaml_snakeyaml",
+        "@maven//:software_amazon_awssdk_auth",
+        "@maven//:software_amazon_awssdk_http_auth_aws",
+        "@maven//:software_amazon_awssdk_http_auth_spi",
+        "@maven//:software_amazon_awssdk_http_client_spi",
         "@maven//:software_amazon_awssdk_sts",
+        "@maven//:software_amazon_awssdk_utils",
     ],
 )
 
@@ -56,6 +61,7 @@ java_test_suite(
         "@maven//:org_mockito_mockito_junit_jupiter",
         "@maven//:org_wiremock_wiremock",
         "@maven//:org_yaml_snakeyaml",
+        "@maven//:software_amazon_awssdk_auth",
         "@maven//:software_amazon_awssdk_sts",
         "@maven//:uk_org_webcompere_system_stubs_jupiter",
     ],

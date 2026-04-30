@@ -103,7 +103,7 @@ public class ProtoClient {
    * @param path The URL path to call (e.g. /api/v1/namespaces/default/pods/pod-name)
    * @return An ObjectOrStatus which contains the Object requested, or a Status about the request.
    */
-  public <T extends Message> ObjectOrStatus<T> get(T.Builder builder, String path)
+  public <T extends Message> ObjectOrStatus<T> get(Message.Builder builder, String path)
       throws ApiException, IOException {
     return request(builder, path, "GET", null, null, null);
   }
@@ -116,7 +116,7 @@ public class ProtoClient {
    * @param path The URL path to call (e.g. /api/v1/namespaces/default/pods/pod-name)
    * @return An ObjectOrStatus which contains the Object requested, or a Status about the request.
    */
-  public <T extends Message> ObjectOrStatus<T> list(T.Builder builder, String path)
+  public <T extends Message> ObjectOrStatus<T> list(Message.Builder builder, String path)
       throws ApiException, IOException {
     return get(builder, path);
   }
@@ -170,7 +170,7 @@ public class ProtoClient {
    * @param path The path to call in the API server
    * @return The response status
    */
-  public <T extends Message> ObjectOrStatus<T> delete(T.Builder builder, String path)
+  public <T extends Message> ObjectOrStatus<T> delete(Message.Builder builder, String path)
       throws ApiException, IOException {
     return request(builder, path, "DELETE", null, null, null);
   }
@@ -184,7 +184,7 @@ public class ProtoClient {
    * @return The response status
    */
   public <T extends Message> ObjectOrStatus<T> delete(
-      T.Builder builder, String path, DeleteOptions deleteOptions)
+      Message.Builder builder, String path, DeleteOptions deleteOptions)
       throws ApiException, IOException {
     if (deleteOptions == null) {
       return delete(builder, path);
@@ -228,7 +228,7 @@ public class ProtoClient {
    * @return An ObjectOrStatus which contains the Object requested, or a Status about the request.
    */
   public <T extends Message> ObjectOrStatus<T> request(
-      T.Builder builder, String path, String method, T body, String apiVersion, String kind)
+      Message.Builder builder, String path, String method, T body, String apiVersion, String kind)
       throws ApiException, IOException {
     HashMap<String, String> headers = new HashMap<>();
     headers.put("Content-Type", MEDIA_TYPE);
