@@ -11,6 +11,8 @@ java_library(
         "//proto:client-java-proto",
         "@maven//:com_google_auth_google_auth_library_oauth2_http",
         "@maven//:com_google_protobuf_protobuf_java",
+        "@maven//:com_squareup_okhttp3_okhttp_jvm",
+        "@maven//:com_squareup_okio_okio_jvm",
         "@maven//:commons_codec_commons_codec",
         "@maven//:commons_io_commons_io",
         "@maven//:io_prometheus_simpleclient",
@@ -35,6 +37,8 @@ java_test_suite(
     deps = [
         ":client-java",
         "//kubernetes:client-java-api",
+        "@maven//:com_squareup_okhttp3_okhttp_jvm",
+        "@maven//:com_squareup_okio_okio_jvm",
         "@maven//:org_assertj_assertj_core",
         "@maven//:org_awaitility_awaitility",
         "@maven//:org_junit_jupiter_junit_jupiter_api",
