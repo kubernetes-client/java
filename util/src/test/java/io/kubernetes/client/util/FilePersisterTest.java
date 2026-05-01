@@ -28,7 +28,7 @@ import org.junit.jupiter.api.io.TempDir;
 /** Tests for the FilePersister helper class */
 class FilePersisterTest {
 
-  private static final String KUBECONFIG_FILE_PATH = Resources.getResource("kubeconfig").getPath();
+  private static final String KUBECONFIG_FILE_PATH = Resources.getPath("kubeconfig");
 
   @Test
   void persistence(@TempDir Path tempDir) throws IOException {

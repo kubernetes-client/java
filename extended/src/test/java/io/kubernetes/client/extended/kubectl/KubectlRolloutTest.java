@@ -35,10 +35,7 @@ import io.kubernetes.client.openapi.models.V1StatefulSet;
 import io.kubernetes.client.openapi.models.V1StatefulSetList;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.ModelMapper;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -46,6 +43,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 class KubectlRolloutTest {
+  private static String readResource(String name) {
+    try (java.io.InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(name)) {
+      return new String(is.readAllBytes());
+    } catch (java.io.IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
 
   private ApiClient apiClient;
 
@@ -53,57 +58,13 @@ class KubectlRolloutTest {
   static WireMockExtension apiServer =
       WireMockExtension.newInstance().options(wireMockConfig().dynamicPort()).build();
 
-  private static final String DEPLOYMENT =
-      new File(KubectlRolloutTest.class.getClassLoader().getResource("deployment.json").getPath())
-          .toString();
 
-  private static final String REPLICASET_LIST =
-      new File(
-              KubectlRolloutTest.class
-                  .getClassLoader()
-                  .getResource("replicaset-list.json")
-                  .getPath())
-          .toString();
 
-  private static final String DAEMON_SET =
-      new File(KubectlRolloutTest.class.getClassLoader().getResource("daemonset.json").getPath())
-          .toString();
 
-  private static final String PATCHED_DAEMON_SET =
-      new File(
-              KubectlRolloutTest.class
-                  .getClassLoader()
-                  .getResource("patched-daemonset.json")
-                  .getPath())
-          .toString();
 
-  private static final String DAEMON_SET_CONTROLLER_REVISION_LIST =
-      new File(
-              KubectlRolloutTest.class
-                  .getClassLoader()
-                  .getResource("daemonset-controllerrevision-list.json")
-                  .getPath())
-          .toString();
 
-  private static final String STATEFUL_SET =
-      new File(KubectlRolloutTest.class.getClassLoader().getResource("statefulset.json").getPath())
-          .toString();
 
-  private static final String PATCHED_STATEFUL_SET =
-      new File(
-              KubectlRolloutTest.class
-                  .getClassLoader()
-                  .getResource("patched-statefulset.json")
-                  .getPath())
-          .toString();
 
-  private static final String STATEFUL_SET_CONTROLLER_REVISION_LIST =
-      new File(
-              KubectlRolloutTest.class
-                  .getClassLoader()
-                  .getResource("statefulset-controllerrevision-list.json")
-                  .getPath())
-          .toString();
 
   @BeforeEach
   void setup() {
@@ -135,13 +96,13 @@ class KubectlRolloutTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(DEPLOYMENT))))));
+                    .withBody(readResource("deployment.json"))));
     apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(REPLICASET_LIST))))));
+                    .withBody(readResource("replicaset-list.json"))));
     List<History> histories =
         Kubectl.rollout(V1Deployment.class)
             .history()
@@ -168,13 +129,13 @@ class KubectlRolloutTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(DEPLOYMENT))))));
+                    .withBody(readResource("deployment.json"))));
     apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(REPLICASET_LIST))))));
+                    .withBody(readResource("replicaset-list.json"))));
     V1PodTemplateSpec template =
         Kubectl.rollout(V1Deployment.class)
             .history()
@@ -200,15 +161,14 @@ class KubectlRolloutTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(DAEMON_SET))))));
+                    .withBody(readResource("daemonset.json"))));
     apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(
-                        new String(
-                            Files.readAllBytes(Paths.get(DAEMON_SET_CONTROLLER_REVISION_LIST))))));
+                        readResource("daemonset-controllerrevision-list.json"))));
     List<History> histories =
         Kubectl.rollout(V1DaemonSet.class)
             .history()
@@ -234,21 +194,20 @@ class KubectlRolloutTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(DAEMON_SET))))));
+                    .withBody(readResource("daemonset.json"))));
     apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(
-                        new String(
-                            Files.readAllBytes(Paths.get(DAEMON_SET_CONTROLLER_REVISION_LIST))))));
+                        readResource("daemonset-controllerrevision-list.json"))));
     apiServer.stubFor(
         patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/daemonsets/foo"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(PATCHED_DAEMON_SET))))));
+                    .withBody(readResource("patched-daemonset.json"))));
     V1PodTemplateSpec template =
         Kubectl.rollout(V1DaemonSet.class)
             .history()
@@ -279,16 +238,14 @@ class KubectlRolloutTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(STATEFUL_SET))))));
+                    .withBody(readResource("statefulset.json"))));
     apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(
-                        new String(
-                            Files.readAllBytes(
-                                Paths.get(STATEFUL_SET_CONTROLLER_REVISION_LIST))))));
+                        readResource("statefulset-controllerrevision-list.json"))));
     List<History> histories =
         Kubectl.rollout(V1StatefulSet.class)
             .history()
@@ -314,22 +271,20 @@ class KubectlRolloutTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(STATEFUL_SET))))));
+                    .withBody(readResource("statefulset.json"))));
     apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(
-                        new String(
-                            Files.readAllBytes(
-                                Paths.get(STATEFUL_SET_CONTROLLER_REVISION_LIST))))));
+                        readResource("statefulset-controllerrevision-list.json"))));
     apiServer.stubFor(
         patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(PATCHED_STATEFUL_SET))))));
+                    .withBody(readResource("patched-statefulset.json"))));
     V1PodTemplateSpec template =
         Kubectl.rollout(V1StatefulSet.class)
             .history()
@@ -359,13 +314,13 @@ class KubectlRolloutTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(DEPLOYMENT))))));
+                    .withBody(readResource("deployment.json"))));
     apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(REPLICASET_LIST))))));
+                    .withBody(readResource("replicaset-list.json"))));
 
     assertThatThrownBy(
             () ->

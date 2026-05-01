@@ -25,7 +25,6 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
-import java.io.File;
 import java.time.Instant;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,9 +32,9 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 
 class TokenFileAuthenticationTest {
   private static final String SERVICEACCOUNT_TOKEN1_PATH =
-      new File(Resources.getResource("token1").getPath()).toString();
+      Resources.getPath("token1");
   private static final String SERVICEACCOUNT_TOKEN2_PATH =
-      new File(Resources.getResource("token2").getPath()).toString();
+      Resources.getPath("token2");
   private TokenFileAuthentication auth;
 
   @RegisterExtension

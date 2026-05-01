@@ -64,6 +64,7 @@ java_test_suite(
         "@maven//:org_yaml_snakeyaml",
         "@maven//:software_amazon_awssdk_auth",
         "@maven//:software_amazon_awssdk_sts",
+        "@maven//:uk_org_webcompere_system_stubs_core",
         "@maven//:uk_org_webcompere_system_stubs_jupiter",
     ],
     runtime_deps = [

@@ -15,7 +15,6 @@ package io.kubernetes.client.util.credentials;
 
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.ApiClient;
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import org.junit.jupiter.api.Test;
@@ -24,27 +23,27 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ClientCertificateAuthenticationTest {
   private static final String CLIENT_CERT_PATH =
-      new File(Resources.getResource("clientauth.cert").getPath()).toString();
+      Resources.getPath("clientauth.cert");
   private static final String CLIENT_EC_CERT_PATH =
-      new File(Resources.getResource("clientauth-ec.cert").getPath()).toString();
+      Resources.getPath("clientauth-ec.cert");
 
   // RSA key in PKCS8 format
   private static final String CLIENT_KEY_PATH =
-      new File(Resources.getResource("clientauth.key").getPath()).toString();
+      Resources.getPath("clientauth.key");
   // EC key in PKCS8 format
   private static final String CLIENT_EC_KEY_PATH =
-      new File(Resources.getResource("clientauth-ec-fixed.key").getPath()).toString();
+      Resources.getPath("clientauth-ec-fixed.key");
   // RSA key in PKCS1 format
   private static final String CLIENT_KEY_OLD_PATH =
-      new File(Resources.getResource("clientauth-rsa.key").getPath()).toString();
+      Resources.getPath("clientauth-rsa.key");
   // EC key in PKCS7 format
   private static final String CLIENT_EC_KEY_OLD_PATH =
-      new File(Resources.getResource("clientauth-ec.key").getPath()).toString();
+      Resources.getPath("clientauth-ec.key");
 
   private static final String CLIENT_CERT_CHAIN_PATH =
-      new File(Resources.getResource("clientauth-chain.cert").getPath()).toString();
+      Resources.getPath("clientauth-chain.cert");
   private static final String CLIENT_CERT_CHAIN_KEY_PATH =
-      new File(Resources.getResource("clientauth-chain.key").getPath()).toString();
+      Resources.getPath("clientauth-chain.key");
 
   @Test
   void validCertificates() throws Exception {

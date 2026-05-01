@@ -31,19 +31,21 @@ import io.kubernetes.client.openapi.models.V1Node;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.ModelMapper;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 class KubectlDrainTest {
+  private static String readResource(String name) {
+    try (java.io.InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(name)) {
+      return new String(is.readAllBytes());
+    } catch (java.io.IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
 
-  private static final String POD_LIST_API =
-      new File(KubectlDrainTest.class.getClassLoader().getResource("pod-list.json").getPath())
-          .toString();
+
 
   private ApiClient apiClient;
 
@@ -88,7 +90,7 @@ class KubectlDrainTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(POD_LIST_API))))));
+                    .withBody(readResource("pod-list.json"))));
     apiServer.stubFor(
         delete(urlPathEqualTo("/api/v1/namespaces/mssql/pods/mssql-75b8b44f6b-znftp"))
             .willReturn(aResponse().withStatus(200).withBody("{}")));

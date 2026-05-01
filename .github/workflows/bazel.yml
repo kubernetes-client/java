@@ -39,6 +39,8 @@ jobs:
       fail-fast: false
       matrix:
         java: ["11", "17", "21"]
+    env:
+      BAZELISK_SKIP_VERSION_CHECK: "1"
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
