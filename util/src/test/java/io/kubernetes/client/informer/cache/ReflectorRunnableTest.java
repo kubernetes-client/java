@@ -24,6 +24,7 @@ import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ListMeta;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.openapi.models.V1Status;
@@ -32,6 +33,8 @@ import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
 import java.net.HttpURLConnection;
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -372,5 +375,92 @@ class ReflectorRunnableTest {
         new ReflectorRunnable<>(anyApiType, listerWatcher, deltaFIFO, exceptionHandler);
 
     assertThat(reflector.exceptionHandler).isSameAs(exceptionHandler);
+  }
+
+  @Test
+  void populateTypeMetaSetsKindAndApiVersionFromListMetadata() {
+    ReflectorRunnable<V1Pod, V1PodList> reflector =
+        new ReflectorRunnable<>(V1Pod.class, listerWatcher, deltaFIFO);
+
+    V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name("test-pod"));
+    List<V1Pod> items = Arrays.asList(pod);
+
+    reflector.populateTypeMeta(items, "v1", "PodList");
+
+    assertThat(pod.getKind()).isEqualTo("Pod");
+    assertThat(pod.getApiVersion()).isEqualTo("v1");
+  }
+
+  @Test
+  void populateTypeMetaDoesNotOverwriteExistingKindAndApiVersion() {
+    ReflectorRunnable<V1Pod, V1PodList> reflector =
+        new ReflectorRunnable<>(V1Pod.class, listerWatcher, deltaFIFO);
+
+    V1Pod pod =
+        new V1Pod()
+            .metadata(new V1ObjectMeta().name("test-pod"))
+            .kind("AlreadySet")
+            .apiVersion("already/set");
+    List<V1Pod> items = Arrays.asList(pod);
+
+    reflector.populateTypeMeta(items, "v1", "PodList");
+
+    assertThat(pod.getKind()).isEqualTo("AlreadySet");
+    assertThat(pod.getApiVersion()).isEqualTo("already/set");
+  }
+
+  @Test
+  void populateTypeMetaFallsBackToModelMapperWhenListMetadataAbsent() {
+    ReflectorRunnable<V1Pod, V1PodList> reflector =
+        new ReflectorRunnable<>(V1Pod.class, listerWatcher, deltaFIFO);
+
+    V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name("test-pod"));
+    List<V1Pod> items = Arrays.asList(pod);
+
+    // Pass null list kind/apiVersion to trigger ModelMapper fallback
+    reflector.populateTypeMeta(items, null, null);
+
+    assertThat(pod.getKind()).isEqualTo("Pod");
+    assertThat(pod.getApiVersion()).isEqualTo("v1");
+  }
+
+  @Test
+  void populateTypeMetaSetsKindAndApiVersionDuringInitialList() throws ApiException, InterruptedException {
+    V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name("test-pod").resourceVersion("1"));
+    when(listerWatcher.list(any()))
+        .thenReturn(
+            new V1PodList()
+                .apiVersion("v1")
+                .kind("PodList")
+                .metadata(new V1ListMeta().resourceVersion("1000"))
+                .addItemsItem(pod));
+    CountDownLatch watchCalledLatch = new CountDownLatch(1);
+    CountDownLatch watchCanReturnLatch = new CountDownLatch(1);
+    when(listerWatcher.watch(any()))
+        .then(
+            (v) -> {
+              watchCalledLatch.countDown();
+              try {
+                watchCanReturnLatch.await();
+              } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+              }
+              return new MockWatch<>();
+            });
+    ReflectorRunnable<V1Pod, V1PodList> reflectorRunnable =
+        new ReflectorRunnable<>(V1Pod.class, listerWatcher, deltaFIFO);
+
+    try {
+      Thread thread = new Thread(reflectorRunnable::run);
+      thread.setDaemon(true);
+      thread.start();
+      assertThat(watchCalledLatch.await(1, TimeUnit.SECONDS)).isTrue();
+    } finally {
+      reflectorRunnable.stop();
+      watchCanReturnLatch.countDown();
+    }
+
+    assertThat(pod.getKind()).isEqualTo("Pod");
+    assertThat(pod.getApiVersion()).isEqualTo("v1");
   }
 }
