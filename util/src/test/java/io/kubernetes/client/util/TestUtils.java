@@ -14,6 +14,8 @@ package io.kubernetes.client.util;
 
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.auth.ApiKeyAuth;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.security.PrivateKey;
 import java.util.ArrayList;
 import org.jose4j.jws.AlgorithmIdentifiers;
@@ -22,6 +24,17 @@ import org.jose4j.jwt.JwtClaims;
 import org.jose4j.jwt.NumericDate;
 
 public class TestUtils {
+
+  public static InputStream makeStream(int streamNum, byte[] data) {
+    return makeStream(new byte[] {(byte) streamNum}, data);
+  }
+
+  public static InputStream makeStream(byte[] prefix, byte[] data) {
+    byte[] out = new byte[prefix.length + data.length];
+    System.arraycopy(prefix, 0, out, 0, prefix.length);
+    System.arraycopy(data, 0, out, prefix.length, data.length);
+    return new ByteArrayInputStream(out);
+  }
 
   public enum DateOptions {
     Now,

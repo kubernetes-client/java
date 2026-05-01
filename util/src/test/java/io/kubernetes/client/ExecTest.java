@@ -37,6 +37,7 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.Streams;
+import io.kubernetes.client.util.TestUtils;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -107,14 +108,11 @@ class ExecTest {
   }
 
   public static InputStream makeStream(int streamNum, byte[] data) {
-    return makeStream(new byte[] {(byte) streamNum}, data);
+    return TestUtils.makeStream(streamNum, data);
   }
 
   public static InputStream makeStream(byte[] prefix, byte[] data) {
-    byte[] out = new byte[prefix.length + data.length];
-    System.arraycopy(prefix, 0, out, 0, prefix.length);
-    System.arraycopy(data, 0, out, prefix.length, data.length);
-    return new ByteArrayInputStream(out);
+    return TestUtils.makeStream(prefix, data);
   }
 
   public static Thread asyncCopy(
