@@ -63,6 +63,9 @@ public class ReflectorRunnable<
 
   /* visible for testing */ final BiConsumer<Class<ApiType>, Throwable> exceptionHandler;
 
+  private Method setKindMethod;
+  private Method setApiVersionMethod;
+
   public ReflectorRunnable(
       Class<ApiType> apiTypeClass,
       ListerWatcher<ApiType, ApiListType> listerWatcher,
@@ -80,6 +83,12 @@ public class ReflectorRunnable<
     this.apiTypeClass = apiTypeClass;
     this.exceptionHandler =
         exceptionHandler == null ? ReflectorRunnable::defaultWatchErrorHandler : exceptionHandler;
+    try {
+      this.setKindMethod = apiTypeClass.getMethod("setKind", String.class);
+      this.setApiVersionMethod = apiTypeClass.getMethod("setApiVersion", String.class);
+    } catch (NoSuchMethodException e) {
+      log.warn("{}#setKind or setApiVersion method not found, type metadata will not be set on list items", apiTypeClass);
+    }
   }
 
   /**
@@ -271,17 +280,19 @@ public class ReflectorRunnable<
       return;
     }
 
+    if (setKindMethod == null || setApiVersionMethod == null) {
+      return;
+    }
+
     final String resolvedKind = kind;
     final String resolvedApiVersion = apiVersion;
     try {
-      Method setKind = apiTypeClass.getMethod("setKind", String.class);
-      Method setApiVersion = apiTypeClass.getMethod("setApiVersion", String.class);
       for (KubernetesObject item : items) {
         if (Strings.isNullOrEmpty(item.getKind())) {
-          setKind.invoke(item, resolvedKind);
+          setKindMethod.invoke(item, resolvedKind);
         }
         if (Strings.isNullOrEmpty(item.getApiVersion())) {
-          setApiVersion.invoke(item, resolvedApiVersion);
+          setApiVersionMethod.invoke(item, resolvedApiVersion);
         }
       }
     } catch (ReflectiveOperationException e) {

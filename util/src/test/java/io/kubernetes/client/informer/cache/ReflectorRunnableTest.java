@@ -425,7 +425,7 @@ class ReflectorRunnableTest {
   }
 
   @Test
-  void populateTypeMetaSetsKindAndApiVersionDuringInitialList() throws ApiException, InterruptedException {
+  void initialListPopulatesTypeMetaOnItems() throws ApiException, InterruptedException {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name("test-pod").resourceVersion("1"));
     when(listerWatcher.list(any()))
         .thenReturn(
