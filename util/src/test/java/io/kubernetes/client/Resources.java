@@ -71,23 +71,23 @@ public class Resources {
 
   // ---- JAR extraction ----
 
-  private static volatile Path extractedResourceDir;
+  /** Holder class ensures the extracted resource directory is initialized exactly once. */
+  private static final class ExtractedDirHolder {
+    static final Path DIR = createExtractedResourceDir();
 
-  private static Path getExtractedResourceDir() {
-    if (extractedResourceDir == null) {
-      synchronized (Resources.class) {
-        if (extractedResourceDir == null) {
-          try {
-            Path tempDir = Files.createTempDirectory("k8s-test-resources-");
-            extractClasspathResourcesToDir(tempDir);
-            extractedResourceDir = tempDir;
-          } catch (IOException e) {
-            throw new RuntimeException("Failed to extract test resources", e);
-          }
-        }
+    private static Path createExtractedResourceDir() {
+      try {
+        Path tempDir = Files.createTempDirectory("k8s-test-resources-");
+        extractClasspathResourcesToDir(tempDir);
+        return tempDir;
+      } catch (IOException e) {
+        throw new RuntimeException("Failed to extract test resources", e);
       }
     }
-    return extractedResourceDir;
+  }
+
+  private static Path getExtractedResourceDir() {
+    return ExtractedDirHolder.DIR;
   }
 
   private static void extractClasspathResourcesToDir(Path destDir) throws IOException {
@@ -107,6 +107,8 @@ public class Resources {
       while (entries.hasMoreElements()) {
         JarEntry entry = entries.nextElement();
         String entryName = entry.getName();
+        // Skip directories and .class files — only extract resource files
+        // (.class files are already on the classpath via the JAR itself).
         if (entry.isDirectory() || entryName.endsWith(".class")) {
           continue;
         }
