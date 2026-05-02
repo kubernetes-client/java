@@ -91,28 +91,35 @@ public class Resources {
   }
 
   private static void extractClasspathResourcesToDir(Path destDir) throws IOException {
-    URL rootUrl = Resources.class.getClassLoader().getResource("");
-    if (rootUrl == null || !"jar".equals(rootUrl.getProtocol())) {
+    // Use the URL of Resources.class itself to locate the test-library JAR.
+    // This is more reliable than ClassLoader.getResource("") which can return null
+    // or a non-jar: URL in Bazel's test execution environment.
+    URL classFileUrl = Resources.class.getResource("Resources.class");
+    if (classFileUrl == null || !"jar".equals(classFileUrl.getProtocol())) {
+      // Not running from a JAR (e.g. Maven with exploded classes) — nothing to extract.
       return;
     }
-    // rootUrl is like jar:file:/path/to/test.jar!/
-    String jarUrlPath = rootUrl.getPath(); // "file:/path/to/test.jar!/"
-    int sep = jarUrlPath.indexOf('!');
-    if (sep < 0) {
+    // classFileUrl is like jar:file:/path/to/library.jar!/io/kubernetes/client/Resources.class
+    String path = classFileUrl.getPath(); // "file:/path/to/library.jar!/io/.../Resources.class"
+    int bang = path.indexOf('!');
+    if (bang < 0) {
       return;
     }
-    String jarFilePath = new URL(jarUrlPath.substring(0, sep)).getPath();
+    String jarFilePath = new URL(path.substring(0, bang)).getPath();
     try (JarFile jar = new JarFile(jarFilePath)) {
       Enumeration<JarEntry> entries = jar.entries();
       while (entries.hasMoreElements()) {
         JarEntry entry = entries.nextElement();
         String entryName = entry.getName();
-        // Skip directories and .class files — only extract resource files
-        // (.class files are already on the classpath via the JAR itself).
+        // Skip directories and .class files — only extract resource files.
         if (entry.isDirectory() || entryName.endsWith(".class")) {
           continue;
         }
-        Path destFile = destDir.resolve(entryName);
+        // Guard against Zip Slip: ensure the resolved path stays within destDir.
+        Path destFile = destDir.resolve(entryName).normalize();
+        if (!destFile.startsWith(destDir)) {
+          continue;
+        }
         Files.createDirectories(destFile.getParent());
         try (InputStream is = jar.getInputStream(entry)) {
           Files.copy(is, destFile, StandardCopyOption.REPLACE_EXISTING);

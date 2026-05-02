@@ -17,12 +17,12 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMoc
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
+import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1Pod;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -33,37 +33,13 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 /** Test for Yaml.createResource() functionality */
 class YamlCreateResourceTest {
 
-  private static final String DISCOVERY_API =
-      new File(
-              YamlCreateResourceTest.class
-                  .getClassLoader()
-                  .getResource("discovery-api.json")
-                  .getPath())
-          .toString();
+  private static final String DISCOVERY_API = Resources.getPath("discovery-api.json");
 
-  private static final String DISCOVERY_APIV1 =
-      new File(
-              YamlCreateResourceTest.class
-                  .getClassLoader()
-                  .getResource("discovery-api-v1.json")
-                  .getPath())
-          .toString();
+  private static final String DISCOVERY_APIV1 = Resources.getPath("discovery-api-v1.json");
 
-  private static final String DISCOVERY_APIS =
-      new File(
-              YamlCreateResourceTest.class
-                  .getClassLoader()
-                  .getResource("discovery-apis-with-apps.json")
-                  .getPath())
-          .toString();
+  private static final String DISCOVERY_APIS = Resources.getPath("discovery-apis-with-apps.json");
 
-  private static final String DISCOVERY_APPS_V1 =
-      new File(
-              YamlCreateResourceTest.class
-                  .getClassLoader()
-                  .getResource("discovery-apps-v1.json")
-                  .getPath())
-          .toString();
+  private static final String DISCOVERY_APPS_V1 = Resources.getPath("discovery-apps-v1.json");
 
   private ApiClient apiClient;
 

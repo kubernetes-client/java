@@ -40,7 +40,7 @@ import org.yaml.snakeyaml.error.MarkedYAMLException;
 class YamlTest {
 
   private static final URL TEST_YAML_FILE = Resources.getResource("test.yaml");
-  private static final String TEST_YAML_FILE_PATH = new File(TEST_YAML_FILE.getPath()).toString();
+  private static final String TEST_YAML_FILE_PATH = Resources.getPath("test.yaml");
 
   private static final URL EXPECTED_YAML_FILE = Resources.getResource("expected.yaml");
 
