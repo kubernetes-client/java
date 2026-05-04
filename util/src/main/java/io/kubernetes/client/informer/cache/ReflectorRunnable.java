@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
+import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.EventType;
@@ -21,9 +22,11 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGeneratorParams;
+import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.Strings;
 import io.kubernetes.client.util.Watchable;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
@@ -60,6 +63,9 @@ public class ReflectorRunnable<
 
   /* visible for testing */ final BiConsumer<Class<ApiType>, Throwable> exceptionHandler;
 
+  private Method setKindMethod;
+  private Method setApiVersionMethod;
+
   public ReflectorRunnable(
       Class<ApiType> apiTypeClass,
       ListerWatcher<ApiType, ApiListType> listerWatcher,
@@ -77,6 +83,12 @@ public class ReflectorRunnable<
     this.apiTypeClass = apiTypeClass;
     this.exceptionHandler =
         exceptionHandler == null ? ReflectorRunnable::defaultWatchErrorHandler : exceptionHandler;
+    try {
+      this.setKindMethod = apiTypeClass.getMethod("setKind", String.class);
+      this.setApiVersionMethod = apiTypeClass.getMethod("setApiVersion", String.class);
+    } catch (NoSuchMethodException e) {
+      log.warn("{}#setKind or setApiVersion method not found, type metadata will not be set on list items", apiTypeClass);
+    }
   }
 
   /**
@@ -94,6 +106,7 @@ public class ReflectorRunnable<
       V1ListMeta listMeta = list.getMetadata();
       String resourceVersion = listMeta.getResourceVersion();
       List<? extends KubernetesObject> items = list.getItems();
+      populateTypeMeta(items, list.getApiVersion(), list.getKind());
 
       if (log.isDebugEnabled()) {
         log.debug("{}#Extract resourceVersion {} list meta", apiTypeClass, resourceVersion);
@@ -227,6 +240,64 @@ public class ReflectorRunnable<
       return "0";
     }
     return lastSyncResourceVersion;
+  }
+
+  /* visible for testing */ void populateTypeMeta(
+      List<? extends KubernetesObject> items, String listApiVersion, String listKind) {
+    if (items == null || items.isEmpty()) {
+      return;
+    }
+
+    // Determine kind and apiVersion to use for items
+    String kind = null;
+    String apiVersion = null;
+
+    // First, derive from the list's own kind/apiVersion (strip "List" suffix)
+    if (!Strings.isNullOrEmpty(listApiVersion)
+        && !Strings.isNullOrEmpty(listKind)
+        && listKind.endsWith("List")) {
+      kind = listKind.substring(0, listKind.length() - 4);
+      apiVersion = listApiVersion;
+    }
+
+    // Fall back to ModelMapper if list metadata is absent
+    if (kind == null) {
+      GroupVersionKind gvk = ModelMapper.getGroupVersionKindByClass(apiTypeClass);
+      if (gvk == null) {
+        Optional<GroupVersionKind> preBuiltGvk =
+            ModelMapper.preBuiltGetGroupVersionKindByClass(apiTypeClass);
+        gvk = preBuiltGvk.orElse(null);
+      }
+      if (gvk != null) {
+        kind = gvk.getKind();
+        String group = gvk.getGroup();
+        String version = gvk.getVersion();
+        apiVersion = Strings.isNullOrEmpty(group) ? version : group + "/" + version;
+      }
+    }
+
+    if (kind == null || apiVersion == null) {
+      return;
+    }
+
+    if (setKindMethod == null || setApiVersionMethod == null) {
+      return;
+    }
+
+    final String resolvedKind = kind;
+    final String resolvedApiVersion = apiVersion;
+    try {
+      for (KubernetesObject item : items) {
+        if (Strings.isNullOrEmpty(item.getKind())) {
+          setKindMethod.invoke(item, resolvedKind);
+        }
+        if (Strings.isNullOrEmpty(item.getApiVersion())) {
+          setApiVersionMethod.invoke(item, resolvedApiVersion);
+        }
+      }
+    } catch (ReflectiveOperationException e) {
+      log.warn("{}#Failed to set kind/apiVersion on list items", apiTypeClass, e);
+    }
   }
 
   private void watchHandler(Watchable<ApiType> watch) {
