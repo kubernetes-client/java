@@ -8,7 +8,7 @@
 # Build all Java targets at language level 11 by default.
 # Modules that require Java 17+ (spring, spring-aot) set javacopts per-target.
 build --java_language_version=11
-build --java_runtime_version=remotejdk_11
+build --java_runtime_version=remotejdk_17
 build --tool_java_language_version=11
 build --tool_java_runtime_version=remotejdk_11
 

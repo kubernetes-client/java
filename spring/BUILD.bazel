@@ -8,6 +8,7 @@ _JAVA17_OPTS = ["--release", "17"]
 java_library(
     name = "client-java-spring-integration",
     srcs = glob(["src/main/java/**/*.java"]),
+    resources = glob(["src/main/resources/**"]),
     javacopts = _JAVA17_OPTS,
     visibility = ["//visibility:public"],
     deps = [
@@ -30,6 +31,7 @@ java_library(
 java_test_suite(
     name = "tests",
     srcs = glob(["src/test/java/**/*.java"]),
+    resources = glob(["src/test/resources/**"]),
     javacopts = _JAVA17_OPTS,
     runner = "junit5",
     deps = [
@@ -43,7 +45,12 @@ java_test_suite(
         "@maven//:org_awaitility_awaitility",
         "@maven//:org_junit_jupiter_junit_jupiter_api",
         "@maven//:org_junit_jupiter_junit_jupiter_params",
+        "@maven//:org_springframework_boot_spring_boot",
+        "@maven//:org_springframework_boot_spring_boot_autoconfigure",
         "@maven//:org_springframework_boot_spring_boot_test",
+        "@maven//:org_springframework_spring_beans",
+        "@maven//:org_springframework_spring_context",
+        "@maven//:org_springframework_spring_core",
         "@maven//:org_springframework_spring_test",
         "@maven//:org_wiremock_wiremock",
     ],

@@ -14,9 +14,10 @@ package io.kubernetes.client.spring.extended.manifests;
 
 import io.kubernetes.client.spring.extended.manifests.annotation.FromYaml;
 import io.kubernetes.client.util.Yaml;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -89,23 +90,25 @@ public class KubernetesFromYamlProcessor
   }
 
   private Object loadFromYaml(String targetFilePath) {
-    Path targetPath = Paths.get(targetFilePath);
-    if (!Files.exists(Paths.get(targetFilePath))) { // checks if it exists on the machine
-      // otherwise use load from classpath resources
-      Path classPath =
-          new File(getClass().getClassLoader().getResource(targetFilePath).getFile()).toPath();
-      if (Files.exists(classPath)) { // use classpath it works
-        targetPath = classPath;
-      } else {
-        throw new BeanCreationException(
-            "No such file " + targetFilePath + " either on the machine or classpaths");
+    // First check if the file exists on the local filesystem (absolute or relative path).
+    if (Files.exists(Paths.get(targetFilePath))) {
+      try {
+        String yamlContent = new String(Files.readAllBytes(Paths.get(targetFilePath)));
+        return Yaml.load(yamlContent);
+      } catch (IOException e) {
+        log.error("Failed reading resource for @FromYaml annotated from {}", targetFilePath, e);
+        throw new BeanCreationException("Failed reading Yaml resource from file", e);
       }
     }
 
-    try {
-      String yamlContent = new String(Files.readAllBytes(targetPath));
-      Object loadedObj = Yaml.load(yamlContent);
-      return loadedObj;
+    // Fall back to classpath resource (works both on plain files and inside JARs).
+    try (InputStream is = getClass().getClassLoader().getResourceAsStream(targetFilePath)) {
+      if (is == null) {
+        throw new BeanCreationException(
+            "No such file " + targetFilePath + " either on the machine or classpaths");
+      }
+      String yamlContent = new String(is.readAllBytes(), StandardCharsets.UTF_8);
+      return Yaml.load(yamlContent);
     } catch (IOException e) {
       log.error("Failed reading resource for @FromYaml annotated from {}", targetFilePath, e);
       throw new BeanCreationException("Failed reading Yaml resource from file", e);

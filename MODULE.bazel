@@ -67,13 +67,15 @@ maven.install(
         "org.jetbrains:annotations:26.1.0",
         "org.reflections:reflections:0.10.2",
         # ---- spring (Java 17+ modules) ----
-        "org.springframework.boot:spring-boot:4.0.6",
-        "org.springframework.boot:spring-boot-autoconfigure:4.0.6",
-        "org.springframework.boot:spring-boot-actuator:4.0.6",
-        "org.springframework.boot:spring-boot-test:4.0.6",
+        # spring-boot 4.0.6 transitively brings in spring-framework 7.0.x, but the
+        # root pom.xml pins spring.version=6.2.12. Explicitly declare all
+        # spring-framework modules at 6.2.12 and use maven.artifact() with
+        # exclusions on the spring-boot artifacts so Coursier does not upgrade them.
+        "org.springframework:spring-aop:6.2.12",
         "org.springframework:spring-beans:6.2.12",
-        "org.springframework:spring-core:6.2.12",
         "org.springframework:spring-context:6.2.12",
+        "org.springframework:spring-core:6.2.12",
+        "org.springframework:spring-expression:6.2.12",
         "org.springframework:spring-test:6.2.12",
         # ---- test ----
         "org.junit.jupiter:junit-jupiter-api:5.13.4",
@@ -99,6 +101,46 @@ maven.install(
     ],
     fetch_sources = False,
     lock_file = "//:maven_install.json",
+)
+
+# Spring Boot 4.0.6 artifacts declared with exclusions to pin spring-framework at
+# 6.2.12 (matching pom.xml spring.version) instead of the 7.0.x that spring-boot
+# 4.0.x normally pulls in.
+_SPRING_FRAMEWORK_EXCLUSIONS = [
+    "org.springframework:spring-aop",
+    "org.springframework:spring-beans",
+    "org.springframework:spring-context",
+    "org.springframework:spring-core",
+    "org.springframework:spring-expression",
+    "org.springframework:spring-test",
+]
+
+maven.artifact(
+    artifact = "spring-boot",
+    group = "org.springframework.boot",
+    version = "4.0.6",
+    exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
+)
+
+maven.artifact(
+    artifact = "spring-boot-autoconfigure",
+    group = "org.springframework.boot",
+    version = "4.0.6",
+    exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
+)
+
+maven.artifact(
+    artifact = "spring-boot-actuator",
+    group = "org.springframework.boot",
+    version = "4.0.6",
+    exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
+)
+
+maven.artifact(
+    artifact = "spring-boot-test",
+    group = "org.springframework.boot",
+    version = "4.0.6",
+    exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
 use_repo(maven, "maven")

@@ -7,6 +7,7 @@ _JAVA17_OPTS = ["--release", "17"]
 java_library(
     name = "client-java-spring-aot-integration",
     srcs = glob(["src/main/java/**/*.java"]),
+    resources = glob(["src/main/resources/**"]),
     javacopts = _JAVA17_OPTS,
     visibility = ["//visibility:public"],
     deps = [
