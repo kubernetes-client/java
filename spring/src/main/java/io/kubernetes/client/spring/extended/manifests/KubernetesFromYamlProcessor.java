@@ -93,7 +93,7 @@ public class KubernetesFromYamlProcessor
     // First check if the file exists on the local filesystem (absolute or relative path).
     if (Files.exists(Paths.get(targetFilePath))) {
       try {
-        String yamlContent = new String(Files.readAllBytes(Paths.get(targetFilePath)));
+        String yamlContent = new String(Files.readAllBytes(Paths.get(targetFilePath)), StandardCharsets.UTF_8);
         return Yaml.load(yamlContent);
       } catch (IOException e) {
         log.error("Failed reading resource for @FromYaml annotated from {}", targetFilePath, e);
