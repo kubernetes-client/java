@@ -1,11 +1,11 @@
-From eeb5069c974d3146495f8a9dc52653f029d3cc2d Mon Sep 17 00:00:00 2001
+﻿From eeb5069c974d3146495f8a9dc52653f029d3cc2d Mon Sep 17 00:00:00 2001
 From: Min Jin <minkimzz@amazon.com>
 Date: Tue, 4 Feb 2025 11:59:25 -0800
 Subject: [PATCH] manually apply JSON patch
 
 ---
- .../io/kubernetes/client/openapi/JSON.java    | 36 ++++++++++++++++---
- 1 file changed, 32 insertions(+), 4 deletions(-)
+ .../io/kubernetes/client/openapi/JSON.java    | 39 +++++++++++++++++---
+ 1 file changed, 35 insertions(+), 4 deletions(-)
 
 diff --git a/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java b/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java
 index dda3ec708..fe902b293 100644
@@ -31,10 +31,12 @@ index dda3ec708..fe902b293 100644
  import java.util.Date;
  import java.util.Locale;
  import java.util.Map;
-@@ -50,9 +56,20 @@ import java.util.TimeZone;
+@@ -50,9 +56,23 @@ import java.util.TimeZone;
  public class JSON {
      private static Gson gson;
      private static boolean isLenientOnJson = false;
++    private static final boolean includeManagedFields =
++            Boolean.getBoolean("kubernetes.client.includeManagedFields");
 +
 +    private static final DateTimeFormatter RFC3339MICRO_FORMATTER =
 +        new DateTimeFormatterBuilder()
@@ -53,7 +55,7 @@ index dda3ec708..fe902b293 100644
      private static LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
      private static ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
  
-@@ -65,8 +82,11 @@ public class JSON {
+@@ -65,8 +85,14 @@ public class JSON {
      public static GsonBuilder createGson() {
          GsonFireBuilder fireBuilder = new GsonFireBuilder()
          ;
@@ -63,11 +65,14 @@ index dda3ec708..fe902b293 100644
 +                fireBuilder
 +                        .registerPreProcessor(V1Status.class, new V1StatusPreProcessor())
 +                        .createGsonBuilder();
-+        return builder.setExclusionStrategies(new V1MetadataExclusionStrategy());
++        if (!includeManagedFields) {
++            builder.setExclusionStrategies(new V1MetadataExclusionStrategy());
++        }
++        return builder;
      }
  
      private static String getDiscriminatorValue(JsonElement readElement, String discriminatorField) {
-@@ -793,11 +813,14 @@ public class JSON {
+@@ -793,11 +819,14 @@ public class JSON {
  
          @Override
          public void write(JsonWriter out, byte[] value) throws IOException {
@@ -82,7 +87,7 @@ index dda3ec708..fe902b293 100644
          }
  
          @Override
-@@ -853,7 +876,12 @@ public class JSON {
+@@ -853,7 +882,12 @@ public class JSON {
                      if (date.endsWith("+0000")) {
                          date = date.substring(0, date.length()-5) + "Z";
                      }

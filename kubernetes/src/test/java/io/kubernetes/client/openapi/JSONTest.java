@@ -108,4 +108,15 @@ class JSONTest {
     JsonReader jsonReader = new JsonReader(new StringReader("{\"foo\":\"bar\"}"));
     new V1ListMeta.CustomTypeAdapterFactory().create(gson, TypeToken.get(V1ListMeta.class)).read(jsonReader);
   }
+
+  @Test
+  void managedFieldsExcludedByDefault() {
+    String jsonWithManagedFields =
+        "{\"managedFields\":[{\"manager\":\"kubectl\",\"operation\":\"Apply\"}],\"name\":\"test\"}";
+    V1ObjectMeta meta = JSON.getGson().fromJson(jsonWithManagedFields, V1ObjectMeta.class);
+    // managedFields is excluded from deserialization; the field retains its default empty value
+    assertThat(meta.getManagedFields()).satisfiesAnyOf(
+        list -> assertThat(list).isNull(),
+        list -> assertThat(list).isEmpty());
+  }
 }
