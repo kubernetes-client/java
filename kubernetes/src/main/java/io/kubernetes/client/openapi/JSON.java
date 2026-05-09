@@ -57,6 +57,8 @@ import java.util.HashMap;
 public class JSON {
     private static Gson gson;
     private static boolean isLenientOnJson = false;
+    private static final boolean includeManagedFields =
+            Boolean.getBoolean("kubernetes.client.includeManagedFields");
 
     private static final DateTimeFormatter RFC3339MICRO_FORMATTER =
         new DateTimeFormatterBuilder()
@@ -82,7 +84,10 @@ public class JSON {
                 fireBuilder
                         .registerPreProcessor(V1Status.class, new V1StatusPreProcessor())
                         .createGsonBuilder();
-        return builder.setExclusionStrategies(new V1MetadataExclusionStrategy());
+        if (!includeManagedFields) {
+            builder.setExclusionStrategies(new V1MetadataExclusionStrategy());
+        }
+        return builder;
     }
 
     private static String getDiscriminatorValue(JsonElement readElement, String discriminatorField) {
