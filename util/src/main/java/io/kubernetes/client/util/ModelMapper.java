@@ -26,8 +26,6 @@ import java.io.IOException;
 import java.net.JarURLConnection;
 import java.net.URI;
 import java.net.URL;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -493,7 +491,7 @@ public class ModelMapper {
   }
 
   private static void processJarPackage(URL packageURL, String packageName, String pkg, ArrayList<String> names) throws IOException {
-    String jarFileName = URLDecoder.decode(packageURL.getFile(), StandardCharsets.UTF_8);
+    String jarFileName = packageURL.getFile();
     JarFile jf = null;
     // jar: client in repository; nested: client in a fat jar
     if (jarFileName.startsWith("jar:") || jarFileName.startsWith("nested:")) {
@@ -501,8 +499,15 @@ public class ModelMapper {
     }
     // file: client is a file in target (unit test)
     if (jarFileName.startsWith("file:") ) {
-      jarFileName = jarFileName.substring(5, jarFileName.indexOf("!"));
-      jf = new JarFile(jarFileName);
+      int bangIndex = jarFileName.indexOf("!");
+      if (bangIndex < 0) {
+        logger.error("Loading classes from jar with error packageURL: {}", jarFileName);
+        return;
+      }
+      // Use URI.create to properly decode percent-encoded characters without converting + to space
+      // (URLDecoder.decode incorrectly converts + to space, breaking paths that contain literal +)
+      String filePart = jarFileName.substring(0, bangIndex);
+      jf = new JarFile(URI.create(filePart).getPath());
     }
     if (jf == null) {
       logger.error("Loading classes from jar with error packageURL: {}", jarFileName);
