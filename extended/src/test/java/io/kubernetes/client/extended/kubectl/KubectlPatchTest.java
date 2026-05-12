@@ -27,31 +27,21 @@ import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import io.kubernetes.client.util.ClientBuilder;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.InputStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 class KubectlPatchTest {
 
-  private static final String DISCOVERY_API =
-      new File(KubectlPatchTest.class.getClassLoader().getResource("discovery-api.json").getPath())
-          .toString();
-
-  private static final String DISCOVERY_APIV1 =
-      new File(
-              KubectlPatchTest.class
-                  .getClassLoader()
-                  .getResource("discovery-api-v1.json")
-                  .getPath())
-          .toString();
-
-  private static final String DISCOVERY_APIS =
-      new File(KubectlPatchTest.class.getClassLoader().getResource("discovery-apis.json").getPath())
-          .toString();
+  private static String readResource(String name) {
+    try (InputStream is = KubectlPatchTest.class.getClassLoader().getResourceAsStream(name)) {
+      return new String(is.readAllBytes());
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
 
   private ApiClient apiClient;
 
@@ -79,19 +69,19 @@ class KubectlPatchTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_API))))));
+                    .withBody(readResource("discovery-api.json"))));
     apiServer.stubFor(
         get(urlPathEqualTo("/apis"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIS))))));
+                    .withBody(readResource("discovery-apis.json"))));
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1))))));
+                    .withBody(readResource("discovery-api-v1.json"))));
 
     V1ConfigMap configMap =
         Kubectl.patch(V1ConfigMap.class)

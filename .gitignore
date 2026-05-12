@@ -34,3 +34,7 @@ hs_err_pid*
 kubernetes/bin
 kubernetes/swagger.json.unprocessed
 **/*.orig
+
+# Bazel build artifacts and symlinks
+bazel-*
+MODULE.bazel.lock

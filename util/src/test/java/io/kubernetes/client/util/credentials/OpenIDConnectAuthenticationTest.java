@@ -40,9 +40,9 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 /** OpenIDConnectAuthenticationTest */
 class OpenIDConnectAuthenticationTest {
 
-  private static final String OIDC_KS_PATH = Resources.getResource("oidc-signing.p12").getPath();
+  private static final String OIDC_KS_PATH = Resources.getPath("oidc-signing.p12");
   private static final String OIDC_SERVER_KS_PATH =
-      Resources.getResource("oidc-server.jks").getPath();
+      Resources.getPath("oidc-server.jks");
   private static final char[] OIDC_KS_PASSWORD = "changeme".toCharArray();
   private static final int PORT = 8043;
 

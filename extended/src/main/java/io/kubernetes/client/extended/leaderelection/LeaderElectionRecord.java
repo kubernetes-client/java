@@ -104,6 +104,17 @@ public class LeaderElectionRecord {
   }
 
   @Override
+  public int hashCode() {
+    int result = holderIdentity != null ? holderIdentity.hashCode() : 0;
+    result = 31 * result + leaseDurationSeconds;
+    result = 31 * result + (acquireTime != null ? acquireTime.hashCode() : 0);
+    result = 31 * result + (renewTime != null ? renewTime.hashCode() : 0);
+    result = 31 * result + leaderTransitions;
+    result = 31 * result + (ownerReference != null ? ownerReference.hashCode() : 0);
+    return result;
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (!(o instanceof LeaderElectionRecord)) return false;

@@ -31,8 +31,9 @@ import io.kubernetes.client.openapi.models.V1ServiceAccount;
 import io.kubernetes.client.spring.extended.manifests.annotation.KubectlApply;
 import io.kubernetes.client.spring.extended.manifests.annotation.KubectlCreate;
 import io.kubernetes.client.util.ClientBuilder;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -172,20 +173,19 @@ class KubernetesManifestTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_API.getURI()))))));
+                    .withBody(readResource(DISCOVERY_API))));
     apiServer.stubFor(
         get(urlPathEqualTo("/apis"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIS.getURI()))))));
+                    .withBody(readResource(DISCOVERY_APIS))));
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(
-                        new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1.getURI()))))));
+                    .withBody(readResource(DISCOVERY_APIV1))));
   }
 
   @Test
@@ -197,5 +197,11 @@ class KubernetesManifestTest {
     assertThat(createdNamespace.getMetadata().getLabels()).containsEntry("created", "true");
     assertThat(createdServiceAccount.getMetadata().getLabels()).containsEntry("created", "true");
     assertThat(createdPod.getMetadata().getLabels()).containsEntry("created", "true");
+  }
+
+  private static String readResource(Resource resource) throws IOException {
+    try (InputStream is = resource.getInputStream()) {
+      return new String(is.readAllBytes(), StandardCharsets.UTF_8);
+    }
   }
 }

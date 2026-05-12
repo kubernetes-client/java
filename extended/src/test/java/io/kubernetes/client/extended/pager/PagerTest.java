@@ -27,10 +27,7 @@ import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1NamespaceList;
 import io.kubernetes.client.util.ClientBuilder;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -41,23 +38,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 class PagerTest {
+  private static String readResource(String name) {
+    try (java.io.InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(name)) {
+      return new String(is.readAllBytes());
+    } catch (java.io.IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
 
   private ApiClient client;
-  private static final String LIST_PAGE0_FILE_PATH =
-      new File(PagerTest.class.getClassLoader().getResource("namespace-list-pager0.json").getPath())
-          .toString();
-  private static final String LIST_PAGE1_FILE_PATH =
-      new File(PagerTest.class.getClassLoader().getResource("namespace-list-pager1.json").getPath())
-          .toString();
-  private static final String LIST_PAGE2_FILE_PATH =
-      new File(PagerTest.class.getClassLoader().getResource("namespace-list-pager2.json").getPath())
-          .toString();
-  private static final String LIST_STATUS_FILE_PATH =
-      new File(PagerTest.class.getClassLoader().getResource("status-400.json").getPath())
-          .toString();
-  private static final String STATUS_BAD_TOKEN_FILE_PATH =
-      new File(PagerTest.class.getClassLoader().getResource("bad-token-status.json").getPath())
-          .toString();
 
   @RegisterExtension
   static WireMockExtension apiServer =
@@ -70,7 +60,7 @@ class PagerTest {
 
   @Test
   void iteratorForEmptyList() throws IOException {
-    String namespaceListPage0Str = new String(Files.readAllBytes(Paths.get(LIST_PAGE0_FILE_PATH)));
+    String namespaceListPage0Str = readResource("namespace-list-pager0.json");
     CoreV1Api api = new CoreV1Api(client);
 
     apiServer.stubFor(
@@ -99,8 +89,8 @@ class PagerTest {
 
   @Test
   void paginationForNamespaceListWithSuccessThreadSafely() throws Exception {
-    String namespaceListPage1Str = new String(Files.readAllBytes(Paths.get(LIST_PAGE1_FILE_PATH)));
-    String namespaceListPage2Str = new String(Files.readAllBytes(Paths.get(LIST_PAGE2_FILE_PATH)));
+    String namespaceListPage1Str = readResource("namespace-list-pager1.json");
+    String namespaceListPage2Str = readResource("namespace-list-pager2.json");
     CoreV1Api api = new CoreV1Api(client);
 
     apiServer.stubFor(
@@ -164,7 +154,7 @@ class PagerTest {
 
   @Test
   void paginationForNamespaceListWithBadTokenFailure() throws IOException {
-    String status400Str = new String(Files.readAllBytes(Paths.get(STATUS_BAD_TOKEN_FILE_PATH)));
+    String status400Str = readResource("bad-token-status.json");
     CoreV1Api api = new CoreV1Api(client);
 
     apiServer.stubFor(
@@ -207,7 +197,7 @@ class PagerTest {
 
   @Test
   void paginationForNamespaceListWithFieldSelectorFailure() throws IOException {
-    String status400Str = new String(Files.readAllBytes(Paths.get(LIST_STATUS_FILE_PATH)));
+    String status400Str = readResource("status-400.json");
     CoreV1Api api = new CoreV1Api(client);
 
     apiServer.stubFor(

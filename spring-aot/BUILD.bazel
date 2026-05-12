@@ -1,0 +1,25 @@
+load("@rules_java//java:defs.bzl", "java_library")
+
+# client-java-spring-aot-integration requires Java 17 (Spring Boot 3+).
+_JAVA17_OPTS = ["--release", "17"]
+
+# client-java-spring-aot-integration — GraalVM/AOT hints for Spring Boot
+java_library(
+    name = "client-java-spring-aot-integration",
+    srcs = glob(["src/main/java/**/*.java"]),
+    resources = glob(["src/main/resources/**"]),
+    javacopts = _JAVA17_OPTS,
+    visibility = ["//visibility:public"],
+    deps = [
+        "//extended:client-java-extended",
+        "@maven//:com_google_code_gson_gson",
+        "@maven//:io_swagger_swagger_annotations",
+        "@maven//:org_jetbrains_annotations",
+        "@maven//:org_reflections_reflections",
+        "@maven//:org_slf4j_slf4j_api",
+        "@maven//:org_springframework_boot_spring_boot",
+        "@maven//:org_springframework_boot_spring_boot_autoconfigure",
+        "@maven//:org_springframework_spring_beans",
+        "@maven//:org_springframework_spring_core",
+    ],
+)

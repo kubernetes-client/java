@@ -29,10 +29,7 @@ import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1ReplicaSet;
 import io.kubernetes.client.openapi.models.V1ReplicaSetList;
 import io.kubernetes.client.util.ClientBuilder;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,6 +38,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 class DeploymentHelperTest {
+  private static String readResource(String name) {
+    try (java.io.InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(name)) {
+      return new String(is.readAllBytes());
+    } catch (java.io.IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
 
   private ApiClient apiClient;
 
@@ -51,17 +56,7 @@ class DeploymentHelperTest {
           .failOnUnmatchedRequests(false)
           .build();
 
-  private static final String DEPLOYMENT =
-      new File(DeploymentHelperTest.class.getClassLoader().getResource("deployment.json").getPath())
-          .toString();
 
-  private static final String REPLICASET_LIST =
-      new File(
-              DeploymentHelperTest.class
-                  .getClassLoader()
-                  .getResource("replicaset-list.json")
-                  .getPath())
-          .toString();
 
   @BeforeEach
   void setup() {
@@ -75,12 +70,12 @@ class DeploymentHelperTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody(new String(Files.readAllBytes(Paths.get(REPLICASET_LIST))))));
+                    .withBody(readResource("replicaset-list.json"))));
     AppsV1Api api = new AppsV1Api(this.apiClient);
 
     V1Deployment deployment =
         new JSON()
-            .deserialize(new String(Files.readAllBytes(Paths.get(DEPLOYMENT))), V1Deployment.class);
+            .deserialize(readResource("deployment.json"), V1Deployment.class);
     List<V1ReplicaSet> oldRSes = new ArrayList<>();
     List<V1ReplicaSet> allOldRSes = new ArrayList<>();
     V1ReplicaSet newRs = DeploymentHelper.getAllReplicaSets(deployment, api, oldRSes, allOldRSes);
@@ -98,7 +93,7 @@ class DeploymentHelperTest {
     V1ReplicaSetList replicaSetList =
         new JSON()
             .deserialize(
-                new String(Files.readAllBytes(Paths.get(REPLICASET_LIST))), V1ReplicaSetList.class);
+                readResource("replicaset-list.json"), V1ReplicaSetList.class);
     List<Long> revisions = new ArrayList<>();
     for (V1ReplicaSet rs : replicaSetList.getItems()) {
       revisions.add(DeploymentHelper.revision(rs.getMetadata()));

@@ -1,0 +1,64 @@
+# ============================================================
+# Default build flags for kubernetes-client/java
+# ============================================================
+
+# ---------------------------------------------------------------------------
+# Java toolchain configuration
+# ---------------------------------------------------------------------------
+# Build all Java targets at language level 11 by default.
+# Modules that require Java 17+ (spring, spring-aot) set javacopts per-target.
+build --java_language_version=11
+build --java_runtime_version=remotejdk_17
+build --tool_java_language_version=11
+build --tool_java_runtime_version=remotejdk_11
+
+# ---------------------------------------------------------------------------
+# Error Prone configuration
+# ---------------------------------------------------------------------------
+# Bazel's Java rules enable Error Prone by default.  The checks fire on
+# pre-existing patterns in this codebase (e.g. DoubleBraceInitialization,
+# EqualsHashCode) that are not caught by the Maven build.  Disable all
+# Error Prone checks so that the Bazel build stays consistent with Maven.
+build --javacopt=-XepDisableAllChecks
+
+# ---------------------------------------------------------------------------
+# Build settings
+# ---------------------------------------------------------------------------
+build --enable_platform_specific_config
+build --incompatible_strict_action_env=true
+
+# ---------------------------------------------------------------------------
+# Local disk cache
+# Speeds up repeated local builds by caching action outputs on disk.
+# Override the path by putting `build --disk_cache=<path>` in .bazelrc.user.
+# ---------------------------------------------------------------------------
+build --disk_cache=~/.cache/bazel-disk-cache
+
+# ---------------------------------------------------------------------------
+# CI configuration
+# Enable when running under GitHub Actions:
+#   bazel build --config=ci ...
+# ---------------------------------------------------------------------------
+# The disk cache is intentionally left at its default path
+# (~/.cache/bazel-disk-cache) so the GitHub Actions cache step (configured in
+# .github/workflows/bazel.yml) can save and restore compiled action outputs
+# between runs for faster incremental builds.
+# Show full test output on failure.
+build:ci --test_output=errors
+# Avoid interactive prompts.
+build:ci --noshow_progress
+build:ci --show_result=0
+
+# ---------------------------------------------------------------------------
+# Remote cache configuration (opt-in)
+# To use a Bazel remote cache, create a .bazelrc.user file with:
+#   build --config=remote-cache
+#   build:remote-cache --remote_cache=grpcs://<your-cache-endpoint>
+#   build:remote-cache --remote_header=x-auth-token=<token>
+# ---------------------------------------------------------------------------
+# (remote-cache config is user-supplied)
+
+# ---------------------------------------------------------------------------
+# User-local overrides (not committed)
+# ---------------------------------------------------------------------------
+try-import %workspace%/.bazelrc.user

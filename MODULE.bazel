@@ -1,0 +1,146 @@
+"""
+Bazel MODULE for kubernetes-client/java.
+
+This enables building the library with Bazel in addition to Maven.
+Key features:
+  - rules_jvm_external manages all Maven dependencies.
+  - contrib_rules_jvm provides java_test_suite for JUnit 5 test discovery.
+  - Remote-cache and disk-cache settings live in .bazelrc / .bazelrc.user.
+"""
+
+module(
+    name = "kubernetes_client_java",
+    version = "27.0.0-SNAPSHOT",
+    compatibility_level = 1,
+)
+
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "rules_java", version = "7.12.2")
+bazel_dep(name = "rules_jvm_external", version = "6.7")
+bazel_dep(name = "contrib_rules_jvm", version = "0.27.0")
+
+# ---------------------------------------------------------------------------
+# Maven dependency management
+# ---------------------------------------------------------------------------
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+maven.install(
+    artifacts = [
+        # ---- core ----
+        # Versions kept in sync with the property values in the root pom.xml.
+        "jakarta.annotation:jakarta.annotation-api:3.0.0",
+        "io.swagger:swagger-annotations:1.6.16",
+        "com.squareup.okhttp3:okhttp:5.3.2",
+        "com.squareup.okhttp3:okhttp-jvm:5.3.2",
+        "com.squareup.okhttp3:logging-interceptor:5.3.2",
+        "com.squareup.okio:okio:3.16.4",
+        "com.squareup.okio:okio-jvm:3.16.4",
+        "com.google.code.gson:gson:2.14.0",
+        "com.fasterxml.jackson.core:jackson-databind:2.21.2",
+        "com.fasterxml.jackson.core:jackson-core:2.21.2",
+        "com.fasterxml.jackson.core:jackson-annotations:2.21",
+        "io.gsonfire:gson-fire:1.9.0",
+        "org.apache.commons:commons-lang3:3.20.0",
+        "org.apache.commons:commons-collections4:4.5.0",
+        "org.apache.commons:commons-compress:1.28.0",
+        "commons-io:commons-io:2.22.0",
+        "commons-codec:commons-codec:1.22.0",
+        "org.yaml:snakeyaml:2.6",
+        "org.slf4j:slf4j-api:2.0.17",
+        "org.bouncycastle:bcpkix-jdk18on:1.84",
+        "org.bouncycastle:bcprov-jdk18on:1.84",
+        "com.google.protobuf:protobuf-java:4.34.1",
+        "org.bitbucket.b_c:jose4j:0.9.6",
+        "com.google.auth:google-auth-library-oauth2-http:1.46.0",
+        "software.amazon.awssdk:auth:2.43.0",
+        "software.amazon.awssdk:http-auth-aws:2.43.0",
+        "software.amazon.awssdk:http-auth-spi:2.43.0",
+        "software.amazon.awssdk:http-client-spi:2.43.0",
+        "software.amazon.awssdk:sts:2.43.0",
+        "software.amazon.awssdk:utils:2.43.0",
+        "io.prometheus:simpleclient:0.16.0",
+        "io.prometheus:simpleclient_httpserver:0.16.0",
+        "com.bucket4j:bucket4j-core:8.10.1",
+        "com.github.ben-manes.caffeine:caffeine:3.0.0",
+        "com.flipkart.zjsonpatch:zjsonpatch:0.4.16",
+        "org.jetbrains:annotations:26.1.0",
+        "org.reflections:reflections:0.10.2",
+        # ---- spring (Java 17+ modules) ----
+        # spring-boot 4.0.6 transitively brings in spring-framework 7.0.x, but the
+        # root pom.xml pins spring.version=6.2.12. Explicitly declare all
+        # spring-framework modules at 6.2.12 and use maven.artifact() with
+        # exclusions on the spring-boot artifacts so Coursier does not upgrade them.
+        "org.springframework:spring-aop:6.2.12",
+        "org.springframework:spring-beans:6.2.12",
+        "org.springframework:spring-context:6.2.12",
+        "org.springframework:spring-core:6.2.12",
+        "org.springframework:spring-expression:6.2.12",
+        "org.springframework:spring-test:6.2.12",
+        # ---- test ----
+        "org.junit.jupiter:junit-jupiter-api:5.13.4",
+        "org.junit.jupiter:junit-jupiter-engine:5.13.4",
+        "org.junit.jupiter:junit-jupiter-params:5.13.4",
+        "org.junit.platform:junit-platform-launcher:1.13.4",
+        "org.junit.platform:junit-platform-commons:1.13.4",
+        "org.junit.platform:junit-platform-engine:1.13.4",
+        "org.junit.platform:junit-platform-reporting:1.13.4",
+        "org.mockito:mockito-core:5.23.0",
+        "org.mockito:mockito-junit-jupiter:5.23.0",
+        "uk.org.webcompere:system-stubs-jupiter:2.1.8",
+        "uk.org.webcompere:system-stubs-core:2.1.8",
+        "org.wiremock:wiremock:3.13.2",
+        "org.awaitility:awaitility:4.3.0",
+        "org.assertj:assertj-core:3.27.7",
+        "ch.qos.logback:logback-classic:1.5.32",
+        "ch.qos.logback:logback-core:1.5.32",
+    ],
+    repositories = [
+        "https://repo1.maven.org/maven2",
+        "https://repo.spring.io/milestone",
+    ],
+    fetch_sources = False,
+    lock_file = "//:maven_install.json",
+)
+
+# Spring Boot 4.0.6 artifacts declared with exclusions to pin spring-framework at
+# 6.2.12 (matching pom.xml spring.version) instead of the 7.0.x that spring-boot
+# 4.0.x normally pulls in.
+_SPRING_FRAMEWORK_EXCLUSIONS = [
+    "org.springframework:spring-aop",
+    "org.springframework:spring-beans",
+    "org.springframework:spring-context",
+    "org.springframework:spring-core",
+    "org.springframework:spring-expression",
+    "org.springframework:spring-test",
+]
+
+maven.artifact(
+    artifact = "spring-boot",
+    group = "org.springframework.boot",
+    version = "4.0.6",
+    exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
+)
+
+maven.artifact(
+    artifact = "spring-boot-autoconfigure",
+    group = "org.springframework.boot",
+    version = "4.0.6",
+    exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
+)
+
+maven.artifact(
+    artifact = "spring-boot-actuator",
+    group = "org.springframework.boot",
+    version = "4.0.6",
+    exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
+)
+
+maven.artifact(
+    artifact = "spring-boot-test",
+    group = "org.springframework.boot",
+    version = "4.0.6",
+    exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
+)
+
+use_repo(maven, "maven")

@@ -1,0 +1,125 @@
+# Build and test the library with Bazel.
+#
+# Bazel's built-in action caching combined with GitHub Actions cache gives
+# incremental builds: only changed targets and their dependents are rebuilt.
+#
+# Cache layers used:
+#   1. Repository cache   – downloaded JARs / external repositories
+#   2. Disk cache         – action output cache (build artifacts)
+# Both are saved to GitHub Actions cache keyed on the OS, Bazel module lock,
+# and Maven artifact list so cache hits are maximized across identical runs.
+
+name: bazel
+
+on:
+  push:
+    branches: ["master", "release-**"]
+    paths:
+      - "**/*.java"
+      - "**/BUILD.bazel"
+      - "MODULE.bazel"
+      - ".bazelversion"
+      - ".bazelrc"
+      - ".github/workflows/bazel.yml"
+  pull_request:
+    branches: ["master", "release-**"]
+    paths:
+      - "**/*.java"
+      - "**/BUILD.bazel"
+      - "MODULE.bazel"
+      - ".bazelversion"
+      - ".bazelrc"
+      - ".github/workflows/bazel.yml"
+
+jobs:
+  bazel-build-test:
+    name: Bazel build & test (Java ${{ matrix.java }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        java: ["11", "17", "21"]
+    env:
+      BAZELISK_SKIP_VERSION_CHECK: "1"
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Set up Java ${{ matrix.java }}
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+
+      # Install Bazelisk which reads the pinned version from .bazelversion.
+      # Install into $HOME/.local/bin (no root required) and add it to PATH.
+      - name: Install Bazelisk
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          curl -fsSL \
+            https://github.com/bazelbuild/bazelisk/releases/download/v1.24.1/bazelisk-linux-amd64 \
+            -o "$HOME/.local/bin/bazel"
+          chmod +x "$HOME/.local/bin/bazel"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      # ----------------------------------------------------------------
+      # Cache layers
+      # The disk cache stores compiled action outputs; the repository cache
+      # stores downloaded external files (JARs, etc.).
+      # ----------------------------------------------------------------
+      - name: Restore Bazel caches
+        id: bazel-cache
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        with:
+          path: |
+            ~/.cache/bazel-disk-cache
+            ~/.cache/bazel/cache/repos/v1
+          key: bazel-${{ runner.os }}-java${{ matrix.java }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
+          restore-keys: |
+            bazel-${{ runner.os }}-java${{ matrix.java }}-
+            bazel-${{ runner.os }}-
+
+      # Re-generate the Maven lock file so it is always consistent with
+      # MODULE.bazel.  The __INPUT_ARTIFACTS_HASH in the committed file is
+      # intentionally set to -1 to signal that the file needs to be regenerated;
+      # REPIN=1 overwrites it with the correct value.  Once the artifact list
+      # stabilises, subsequent runs where MODULE.bazel has not changed are fast
+      # because rules_jvm_external short-circuits on an identical artifact list.
+      - name: Pin Maven dependencies
+        run: REPIN=1 bazel run @maven//:pin
+
+      # ----------------------------------------------------------------
+      # Build all core modules
+      # ----------------------------------------------------------------
+      - name: Build
+        run: |
+          bazel build --config=ci \
+            //kubernetes:client-java-api \
+            //proto:client-java-proto \
+            //util:client-java \
+            //fluent:client-java-api-fluent \
+            //extended:client-java-extended
+
+      # Spring modules require Java 17+; skip them on the Java 11 matrix leg.
+      - name: Build Spring modules (Java 17+)
+        if: matrix.java != '11'
+        run: |
+          bazel build --config=ci \
+            //spring:client-java-spring-integration \
+            //spring-aot:client-java-spring-aot-integration
+
+      # ----------------------------------------------------------------
+      # Test — run per-module test suites
+      # ----------------------------------------------------------------
+      - name: Test core modules
+        run: |
+          bazel test --config=ci \
+            //kubernetes:tests \
+            //util:tests \
+            //extended:tests
+
+      - name: Test Spring modules (Java 17+)
+        if: matrix.java != '11'
+        run: |
+          bazel test --config=ci \
+            //spring:tests

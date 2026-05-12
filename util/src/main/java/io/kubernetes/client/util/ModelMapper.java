@@ -480,12 +480,18 @@ public class ModelMapper {
   private static List<String> getClassNamesFromPackage(ClassLoader classLoader, String pkg) throws IOException {
     ArrayList<String> names = new ArrayList<>();
     String packageName = pkg.replace(".", "/");
-    URL packageURL = classLoader.getResource(packageName);
-
-    if (packageURL.getProtocol().equals("jar")) {
-      processJarPackage(packageURL, packageName, pkg, names);
-    } else {
-      processFilePackage(packageURL, pkg, names);
+    // Use getResources() (plural) to scan ALL classpath entries that contain this
+    // package, not just the first one. This is required in Bazel where both the
+    // kubernetes-api JAR and the fluent JAR have classes under the same package
+    // prefix but only the kubernetes-api JAR has the @ApiModel-annotated models.
+    Enumeration<URL> packageURLs = classLoader.getResources(packageName);
+    while (packageURLs.hasMoreElements()) {
+      URL packageURL = packageURLs.nextElement();
+      if (packageURL.getProtocol().equals("jar")) {
+        processJarPackage(packageURL, packageName, pkg, names);
+      } else {
+        processFilePackage(packageURL, pkg, names);
+      }
     }
     return names;
   }

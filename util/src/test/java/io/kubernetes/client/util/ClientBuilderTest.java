@@ -38,22 +38,22 @@ import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
 /** Tests for the ConfigBuilder helper class */
 @ExtendWith(SystemStubsExtension.class)
 class ClientBuilderTest {
-  private static final String HOME_PATH = Resources.getResource("").getPath();
-  private static final String KUBECONFIG_FILE_PATH = Resources.getResource("kubeconfig").getPath();
+  private static final String HOME_PATH = Resources.getPath("");
+  private static final String KUBECONFIG_FILE_PATH = Resources.getPath("kubeconfig");
   private static final String KUBECONFIG_UTF8_FILE_PATH =
-      Resources.getResource("kubeconfig-utf8").getPath();
+      Resources.getPath("kubeconfig-utf8");
   private static final String KUBECONFIG_HTTP_FILE_PATH =
-      Resources.getResource("kubeconfig-http").getPath();
+      Resources.getPath("kubeconfig-http");
   private static final String KUBECONFIG_HTTPS_FILE_PATH =
-      Resources.getResource("kubeconfig-https").getPath();
+      Resources.getPath("kubeconfig-https");
   private static final String KUBECONFIG_HTTPS_X509_FILE_PATH =
-      Resources.getResource("kubeconfig-https-x509").getPath();
+      Resources.getPath("kubeconfig-https-x509");
   private static final String KUBECONFIG_TLS_SERVER_NAME_FILE_PATH =
-      Resources.getResource("kubeconfig-tls-server-name").getPath();
+      Resources.getPath("kubeconfig-tls-server-name");
   private static final String SSL_CA_CERT_PATH =
-      new File(Resources.getResource("ca-cert.pem").getPath()).toString();
+      Resources.getPath("ca-cert.pem");
   private static final String INVALID_SSL_CA_CERT_PATH =
-      new File(Resources.getResource("ca-cert-invalid.pem").getPath()).toString();
+      Resources.getPath("ca-cert-invalid.pem");
 
   private String basePath = "http://localhost";
   private String apiKey = "ABCD";
