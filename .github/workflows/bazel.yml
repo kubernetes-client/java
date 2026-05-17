@@ -33,12 +33,15 @@ on:
 
 jobs:
   bazel-build-test:
-    name: Bazel build & test (Java ${{ matrix.java }})
-    runs-on: ubuntu-latest
+    name: Bazel build & test (Java ${{ matrix.java }} on ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       matrix:
-        java: ["11", "17", "21"]
+        java: ["11.0.x", "17.0.x", "21.0.x"]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     env:
       BAZELISK_SKIP_VERSION_CHECK: "1"
 
@@ -53,7 +56,8 @@ jobs:
 
       # Install Bazelisk which reads the pinned version from .bazelversion.
       # Install into $HOME/.local/bin (no root required) and add it to PATH.
-      - name: Install Bazelisk
+      - name: Install Bazelisk (Linux)
+        if: runner.os == 'Linux'
         run: |
           mkdir -p "$HOME/.local/bin"
           curl -fsSL \
@@ -61,6 +65,30 @@ jobs:
             -o "$HOME/.local/bin/bazel"
           chmod +x "$HOME/.local/bin/bazel"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Install Bazelisk (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          ARCH=$(uname -m)
+          SUFFIX="amd64"
+          [[ "$ARCH" == "arm64" ]] && SUFFIX="arm64"
+          curl -fsSL \
+            "https://github.com/bazelbuild/bazelisk/releases/download/v1.24.1/bazelisk-darwin-${SUFFIX}" \
+            -o "$HOME/.local/bin/bazel"
+          chmod +x "$HOME/.local/bin/bazel"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Install Bazelisk (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $dir = Join-Path $HOME ".local\bin"
+          New-Item -ItemType Directory -Force -Path $dir | Out-Null
+          Invoke-WebRequest `
+            -Uri "https://github.com/bazelbuild/bazelisk/releases/download/v1.24.1/bazelisk-windows-amd64.exe" `
+            -OutFile (Join-Path $dir "bazel.exe")
+          Add-Content $env:GITHUB_PATH "$dir"
 
       # ----------------------------------------------------------------
       # Cache layers
@@ -86,12 +114,14 @@ jobs:
       # stabilises, subsequent runs where MODULE.bazel has not changed are fast
       # because rules_jvm_external short-circuits on an identical artifact list.
       - name: Pin Maven dependencies
+        shell: bash
         run: REPIN=1 bazel run @maven//:pin
 
       # ----------------------------------------------------------------
       # Build all core modules
       # ----------------------------------------------------------------
       - name: Build
+        shell: bash
         run: |
           bazel build --config=ci \
             //kubernetes:client-java-api \
@@ -102,7 +132,8 @@ jobs:
 
       # Spring modules require Java 17+; skip them on the Java 11 matrix leg.
       - name: Build Spring modules (Java 17+)
-        if: matrix.java != '11'
+        if: "!startsWith(matrix.java, '11')"
+        shell: bash
         run: |
           bazel build --config=ci \
             //spring:client-java-spring-integration \
@@ -112,6 +143,7 @@ jobs:
       # Test — run per-module test suites
       # ----------------------------------------------------------------
       - name: Test core modules
+        shell: bash
         run: |
           bazel test --config=ci \
             //kubernetes:tests \
@@ -119,7 +151,8 @@ jobs:
             //extended:tests
 
       - name: Test Spring modules (Java 17+)
-        if: matrix.java != '11'
+        if: "!startsWith(matrix.java, '11')"
+        shell: bash
         run: |
           bazel test --config=ci \
             //spring:tests
