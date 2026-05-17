@@ -8,14 +8,14 @@ To use this library, include the following maven dependency
 <dependency>
     <groupId>io.kubernetes</groupId>
     <artifactId>client-java-cert-manager-models</artifactId>
-    <version>0.16.1-SNAPSHOT</version>
+    <version>27.0.0-SNAPSHOT</version>
 </dependency>
 ```
 Please refer to the [CertManagerExample](../../examples/src/main/java/io/kubernetes/client/examples/CertManagerExample.java), which demonstrates how to create a self signed issuer using the model class and Kubernetes Java client generic API.
 ## Compatibility
 Artifact Version|Cert-Manager Release Version|CRD Source
 ----------------|----------------------------|----------
-0.16.1-SNAPSHOT|0.16.1|[Here](https://github.com/jetstack/cert-manager/releases/download/v0.16.1/cert-manager.crds.yaml)
+27.0.0-SNAPSHOT|1.13.4|[Here](https://github.com/jetstack/cert-manager/releases/download/v1.13.4/cert-manager.crds.yaml)
 ## Code Generation
 There is a utility script [update.sh](update.sh) to help with the code generation.
 
