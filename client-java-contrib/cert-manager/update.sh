@@ -16,10 +16,23 @@
 # This script generates the model classes from a released version of cert-manager CRDs
 # under src/main/java/io/cert/manager/models.
 
-DEFAULT_IMAGE_NAME=docker.pkg.github.com/kubernetes-client/java/crd-model-gen
-DEFAULT_IMAGE_TAG=v2.0.0
+# The crd-model-gen image used to be published to docker.pkg.github.com, which
+# requires GitHub authentication and returns "Access is denied" for anonymous
+# pulls (see kubernetes-client/java#3489). Build it locally from the Dockerfile
+# in this repository instead, so the script works out of the box.
+DEFAULT_IMAGE_NAME=local/crd-model-gen
+DEFAULT_IMAGE_TAG=latest
 IMAGE_NAME=${IMAGE_NAME:=$DEFAULT_IMAGE_NAME}
 IMAGE_TAG=${IMAGE_TAG:=$DEFAULT_IMAGE_TAG}
+
+# Build the crd-model-gen image locally if it is not already present, using the
+# Dockerfile shipped in client-java-contrib/.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONTRIB_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+if ! docker image inspect "${IMAGE_NAME}:${IMAGE_TAG}" >/dev/null 2>&1; then
+  echo "Building ${IMAGE_NAME}:${IMAGE_TAG} from ${CONTRIB_DIR}/Dockerfile ..."
+  docker build -t "${IMAGE_NAME}:${IMAGE_TAG}" "${CONTRIB_DIR}"
+fi
 
 # a crdgen container is run in a way that:
 #   1. it has access to the docker daemon on the host so that it is able to create sibling container on the host
