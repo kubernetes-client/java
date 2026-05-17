@@ -18,6 +18,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17.0.x
+          cache: maven
           server-id: ossrh
           server-username: OSSRH_USERNAME
           server-password: OSSRH_TOKEN

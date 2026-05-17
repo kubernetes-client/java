@@ -63,6 +63,17 @@ jobs:
         chmod +x "$HOME/.local/bin/bazel"
         echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
+    - name: Restore Bazel caches
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+      with:
+        path: |
+          ~/.cache/bazel-disk-cache
+          ~/.cache/bazel/cache/repos/v1
+        key: bazel-${{ runner.os }}-codeql-java${{ matrix.language }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
+        restore-keys: |
+          bazel-${{ runner.os }}-codeql-java${{ matrix.language }}-
+          bazel-${{ runner.os }}-
+
     # Build with Bazel so CI/CD remains Maven-free.
     - name: Build project
       run: bazel build --config=ci //...
