@@ -132,7 +132,7 @@ jobs:
 
       # Spring modules require Java 17+; skip them on the Java 11 matrix leg.
       - name: Build Spring modules (Java 17+)
-        if: "!startsWith(matrix.java, '11')"
+        if: ${{ !startsWith(matrix.java, '11') }}
         shell: bash
         run: |
           bazel build --config=ci \
@@ -151,7 +151,7 @@ jobs:
             //extended:tests
 
       - name: Test Spring modules (Java 17+)
-        if: "!startsWith(matrix.java, '11')"
+        if: ${{ !startsWith(matrix.java, '11') }}
         shell: bash
         run: |
           bazel test --config=ci \
