@@ -69,9 +69,9 @@ jobs:
         path: |
           ~/.cache/bazel-disk-cache
           ~/.cache/bazel/cache/repos/v1
-        key: bazel-${{ runner.os }}-codeql-java${{ matrix.language }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
+        key: bazel-${{ runner.os }}-codeql-${{ matrix.language }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
         restore-keys: |
-          bazel-${{ runner.os }}-codeql-java${{ matrix.language }}-
+          bazel-${{ runner.os }}-codeql-${{ matrix.language }}-
           bazel-${{ runner.os }}-
 
     # Build with Bazel so CI/CD remains Maven-free.
