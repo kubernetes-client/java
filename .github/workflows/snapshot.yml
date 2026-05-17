@@ -1,13 +1,6 @@
 name: Upload Snapshot
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - '**/*.java'
-      - '**/pom.xml'
-      - '.github/workflows/snapshot.yml'
   workflow_dispatch: {}
 
 permissions:

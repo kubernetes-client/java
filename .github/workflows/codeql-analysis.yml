@@ -5,14 +5,18 @@ on:
     branches: [ master ]
     paths:
       - '**/*.java'
-      - '**/pom.xml'
+      - '**/BUILD.bazel'
+      - 'MODULE.bazel'
+      - '.bazelrc'
       - '.github/workflows/codeql-analysis.yml'
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ master ]
     paths:
       - '**/*.java'
-      - '**/pom.xml'
+      - '**/BUILD.bazel'
+      - 'MODULE.bazel'
+      - '.bazelrc'
       - '.github/workflows/codeql-analysis.yml'
   schedule:
     - cron: '37 19 * * 0'
@@ -33,6 +37,8 @@ jobs:
       fail-fast: false
       matrix:
         language: [ 'java' ]
+    env:
+      BAZELISK_SKIP_VERSION_CHECK: "1"
 
     steps:
     - name: Checkout repository
@@ -48,10 +54,18 @@ jobs:
       with:
         languages: ${{ matrix.language }}
 
-    # See https://github.com/github/codeql/issues/13541 for the origins of this command
-    # We can't use autobuild because it doesn't detect the right Java version
+    - name: Install Bazelisk
+      run: |
+        mkdir -p "$HOME/.local/bin"
+        curl -fsSL \
+          https://github.com/bazelbuild/bazelisk/releases/download/v1.24.1/bazelisk-linux-amd64 \
+          -o "$HOME/.local/bin/bazel"
+        chmod +x "$HOME/.local/bin/bazel"
+        echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+    # Build with Bazel so CI/CD remains Maven-free.
     - name: Build project
-      run: ./mvnw clean package -f "pom.xml" -B -V -e -Dfindbugs.skip -Dcheckstyle.skip -Dpmd.skip=true -Dspotbugs.skip -Denforcer.skip -Dmaven.javadoc.skip -DskipTests -Dmaven.test.skip.exec -Dlicense.skip=true -Drat.skip=true -Dspotless.check.skip=true
+      run: bazel build --config=ci //...
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@68bde559dea0fdcac2102bfdf6230c5f70eb485e # v4
