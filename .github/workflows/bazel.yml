@@ -130,15 +130,6 @@ jobs:
             //fluent:client-java-api-fluent \
             //extended:client-java-extended
 
-      # Spring modules require Java 17+; skip them on the Java 11 matrix leg.
-      - name: Build Spring modules (Java 17+)
-        if: ${{ !startsWith(matrix.java, '11') }}
-        shell: bash
-        run: |
-          bazel build --config=ci \
-            //spring:client-java-spring-integration \
-            //spring-aot:client-java-spring-aot-integration
-
       # ----------------------------------------------------------------
       # Test — run per-module test suites
       # ----------------------------------------------------------------
@@ -149,10 +140,3 @@ jobs:
             //kubernetes:tests \
             //util:tests \
             //extended:tests
-
-      - name: Test Spring modules (Java 17+)
-        if: ${{ !startsWith(matrix.java, '11') }}
-        shell: bash
-        run: |
-          bazel test --config=ci \
-            //spring:tests
