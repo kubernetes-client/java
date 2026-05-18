@@ -120,13 +120,25 @@ jobs:
       # ----------------------------------------------------------------
       # Build all core modules
       # ----------------------------------------------------------------
+      # Use folded YAML scalars (no shell line-continuation backslashes) so
+      # the generated script remains portable across Windows/Linux/macOS.
       - name: Build
         shell: bash
-        run: bazel build --config=ci //kubernetes:client-java-api //proto:client-java-proto //util:client-java //fluent:client-java-api-fluent //extended:client-java-extended
+        run: >-
+          bazel build --config=ci
+          //kubernetes:client-java-api
+          //proto:client-java-proto
+          //util:client-java
+          //fluent:client-java-api-fluent
+          //extended:client-java-extended
 
       # ----------------------------------------------------------------
       # Test — run per-module test suites
       # ----------------------------------------------------------------
       - name: Test core modules
         shell: bash
-        run: bazel test --config=ci //kubernetes:tests //util:tests //extended:tests
+        run: >-
+          bazel test --config=ci
+          //kubernetes:tests
+          //util:tests
+          //extended:tests
