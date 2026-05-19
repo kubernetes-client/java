@@ -170,9 +170,12 @@ def find_dependency(
 
 def render_generated_block(managed_dependencies: list[ManagedDependency]) -> str:
     install_sections, spring_boot_dependencies = partition_dependencies(managed_dependencies)
-    spring_framework_exclusions = [dependency.coordinate for dependency in install_sections[SECTION_SPRING]]
-    if not spring_framework_exclusions:
+    spring_framework_dependencies = install_sections[SECTION_SPRING]
+    if not spring_framework_dependencies:
         raise ValueError("No spring-framework dependencies found in dependencyManagement.")
+    spring_framework_exclusions = [
+        dependency.coordinate for dependency in spring_framework_dependencies
+    ]
 
     lines = [
         GENERATED_START,
@@ -189,7 +192,7 @@ def render_generated_block(managed_dependencies: list[ManagedDependency]) -> str
         spring_boot_dependencies, SPRING_BOOT_COORDINATE
     ).version
     spring_framework_version = find_dependency(
-        install_sections[SECTION_SPRING], SPRING_CORE_COORDINATE
+        spring_framework_dependencies, SPRING_CORE_COORDINATE
     ).version
     lines.extend(
         [
@@ -224,8 +227,12 @@ def render_generated_block(managed_dependencies: list[ManagedDependency]) -> str
             ]
         )
 
-    if len({dependency.version for dependency in spring_boot_dependencies}) != 1:
-        raise ValueError("Spring Boot artifact versions diverged in dependencyManagement.")
+    spring_boot_versions = {dependency.version for dependency in spring_boot_dependencies}
+    if len(spring_boot_versions) != 1:
+        raise ValueError(
+            "Spring Boot artifact versions diverged in dependencyManagement: "
+            + ", ".join(sorted(spring_boot_versions))
+        )
 
     lines.append(GENERATED_END)
     return "\n".join(lines) + "\n"
