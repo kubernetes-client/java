@@ -18,6 +18,8 @@ SECTION_SPRING = "spring (Java 17+ modules)"
 SECTION_TEST = "test"
 SPRING_BOOT_GROUP = "org.springframework.boot"
 SPRING_FRAMEWORK_GROUP = "org.springframework"
+SPRING_BOOT_COORDINATE = "org.springframework.boot:spring-boot"
+SPRING_CORE_COORDINATE = "org.springframework:spring-core"
 EXCLUDED_BAZEL_COORDINATES = {
     "commons-cli:commons-cli",
     "com.google.code.findbugs:jsr305",
@@ -150,6 +152,15 @@ def partition_dependencies(
     return install_sections, spring_boot_dependencies
 
 
+def find_dependency(
+    dependencies: list[ManagedDependency], coordinate: str
+) -> ManagedDependency:
+    for dependency in dependencies:
+        if dependency.coordinate == coordinate:
+            return dependency
+    raise ValueError(f"Missing expected dependencyManagement entry: {coordinate}")
+
+
 def render_generated_block(managed_dependencies: list[ManagedDependency]) -> str:
     install_sections, spring_boot_dependencies = partition_dependencies(managed_dependencies)
     spring_framework_exclusions = [dependency.coordinate for dependency in install_sections[SECTION_SPRING]]
@@ -167,8 +178,12 @@ def render_generated_block(managed_dependencies: list[ManagedDependency]) -> str
         lines.append(f"        # ---- {section} ----")
         for dependency in dependencies:
             lines.append(f'        "{dependency.bazel_artifact}",')
-    spring_boot_version = spring_boot_dependencies[0].version
-    spring_framework_version = install_sections[SECTION_SPRING][0].version
+    spring_boot_version = find_dependency(
+        spring_boot_dependencies, SPRING_BOOT_COORDINATE
+    ).version
+    spring_framework_version = find_dependency(
+        install_sections[SECTION_SPRING], SPRING_CORE_COORDINATE
+    ).version
     lines.extend(
         [
             "    ],",
