@@ -170,7 +170,7 @@ def render_generated_block(managed_dependencies: list[ManagedDependency]) -> str
     install_sections, spring_boot_dependencies = partition_dependencies(managed_dependencies)
     spring_framework_exclusions = [dependency.coordinate for dependency in install_sections[SECTION_SPRING]]
     if not spring_framework_exclusions:
-        raise ValueError("No org.springframework dependencies found in dependencyManagement.")
+        raise ValueError("No spring-framework dependencies found in dependencyManagement.")
 
     lines = [
         GENERATED_START,
