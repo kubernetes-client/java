@@ -121,6 +121,10 @@ def parse_managed_dependencies(pom_path: Path) -> list[ManagedDependency]:
 
 
 def classify_dependency(dependency: ManagedDependency) -> str:
+    # Keep all org.springframework modules together so the generated spring
+    # section also doubles as the exclusion list for the spring-boot artifacts.
+    # This intentionally keeps spring-test in the spring section even though its
+    # Maven scope is test.
     if dependency.group_id == SPRING_FRAMEWORK_GROUP:
         return SECTION_SPRING
     if dependency.scope == "test":
@@ -165,7 +169,7 @@ def render_generated_block(managed_dependencies: list[ManagedDependency]) -> str
     install_sections, spring_boot_dependencies = partition_dependencies(managed_dependencies)
     spring_framework_exclusions = [dependency.coordinate for dependency in install_sections[SECTION_SPRING]]
     if not spring_framework_exclusions:
-        raise ValueError("No spring-framework exclusions found for spring boot artifacts.")
+        raise ValueError("No org.springframework dependencies found in dependencyManagement.")
 
     lines = [
         GENERATED_START,
