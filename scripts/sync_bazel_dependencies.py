@@ -16,6 +16,7 @@ MAX_PROPERTY_RESOLUTION_DEPTH = 20
 SECTION_CORE = "core"
 SECTION_SPRING = "spring (Java 17+ modules)"
 SECTION_TEST = "test"
+SCOPE_TEST = "test"
 SPRING_BOOT_GROUP = "org.springframework.boot"
 SPRING_FRAMEWORK_GROUP = "org.springframework"
 SPRING_BOOT_COORDINATE = "org.springframework.boot:spring-boot"
@@ -32,7 +33,7 @@ class ManagedDependency:
     group_id: str
     artifact_id: str
     version: str
-    scope: str = ""
+    scope: str | None = None
 
     @property
     def coordinate(self) -> str:
@@ -107,7 +108,7 @@ def parse_managed_dependencies(pom_path: Path) -> list[ManagedDependency]:
             f"{prefix}artifactId", default="", namespaces=namespace
         ).strip()
         version = dependency.findtext(f"{prefix}version", default="", namespaces=namespace).strip()
-        scope = dependency.findtext(f"{prefix}scope", default="", namespaces=namespace).strip()
+        scope = dependency.findtext(f"{prefix}scope", default="", namespaces=namespace).strip() or None
         if group_id and artifact_id and version:
             managed_dependencies.append(
                 ManagedDependency(
@@ -127,7 +128,7 @@ def classify_dependency(dependency: ManagedDependency) -> str:
     # Maven scope is test.
     if dependency.group_id == SPRING_FRAMEWORK_GROUP:
         return SECTION_SPRING
-    if dependency.scope == "test":
+    if dependency.scope == SCOPE_TEST:
         return SECTION_TEST
     return SECTION_CORE
 
