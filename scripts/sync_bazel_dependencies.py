@@ -181,6 +181,7 @@ def render_generated_block(managed_dependencies: list[ManagedDependency]) -> str
         GENERATED_START,
         "# Generated from pom.xml by scripts/sync_bazel_dependencies.py.",
         "# Do not edit this block by hand; update pom.xml and rerun the script instead.",
+        "# Artifact order follows pom.xml dependencyManagement order within each section.",
         "maven.install(",
         "    artifacts = [",
     ]
