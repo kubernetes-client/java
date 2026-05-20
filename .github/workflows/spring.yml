@@ -34,9 +34,9 @@ jobs:
           path: |
             ~/.cache/bazel-disk-cache
             ~/.cache/bazel/cache/repos/v1
-          key: bazel-${{ runner.os }}-spring-java${{ matrix.java }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
+          key: bazel-${{ runner.os }}-java${{ matrix.java }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
           restore-keys: |
-            bazel-${{ runner.os }}-spring-java${{ matrix.java }}-
+            bazel-${{ runner.os }}-java${{ matrix.java }}-
             bazel-${{ runner.os }}-
       - name: Pin Maven dependencies
         run: REPIN=1 bazel run @maven//:pin
