@@ -1,0 +1,55 @@
+# This workflow runs Spring module tests using Bazel.
+name: spring
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  spring-tests:
+    name: Spring build & test with Bazel
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      BAZELISK_SKIP_VERSION_CHECK: "1"
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Set up Java 17
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5
+        with:
+          distribution: temurin
+          java-version: 17.0.x
+
+      - name: Install Bazelisk
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          curl -fsSL \
+            https://github.com/bazelbuild/bazelisk/releases/download/v1.24.1/bazelisk-linux-amd64 \
+            -o "$HOME/.local/bin/bazel"
+          chmod +x "$HOME/.local/bin/bazel"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Restore Bazel caches
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        with:
+          path: |
+            ~/.cache/bazel-disk-cache
+            ~/.cache/bazel/cache/repos/v1
+          key: bazel-${{ runner.os }}-spring-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
+          restore-keys: |
+            bazel-${{ runner.os }}-spring-
+            bazel-${{ runner.os }}-
+
+      - name: Pin Maven dependencies
+        run: REPIN=1 bazel run @maven//:pin
+
+      - name: Build Spring modules
+        run: >-
+          bazel build --config=ci
+          //spring:client-java-spring-integration
+          //spring-aot:client-java-spring-aot-integration
+
+      - name: Test Spring modules
+        run: bazel test --config=ci //spring:tests

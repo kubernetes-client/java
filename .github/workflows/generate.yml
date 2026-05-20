@@ -1,0 +1,133 @@
+name: Generate
+
+on:
+  workflow_dispatch:
+    inputs:
+      kubernetesBranch:
+        type: string
+        required: true
+        description: 'The remote kubernetes release branch to fetch openapi spec. .e.g. "release-1.23"'
+      dry_run:
+        type: boolean
+        required: true
+        default: false
+        description: Dry run, will not send a PR
+      skip_patches:
+        type: boolean
+        required: true
+        default: false
+        description: If true, skip patching code after generation
+      skip_proto:
+        type: boolean
+        required: false
+        default: false
+        description: If true, skip proto generation
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  generate:
+    permissions:
+      contents: write  # for Git to git push
+      pull-requests: write  # for repo-sync/pull-request to create pull requests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Java
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+      - name: Setup Java
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5
+        with:
+          distribution: 'temurin'
+          java-version: 17.0.x
+          cache: maven
+      - name: Checkout Gen
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          path: gen
+          repository: kubernetes-client/gen
+          token: ${{ secrets.PAT_TOKEN }}
+      - name: Generate Branch Name
+        run: |
+          SUFFIX=$(openssl rand -hex 4)
+          echo "BRANCH=automated-generate-$SUFFIX" >> $GITHUB_ENV
+      - name: Get Project Version
+        run: |
+          echo "PROJECT_VERSION=$(mvn -q \
+                      -Dexec.executable="echo" \
+                      -Dexec.args='${project.version}' \
+                      -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
+                      --non-recursive \
+                      org.codehaus.mojo:exec-maven-plugin:1.6.0:exec)" >> $GITHUB_ENV
+      - name: Generate Openapi
+        run: |
+          pushd gen/openapi
+          cat <<"EOF"> settings
+          # Kubernetes branch to get the OpenAPI spec from.
+          export KUBERNETES_BRANCH="${{ github.event.inputs.kubernetesBranch }}"
+
+          # client version for packaging and releasing. It can
+          # be different than SPEC_VERSION.
+          export CLIENT_VERSION=${{ env.PROJECT_VERSION }}
+
+          # Name of the release package
+          export PACKAGE_NAME="io.kubernetes.client.openapi"
+          EOF
+
+          USE_SINGLE_PARAMETER=true bash java.sh ../../kubernetes/ settings
+          popd
+          git config user.email "k8s-publishing-bot@users.noreply.github.com"
+          git config user.name "Kubernetes Publisher"
+          git checkout -b "$BRANCH"
+          git add .
+          git commit -s -m 'Automated openapi generation from ${{ github.event.inputs.kubernetesBranch }}'
+      - name: Generate Proto
+        if: ${{ github.event.inputs.skip_proto != 'true' }}
+        run: |
+          pushd gen/proto
+          # Download proto dependencies for the specified Kubernetes branch
+          bash dependencies.sh "${{ github.event.inputs.kubernetesBranch }}"
+          # Generate Java proto classes
+          bash generate.sh java ../../proto/src/main/java/
+          popd
+          rm -rf gen
+          git add proto/
+          git commit -s -m 'Automated proto generation from ${{ github.event.inputs.kubernetesBranch }}'
+      - name: Apply Manual Diffs
+        if: ${{ github.event.inputs.skip_patches != 'true' }}
+        run: |
+          ls scripts/patches/*.diff | xargs -I {} bash -xc 'patch -p1 < "{}"'
+          git add *.java
+          git commit -s -m 'Applied patches under scripts/patches/*.diff'
+      - name: Generate Fluent
+        run: |
+          # Only install the generated openapi module because the higher modules' compile
+          # may fail due to api-changes.
+          mvn -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
+              -Dmaven.test.skip=true \
+              -Pfluent-gen \
+              -pl kubernetes -am clean install
+          pushd fluent-gen
+          bash -x generate.sh
+          popd
+      - name: Formatter
+        run: |
+          mvn spotless:apply
+      - name: Commit and push
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          # Commit and push
+          git add .
+          git commit -s -m 'Format and fluent-gen from ${{ github.event.inputs.kubernetesBranch }}'
+          git push origin "$BRANCH"
+      - name: Pull Request
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        uses: repo-sync/pull-request@7e79a9f5dc3ad0ce53138f01df2fad14a04831c5 # v2
+        with:
+          source_branch: ${{ env.BRANCH }}
+          destination_branch: ${{ github.ref_name }}
+          github_token: ${{ secrets.PAT_TOKEN }}
+          pr_title: "Automated Generate from openapi ${{ github.event.inputs.kubernetesBranch }}"
