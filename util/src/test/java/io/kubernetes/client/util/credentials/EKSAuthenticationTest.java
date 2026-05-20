@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.util.credentials;
 
 import io.kubernetes.client.openapi.ApiClient;
+import okhttp3.OkHttpClient;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -20,7 +21,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.AwsSessionCredentials;
 
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -33,6 +34,9 @@ class EKSAuthenticationTest {
     @Mock
     private ApiClient apiClient;
 
+    @Mock
+    private OkHttpClient httpClient;
+
     private String region = "us-west-2";
 
     private String clusterName = "test-2";
@@ -40,9 +44,10 @@ class EKSAuthenticationTest {
   @Test
   void provideApiClient() {
         when(provider.resolveCredentials()).thenReturn(AwsSessionCredentials.create("ak", "sk", "session"));
+        when(apiClient.getHttpClient()).thenReturn(httpClient);
+        when(httpClient.newBuilder()).thenReturn(new OkHttpClient.Builder());
         EKSAuthentication authentication = new EKSAuthentication(provider, region, clusterName);
         authentication.provide(apiClient);
-        verify(apiClient).setApiKey(anyString());
-        verify(apiClient).setApiKeyPrefix(anyString());
+        verify(apiClient).setHttpClient(any(OkHttpClient.class));
     }
 }
