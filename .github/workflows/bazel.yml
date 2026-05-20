@@ -17,6 +17,8 @@ on:
       - "**/*.java"
       - "**/BUILD.bazel"
       - "MODULE.bazel"
+      - "pom.xml"
+      - "scripts/sync_bazel_dependencies.py"
       - ".bazelversion"
       - ".bazelrc"
       - ".github/workflows/bazel.yml"
@@ -26,6 +28,8 @@ on:
       - "**/*.java"
       - "**/BUILD.bazel"
       - "MODULE.bazel"
+      - "pom.xml"
+      - "scripts/sync_bazel_dependencies.py"
       - ".bazelversion"
       - ".bazelrc"
       - ".github/workflows/bazel.yml"
@@ -110,11 +114,16 @@ jobs:
         id: bazel-cache
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
-          path: ~/.cache/bazel-disk-cache
-          key: bazel-${{ runner.os }}-java${{ matrix.java }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
+          path: |
+            ~/.cache/bazel-disk-cache
+            ~/.cache/bazel/cache/repos/v1
+          key: bazel-${{ runner.os }}-java${{ matrix.java }}-${{ hashFiles('MODULE.bazel', 'pom.xml', 'scripts/sync_bazel_dependencies.py', '.bazelversion', 'maven_install.json') }}
           restore-keys: |
             bazel-${{ runner.os }}-java${{ matrix.java }}-
             bazel-${{ runner.os }}-
+
+      - name: Verify Bazel dependency sync
+        run: python3 scripts/sync_bazel_dependencies.py --check
 
       # Re-generate the Maven lock file so it is always consistent with
       # MODULE.bazel.  The __INPUT_ARTIFACTS_HASH in the committed file is

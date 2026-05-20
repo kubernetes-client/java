@@ -20,5 +20,15 @@ If you have any problem with the package or any suggestions, please file an [iss
 3. Submit a pull request.
 4. The bot will automatically assign someone to review your PR. Check the full list of bot commands [here](https://prow.k8s.io/command-help).
 
+### Sync Bazel dependency versions
+
+The root `pom.xml` is the source of truth for Maven and Bazel dependency versions.
+If you update a managed dependency version there, also regenerate the Bazel dependency
+block and lock file before sending your PR:
+
+1. Run `python3 scripts/sync_bazel_dependencies.py`
+2. Run `REPIN=1 bazel run @maven//:pin`
+3. Commit the updated `MODULE.bazel` and `maven_install.json`
+
 ### Contact
 You can reach the maintainers of this project at [SIG API Machinery](https://github.com/kubernetes/community/tree/master/sig-api-machinery) or on the [#kubernetes-client](https://kubernetes.slack.com/messages/kubernetes-client) channel on the Kubernetes slack.
