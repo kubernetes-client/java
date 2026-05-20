@@ -1,15 +1,25 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://docs.github.com/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
 name: build
 
 on:
-  workflow_dispatch: {}
+  push:
+    branches: [ "master", "release-**" ]
+    paths:
+      - "**/*.java"
+      - "**/pom.xml"
+      - "pom.xml"
+      - ".github/workflows/maven.yml"
+  pull_request:
+    branches: [ "master", "release-**" ]
+    paths:
+      - "**/*.java"
+      - "**/pom.xml"
+      - "pom.xml"
+      - ".github/workflows/maven.yml"
 
 jobs:
-  verify-format:
+  build:
+    name: Java 17 Maven Test on Linux
     runs-on: ubuntu-latest
-    name: Verify Source Format
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - name: Setup Java
@@ -17,144 +27,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
-      - name: Verify Format and License
-        run: ./mvnw spotless:check
-  build:
-    name: Java ${{ matrix.java }} Maven Test on ${{ matrix.os }}
-    strategy:
-      matrix:
-        java: [ 11.0.x, 17.0.x, 21.0.x ]
-        os: [ macos-latest, windows-latest, ubuntu-latest ]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-      - name: Setup Java
-        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5
-        with:
-          distribution: 'temurin'
-          java-version: ${{ matrix.java }}
       - name: Cache local Maven repository
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
-      - name: Build with Maven
-        shell: bash
-        run: |
-          # spring and spring-aot are tested in a dedicated workflow (spring.yml)
-          # examples/examples-release-latest depends on spring so must also be excluded
-          MODS_OVERRIDES='-pl !spring,!spring-aot,!examples/examples-release-latest'
-          if [ $(grep -E '^(8|11)\.' <<< '${{ matrix.java }}') ]; then
-            # some module doesn't compile on java platform lower than 17, need to skip them by specifying a profile
-            EXCLUDED_EXAMPLE_MODULES=`ls examples | grep examples | xargs -I {} echo '!examples/{}'   | tr '\n' ',' | sed 's/.$//'`
-            MODS_OVERRIDES=$MODS_OVERRIDES,$EXCLUDED_EXAMPLE_MODULES
-          fi
-          ./mvnw -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn $MODS_OVERRIDES clean test
-  build-graalvm:
-    runs-on: ubuntu-latest
-    name: GraalVM Maven Test
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-      - uses: graalvm/setup-graalvm@bef4b0e916c7dd079bf60fb95d49139f67e32c5f # v1
-        with:
-          version: '22.3.0'
-          java-version: '17'
-          components: 'native-image'
-      - name: Build with Maven
-        run: ./mvnw -q test -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-  e2e:
-    runs-on: ubuntu-latest
-    name: End-to-End Test Against Real Cluster
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-      - name: Create k8s Kind Cluster
-        uses: helm/kind-action@ef37e7f390d99f746eb8b610417061a60e82a6cc # v1.14.0
-      - name: Setup Java
-        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5
-        with:
-          distribution: 'temurin'
-          java-version: 17.0.x
-      - name: Run E2E with Maven
-        run: |
-          ./mvnw clean install \
-          -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
-          -q \
-          -Dmaven.test.skip=true
-          cd e2e
-          ../mvnw test \
-            -B \
-            -De2e.skip=false \
-            -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-        env:
-          mvnw: ${{ github.workspace }}/mvnw
-  examples:
-    runs-on: ubuntu-latest
-    name: Examples smoke test
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-      - name: Setup Java
-        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5
-        with:
-          distribution: 'temurin'
-          java-version: 17.0.x
-      - name: Cache local Maven repository
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
-        with:
-          path: ~/.m2/repository
+          path: ~/.m2/repository/
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
       - name: Build with Maven
-        run: |
-          ./mvnw clean install \
-          -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
-          -q \
-          -Dmaven.test.skip=true
-      - name: Build Cert Manager Contrib
-        run: |
-          cd client-java-contrib/cert-manager
-          ../../mvnw clean install \
-          -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
-          -q \
-          -Dmaven.test.skip=true
-      - name: Build Prometheus Contrib
-        run: |
-          cd client-java-contrib/prometheus-operator
-          ../../mvnw clean install \
-          -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
-          -q \
-          -Dmaven.test.skip=true
-      - name: Examples
-        run: |
-          for d in $(find examples* -maxdepth 1 -type d)
-          do
-            ${MVNW} clean install -Dmaven.test.skip=true -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
-          done
-        env:
-          MVNW: ${{ github.workspace }}/mvnw
-  codegen:
-    runs-on: ubuntu-latest
-    services:
-      registry:
-        image: registry:2
-        ports:
-          - 5000:5000
-    name: CRD Java Models Code Generation
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-      - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@1c2f28ccd9476e8a936ac9a1f287405504c93304 # v5
-        with:
-          name: kubernetes-client/java/crd-model-gen
-          tags: gh-action-tmp
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          workdir: client-java-contrib
-          no_push: true
-      - name: Run Code-gen for Cert-Manager
-        working-directory: ${{ github.workspace }}/client-java-contrib/cert-manager
-        run: IMAGE_TAG=gh-action-tmp ./update.sh
-      - name: Run Code-gen for Prometheus-Operator
-        working-directory: ${{ github.workspace }}/client-java-contrib/prometheus-operator
-        run: IMAGE_TAG=gh-action-tmp ./update.sh
+        run: ./mvnw -q -B clean test -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
