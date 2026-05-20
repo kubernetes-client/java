@@ -26,6 +26,20 @@ jobs:
           java-version: 17
       - name: Verify Format and License
         run: ./mvnw spotless:check
+  build-graalvm:
+    runs-on: ubuntu-latest
+    name: GraalVM Maven Test
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - uses: graalvm/setup-graalvm@bef4b0e916c7dd079bf60fb95d49139f67e32c5f # v1
+        with:
+          version: '22.3.0'
+          java-version: '17'
+          components: 'native-image'
+      - name: Build with Maven
+        run: ./mvnw -q test -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
   e2e:
     runs-on: ubuntu-latest
     name: End-to-End Test Against Real Cluster
