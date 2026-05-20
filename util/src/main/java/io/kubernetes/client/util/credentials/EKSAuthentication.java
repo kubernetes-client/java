@@ -82,12 +82,13 @@ public class EKSAuthentication implements Authentication {
     private static String presignedUrlToEncodedUrl(String presignedUrl) {
         return Base64.getUrlEncoder()
                 .withoutPadding()
-                .encodeToString(SdkHttpUtils.urlEncodeIgnoreSlashes(presignedUrl).getBytes(StandardCharsets.UTF_8));
+                .encodeToString(presignedUrl.getBytes(StandardCharsets.UTF_8));
     }
 
     private SdkHttpRequest generateStsRequest() {
         return SdkHttpRequest.builder()
                 .uri(stsEndpoint)
+                .encodedPath("/")
                 .putRawQueryParameter("Version", "2011-06-15")
                 .putRawQueryParameter("Action", "GetCallerIdentity")
                 .method(SdkHttpMethod.GET)
