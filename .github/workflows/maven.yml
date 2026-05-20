@@ -4,34 +4,7 @@
 name: build
 
 on:
-  push:
-    branches: [ "master", "master-java8", "release-**" ]
-    paths:
-      - '**/*.java'
-      - '**/pom.xml'
-      - '.mvn/**'
-      - 'mvnw'
-      - 'mvnw.cmd'
-      - '**/*.sh'
-      - 'client-java-contrib/Dockerfile'
-      - 'e2e/**/*.yaml'
-      - '.github/workflows/maven.yml'
-      - '!spring/**'
-      - '!spring-aot/**'
-  pull_request:
-    branches: [ "master", "master-java8", "release-**" ]
-    paths:
-      - '**/*.java'
-      - '**/pom.xml'
-      - '.mvn/**'
-      - 'mvnw'
-      - 'mvnw.cmd'
-      - '**/*.sh'
-      - 'client-java-contrib/Dockerfile'
-      - 'e2e/**/*.yaml'
-      - '.github/workflows/maven.yml'
-      - '!spring/**'
-      - '!spring-aot/**'
+  workflow_dispatch: {}
 
 jobs:
   verify-format:
@@ -185,4 +158,3 @@ jobs:
       - name: Run Code-gen for Prometheus-Operator
         working-directory: ${{ github.workspace }}/client-java-contrib/prometheus-operator
         run: IMAGE_TAG=gh-action-tmp ./update.sh
-

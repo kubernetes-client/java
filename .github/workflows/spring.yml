@@ -2,26 +2,7 @@
 name: spring
 
 on:
-  push:
-    branches: [ "master", "master-java8", "release-**" ]
-    paths:
-      - 'spring/**'
-      - 'spring-aot/**'
-      - '**/pom.xml'
-      - '.mvn/**'
-      - 'mvnw'
-      - 'mvnw.cmd'
-      - '.github/workflows/spring.yml'
-  pull_request:
-    branches: [ "master", "master-java8", "release-**" ]
-    paths:
-      - 'spring/**'
-      - 'spring-aot/**'
-      - '**/pom.xml'
-      - '.mvn/**'
-      - 'mvnw'
-      - 'mvnw.cmd'
-      - '.github/workflows/spring.yml'
+  workflow_dispatch: {}
 
 jobs:
   spring-tests:

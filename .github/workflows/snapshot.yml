@@ -1,13 +1,6 @@
 name: Upload Snapshot
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - '**/*.java'
-      - '**/pom.xml'
-      - '.github/workflows/snapshot.yml'
   workflow_dispatch: {}
 
 permissions:
@@ -25,6 +18,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17.0.x
+          cache: maven
           server-id: ossrh
           server-username: OSSRH_USERNAME
           server-password: OSSRH_TOKEN

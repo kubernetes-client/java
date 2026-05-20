@@ -19,6 +19,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      BAZELISK_SKIP_VERSION_CHECK: "1"
     steps:
       - name: Validate Input
         run: |
@@ -39,11 +41,34 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17.0.x
+          cache: maven
           server-id: ossrh
           server-username: OSSRH_USERNAME
           server-password: OSSRH_TOKEN
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: GPG_PASSPHRASE
+      - name: Install Bazelisk
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          curl -fsSL \
+            https://github.com/bazelbuild/bazelisk/releases/download/v1.24.1/bazelisk-linux-amd64 \
+            -o "$HOME/.local/bin/bazel"
+          chmod +x "$HOME/.local/bin/bazel"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Restore Bazel caches
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        with:
+          path: |
+            ~/.cache/bazel-disk-cache
+            ~/.cache/bazel/cache/repos/v1
+          key: bazel-${{ runner.os }}-release-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
+          restore-keys: |
+            bazel-${{ runner.os }}-release-
+            bazel-${{ runner.os }}-
+      - name: Bazel Build
+        run: bazel build --config=ci //...
+      - name: Bazel Test
+        run: bazel test --config=ci //...
       - name: Prepare
         run: |
           export GPG_TTY=$(tty)
@@ -69,6 +94,7 @@ jobs:
             -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
             -DdevelopmentVersion=${{ github.event.inputs.nextDevelopmentVersion }} \
             -DpushChanges=false \
+            -Darguments=-DskipTests \
             -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
       - name: Release Perform
         if: ${{ github.event.inputs.dry-run != 'true' }}
