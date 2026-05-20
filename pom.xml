@@ -79,7 +79,7 @@
     <jetbrains.annotations.version>26.1.0</jetbrains.annotations.version>
     <logback.version>1.5.32</logback.version>
     <mockito.version>5.23.0</mockito.version>
-    <okio.version>3.16.4</okio.version>
+    <okio.version>3.17.0</okio.version>
     <assertj.version>3.27.7</assertj.version>
     <awaitility.version>4.3.0</awaitility.version>
     <system-stubs.version>2.1.8</system-stubs.version>
