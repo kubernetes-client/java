@@ -50,14 +50,21 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           api="${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}"
-          open_prs_json="$(curl -fsSL \
-            -u "x-access-token:${GITHUB_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            "${api}/pulls?state=open&per_page=100")"
-          open_pr_count="$(jq 'length' <<< "${open_prs_json}")"
-          if [[ "${open_pr_count}" -eq 100 ]]; then
-            echo "Warning: reached 100 open PRs; rerun workflow if additional PRs need backfill."
-          fi
+          open_prs_json='[]'
+          page=1
+          while :; do
+            page_json="$(curl -fsSL \
+              -u "x-access-token:${GITHUB_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              "${api}/pulls?state=open&per_page=100&page=${page}")"
+            open_prs_json="$(jq -s 'add' \
+              <(printf '%s' "${open_prs_json}") \
+              <(printf '%s' "${page_json}"))"
+            if [[ "$(jq 'length' <<< "${page_json}")" -lt 100 ]]; then
+              break
+            fi
+            page=$((page + 1))
+          done
 
           while IFS=$'\t' read -r number head_ref head_repo base_ref author; do
             if [[ "${author}" != "dependabot[bot]" ]]; then
