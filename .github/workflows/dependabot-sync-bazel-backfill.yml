@@ -39,6 +39,10 @@ jobs:
           chmod +x "$HOME/.local/bin/bazel"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
+      - name: Preserve Bazel sync script
+        run: |
+          cp scripts/sync_bazel_dependencies.py "${RUNNER_TEMP}/sync_bazel_dependencies.py"
+
       - name: Sync all open Dependabot pom.xml PRs
         shell: bash
         env:
@@ -70,7 +74,7 @@ jobs:
             if [[ "${author}" != "dependabot[bot]" ]]; then
               continue
             fi
-            if [[ "${base_ref}" != "master" && "${base_ref}" != "master-java8" ]]; then
+            if [[ "${base_ref}" != "master" ]]; then
               continue
             fi
             if [[ "${head_repo}" != "${GITHUB_REPOSITORY}" ]]; then
@@ -98,7 +102,7 @@ jobs:
             git reset --hard
             git clean -fd
 
-            python3 scripts/sync_bazel_dependencies.py
+            python3 "${RUNNER_TEMP}/sync_bazel_dependencies.py" --root "$PWD"
             REPIN=1 bazel run @maven//:pin
 
             if git diff --quiet -- MODULE.bazel maven_install.json; then
