@@ -94,12 +94,13 @@ public class EKSAuthentication extends RefreshAuthentication {
     private static String presignedUrlToEncodedUrl(String presignedUrl) {
         return Base64.getUrlEncoder()
                 .withoutPadding()
-                .encodeToString(SdkHttpUtils.urlEncodeIgnoreSlashes(presignedUrl).getBytes(StandardCharsets.UTF_8));
+                .encodeToString(presignedUrl.getBytes(StandardCharsets.UTF_8));
     }
 
     private static SdkHttpRequest generateStsRequest(URI stsEndpoint, String clusterName) {
         return SdkHttpRequest.builder()
                 .uri(stsEndpoint)
+                .encodedPath("/")
                 .putRawQueryParameter("Version", "2011-06-15")
                 .putRawQueryParameter("Action", "GetCallerIdentity")
                 .method(SdkHttpMethod.GET)
