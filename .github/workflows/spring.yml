@@ -11,6 +11,8 @@ jobs:
       matrix:
         java: [ 17, 21, 25, 26 ]
     runs-on: ubuntu-latest
+    env:
+      BAZELISK_SKIP_VERSION_CHECK: "1"
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - name: Setup Java
@@ -18,10 +20,39 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: ${{ matrix.java }}
-      - name: Cache local Maven repository
+      - name: Install Bazelisk
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          curl -fsSL \
+            https://github.com/bazelbuild/bazelisk/releases/download/v1.24.1/bazelisk-linux-amd64 \
+            -o "$HOME/.local/bin/bazel"
+          chmod +x "$HOME/.local/bin/bazel"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Restore Bazel repository cache (cross-OS)
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-spring-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
-      - name: Build Spring modules with Maven
-        run: ./mvnw -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -pl spring,spring-aot -am clean test
+          path: ~/.cache/bazel/cache/repos/v1
+          key: bazel-repos-${{ matrix.java }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
+          restore-keys: |
+            bazel-repos-${{ matrix.java }}-
+            bazel-repos-
+          enableCrossOsArchive: true
+      - name: Restore Bazel disk cache
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        with:
+          path: ~/.cache/bazel-disk-cache
+          key: bazel-${{ runner.os }}-java${{ matrix.java }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
+          restore-keys: |
+            bazel-${{ runner.os }}-java${{ matrix.java }}-
+            bazel-${{ runner.os }}-
+      - name: Pin Maven dependencies
+        run: REPIN=1 bazel run @maven//:pin
+      - name: Build Spring integrations with Bazel
+        run: >-
+          bazel build --config=ci
+          //spring:client-java-spring-integration
+          //spring-aot:client-java-spring-aot-integration
+      - name: Test Spring integrations with Bazel
+        run: >-
+          bazel test --config=ci
+          //spring:tests
