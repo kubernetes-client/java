@@ -6,8 +6,7 @@
 # Cache layers used:
 #   1. Repository cache   – downloaded JARs / external repositories
 #   2. Disk cache         – action output cache (build artifacts)
-# Both are saved to GitHub Actions cache keyed on the OS, Bazel module lock,
-# and Maven artifact list so cache hits are maximized across identical runs.
+# Repository cache is shared across OS runners; disk cache remains OS-scoped.
 
 name: bazel
 
@@ -102,7 +101,16 @@ jobs:
       # The disk cache stores compiled action outputs; the repository cache
       # stores downloaded external files (JARs, etc.).
       # ----------------------------------------------------------------
-      - name: Restore Bazel caches
+      - name: Restore Bazel repository cache (cross-OS)
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        with:
+          path: ~/.cache/bazel/cache/repos/v1
+          key: bazel-repos-java${{ matrix.java }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
+          restore-keys: |
+            bazel-repos-java${{ matrix.java }}-
+            bazel-repos-
+          enableCrossOsArchive: true
+      - name: Restore Bazel disk cache
         id: bazel-cache
         uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:

@@ -12,7 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util.credentials;
 
-import io.kubernetes.client.openapi.ApiClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
@@ -29,12 +28,13 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Base64;
+import java.util.function.Supplier;
 
 /**
  * EKS cluster authentication which generates a bearer token from AWS AK/SK. It doesn't require an "aws"
  * command line tool in the $PATH.
  */
-public class EKSAuthentication implements Authentication {
+public class EKSAuthentication extends RefreshAuthentication {
 
     private static final Logger log = LoggerFactory.getLogger(EKSAuthentication.class);
 
@@ -50,44 +50,57 @@ public class EKSAuthentication implements Authentication {
     }
 
     public EKSAuthentication(AwsCredentialsProvider provider, String region, String clusterName, int expirySeconds) {
-        this.provider = provider;
-        this.region = region;
-        this.clusterName = clusterName;
-        if (expirySeconds > MAX_EXPIRY_SECONDS) {
-            expirySeconds = MAX_EXPIRY_SECONDS;
-        }
-        this.expirySeconds = expirySeconds;
-        this.stsEndpoint = URI.create("https://sts." + this.region + ".amazonaws.com");
+        this(new EksTokenSupplier(provider, region, clusterName, Math.min(expirySeconds, MAX_EXPIRY_SECONDS)));
+    }
+
+    private EKSAuthentication(EksTokenSupplier tokenSupplier) {
+        super(tokenSupplier, Duration.of(tokenSupplier.expirySeconds, ChronoUnit.SECONDS));
+        setExpiry(Instant.now().plus(tokenSupplier.expirySeconds, ChronoUnit.SECONDS));
     }
 
     private static final int MAX_EXPIRY_SECONDS = 60 * 15;
-    private final AwsCredentialsProvider provider;
-    private final String region;
-    private final String clusterName;
-    private final URI stsEndpoint;
 
-    private final int expirySeconds;
+    private static class EksTokenSupplier implements Supplier<String> {
+        private final AwsCredentialsProvider provider;
+        private final String region;
+        private final String clusterName;
+        private final URI stsEndpoint;
+        private final int expirySeconds;
 
-    @Override
-    public void provide(ApiClient client) {
-        SdkHttpRequest httpRequest = generateStsRequest();
-        String presignedUrl = requestToPresignedUrl(httpRequest);
+        EksTokenSupplier(AwsCredentialsProvider provider, String region, String clusterName, int expirySeconds) {
+            this.provider = provider;
+            this.region = region;
+            this.clusterName = clusterName;
+            this.expirySeconds = expirySeconds;
+            this.stsEndpoint = URI.create("https://sts." + this.region + ".amazonaws.com");
+        }
+
+        @Override
+        public String get() {
+            return generateToken(provider, region, clusterName, stsEndpoint, expirySeconds);
+        }
+    }
+
+    private static String generateToken(
+            AwsCredentialsProvider provider, String region, String clusterName, URI stsEndpoint, int expirySeconds) {
+        SdkHttpRequest httpRequest = generateStsRequest(stsEndpoint, clusterName);
+        String presignedUrl = requestToPresignedUrl(httpRequest, provider, region);
         String encodedUrl = presignedUrlToEncodedUrl(presignedUrl);
         String token = "k8s-aws-v1." + encodedUrl;
-        client.setApiKeyPrefix("Bearer");
-        client.setApiKey(token);
         log.info("Generated BEARER token for ApiClient, expiring at {}", Instant.now().plus(expirySeconds, ChronoUnit.SECONDS));
+        return token;
     }
 
     private static String presignedUrlToEncodedUrl(String presignedUrl) {
         return Base64.getUrlEncoder()
                 .withoutPadding()
-                .encodeToString(SdkHttpUtils.urlEncodeIgnoreSlashes(presignedUrl).getBytes(StandardCharsets.UTF_8));
+                .encodeToString(presignedUrl.getBytes(StandardCharsets.UTF_8));
     }
 
-    private SdkHttpRequest generateStsRequest() {
+    private static SdkHttpRequest generateStsRequest(URI stsEndpoint, String clusterName) {
         return SdkHttpRequest.builder()
                 .uri(stsEndpoint)
+                .encodedPath("/")
                 .putRawQueryParameter("Version", "2011-06-15")
                 .putRawQueryParameter("Action", "GetCallerIdentity")
                 .method(SdkHttpMethod.GET)
@@ -95,10 +108,11 @@ public class EKSAuthentication implements Authentication {
                 .build();
     }
 
-    private String requestToPresignedUrl(SdkHttpRequest httpRequest) {
+    private static String requestToPresignedUrl(
+            SdkHttpRequest httpRequest, AwsCredentialsProvider provider, String region) {
         AwsV4HttpSigner signer = AwsV4HttpSigner.create();
         SignedRequest signedRequest =
-                signer.sign(r -> r.identity(this.provider.resolveCredentials())
+                signer.sign(r -> r.identity(provider.resolveCredentials())
                         .request(httpRequest)
                         .putProperty(AwsV4HttpSigner.SERVICE_SIGNING_NAME, "sts")
                         .putProperty(AwsV4HttpSigner.REGION_NAME, region)
