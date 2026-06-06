@@ -30,6 +30,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -241,8 +242,7 @@ public class Copy extends Exec {
     for (TreeNode childNode : node.getChildren()) {
       if (!childNode.isDir) {
         // Create file which is under 'node'
-        String filePath = genericPathBuilder(destination.toString(), childNode.name);
-        File f = new File(filePath);
+        File f = safeResolveWithinBase(destination, childNode.name).toFile();
         if (!f.createNewFile()) {
           throw new IOException("Failed to create file: " + f);
         }
@@ -254,8 +254,7 @@ public class Copy extends Exec {
         }
       } else {
         String newSrcPath = genericPathBuilder(srcPath, childNode.name);
-        // TODO: Change this once the method genericPathBuilder is changed to varargs
-        Path newDestination = Paths.get(destination.toString(), childNode.name);
+        Path newDestination = safeResolveWithinBase(destination, childNode.name);
         createFiles(childNode, namespace, pod, container, newSrcPath, newDestination);
       }
     }
@@ -276,8 +275,7 @@ public class Copy extends Exec {
     }
     for (TreeNode childNode : node.getChildren()) {
       if (childNode.isDir) {
-        String path = genericPathBuilder(destination.toString(), childNode.name);
-        Path newPath = Paths.get(path);
+        Path newPath = safeResolveWithinBase(destination, childNode.name);
         createDirectory(childNode, newPath);
       }
     }
@@ -304,20 +302,52 @@ public class Copy extends Exec {
           int len = line.length();
           // line = stripFileSeparators(line);
           if (line.charAt(line.length() - 1) == '/') {
+            String safeName = sanitizeRelativeEntryName(line.substring(0, len - 1));
             TreeNode subDirTree =
                 new TreeNode(
                     true,
-                    line.substring(0, len - 1),
+                    safeName,
                     false); // Stripping off '/' in the end of directory
             String path = genericPathBuilder(srcPath, subDirTree.name);
             createDirectoryTree(subDirTree, namespace, pod, container, path);
             node.getChildren().add(subDirTree);
           } else {
-            node.getChildren().add(new TreeNode(false, line, false));
+            node.getChildren().add(new TreeNode(false, sanitizeRelativeEntryName(line), false));
           }
         }
       }
     }
+  }
+
+  private Path safeResolveWithinBase(Path base, String entryName) throws IOException {
+    Path normalizedBase = base.toAbsolutePath().normalize();
+    Path resolved = normalizedBase.resolve(entryName).normalize();
+    if (!resolved.startsWith(normalizedBase)) {
+      throw new IOException("Invalid path entry: " + entryName);
+    }
+    return resolved;
+  }
+
+  private String sanitizeRelativeEntryName(String entryName) throws IOException {
+    String sanitized = Objects.requireNonNull(entryName, "entryName").trim();
+    if (sanitized.isEmpty()) {
+      throw new IOException("Invalid empty path entry");
+    }
+
+    // ls -F output should be a single relative path segment. Reject path separators and traversal.
+    if (sanitized.contains("/") || sanitized.contains("\\")) {
+      throw new IOException("Invalid path entry: " + entryName);
+    }
+
+    String normalized = FilenameUtils.normalize(sanitized, true);
+    if (normalized == null || normalized.startsWith("../") || normalized.startsWith("/")) {
+      throw new IOException("Invalid path entry: " + entryName);
+    }
+
+    if (normalized.endsWith("/")) {
+      normalized = normalized.substring(0, normalized.length() - 1);
+    }
+    return normalized;
   }
 
   /*
