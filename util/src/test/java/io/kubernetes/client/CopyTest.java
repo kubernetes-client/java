@@ -27,15 +27,24 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.exception.CopyNotSupportedException;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.io.TempDir;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /** Tests for the Copy helper class */
 class CopyTest {
@@ -44,6 +53,71 @@ class CopyTest {
   private String[] cmd;
 
   private ApiClient client;
+
+  private static class MockProcess extends Process {
+    private final InputStream inputStream;
+
+    MockProcess(String stdout) {
+      this.inputStream = new ByteArrayInputStream(stdout.getBytes());
+    }
+
+    @Override
+    public OutputStream getOutputStream() {
+      return OutputStream.nullOutputStream();
+    }
+
+    @Override
+    public InputStream getInputStream() {
+      return inputStream;
+    }
+
+    @Override
+    public InputStream getErrorStream() {
+      return InputStream.nullInputStream();
+    }
+
+    @Override
+    public int waitFor() {
+      return 0;
+    }
+
+    @Override
+    public int exitValue() {
+      return 0;
+    }
+
+    @Override
+    public void destroy() {
+      // no-op for tests
+    }
+  }
+
+  private static class MockCopy extends Copy {
+    private final Map<String, String> listingsByPath;
+
+    MockCopy(Map<String, String> listingsByPath) {
+      this.listingsByPath = listingsByPath;
+    }
+
+    @Override
+    public Process exec(
+        String namespace,
+        String name,
+        String[] command,
+        String container,
+        boolean stdin,
+        boolean tty) {
+      String cmd = command[2];
+      String srcPath = cmd.substring("ls -F ".length());
+      return new MockProcess(listingsByPath.getOrDefault(srcPath, ""));
+    }
+
+    @Override
+    public InputStream copyFileFromPod(String namespace, String pod, String srcPath)
+        throws ApiException, IOException {
+      return new ByteArrayInputStream("test-data".getBytes());
+    }
+  }
 
   @RegisterExtension
   static WireMockExtension apiServer =
@@ -224,5 +298,54 @@ class CopyTest {
             .withQueryParam("command", equalTo("sh"))
             .withQueryParam("command", equalTo("-c"))
             .withQueryParam("command", equalTo("tar --version")));
+  }
+
+  @Test
+  void rejectsPathTraversalInNonTarCopy(@TempDir Path tempDir) throws Exception {
+    Path sourceRoot = Paths.get("/src");
+    Path destinationRoot = tempDir.resolve("dest");
+    Path escapedFile = tempDir.resolve("escape.txt");
+
+    Map<String, String> listingsByPath = new HashMap<>();
+    listingsByPath.put(sourceRoot.toString(), "../escape.txt\n");
+
+    Copy copy = new MockCopy(listingsByPath);
+
+    assertThrows(
+        IOException.class,
+        () ->
+            copy.copyDirectoryFromPod(
+                namespace,
+                podName,
+                null,
+                sourceRoot.toString(),
+                destinationRoot,
+                false));
+
+    assertFalse(Files.exists(escapedFile));
+  }
+
+  @Test
+  void copiesSafeEntriesInNonTarMode(@TempDir Path tempDir) throws Exception {
+    Path sourceRoot = Paths.get("/src");
+    Path destinationRoot = tempDir.resolve("dest");
+    Files.createDirectories(destinationRoot);
+
+    Map<String, String> listingsByPath = new HashMap<>();
+    listingsByPath.put(sourceRoot.toString(), "safe.txt\n");
+
+    Copy copy = new MockCopy(listingsByPath);
+
+    copy.copyDirectoryFromPod(
+        namespace,
+        podName,
+        null,
+        sourceRoot.toString(),
+        destinationRoot,
+        false);
+
+    Path copied = destinationRoot.resolve("safe.txt");
+    assertTrue(Files.exists(copied));
+    assertEquals("test-data", Files.readString(copied));
   }
 }
