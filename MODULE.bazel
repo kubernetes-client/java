@@ -48,7 +48,7 @@ maven.install(
         "software.amazon.awssdk:http-auth-spi:2.44.9",
         "software.amazon.awssdk:http-client-spi:2.44.9",
         "software.amazon.awssdk:utils:2.44.9",
-        "com.google.protobuf:protobuf-java:4.34.1",
+        "com.google.protobuf:protobuf-java:4.35.0",
         "org.bitbucket.b_c:jose4j:0.9.6",
         "com.bucket4j:bucket4j-core:8.10.1",
         "io.prometheus:simpleclient:0.16.0",

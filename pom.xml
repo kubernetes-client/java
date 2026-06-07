@@ -50,7 +50,7 @@
     <snakeyaml.version>2.6</snakeyaml.version>
     <slf4j.version>2.0.18</slf4j.version>
     <caffeine.version>3.0.0</caffeine.version>
-    <protobuf.version>4.34.1</protobuf.version>
+    <protobuf.version>4.35.0</protobuf.version>
     <junit-jupiter.version>5.13.4</junit-jupiter.version>
     <junit-platform.version>1.13.4</junit-platform.version>
     <junit-jupiter-params.version>${junit-jupiter.version}</junit-jupiter-params.version>
@@ -577,7 +577,7 @@
         <plugin>
           <groupId>org.codehaus.gmavenplus</groupId>
           <artifactId>gmavenplus-plugin</artifactId>
-          <version>4.3.1</version>
+          <version>5.0.0</version>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
