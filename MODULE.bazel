@@ -79,9 +79,9 @@ maven.install(
         # ---- test ----
         "ch.qos.logback:logback-classic:1.5.32",
         "ch.qos.logback:logback-core:1.5.32",
-        "org.junit.jupiter:junit-jupiter-api:5.13.4",
-        "org.junit.jupiter:junit-jupiter-engine:5.13.4",
-        "org.junit.jupiter:junit-jupiter-params:5.13.4",
+        "org.junit.jupiter:junit-jupiter-api:6.1.0",
+        "org.junit.jupiter:junit-jupiter-engine:6.1.0",
+        "org.junit.jupiter:junit-jupiter-params:6.1.0",
         "org.junit.platform:junit-platform-launcher:6.1.0",
         "org.junit.platform:junit-platform-commons:6.1.0",
         "org.junit.platform:junit-platform-engine:6.1.0",
