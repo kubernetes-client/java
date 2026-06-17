@@ -42,12 +42,12 @@ maven.install(
         "org.slf4j:slf4j-api:2.0.18",
         "org.bouncycastle:bcpkix-jdk18on:1.84",
         "org.bouncycastle:bcprov-jdk18on:1.84",
-        "software.amazon.awssdk:sts:2.44.8",
-        "software.amazon.awssdk:auth:2.44.8",
-        "software.amazon.awssdk:http-auth-aws:2.44.8",
-        "software.amazon.awssdk:http-auth-spi:2.44.8",
-        "software.amazon.awssdk:http-client-spi:2.44.8",
-        "software.amazon.awssdk:utils:2.44.8",
+        "software.amazon.awssdk:sts:2.46.5",
+        "software.amazon.awssdk:auth:2.46.5",
+        "software.amazon.awssdk:http-auth-aws:2.46.5",
+        "software.amazon.awssdk:http-auth-spi:2.46.5",
+        "software.amazon.awssdk:http-client-spi:2.46.5",
+        "software.amazon.awssdk:utils:2.46.5",
         "com.google.protobuf:protobuf-java:4.35.0",
         "org.bitbucket.b_c:jose4j:0.9.6",
         "com.bucket4j:bucket4j-core:8.10.1",
@@ -70,12 +70,12 @@ maven.install(
         "com.squareup.okio:okio-jvm:3.17.0",
         "com.flipkart.zjsonpatch:zjsonpatch:0.4.16",
         # ---- spring (Java 17+ modules) ----
-        "org.springframework:spring-core:7.0.7",
-        "org.springframework:spring-aop:7.0.7",
-        "org.springframework:spring-beans:7.0.7",
-        "org.springframework:spring-context:7.0.7",
-        "org.springframework:spring-expression:7.0.7",
-        "org.springframework:spring-test:7.0.7",
+        "org.springframework:spring-core:7.0.8",
+        "org.springframework:spring-aop:7.0.8",
+        "org.springframework:spring-beans:7.0.8",
+        "org.springframework:spring-context:7.0.8",
+        "org.springframework:spring-expression:7.0.8",
+        "org.springframework:spring-test:7.0.8",
         # ---- test ----
         "ch.qos.logback:logback-classic:1.5.32",
         "ch.qos.logback:logback-core:1.5.32",
@@ -103,7 +103,7 @@ maven.install(
 )
 
 # Spring Boot 4.0.6 artifacts declared with exclusions to keep
-# spring-framework pinned to 7.0.7.
+# spring-framework pinned to 7.0.8.
 _SPRING_FRAMEWORK_EXCLUSIONS = [
     "org.springframework:spring-core",
     "org.springframework:spring-aop",
