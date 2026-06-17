@@ -556,12 +556,14 @@ public class Exec {
               ExecProcess.this.onUnhandledError.accept(ex);
 
               synchronized (ExecProcess.this) {
-                // Try for a pretty unique error code, so if someone searches
-                // they'll find this
-                // code.
-                statusCode = -1975219;
-                isAlive = false;
-                ExecProcess.this.latch.countDown();
+                if (isAlive) {
+                  // Try for a pretty unique error code, so if someone searches
+                  // they'll find this
+                  // code.
+                  statusCode = -1975219;
+                  isAlive = false;
+                  ExecProcess.this.latch.countDown();
+                }
               }
             }
 
