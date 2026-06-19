@@ -27,7 +27,7 @@ import okhttp3.WebSocket;
  *
  * <p>If you do need to run it, you can run: mvn exec:java \
  * -Dexec.mainClass=io.kubernetes.client.examples.WebSocketsExample \
- * -Dexec.args=/api/v1/namespaces/default/pods/<podname>/attach?stdout=true
+ * -Dexec.args={@code /api/v1/namespaces/default/pods/<podname>/attach?stdout=true}
  *
  * <p>Note that you'd think 'watch' calls were WebSockets, but you'd be wrong, they're straight HTTP
  * GET calls.

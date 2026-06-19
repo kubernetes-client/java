@@ -25,7 +25,7 @@ import java.io.IOException;
 
 /**
  * A simple example of how to use Yaml.createResource() to create Kubernetes resources from YAML
- * without specifying the type upfront. This is equivalent to `kubectl create -f <yaml-file>`.
+ * without specifying the type upfront. This is equivalent to {@code kubectl create -f <yaml-file>}.
  *
  * <p>Easiest way to run this: mvn exec:java
  * -Dexec.mainClass="io.kubernetes.client.examples.YamlCreateResourceExample"

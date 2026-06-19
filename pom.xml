@@ -51,8 +51,8 @@
     <slf4j.version>2.0.18</slf4j.version>
     <caffeine.version>3.0.0</caffeine.version>
     <protobuf.version>4.35.0</protobuf.version>
-    <junit-jupiter.version>5.13.4</junit-jupiter.version>
-    <junit-platform.version>1.13.4</junit-platform.version>
+    <junit-jupiter.version>6.1.0</junit-jupiter.version>
+    <junit-platform.version>6.1.0</junit-platform.version>
     <junit-jupiter-params.version>${junit-jupiter.version}</junit-jupiter-params.version>
     <bucket4j.version>8.10.1</bucket4j.version>
     <bouncycastle.version>1.84</bouncycastle.version>
@@ -79,7 +79,7 @@
     <jetbrains.annotations.version>26.1.0</jetbrains.annotations.version>
     <logback.version>1.5.32</logback.version>
     <mockito.version>5.23.0</mockito.version>
-    <okio.version>3.16.4</okio.version>
+    <okio.version>3.17.0</okio.version>
     <assertj.version>3.27.7</assertj.version>
     <awaitility.version>4.3.0</awaitility.version>
     <system-stubs.version>2.1.8</system-stubs.version>
