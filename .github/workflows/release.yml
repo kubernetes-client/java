@@ -25,9 +25,9 @@ jobs:
       - name: Validate Input
         run: |
           echo "${{ github.ref_type }}" | perl -ne 'die unless m/^branch$/'
-          echo "${{ github.ref_name }}" | perl -ne 'die unless m/^release-\d+$/'
-          echo "${{ github.event.inputs.releaseVersion }}" | perl -ne 'die unless m/^\d+\.\d+\.\d+$/'
-          echo "${{ github.event.inputs.nextDevelopmentVersion }}" | perl -ne 'die unless m/^\d+\.\d+\.\d+-SNAPSHOT$/'
+          echo "${{ github.ref_name }}" | perl -ne 'die unless m/^release(?:-legacy)?-\d+$/'
+          echo "${{ github.event.inputs.releaseVersion }}" | perl -ne 'die unless m/^\d+\.\d+\.\d+(?:-legacy)?$/'
+          echo "${{ github.event.inputs.nextDevelopmentVersion }}" | perl -ne 'die unless m/^\d+\.\d+\.\d+(?:-legacy)?-SNAPSHOT$/'
       - name: Checkout
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
@@ -105,8 +105,8 @@ jobs:
         run: |
           # The tests are already executed in the prepare, skipping
           ./mvnw -s /home/runner/.m2/settings.xml -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -DlocalCheckout=true -Darguments=-DskipTests org.apache.maven.plugins:maven-release-plugin:perform
-          curl -X POST \
-            -H "Authorization: Bearer $(echo ${{ secrets.SNAPSHOT_UPLOAD_USER }}:${{ secrets.SNAPSHOT_UPLOAD_PASSWORD }} | base64 -w0)" \
+          curl --fail -X POST \
+            -H "Authorization: ****** '%s:%s' "${{ secrets.SNAPSHOT_UPLOAD_USER }}" "${{ secrets.SNAPSHOT_UPLOAD_PASSWORD }}" | base64 -w0)" \
             https://ossrh-staging-api.central.sonatype.com/manual/upload/defaultRepository/io.kubernetes -v
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git \
             automated-release-${{ github.event.inputs.releaseVersion }}:automated-release-${{ github.event.inputs.releaseVersion }}
