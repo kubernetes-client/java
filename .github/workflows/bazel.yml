@@ -102,7 +102,7 @@ jobs:
       # stores downloaded external files (JARs, etc.).
       # ----------------------------------------------------------------
       - name: Restore Bazel repository cache (cross-OS)
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
         with:
           path: ~/.cache/bazel/cache/repos/v1
           key: bazel-repos-java${{ matrix.java }}-${{ hashFiles('MODULE.bazel', '.bazelversion', 'maven_install.json') }}
@@ -112,7 +112,7 @@ jobs:
           enableCrossOsArchive: true
       - name: Restore Bazel disk cache
         id: bazel-cache
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
         with:
           path: |
             ~/.cache/bazel-disk-cache
