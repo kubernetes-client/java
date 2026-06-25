@@ -79,9 +79,9 @@ jobs:
                   "description": "GroupVersionKind unambiguously identifies a kind.",
                   "type": "object",
                   "properties": {
-                      "group": {"type": "string", "description": ""},
-                      "kind": {"type": "string", "description": ""},
-                      "version": {"type": "string", "description": ""}
+                      "group": {"type": "string", "description": "group is the group part of the GroupVersionKind."},
+                      "kind": {"type": "string", "description": "kind is the kind part of the GroupVersionKind."},
+                      "version": {"type": "string", "description": "version is the version part of the GroupVersionKind."}
                   },
                   "required": ["group", "kind", "version"]
               }
