@@ -64,6 +64,34 @@ jobs:
                       org.codehaus.mojo:exec-maven-plugin:1.6.0:exec)" >> $GITHUB_ENV
       - name: Generate Openapi
         run: |
+          # Inject the missing GroupVersionKind definition into apidiscovery_definitions.json.
+          # The apidiscovery types reference io.k8s.apimachinery.pkg.apis.meta.v1.GroupVersionKind
+          # but the gen repo's apidiscovery_definitions.json does not define it, causing the
+          # openapi-generator to emit references to an unresolvable class.
+          python3 - <<'PYEOF'
+          import json
+          path = "gen/openapi/apidiscovery_definitions.json"
+          with open(path) as f:
+              defs = json.load(f)
+          gvk_key = "io.k8s.apimachinery.pkg.apis.meta.v1.GroupVersionKind"
+          if gvk_key not in defs:
+              defs[gvk_key] = {
+                  "description": "GroupVersionKind unambiguously identifies a kind.",
+                  "type": "object",
+                  "properties": {
+                      "group": {"type": "string", "description": ""},
+                      "kind": {"type": "string", "description": ""},
+                      "version": {"type": "string", "description": ""}
+                  },
+                  "required": ["group", "kind", "version"]
+              }
+              with open(path, "w") as f:
+                  json.dump(defs, f, indent=2)
+              print("Added GroupVersionKind definition to apidiscovery_definitions.json")
+          else:
+              print("GroupVersionKind already present in apidiscovery_definitions.json")
+          PYEOF
+
           pushd gen/openapi
           cat <<"EOF"> settings
           # Kubernetes branch to get the OpenAPI spec from.
