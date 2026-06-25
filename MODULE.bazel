@@ -102,7 +102,7 @@ maven.install(
     lock_file = "//:maven_install.json",
 )
 
-# Spring Boot 4.0.6 artifacts declared with exclusions to keep
+# Spring Boot 4.1.0 artifacts declared with exclusions to keep
 # spring-framework pinned to 7.0.8.
 _SPRING_FRAMEWORK_EXCLUSIONS = [
     "org.springframework:spring-core",
@@ -116,28 +116,28 @@ _SPRING_FRAMEWORK_EXCLUSIONS = [
 maven.artifact(
     artifact = "spring-boot",
     group = "org.springframework.boot",
-    version = "4.0.6",
+    version = "4.1.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
 maven.artifact(
     artifact = "spring-boot-autoconfigure",
     group = "org.springframework.boot",
-    version = "4.0.6",
+    version = "4.1.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
 maven.artifact(
     artifact = "spring-boot-actuator",
     group = "org.springframework.boot",
-    version = "4.0.6",
+    version = "4.1.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
 maven.artifact(
     artifact = "spring-boot-test",
     group = "org.springframework.boot",
-    version = "4.0.6",
+    version = "4.1.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
