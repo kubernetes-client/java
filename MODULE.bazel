@@ -77,8 +77,8 @@ maven.install(
         "org.springframework:spring-expression:7.0.8",
         "org.springframework:spring-test:7.0.8",
         # ---- test ----
-        "ch.qos.logback:logback-classic:1.5.32",
-        "ch.qos.logback:logback-core:1.5.32",
+        "ch.qos.logback:logback-classic:1.5.36",
+        "ch.qos.logback:logback-core:1.5.36",
         "org.junit.jupiter:junit-jupiter-api:6.1.0",
         "org.junit.jupiter:junit-jupiter-engine:6.1.0",
         "org.junit.jupiter:junit-jupiter-params:6.1.0",
