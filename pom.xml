@@ -77,7 +77,7 @@
     <google.auth.version>1.47.0</google.auth.version>
     <jose4j.version>0.9.6</jose4j.version>
     <jetbrains.annotations.version>26.1.0</jetbrains.annotations.version>
-    <logback.version>1.5.32</logback.version>
+    <logback.version>1.5.36</logback.version>
     <mockito.version>5.23.0</mockito.version>
     <okio.version>3.17.0</okio.version>
     <assertj.version>3.27.7</assertj.version>
