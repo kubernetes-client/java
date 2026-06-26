@@ -24,6 +24,7 @@ public final class V1Admission {
      * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
      * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -35,6 +36,7 @@ public final class V1Admission {
      * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
      * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -46,6 +48,7 @@ public final class V1Admission {
      * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
      * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -56,6 +59,7 @@ public final class V1Admission {
     /**
      * <pre>
      * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -64,6 +68,7 @@ public final class V1Admission {
     /**
      * <pre>
      * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -72,6 +77,7 @@ public final class V1Admission {
     /**
      * <pre>
      * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -81,6 +87,7 @@ public final class V1Admission {
     /**
      * <pre>
      * resource is the fully-qualified resource being requested (for example, v1.pods)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -89,6 +96,7 @@ public final class V1Admission {
     /**
      * <pre>
      * resource is the fully-qualified resource being requested (for example, v1.pods)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -97,6 +105,7 @@ public final class V1Admission {
     /**
      * <pre>
      * resource is the fully-qualified resource being requested (for example, v1.pods)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -330,6 +339,7 @@ public final class V1Admission {
      * <pre>
      * operation is the operation being performed. This may be different than the operation
      * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+     * +optional
      * </pre>
      *
      * <code>optional string operation = 7;</code>
@@ -339,6 +349,7 @@ public final class V1Admission {
      * <pre>
      * operation is the operation being performed. This may be different than the operation
      * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+     * +optional
      * </pre>
      *
      * <code>optional string operation = 7;</code>
@@ -348,6 +359,7 @@ public final class V1Admission {
      * <pre>
      * operation is the operation being performed. This may be different than the operation
      * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+     * +optional
      * </pre>
      *
      * <code>optional string operation = 7;</code>
@@ -358,6 +370,7 @@ public final class V1Admission {
     /**
      * <pre>
      * userInfo is information about the requesting user
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -366,6 +379,7 @@ public final class V1Admission {
     /**
      * <pre>
      * userInfo is information about the requesting user
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -374,6 +388,7 @@ public final class V1Admission {
     /**
      * <pre>
      * userInfo is information about the requesting user
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -733,6 +748,7 @@ public final class V1Admission {
      * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
      * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -746,6 +762,7 @@ public final class V1Admission {
      * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
      * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -770,6 +787,7 @@ public final class V1Admission {
      * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
      * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
      * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -793,6 +811,7 @@ public final class V1Admission {
     /**
      * <pre>
      * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -803,6 +822,7 @@ public final class V1Admission {
     /**
      * <pre>
      * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -813,6 +833,7 @@ public final class V1Admission {
     /**
      * <pre>
      * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -826,6 +847,7 @@ public final class V1Admission {
     /**
      * <pre>
      * resource is the fully-qualified resource being requested (for example, v1.pods)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -836,6 +858,7 @@ public final class V1Admission {
     /**
      * <pre>
      * resource is the fully-qualified resource being requested (for example, v1.pods)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -846,6 +869,7 @@ public final class V1Admission {
     /**
      * <pre>
      * resource is the fully-qualified resource being requested (for example, v1.pods)
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -1211,6 +1235,7 @@ public final class V1Admission {
      * <pre>
      * operation is the operation being performed. This may be different than the operation
      * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+     * +optional
      * </pre>
      *
      * <code>optional string operation = 7;</code>
@@ -1222,6 +1247,7 @@ public final class V1Admission {
      * <pre>
      * operation is the operation being performed. This may be different than the operation
      * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+     * +optional
      * </pre>
      *
      * <code>optional string operation = 7;</code>
@@ -1244,6 +1270,7 @@ public final class V1Admission {
      * <pre>
      * operation is the operation being performed. This may be different than the operation
      * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+     * +optional
      * </pre>
      *
      * <code>optional string operation = 7;</code>
@@ -1267,6 +1294,7 @@ public final class V1Admission {
     /**
      * <pre>
      * userInfo is information about the requesting user
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -1277,6 +1305,7 @@ public final class V1Admission {
     /**
      * <pre>
      * userInfo is information about the requesting user
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -1287,6 +1316,7 @@ public final class V1Admission {
     /**
      * <pre>
      * userInfo is information about the requesting user
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -2197,6 +2227,7 @@ public final class V1Admission {
        * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
        * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2210,6 +2241,7 @@ public final class V1Admission {
        * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
        * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2234,6 +2266,7 @@ public final class V1Admission {
        * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
        * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2257,6 +2290,7 @@ public final class V1Admission {
        * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
        * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2277,6 +2311,7 @@ public final class V1Admission {
        * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
        * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2293,6 +2328,7 @@ public final class V1Admission {
        * otherwise identical (parallel requests, requests when earlier requests did not modify etc)
        * The UID is meant to track the round trip (request/response) between the KAS and the WebHook, not the user request.
        * It is suitable for correlating log entries between the webhook and apiserver, for either auditing or debugging.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -2314,6 +2350,7 @@ public final class V1Admission {
       /**
        * <pre>
        * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -2324,6 +2361,7 @@ public final class V1Admission {
       /**
        * <pre>
        * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -2338,6 +2376,7 @@ public final class V1Admission {
       /**
        * <pre>
        * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -2358,6 +2397,7 @@ public final class V1Admission {
       /**
        * <pre>
        * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -2376,6 +2416,7 @@ public final class V1Admission {
       /**
        * <pre>
        * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -2400,6 +2441,7 @@ public final class V1Admission {
       /**
        * <pre>
        * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -2417,6 +2459,7 @@ public final class V1Admission {
       /**
        * <pre>
        * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -2429,6 +2472,7 @@ public final class V1Admission {
       /**
        * <pre>
        * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -2444,6 +2488,7 @@ public final class V1Admission {
       /**
        * <pre>
        * kind is the fully-qualified type of object being submitted (for example, v1.Pod or autoscaling.v1.Scale)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionKind kind = 2;</code>
@@ -2468,6 +2513,7 @@ public final class V1Admission {
       /**
        * <pre>
        * resource is the fully-qualified resource being requested (for example, v1.pods)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -2478,6 +2524,7 @@ public final class V1Admission {
       /**
        * <pre>
        * resource is the fully-qualified resource being requested (for example, v1.pods)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -2492,6 +2539,7 @@ public final class V1Admission {
       /**
        * <pre>
        * resource is the fully-qualified resource being requested (for example, v1.pods)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -2512,6 +2560,7 @@ public final class V1Admission {
       /**
        * <pre>
        * resource is the fully-qualified resource being requested (for example, v1.pods)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -2530,6 +2579,7 @@ public final class V1Admission {
       /**
        * <pre>
        * resource is the fully-qualified resource being requested (for example, v1.pods)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -2554,6 +2604,7 @@ public final class V1Admission {
       /**
        * <pre>
        * resource is the fully-qualified resource being requested (for example, v1.pods)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -2571,6 +2622,7 @@ public final class V1Admission {
       /**
        * <pre>
        * resource is the fully-qualified resource being requested (for example, v1.pods)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -2583,6 +2635,7 @@ public final class V1Admission {
       /**
        * <pre>
        * resource is the fully-qualified resource being requested (for example, v1.pods)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -2598,6 +2651,7 @@ public final class V1Admission {
       /**
        * <pre>
        * resource is the fully-qualified resource being requested (for example, v1.pods)
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.GroupVersionResource resource = 3;</code>
@@ -3515,6 +3569,7 @@ public final class V1Admission {
        * <pre>
        * operation is the operation being performed. This may be different than the operation
        * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+       * +optional
        * </pre>
        *
        * <code>optional string operation = 7;</code>
@@ -3526,6 +3581,7 @@ public final class V1Admission {
        * <pre>
        * operation is the operation being performed. This may be different than the operation
        * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+       * +optional
        * </pre>
        *
        * <code>optional string operation = 7;</code>
@@ -3548,6 +3604,7 @@ public final class V1Admission {
        * <pre>
        * operation is the operation being performed. This may be different than the operation
        * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+       * +optional
        * </pre>
        *
        * <code>optional string operation = 7;</code>
@@ -3569,6 +3626,7 @@ public final class V1Admission {
        * <pre>
        * operation is the operation being performed. This may be different than the operation
        * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+       * +optional
        * </pre>
        *
        * <code>optional string operation = 7;</code>
@@ -3587,6 +3645,7 @@ public final class V1Admission {
        * <pre>
        * operation is the operation being performed. This may be different than the operation
        * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+       * +optional
        * </pre>
        *
        * <code>optional string operation = 7;</code>
@@ -3601,6 +3660,7 @@ public final class V1Admission {
        * <pre>
        * operation is the operation being performed. This may be different than the operation
        * requested. e.g. a patch can result in either a CREATE or UPDATE Operation.
+       * +optional
        * </pre>
        *
        * <code>optional string operation = 7;</code>
@@ -3622,6 +3682,7 @@ public final class V1Admission {
       /**
        * <pre>
        * userInfo is information about the requesting user
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -3632,6 +3693,7 @@ public final class V1Admission {
       /**
        * <pre>
        * userInfo is information about the requesting user
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -3646,6 +3708,7 @@ public final class V1Admission {
       /**
        * <pre>
        * userInfo is information about the requesting user
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -3666,6 +3729,7 @@ public final class V1Admission {
       /**
        * <pre>
        * userInfo is information about the requesting user
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -3684,6 +3748,7 @@ public final class V1Admission {
       /**
        * <pre>
        * userInfo is information about the requesting user
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -3708,6 +3773,7 @@ public final class V1Admission {
       /**
        * <pre>
        * userInfo is information about the requesting user
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -3725,6 +3791,7 @@ public final class V1Admission {
       /**
        * <pre>
        * userInfo is information about the requesting user
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -3737,6 +3804,7 @@ public final class V1Admission {
       /**
        * <pre>
        * userInfo is information about the requesting user
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -3752,6 +3820,7 @@ public final class V1Admission {
       /**
        * <pre>
        * userInfo is information about the requesting user
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.UserInfo userInfo = 8;</code>
@@ -4411,6 +4480,7 @@ public final class V1Admission {
      * <pre>
      * uid is an identifier for the individual request/response.
      * This must be copied over from the corresponding AdmissionRequest.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -4420,6 +4490,7 @@ public final class V1Admission {
      * <pre>
      * uid is an identifier for the individual request/response.
      * This must be copied over from the corresponding AdmissionRequest.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -4429,6 +4500,7 @@ public final class V1Admission {
      * <pre>
      * uid is an identifier for the individual request/response.
      * This must be copied over from the corresponding AdmissionRequest.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -4439,6 +4511,7 @@ public final class V1Admission {
     /**
      * <pre>
      * allowed indicates whether or not the admission request was permitted.
+     * +optional
      * </pre>
      *
      * <code>optional bool allowed = 2;</code>
@@ -4447,6 +4520,7 @@ public final class V1Admission {
     /**
      * <pre>
      * allowed indicates whether or not the admission request was permitted.
+     * +optional
      * </pre>
      *
      * <code>optional bool allowed = 2;</code>
@@ -4820,6 +4894,7 @@ public final class V1Admission {
      * <pre>
      * uid is an identifier for the individual request/response.
      * This must be copied over from the corresponding AdmissionRequest.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -4831,6 +4906,7 @@ public final class V1Admission {
      * <pre>
      * uid is an identifier for the individual request/response.
      * This must be copied over from the corresponding AdmissionRequest.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -4853,6 +4929,7 @@ public final class V1Admission {
      * <pre>
      * uid is an identifier for the individual request/response.
      * This must be copied over from the corresponding AdmissionRequest.
+     * +optional
      * </pre>
      *
      * <code>optional string uid = 1;</code>
@@ -4876,6 +4953,7 @@ public final class V1Admission {
     /**
      * <pre>
      * allowed indicates whether or not the admission request was permitted.
+     * +optional
      * </pre>
      *
      * <code>optional bool allowed = 2;</code>
@@ -4886,6 +4964,7 @@ public final class V1Admission {
     /**
      * <pre>
      * allowed indicates whether or not the admission request was permitted.
+     * +optional
      * </pre>
      *
      * <code>optional bool allowed = 2;</code>
@@ -5707,6 +5786,7 @@ public final class V1Admission {
        * <pre>
        * uid is an identifier for the individual request/response.
        * This must be copied over from the corresponding AdmissionRequest.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -5718,6 +5798,7 @@ public final class V1Admission {
        * <pre>
        * uid is an identifier for the individual request/response.
        * This must be copied over from the corresponding AdmissionRequest.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -5740,6 +5821,7 @@ public final class V1Admission {
        * <pre>
        * uid is an identifier for the individual request/response.
        * This must be copied over from the corresponding AdmissionRequest.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -5761,6 +5843,7 @@ public final class V1Admission {
        * <pre>
        * uid is an identifier for the individual request/response.
        * This must be copied over from the corresponding AdmissionRequest.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -5779,6 +5862,7 @@ public final class V1Admission {
        * <pre>
        * uid is an identifier for the individual request/response.
        * This must be copied over from the corresponding AdmissionRequest.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -5793,6 +5877,7 @@ public final class V1Admission {
        * <pre>
        * uid is an identifier for the individual request/response.
        * This must be copied over from the corresponding AdmissionRequest.
+       * +optional
        * </pre>
        *
        * <code>optional string uid = 1;</code>
@@ -5812,6 +5897,7 @@ public final class V1Admission {
       /**
        * <pre>
        * allowed indicates whether or not the admission request was permitted.
+       * +optional
        * </pre>
        *
        * <code>optional bool allowed = 2;</code>
@@ -5822,6 +5908,7 @@ public final class V1Admission {
       /**
        * <pre>
        * allowed indicates whether or not the admission request was permitted.
+       * +optional
        * </pre>
        *
        * <code>optional bool allowed = 2;</code>
@@ -5832,6 +5919,7 @@ public final class V1Admission {
       /**
        * <pre>
        * allowed indicates whether or not the admission request was permitted.
+       * +optional
        * </pre>
        *
        * <code>optional bool allowed = 2;</code>
@@ -5845,6 +5933,7 @@ public final class V1Admission {
       /**
        * <pre>
        * allowed indicates whether or not the admission request was permitted.
+       * +optional
        * </pre>
        *
        * <code>optional bool allowed = 2;</code>

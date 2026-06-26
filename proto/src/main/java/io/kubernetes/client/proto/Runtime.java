@@ -45,7 +45,7 @@ public final class Runtime {
    * various plugin types.
    * // Internal package:
    * 	type MyAPIObject struct {
-   * 		runtime.TypeMeta `json:",inline"`
+   * 		runtime.TypeMeta `json:""`
    * 		MyPlugin runtime.Object `json:"myPlugin"`
    * 	}
    * 	type PluginA struct {
@@ -53,7 +53,7 @@ public final class Runtime {
    * 	}
    * // External package:
    * 	type MyAPIObject struct {
-   * 		runtime.TypeMeta `json:",inline"`
+   * 		runtime.TypeMeta `json:""`
    * 		MyPlugin runtime.RawExtension `json:"myPlugin"`
    * 	}
    * 	type PluginA struct {
@@ -351,7 +351,7 @@ public final class Runtime {
      * various plugin types.
      * // Internal package:
      * 	type MyAPIObject struct {
-     * 		runtime.TypeMeta `json:",inline"`
+     * 		runtime.TypeMeta `json:""`
      * 		MyPlugin runtime.Object `json:"myPlugin"`
      * 	}
      * 	type PluginA struct {
@@ -359,7 +359,7 @@ public final class Runtime {
      * 	}
      * // External package:
      * 	type MyAPIObject struct {
-     * 		runtime.TypeMeta `json:",inline"`
+     * 		runtime.TypeMeta `json:""`
      * 		MyPlugin runtime.RawExtension `json:"myPlugin"`
      * 	}
      * 	type PluginA struct {
@@ -707,7 +707,7 @@ public final class Runtime {
    * TypeMeta is shared by all top level objects. The proper way to use it is to inline it in your type,
    * like this:
    * 	type MyAwesomeAPIObject struct {
-   * 	     runtime.TypeMeta    `json:",inline"`
+   * 	     runtime.TypeMeta    `json:""`
    * 	     ... // other fields
    * 	}
    * func (obj *MyAwesomeAPIObject) SetGroupVersionKind(gvk *metav1.GroupVersionKind) { metav1.UpdateTypeMeta(obj,gvk) }; GroupVersionKind() *GroupVersionKind
@@ -1091,7 +1091,7 @@ public final class Runtime {
      * TypeMeta is shared by all top level objects. The proper way to use it is to inline it in your type,
      * like this:
      * 	type MyAwesomeAPIObject struct {
-     * 	     runtime.TypeMeta    `json:",inline"`
+     * 	     runtime.TypeMeta    `json:""`
      * 	     ... // other fields
      * 	}
      * func (obj *MyAwesomeAPIObject) SetGroupVersionKind(gvk *metav1.GroupVersionKind) { metav1.UpdateTypeMeta(obj,gvk) }; GroupVersionKind() *GroupVersionKind

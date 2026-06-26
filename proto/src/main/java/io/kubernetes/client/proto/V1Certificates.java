@@ -115,8 +115,8 @@ public final class V1Certificates {
    * This API can be used to request client certificates to authenticate to kube-apiserver
    * (with the "kubernetes.io/kube-apiserver-client" signerName),
    * or to obtain certificates from custom non-Kubernetes signers.
-   * +k8s:supportsSubresource=/status
-   * +k8s:supportsSubresource=/approval
+   * +k8s:supportsSubresource="/status"
+   * +k8s:supportsSubresource="/approval"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.certificates.v1.CertificateSigningRequest}
@@ -543,8 +543,8 @@ public final class V1Certificates {
      * This API can be used to request client certificates to authenticate to kube-apiserver
      * (with the "kubernetes.io/kube-apiserver-client" signerName),
      * or to obtain certificates from custom non-Kubernetes signers.
-     * +k8s:supportsSubresource=/status
-     * +k8s:supportsSubresource=/approval
+     * +k8s:supportsSubresource="/status"
+     * +k8s:supportsSubresource="/approval"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.certificates.v1.CertificateSigningRequest}
@@ -7288,12 +7288,12 @@ public final class V1Certificates {
      * +listType=map
      * +listMapKey=type
      * +optional
-     * +k8s:listType=map
-     * +k8s:listMapKey=type
-     * +k8s:customUnique
-     * +k8s:optional
-     * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-     * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:listType=map
+     * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+     * +k8s:alpha(since: "1.36")=+k8s:customUnique
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
      * </pre>
      *
      * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -7306,12 +7306,12 @@ public final class V1Certificates {
      * +listType=map
      * +listMapKey=type
      * +optional
-     * +k8s:listType=map
-     * +k8s:listMapKey=type
-     * +k8s:customUnique
-     * +k8s:optional
-     * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-     * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:listType=map
+     * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+     * +k8s:alpha(since: "1.36")=+k8s:customUnique
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
      * </pre>
      *
      * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -7323,12 +7323,12 @@ public final class V1Certificates {
      * +listType=map
      * +listMapKey=type
      * +optional
-     * +k8s:listType=map
-     * +k8s:listMapKey=type
-     * +k8s:customUnique
-     * +k8s:optional
-     * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-     * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:listType=map
+     * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+     * +k8s:alpha(since: "1.36")=+k8s:customUnique
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
      * </pre>
      *
      * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -7340,12 +7340,12 @@ public final class V1Certificates {
      * +listType=map
      * +listMapKey=type
      * +optional
-     * +k8s:listType=map
-     * +k8s:listMapKey=type
-     * +k8s:customUnique
-     * +k8s:optional
-     * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-     * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:listType=map
+     * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+     * +k8s:alpha(since: "1.36")=+k8s:customUnique
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
      * </pre>
      *
      * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -7358,12 +7358,12 @@ public final class V1Certificates {
      * +listType=map
      * +listMapKey=type
      * +optional
-     * +k8s:listType=map
-     * +k8s:listMapKey=type
-     * +k8s:customUnique
-     * +k8s:optional
-     * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-     * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:listType=map
+     * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+     * +k8s:alpha(since: "1.36")=+k8s:customUnique
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
      * </pre>
      *
      * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -7532,12 +7532,12 @@ public final class V1Certificates {
      * +listType=map
      * +listMapKey=type
      * +optional
-     * +k8s:listType=map
-     * +k8s:listMapKey=type
-     * +k8s:customUnique
-     * +k8s:optional
-     * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-     * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:listType=map
+     * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+     * +k8s:alpha(since: "1.36")=+k8s:customUnique
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
      * </pre>
      *
      * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -7551,12 +7551,12 @@ public final class V1Certificates {
      * +listType=map
      * +listMapKey=type
      * +optional
-     * +k8s:listType=map
-     * +k8s:listMapKey=type
-     * +k8s:customUnique
-     * +k8s:optional
-     * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-     * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:listType=map
+     * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+     * +k8s:alpha(since: "1.36")=+k8s:customUnique
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
      * </pre>
      *
      * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -7571,12 +7571,12 @@ public final class V1Certificates {
      * +listType=map
      * +listMapKey=type
      * +optional
-     * +k8s:listType=map
-     * +k8s:listMapKey=type
-     * +k8s:customUnique
-     * +k8s:optional
-     * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-     * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:listType=map
+     * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+     * +k8s:alpha(since: "1.36")=+k8s:customUnique
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
      * </pre>
      *
      * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -7590,12 +7590,12 @@ public final class V1Certificates {
      * +listType=map
      * +listMapKey=type
      * +optional
-     * +k8s:listType=map
-     * +k8s:listMapKey=type
-     * +k8s:customUnique
-     * +k8s:optional
-     * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-     * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:listType=map
+     * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+     * +k8s:alpha(since: "1.36")=+k8s:customUnique
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
      * </pre>
      *
      * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -7609,12 +7609,12 @@ public final class V1Certificates {
      * +listType=map
      * +listMapKey=type
      * +optional
-     * +k8s:listType=map
-     * +k8s:listMapKey=type
-     * +k8s:customUnique
-     * +k8s:optional
-     * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-     * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:listType=map
+     * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+     * +k8s:alpha(since: "1.36")=+k8s:customUnique
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+     * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
      * </pre>
      *
      * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8080,12 +8080,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8103,12 +8103,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8126,12 +8126,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8149,12 +8149,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8179,12 +8179,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8206,12 +8206,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8235,12 +8235,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8265,12 +8265,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8292,12 +8292,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8319,12 +8319,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8347,12 +8347,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8373,12 +8373,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8399,12 +8399,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8419,12 +8419,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8442,12 +8442,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8466,12 +8466,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8486,12 +8486,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>
@@ -8507,12 +8507,12 @@ public final class V1Certificates {
        * +listType=map
        * +listMapKey=type
        * +optional
-       * +k8s:listType=map
-       * +k8s:listMapKey=type
-       * +k8s:customUnique
-       * +k8s:optional
-       * +k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
-       * +k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:listType=map
+       * +k8s:alpha(since: "1.36")=+k8s:listMapKey=type
+       * +k8s:alpha(since: "1.36")=+k8s:customUnique
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Approved")=+k8s:zeroOrOneOfMember
+       * +k8s:alpha(since: "1.36")=+k8s:item(type: "Denied")=+k8s:zeroOrOneOfMember
        * </pre>
        *
        * <code>repeated .k8s.io.api.certificates.v1.CertificateSigningRequestCondition conditions = 1;</code>

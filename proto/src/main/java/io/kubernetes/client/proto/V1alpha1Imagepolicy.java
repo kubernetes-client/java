@@ -52,6 +52,7 @@ public final class V1alpha1Imagepolicy {
     /**
      * <pre>
      * Spec holds information about the pod being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -60,6 +61,7 @@ public final class V1alpha1Imagepolicy {
     /**
      * <pre>
      * Spec holds information about the pod being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -68,6 +70,7 @@ public final class V1alpha1Imagepolicy {
     /**
      * <pre>
      * Spec holds information about the pod being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -105,6 +108,7 @@ public final class V1alpha1Imagepolicy {
   /**
    * <pre>
    * ImageReview checks if the set of images in a pod are allowed.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.imagepolicy.v1alpha1.ImageReview}
@@ -261,6 +265,7 @@ public final class V1alpha1Imagepolicy {
     /**
      * <pre>
      * Spec holds information about the pod being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -271,6 +276,7 @@ public final class V1alpha1Imagepolicy {
     /**
      * <pre>
      * Spec holds information about the pod being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -281,6 +287,7 @@ public final class V1alpha1Imagepolicy {
     /**
      * <pre>
      * Spec holds information about the pod being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -521,6 +528,7 @@ public final class V1alpha1Imagepolicy {
     /**
      * <pre>
      * ImageReview checks if the set of images in a pod are allowed.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.imagepolicy.v1alpha1.ImageReview}
@@ -899,6 +907,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Spec holds information about the pod being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -909,6 +918,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Spec holds information about the pod being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -923,6 +933,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Spec holds information about the pod being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -943,6 +954,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Spec holds information about the pod being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -961,6 +973,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Spec holds information about the pod being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -985,6 +998,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Spec holds information about the pod being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -1002,6 +1016,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Spec holds information about the pod being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -1014,6 +1029,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Spec holds information about the pod being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -1029,6 +1045,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Spec holds information about the pod being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.imagepolicy.v1alpha1.ImageReviewSpec spec = 2;</code>
@@ -3525,6 +3542,7 @@ public final class V1alpha1Imagepolicy {
     /**
      * <pre>
      * Allowed indicates that all images were allowed to be run.
+     * +optional
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
@@ -3533,6 +3551,7 @@ public final class V1alpha1Imagepolicy {
     /**
      * <pre>
      * Allowed indicates that all images were allowed to be run.
+     * +optional
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
@@ -3767,6 +3786,7 @@ public final class V1alpha1Imagepolicy {
     /**
      * <pre>
      * Allowed indicates that all images were allowed to be run.
+     * +optional
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
@@ -3777,6 +3797,7 @@ public final class V1alpha1Imagepolicy {
     /**
      * <pre>
      * Allowed indicates that all images were allowed to be run.
+     * +optional
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
@@ -4355,6 +4376,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Allowed indicates that all images were allowed to be run.
+       * +optional
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>
@@ -4365,6 +4387,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Allowed indicates that all images were allowed to be run.
+       * +optional
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>
@@ -4375,6 +4398,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Allowed indicates that all images were allowed to be run.
+       * +optional
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>
@@ -4388,6 +4412,7 @@ public final class V1alpha1Imagepolicy {
       /**
        * <pre>
        * Allowed indicates that all images were allowed to be run.
+       * +optional
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>

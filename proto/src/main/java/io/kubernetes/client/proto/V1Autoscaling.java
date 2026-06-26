@@ -6718,7 +6718,7 @@ public final class V1Autoscaling {
 
     /**
      * <pre>
-     * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6727,7 +6727,7 @@ public final class V1Autoscaling {
     boolean hasMetadata();
     /**
      * <pre>
-     * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6736,7 +6736,7 @@ public final class V1Autoscaling {
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
     /**
      * <pre>
-     * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6747,7 +6747,7 @@ public final class V1Autoscaling {
     /**
      * <pre>
      * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -6756,7 +6756,7 @@ public final class V1Autoscaling {
     /**
      * <pre>
      * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -6765,7 +6765,7 @@ public final class V1Autoscaling {
     /**
      * <pre>
      * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -6803,6 +6803,7 @@ public final class V1Autoscaling {
   /**
    * <pre>
    * configuration of a horizontal pod autoscaler.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.autoscaling.v1.HorizontalPodAutoscaler}
@@ -6919,7 +6920,7 @@ public final class V1Autoscaling {
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
     /**
      * <pre>
-     * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6930,7 +6931,7 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6941,7 +6942,7 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+     * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
      *
@@ -6956,7 +6957,7 @@ public final class V1Autoscaling {
     /**
      * <pre>
      * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -6967,7 +6968,7 @@ public final class V1Autoscaling {
     /**
      * <pre>
      * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -6978,7 +6979,7 @@ public final class V1Autoscaling {
     /**
      * <pre>
      * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -7219,6 +7220,7 @@ public final class V1Autoscaling {
     /**
      * <pre>
      * configuration of a horizontal pod autoscaler.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.autoscaling.v1.HorizontalPodAutoscaler}
@@ -7424,7 +7426,7 @@ public final class V1Autoscaling {
           io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
       /**
        * <pre>
-       * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7435,7 +7437,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7450,7 +7452,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7471,7 +7473,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7490,7 +7492,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7515,7 +7517,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7533,7 +7535,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7546,7 +7548,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7562,7 +7564,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
+       * metadata is the standard object metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
        *
@@ -7588,7 +7590,7 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -7599,7 +7601,7 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -7614,7 +7616,7 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -7635,7 +7637,7 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -7654,7 +7656,7 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -7679,7 +7681,7 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -7697,7 +7699,7 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -7710,7 +7712,7 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -7726,7 +7728,7 @@ public final class V1Autoscaling {
       /**
        * <pre>
        * spec defines the behaviour of autoscaler. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v1.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8107,6 +8109,29 @@ public final class V1Autoscaling {
      */
     com.google.protobuf.ByteString
         getMessageBytes();
+
+    /**
+     * <pre>
+     * observedGeneration represents the .metadata.generation that the condition was set based upon.
+     * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+     * with respect to the current state of the instance.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 observedGeneration = 6;</code>
+     */
+    boolean hasObservedGeneration();
+    /**
+     * <pre>
+     * observedGeneration represents the .metadata.generation that the condition was set based upon.
+     * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+     * with respect to the current state of the instance.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 observedGeneration = 6;</code>
+     */
+    long getObservedGeneration();
   }
   /**
    * <pre>
@@ -8130,6 +8155,7 @@ public final class V1Autoscaling {
       status_ = "";
       reason_ = "";
       message_ = "";
+      observedGeneration_ = 0L;
     }
 
     @java.lang.Override
@@ -8191,6 +8217,11 @@ public final class V1Autoscaling {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
               message_ = bs;
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              observedGeneration_ = input.readInt64();
               break;
             }
             default: {
@@ -8490,6 +8521,35 @@ public final class V1Autoscaling {
       }
     }
 
+    public static final int OBSERVEDGENERATION_FIELD_NUMBER = 6;
+    private long observedGeneration_;
+    /**
+     * <pre>
+     * observedGeneration represents the .metadata.generation that the condition was set based upon.
+     * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+     * with respect to the current state of the instance.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 observedGeneration = 6;</code>
+     */
+    public boolean hasObservedGeneration() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <pre>
+     * observedGeneration represents the .metadata.generation that the condition was set based upon.
+     * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+     * with respect to the current state of the instance.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 observedGeneration = 6;</code>
+     */
+    public long getObservedGeneration() {
+      return observedGeneration_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8519,6 +8579,9 @@ public final class V1Autoscaling {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, message_);
       }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt64(6, observedGeneration_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -8543,6 +8606,10 @@ public final class V1Autoscaling {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, message_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, observedGeneration_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8585,6 +8652,11 @@ public final class V1Autoscaling {
         result = result && getMessage()
             .equals(other.getMessage());
       }
+      result = result && (hasObservedGeneration() == other.hasObservedGeneration());
+      if (hasObservedGeneration()) {
+        result = result && (getObservedGeneration()
+            == other.getObservedGeneration());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -8615,6 +8687,11 @@ public final class V1Autoscaling {
       if (hasMessage()) {
         hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
         hash = (53 * hash) + getMessage().hashCode();
+      }
+      if (hasObservedGeneration()) {
+        hash = (37 * hash) + OBSERVEDGENERATION_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getObservedGeneration());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -8769,6 +8846,8 @@ public final class V1Autoscaling {
         bitField0_ = (bitField0_ & ~0x00000008);
         message_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
+        observedGeneration_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -8821,6 +8900,10 @@ public final class V1Autoscaling {
           to_bitField0_ |= 0x00000010;
         }
         result.message_ = message_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.observedGeneration_ = observedGeneration_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8892,6 +8975,9 @@ public final class V1Autoscaling {
           bitField0_ |= 0x00000010;
           message_ = other.message_;
           onChanged();
+        }
+        if (other.hasObservedGeneration()) {
+          setObservedGeneration(other.getObservedGeneration());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9509,6 +9595,66 @@ public final class V1Autoscaling {
   }
   bitField0_ |= 0x00000010;
         message_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long observedGeneration_ ;
+      /**
+       * <pre>
+       * observedGeneration represents the .metadata.generation that the condition was set based upon.
+       * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+       * with respect to the current state of the instance.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 observedGeneration = 6;</code>
+       */
+      public boolean hasObservedGeneration() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <pre>
+       * observedGeneration represents the .metadata.generation that the condition was set based upon.
+       * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+       * with respect to the current state of the instance.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 observedGeneration = 6;</code>
+       */
+      public long getObservedGeneration() {
+        return observedGeneration_;
+      }
+      /**
+       * <pre>
+       * observedGeneration represents the .metadata.generation that the condition was set based upon.
+       * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+       * with respect to the current state of the instance.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 observedGeneration = 6;</code>
+       */
+      public Builder setObservedGeneration(long value) {
+        bitField0_ |= 0x00000020;
+        observedGeneration_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * observedGeneration represents the .metadata.generation that the condition was set based upon.
+       * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+       * with respect to the current state of the instance.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 observedGeneration = 6;</code>
+       */
+      public Builder clearObservedGeneration() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        observedGeneration_ = 0L;
         onChanged();
         return this;
       }
@@ -10750,7 +10896,7 @@ public final class V1Autoscaling {
 
     /**
      * <pre>
-     * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+     * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
      * and will set the desired number of pods by using its Scale subresource.
      * </pre>
      *
@@ -10759,7 +10905,7 @@ public final class V1Autoscaling {
     boolean hasScaleTargetRef();
     /**
      * <pre>
-     * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+     * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
      * and will set the desired number of pods by using its Scale subresource.
      * </pre>
      *
@@ -10768,7 +10914,7 @@ public final class V1Autoscaling {
     io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference getScaleTargetRef();
     /**
      * <pre>
-     * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+     * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
      * and will set the desired number of pods by using its Scale subresource.
      * </pre>
      *
@@ -10784,7 +10930,9 @@ public final class V1Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -10798,7 +10946,9 @@ public final class V1Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -10809,8 +10959,8 @@ public final class V1Autoscaling {
      * <pre>
      * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
      * +required
-     * +k8s:required
-     * +k8s:minimum=1
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -10820,8 +10970,8 @@ public final class V1Autoscaling {
      * <pre>
      * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
      * +required
-     * +k8s:required
-     * +k8s:minimum=1
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -10960,7 +11110,7 @@ public final class V1Autoscaling {
     private io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference scaleTargetRef_;
     /**
      * <pre>
-     * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+     * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
      * and will set the desired number of pods by using its Scale subresource.
      * </pre>
      *
@@ -10971,7 +11121,7 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+     * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
      * and will set the desired number of pods by using its Scale subresource.
      * </pre>
      *
@@ -10982,7 +11132,7 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+     * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
      * and will set the desired number of pods by using its Scale subresource.
      * </pre>
      *
@@ -11002,7 +11152,9 @@ public final class V1Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -11018,7 +11170,9 @@ public final class V1Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -11033,8 +11187,8 @@ public final class V1Autoscaling {
      * <pre>
      * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
      * +required
-     * +k8s:required
-     * +k8s:minimum=1
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -11046,8 +11200,8 @@ public final class V1Autoscaling {
      * <pre>
      * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
      * +required
-     * +k8s:required
-     * +k8s:minimum=1
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -11491,7 +11645,7 @@ public final class V1Autoscaling {
           io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference, io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReference.Builder, io.kubernetes.client.proto.V1Autoscaling.CrossVersionObjectReferenceOrBuilder> scaleTargetRefBuilder_;
       /**
        * <pre>
-       * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+       * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
        * and will set the desired number of pods by using its Scale subresource.
        * </pre>
        *
@@ -11502,7 +11656,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+       * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
        * and will set the desired number of pods by using its Scale subresource.
        * </pre>
        *
@@ -11517,7 +11671,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+       * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
        * and will set the desired number of pods by using its Scale subresource.
        * </pre>
        *
@@ -11538,7 +11692,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+       * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
        * and will set the desired number of pods by using its Scale subresource.
        * </pre>
        *
@@ -11557,7 +11711,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+       * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
        * and will set the desired number of pods by using its Scale subresource.
        * </pre>
        *
@@ -11582,7 +11736,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+       * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
        * and will set the desired number of pods by using its Scale subresource.
        * </pre>
        *
@@ -11600,7 +11754,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+       * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
        * and will set the desired number of pods by using its Scale subresource.
        * </pre>
        *
@@ -11613,7 +11767,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+       * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
        * and will set the desired number of pods by using its Scale subresource.
        * </pre>
        *
@@ -11629,7 +11783,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
+       * scaleTargetRef is the reference to scaled resource; horizontal pod autoscaler will learn the current resource consumption
        * and will set the desired number of pods by using its Scale subresource.
        * </pre>
        *
@@ -11658,7 +11812,9 @@ public final class V1Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -11674,7 +11830,9 @@ public final class V1Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -11690,7 +11848,9 @@ public final class V1Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -11709,7 +11869,9 @@ public final class V1Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -11726,8 +11888,8 @@ public final class V1Autoscaling {
        * <pre>
        * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
        * +required
-       * +k8s:required
-       * +k8s:minimum=1
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>
@@ -11739,8 +11901,8 @@ public final class V1Autoscaling {
        * <pre>
        * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
        * +required
-       * +k8s:required
-       * +k8s:minimum=1
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>
@@ -11752,8 +11914,8 @@ public final class V1Autoscaling {
        * <pre>
        * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
        * +required
-       * +k8s:required
-       * +k8s:minimum=1
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>
@@ -11768,8 +11930,8 @@ public final class V1Autoscaling {
        * <pre>
        * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
        * +required
-       * +k8s:required
-       * +k8s:minimum=1
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>
@@ -25759,7 +25921,7 @@ public final class V1Autoscaling {
 
     /**
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+     * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -25768,7 +25930,7 @@ public final class V1Autoscaling {
     boolean hasMetadata();
     /**
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+     * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -25777,7 +25939,7 @@ public final class V1Autoscaling {
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
     /**
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+     * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -25960,7 +26122,7 @@ public final class V1Autoscaling {
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
     /**
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+     * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -25971,7 +26133,7 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+     * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -25982,7 +26144,7 @@ public final class V1Autoscaling {
     }
     /**
      * <pre>
-     * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+     * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
      * +optional
      * </pre>
      *
@@ -26465,7 +26627,7 @@ public final class V1Autoscaling {
           io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
       /**
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+       * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -26476,7 +26638,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+       * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -26491,7 +26653,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+       * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -26512,7 +26674,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+       * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -26531,7 +26693,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+       * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -26556,7 +26718,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+       * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -26574,7 +26736,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+       * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -26587,7 +26749,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+       * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -26603,7 +26765,7 @@ public final class V1Autoscaling {
       }
       /**
        * <pre>
-       * Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
+       * metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.
        * +optional
        * </pre>
        *
@@ -27009,9 +27171,9 @@ public final class V1Autoscaling {
      * <pre>
      * replicas is the desired number of instances for the scaled object.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * +default=0
-     * +k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 replicas = 1;</code>
@@ -27021,9 +27183,9 @@ public final class V1Autoscaling {
      * <pre>
      * replicas is the desired number of instances for the scaled object.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * +default=0
-     * +k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 replicas = 1;</code>
@@ -27118,9 +27280,9 @@ public final class V1Autoscaling {
      * <pre>
      * replicas is the desired number of instances for the scaled object.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * +default=0
-     * +k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 replicas = 1;</code>
@@ -27132,9 +27294,9 @@ public final class V1Autoscaling {
      * <pre>
      * replicas is the desired number of instances for the scaled object.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * +default=0
-     * +k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 replicas = 1;</code>
@@ -27467,9 +27629,9 @@ public final class V1Autoscaling {
        * <pre>
        * replicas is the desired number of instances for the scaled object.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * +default=0
-       * +k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 replicas = 1;</code>
@@ -27481,9 +27643,9 @@ public final class V1Autoscaling {
        * <pre>
        * replicas is the desired number of instances for the scaled object.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * +default=0
-       * +k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 replicas = 1;</code>
@@ -27495,9 +27657,9 @@ public final class V1Autoscaling {
        * <pre>
        * replicas is the desired number of instances for the scaled object.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * +default=0
-       * +k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 replicas = 1;</code>
@@ -27512,9 +27674,9 @@ public final class V1Autoscaling {
        * <pre>
        * replicas is the desired number of instances for the scaled object.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * +default=0
-       * +k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 replicas = 1;</code>
@@ -28536,86 +28698,86 @@ public final class V1Autoscaling {
       "26.k8s.io.api.autoscaling.v1.HorizontalP" +
       "odAutoscalerSpec\022H\n\006status\030\003 \001(\01328.k8s.i" +
       "o.api.autoscaling.v1.HorizontalPodAutosc" +
-      "alerStatus\"\251\001\n HorizontalPodAutoscalerCo" +
+      "alerStatus\"\305\001\n HorizontalPodAutoscalerCo" +
       "ndition\022\014\n\004type\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\022F\n" +
       "\022lastTransitionTime\030\003 \001(\0132*.k8s.io.apima" +
       "chinery.pkg.apis.meta.v1.Time\022\016\n\006reason\030" +
-      "\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\242\001\n\033HorizontalPod" +
-      "AutoscalerList\022@\n\010metadata\030\001 \001(\0132..k8s.i" +
-      "o.apimachinery.pkg.apis.meta.v1.ListMeta" +
-      "\022A\n\005items\030\002 \003(\01322.k8s.io.api.autoscaling" +
-      ".v1.HorizontalPodAutoscaler\"\277\001\n\033Horizont" +
-      "alPodAutoscalerSpec\022N\n\016scaleTargetRef\030\001 " +
-      "\001(\01326.k8s.io.api.autoscaling.v1.CrossVer" +
-      "sionObjectReference\022\023\n\013minReplicas\030\002 \001(\005" +
-      "\022\023\n\013maxReplicas\030\003 \001(\005\022&\n\036targetCPUUtiliz" +
-      "ationPercentage\030\004 \001(\005\"\331\001\n\035HorizontalPodA" +
-      "utoscalerStatus\022\032\n\022observedGeneration\030\001 " +
-      "\001(\003\022A\n\rlastScaleTime\030\002 \001(\0132*.k8s.io.apim" +
-      "achinery.pkg.apis.meta.v1.Time\022\027\n\017curren" +
-      "tReplicas\030\003 \001(\005\022\027\n\017desiredReplicas\030\004 \001(\005" +
-      "\022\'\n\037currentCPUUtilizationPercentage\030\005 \001(" +
-      "\005\"\357\002\n\nMetricSpec\022\014\n\004type\030\001 \001(\t\022=\n\006object" +
+      "\004 \001(\t\022\017\n\007message\030\005 \001(\t\022\032\n\022observedGenera" +
+      "tion\030\006 \001(\003\"\242\001\n\033HorizontalPodAutoscalerLi" +
+      "st\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachine" +
+      "ry.pkg.apis.meta.v1.ListMeta\022A\n\005items\030\002 " +
+      "\003(\01322.k8s.io.api.autoscaling.v1.Horizont" +
+      "alPodAutoscaler\"\277\001\n\033HorizontalPodAutosca" +
+      "lerSpec\022N\n\016scaleTargetRef\030\001 \001(\01326.k8s.io" +
+      ".api.autoscaling.v1.CrossVersionObjectRe" +
+      "ference\022\023\n\013minReplicas\030\002 \001(\005\022\023\n\013maxRepli" +
+      "cas\030\003 \001(\005\022&\n\036targetCPUUtilizationPercent" +
+      "age\030\004 \001(\005\"\331\001\n\035HorizontalPodAutoscalerSta" +
+      "tus\022\032\n\022observedGeneration\030\001 \001(\003\022A\n\rlastS" +
+      "caleTime\030\002 \001(\0132*.k8s.io.apimachinery.pkg" +
+      ".apis.meta.v1.Time\022\027\n\017currentReplicas\030\003 " +
+      "\001(\005\022\027\n\017desiredReplicas\030\004 \001(\005\022\'\n\037currentC" +
+      "PUUtilizationPercentage\030\005 \001(\005\"\357\002\n\nMetric" +
+      "Spec\022\014\n\004type\030\001 \001(\t\022=\n\006object\030\002 \001(\0132-.k8s" +
+      ".io.api.autoscaling.v1.ObjectMetricSourc" +
+      "e\0229\n\004pods\030\003 \001(\0132+.k8s.io.api.autoscaling" +
+      ".v1.PodsMetricSource\022A\n\010resource\030\004 \001(\0132/" +
+      ".k8s.io.api.autoscaling.v1.ResourceMetri" +
+      "cSource\022S\n\021containerResource\030\007 \001(\01328.k8s" +
+      ".io.api.autoscaling.v1.ContainerResource" +
+      "MetricSource\022A\n\010external\030\005 \001(\0132/.k8s.io." +
+      "api.autoscaling.v1.ExternalMetricSource\"" +
+      "\361\002\n\014MetricStatus\022\014\n\004type\030\001 \001(\t\022=\n\006object" +
       "\030\002 \001(\0132-.k8s.io.api.autoscaling.v1.Objec" +
-      "tMetricSource\0229\n\004pods\030\003 \001(\0132+.k8s.io.api" +
-      ".autoscaling.v1.PodsMetricSource\022A\n\010reso" +
+      "tMetricStatus\0229\n\004pods\030\003 \001(\0132+.k8s.io.api" +
+      ".autoscaling.v1.PodsMetricStatus\022A\n\010reso" +
       "urce\030\004 \001(\0132/.k8s.io.api.autoscaling.v1.R" +
-      "esourceMetricSource\022S\n\021containerResource" +
+      "esourceMetricStatus\022S\n\021containerResource" +
       "\030\007 \001(\01328.k8s.io.api.autoscaling.v1.Conta" +
-      "inerResourceMetricSource\022A\n\010external\030\005 \001" +
+      "inerResourceMetricStatus\022A\n\010external\030\005 \001" +
       "(\0132/.k8s.io.api.autoscaling.v1.ExternalM" +
-      "etricSource\"\361\002\n\014MetricStatus\022\014\n\004type\030\001 \001" +
-      "(\t\022=\n\006object\030\002 \001(\0132-.k8s.io.api.autoscal" +
-      "ing.v1.ObjectMetricStatus\0229\n\004pods\030\003 \001(\0132" +
-      "+.k8s.io.api.autoscaling.v1.PodsMetricSt" +
-      "atus\022A\n\010resource\030\004 \001(\0132/.k8s.io.api.auto" +
-      "scaling.v1.ResourceMetricStatus\022S\n\021conta" +
-      "inerResource\030\007 \001(\01328.k8s.io.api.autoscal" +
-      "ing.v1.ContainerResourceMetricStatus\022A\n\010" +
-      "external\030\005 \001(\0132/.k8s.io.api.autoscaling." +
-      "v1.ExternalMetricStatus\"\302\002\n\022ObjectMetric" +
-      "Source\022F\n\006target\030\001 \001(\01326.k8s.io.api.auto" +
-      "scaling.v1.CrossVersionObjectReference\022\022" +
-      "\n\nmetricName\030\002 \001(\t\022C\n\013targetValue\030\003 \001(\0132" +
-      "..k8s.io.apimachinery.pkg.api.resource.Q" +
-      "uantity\022E\n\010selector\030\004 \001(\01323.k8s.io.apima" +
-      "chinery.pkg.apis.meta.v1.LabelSelector\022D" +
-      "\n\014averageValue\030\005 \001(\0132..k8s.io.apimachine" +
-      "ry.pkg.api.resource.Quantity\"\303\002\n\022ObjectM" +
-      "etricStatus\022F\n\006target\030\001 \001(\01326.k8s.io.api" +
-      ".autoscaling.v1.CrossVersionObjectRefere" +
-      "nce\022\022\n\nmetricName\030\002 \001(\t\022D\n\014currentValue\030" +
-      "\003 \001(\0132..k8s.io.apimachinery.pkg.api.reso" +
-      "urce.Quantity\022E\n\010selector\030\004 \001(\01323.k8s.io" +
-      ".apimachinery.pkg.apis.meta.v1.LabelSele" +
-      "ctor\022D\n\014averageValue\030\005 \001(\0132..k8s.io.apim" +
-      "achinery.pkg.api.resource.Quantity\"\271\001\n\020P" +
-      "odsMetricSource\022\022\n\nmetricName\030\001 \001(\t\022J\n\022t" +
-      "argetAverageValue\030\002 \001(\0132..k8s.io.apimach" +
-      "inery.pkg.api.resource.Quantity\022E\n\010selec" +
-      "tor\030\003 \001(\01323.k8s.io.apimachinery.pkg.apis" +
-      ".meta.v1.LabelSelector\"\272\001\n\020PodsMetricSta" +
-      "tus\022\022\n\nmetricName\030\001 \001(\t\022K\n\023currentAverag" +
-      "eValue\030\002 \001(\0132..k8s.io.apimachinery.pkg.a" +
-      "pi.resource.Quantity\022E\n\010selector\030\003 \001(\01323" +
-      ".k8s.io.apimachinery.pkg.apis.meta.v1.La" +
-      "belSelector\"\222\001\n\024ResourceMetricSource\022\014\n\004" +
-      "name\030\001 \001(\t\022 \n\030targetAverageUtilization\030\002" +
-      " \001(\005\022J\n\022targetAverageValue\030\003 \001(\0132..k8s.i" +
-      "o.apimachinery.pkg.api.resource.Quantity" +
-      "\"\224\001\n\024ResourceMetricStatus\022\014\n\004name\030\001 \001(\t\022" +
-      "!\n\031currentAverageUtilization\030\002 \001(\005\022K\n\023cu" +
-      "rrentAverageValue\030\003 \001(\0132..k8s.io.apimach" +
-      "inery.pkg.api.resource.Quantity\"\267\001\n\005Scal" +
-      "e\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachiner" +
-      "y.pkg.apis.meta.v1.ObjectMeta\0222\n\004spec\030\002 " +
-      "\001(\0132$.k8s.io.api.autoscaling.v1.ScaleSpe" +
-      "c\0226\n\006status\030\003 \001(\0132&.k8s.io.api.autoscali" +
-      "ng.v1.ScaleStatus\"\035\n\tScaleSpec\022\020\n\010replic" +
-      "as\030\001 \001(\005\"1\n\013ScaleStatus\022\020\n\010replicas\030\001 \001(" +
-      "\005\022\020\n\010selector\030\002 \001(\tBF\n\032io.kubernetes.cli" +
-      "ent.protoB\rV1AutoscalingZ\031k8s.io/api/aut" +
-      "oscaling/v1"
+      "etricStatus\"\302\002\n\022ObjectMetricSource\022F\n\006ta" +
+      "rget\030\001 \001(\01326.k8s.io.api.autoscaling.v1.C" +
+      "rossVersionObjectReference\022\022\n\nmetricName" +
+      "\030\002 \001(\t\022C\n\013targetValue\030\003 \001(\0132..k8s.io.api" +
+      "machinery.pkg.api.resource.Quantity\022E\n\010s" +
+      "elector\030\004 \001(\01323.k8s.io.apimachinery.pkg." +
+      "apis.meta.v1.LabelSelector\022D\n\014averageVal" +
+      "ue\030\005 \001(\0132..k8s.io.apimachinery.pkg.api.r" +
+      "esource.Quantity\"\303\002\n\022ObjectMetricStatus\022" +
+      "F\n\006target\030\001 \001(\01326.k8s.io.api.autoscaling" +
+      ".v1.CrossVersionObjectReference\022\022\n\nmetri" +
+      "cName\030\002 \001(\t\022D\n\014currentValue\030\003 \001(\0132..k8s." +
+      "io.apimachinery.pkg.api.resource.Quantit" +
+      "y\022E\n\010selector\030\004 \001(\01323.k8s.io.apimachiner" +
+      "y.pkg.apis.meta.v1.LabelSelector\022D\n\014aver" +
+      "ageValue\030\005 \001(\0132..k8s.io.apimachinery.pkg" +
+      ".api.resource.Quantity\"\271\001\n\020PodsMetricSou" +
+      "rce\022\022\n\nmetricName\030\001 \001(\t\022J\n\022targetAverage" +
+      "Value\030\002 \001(\0132..k8s.io.apimachinery.pkg.ap" +
+      "i.resource.Quantity\022E\n\010selector\030\003 \001(\01323." +
+      "k8s.io.apimachinery.pkg.apis.meta.v1.Lab" +
+      "elSelector\"\272\001\n\020PodsMetricStatus\022\022\n\nmetri" +
+      "cName\030\001 \001(\t\022K\n\023currentAverageValue\030\002 \001(\013" +
+      "2..k8s.io.apimachinery.pkg.api.resource." +
+      "Quantity\022E\n\010selector\030\003 \001(\01323.k8s.io.apim" +
+      "achinery.pkg.apis.meta.v1.LabelSelector\"" +
+      "\222\001\n\024ResourceMetricSource\022\014\n\004name\030\001 \001(\t\022 " +
+      "\n\030targetAverageUtilization\030\002 \001(\005\022J\n\022targ" +
+      "etAverageValue\030\003 \001(\0132..k8s.io.apimachine" +
+      "ry.pkg.api.resource.Quantity\"\224\001\n\024Resourc" +
+      "eMetricStatus\022\014\n\004name\030\001 \001(\t\022!\n\031currentAv" +
+      "erageUtilization\030\002 \001(\005\022K\n\023currentAverage" +
+      "Value\030\003 \001(\0132..k8s.io.apimachinery.pkg.ap" +
+      "i.resource.Quantity\"\267\001\n\005Scale\022B\n\010metadat" +
+      "a\030\001 \001(\01320.k8s.io.apimachinery.pkg.apis.m" +
+      "eta.v1.ObjectMeta\0222\n\004spec\030\002 \001(\0132$.k8s.io" +
+      ".api.autoscaling.v1.ScaleSpec\0226\n\006status\030" +
+      "\003 \001(\0132&.k8s.io.api.autoscaling.v1.ScaleS" +
+      "tatus\"\035\n\tScaleSpec\022\020\n\010replicas\030\001 \001(\005\"1\n\013" +
+      "ScaleStatus\022\020\n\010replicas\030\001 \001(\005\022\020\n\010selecto" +
+      "r\030\002 \001(\tBF\n\032io.kubernetes.client.protoB\rV" +
+      "1AutoscalingZ\031k8s.io/api/autoscaling/v1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -28675,7 +28837,7 @@ public final class V1Autoscaling {
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerCondition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerCondition_descriptor,
-        new java.lang.String[] { "Type", "Status", "LastTransitionTime", "Reason", "Message", });
+        new java.lang.String[] { "Type", "Status", "LastTransitionTime", "Reason", "Message", "ObservedGeneration", });
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerList_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_k8s_io_api_autoscaling_v1_HorizontalPodAutoscalerList_fieldAccessorTable = new
