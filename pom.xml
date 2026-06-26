@@ -74,7 +74,7 @@
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
     <aws.sdk.version>2.46.17</aws.sdk.version>
-    <google.auth.version>1.47.0</google.auth.version>
+    <google.auth.version>1.48.0</google.auth.version>
     <jose4j.version>0.9.6</jose4j.version>
     <jetbrains.annotations.version>26.1.0</jetbrains.annotations.version>
     <logback.version>1.5.32</logback.version>
