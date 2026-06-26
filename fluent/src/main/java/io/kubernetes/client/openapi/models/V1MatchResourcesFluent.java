@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -52,7 +52,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1NamedRuleWithOperations item : items) {
         V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-        _visitables.get("excludeResourceRules").add(builder);
+        this._visitables.get("excludeResourceRules").add(builder);
         this.excludeResourceRules.add(builder);
     }
     return (A) this;
@@ -64,7 +64,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1NamedRuleWithOperations item : items) {
         V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-        _visitables.get("resourceRules").add(builder);
+        this._visitables.get("resourceRules").add(builder);
         this.resourceRules.add(builder);
     }
     return (A) this;
@@ -92,7 +92,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1NamedRuleWithOperations item : items) {
         V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-        _visitables.get("excludeResourceRules").add(builder);
+        this._visitables.get("excludeResourceRules").add(builder);
         this.excludeResourceRules.add(builder);
     }
     return (A) this;
@@ -103,12 +103,12 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
       this.excludeResourceRules = new ArrayList();
     }
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-    if (index < 0 || index >= excludeResourceRules.size()) {
-        _visitables.get("excludeResourceRules").add(builder);
-        excludeResourceRules.add(builder);
+    if (index < 0 || index >= this.excludeResourceRules.size()) {
+        this._visitables.get("excludeResourceRules").add(builder);
+        this.excludeResourceRules.add(builder);
     } else {
-        _visitables.get("excludeResourceRules").add(builder);
-        excludeResourceRules.add(index, builder);
+        this._visitables.get("excludeResourceRules").add(builder);
+        this.excludeResourceRules.add(index, builder);
     }
     return (A) this;
   }
@@ -119,7 +119,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1NamedRuleWithOperations item : items) {
         V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-        _visitables.get("resourceRules").add(builder);
+        this._visitables.get("resourceRules").add(builder);
         this.resourceRules.add(builder);
     }
     return (A) this;
@@ -130,12 +130,12 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
       this.resourceRules = new ArrayList();
     }
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-    if (index < 0 || index >= resourceRules.size()) {
-        _visitables.get("resourceRules").add(builder);
-        resourceRules.add(builder);
+    if (index < 0 || index >= this.resourceRules.size()) {
+        this._visitables.get("resourceRules").add(builder);
+        this.resourceRules.add(builder);
     } else {
-        _visitables.get("resourceRules").add(builder);
-        resourceRules.add(index, builder);
+        this._visitables.get("resourceRules").add(builder);
+        this.resourceRules.add(index, builder);
     }
     return (A) this;
   }
@@ -433,7 +433,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1NamedRuleWithOperationsBuilder> each = excludeResourceRules.iterator();
-    List visitables = _visitables.get("excludeResourceRules");
+    List visitables = this._visitables.get("excludeResourceRules");
     while (each.hasNext()) {
         V1NamedRuleWithOperationsBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -449,7 +449,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1NamedRuleWithOperationsBuilder> each = resourceRules.iterator();
-    List visitables = _visitables.get("resourceRules");
+    List visitables = this._visitables.get("resourceRules");
     while (each.hasNext()) {
         V1NamedRuleWithOperationsBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -473,12 +473,12 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
       this.excludeResourceRules = new ArrayList();
     }
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-    if (index < 0 || index >= excludeResourceRules.size()) {
-        _visitables.get("excludeResourceRules").add(builder);
-        excludeResourceRules.add(builder);
+    if (index < 0 || index >= this.excludeResourceRules.size()) {
+        this._visitables.get("excludeResourceRules").add(builder);
+        this.excludeResourceRules.add(builder);
     } else {
-        _visitables.get("excludeResourceRules").add(builder);
-        excludeResourceRules.set(index, builder);
+        this._visitables.get("excludeResourceRules").add(builder);
+        this.excludeResourceRules.set(index, builder);
     }
     return (A) this;
   }
@@ -488,12 +488,12 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
       this.resourceRules = new ArrayList();
     }
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
-    if (index < 0 || index >= resourceRules.size()) {
-        _visitables.get("resourceRules").add(builder);
-        resourceRules.add(builder);
+    if (index < 0 || index >= this.resourceRules.size()) {
+        this._visitables.get("resourceRules").add(builder);
+        this.resourceRules.add(builder);
     } else {
-        _visitables.get("resourceRules").add(builder);
-        resourceRules.set(index, builder);
+        this._visitables.get("resourceRules").add(builder);
+        this.resourceRules.set(index, builder);
     }
     return (A) this;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -69,6 +69,7 @@ public class V1PodSpecBuilder extends V1PodSpecFluent<V1PodSpecBuilder> implemen
     buildable.setRuntimeClassName(fluent.getRuntimeClassName());
     buildable.setSchedulerName(fluent.getSchedulerName());
     buildable.setSchedulingGates(fluent.buildSchedulingGates());
+    buildable.setSchedulingGroup(fluent.buildSchedulingGroup());
     buildable.setSecurityContext(fluent.buildSecurityContext());
     buildable.setServiceAccount(fluent.getServiceAccount());
     buildable.setServiceAccountName(fluent.getServiceAccountName());
@@ -79,7 +80,6 @@ public class V1PodSpecBuilder extends V1PodSpecFluent<V1PodSpecBuilder> implemen
     buildable.setTolerations(fluent.buildTolerations());
     buildable.setTopologySpreadConstraints(fluent.buildTopologySpreadConstraints());
     buildable.setVolumes(fluent.buildVolumes());
-    buildable.setWorkloadRef(fluent.buildWorkloadRef());
     return buildable;
   }
   

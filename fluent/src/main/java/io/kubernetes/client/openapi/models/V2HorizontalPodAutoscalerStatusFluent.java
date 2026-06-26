@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -55,7 +55,7 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
     }
     for (V2HorizontalPodAutoscalerCondition item : items) {
         V2HorizontalPodAutoscalerConditionBuilder builder = new V2HorizontalPodAutoscalerConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
+        this._visitables.get("conditions").add(builder);
         this.conditions.add(builder);
     }
     return (A) this;
@@ -67,7 +67,7 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
     }
     for (V2MetricStatus item : items) {
         V2MetricStatusBuilder builder = new V2MetricStatusBuilder(item);
-        _visitables.get("currentMetrics").add(builder);
+        this._visitables.get("currentMetrics").add(builder);
         this.currentMetrics.add(builder);
     }
     return (A) this;
@@ -95,7 +95,7 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
     }
     for (V2HorizontalPodAutoscalerCondition item : items) {
         V2HorizontalPodAutoscalerConditionBuilder builder = new V2HorizontalPodAutoscalerConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
+        this._visitables.get("conditions").add(builder);
         this.conditions.add(builder);
     }
     return (A) this;
@@ -106,12 +106,12 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
       this.conditions = new ArrayList();
     }
     V2HorizontalPodAutoscalerConditionBuilder builder = new V2HorizontalPodAutoscalerConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
+    if (index < 0 || index >= this.conditions.size()) {
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
     } else {
-        _visitables.get("conditions").add(builder);
-        conditions.add(index, builder);
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(index, builder);
     }
     return (A) this;
   }
@@ -122,7 +122,7 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
     }
     for (V2MetricStatus item : items) {
         V2MetricStatusBuilder builder = new V2MetricStatusBuilder(item);
-        _visitables.get("currentMetrics").add(builder);
+        this._visitables.get("currentMetrics").add(builder);
         this.currentMetrics.add(builder);
     }
     return (A) this;
@@ -133,12 +133,12 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
       this.currentMetrics = new ArrayList();
     }
     V2MetricStatusBuilder builder = new V2MetricStatusBuilder(item);
-    if (index < 0 || index >= currentMetrics.size()) {
-        _visitables.get("currentMetrics").add(builder);
-        currentMetrics.add(builder);
+    if (index < 0 || index >= this.currentMetrics.size()) {
+        this._visitables.get("currentMetrics").add(builder);
+        this.currentMetrics.add(builder);
     } else {
-        _visitables.get("currentMetrics").add(builder);
-        currentMetrics.add(index, builder);
+        this._visitables.get("currentMetrics").add(builder);
+        this.currentMetrics.add(index, builder);
     }
     return (A) this;
   }
@@ -424,7 +424,7 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
       return (A) this;
     }
     Iterator<V2HorizontalPodAutoscalerConditionBuilder> each = conditions.iterator();
-    List visitables = _visitables.get("conditions");
+    List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V2HorizontalPodAutoscalerConditionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -440,7 +440,7 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
       return (A) this;
     }
     Iterator<V2MetricStatusBuilder> each = currentMetrics.iterator();
-    List visitables = _visitables.get("currentMetrics");
+    List visitables = this._visitables.get("currentMetrics");
     while (each.hasNext()) {
         V2MetricStatusBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -464,12 +464,12 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
       this.conditions = new ArrayList();
     }
     V2HorizontalPodAutoscalerConditionBuilder builder = new V2HorizontalPodAutoscalerConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
+    if (index < 0 || index >= this.conditions.size()) {
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
     } else {
-        _visitables.get("conditions").add(builder);
-        conditions.set(index, builder);
+        this._visitables.get("conditions").add(builder);
+        this.conditions.set(index, builder);
     }
     return (A) this;
   }
@@ -479,12 +479,12 @@ public class V2HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
       this.currentMetrics = new ArrayList();
     }
     V2MetricStatusBuilder builder = new V2MetricStatusBuilder(item);
-    if (index < 0 || index >= currentMetrics.size()) {
-        _visitables.get("currentMetrics").add(builder);
-        currentMetrics.add(builder);
+    if (index < 0 || index >= this.currentMetrics.size()) {
+        this._visitables.get("currentMetrics").add(builder);
+        this.currentMetrics.add(builder);
     } else {
-        _visitables.get("currentMetrics").add(builder);
-        currentMetrics.set(index, builder);
+        this._visitables.get("currentMetrics").add(builder);
+        this.currentMetrics.set(index, builder);
     }
     return (A) this;
   }

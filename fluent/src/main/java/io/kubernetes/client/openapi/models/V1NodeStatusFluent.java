@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -64,7 +64,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1NodeAddress item : items) {
         V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
-        _visitables.get("addresses").add(builder);
+        this._visitables.get("addresses").add(builder);
         this.addresses.add(builder);
     }
     return (A) this;
@@ -76,7 +76,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1NodeCondition item : items) {
         V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
+        this._visitables.get("conditions").add(builder);
         this.conditions.add(builder);
     }
     return (A) this;
@@ -98,7 +98,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1ContainerImage item : items) {
         V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
-        _visitables.get("images").add(builder);
+        this._visitables.get("images").add(builder);
         this.images.add(builder);
     }
     return (A) this;
@@ -110,7 +110,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1NodeRuntimeHandler item : items) {
         V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
-        _visitables.get("runtimeHandlers").add(builder);
+        this._visitables.get("runtimeHandlers").add(builder);
         this.runtimeHandlers.add(builder);
     }
     return (A) this;
@@ -122,7 +122,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1AttachedVolume item : items) {
         V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
-        _visitables.get("volumesAttached").add(builder);
+        this._visitables.get("volumesAttached").add(builder);
         this.volumesAttached.add(builder);
     }
     return (A) this;
@@ -184,7 +184,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1NodeAddress item : items) {
         V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
-        _visitables.get("addresses").add(builder);
+        this._visitables.get("addresses").add(builder);
         this.addresses.add(builder);
     }
     return (A) this;
@@ -195,12 +195,12 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this.addresses = new ArrayList();
     }
     V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
-    if (index < 0 || index >= addresses.size()) {
-        _visitables.get("addresses").add(builder);
-        addresses.add(builder);
+    if (index < 0 || index >= this.addresses.size()) {
+        this._visitables.get("addresses").add(builder);
+        this.addresses.add(builder);
     } else {
-        _visitables.get("addresses").add(builder);
-        addresses.add(index, builder);
+        this._visitables.get("addresses").add(builder);
+        this.addresses.add(index, builder);
     }
     return (A) this;
   }
@@ -251,7 +251,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1NodeCondition item : items) {
         V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
+        this._visitables.get("conditions").add(builder);
         this.conditions.add(builder);
     }
     return (A) this;
@@ -262,12 +262,12 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this.conditions = new ArrayList();
     }
     V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
+    if (index < 0 || index >= this.conditions.size()) {
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
     } else {
-        _visitables.get("conditions").add(builder);
-        conditions.add(index, builder);
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(index, builder);
     }
     return (A) this;
   }
@@ -296,7 +296,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1ContainerImage item : items) {
         V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
-        _visitables.get("images").add(builder);
+        this._visitables.get("images").add(builder);
         this.images.add(builder);
     }
     return (A) this;
@@ -307,12 +307,12 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this.images = new ArrayList();
     }
     V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
-    if (index < 0 || index >= images.size()) {
-        _visitables.get("images").add(builder);
-        images.add(builder);
+    if (index < 0 || index >= this.images.size()) {
+        this._visitables.get("images").add(builder);
+        this.images.add(builder);
     } else {
-        _visitables.get("images").add(builder);
-        images.add(index, builder);
+        this._visitables.get("images").add(builder);
+        this.images.add(index, builder);
     }
     return (A) this;
   }
@@ -323,7 +323,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1NodeRuntimeHandler item : items) {
         V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
-        _visitables.get("runtimeHandlers").add(builder);
+        this._visitables.get("runtimeHandlers").add(builder);
         this.runtimeHandlers.add(builder);
     }
     return (A) this;
@@ -334,12 +334,12 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this.runtimeHandlers = new ArrayList();
     }
     V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
-    if (index < 0 || index >= runtimeHandlers.size()) {
-        _visitables.get("runtimeHandlers").add(builder);
-        runtimeHandlers.add(builder);
+    if (index < 0 || index >= this.runtimeHandlers.size()) {
+        this._visitables.get("runtimeHandlers").add(builder);
+        this.runtimeHandlers.add(builder);
     } else {
-        _visitables.get("runtimeHandlers").add(builder);
-        runtimeHandlers.add(index, builder);
+        this._visitables.get("runtimeHandlers").add(builder);
+        this.runtimeHandlers.add(index, builder);
     }
     return (A) this;
   }
@@ -350,7 +350,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1AttachedVolume item : items) {
         V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
-        _visitables.get("volumesAttached").add(builder);
+        this._visitables.get("volumesAttached").add(builder);
         this.volumesAttached.add(builder);
     }
     return (A) this;
@@ -361,12 +361,12 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this.volumesAttached = new ArrayList();
     }
     V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
-    if (index < 0 || index >= volumesAttached.size()) {
-        _visitables.get("volumesAttached").add(builder);
-        volumesAttached.add(builder);
+    if (index < 0 || index >= this.volumesAttached.size()) {
+        this._visitables.get("volumesAttached").add(builder);
+        this.volumesAttached.add(builder);
     } else {
-        _visitables.get("volumesAttached").add(builder);
-        volumesAttached.add(index, builder);
+        this._visitables.get("volumesAttached").add(builder);
+        this.volumesAttached.add(index, builder);
     }
     return (A) this;
   }
@@ -1232,7 +1232,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1NodeAddressBuilder> each = addresses.iterator();
-    List visitables = _visitables.get("addresses");
+    List visitables = this._visitables.get("addresses");
     while (each.hasNext()) {
         V1NodeAddressBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1248,7 +1248,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1NodeConditionBuilder> each = conditions.iterator();
-    List visitables = _visitables.get("conditions");
+    List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1NodeConditionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1264,7 +1264,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1ContainerImageBuilder> each = images.iterator();
-    List visitables = _visitables.get("images");
+    List visitables = this._visitables.get("images");
     while (each.hasNext()) {
         V1ContainerImageBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1280,7 +1280,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1NodeRuntimeHandlerBuilder> each = runtimeHandlers.iterator();
-    List visitables = _visitables.get("runtimeHandlers");
+    List visitables = this._visitables.get("runtimeHandlers");
     while (each.hasNext()) {
         V1NodeRuntimeHandlerBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1296,7 +1296,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1AttachedVolumeBuilder> each = volumesAttached.iterator();
-    List visitables = _visitables.get("volumesAttached");
+    List visitables = this._visitables.get("volumesAttached");
     while (each.hasNext()) {
         V1AttachedVolumeBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1332,12 +1332,12 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this.addresses = new ArrayList();
     }
     V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
-    if (index < 0 || index >= addresses.size()) {
-        _visitables.get("addresses").add(builder);
-        addresses.add(builder);
+    if (index < 0 || index >= this.addresses.size()) {
+        this._visitables.get("addresses").add(builder);
+        this.addresses.add(builder);
     } else {
-        _visitables.get("addresses").add(builder);
-        addresses.set(index, builder);
+        this._visitables.get("addresses").add(builder);
+        this.addresses.set(index, builder);
     }
     return (A) this;
   }
@@ -1347,12 +1347,12 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this.conditions = new ArrayList();
     }
     V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
+    if (index < 0 || index >= this.conditions.size()) {
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
     } else {
-        _visitables.get("conditions").add(builder);
-        conditions.set(index, builder);
+        this._visitables.get("conditions").add(builder);
+        this.conditions.set(index, builder);
     }
     return (A) this;
   }
@@ -1370,12 +1370,12 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this.images = new ArrayList();
     }
     V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
-    if (index < 0 || index >= images.size()) {
-        _visitables.get("images").add(builder);
-        images.add(builder);
+    if (index < 0 || index >= this.images.size()) {
+        this._visitables.get("images").add(builder);
+        this.images.add(builder);
     } else {
-        _visitables.get("images").add(builder);
-        images.set(index, builder);
+        this._visitables.get("images").add(builder);
+        this.images.set(index, builder);
     }
     return (A) this;
   }
@@ -1385,12 +1385,12 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this.runtimeHandlers = new ArrayList();
     }
     V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
-    if (index < 0 || index >= runtimeHandlers.size()) {
-        _visitables.get("runtimeHandlers").add(builder);
-        runtimeHandlers.add(builder);
+    if (index < 0 || index >= this.runtimeHandlers.size()) {
+        this._visitables.get("runtimeHandlers").add(builder);
+        this.runtimeHandlers.add(builder);
     } else {
-        _visitables.get("runtimeHandlers").add(builder);
-        runtimeHandlers.set(index, builder);
+        this._visitables.get("runtimeHandlers").add(builder);
+        this.runtimeHandlers.set(index, builder);
     }
     return (A) this;
   }
@@ -1400,12 +1400,12 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this.volumesAttached = new ArrayList();
     }
     V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
-    if (index < 0 || index >= volumesAttached.size()) {
-        _visitables.get("volumesAttached").add(builder);
-        volumesAttached.add(builder);
+    if (index < 0 || index >= this.volumesAttached.size()) {
+        this._visitables.get("volumesAttached").add(builder);
+        this.volumesAttached.add(builder);
     } else {
-        _visitables.get("volumesAttached").add(builder);
-        volumesAttached.set(index, builder);
+        this._visitables.get("volumesAttached").add(builder);
+        this.volumesAttached.set(index, builder);
     }
     return (A) this;
   }

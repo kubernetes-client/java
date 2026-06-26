@@ -1,0 +1,135 @@
+/*
+Copyright 2026 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Object;
+import java.lang.String;
+import java.lang.StringBuilder;
+import java.lang.SuppressWarnings;
+import java.util.Objects;
+
+/**
+ * Generated
+ */
+@SuppressWarnings("unchecked")
+public class V1beta2DeviceTaintSelectorFluent<A extends io.kubernetes.client.openapi.models.V1beta2DeviceTaintSelectorFluent<A>> extends BaseFluent<A>{
+
+  private String device;
+  private String driver;
+  private String pool;
+
+  public V1beta2DeviceTaintSelectorFluent() {
+  }
+  
+  public V1beta2DeviceTaintSelectorFluent(V1beta2DeviceTaintSelector instance) {
+    this.copyInstance(instance);
+  }
+
+  protected void copyInstance(V1beta2DeviceTaintSelector instance) {
+    instance = instance != null ? instance : new V1beta2DeviceTaintSelector();
+    if (instance != null) {
+        this.withDevice(instance.getDevice());
+        this.withDriver(instance.getDriver());
+        this.withPool(instance.getPool());
+    }
+  }
+  
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || this.getClass() != o.getClass()) {
+      return false;
+    }
+    if (!(super.equals(o))) {
+      return false;
+    }
+    V1beta2DeviceTaintSelectorFluent that = (V1beta2DeviceTaintSelectorFluent) o;
+    if (!(Objects.equals(device, that.device))) {
+      return false;
+    }
+    if (!(Objects.equals(driver, that.driver))) {
+      return false;
+    }
+    if (!(Objects.equals(pool, that.pool))) {
+      return false;
+    }
+    return true;
+  }
+  
+  public String getDevice() {
+    return this.device;
+  }
+  
+  public String getDriver() {
+    return this.driver;
+  }
+  
+  public String getPool() {
+    return this.pool;
+  }
+  
+  public boolean hasDevice() {
+    return this.device != null;
+  }
+  
+  public boolean hasDriver() {
+    return this.driver != null;
+  }
+  
+  public boolean hasPool() {
+    return this.pool != null;
+  }
+  
+  public int hashCode() {
+    return Objects.hash(device, driver, pool);
+  }
+  
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (!(device == null)) {
+        sb.append("device:");
+        sb.append(device);
+        sb.append(",");
+    }
+    if (!(driver == null)) {
+        sb.append("driver:");
+        sb.append(driver);
+        sb.append(",");
+    }
+    if (!(pool == null)) {
+        sb.append("pool:");
+        sb.append(pool);
+    }
+    sb.append("}");
+    return sb.toString();
+  }
+  
+  public A withDevice(String device) {
+    this.device = device;
+    return (A) this;
+  }
+  
+  public A withDriver(String driver) {
+    this.driver = driver;
+    return (A) this;
+  }
+  
+  public A withPool(String pool) {
+    this.pool = pool;
+    return (A) this;
+  }
+  
+}

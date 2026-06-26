@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -69,7 +69,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
     }
     for (V1MatchCondition item : items) {
         V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
-        _visitables.get("matchConditions").add(builder);
+        this._visitables.get("matchConditions").add(builder);
         this.matchConditions.add(builder);
     }
     return (A) this;
@@ -81,7 +81,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
     }
     for (V1RuleWithOperations item : items) {
         V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
-        _visitables.get("rules").add(builder);
+        this._visitables.get("rules").add(builder);
         this.rules.add(builder);
     }
     return (A) this;
@@ -127,7 +127,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
     }
     for (V1MatchCondition item : items) {
         V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
-        _visitables.get("matchConditions").add(builder);
+        this._visitables.get("matchConditions").add(builder);
         this.matchConditions.add(builder);
     }
     return (A) this;
@@ -138,12 +138,12 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
       this.matchConditions = new ArrayList();
     }
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.add(builder);
+    if (index < 0 || index >= this.matchConditions.size()) {
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.add(builder);
     } else {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.add(index, builder);
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.add(index, builder);
     }
     return (A) this;
   }
@@ -154,7 +154,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
     }
     for (V1RuleWithOperations item : items) {
         V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
-        _visitables.get("rules").add(builder);
+        this._visitables.get("rules").add(builder);
         this.rules.add(builder);
     }
     return (A) this;
@@ -165,12 +165,12 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
       this.rules = new ArrayList();
     }
     V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
-    if (index < 0 || index >= rules.size()) {
-        _visitables.get("rules").add(builder);
-        rules.add(builder);
+    if (index < 0 || index >= this.rules.size()) {
+        this._visitables.get("rules").add(builder);
+        this.rules.add(builder);
     } else {
-        _visitables.get("rules").add(builder);
-        rules.add(index, builder);
+        this._visitables.get("rules").add(builder);
+        this.rules.add(index, builder);
     }
     return (A) this;
   }
@@ -602,7 +602,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
       return (A) this;
     }
     Iterator<V1MatchConditionBuilder> each = matchConditions.iterator();
-    List visitables = _visitables.get("matchConditions");
+    List visitables = this._visitables.get("matchConditions");
     while (each.hasNext()) {
         V1MatchConditionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -618,7 +618,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
       return (A) this;
     }
     Iterator<V1RuleWithOperationsBuilder> each = rules.iterator();
-    List visitables = _visitables.get("rules");
+    List visitables = this._visitables.get("rules");
     while (each.hasNext()) {
         V1RuleWithOperationsBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -650,12 +650,12 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
       this.matchConditions = new ArrayList();
     }
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.add(builder);
+    if (index < 0 || index >= this.matchConditions.size()) {
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.add(builder);
     } else {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.set(index, builder);
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.set(index, builder);
     }
     return (A) this;
   }
@@ -665,12 +665,12 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
       this.rules = new ArrayList();
     }
     V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
-    if (index < 0 || index >= rules.size()) {
-        _visitables.get("rules").add(builder);
-        rules.add(builder);
+    if (index < 0 || index >= this.rules.size()) {
+        this._visitables.get("rules").add(builder);
+        this.rules.add(builder);
     } else {
-        _visitables.get("rules").add(builder);
-        rules.set(index, builder);
+        this._visitables.get("rules").add(builder);
+        this.rules.set(index, builder);
     }
     return (A) this;
   }

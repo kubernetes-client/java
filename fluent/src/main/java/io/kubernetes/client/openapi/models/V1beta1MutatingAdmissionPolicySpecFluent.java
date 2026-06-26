@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -54,7 +54,7 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
     }
     for (V1beta1MatchCondition item : items) {
         V1beta1MatchConditionBuilder builder = new V1beta1MatchConditionBuilder(item);
-        _visitables.get("matchConditions").add(builder);
+        this._visitables.get("matchConditions").add(builder);
         this.matchConditions.add(builder);
     }
     return (A) this;
@@ -66,7 +66,7 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
     }
     for (V1beta1Mutation item : items) {
         V1beta1MutationBuilder builder = new V1beta1MutationBuilder(item);
-        _visitables.get("mutations").add(builder);
+        this._visitables.get("mutations").add(builder);
         this.mutations.add(builder);
     }
     return (A) this;
@@ -78,7 +78,7 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
     }
     for (V1beta1Variable item : items) {
         V1beta1VariableBuilder builder = new V1beta1VariableBuilder(item);
-        _visitables.get("variables").add(builder);
+        this._visitables.get("variables").add(builder);
         this.variables.add(builder);
     }
     return (A) this;
@@ -114,7 +114,7 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
     }
     for (V1beta1MatchCondition item : items) {
         V1beta1MatchConditionBuilder builder = new V1beta1MatchConditionBuilder(item);
-        _visitables.get("matchConditions").add(builder);
+        this._visitables.get("matchConditions").add(builder);
         this.matchConditions.add(builder);
     }
     return (A) this;
@@ -125,12 +125,12 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
       this.matchConditions = new ArrayList();
     }
     V1beta1MatchConditionBuilder builder = new V1beta1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.add(builder);
+    if (index < 0 || index >= this.matchConditions.size()) {
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.add(builder);
     } else {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.add(index, builder);
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.add(index, builder);
     }
     return (A) this;
   }
@@ -141,7 +141,7 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
     }
     for (V1beta1Mutation item : items) {
         V1beta1MutationBuilder builder = new V1beta1MutationBuilder(item);
-        _visitables.get("mutations").add(builder);
+        this._visitables.get("mutations").add(builder);
         this.mutations.add(builder);
     }
     return (A) this;
@@ -152,12 +152,12 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
       this.mutations = new ArrayList();
     }
     V1beta1MutationBuilder builder = new V1beta1MutationBuilder(item);
-    if (index < 0 || index >= mutations.size()) {
-        _visitables.get("mutations").add(builder);
-        mutations.add(builder);
+    if (index < 0 || index >= this.mutations.size()) {
+        this._visitables.get("mutations").add(builder);
+        this.mutations.add(builder);
     } else {
-        _visitables.get("mutations").add(builder);
-        mutations.add(index, builder);
+        this._visitables.get("mutations").add(builder);
+        this.mutations.add(index, builder);
     }
     return (A) this;
   }
@@ -168,7 +168,7 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
     }
     for (V1beta1Variable item : items) {
         V1beta1VariableBuilder builder = new V1beta1VariableBuilder(item);
-        _visitables.get("variables").add(builder);
+        this._visitables.get("variables").add(builder);
         this.variables.add(builder);
     }
     return (A) this;
@@ -179,12 +179,12 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
       this.variables = new ArrayList();
     }
     V1beta1VariableBuilder builder = new V1beta1VariableBuilder(item);
-    if (index < 0 || index >= variables.size()) {
-        _visitables.get("variables").add(builder);
-        variables.add(builder);
+    if (index < 0 || index >= this.variables.size()) {
+        this._visitables.get("variables").add(builder);
+        this.variables.add(builder);
     } else {
-        _visitables.get("variables").add(builder);
-        variables.add(index, builder);
+        this._visitables.get("variables").add(builder);
+        this.variables.add(index, builder);
     }
     return (A) this;
   }
@@ -596,7 +596,7 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
       return (A) this;
     }
     Iterator<V1beta1MatchConditionBuilder> each = matchConditions.iterator();
-    List visitables = _visitables.get("matchConditions");
+    List visitables = this._visitables.get("matchConditions");
     while (each.hasNext()) {
         V1beta1MatchConditionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -612,7 +612,7 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
       return (A) this;
     }
     Iterator<V1beta1MutationBuilder> each = mutations.iterator();
-    List visitables = _visitables.get("mutations");
+    List visitables = this._visitables.get("mutations");
     while (each.hasNext()) {
         V1beta1MutationBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -628,7 +628,7 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
       return (A) this;
     }
     Iterator<V1beta1VariableBuilder> each = variables.iterator();
-    List visitables = _visitables.get("variables");
+    List visitables = this._visitables.get("variables");
     while (each.hasNext()) {
         V1beta1VariableBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -656,12 +656,12 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
       this.matchConditions = new ArrayList();
     }
     V1beta1MatchConditionBuilder builder = new V1beta1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.add(builder);
+    if (index < 0 || index >= this.matchConditions.size()) {
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.add(builder);
     } else {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.set(index, builder);
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.set(index, builder);
     }
     return (A) this;
   }
@@ -671,12 +671,12 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
       this.mutations = new ArrayList();
     }
     V1beta1MutationBuilder builder = new V1beta1MutationBuilder(item);
-    if (index < 0 || index >= mutations.size()) {
-        _visitables.get("mutations").add(builder);
-        mutations.add(builder);
+    if (index < 0 || index >= this.mutations.size()) {
+        this._visitables.get("mutations").add(builder);
+        this.mutations.add(builder);
     } else {
-        _visitables.get("mutations").add(builder);
-        mutations.set(index, builder);
+        this._visitables.get("mutations").add(builder);
+        this.mutations.set(index, builder);
     }
     return (A) this;
   }
@@ -686,12 +686,12 @@ public class V1beta1MutatingAdmissionPolicySpecFluent<A extends io.kubernetes.cl
       this.variables = new ArrayList();
     }
     V1beta1VariableBuilder builder = new V1beta1VariableBuilder(item);
-    if (index < 0 || index >= variables.size()) {
-        _visitables.get("variables").add(builder);
-        variables.add(builder);
+    if (index < 0 || index >= this.variables.size()) {
+        this._visitables.get("variables").add(builder);
+        this.variables.add(builder);
     } else {
-        _visitables.get("variables").add(builder);
-        variables.set(index, builder);
+        this._visitables.get("variables").add(builder);
+        this.variables.set(index, builder);
     }
     return (A) this;
   }

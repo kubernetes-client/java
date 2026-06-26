@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -48,7 +48,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
     }
     for (V1NodeSelectorRequirement item : items) {
         V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
-        _visitables.get("matchExpressions").add(builder);
+        this._visitables.get("matchExpressions").add(builder);
         this.matchExpressions.add(builder);
     }
     return (A) this;
@@ -60,7 +60,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
     }
     for (V1NodeSelectorRequirement item : items) {
         V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
-        _visitables.get("matchFields").add(builder);
+        this._visitables.get("matchFields").add(builder);
         this.matchFields.add(builder);
     }
     return (A) this;
@@ -88,7 +88,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
     }
     for (V1NodeSelectorRequirement item : items) {
         V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
-        _visitables.get("matchExpressions").add(builder);
+        this._visitables.get("matchExpressions").add(builder);
         this.matchExpressions.add(builder);
     }
     return (A) this;
@@ -99,12 +99,12 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
       this.matchExpressions = new ArrayList();
     }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
-    if (index < 0 || index >= matchExpressions.size()) {
-        _visitables.get("matchExpressions").add(builder);
-        matchExpressions.add(builder);
+    if (index < 0 || index >= this.matchExpressions.size()) {
+        this._visitables.get("matchExpressions").add(builder);
+        this.matchExpressions.add(builder);
     } else {
-        _visitables.get("matchExpressions").add(builder);
-        matchExpressions.add(index, builder);
+        this._visitables.get("matchExpressions").add(builder);
+        this.matchExpressions.add(index, builder);
     }
     return (A) this;
   }
@@ -115,7 +115,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
     }
     for (V1NodeSelectorRequirement item : items) {
         V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
-        _visitables.get("matchFields").add(builder);
+        this._visitables.get("matchFields").add(builder);
         this.matchFields.add(builder);
     }
     return (A) this;
@@ -126,12 +126,12 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
       this.matchFields = new ArrayList();
     }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
-    if (index < 0 || index >= matchFields.size()) {
-        _visitables.get("matchFields").add(builder);
-        matchFields.add(builder);
+    if (index < 0 || index >= this.matchFields.size()) {
+        this._visitables.get("matchFields").add(builder);
+        this.matchFields.add(builder);
     } else {
-        _visitables.get("matchFields").add(builder);
-        matchFields.add(index, builder);
+        this._visitables.get("matchFields").add(builder);
+        this.matchFields.add(index, builder);
     }
     return (A) this;
   }
@@ -369,7 +369,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1NodeSelectorRequirementBuilder> each = matchExpressions.iterator();
-    List visitables = _visitables.get("matchExpressions");
+    List visitables = this._visitables.get("matchExpressions");
     while (each.hasNext()) {
         V1NodeSelectorRequirementBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -385,7 +385,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1NodeSelectorRequirementBuilder> each = matchFields.iterator();
-    List visitables = _visitables.get("matchFields");
+    List visitables = this._visitables.get("matchFields");
     while (each.hasNext()) {
         V1NodeSelectorRequirementBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -409,12 +409,12 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
       this.matchExpressions = new ArrayList();
     }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
-    if (index < 0 || index >= matchExpressions.size()) {
-        _visitables.get("matchExpressions").add(builder);
-        matchExpressions.add(builder);
+    if (index < 0 || index >= this.matchExpressions.size()) {
+        this._visitables.get("matchExpressions").add(builder);
+        this.matchExpressions.add(builder);
     } else {
-        _visitables.get("matchExpressions").add(builder);
-        matchExpressions.set(index, builder);
+        this._visitables.get("matchExpressions").add(builder);
+        this.matchExpressions.set(index, builder);
     }
     return (A) this;
   }
@@ -424,12 +424,12 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
       this.matchFields = new ArrayList();
     }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
-    if (index < 0 || index >= matchFields.size()) {
-        _visitables.get("matchFields").add(builder);
-        matchFields.add(builder);
+    if (index < 0 || index >= this.matchFields.size()) {
+        this._visitables.get("matchFields").add(builder);
+        this.matchFields.add(builder);
     } else {
-        _visitables.get("matchFields").add(builder);
-        matchFields.set(index, builder);
+        this._visitables.get("matchFields").add(builder);
+        this.matchFields.set(index, builder);
     }
     return (A) this;
   }

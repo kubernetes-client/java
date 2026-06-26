@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -67,7 +67,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1ResourceStatus item : items) {
         V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
-        _visitables.get("allocatedResourcesStatus").add(builder);
+        this._visitables.get("allocatedResourcesStatus").add(builder);
         this.allocatedResourcesStatus.add(builder);
     }
     return (A) this;
@@ -79,7 +79,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1VolumeMountStatus item : items) {
         V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
-        _visitables.get("volumeMounts").add(builder);
+        this._visitables.get("volumeMounts").add(builder);
         this.volumeMounts.add(builder);
     }
     return (A) this;
@@ -127,7 +127,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1ResourceStatus item : items) {
         V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
-        _visitables.get("allocatedResourcesStatus").add(builder);
+        this._visitables.get("allocatedResourcesStatus").add(builder);
         this.allocatedResourcesStatus.add(builder);
     }
     return (A) this;
@@ -138,12 +138,12 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
       this.allocatedResourcesStatus = new ArrayList();
     }
     V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
-    if (index < 0 || index >= allocatedResourcesStatus.size()) {
-        _visitables.get("allocatedResourcesStatus").add(builder);
-        allocatedResourcesStatus.add(builder);
+    if (index < 0 || index >= this.allocatedResourcesStatus.size()) {
+        this._visitables.get("allocatedResourcesStatus").add(builder);
+        this.allocatedResourcesStatus.add(builder);
     } else {
-        _visitables.get("allocatedResourcesStatus").add(builder);
-        allocatedResourcesStatus.add(index, builder);
+        this._visitables.get("allocatedResourcesStatus").add(builder);
+        this.allocatedResourcesStatus.add(index, builder);
     }
     return (A) this;
   }
@@ -154,7 +154,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1VolumeMountStatus item : items) {
         V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
-        _visitables.get("volumeMounts").add(builder);
+        this._visitables.get("volumeMounts").add(builder);
         this.volumeMounts.add(builder);
     }
     return (A) this;
@@ -165,12 +165,12 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
       this.volumeMounts = new ArrayList();
     }
     V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
-    if (index < 0 || index >= volumeMounts.size()) {
-        _visitables.get("volumeMounts").add(builder);
-        volumeMounts.add(builder);
+    if (index < 0 || index >= this.volumeMounts.size()) {
+        this._visitables.get("volumeMounts").add(builder);
+        this.volumeMounts.add(builder);
     } else {
-        _visitables.get("volumeMounts").add(builder);
-        volumeMounts.add(index, builder);
+        this._visitables.get("volumeMounts").add(builder);
+        this.volumeMounts.add(index, builder);
     }
     return (A) this;
   }
@@ -636,7 +636,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1ResourceStatusBuilder> each = allocatedResourcesStatus.iterator();
-    List visitables = _visitables.get("allocatedResourcesStatus");
+    List visitables = this._visitables.get("allocatedResourcesStatus");
     while (each.hasNext()) {
         V1ResourceStatusBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -652,7 +652,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1VolumeMountStatusBuilder> each = volumeMounts.iterator();
-    List visitables = _visitables.get("volumeMounts");
+    List visitables = this._visitables.get("volumeMounts");
     while (each.hasNext()) {
         V1VolumeMountStatusBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -676,12 +676,12 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
       this.allocatedResourcesStatus = new ArrayList();
     }
     V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
-    if (index < 0 || index >= allocatedResourcesStatus.size()) {
-        _visitables.get("allocatedResourcesStatus").add(builder);
-        allocatedResourcesStatus.add(builder);
+    if (index < 0 || index >= this.allocatedResourcesStatus.size()) {
+        this._visitables.get("allocatedResourcesStatus").add(builder);
+        this.allocatedResourcesStatus.add(builder);
     } else {
-        _visitables.get("allocatedResourcesStatus").add(builder);
-        allocatedResourcesStatus.set(index, builder);
+        this._visitables.get("allocatedResourcesStatus").add(builder);
+        this.allocatedResourcesStatus.set(index, builder);
     }
     return (A) this;
   }
@@ -691,12 +691,12 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
       this.volumeMounts = new ArrayList();
     }
     V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
-    if (index < 0 || index >= volumeMounts.size()) {
-        _visitables.get("volumeMounts").add(builder);
-        volumeMounts.add(builder);
+    if (index < 0 || index >= this.volumeMounts.size()) {
+        this._visitables.get("volumeMounts").add(builder);
+        this.volumeMounts.add(builder);
     } else {
-        _visitables.get("volumeMounts").add(builder);
-        volumeMounts.set(index, builder);
+        this._visitables.get("volumeMounts").add(builder);
+        this.volumeMounts.set(index, builder);
     }
     return (A) this;
   }

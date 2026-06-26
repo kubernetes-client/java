@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -82,7 +82,6 @@ public class V1beta1CapacityRequestPolicyFluent<A extends io.kubernetes.client.o
   protected void copyInstance(V1beta1CapacityRequestPolicy instance) {
     instance = instance != null ? instance : new V1beta1CapacityRequestPolicy();
     if (instance != null) {
-        this.withDefault(instance.getDefault());
         this.withValidRange(instance.getValidRange());
         this.withValidValues(instance.getValidValues());
     }

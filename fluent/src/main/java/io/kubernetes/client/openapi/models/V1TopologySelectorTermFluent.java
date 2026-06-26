@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -47,7 +47,7 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
     }
     for (V1TopologySelectorLabelRequirement item : items) {
         V1TopologySelectorLabelRequirementBuilder builder = new V1TopologySelectorLabelRequirementBuilder(item);
-        _visitables.get("matchLabelExpressions").add(builder);
+        this._visitables.get("matchLabelExpressions").add(builder);
         this.matchLabelExpressions.add(builder);
     }
     return (A) this;
@@ -67,7 +67,7 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
     }
     for (V1TopologySelectorLabelRequirement item : items) {
         V1TopologySelectorLabelRequirementBuilder builder = new V1TopologySelectorLabelRequirementBuilder(item);
-        _visitables.get("matchLabelExpressions").add(builder);
+        this._visitables.get("matchLabelExpressions").add(builder);
         this.matchLabelExpressions.add(builder);
     }
     return (A) this;
@@ -78,12 +78,12 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
       this.matchLabelExpressions = new ArrayList();
     }
     V1TopologySelectorLabelRequirementBuilder builder = new V1TopologySelectorLabelRequirementBuilder(item);
-    if (index < 0 || index >= matchLabelExpressions.size()) {
-        _visitables.get("matchLabelExpressions").add(builder);
-        matchLabelExpressions.add(builder);
+    if (index < 0 || index >= this.matchLabelExpressions.size()) {
+        this._visitables.get("matchLabelExpressions").add(builder);
+        this.matchLabelExpressions.add(builder);
     } else {
-        _visitables.get("matchLabelExpressions").add(builder);
-        matchLabelExpressions.add(index, builder);
+        this._visitables.get("matchLabelExpressions").add(builder);
+        this.matchLabelExpressions.add(index, builder);
     }
     return (A) this;
   }
@@ -219,7 +219,7 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
       return (A) this;
     }
     Iterator<V1TopologySelectorLabelRequirementBuilder> each = matchLabelExpressions.iterator();
-    List visitables = _visitables.get("matchLabelExpressions");
+    List visitables = this._visitables.get("matchLabelExpressions");
     while (each.hasNext()) {
         V1TopologySelectorLabelRequirementBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -239,12 +239,12 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
       this.matchLabelExpressions = new ArrayList();
     }
     V1TopologySelectorLabelRequirementBuilder builder = new V1TopologySelectorLabelRequirementBuilder(item);
-    if (index < 0 || index >= matchLabelExpressions.size()) {
-        _visitables.get("matchLabelExpressions").add(builder);
-        matchLabelExpressions.add(builder);
+    if (index < 0 || index >= this.matchLabelExpressions.size()) {
+        this._visitables.get("matchLabelExpressions").add(builder);
+        this.matchLabelExpressions.add(builder);
     } else {
-        _visitables.get("matchLabelExpressions").add(builder);
-        matchLabelExpressions.set(index, builder);
+        this._visitables.get("matchLabelExpressions").add(builder);
+        this.matchLabelExpressions.set(index, builder);
     }
     return (A) this;
   }

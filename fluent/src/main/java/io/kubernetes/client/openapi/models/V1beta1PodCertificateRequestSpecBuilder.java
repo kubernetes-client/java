@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -48,6 +48,7 @@ public class V1beta1PodCertificateRequestSpecBuilder extends V1beta1PodCertifica
     buildable.setServiceAccountName(fluent.getServiceAccountName());
     buildable.setServiceAccountUID(fluent.getServiceAccountUID());
     buildable.setSignerName(fluent.getSignerName());
+    buildable.setStubPKCS10Request(fluent.getStubPKCS10Request());
     buildable.setUnverifiedUserAnnotations(fluent.getUnverifiedUserAnnotations());
     return buildable;
   }

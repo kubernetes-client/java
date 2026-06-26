@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -57,7 +57,7 @@ public class V1DeploymentStatusFluent<A extends io.kubernetes.client.openapi.mod
     }
     for (V1DeploymentCondition item : items) {
         V1DeploymentConditionBuilder builder = new V1DeploymentConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
+        this._visitables.get("conditions").add(builder);
         this.conditions.add(builder);
     }
     return (A) this;
@@ -77,7 +77,7 @@ public class V1DeploymentStatusFluent<A extends io.kubernetes.client.openapi.mod
     }
     for (V1DeploymentCondition item : items) {
         V1DeploymentConditionBuilder builder = new V1DeploymentConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
+        this._visitables.get("conditions").add(builder);
         this.conditions.add(builder);
     }
     return (A) this;
@@ -88,12 +88,12 @@ public class V1DeploymentStatusFluent<A extends io.kubernetes.client.openapi.mod
       this.conditions = new ArrayList();
     }
     V1DeploymentConditionBuilder builder = new V1DeploymentConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
+    if (index < 0 || index >= this.conditions.size()) {
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
     } else {
-        _visitables.get("conditions").add(builder);
-        conditions.add(index, builder);
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(index, builder);
     }
     return (A) this;
   }
@@ -325,7 +325,7 @@ public class V1DeploymentStatusFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1DeploymentConditionBuilder> each = conditions.iterator();
-    List visitables = _visitables.get("conditions");
+    List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1DeploymentConditionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -345,12 +345,12 @@ public class V1DeploymentStatusFluent<A extends io.kubernetes.client.openapi.mod
       this.conditions = new ArrayList();
     }
     V1DeploymentConditionBuilder builder = new V1DeploymentConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
+    if (index < 0 || index >= this.conditions.size()) {
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
     } else {
-        _visitables.get("conditions").add(builder);
-        conditions.set(index, builder);
+        this._visitables.get("conditions").add(builder);
+        this.conditions.set(index, builder);
     }
     return (A) this;
   }

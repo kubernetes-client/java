@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -49,7 +49,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1DeviceClassConfiguration item : items) {
         V1DeviceClassConfigurationBuilder builder = new V1DeviceClassConfigurationBuilder(item);
-        _visitables.get("config").add(builder);
+        this._visitables.get("config").add(builder);
         this.config.add(builder);
     }
     return (A) this;
@@ -61,7 +61,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1DeviceSelector item : items) {
         V1DeviceSelectorBuilder builder = new V1DeviceSelectorBuilder(item);
-        _visitables.get("selectors").add(builder);
+        this._visitables.get("selectors").add(builder);
         this.selectors.add(builder);
     }
     return (A) this;
@@ -89,7 +89,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1DeviceClassConfiguration item : items) {
         V1DeviceClassConfigurationBuilder builder = new V1DeviceClassConfigurationBuilder(item);
-        _visitables.get("config").add(builder);
+        this._visitables.get("config").add(builder);
         this.config.add(builder);
     }
     return (A) this;
@@ -100,12 +100,12 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
       this.config = new ArrayList();
     }
     V1DeviceClassConfigurationBuilder builder = new V1DeviceClassConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) {
-        _visitables.get("config").add(builder);
-        config.add(builder);
+    if (index < 0 || index >= this.config.size()) {
+        this._visitables.get("config").add(builder);
+        this.config.add(builder);
     } else {
-        _visitables.get("config").add(builder);
-        config.add(index, builder);
+        this._visitables.get("config").add(builder);
+        this.config.add(index, builder);
     }
     return (A) this;
   }
@@ -116,7 +116,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1DeviceSelector item : items) {
         V1DeviceSelectorBuilder builder = new V1DeviceSelectorBuilder(item);
-        _visitables.get("selectors").add(builder);
+        this._visitables.get("selectors").add(builder);
         this.selectors.add(builder);
     }
     return (A) this;
@@ -127,12 +127,12 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
       this.selectors = new ArrayList();
     }
     V1DeviceSelectorBuilder builder = new V1DeviceSelectorBuilder(item);
-    if (index < 0 || index >= selectors.size()) {
-        _visitables.get("selectors").add(builder);
-        selectors.add(builder);
+    if (index < 0 || index >= this.selectors.size()) {
+        this._visitables.get("selectors").add(builder);
+        this.selectors.add(builder);
     } else {
-        _visitables.get("selectors").add(builder);
-        selectors.add(index, builder);
+        this._visitables.get("selectors").add(builder);
+        this.selectors.add(index, builder);
     }
     return (A) this;
   }
@@ -382,7 +382,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1DeviceClassConfigurationBuilder> each = config.iterator();
-    List visitables = _visitables.get("config");
+    List visitables = this._visitables.get("config");
     while (each.hasNext()) {
         V1DeviceClassConfigurationBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -398,7 +398,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1DeviceSelectorBuilder> each = selectors.iterator();
-    List visitables = _visitables.get("selectors");
+    List visitables = this._visitables.get("selectors");
     while (each.hasNext()) {
         V1DeviceSelectorBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -422,12 +422,12 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
       this.config = new ArrayList();
     }
     V1DeviceClassConfigurationBuilder builder = new V1DeviceClassConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) {
-        _visitables.get("config").add(builder);
-        config.add(builder);
+    if (index < 0 || index >= this.config.size()) {
+        this._visitables.get("config").add(builder);
+        this.config.add(builder);
     } else {
-        _visitables.get("config").add(builder);
-        config.set(index, builder);
+        this._visitables.get("config").add(builder);
+        this.config.set(index, builder);
     }
     return (A) this;
   }
@@ -437,12 +437,12 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
       this.selectors = new ArrayList();
     }
     V1DeviceSelectorBuilder builder = new V1DeviceSelectorBuilder(item);
-    if (index < 0 || index >= selectors.size()) {
-        _visitables.get("selectors").add(builder);
-        selectors.add(builder);
+    if (index < 0 || index >= this.selectors.size()) {
+        this._visitables.get("selectors").add(builder);
+        this.selectors.add(builder);
     } else {
-        _visitables.get("selectors").add(builder);
-        selectors.set(index, builder);
+        this._visitables.get("selectors").add(builder);
+        this.selectors.set(index, builder);
     }
     return (A) this;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -26,6 +26,7 @@ import java.util.Objects;
 public class V1ResourceHealthFluent<A extends io.kubernetes.client.openapi.models.V1ResourceHealthFluent<A>> extends BaseFluent<A>{
 
   private String health;
+  private String message;
   private String resourceID;
 
   public V1ResourceHealthFluent() {
@@ -39,6 +40,7 @@ public class V1ResourceHealthFluent<A extends io.kubernetes.client.openapi.model
     instance = instance != null ? instance : new V1ResourceHealth();
     if (instance != null) {
         this.withHealth(instance.getHealth());
+        this.withMessage(instance.getMessage());
         this.withResourceID(instance.getResourceID());
     }
   }
@@ -57,6 +59,9 @@ public class V1ResourceHealthFluent<A extends io.kubernetes.client.openapi.model
     if (!(Objects.equals(health, that.health))) {
       return false;
     }
+    if (!(Objects.equals(message, that.message))) {
+      return false;
+    }
     if (!(Objects.equals(resourceID, that.resourceID))) {
       return false;
     }
@@ -67,6 +72,10 @@ public class V1ResourceHealthFluent<A extends io.kubernetes.client.openapi.model
     return this.health;
   }
   
+  public String getMessage() {
+    return this.message;
+  }
+  
   public String getResourceID() {
     return this.resourceID;
   }
@@ -75,12 +84,16 @@ public class V1ResourceHealthFluent<A extends io.kubernetes.client.openapi.model
     return this.health != null;
   }
   
+  public boolean hasMessage() {
+    return this.message != null;
+  }
+  
   public boolean hasResourceID() {
     return this.resourceID != null;
   }
   
   public int hashCode() {
-    return Objects.hash(health, resourceID);
+    return Objects.hash(health, message, resourceID);
   }
   
   public String toString() {
@@ -89,6 +102,11 @@ public class V1ResourceHealthFluent<A extends io.kubernetes.client.openapi.model
     if (!(health == null)) {
         sb.append("health:");
         sb.append(health);
+        sb.append(",");
+    }
+    if (!(message == null)) {
+        sb.append("message:");
+        sb.append(message);
         sb.append(",");
     }
     if (!(resourceID == null)) {
@@ -101,6 +119,11 @@ public class V1ResourceHealthFluent<A extends io.kubernetes.client.openapi.model
   
   public A withHealth(String health) {
     this.health = health;
+    return (A) this;
+  }
+  
+  public A withMessage(String message) {
+    this.message = message;
     return (A) this;
   }
   
