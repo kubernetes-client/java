@@ -62,7 +62,7 @@ maven.install(
         "com.squareup.okhttp3:logging-interceptor:5.3.2",
         "io.swagger:swagger-annotations:1.6.16",
         "jakarta.annotation:jakarta.annotation-api:3.0.0",
-        "com.google.auth:google-auth-library-oauth2-http:1.47.0",
+        "com.google.auth:google-auth-library-oauth2-http:1.48.0",
         "org.jetbrains:annotations:26.1.0",
         "org.reflections:reflections:0.10.2",
         "com.squareup.okhttp3:okhttp-jvm:5.3.2",
