@@ -8,12 +8,12 @@ Describes the state of the storageVersion at a certain point.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**lastTransitionTime** | **OffsetDateTime** | Last time the condition transitioned from one status to another. |  [optional] |
-|**message** | **String** | A human readable message indicating details about the transition. |  |
-|**observedGeneration** | **Long** | If set, this represents the .metadata.generation that the condition was set based upon. |  [optional] |
-|**reason** | **String** | The reason for the condition&#39;s last transition. |  |
-|**status** | **String** | Status of the condition, one of True, False, Unknown. |  |
-|**type** | **String** | Type of the condition. |  |
+|**lastTransitionTime** | **OffsetDateTime** | lastTransitionTime is the last time the condition transitioned from one status to another. |  [optional] |
+|**message** | **String** | message is a human readable string indicating details about the transition. |  |
+|**observedGeneration** | **Long** | observedGeneration represents the .metadata.generation that the condition was set based upon, if field is set. |  [optional] |
+|**reason** | **String** | reason for the condition&#39;s last transition. |  |
+|**status** | **String** | status of the condition, one of True, False, Unknown. |  |
+|**type** | **String** | type of the condition. |  |
 
 
 

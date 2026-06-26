@@ -8,8 +8,8 @@ ValidatingAdmissionPolicyStatus represents the status of an admission validation
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**conditions** | [**List&lt;V1Condition&gt;**](V1Condition.md) | The conditions represent the latest available observations of a policy&#39;s current state. |  [optional] |
-|**observedGeneration** | **Long** | The generation observed by the controller. |  [optional] |
+|**conditions** | [**List&lt;V1Condition&gt;**](V1Condition.md) | conditions represent the latest available observations of a policy&#39;s current state. |  [optional] |
+|**observedGeneration** | **Long** | observedGeneration is the generation observed by the controller. |  [optional] |
 |**typeChecking** | [**V1TypeChecking**](V1TypeChecking.md) |  |  [optional] |
 
 
