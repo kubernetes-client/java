@@ -60,7 +60,7 @@
     <jackson.version>2.22.0</jackson.version>
     <jackson.annotations.version>2.21</jackson.annotations.version>
     <jsr305.version>3.0.2</jsr305.version>
-    <okhttp3.version>5.3.2</okhttp3.version>
+    <okhttp3.version>5.4.0</okhttp3.version>
     <swagger-core.version>1.6.16</swagger-core.version>
     <sundrio.version>0.300.0</sundrio.version>
     <gsonfire.version>1.9.0</gsonfire.version>
