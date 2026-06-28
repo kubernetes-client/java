@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -65,7 +65,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
     }
     for (V1Taint item : items) {
         V1TaintBuilder builder = new V1TaintBuilder(item);
-        _visitables.get("taints").add(builder);
+        this._visitables.get("taints").add(builder);
         this.taints.add(builder);
     }
     return (A) this;
@@ -103,7 +103,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
     }
     for (V1Taint item : items) {
         V1TaintBuilder builder = new V1TaintBuilder(item);
-        _visitables.get("taints").add(builder);
+        this._visitables.get("taints").add(builder);
         this.taints.add(builder);
     }
     return (A) this;
@@ -114,12 +114,12 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
       this.taints = new ArrayList();
     }
     V1TaintBuilder builder = new V1TaintBuilder(item);
-    if (index < 0 || index >= taints.size()) {
-        _visitables.get("taints").add(builder);
-        taints.add(builder);
+    if (index < 0 || index >= this.taints.size()) {
+        this._visitables.get("taints").add(builder);
+        this.taints.add(builder);
     } else {
-        _visitables.get("taints").add(builder);
-        taints.add(index, builder);
+        this._visitables.get("taints").add(builder);
+        this.taints.add(index, builder);
     }
     return (A) this;
   }
@@ -389,7 +389,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
       return (A) this;
     }
     Iterator<V1TaintBuilder> each = taints.iterator();
-    List visitables = _visitables.get("taints");
+    List visitables = this._visitables.get("taints");
     while (each.hasNext()) {
         V1TaintBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -417,12 +417,12 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
       this.taints = new ArrayList();
     }
     V1TaintBuilder builder = new V1TaintBuilder(item);
-    if (index < 0 || index >= taints.size()) {
-        _visitables.get("taints").add(builder);
-        taints.add(builder);
+    if (index < 0 || index >= this.taints.size()) {
+        this._visitables.get("taints").add(builder);
+        this.taints.add(builder);
     } else {
-        _visitables.get("taints").add(builder);
-        taints.set(index, builder);
+        this._visitables.get("taints").add(builder);
+        this.taints.set(index, builder);
     }
     return (A) this;
   }

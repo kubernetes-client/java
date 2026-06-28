@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -48,7 +48,7 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
     }
     for (V1FieldSelectorRequirement item : items) {
         V1FieldSelectorRequirementBuilder builder = new V1FieldSelectorRequirementBuilder(item);
-        _visitables.get("requirements").add(builder);
+        this._visitables.get("requirements").add(builder);
         this.requirements.add(builder);
     }
     return (A) this;
@@ -68,7 +68,7 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
     }
     for (V1FieldSelectorRequirement item : items) {
         V1FieldSelectorRequirementBuilder builder = new V1FieldSelectorRequirementBuilder(item);
-        _visitables.get("requirements").add(builder);
+        this._visitables.get("requirements").add(builder);
         this.requirements.add(builder);
     }
     return (A) this;
@@ -79,12 +79,12 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
       this.requirements = new ArrayList();
     }
     V1FieldSelectorRequirementBuilder builder = new V1FieldSelectorRequirementBuilder(item);
-    if (index < 0 || index >= requirements.size()) {
-        _visitables.get("requirements").add(builder);
-        requirements.add(builder);
+    if (index < 0 || index >= this.requirements.size()) {
+        this._visitables.get("requirements").add(builder);
+        this.requirements.add(builder);
     } else {
-        _visitables.get("requirements").add(builder);
-        requirements.add(index, builder);
+        this._visitables.get("requirements").add(builder);
+        this.requirements.add(index, builder);
     }
     return (A) this;
   }
@@ -232,7 +232,7 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<V1FieldSelectorRequirementBuilder> each = requirements.iterator();
-    List visitables = _visitables.get("requirements");
+    List visitables = this._visitables.get("requirements");
     while (each.hasNext()) {
         V1FieldSelectorRequirementBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -252,12 +252,12 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
       this.requirements = new ArrayList();
     }
     V1FieldSelectorRequirementBuilder builder = new V1FieldSelectorRequirementBuilder(item);
-    if (index < 0 || index >= requirements.size()) {
-        _visitables.get("requirements").add(builder);
-        requirements.add(builder);
+    if (index < 0 || index >= this.requirements.size()) {
+        this._visitables.get("requirements").add(builder);
+        this.requirements.add(builder);
     } else {
-        _visitables.get("requirements").add(builder);
-        requirements.set(index, builder);
+        this._visitables.get("requirements").add(builder);
+        this.requirements.set(index, builder);
     }
     return (A) this;
   }

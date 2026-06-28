@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * NetworkDeviceData provides network-related details for the allocated device. This information may be filled by drivers or other components to configure or identify the device within a network context.
  */
 @ApiModel(description = "NetworkDeviceData provides network-related details for the allocated device. This information may be filled by drivers or other components to configure or identify the device within a network context.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1beta1NetworkDeviceData {
   public static final String SERIALIZED_NAME_HARDWARE_ADDRESS = "hardwareAddress";
   @SerializedName(SERIALIZED_NAME_HARDWARE_ADDRESS)
@@ -78,11 +78,11 @@ public class V1beta1NetworkDeviceData {
   }
 
   /**
-   * HardwareAddress represents the hardware address (e.g. MAC Address) of the device&#39;s network interface.  Must not be longer than 128 characters.
+   * HardwareAddress represents the hardware address (e.g. MAC Address) of the device&#39;s network interface.  Must not be longer than 128 bytes.
    * @return hardwareAddress
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "HardwareAddress represents the hardware address (e.g. MAC Address) of the device's network interface.  Must not be longer than 128 characters.")
+  @ApiModelProperty(value = "HardwareAddress represents the hardware address (e.g. MAC Address) of the device's network interface.  Must not be longer than 128 bytes.")
   public String getHardwareAddress() {
     return hardwareAddress;
   }
@@ -98,11 +98,11 @@ public class V1beta1NetworkDeviceData {
   }
 
   /**
-   * InterfaceName specifies the name of the network interface associated with the allocated device. This might be the name of a physical or virtual network interface being configured in the pod.  Must not be longer than 256 characters.
+   * InterfaceName specifies the name of the network interface associated with the allocated device. This might be the name of a physical or virtual network interface being configured in the pod.  Must not be longer than 256 bytes.
    * @return interfaceName
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "InterfaceName specifies the name of the network interface associated with the allocated device. This might be the name of a physical or virtual network interface being configured in the pod.  Must not be longer than 256 characters.")
+  @ApiModelProperty(value = "InterfaceName specifies the name of the network interface associated with the allocated device. This might be the name of a physical or virtual network interface being configured in the pod.  Must not be longer than 256 bytes.")
   public String getInterfaceName() {
     return interfaceName;
   }

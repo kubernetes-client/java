@@ -50,11 +50,11 @@ import io.kubernetes.client.openapi.JSON;
  * RoleRef contains information that points to the role being used
  */
 @ApiModel(description = "RoleRef contains information that points to the role being used")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1RoleRef {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
   @SerializedName(SERIALIZED_NAME_API_GROUP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String apiGroup;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
@@ -70,7 +70,7 @@ public class V1RoleRef {
   public V1RoleRef() {
   }
 
-  public V1RoleRef apiGroup(@jakarta.annotation.Nonnull String apiGroup) {
+  public V1RoleRef apiGroup(@jakarta.annotation.Nullable String apiGroup) {
     this.apiGroup = apiGroup;
     return this;
   }
@@ -79,13 +79,13 @@ public class V1RoleRef {
    * APIGroup is the group for the resource being referenced
    * @return apiGroup
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "APIGroup is the group for the resource being referenced")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "APIGroup is the group for the resource being referenced")
   public String getApiGroup() {
     return apiGroup;
   }
 
-  public void setApiGroup(@jakarta.annotation.Nonnull String apiGroup) {
+  public void setApiGroup(@jakarta.annotation.Nullable String apiGroup) {
     this.apiGroup = apiGroup;
   }
 
@@ -181,7 +181,7 @@ public class V1RoleRef {
     openapiFields = new HashSet<String>(Arrays.asList("apiGroup", "kind", "name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("apiGroup", "kind", "name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("kind", "name"));
   }
 
   /**
@@ -212,7 +212,7 @@ public class V1RoleRef {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("apiGroup").isJsonPrimitive()) {
+      if ((jsonObj.get("apiGroup") != null && !jsonObj.get("apiGroup").isJsonNull()) && !jsonObj.get("apiGroup").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiGroup` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiGroup").toString()));
       }
       if (!jsonObj.get("kind").isJsonPrimitive()) {

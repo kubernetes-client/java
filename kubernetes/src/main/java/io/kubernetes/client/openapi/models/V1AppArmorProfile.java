@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * AppArmorProfile defines a pod or container&#39;s AppArmor settings.
  */
 @ApiModel(description = "AppArmorProfile defines a pod or container's AppArmor settings.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1AppArmorProfile {
   public static final String SERIALIZED_NAME_LOCALHOST_PROFILE = "localhostProfile";
   @SerializedName(SERIALIZED_NAME_LOCALHOST_PROFILE)

@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface
  */
 @ApiModel(description = "NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1NonResourceAttributes {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
@@ -71,11 +71,11 @@ public class V1NonResourceAttributes {
   }
 
   /**
-   * Path is the URL path of the request
+   * path is the URL path of the request
    * @return path
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Path is the URL path of the request")
+  @ApiModelProperty(value = "path is the URL path of the request")
   public String getPath() {
     return path;
   }
@@ -91,11 +91,11 @@ public class V1NonResourceAttributes {
   }
 
   /**
-   * Verb is the standard HTTP verb
+   * verb is the standard HTTP verb
    * @return verb
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Verb is the standard HTTP verb")
+  @ApiModelProperty(value = "verb is the standard HTTP verb")
   public String getVerb() {
     return verb;
   }

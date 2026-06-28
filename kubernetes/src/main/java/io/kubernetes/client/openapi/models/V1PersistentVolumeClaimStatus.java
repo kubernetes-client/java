@@ -57,7 +57,7 @@ import io.kubernetes.client.openapi.JSON;
  * PersistentVolumeClaimStatus is the current status of a persistent volume claim.
  */
 @ApiModel(description = "PersistentVolumeClaimStatus is the current status of a persistent volume claim.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)

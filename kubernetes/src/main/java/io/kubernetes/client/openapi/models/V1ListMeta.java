@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1ShardInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -50,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.
  */
 @ApiModel(description = "ListMeta describes metadata that synthetic resources must have, including lists and various status objects. A resource may have only one of {ObjectMeta, ListMeta}.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ListMeta {
   public static final String SERIALIZED_NAME_CONTINUE = "continue";
   @SerializedName(SERIALIZED_NAME_CONTINUE)
@@ -71,6 +72,11 @@ public class V1ListMeta {
   @SerializedName(SERIALIZED_NAME_SELF_LINK)
   @jakarta.annotation.Nullable
   private String selfLink;
+
+  public static final String SERIALIZED_NAME_SHARD_INFO = "shardInfo";
+  @SerializedName(SERIALIZED_NAME_SHARD_INFO)
+  @jakarta.annotation.Nullable
+  private V1ShardInfo shardInfo;
 
   public V1ListMeta() {
   }
@@ -155,6 +161,26 @@ public class V1ListMeta {
   }
 
 
+  public V1ListMeta shardInfo(@jakarta.annotation.Nullable V1ShardInfo shardInfo) {
+    this.shardInfo = shardInfo;
+    return this;
+  }
+
+  /**
+   * Get shardInfo
+   * @return shardInfo
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1ShardInfo getShardInfo() {
+    return shardInfo;
+  }
+
+  public void setShardInfo(@jakarta.annotation.Nullable V1ShardInfo shardInfo) {
+    this.shardInfo = shardInfo;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -168,12 +194,13 @@ public class V1ListMeta {
     return Objects.equals(this._continue, v1ListMeta._continue) &&
         Objects.equals(this.remainingItemCount, v1ListMeta.remainingItemCount) &&
         Objects.equals(this.resourceVersion, v1ListMeta.resourceVersion) &&
-        Objects.equals(this.selfLink, v1ListMeta.selfLink);
+        Objects.equals(this.selfLink, v1ListMeta.selfLink) &&
+        Objects.equals(this.shardInfo, v1ListMeta.shardInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(_continue, remainingItemCount, resourceVersion, selfLink);
+    return Objects.hash(_continue, remainingItemCount, resourceVersion, selfLink, shardInfo);
   }
 
   @Override
@@ -184,6 +211,7 @@ public class V1ListMeta {
     sb.append("    remainingItemCount: ").append(toIndentedString(remainingItemCount)).append("\n");
     sb.append("    resourceVersion: ").append(toIndentedString(resourceVersion)).append("\n");
     sb.append("    selfLink: ").append(toIndentedString(selfLink)).append("\n");
+    sb.append("    shardInfo: ").append(toIndentedString(shardInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -205,7 +233,7 @@ public class V1ListMeta {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("continue", "remainingItemCount", "resourceVersion", "selfLink"));
+    openapiFields = new HashSet<String>(Arrays.asList("continue", "remainingItemCount", "resourceVersion", "selfLink", "shardInfo"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -240,6 +268,10 @@ public class V1ListMeta {
       }
       if ((jsonObj.get("selfLink") != null && !jsonObj.get("selfLink").isJsonNull()) && !jsonObj.get("selfLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selfLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selfLink").toString()));
+      }
+      // validate the optional field `shardInfo`
+      if (jsonObj.get("shardInfo") != null && !jsonObj.get("shardInfo").isJsonNull()) {
+        V1ShardInfo.validateJsonElement(jsonObj.get("shardInfo"));
       }
   }
 

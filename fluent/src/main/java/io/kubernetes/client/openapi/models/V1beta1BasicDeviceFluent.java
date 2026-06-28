@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -44,6 +44,7 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
   private Boolean bindsToNode;
   private Map<String,V1beta1DeviceCapacity> capacity;
   private ArrayList<V1beta1DeviceCounterConsumptionBuilder> consumesCounters;
+  private Map<String,V1beta1NodeAllocatableResourceMapping> nodeAllocatableResourceMappings;
   private String nodeName;
   private V1NodeSelectorBuilder nodeSelector;
   private ArrayList<V1beta1DeviceTaintBuilder> taints;
@@ -81,7 +82,7 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     }
     for (V1beta1DeviceCounterConsumption item : items) {
         V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
-        _visitables.get("consumesCounters").add(builder);
+        this._visitables.get("consumesCounters").add(builder);
         this.consumesCounters.add(builder);
     }
     return (A) this;
@@ -93,7 +94,7 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     }
     for (V1beta1DeviceTaint item : items) {
         V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
-        _visitables.get("taints").add(builder);
+        this._visitables.get("taints").add(builder);
         this.taints.add(builder);
     }
     return (A) this;
@@ -197,7 +198,7 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     }
     for (V1beta1DeviceCounterConsumption item : items) {
         V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
-        _visitables.get("consumesCounters").add(builder);
+        this._visitables.get("consumesCounters").add(builder);
         this.consumesCounters.add(builder);
     }
     return (A) this;
@@ -208,12 +209,32 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
       this.consumesCounters = new ArrayList();
     }
     V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
-    if (index < 0 || index >= consumesCounters.size()) {
-        _visitables.get("consumesCounters").add(builder);
-        consumesCounters.add(builder);
+    if (index < 0 || index >= this.consumesCounters.size()) {
+        this._visitables.get("consumesCounters").add(builder);
+        this.consumesCounters.add(builder);
     } else {
-        _visitables.get("consumesCounters").add(builder);
-        consumesCounters.add(index, builder);
+        this._visitables.get("consumesCounters").add(builder);
+        this.consumesCounters.add(index, builder);
+    }
+    return (A) this;
+  }
+  
+  public A addToNodeAllocatableResourceMappings(Map<String,V1beta1NodeAllocatableResourceMapping> map) {
+    if (this.nodeAllocatableResourceMappings == null && map != null) {
+      this.nodeAllocatableResourceMappings = new LinkedHashMap();
+    }
+    if (map != null) {
+      this.nodeAllocatableResourceMappings.putAll(map);
+    }
+    return (A) this;
+  }
+  
+  public A addToNodeAllocatableResourceMappings(String key,V1beta1NodeAllocatableResourceMapping value) {
+    if (this.nodeAllocatableResourceMappings == null && key != null && value != null) {
+      this.nodeAllocatableResourceMappings = new LinkedHashMap();
+    }
+    if (key != null && value != null) {
+      this.nodeAllocatableResourceMappings.put(key, value);
     }
     return (A) this;
   }
@@ -224,7 +245,7 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     }
     for (V1beta1DeviceTaint item : items) {
         V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
-        _visitables.get("taints").add(builder);
+        this._visitables.get("taints").add(builder);
         this.taints.add(builder);
     }
     return (A) this;
@@ -235,12 +256,12 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
       this.taints = new ArrayList();
     }
     V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
-    if (index < 0 || index >= taints.size()) {
-        _visitables.get("taints").add(builder);
-        taints.add(builder);
+    if (index < 0 || index >= this.taints.size()) {
+        this._visitables.get("taints").add(builder);
+        this.taints.add(builder);
     } else {
-        _visitables.get("taints").add(builder);
-        taints.add(index, builder);
+        this._visitables.get("taints").add(builder);
+        this.taints.add(index, builder);
     }
     return (A) this;
   }
@@ -310,6 +331,7 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
         this.withBindsToNode(instance.getBindsToNode());
         this.withCapacity(instance.getCapacity());
         this.withConsumesCounters(instance.getConsumesCounters());
+        this.withNodeAllocatableResourceMappings(instance.getNodeAllocatableResourceMappings());
         this.withNodeName(instance.getNodeName());
         this.withNodeSelector(instance.getNodeSelector());
         this.withTaints(instance.getTaints());
@@ -435,6 +457,9 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     if (!(Objects.equals(consumesCounters, that.consumesCounters))) {
       return false;
     }
+    if (!(Objects.equals(nodeAllocatableResourceMappings, that.nodeAllocatableResourceMappings))) {
+      return false;
+    }
     if (!(Objects.equals(nodeName, that.nodeName))) {
       return false;
     }
@@ -517,6 +542,10 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
       return null;
   }
   
+  public Map<String,V1beta1NodeAllocatableResourceMapping> getNodeAllocatableResourceMappings() {
+    return this.nodeAllocatableResourceMappings;
+  }
+  
   public String getNodeName() {
     return this.nodeName;
   }
@@ -589,6 +618,10 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
       return false;
   }
   
+  public boolean hasNodeAllocatableResourceMappings() {
+    return this.nodeAllocatableResourceMappings != null;
+  }
+  
   public boolean hasNodeName() {
     return this.nodeName != null;
   }
@@ -602,7 +635,7 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public int hashCode() {
-    return Objects.hash(allNodes, allowMultipleAllocations, attributes, bindingConditions, bindingFailureConditions, bindsToNode, capacity, consumesCounters, nodeName, nodeSelector, taints);
+    return Objects.hash(allNodes, allowMultipleAllocations, attributes, bindingConditions, bindingFailureConditions, bindsToNode, capacity, consumesCounters, nodeAllocatableResourceMappings, nodeName, nodeSelector, taints);
   }
   
   public A removeAllFromBindingConditions(Collection<String> items) {
@@ -729,6 +762,30 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     return (A) this;
   }
   
+  public A removeFromNodeAllocatableResourceMappings(String key) {
+    if (this.nodeAllocatableResourceMappings == null) {
+      return (A) this;
+    }
+    if (key != null && this.nodeAllocatableResourceMappings != null) {
+      this.nodeAllocatableResourceMappings.remove(key);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromNodeAllocatableResourceMappings(Map<String,V1beta1NodeAllocatableResourceMapping> map) {
+    if (this.nodeAllocatableResourceMappings == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.nodeAllocatableResourceMappings != null) {
+          this.nodeAllocatableResourceMappings.remove(key);
+        }
+      }
+    }
+    return (A) this;
+  }
+  
   public A removeFromTaints(V1beta1DeviceTaint... items) {
     if (this.taints == null) {
       return (A) this;
@@ -746,7 +803,7 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1beta1DeviceCounterConsumptionBuilder> each = consumesCounters.iterator();
-    List visitables = _visitables.get("consumesCounters");
+    List visitables = this._visitables.get("consumesCounters");
     while (each.hasNext()) {
         V1beta1DeviceCounterConsumptionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -762,7 +819,7 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1beta1DeviceTaintBuilder> each = taints.iterator();
-    List visitables = _visitables.get("taints");
+    List visitables = this._visitables.get("taints");
     while (each.hasNext()) {
         V1beta1DeviceTaintBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -802,12 +859,12 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
       this.consumesCounters = new ArrayList();
     }
     V1beta1DeviceCounterConsumptionBuilder builder = new V1beta1DeviceCounterConsumptionBuilder(item);
-    if (index < 0 || index >= consumesCounters.size()) {
-        _visitables.get("consumesCounters").add(builder);
-        consumesCounters.add(builder);
+    if (index < 0 || index >= this.consumesCounters.size()) {
+        this._visitables.get("consumesCounters").add(builder);
+        this.consumesCounters.add(builder);
     } else {
-        _visitables.get("consumesCounters").add(builder);
-        consumesCounters.set(index, builder);
+        this._visitables.get("consumesCounters").add(builder);
+        this.consumesCounters.set(index, builder);
     }
     return (A) this;
   }
@@ -817,12 +874,12 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
       this.taints = new ArrayList();
     }
     V1beta1DeviceTaintBuilder builder = new V1beta1DeviceTaintBuilder(item);
-    if (index < 0 || index >= taints.size()) {
-        _visitables.get("taints").add(builder);
-        taints.add(builder);
+    if (index < 0 || index >= this.taints.size()) {
+        this._visitables.get("taints").add(builder);
+        this.taints.add(builder);
     } else {
-        _visitables.get("taints").add(builder);
-        taints.set(index, builder);
+        this._visitables.get("taints").add(builder);
+        this.taints.set(index, builder);
     }
     return (A) this;
   }
@@ -868,6 +925,11 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
     if (!(consumesCounters == null) && !(consumesCounters.isEmpty())) {
         sb.append("consumesCounters:");
         sb.append(consumesCounters);
+        sb.append(",");
+    }
+    if (!(nodeAllocatableResourceMappings == null) && !(nodeAllocatableResourceMappings.isEmpty())) {
+        sb.append("nodeAllocatableResourceMappings:");
+        sb.append(nodeAllocatableResourceMappings);
         sb.append(",");
     }
     if (!(nodeName == null)) {
@@ -1017,6 +1079,15 @@ public class V1beta1BasicDeviceFluent<A extends io.kubernetes.client.openapi.mod
   
   public NodeSelectorNested<A> withNewNodeSelectorLike(V1NodeSelector item) {
     return new NodeSelectorNested(item);
+  }
+  
+  public <K,V>A withNodeAllocatableResourceMappings(Map<String,V1beta1NodeAllocatableResourceMapping> nodeAllocatableResourceMappings) {
+    if (nodeAllocatableResourceMappings == null) {
+      this.nodeAllocatableResourceMappings = null;
+    } else {
+      this.nodeAllocatableResourceMappings = new LinkedHashMap(nodeAllocatableResourceMappings);
+    }
+    return (A) this;
   }
   
   public A withNodeName(String nodeName) {

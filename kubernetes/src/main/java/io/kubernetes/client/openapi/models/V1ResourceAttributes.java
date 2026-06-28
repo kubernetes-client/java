@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface
  */
 @ApiModel(description = "ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ResourceAttributes {
   public static final String SERIALIZED_NAME_FIELD_SELECTOR = "fieldSelector";
   @SerializedName(SERIALIZED_NAME_FIELD_SELECTOR)
@@ -128,11 +128,11 @@ public class V1ResourceAttributes {
   }
 
   /**
-   * Group is the API Group of the Resource.  \&quot;*\&quot; means all.
+   * group is the API Group of the Resource.  \&quot;*\&quot; means all.
    * @return group
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Group is the API Group of the Resource.  \"*\" means all.")
+  @ApiModelProperty(value = "group is the API Group of the Resource.  \"*\" means all.")
   public String getGroup() {
     return group;
   }
@@ -168,11 +168,11 @@ public class V1ResourceAttributes {
   }
 
   /**
-   * Name is the name of the resource being requested for a \&quot;get\&quot; or deleted for a \&quot;delete\&quot;. \&quot;\&quot; (empty) means all.
+   * name is the name of the resource being requested for a \&quot;get\&quot; or deleted for a \&quot;delete\&quot;. \&quot;\&quot; (empty) means all.
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.")
+  @ApiModelProperty(value = "name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.")
   public String getName() {
     return name;
   }
@@ -188,11 +188,11 @@ public class V1ResourceAttributes {
   }
 
   /**
-   * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \&quot;\&quot; (empty) is defaulted for LocalSubjectAccessReviews \&quot;\&quot; (empty) is empty for cluster-scoped resources \&quot;\&quot; (empty) means \&quot;all\&quot; for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
+   * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \&quot;\&quot; (empty) is defaulted for LocalSubjectAccessReviews \&quot;\&quot; (empty) is empty for cluster-scoped resources \&quot;\&quot; (empty) means \&quot;all\&quot; for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
    * @return namespace
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview")
+  @ApiModelProperty(value = "namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview")
   public String getNamespace() {
     return namespace;
   }
@@ -208,11 +208,11 @@ public class V1ResourceAttributes {
   }
 
   /**
-   * Resource is one of the existing resource types.  \&quot;*\&quot; means all.
+   * resource is one of the existing resource types.  \&quot;*\&quot; means all.
    * @return resource
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Resource is one of the existing resource types.  \"*\" means all.")
+  @ApiModelProperty(value = "resource is one of the existing resource types.  \"*\" means all.")
   public String getResource() {
     return resource;
   }
@@ -228,11 +228,11 @@ public class V1ResourceAttributes {
   }
 
   /**
-   * Subresource is one of the existing resource types.  \&quot;\&quot; means none.
+   * subresource is one of the existing resource types.  \&quot;\&quot; means none.
    * @return subresource
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Subresource is one of the existing resource types.  \"\" means none.")
+  @ApiModelProperty(value = "subresource is one of the existing resource types.  \"\" means none.")
   public String getSubresource() {
     return subresource;
   }
@@ -248,11 +248,11 @@ public class V1ResourceAttributes {
   }
 
   /**
-   * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \&quot;*\&quot; means all.
+   * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \&quot;*\&quot; means all.
    * @return verb
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.")
+  @ApiModelProperty(value = "verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.")
   public String getVerb() {
     return verb;
   }
@@ -268,11 +268,11 @@ public class V1ResourceAttributes {
   }
 
   /**
-   * Version is the API Version of the Resource.  \&quot;*\&quot; means all.
+   * version is the API Version of the Resource.  \&quot;*\&quot; means all.
    * @return version
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Version is the API Version of the Resource.  \"*\" means all.")
+  @ApiModelProperty(value = "version is the API Version of the Resource.  \"*\" means all.")
   public String getVersion() {
     return version;
   }

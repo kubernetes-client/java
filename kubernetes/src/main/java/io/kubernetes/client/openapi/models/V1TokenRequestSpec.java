@@ -53,11 +53,11 @@ import io.kubernetes.client.openapi.JSON;
  * TokenRequestSpec contains client provided parameters of a token request.
  */
 @ApiModel(description = "TokenRequestSpec contains client provided parameters of a token request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1TokenRequestSpec {
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
   @SerializedName(SERIALIZED_NAME_AUDIENCES)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<String> audiences = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BOUND_OBJECT_REF = "boundObjectRef";
@@ -73,7 +73,7 @@ public class V1TokenRequestSpec {
   public V1TokenRequestSpec() {
   }
 
-  public V1TokenRequestSpec audiences(@jakarta.annotation.Nonnull List<String> audiences) {
+  public V1TokenRequestSpec audiences(@jakarta.annotation.Nullable List<String> audiences) {
     this.audiences = audiences;
     return this;
   }
@@ -87,16 +87,16 @@ public class V1TokenRequestSpec {
   }
 
   /**
-   * Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
+   * audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
    * @return audiences
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.")
   public List<String> getAudiences() {
     return audiences;
   }
 
-  public void setAudiences(@jakarta.annotation.Nonnull List<String> audiences) {
+  public void setAudiences(@jakarta.annotation.Nullable List<String> audiences) {
     this.audiences = audiences;
   }
 
@@ -127,11 +127,11 @@ public class V1TokenRequestSpec {
   }
 
   /**
-   * ExpirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the &#39;expiration&#39; field in a response.
+   * expirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the &#39;expiration&#39; field in a response.
    * @return expirationSeconds
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "ExpirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the 'expiration' field in a response.")
+  @ApiModelProperty(value = "expirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the 'expiration' field in a response.")
   public Long getExpirationSeconds() {
     return expirationSeconds;
   }
@@ -192,7 +192,7 @@ public class V1TokenRequestSpec {
     openapiFields = new HashSet<String>(Arrays.asList("audiences", "boundObjectRef", "expirationSeconds"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("audiences"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -215,18 +215,9 @@ public class V1TokenRequestSpec {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1TokenRequestSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : V1TokenRequestSpec.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("audiences") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("audiences").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("audiences") != null && !jsonObj.get("audiences").isJsonNull() && !jsonObj.get("audiences").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `audiences` to be an array in the JSON string but got `%s`", jsonObj.get("audiences").toString()));
       }
       // validate the optional field `boundObjectRef`

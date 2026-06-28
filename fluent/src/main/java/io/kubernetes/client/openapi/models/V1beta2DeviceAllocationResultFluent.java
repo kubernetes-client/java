@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -48,7 +48,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends io.kubernetes.client.
     }
     for (V1beta2DeviceAllocationConfiguration item : items) {
         V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);
-        _visitables.get("config").add(builder);
+        this._visitables.get("config").add(builder);
         this.config.add(builder);
     }
     return (A) this;
@@ -60,7 +60,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends io.kubernetes.client.
     }
     for (V1beta2DeviceRequestAllocationResult item : items) {
         V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);
-        _visitables.get("results").add(builder);
+        this._visitables.get("results").add(builder);
         this.results.add(builder);
     }
     return (A) this;
@@ -88,7 +88,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends io.kubernetes.client.
     }
     for (V1beta2DeviceAllocationConfiguration item : items) {
         V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);
-        _visitables.get("config").add(builder);
+        this._visitables.get("config").add(builder);
         this.config.add(builder);
     }
     return (A) this;
@@ -99,12 +99,12 @@ public class V1beta2DeviceAllocationResultFluent<A extends io.kubernetes.client.
       this.config = new ArrayList();
     }
     V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) {
-        _visitables.get("config").add(builder);
-        config.add(builder);
+    if (index < 0 || index >= this.config.size()) {
+        this._visitables.get("config").add(builder);
+        this.config.add(builder);
     } else {
-        _visitables.get("config").add(builder);
-        config.add(index, builder);
+        this._visitables.get("config").add(builder);
+        this.config.add(index, builder);
     }
     return (A) this;
   }
@@ -115,7 +115,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends io.kubernetes.client.
     }
     for (V1beta2DeviceRequestAllocationResult item : items) {
         V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);
-        _visitables.get("results").add(builder);
+        this._visitables.get("results").add(builder);
         this.results.add(builder);
     }
     return (A) this;
@@ -126,12 +126,12 @@ public class V1beta2DeviceAllocationResultFluent<A extends io.kubernetes.client.
       this.results = new ArrayList();
     }
     V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);
-    if (index < 0 || index >= results.size()) {
-        _visitables.get("results").add(builder);
-        results.add(builder);
+    if (index < 0 || index >= this.results.size()) {
+        this._visitables.get("results").add(builder);
+        this.results.add(builder);
     } else {
-        _visitables.get("results").add(builder);
-        results.add(index, builder);
+        this._visitables.get("results").add(builder);
+        this.results.add(index, builder);
     }
     return (A) this;
   }
@@ -369,7 +369,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends io.kubernetes.client.
       return (A) this;
     }
     Iterator<V1beta2DeviceAllocationConfigurationBuilder> each = config.iterator();
-    List visitables = _visitables.get("config");
+    List visitables = this._visitables.get("config");
     while (each.hasNext()) {
         V1beta2DeviceAllocationConfigurationBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -385,7 +385,7 @@ public class V1beta2DeviceAllocationResultFluent<A extends io.kubernetes.client.
       return (A) this;
     }
     Iterator<V1beta2DeviceRequestAllocationResultBuilder> each = results.iterator();
-    List visitables = _visitables.get("results");
+    List visitables = this._visitables.get("results");
     while (each.hasNext()) {
         V1beta2DeviceRequestAllocationResultBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -409,12 +409,12 @@ public class V1beta2DeviceAllocationResultFluent<A extends io.kubernetes.client.
       this.config = new ArrayList();
     }
     V1beta2DeviceAllocationConfigurationBuilder builder = new V1beta2DeviceAllocationConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) {
-        _visitables.get("config").add(builder);
-        config.add(builder);
+    if (index < 0 || index >= this.config.size()) {
+        this._visitables.get("config").add(builder);
+        this.config.add(builder);
     } else {
-        _visitables.get("config").add(builder);
-        config.set(index, builder);
+        this._visitables.get("config").add(builder);
+        this.config.set(index, builder);
     }
     return (A) this;
   }
@@ -424,12 +424,12 @@ public class V1beta2DeviceAllocationResultFluent<A extends io.kubernetes.client.
       this.results = new ArrayList();
     }
     V1beta2DeviceRequestAllocationResultBuilder builder = new V1beta2DeviceRequestAllocationResultBuilder(item);
-    if (index < 0 || index >= results.size()) {
-        _visitables.get("results").add(builder);
-        results.add(builder);
+    if (index < 0 || index >= this.results.size()) {
+        this._visitables.get("results").add(builder);
+        this.results.add(builder);
     } else {
-        _visitables.get("results").add(builder);
-        results.set(index, builder);
+        this._visitables.get("results").add(builder);
+        this.results.set(index, builder);
     }
     return (A) this;
   }

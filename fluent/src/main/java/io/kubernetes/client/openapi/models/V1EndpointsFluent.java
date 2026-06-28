@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -51,7 +51,7 @@ public class V1EndpointsFluent<A extends io.kubernetes.client.openapi.models.V1E
     }
     for (V1EndpointSubset item : items) {
         V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
-        _visitables.get("subsets").add(builder);
+        this._visitables.get("subsets").add(builder);
         this.subsets.add(builder);
     }
     return (A) this;
@@ -71,7 +71,7 @@ public class V1EndpointsFluent<A extends io.kubernetes.client.openapi.models.V1E
     }
     for (V1EndpointSubset item : items) {
         V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
-        _visitables.get("subsets").add(builder);
+        this._visitables.get("subsets").add(builder);
         this.subsets.add(builder);
     }
     return (A) this;
@@ -82,12 +82,12 @@ public class V1EndpointsFluent<A extends io.kubernetes.client.openapi.models.V1E
       this.subsets = new ArrayList();
     }
     V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
-    if (index < 0 || index >= subsets.size()) {
-        _visitables.get("subsets").add(builder);
-        subsets.add(builder);
+    if (index < 0 || index >= this.subsets.size()) {
+        this._visitables.get("subsets").add(builder);
+        this.subsets.add(builder);
     } else {
-        _visitables.get("subsets").add(builder);
-        subsets.add(index, builder);
+        this._visitables.get("subsets").add(builder);
+        this.subsets.add(index, builder);
     }
     return (A) this;
   }
@@ -271,7 +271,7 @@ public class V1EndpointsFluent<A extends io.kubernetes.client.openapi.models.V1E
       return (A) this;
     }
     Iterator<V1EndpointSubsetBuilder> each = subsets.iterator();
-    List visitables = _visitables.get("subsets");
+    List visitables = this._visitables.get("subsets");
     while (each.hasNext()) {
         V1EndpointSubsetBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -291,12 +291,12 @@ public class V1EndpointsFluent<A extends io.kubernetes.client.openapi.models.V1E
       this.subsets = new ArrayList();
     }
     V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
-    if (index < 0 || index >= subsets.size()) {
-        _visitables.get("subsets").add(builder);
-        subsets.add(builder);
+    if (index < 0 || index >= this.subsets.size()) {
+        this._visitables.get("subsets").add(builder);
+        this.subsets.add(builder);
     } else {
-        _visitables.get("subsets").add(builder);
-        subsets.set(index, builder);
+        this._visitables.get("subsets").add(builder);
+        this.subsets.set(index, builder);
     }
     return (A) this;
   }

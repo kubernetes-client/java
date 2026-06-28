@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -48,7 +48,7 @@ public class V1EndpointHintsFluent<A extends io.kubernetes.client.openapi.models
     }
     for (V1ForNode item : items) {
         V1ForNodeBuilder builder = new V1ForNodeBuilder(item);
-        _visitables.get("forNodes").add(builder);
+        this._visitables.get("forNodes").add(builder);
         this.forNodes.add(builder);
     }
     return (A) this;
@@ -60,7 +60,7 @@ public class V1EndpointHintsFluent<A extends io.kubernetes.client.openapi.models
     }
     for (V1ForZone item : items) {
         V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
-        _visitables.get("forZones").add(builder);
+        this._visitables.get("forZones").add(builder);
         this.forZones.add(builder);
     }
     return (A) this;
@@ -88,7 +88,7 @@ public class V1EndpointHintsFluent<A extends io.kubernetes.client.openapi.models
     }
     for (V1ForNode item : items) {
         V1ForNodeBuilder builder = new V1ForNodeBuilder(item);
-        _visitables.get("forNodes").add(builder);
+        this._visitables.get("forNodes").add(builder);
         this.forNodes.add(builder);
     }
     return (A) this;
@@ -99,12 +99,12 @@ public class V1EndpointHintsFluent<A extends io.kubernetes.client.openapi.models
       this.forNodes = new ArrayList();
     }
     V1ForNodeBuilder builder = new V1ForNodeBuilder(item);
-    if (index < 0 || index >= forNodes.size()) {
-        _visitables.get("forNodes").add(builder);
-        forNodes.add(builder);
+    if (index < 0 || index >= this.forNodes.size()) {
+        this._visitables.get("forNodes").add(builder);
+        this.forNodes.add(builder);
     } else {
-        _visitables.get("forNodes").add(builder);
-        forNodes.add(index, builder);
+        this._visitables.get("forNodes").add(builder);
+        this.forNodes.add(index, builder);
     }
     return (A) this;
   }
@@ -115,7 +115,7 @@ public class V1EndpointHintsFluent<A extends io.kubernetes.client.openapi.models
     }
     for (V1ForZone item : items) {
         V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
-        _visitables.get("forZones").add(builder);
+        this._visitables.get("forZones").add(builder);
         this.forZones.add(builder);
     }
     return (A) this;
@@ -126,12 +126,12 @@ public class V1EndpointHintsFluent<A extends io.kubernetes.client.openapi.models
       this.forZones = new ArrayList();
     }
     V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
-    if (index < 0 || index >= forZones.size()) {
-        _visitables.get("forZones").add(builder);
-        forZones.add(builder);
+    if (index < 0 || index >= this.forZones.size()) {
+        this._visitables.get("forZones").add(builder);
+        this.forZones.add(builder);
     } else {
-        _visitables.get("forZones").add(builder);
-        forZones.add(index, builder);
+        this._visitables.get("forZones").add(builder);
+        this.forZones.add(index, builder);
     }
     return (A) this;
   }
@@ -369,7 +369,7 @@ public class V1EndpointHintsFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1ForNodeBuilder> each = forNodes.iterator();
-    List visitables = _visitables.get("forNodes");
+    List visitables = this._visitables.get("forNodes");
     while (each.hasNext()) {
         V1ForNodeBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -385,7 +385,7 @@ public class V1EndpointHintsFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1ForZoneBuilder> each = forZones.iterator();
-    List visitables = _visitables.get("forZones");
+    List visitables = this._visitables.get("forZones");
     while (each.hasNext()) {
         V1ForZoneBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -409,12 +409,12 @@ public class V1EndpointHintsFluent<A extends io.kubernetes.client.openapi.models
       this.forNodes = new ArrayList();
     }
     V1ForNodeBuilder builder = new V1ForNodeBuilder(item);
-    if (index < 0 || index >= forNodes.size()) {
-        _visitables.get("forNodes").add(builder);
-        forNodes.add(builder);
+    if (index < 0 || index >= this.forNodes.size()) {
+        this._visitables.get("forNodes").add(builder);
+        this.forNodes.add(builder);
     } else {
-        _visitables.get("forNodes").add(builder);
-        forNodes.set(index, builder);
+        this._visitables.get("forNodes").add(builder);
+        this.forNodes.set(index, builder);
     }
     return (A) this;
   }
@@ -424,12 +424,12 @@ public class V1EndpointHintsFluent<A extends io.kubernetes.client.openapi.models
       this.forZones = new ArrayList();
     }
     V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
-    if (index < 0 || index >= forZones.size()) {
-        _visitables.get("forZones").add(builder);
-        forZones.add(builder);
+    if (index < 0 || index >= this.forZones.size()) {
+        this._visitables.get("forZones").add(builder);
+        this.forZones.add(builder);
     } else {
-        _visitables.get("forZones").add(builder);
-        forZones.set(index, builder);
+        this._visitables.get("forZones").add(builder);
+        this.forZones.set(index, builder);
     }
     return (A) this;
   }

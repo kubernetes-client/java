@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -52,7 +52,7 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V2HPAScalingPolicy item : items) {
         V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
-        _visitables.get("policies").add(builder);
+        this._visitables.get("policies").add(builder);
         this.policies.add(builder);
     }
     return (A) this;
@@ -72,7 +72,7 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V2HPAScalingPolicy item : items) {
         V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
-        _visitables.get("policies").add(builder);
+        this._visitables.get("policies").add(builder);
         this.policies.add(builder);
     }
     return (A) this;
@@ -83,12 +83,12 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
       this.policies = new ArrayList();
     }
     V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
-    if (index < 0 || index >= policies.size()) {
-        _visitables.get("policies").add(builder);
-        policies.add(builder);
+    if (index < 0 || index >= this.policies.size()) {
+        this._visitables.get("policies").add(builder);
+        this.policies.add(builder);
     } else {
-        _visitables.get("policies").add(builder);
-        policies.add(index, builder);
+        this._visitables.get("policies").add(builder);
+        this.policies.add(index, builder);
     }
     return (A) this;
   }
@@ -260,7 +260,7 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V2HPAScalingPolicyBuilder> each = policies.iterator();
-    List visitables = _visitables.get("policies");
+    List visitables = this._visitables.get("policies");
     while (each.hasNext()) {
         V2HPAScalingPolicyBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -280,12 +280,12 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
       this.policies = new ArrayList();
     }
     V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
-    if (index < 0 || index >= policies.size()) {
-        _visitables.get("policies").add(builder);
-        policies.add(builder);
+    if (index < 0 || index >= this.policies.size()) {
+        this._visitables.get("policies").add(builder);
+        this.policies.add(builder);
     } else {
-        _visitables.get("policies").add(builder);
-        policies.set(index, builder);
+        this._visitables.get("policies").add(builder);
+        this.policies.set(index, builder);
     }
     return (A) this;
   }

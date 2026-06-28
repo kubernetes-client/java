@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * NonResourceRule holds information that describes a rule for the non-resource
  */
 @ApiModel(description = "NonResourceRule holds information that describes a rule for the non-resource")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1NonResourceRule {
   public static final String SERIALIZED_NAME_NON_RESOURCE_U_R_LS = "nonResourceURLs";
   @SerializedName(SERIALIZED_NAME_NON_RESOURCE_U_R_LS)
@@ -81,11 +81,11 @@ public class V1NonResourceRule {
   }
 
   /**
-   * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \&quot;*\&quot; means all.
+   * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \&quot;*\&quot; means all.
    * @return nonResourceURLs
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \"*\" means all.")
+  @ApiModelProperty(value = "nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \"*\" means all.")
   public List<String> getNonResourceURLs() {
     return nonResourceURLs;
   }
@@ -109,11 +109,11 @@ public class V1NonResourceRule {
   }
 
   /**
-   * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \&quot;*\&quot; means all.
+   * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \&quot;*\&quot; means all.
    * @return verbs
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \"*\" means all.")
+  @ApiModelProperty(required = true, value = "verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \"*\" means all.")
   public List<String> getVerbs() {
     return verbs;
   }

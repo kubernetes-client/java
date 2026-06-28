@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * Represents an empty directory for a pod. Empty directory volumes support ownership management and SELinux relabeling.
  */
 @ApiModel(description = "Represents an empty directory for a pod. Empty directory volumes support ownership management and SELinux relabeling.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1EmptyDirVolumeSource {
   public static final String SERIALIZED_NAME_MEDIUM = "medium";
   @SerializedName(SERIALIZED_NAME_MEDIUM)

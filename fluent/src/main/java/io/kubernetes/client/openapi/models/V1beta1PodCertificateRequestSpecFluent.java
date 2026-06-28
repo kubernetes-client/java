@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -42,6 +42,7 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
   private String serviceAccountName;
   private String serviceAccountUID;
   private String signerName;
+  private List<Byte> stubPKCS10Request;
   private Map<String,String> unverifiedUserAnnotations;
 
   public V1beta1PodCertificateRequestSpecFluent() {
@@ -67,6 +68,16 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
     }
     for (Byte item : items) {
       this.proofOfPossession.add(item);
+    }
+    return (A) this;
+  }
+  
+  public A addAllToStubPKCS10Request(Collection<Byte> items) {
+    if (this.stubPKCS10Request == null) {
+      this.stubPKCS10Request = new ArrayList();
+    }
+    for (Byte item : items) {
+      this.stubPKCS10Request.add(item);
     }
     return (A) this;
   }
@@ -107,6 +118,24 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
     return (A) this;
   }
   
+  public A addToStubPKCS10Request(Byte... items) {
+    if (this.stubPKCS10Request == null) {
+      this.stubPKCS10Request = new ArrayList();
+    }
+    for (Byte item : items) {
+      this.stubPKCS10Request.add(item);
+    }
+    return (A) this;
+  }
+  
+  public A addToStubPKCS10Request(int index,Byte item) {
+    if (this.stubPKCS10Request == null) {
+      this.stubPKCS10Request = new ArrayList();
+    }
+    this.stubPKCS10Request.add(index, item);
+    return (A) this;
+  }
+  
   public A addToUnverifiedUserAnnotations(Map<String,String> map) {
     if (this.unverifiedUserAnnotations == null && map != null) {
       this.unverifiedUserAnnotations = new LinkedHashMap();
@@ -140,6 +169,7 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
         this.withServiceAccountName(instance.getServiceAccountName());
         this.withServiceAccountUID(instance.getServiceAccountUID());
         this.withSignerName(instance.getSignerName());
+        this.withStubPKCS10Request(instance.getStubPKCS10Request());
         this.withUnverifiedUserAnnotations(instance.getUnverifiedUserAnnotations());
     }
   }
@@ -183,6 +213,9 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
       return false;
     }
     if (!(Objects.equals(signerName, that.signerName))) {
+      return false;
+    }
+    if (!(Objects.equals(stubPKCS10Request, that.stubPKCS10Request))) {
       return false;
     }
     if (!(Objects.equals(unverifiedUserAnnotations, that.unverifiedUserAnnotations))) {
@@ -249,6 +282,19 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
     return this.signerName;
   }
   
+  public byte[] getStubPKCS10Request() {
+    int size = stubPKCS10Request != null ? stubPKCS10Request.size() : 0;
+    byte[] result = new byte[size];
+    if (size == 0) {
+      return result;
+    }
+    int index = 0;
+    for (byte item : stubPKCS10Request) {
+      result[index++] = item;
+    }
+    return result;
+  }
+  
   public Map<String,String> getUnverifiedUserAnnotations() {
     return this.unverifiedUserAnnotations;
   }
@@ -293,12 +339,16 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
     return this.signerName != null;
   }
   
+  public boolean hasStubPKCS10Request() {
+    return this.stubPKCS10Request != null && !(this.stubPKCS10Request.isEmpty());
+  }
+  
   public boolean hasUnverifiedUserAnnotations() {
     return this.unverifiedUserAnnotations != null;
   }
   
   public int hashCode() {
-    return Objects.hash(maxExpirationSeconds, nodeName, nodeUID, pkixPublicKey, podName, podUID, proofOfPossession, serviceAccountName, serviceAccountUID, signerName, unverifiedUserAnnotations);
+    return Objects.hash(maxExpirationSeconds, nodeName, nodeUID, pkixPublicKey, podName, podUID, proofOfPossession, serviceAccountName, serviceAccountUID, signerName, stubPKCS10Request, unverifiedUserAnnotations);
   }
   
   public A removeAllFromPkixPublicKey(Collection<Byte> items) {
@@ -321,6 +371,16 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
     return (A) this;
   }
   
+  public A removeAllFromStubPKCS10Request(Collection<Byte> items) {
+    if (this.stubPKCS10Request == null) {
+      return (A) this;
+    }
+    for (Byte item : items) {
+      this.stubPKCS10Request.remove(item);
+    }
+    return (A) this;
+  }
+  
   public A removeFromPkixPublicKey(Byte... items) {
     if (this.pkixPublicKey == null) {
       return (A) this;
@@ -337,6 +397,16 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
     }
     for (Byte item : items) {
       this.proofOfPossession.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromStubPKCS10Request(Byte... items) {
+    if (this.stubPKCS10Request == null) {
+      return (A) this;
+    }
+    for (Byte item : items) {
+      this.stubPKCS10Request.remove(item);
     }
     return (A) this;
   }
@@ -378,6 +448,14 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
       this.proofOfPossession = new ArrayList();
     }
     this.proofOfPossession.set(index, item);
+    return (A) this;
+  }
+  
+  public A setToStubPKCS10Request(int index,Byte item) {
+    if (this.stubPKCS10Request == null) {
+      this.stubPKCS10Request = new ArrayList();
+    }
+    this.stubPKCS10Request.set(index, item);
     return (A) this;
   }
   
@@ -432,6 +510,11 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
     if (!(signerName == null)) {
         sb.append("signerName:");
         sb.append(signerName);
+        sb.append(",");
+    }
+    if (!(stubPKCS10Request == null) && !(stubPKCS10Request.isEmpty())) {
+        sb.append("stubPKCS10Request:");
+        sb.append(stubPKCS10Request);
         sb.append(",");
     }
     if (!(unverifiedUserAnnotations == null) && !(unverifiedUserAnnotations.isEmpty())) {
@@ -505,6 +588,19 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
   
   public A withSignerName(String signerName) {
     this.signerName = signerName;
+    return (A) this;
+  }
+  
+  public A withStubPKCS10Request(byte... stubPKCS10Request) {
+    if (this.stubPKCS10Request != null) {
+        this.stubPKCS10Request.clear();
+        _visitables.remove("stubPKCS10Request");
+    }
+    if (stubPKCS10Request != null) {
+      for (byte item : stubPKCS10Request) {
+        this.addToStubPKCS10Request(item);
+      }
+    }
     return (A) this;
   }
   

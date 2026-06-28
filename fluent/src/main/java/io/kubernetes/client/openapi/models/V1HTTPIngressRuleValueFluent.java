@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -47,7 +47,7 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
     }
     for (V1HTTPIngressPath item : items) {
         V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
-        _visitables.get("paths").add(builder);
+        this._visitables.get("paths").add(builder);
         this.paths.add(builder);
     }
     return (A) this;
@@ -67,7 +67,7 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
     }
     for (V1HTTPIngressPath item : items) {
         V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
-        _visitables.get("paths").add(builder);
+        this._visitables.get("paths").add(builder);
         this.paths.add(builder);
     }
     return (A) this;
@@ -78,12 +78,12 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
       this.paths = new ArrayList();
     }
     V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
-    if (index < 0 || index >= paths.size()) {
-        _visitables.get("paths").add(builder);
-        paths.add(builder);
+    if (index < 0 || index >= this.paths.size()) {
+        this._visitables.get("paths").add(builder);
+        this.paths.add(builder);
     } else {
-        _visitables.get("paths").add(builder);
-        paths.add(index, builder);
+        this._visitables.get("paths").add(builder);
+        this.paths.add(index, builder);
     }
     return (A) this;
   }
@@ -219,7 +219,7 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
       return (A) this;
     }
     Iterator<V1HTTPIngressPathBuilder> each = paths.iterator();
-    List visitables = _visitables.get("paths");
+    List visitables = this._visitables.get("paths");
     while (each.hasNext()) {
         V1HTTPIngressPathBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -239,12 +239,12 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
       this.paths = new ArrayList();
     }
     V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
-    if (index < 0 || index >= paths.size()) {
-        _visitables.get("paths").add(builder);
-        paths.add(builder);
+    if (index < 0 || index >= this.paths.size()) {
+        this._visitables.get("paths").add(builder);
+        this.paths.add(builder);
     } else {
-        _visitables.get("paths").add(builder);
-        paths.set(index, builder);
+        this._visitables.get("paths").add(builder);
+        this.paths.set(index, builder);
     }
     return (A) this;
   }

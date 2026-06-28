@@ -1,0 +1,274 @@
+/*
+Copyright 2026 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
+/**
+ * PodGroupResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the PodGroup.  It adds a name to it that uniquely identifies the ResourceClaim inside the PodGroup. Pods that need access to the ResourceClaim define a matching reference in its own Spec.ResourceClaims. The Pod&#39;s claim must match all fields of the PodGroup&#39;s claim exactly.
+ */
+@ApiModel(description = "PodGroupResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the PodGroup.  It adds a name to it that uniquely identifies the ResourceClaim inside the PodGroup. Pods that need access to the ResourceClaim define a matching reference in its own Spec.ResourceClaims. The Pod's claim must match all fields of the PodGroup's claim exactly.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+public class V1alpha2PodGroupResourceClaim {
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
+  private String name;
+
+  public static final String SERIALIZED_NAME_RESOURCE_CLAIM_NAME = "resourceClaimName";
+  @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIM_NAME)
+  @jakarta.annotation.Nullable
+  private String resourceClaimName;
+
+  public static final String SERIALIZED_NAME_RESOURCE_CLAIM_TEMPLATE_NAME = "resourceClaimTemplateName";
+  @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIM_TEMPLATE_NAME)
+  @jakarta.annotation.Nullable
+  private String resourceClaimTemplateName;
+
+  public V1alpha2PodGroupResourceClaim() {
+  }
+
+  public V1alpha2PodGroupResourceClaim name(@jakarta.annotation.Nonnull String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name uniquely identifies this resource claim inside the PodGroup. This must be a DNS_LABEL.
+   * @return name
+   */
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Name uniquely identifies this resource claim inside the PodGroup. This must be a DNS_LABEL.")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@jakarta.annotation.Nonnull String name) {
+    this.name = name;
+  }
+
+
+  public V1alpha2PodGroupResourceClaim resourceClaimName(@jakarta.annotation.Nullable String resourceClaimName) {
+    this.resourceClaimName = resourceClaimName;
+    return this;
+  }
+
+  /**
+   * ResourceClaimName is the name of a ResourceClaim object in the same namespace as this PodGroup. The ResourceClaim will be reserved for the PodGroup instead of its individual pods.  Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.
+   * @return resourceClaimName
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ResourceClaimName is the name of a ResourceClaim object in the same namespace as this PodGroup. The ResourceClaim will be reserved for the PodGroup instead of its individual pods.  Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.")
+  public String getResourceClaimName() {
+    return resourceClaimName;
+  }
+
+  public void setResourceClaimName(@jakarta.annotation.Nullable String resourceClaimName) {
+    this.resourceClaimName = resourceClaimName;
+  }
+
+
+  public V1alpha2PodGroupResourceClaim resourceClaimTemplateName(@jakarta.annotation.Nullable String resourceClaimTemplateName) {
+    this.resourceClaimTemplateName = resourceClaimTemplateName;
+    return this;
+  }
+
+  /**
+   * ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this PodGroup.  The template will be used to create a new ResourceClaim, which will be bound to this PodGroup. When this PodGroup is deleted, the ResourceClaim will also be deleted. The PodGroup name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in podgroup.status.resourceClaimStatuses.  This field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.  Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.
+   * @return resourceClaimTemplateName
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this PodGroup.  The template will be used to create a new ResourceClaim, which will be bound to this PodGroup. When this PodGroup is deleted, the ResourceClaim will also be deleted. The PodGroup name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in podgroup.status.resourceClaimStatuses.  This field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.  Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.")
+  public String getResourceClaimTemplateName() {
+    return resourceClaimTemplateName;
+  }
+
+  public void setResourceClaimTemplateName(@jakarta.annotation.Nullable String resourceClaimTemplateName) {
+    this.resourceClaimTemplateName = resourceClaimTemplateName;
+  }
+
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    V1alpha2PodGroupResourceClaim v1alpha2PodGroupResourceClaim = (V1alpha2PodGroupResourceClaim) o;
+    return Objects.equals(this.name, v1alpha2PodGroupResourceClaim.name) &&
+        Objects.equals(this.resourceClaimName, v1alpha2PodGroupResourceClaim.resourceClaimName) &&
+        Objects.equals(this.resourceClaimTemplateName, v1alpha2PodGroupResourceClaim.resourceClaimTemplateName);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, resourceClaimName, resourceClaimTemplateName);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class V1alpha2PodGroupResourceClaim {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    resourceClaimName: ").append(toIndentedString(resourceClaimName)).append("\n");
+    sb.append("    resourceClaimTemplateName: ").append(toIndentedString(resourceClaimTemplateName)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>(Arrays.asList("name", "resourceClaimName", "resourceClaimTemplateName"));
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha2PodGroupResourceClaim
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1alpha2PodGroupResourceClaim.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1alpha2PodGroupResourceClaim is not found in the empty JSON string", V1alpha2PodGroupResourceClaim.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!V1alpha2PodGroupResourceClaim.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1alpha2PodGroupResourceClaim` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1alpha2PodGroupResourceClaim.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("resourceClaimName") != null && !jsonObj.get("resourceClaimName").isJsonNull()) && !jsonObj.get("resourceClaimName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resourceClaimName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resourceClaimName").toString()));
+      }
+      if ((jsonObj.get("resourceClaimTemplateName") != null && !jsonObj.get("resourceClaimTemplateName").isJsonNull()) && !jsonObj.get("resourceClaimTemplateName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resourceClaimTemplateName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resourceClaimTemplateName").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1alpha2PodGroupResourceClaim.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1alpha2PodGroupResourceClaim' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1alpha2PodGroupResourceClaim> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1alpha2PodGroupResourceClaim.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1alpha2PodGroupResourceClaim>() {
+           @Override
+           public void write(JsonWriter out, V1alpha2PodGroupResourceClaim value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1alpha2PodGroupResourceClaim read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of V1alpha2PodGroupResourceClaim given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha2PodGroupResourceClaim
+   * @throws IOException if the JSON string is invalid with respect to V1alpha2PodGroupResourceClaim
+   */
+  public static V1alpha2PodGroupResourceClaim fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1alpha2PodGroupResourceClaim.class);
+  }
+
+  /**
+   * Convert an instance of V1alpha2PodGroupResourceClaim to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
+}

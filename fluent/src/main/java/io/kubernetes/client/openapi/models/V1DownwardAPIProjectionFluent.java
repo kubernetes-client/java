@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -47,7 +47,7 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
     }
     for (V1DownwardAPIVolumeFile item : items) {
         V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
-        _visitables.get("items").add(builder);
+        this._visitables.get("items").add(builder);
         this.items.add(builder);
     }
     return (A) this;
@@ -67,7 +67,7 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
     }
     for (V1DownwardAPIVolumeFile item : items) {
         V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
-        _visitables.get("items").add(builder);
+        this._visitables.get("items").add(builder);
         this.items.add(builder);
     }
     return (A) this;
@@ -78,12 +78,12 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
       this.items = new ArrayList();
     }
     V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
-    if (index < 0 || index >= items.size()) {
-        _visitables.get("items").add(builder);
-        items.add(builder);
+    if (index < 0 || index >= this.items.size()) {
+        this._visitables.get("items").add(builder);
+        this.items.add(builder);
     } else {
-        _visitables.get("items").add(builder);
-        items.add(index, builder);
+        this._visitables.get("items").add(builder);
+        this.items.add(index, builder);
     }
     return (A) this;
   }
@@ -219,7 +219,7 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
       return (A) this;
     }
     Iterator<V1DownwardAPIVolumeFileBuilder> each = items.iterator();
-    List visitables = _visitables.get("items");
+    List visitables = this._visitables.get("items");
     while (each.hasNext()) {
         V1DownwardAPIVolumeFileBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -239,12 +239,12 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
       this.items = new ArrayList();
     }
     V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
-    if (index < 0 || index >= items.size()) {
-        _visitables.get("items").add(builder);
-        items.add(builder);
+    if (index < 0 || index >= this.items.size()) {
+        this._visitables.get("items").add(builder);
+        this.items.add(builder);
     } else {
-        _visitables.get("items").add(builder);
-        items.set(index, builder);
+        this._visitables.get("items").add(builder);
+        this.items.set(index, builder);
     }
     return (A) this;
   }

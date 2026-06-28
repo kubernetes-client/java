@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -48,7 +48,7 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1ResourceHealth item : items) {
         V1ResourceHealthBuilder builder = new V1ResourceHealthBuilder(item);
-        _visitables.get("resources").add(builder);
+        this._visitables.get("resources").add(builder);
         this.resources.add(builder);
     }
     return (A) this;
@@ -68,7 +68,7 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1ResourceHealth item : items) {
         V1ResourceHealthBuilder builder = new V1ResourceHealthBuilder(item);
-        _visitables.get("resources").add(builder);
+        this._visitables.get("resources").add(builder);
         this.resources.add(builder);
     }
     return (A) this;
@@ -79,12 +79,12 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
       this.resources = new ArrayList();
     }
     V1ResourceHealthBuilder builder = new V1ResourceHealthBuilder(item);
-    if (index < 0 || index >= resources.size()) {
-        _visitables.get("resources").add(builder);
-        resources.add(builder);
+    if (index < 0 || index >= this.resources.size()) {
+        this._visitables.get("resources").add(builder);
+        this.resources.add(builder);
     } else {
-        _visitables.get("resources").add(builder);
-        resources.add(index, builder);
+        this._visitables.get("resources").add(builder);
+        this.resources.add(index, builder);
     }
     return (A) this;
   }
@@ -232,7 +232,7 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1ResourceHealthBuilder> each = resources.iterator();
-    List visitables = _visitables.get("resources");
+    List visitables = this._visitables.get("resources");
     while (each.hasNext()) {
         V1ResourceHealthBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -252,12 +252,12 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
       this.resources = new ArrayList();
     }
     V1ResourceHealthBuilder builder = new V1ResourceHealthBuilder(item);
-    if (index < 0 || index >= resources.size()) {
-        _visitables.get("resources").add(builder);
-        resources.add(builder);
+    if (index < 0 || index >= this.resources.size()) {
+        this._visitables.get("resources").add(builder);
+        this.resources.add(builder);
     } else {
-        _visitables.get("resources").add(builder);
-        resources.set(index, builder);
+        this._visitables.get("resources").add(builder);
+        this.resources.set(index, builder);
     }
     return (A) this;
   }

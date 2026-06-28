@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -42,6 +42,7 @@ public class V1VolumeMountStatusBuilder extends V1VolumeMountStatusFluent<V1Volu
     buildable.setName(fluent.getName());
     buildable.setReadOnly(fluent.getReadOnly());
     buildable.setRecursiveReadOnly(fluent.getRecursiveReadOnly());
+    buildable.setVolumeStatus(fluent.buildVolumeStatus());
     return buildable;
   }
   

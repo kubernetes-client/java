@@ -52,6 +52,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Data is the serialized representation of the state.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -60,6 +61,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Data is the serialized representation of the state.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -68,6 +70,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Data is the serialized representation of the state.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -77,6 +80,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Revision indicates the revision of the state represented by Data.
+     * +optional
      * </pre>
      *
      * <code>optional int64 revision = 3;</code>
@@ -85,6 +89,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Revision indicates the revision of the state represented by Data.
+     * +optional
      * </pre>
      *
      * <code>optional int64 revision = 3;</code>
@@ -251,6 +256,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Data is the serialized representation of the state.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -261,6 +267,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Data is the serialized representation of the state.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -271,6 +278,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Data is the serialized representation of the state.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -284,6 +292,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Revision indicates the revision of the state represented by Data.
+     * +optional
      * </pre>
      *
      * <code>optional int64 revision = 3;</code>
@@ -294,6 +303,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Revision indicates the revision of the state represented by Data.
+     * +optional
      * </pre>
      *
      * <code>optional int64 revision = 3;</code>
@@ -876,6 +886,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Data is the serialized representation of the state.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -886,6 +897,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Data is the serialized representation of the state.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -900,6 +912,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Data is the serialized representation of the state.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -920,6 +933,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Data is the serialized representation of the state.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -938,6 +952,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Data is the serialized representation of the state.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -962,6 +977,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Data is the serialized representation of the state.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -979,6 +995,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Data is the serialized representation of the state.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -991,6 +1008,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Data is the serialized representation of the state.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -1006,6 +1024,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Data is the serialized representation of the state.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.runtime.RawExtension data = 2;</code>
@@ -1028,6 +1047,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Revision indicates the revision of the state represented by Data.
+       * +optional
        * </pre>
        *
        * <code>optional int64 revision = 3;</code>
@@ -1038,6 +1058,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Revision indicates the revision of the state represented by Data.
+       * +optional
        * </pre>
        *
        * <code>optional int64 revision = 3;</code>
@@ -1048,6 +1069,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Revision indicates the revision of the state represented by Data.
+       * +optional
        * </pre>
        *
        * <code>optional int64 revision = 3;</code>
@@ -1061,6 +1083,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Revision indicates the revision of the state represented by Data.
+       * +optional
        * </pre>
        *
        * <code>optional int64 revision = 3;</code>
@@ -2342,7 +2365,7 @@ public final class V1Apps {
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -2352,7 +2375,7 @@ public final class V1Apps {
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -2362,7 +2385,7 @@ public final class V1Apps {
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -2412,6 +2435,7 @@ public final class V1Apps {
   /**
    * <pre>
    * DaemonSet represents the configuration of a daemon set.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.apps.v1.DaemonSet}
@@ -2569,7 +2593,7 @@ public final class V1Apps {
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -2581,7 +2605,7 @@ public final class V1Apps {
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -2593,7 +2617,7 @@ public final class V1Apps {
      * <pre>
      * The desired behavior of this daemon set.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -2846,6 +2870,7 @@ public final class V1Apps {
     /**
      * <pre>
      * DaemonSet represents the configuration of a daemon set.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.apps.v1.DaemonSet}
@@ -3225,7 +3250,7 @@ public final class V1Apps {
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -3237,7 +3262,7 @@ public final class V1Apps {
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -3253,7 +3278,7 @@ public final class V1Apps {
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -3275,7 +3300,7 @@ public final class V1Apps {
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -3295,7 +3320,7 @@ public final class V1Apps {
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -3321,7 +3346,7 @@ public final class V1Apps {
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -3340,7 +3365,7 @@ public final class V1Apps {
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -3354,7 +3379,7 @@ public final class V1Apps {
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -3371,7 +3396,7 @@ public final class V1Apps {
        * <pre>
        * The desired behavior of this daemon set.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DaemonSetSpec spec = 2;</code>
@@ -3648,6 +3673,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of DaemonSet condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -3656,6 +3682,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of DaemonSet condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -3664,6 +3691,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of DaemonSet condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -3674,6 +3702,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -3682,6 +3711,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -3690,6 +3720,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -3905,6 +3936,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of DaemonSet condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -3915,6 +3947,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of DaemonSet condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -3936,6 +3969,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of DaemonSet condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -3959,6 +3993,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -3969,6 +4004,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -3990,6 +4026,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -4594,6 +4631,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of DaemonSet condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -4604,6 +4642,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of DaemonSet condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -4625,6 +4664,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of DaemonSet condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -4645,6 +4685,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of DaemonSet condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -4662,6 +4703,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of DaemonSet condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -4675,6 +4717,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of DaemonSet condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -4694,6 +4737,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -4704,6 +4748,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -4725,6 +4770,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -4745,6 +4791,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -4762,6 +4809,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -4775,6 +4823,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -6421,6 +6470,7 @@ public final class V1Apps {
      * Must match in order to be controlled.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -6432,6 +6482,7 @@ public final class V1Apps {
      * Must match in order to be controlled.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -6443,6 +6494,7 @@ public final class V1Apps {
      * Must match in order to be controlled.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -6457,6 +6509,7 @@ public final class V1Apps {
      * selector is specified).
      * The only allowed template.spec.restartPolicy value is "Always".
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -6470,6 +6523,7 @@ public final class V1Apps {
      * selector is specified).
      * The only allowed template.spec.restartPolicy value is "Always".
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -6483,6 +6537,7 @@ public final class V1Apps {
      * selector is specified).
      * The only allowed template.spec.restartPolicy value is "Always".
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -6700,6 +6755,7 @@ public final class V1Apps {
      * Must match in order to be controlled.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -6713,6 +6769,7 @@ public final class V1Apps {
      * Must match in order to be controlled.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -6726,6 +6783,7 @@ public final class V1Apps {
      * Must match in order to be controlled.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -6744,6 +6802,7 @@ public final class V1Apps {
      * selector is specified).
      * The only allowed template.spec.restartPolicy value is "Always".
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -6759,6 +6818,7 @@ public final class V1Apps {
      * selector is specified).
      * The only allowed template.spec.restartPolicy value is "Always".
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -6774,6 +6834,7 @@ public final class V1Apps {
      * selector is specified).
      * The only allowed template.spec.restartPolicy value is "Always".
      * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -7333,6 +7394,7 @@ public final class V1Apps {
        * Must match in order to be controlled.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -7346,6 +7408,7 @@ public final class V1Apps {
        * Must match in order to be controlled.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -7363,6 +7426,7 @@ public final class V1Apps {
        * Must match in order to be controlled.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -7386,6 +7450,7 @@ public final class V1Apps {
        * Must match in order to be controlled.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -7407,6 +7472,7 @@ public final class V1Apps {
        * Must match in order to be controlled.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -7434,6 +7500,7 @@ public final class V1Apps {
        * Must match in order to be controlled.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -7454,6 +7521,7 @@ public final class V1Apps {
        * Must match in order to be controlled.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -7469,6 +7537,7 @@ public final class V1Apps {
        * Must match in order to be controlled.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -7487,6 +7556,7 @@ public final class V1Apps {
        * Must match in order to be controlled.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 1;</code>
@@ -7516,6 +7586,7 @@ public final class V1Apps {
        * selector is specified).
        * The only allowed template.spec.restartPolicy value is "Always".
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -7531,6 +7602,7 @@ public final class V1Apps {
        * selector is specified).
        * The only allowed template.spec.restartPolicy value is "Always".
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -7550,6 +7622,7 @@ public final class V1Apps {
        * selector is specified).
        * The only allowed template.spec.restartPolicy value is "Always".
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -7575,6 +7648,7 @@ public final class V1Apps {
        * selector is specified).
        * The only allowed template.spec.restartPolicy value is "Always".
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -7598,6 +7672,7 @@ public final class V1Apps {
        * selector is specified).
        * The only allowed template.spec.restartPolicy value is "Always".
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -7627,6 +7702,7 @@ public final class V1Apps {
        * selector is specified).
        * The only allowed template.spec.restartPolicy value is "Always".
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -7649,6 +7725,7 @@ public final class V1Apps {
        * selector is specified).
        * The only allowed template.spec.restartPolicy value is "Always".
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -7666,6 +7743,7 @@ public final class V1Apps {
        * selector is specified).
        * The only allowed template.spec.restartPolicy value is "Always".
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -7686,6 +7764,7 @@ public final class V1Apps {
        * selector is specified).
        * The only allowed template.spec.restartPolicy value is "Always".
        * More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller#pod-template
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 2;</code>
@@ -11327,7 +11406,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Specification of the desired behavior of the Deployment.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -11336,7 +11415,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Specification of the desired behavior of the Deployment.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -11345,7 +11424,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Specification of the desired behavior of the Deployment.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -11383,6 +11462,8 @@ public final class V1Apps {
   /**
    * <pre>
    * Deployment enables declarative updates for Pods and ReplicaSets.
+   * +k8s:supportsSubresource="/scale"
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.apps.v1.Deployment}
@@ -11539,7 +11620,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Specification of the desired behavior of the Deployment.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -11550,7 +11631,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Specification of the desired behavior of the Deployment.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -11561,7 +11642,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Specification of the desired behavior of the Deployment.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -11802,6 +11883,8 @@ public final class V1Apps {
     /**
      * <pre>
      * Deployment enables declarative updates for Pods and ReplicaSets.
+     * +k8s:supportsSubresource="/scale"
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.apps.v1.Deployment}
@@ -12180,7 +12263,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Specification of the desired behavior of the Deployment.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -12191,7 +12274,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Specification of the desired behavior of the Deployment.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -12206,7 +12289,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Specification of the desired behavior of the Deployment.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -12227,7 +12310,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Specification of the desired behavior of the Deployment.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -12246,7 +12329,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Specification of the desired behavior of the Deployment.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -12271,7 +12354,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Specification of the desired behavior of the Deployment.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -12289,7 +12372,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Specification of the desired behavior of the Deployment.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -12302,7 +12385,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Specification of the desired behavior of the Deployment.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -12318,7 +12401,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Specification of the desired behavior of the Deployment.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.DeploymentSpec spec = 2;</code>
@@ -12559,6 +12642,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of deployment condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -12567,6 +12651,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of deployment condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -12575,6 +12660,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of deployment condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -12585,6 +12671,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -12593,6 +12680,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -12601,6 +12689,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -12611,6 +12700,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The last time this condition was updated.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -12619,6 +12709,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The last time this condition was updated.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -12627,6 +12718,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The last time this condition was updated.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -12636,6 +12728,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Last time the condition transitioned from one status to another.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -12644,6 +12737,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Last time the condition transitioned from one status to another.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -12652,6 +12746,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Last time the condition transitioned from one status to another.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -12661,6 +12756,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The reason for the condition's last transition.
+     * +optional
      * </pre>
      *
      * <code>optional string reason = 4;</code>
@@ -12669,6 +12765,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The reason for the condition's last transition.
+     * +optional
      * </pre>
      *
      * <code>optional string reason = 4;</code>
@@ -12677,6 +12774,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The reason for the condition's last transition.
+     * +optional
      * </pre>
      *
      * <code>optional string reason = 4;</code>
@@ -12687,6 +12785,7 @@ public final class V1Apps {
     /**
      * <pre>
      * A human readable message indicating details about the transition.
+     * +optional
      * </pre>
      *
      * <code>optional string message = 5;</code>
@@ -12695,6 +12794,7 @@ public final class V1Apps {
     /**
      * <pre>
      * A human readable message indicating details about the transition.
+     * +optional
      * </pre>
      *
      * <code>optional string message = 5;</code>
@@ -12703,6 +12803,7 @@ public final class V1Apps {
     /**
      * <pre>
      * A human readable message indicating details about the transition.
+     * +optional
      * </pre>
      *
      * <code>optional string message = 5;</code>
@@ -12845,6 +12946,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of deployment condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -12855,6 +12957,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of deployment condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -12876,6 +12979,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of deployment condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -12899,6 +13003,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -12909,6 +13014,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -12930,6 +13036,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -12953,6 +13060,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The last time this condition was updated.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -12963,6 +13071,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The last time this condition was updated.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -12973,6 +13082,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The last time this condition was updated.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -12986,6 +13096,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Last time the condition transitioned from one status to another.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -12996,6 +13107,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Last time the condition transitioned from one status to another.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -13006,6 +13118,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Last time the condition transitioned from one status to another.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -13019,6 +13132,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The reason for the condition's last transition.
+     * +optional
      * </pre>
      *
      * <code>optional string reason = 4;</code>
@@ -13029,6 +13143,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The reason for the condition's last transition.
+     * +optional
      * </pre>
      *
      * <code>optional string reason = 4;</code>
@@ -13050,6 +13165,7 @@ public final class V1Apps {
     /**
      * <pre>
      * The reason for the condition's last transition.
+     * +optional
      * </pre>
      *
      * <code>optional string reason = 4;</code>
@@ -13073,6 +13189,7 @@ public final class V1Apps {
     /**
      * <pre>
      * A human readable message indicating details about the transition.
+     * +optional
      * </pre>
      *
      * <code>optional string message = 5;</code>
@@ -13083,6 +13200,7 @@ public final class V1Apps {
     /**
      * <pre>
      * A human readable message indicating details about the transition.
+     * +optional
      * </pre>
      *
      * <code>optional string message = 5;</code>
@@ -13104,6 +13222,7 @@ public final class V1Apps {
     /**
      * <pre>
      * A human readable message indicating details about the transition.
+     * +optional
      * </pre>
      *
      * <code>optional string message = 5;</code>
@@ -13592,6 +13711,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of deployment condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -13602,6 +13722,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of deployment condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -13623,6 +13744,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of deployment condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -13643,6 +13765,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of deployment condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -13660,6 +13783,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of deployment condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -13673,6 +13797,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of deployment condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -13692,6 +13817,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -13702,6 +13828,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -13723,6 +13850,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -13743,6 +13871,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -13760,6 +13889,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -13773,6 +13903,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -13794,6 +13925,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The last time this condition was updated.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -13804,6 +13936,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The last time this condition was updated.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -13818,6 +13951,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The last time this condition was updated.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -13838,6 +13972,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The last time this condition was updated.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -13856,6 +13991,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The last time this condition was updated.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -13880,6 +14016,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The last time this condition was updated.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -13897,6 +14034,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The last time this condition was updated.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -13909,6 +14047,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The last time this condition was updated.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -13924,6 +14063,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The last time this condition was updated.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastUpdateTime = 6;</code>
@@ -13948,6 +14088,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Last time the condition transitioned from one status to another.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -13958,6 +14099,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Last time the condition transitioned from one status to another.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -13972,6 +14114,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Last time the condition transitioned from one status to another.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -13992,6 +14135,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Last time the condition transitioned from one status to another.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -14010,6 +14154,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Last time the condition transitioned from one status to another.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -14034,6 +14179,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Last time the condition transitioned from one status to another.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -14051,6 +14197,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Last time the condition transitioned from one status to another.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -14063,6 +14210,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Last time the condition transitioned from one status to another.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -14078,6 +14226,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Last time the condition transitioned from one status to another.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time lastTransitionTime = 7;</code>
@@ -14100,6 +14249,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The reason for the condition's last transition.
+       * +optional
        * </pre>
        *
        * <code>optional string reason = 4;</code>
@@ -14110,6 +14260,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The reason for the condition's last transition.
+       * +optional
        * </pre>
        *
        * <code>optional string reason = 4;</code>
@@ -14131,6 +14282,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The reason for the condition's last transition.
+       * +optional
        * </pre>
        *
        * <code>optional string reason = 4;</code>
@@ -14151,6 +14303,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The reason for the condition's last transition.
+       * +optional
        * </pre>
        *
        * <code>optional string reason = 4;</code>
@@ -14168,6 +14321,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The reason for the condition's last transition.
+       * +optional
        * </pre>
        *
        * <code>optional string reason = 4;</code>
@@ -14181,6 +14335,7 @@ public final class V1Apps {
       /**
        * <pre>
        * The reason for the condition's last transition.
+       * +optional
        * </pre>
        *
        * <code>optional string reason = 4;</code>
@@ -14200,6 +14355,7 @@ public final class V1Apps {
       /**
        * <pre>
        * A human readable message indicating details about the transition.
+       * +optional
        * </pre>
        *
        * <code>optional string message = 5;</code>
@@ -14210,6 +14366,7 @@ public final class V1Apps {
       /**
        * <pre>
        * A human readable message indicating details about the transition.
+       * +optional
        * </pre>
        *
        * <code>optional string message = 5;</code>
@@ -14231,6 +14388,7 @@ public final class V1Apps {
       /**
        * <pre>
        * A human readable message indicating details about the transition.
+       * +optional
        * </pre>
        *
        * <code>optional string message = 5;</code>
@@ -14251,6 +14409,7 @@ public final class V1Apps {
       /**
        * <pre>
        * A human readable message indicating details about the transition.
+       * +optional
        * </pre>
        *
        * <code>optional string message = 5;</code>
@@ -14268,6 +14427,7 @@ public final class V1Apps {
       /**
        * <pre>
        * A human readable message indicating details about the transition.
+       * +optional
        * </pre>
        *
        * <code>optional string message = 5;</code>
@@ -14281,6 +14441,7 @@ public final class V1Apps {
       /**
        * <pre>
        * A human readable message indicating details about the transition.
+       * +optional
        * </pre>
        *
        * <code>optional string message = 5;</code>
@@ -15557,6 +15718,7 @@ public final class V1Apps {
      * Label selector for pods. Existing ReplicaSets whose pods are
      * selected by this will be the ones affected by this deployment.
      * It must match the pod template's labels.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -15567,6 +15729,7 @@ public final class V1Apps {
      * Label selector for pods. Existing ReplicaSets whose pods are
      * selected by this will be the ones affected by this deployment.
      * It must match the pod template's labels.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -15577,6 +15740,7 @@ public final class V1Apps {
      * Label selector for pods. Existing ReplicaSets whose pods are
      * selected by this will be the ones affected by this deployment.
      * It must match the pod template's labels.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -15587,6 +15751,7 @@ public final class V1Apps {
      * <pre>
      * Template describes the pods that will be created.
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -15596,6 +15761,7 @@ public final class V1Apps {
      * <pre>
      * Template describes the pods that will be created.
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -15605,6 +15771,7 @@ public final class V1Apps {
      * <pre>
      * Template describes the pods that will be created.
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -15714,6 +15881,7 @@ public final class V1Apps {
      * process failed deployments and a condition with a ProgressDeadlineExceeded
      * reason will be surfaced in the deployment status. Note that progress will
      * not be estimated during the time a deployment is paused. Defaults to 600s.
+     * +optional
      * </pre>
      *
      * <code>optional int32 progressDeadlineSeconds = 9;</code>
@@ -15726,6 +15894,7 @@ public final class V1Apps {
      * process failed deployments and a condition with a ProgressDeadlineExceeded
      * reason will be surfaced in the deployment status. Note that progress will
      * not be estimated during the time a deployment is paused. Defaults to 600s.
+     * +optional
      * </pre>
      *
      * <code>optional int32 progressDeadlineSeconds = 9;</code>
@@ -15911,6 +16080,7 @@ public final class V1Apps {
      * Label selector for pods. Existing ReplicaSets whose pods are
      * selected by this will be the ones affected by this deployment.
      * It must match the pod template's labels.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -15923,6 +16093,7 @@ public final class V1Apps {
      * Label selector for pods. Existing ReplicaSets whose pods are
      * selected by this will be the ones affected by this deployment.
      * It must match the pod template's labels.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -15935,6 +16106,7 @@ public final class V1Apps {
      * Label selector for pods. Existing ReplicaSets whose pods are
      * selected by this will be the ones affected by this deployment.
      * It must match the pod template's labels.
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -15949,6 +16121,7 @@ public final class V1Apps {
      * <pre>
      * Template describes the pods that will be created.
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -15960,6 +16133,7 @@ public final class V1Apps {
      * <pre>
      * Template describes the pods that will be created.
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -15971,6 +16145,7 @@ public final class V1Apps {
      * <pre>
      * Template describes the pods that will be created.
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -16110,6 +16285,7 @@ public final class V1Apps {
      * process failed deployments and a condition with a ProgressDeadlineExceeded
      * reason will be surfaced in the deployment status. Note that progress will
      * not be estimated during the time a deployment is paused. Defaults to 600s.
+     * +optional
      * </pre>
      *
      * <code>optional int32 progressDeadlineSeconds = 9;</code>
@@ -16124,6 +16300,7 @@ public final class V1Apps {
      * process failed deployments and a condition with a ProgressDeadlineExceeded
      * reason will be surfaced in the deployment status. Note that progress will
      * not be estimated during the time a deployment is paused. Defaults to 600s.
+     * +optional
      * </pre>
      *
      * <code>optional int32 progressDeadlineSeconds = 9;</code>
@@ -16718,6 +16895,7 @@ public final class V1Apps {
        * Label selector for pods. Existing ReplicaSets whose pods are
        * selected by this will be the ones affected by this deployment.
        * It must match the pod template's labels.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -16730,6 +16908,7 @@ public final class V1Apps {
        * Label selector for pods. Existing ReplicaSets whose pods are
        * selected by this will be the ones affected by this deployment.
        * It must match the pod template's labels.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -16746,6 +16925,7 @@ public final class V1Apps {
        * Label selector for pods. Existing ReplicaSets whose pods are
        * selected by this will be the ones affected by this deployment.
        * It must match the pod template's labels.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -16768,6 +16948,7 @@ public final class V1Apps {
        * Label selector for pods. Existing ReplicaSets whose pods are
        * selected by this will be the ones affected by this deployment.
        * It must match the pod template's labels.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -16788,6 +16969,7 @@ public final class V1Apps {
        * Label selector for pods. Existing ReplicaSets whose pods are
        * selected by this will be the ones affected by this deployment.
        * It must match the pod template's labels.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -16814,6 +16996,7 @@ public final class V1Apps {
        * Label selector for pods. Existing ReplicaSets whose pods are
        * selected by this will be the ones affected by this deployment.
        * It must match the pod template's labels.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -16833,6 +17016,7 @@ public final class V1Apps {
        * Label selector for pods. Existing ReplicaSets whose pods are
        * selected by this will be the ones affected by this deployment.
        * It must match the pod template's labels.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -16847,6 +17031,7 @@ public final class V1Apps {
        * Label selector for pods. Existing ReplicaSets whose pods are
        * selected by this will be the ones affected by this deployment.
        * It must match the pod template's labels.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -16864,6 +17049,7 @@ public final class V1Apps {
        * Label selector for pods. Existing ReplicaSets whose pods are
        * selected by this will be the ones affected by this deployment.
        * It must match the pod template's labels.
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -16889,6 +17075,7 @@ public final class V1Apps {
        * <pre>
        * Template describes the pods that will be created.
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -16900,6 +17087,7 @@ public final class V1Apps {
        * <pre>
        * Template describes the pods that will be created.
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -16915,6 +17103,7 @@ public final class V1Apps {
        * <pre>
        * Template describes the pods that will be created.
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -16936,6 +17125,7 @@ public final class V1Apps {
        * <pre>
        * Template describes the pods that will be created.
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -16955,6 +17145,7 @@ public final class V1Apps {
        * <pre>
        * Template describes the pods that will be created.
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -16980,6 +17171,7 @@ public final class V1Apps {
        * <pre>
        * Template describes the pods that will be created.
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -16998,6 +17190,7 @@ public final class V1Apps {
        * <pre>
        * Template describes the pods that will be created.
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -17011,6 +17204,7 @@ public final class V1Apps {
        * <pre>
        * Template describes the pods that will be created.
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -17027,6 +17221,7 @@ public final class V1Apps {
        * <pre>
        * Template describes the pods that will be created.
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -17397,6 +17592,7 @@ public final class V1Apps {
        * process failed deployments and a condition with a ProgressDeadlineExceeded
        * reason will be surfaced in the deployment status. Note that progress will
        * not be estimated during the time a deployment is paused. Defaults to 600s.
+       * +optional
        * </pre>
        *
        * <code>optional int32 progressDeadlineSeconds = 9;</code>
@@ -17411,6 +17607,7 @@ public final class V1Apps {
        * process failed deployments and a condition with a ProgressDeadlineExceeded
        * reason will be surfaced in the deployment status. Note that progress will
        * not be estimated during the time a deployment is paused. Defaults to 600s.
+       * +optional
        * </pre>
        *
        * <code>optional int32 progressDeadlineSeconds = 9;</code>
@@ -17425,6 +17622,7 @@ public final class V1Apps {
        * process failed deployments and a condition with a ProgressDeadlineExceeded
        * reason will be surfaced in the deployment status. Note that progress will
        * not be estimated during the time a deployment is paused. Defaults to 600s.
+       * +optional
        * </pre>
        *
        * <code>optional int32 progressDeadlineSeconds = 9;</code>
@@ -17442,6 +17640,7 @@ public final class V1Apps {
        * process failed deployments and a condition with a ProgressDeadlineExceeded
        * reason will be surfaced in the deployment status. Note that progress will
        * not be estimated during the time a deployment is paused. Defaults to 600s.
+       * +optional
        * </pre>
        *
        * <code>optional int32 progressDeadlineSeconds = 9;</code>
@@ -20617,7 +20816,7 @@ public final class V1Apps {
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -20627,7 +20826,7 @@ public final class V1Apps {
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -20637,7 +20836,7 @@ public final class V1Apps {
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -20687,6 +20886,8 @@ public final class V1Apps {
   /**
    * <pre>
    * ReplicaSet ensures that a specified number of pod replicas are running at any given time.
+   * +k8s:supportsSubresource="/scale"
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.apps.v1.ReplicaSet}
@@ -20850,7 +21051,7 @@ public final class V1Apps {
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -20862,7 +21063,7 @@ public final class V1Apps {
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -20874,7 +21075,7 @@ public final class V1Apps {
      * <pre>
      * Spec defines the specification of the desired behavior of the ReplicaSet.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -21127,6 +21328,8 @@ public final class V1Apps {
     /**
      * <pre>
      * ReplicaSet ensures that a specified number of pod replicas are running at any given time.
+     * +k8s:supportsSubresource="/scale"
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.apps.v1.ReplicaSet}
@@ -21524,7 +21727,7 @@ public final class V1Apps {
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -21536,7 +21739,7 @@ public final class V1Apps {
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -21552,7 +21755,7 @@ public final class V1Apps {
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -21574,7 +21777,7 @@ public final class V1Apps {
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -21594,7 +21797,7 @@ public final class V1Apps {
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -21620,7 +21823,7 @@ public final class V1Apps {
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -21639,7 +21842,7 @@ public final class V1Apps {
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -21653,7 +21856,7 @@ public final class V1Apps {
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -21670,7 +21873,7 @@ public final class V1Apps {
        * <pre>
        * Spec defines the specification of the desired behavior of the ReplicaSet.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.ReplicaSetSpec spec = 2;</code>
@@ -21947,6 +22150,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of replica set condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -21955,6 +22159,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of replica set condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -21963,6 +22168,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of replica set condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -21973,6 +22179,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -21981,6 +22188,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -21989,6 +22197,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -22204,6 +22413,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of replica set condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -22214,6 +22424,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of replica set condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -22235,6 +22446,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of replica set condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -22258,6 +22470,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -22268,6 +22481,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -22289,6 +22503,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -22893,6 +23108,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of replica set condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -22903,6 +23119,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of replica set condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -22924,6 +23141,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of replica set condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -22944,6 +23162,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of replica set condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -22961,6 +23180,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of replica set condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -22974,6 +23194,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of replica set condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -22993,6 +23214,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -23003,6 +23225,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -23024,6 +23247,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -23044,6 +23268,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -23061,6 +23286,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -23074,6 +23300,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -24796,6 +25023,7 @@ public final class V1Apps {
      * Label keys and values that must match in order to be controlled by this replica set.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -24807,6 +25035,7 @@ public final class V1Apps {
      * Label keys and values that must match in order to be controlled by this replica set.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -24818,6 +25047,7 @@ public final class V1Apps {
      * Label keys and values that must match in order to be controlled by this replica set.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25040,6 +25270,7 @@ public final class V1Apps {
      * Label keys and values that must match in order to be controlled by this replica set.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25053,6 +25284,7 @@ public final class V1Apps {
      * Label keys and values that must match in order to be controlled by this replica set.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25066,6 +25298,7 @@ public final class V1Apps {
      * Label keys and values that must match in order to be controlled by this replica set.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25661,6 +25894,7 @@ public final class V1Apps {
        * Label keys and values that must match in order to be controlled by this replica set.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25674,6 +25908,7 @@ public final class V1Apps {
        * Label keys and values that must match in order to be controlled by this replica set.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25691,6 +25926,7 @@ public final class V1Apps {
        * Label keys and values that must match in order to be controlled by this replica set.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25714,6 +25950,7 @@ public final class V1Apps {
        * Label keys and values that must match in order to be controlled by this replica set.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25735,6 +25972,7 @@ public final class V1Apps {
        * Label keys and values that must match in order to be controlled by this replica set.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25762,6 +26000,7 @@ public final class V1Apps {
        * Label keys and values that must match in order to be controlled by this replica set.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25782,6 +26021,7 @@ public final class V1Apps {
        * Label keys and values that must match in order to be controlled by this replica set.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25797,6 +26037,7 @@ public final class V1Apps {
        * Label keys and values that must match in order to be controlled by this replica set.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -25815,6 +26056,7 @@ public final class V1Apps {
        * Label keys and values that must match in order to be controlled by this replica set.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -31567,7 +31809,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Spec defines the desired identities of pods in this set.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -31576,7 +31818,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Spec defines the desired identities of pods in this set.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -31585,7 +31827,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Spec defines the desired identities of pods in this set.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -31631,6 +31873,8 @@ public final class V1Apps {
    *   - Storage: As many VolumeClaims as requested.
    * The StatefulSet guarantees that a given network identity will always
    * map to the same storage identity.
+   * +k8s:supportsSubresource="/scale"
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.apps.v1.StatefulSet}
@@ -31787,7 +32031,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Spec defines the desired identities of pods in this set.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -31798,7 +32042,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Spec defines the desired identities of pods in this set.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -31809,7 +32053,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Spec defines the desired identities of pods in this set.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -32058,6 +32302,8 @@ public final class V1Apps {
      *   - Storage: As many VolumeClaims as requested.
      * The StatefulSet guarantees that a given network identity will always
      * map to the same storage identity.
+     * +k8s:supportsSubresource="/scale"
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.apps.v1.StatefulSet}
@@ -32436,7 +32682,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Spec defines the desired identities of pods in this set.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -32447,7 +32693,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Spec defines the desired identities of pods in this set.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -32462,7 +32708,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Spec defines the desired identities of pods in this set.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -32483,7 +32729,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Spec defines the desired identities of pods in this set.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -32502,7 +32748,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Spec defines the desired identities of pods in this set.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -32527,7 +32773,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Spec defines the desired identities of pods in this set.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -32545,7 +32791,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Spec defines the desired identities of pods in this set.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -32558,7 +32804,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Spec defines the desired identities of pods in this set.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -32574,7 +32820,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Spec defines the desired identities of pods in this set.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetSpec spec = 2;</code>
@@ -32824,6 +33070,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of statefulset condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -32832,6 +33079,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of statefulset condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -32840,6 +33088,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of statefulset condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -32850,6 +33099,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -32858,6 +33108,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -32866,6 +33117,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -33081,6 +33333,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of statefulset condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -33091,6 +33344,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of statefulset condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -33112,6 +33366,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Type of statefulset condition.
+     * +optional
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -33135,6 +33390,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -33145,6 +33401,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -33166,6 +33423,7 @@ public final class V1Apps {
     /**
      * <pre>
      * Status of the condition, one of True, False, Unknown.
+     * +optional
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -33770,6 +34028,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of statefulset condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -33780,6 +34039,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of statefulset condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -33801,6 +34061,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of statefulset condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -33821,6 +34082,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of statefulset condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -33838,6 +34100,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of statefulset condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -33851,6 +34114,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Type of statefulset condition.
+       * +optional
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -33870,6 +34134,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -33880,6 +34145,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -33901,6 +34167,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -33921,6 +34188,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -33938,6 +34206,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -33951,6 +34220,7 @@ public final class V1Apps {
       /**
        * <pre>
        * Status of the condition, one of True, False, Unknown.
+       * +optional
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -36208,6 +36478,7 @@ public final class V1Apps {
      * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
      * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
      * `Delete` policy causes those PVCs to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenDeleted = 1;</code>
@@ -36219,6 +36490,7 @@ public final class V1Apps {
      * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
      * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
      * `Delete` policy causes those PVCs to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenDeleted = 1;</code>
@@ -36230,6 +36502,7 @@ public final class V1Apps {
      * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
      * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
      * `Delete` policy causes those PVCs to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenDeleted = 1;</code>
@@ -36244,6 +36517,7 @@ public final class V1Apps {
      * policy of `Retain` causes PVCs to not be affected by a scaledown. The
      * `Delete` policy causes the associated PVCs for any excess pods above
      * the replica count to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenScaled = 2;</code>
@@ -36256,6 +36530,7 @@ public final class V1Apps {
      * policy of `Retain` causes PVCs to not be affected by a scaledown. The
      * `Delete` policy causes the associated PVCs for any excess pods above
      * the replica count to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenScaled = 2;</code>
@@ -36268,6 +36543,7 @@ public final class V1Apps {
      * policy of `Retain` causes PVCs to not be affected by a scaledown. The
      * `Delete` policy causes the associated PVCs for any excess pods above
      * the replica count to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenScaled = 2;</code>
@@ -36374,6 +36650,7 @@ public final class V1Apps {
      * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
      * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
      * `Delete` policy causes those PVCs to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenDeleted = 1;</code>
@@ -36387,6 +36664,7 @@ public final class V1Apps {
      * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
      * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
      * `Delete` policy causes those PVCs to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenDeleted = 1;</code>
@@ -36411,6 +36689,7 @@ public final class V1Apps {
      * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
      * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
      * `Delete` policy causes those PVCs to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenDeleted = 1;</code>
@@ -36438,6 +36717,7 @@ public final class V1Apps {
      * policy of `Retain` causes PVCs to not be affected by a scaledown. The
      * `Delete` policy causes the associated PVCs for any excess pods above
      * the replica count to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenScaled = 2;</code>
@@ -36452,6 +36732,7 @@ public final class V1Apps {
      * policy of `Retain` causes PVCs to not be affected by a scaledown. The
      * `Delete` policy causes the associated PVCs for any excess pods above
      * the replica count to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenScaled = 2;</code>
@@ -36477,6 +36758,7 @@ public final class V1Apps {
      * policy of `Retain` causes PVCs to not be affected by a scaledown. The
      * `Delete` policy causes the associated PVCs for any excess pods above
      * the replica count to be deleted.
+     * +optional
      * </pre>
      *
      * <code>optional string whenScaled = 2;</code>
@@ -36849,6 +37131,7 @@ public final class V1Apps {
        * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
        * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
        * `Delete` policy causes those PVCs to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenDeleted = 1;</code>
@@ -36862,6 +37145,7 @@ public final class V1Apps {
        * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
        * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
        * `Delete` policy causes those PVCs to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenDeleted = 1;</code>
@@ -36886,6 +37170,7 @@ public final class V1Apps {
        * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
        * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
        * `Delete` policy causes those PVCs to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenDeleted = 1;</code>
@@ -36909,6 +37194,7 @@ public final class V1Apps {
        * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
        * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
        * `Delete` policy causes those PVCs to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenDeleted = 1;</code>
@@ -36929,6 +37215,7 @@ public final class V1Apps {
        * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
        * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
        * `Delete` policy causes those PVCs to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenDeleted = 1;</code>
@@ -36945,6 +37232,7 @@ public final class V1Apps {
        * VolumeClaimTemplates when the StatefulSet is deleted. The default policy
        * of `Retain` causes PVCs to not be affected by StatefulSet deletion. The
        * `Delete` policy causes those PVCs to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenDeleted = 1;</code>
@@ -36968,6 +37256,7 @@ public final class V1Apps {
        * policy of `Retain` causes PVCs to not be affected by a scaledown. The
        * `Delete` policy causes the associated PVCs for any excess pods above
        * the replica count to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenScaled = 2;</code>
@@ -36982,6 +37271,7 @@ public final class V1Apps {
        * policy of `Retain` causes PVCs to not be affected by a scaledown. The
        * `Delete` policy causes the associated PVCs for any excess pods above
        * the replica count to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenScaled = 2;</code>
@@ -37007,6 +37297,7 @@ public final class V1Apps {
        * policy of `Retain` causes PVCs to not be affected by a scaledown. The
        * `Delete` policy causes the associated PVCs for any excess pods above
        * the replica count to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenScaled = 2;</code>
@@ -37031,6 +37322,7 @@ public final class V1Apps {
        * policy of `Retain` causes PVCs to not be affected by a scaledown. The
        * `Delete` policy causes the associated PVCs for any excess pods above
        * the replica count to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenScaled = 2;</code>
@@ -37052,6 +37344,7 @@ public final class V1Apps {
        * policy of `Retain` causes PVCs to not be affected by a scaledown. The
        * `Delete` policy causes the associated PVCs for any excess pods above
        * the replica count to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenScaled = 2;</code>
@@ -37069,6 +37362,7 @@ public final class V1Apps {
        * policy of `Retain` causes PVCs to not be affected by a scaledown. The
        * `Delete` policy causes the associated PVCs for any excess pods above
        * the replica count to be deleted.
+       * +optional
        * </pre>
        *
        * <code>optional string whenScaled = 2;</code>
@@ -37172,6 +37466,9 @@ public final class V1Apps {
      * selector is a label query over pods that should match the replica count.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
+     * +k8s:alpha(since: "1.37")=+k8s:required
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -37182,6 +37479,9 @@ public final class V1Apps {
      * selector is a label query over pods that should match the replica count.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
+     * +k8s:alpha(since: "1.37")=+k8s:required
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -37192,6 +37492,9 @@ public final class V1Apps {
      * selector is a label query over pods that should match the replica count.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
+     * +k8s:alpha(since: "1.37")=+k8s:required
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -37207,6 +37510,7 @@ public final class V1Apps {
      * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
      * "web" with index number "3" would be named "web-3".
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -37221,6 +37525,7 @@ public final class V1Apps {
      * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
      * "web" with index number "3" would be named "web-3".
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -37235,6 +37540,7 @@ public final class V1Apps {
      * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
      * "web" with index number "3" would be named "web-3".
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -37251,6 +37557,8 @@ public final class V1Apps {
      * any volumes in the template, with the same name.
      * TODO: Define the behavior if a claim already exists with the same name.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * +listType=atomic
      * </pre>
      *
@@ -37268,6 +37576,8 @@ public final class V1Apps {
      * any volumes in the template, with the same name.
      * TODO: Define the behavior if a claim already exists with the same name.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * +listType=atomic
      * </pre>
      *
@@ -37284,6 +37594,8 @@ public final class V1Apps {
      * any volumes in the template, with the same name.
      * TODO: Define the behavior if a claim already exists with the same name.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * +listType=atomic
      * </pre>
      *
@@ -37300,6 +37612,8 @@ public final class V1Apps {
      * any volumes in the template, with the same name.
      * TODO: Define the behavior if a claim already exists with the same name.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * +listType=atomic
      * </pre>
      *
@@ -37317,6 +37631,8 @@ public final class V1Apps {
      * any volumes in the template, with the same name.
      * TODO: Define the behavior if a claim already exists with the same name.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * +listType=atomic
      * </pre>
      *
@@ -37333,6 +37649,8 @@ public final class V1Apps {
      * pattern: pod-specific-string.serviceName.default.svc.cluster.local
      * where "pod-specific-string" is managed by the StatefulSet controller.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string serviceName = 5;</code>
@@ -37346,6 +37664,8 @@ public final class V1Apps {
      * pattern: pod-specific-string.serviceName.default.svc.cluster.local
      * where "pod-specific-string" is managed by the StatefulSet controller.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string serviceName = 5;</code>
@@ -37359,6 +37679,8 @@ public final class V1Apps {
      * pattern: pod-specific-string.serviceName.default.svc.cluster.local
      * where "pod-specific-string" is managed by the StatefulSet controller.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string serviceName = 5;</code>
@@ -37377,6 +37699,8 @@ public final class V1Apps {
      * to match the desired scale without waiting, and on scale down will delete
      * all pods at once.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string podManagementPolicy = 6;</code>
@@ -37393,6 +37717,8 @@ public final class V1Apps {
      * to match the desired scale without waiting, and on scale down will delete
      * all pods at once.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string podManagementPolicy = 6;</code>
@@ -37409,6 +37735,8 @@ public final class V1Apps {
      * to match the desired scale without waiting, and on scale down will delete
      * all pods at once.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string podManagementPolicy = 6;</code>
@@ -37421,6 +37749,7 @@ public final class V1Apps {
      * updateStrategy indicates the StatefulSetUpdateStrategy that will be
      * employed to update Pods in the StatefulSet when a revision is made to
      * Template.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -37431,6 +37760,7 @@ public final class V1Apps {
      * updateStrategy indicates the StatefulSetUpdateStrategy that will be
      * employed to update Pods in the StatefulSet when a revision is made to
      * Template.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -37441,6 +37771,7 @@ public final class V1Apps {
      * updateStrategy indicates the StatefulSetUpdateStrategy that will be
      * employed to update Pods in the StatefulSet when a revision is made to
      * Template.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -37453,6 +37784,7 @@ public final class V1Apps {
      * be maintained in the StatefulSet's revision history. The revision history
      * consists of all revisions not represented by a currently applied
      * StatefulSetSpec version. The default value is 10.
+     * +optional
      * </pre>
      *
      * <code>optional int32 revisionHistoryLimit = 8;</code>
@@ -37464,6 +37796,7 @@ public final class V1Apps {
      * be maintained in the StatefulSet's revision history. The revision history
      * consists of all revisions not represented by a currently applied
      * StatefulSetSpec version. The default value is 10.
+     * +optional
      * </pre>
      *
      * <code>optional int32 revisionHistoryLimit = 8;</code>
@@ -37796,6 +38129,9 @@ public final class V1Apps {
      * selector is a label query over pods that should match the replica count.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
+     * +k8s:alpha(since: "1.37")=+k8s:required
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -37808,6 +38144,9 @@ public final class V1Apps {
      * selector is a label query over pods that should match the replica count.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
+     * +k8s:alpha(since: "1.37")=+k8s:required
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -37820,6 +38159,9 @@ public final class V1Apps {
      * selector is a label query over pods that should match the replica count.
      * It must match the pod template's labels.
      * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+     * +required
+     * +k8s:alpha(since: "1.37")=+k8s:required
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -37839,6 +38181,7 @@ public final class V1Apps {
      * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
      * "web" with index number "3" would be named "web-3".
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -37855,6 +38198,7 @@ public final class V1Apps {
      * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
      * "web" with index number "3" would be named "web-3".
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -37871,6 +38215,7 @@ public final class V1Apps {
      * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
      * "web" with index number "3" would be named "web-3".
      * The only allowed template.spec.restartPolicy value is "Always".
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -37891,6 +38236,8 @@ public final class V1Apps {
      * any volumes in the template, with the same name.
      * TODO: Define the behavior if a claim already exists with the same name.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * +listType=atomic
      * </pre>
      *
@@ -37909,6 +38256,8 @@ public final class V1Apps {
      * any volumes in the template, with the same name.
      * TODO: Define the behavior if a claim already exists with the same name.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * +listType=atomic
      * </pre>
      *
@@ -37928,6 +38277,8 @@ public final class V1Apps {
      * any volumes in the template, with the same name.
      * TODO: Define the behavior if a claim already exists with the same name.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * +listType=atomic
      * </pre>
      *
@@ -37946,6 +38297,8 @@ public final class V1Apps {
      * any volumes in the template, with the same name.
      * TODO: Define the behavior if a claim already exists with the same name.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * +listType=atomic
      * </pre>
      *
@@ -37964,6 +38317,8 @@ public final class V1Apps {
      * any volumes in the template, with the same name.
      * TODO: Define the behavior if a claim already exists with the same name.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * +listType=atomic
      * </pre>
      *
@@ -37984,6 +38339,8 @@ public final class V1Apps {
      * pattern: pod-specific-string.serviceName.default.svc.cluster.local
      * where "pod-specific-string" is managed by the StatefulSet controller.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string serviceName = 5;</code>
@@ -37999,6 +38356,8 @@ public final class V1Apps {
      * pattern: pod-specific-string.serviceName.default.svc.cluster.local
      * where "pod-specific-string" is managed by the StatefulSet controller.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string serviceName = 5;</code>
@@ -38025,6 +38384,8 @@ public final class V1Apps {
      * pattern: pod-specific-string.serviceName.default.svc.cluster.local
      * where "pod-specific-string" is managed by the StatefulSet controller.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string serviceName = 5;</code>
@@ -38056,6 +38417,8 @@ public final class V1Apps {
      * to match the desired scale without waiting, and on scale down will delete
      * all pods at once.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string podManagementPolicy = 6;</code>
@@ -38074,6 +38437,8 @@ public final class V1Apps {
      * to match the desired scale without waiting, and on scale down will delete
      * all pods at once.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string podManagementPolicy = 6;</code>
@@ -38103,6 +38468,8 @@ public final class V1Apps {
      * to match the desired scale without waiting, and on scale down will delete
      * all pods at once.
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:immutable
+     * +k8s:alpha(since: "1.37")=+k8s:optional
      * </pre>
      *
      * <code>optional string podManagementPolicy = 6;</code>
@@ -38128,6 +38495,7 @@ public final class V1Apps {
      * updateStrategy indicates the StatefulSetUpdateStrategy that will be
      * employed to update Pods in the StatefulSet when a revision is made to
      * Template.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -38140,6 +38508,7 @@ public final class V1Apps {
      * updateStrategy indicates the StatefulSetUpdateStrategy that will be
      * employed to update Pods in the StatefulSet when a revision is made to
      * Template.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -38152,6 +38521,7 @@ public final class V1Apps {
      * updateStrategy indicates the StatefulSetUpdateStrategy that will be
      * employed to update Pods in the StatefulSet when a revision is made to
      * Template.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -38168,6 +38538,7 @@ public final class V1Apps {
      * be maintained in the StatefulSet's revision history. The revision history
      * consists of all revisions not represented by a currently applied
      * StatefulSetSpec version. The default value is 10.
+     * +optional
      * </pre>
      *
      * <code>optional int32 revisionHistoryLimit = 8;</code>
@@ -38181,6 +38552,7 @@ public final class V1Apps {
      * be maintained in the StatefulSet's revision history. The revision history
      * consists of all revisions not represented by a currently applied
      * StatefulSetSpec version. The default value is 10.
+     * +optional
      * </pre>
      *
      * <code>optional int32 revisionHistoryLimit = 8;</code>
@@ -39033,6 +39405,9 @@ public final class V1Apps {
        * selector is a label query over pods that should match the replica count.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
+       * +k8s:alpha(since: "1.37")=+k8s:required
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -39045,6 +39420,9 @@ public final class V1Apps {
        * selector is a label query over pods that should match the replica count.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
+       * +k8s:alpha(since: "1.37")=+k8s:required
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -39061,6 +39439,9 @@ public final class V1Apps {
        * selector is a label query over pods that should match the replica count.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
+       * +k8s:alpha(since: "1.37")=+k8s:required
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -39083,6 +39464,9 @@ public final class V1Apps {
        * selector is a label query over pods that should match the replica count.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
+       * +k8s:alpha(since: "1.37")=+k8s:required
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -39103,6 +39487,9 @@ public final class V1Apps {
        * selector is a label query over pods that should match the replica count.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
+       * +k8s:alpha(since: "1.37")=+k8s:required
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -39129,6 +39516,9 @@ public final class V1Apps {
        * selector is a label query over pods that should match the replica count.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
+       * +k8s:alpha(since: "1.37")=+k8s:required
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -39148,6 +39538,9 @@ public final class V1Apps {
        * selector is a label query over pods that should match the replica count.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
+       * +k8s:alpha(since: "1.37")=+k8s:required
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -39162,6 +39555,9 @@ public final class V1Apps {
        * selector is a label query over pods that should match the replica count.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
+       * +k8s:alpha(since: "1.37")=+k8s:required
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -39179,6 +39575,9 @@ public final class V1Apps {
        * selector is a label query over pods that should match the replica count.
        * It must match the pod template's labels.
        * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors
+       * +required
+       * +k8s:alpha(since: "1.37")=+k8s:required
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector selector = 2;</code>
@@ -39209,6 +39608,7 @@ public final class V1Apps {
        * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
        * "web" with index number "3" would be named "web-3".
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -39225,6 +39625,7 @@ public final class V1Apps {
        * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
        * "web" with index number "3" would be named "web-3".
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -39245,6 +39646,7 @@ public final class V1Apps {
        * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
        * "web" with index number "3" would be named "web-3".
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -39271,6 +39673,7 @@ public final class V1Apps {
        * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
        * "web" with index number "3" would be named "web-3".
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -39295,6 +39698,7 @@ public final class V1Apps {
        * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
        * "web" with index number "3" would be named "web-3".
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -39325,6 +39729,7 @@ public final class V1Apps {
        * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
        * "web" with index number "3" would be named "web-3".
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -39348,6 +39753,7 @@ public final class V1Apps {
        * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
        * "web" with index number "3" would be named "web-3".
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -39366,6 +39772,7 @@ public final class V1Apps {
        * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
        * "web" with index number "3" would be named "web-3".
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -39387,6 +39794,7 @@ public final class V1Apps {
        * &lt;statefulsetname&gt;-&lt;podindex&gt;. For example, a pod in a StatefulSet named
        * "web" with index number "3" would be named "web-3".
        * The only allowed template.spec.restartPolicy value is "Always".
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.core.v1.PodTemplateSpec template = 3;</code>
@@ -39427,6 +39835,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39449,6 +39859,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39471,6 +39883,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39493,6 +39907,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39522,6 +39938,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39548,6 +39966,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39576,6 +39996,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39605,6 +40027,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39631,6 +40055,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39657,6 +40083,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39684,6 +40112,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39709,6 +40139,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39734,6 +40166,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39753,6 +40187,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39775,6 +40211,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39798,6 +40236,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39817,6 +40257,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39837,6 +40279,8 @@ public final class V1Apps {
        * any volumes in the template, with the same name.
        * TODO: Define the behavior if a claim already exists with the same name.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * +listType=atomic
        * </pre>
        *
@@ -39870,6 +40314,8 @@ public final class V1Apps {
        * pattern: pod-specific-string.serviceName.default.svc.cluster.local
        * where "pod-specific-string" is managed by the StatefulSet controller.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string serviceName = 5;</code>
@@ -39885,6 +40331,8 @@ public final class V1Apps {
        * pattern: pod-specific-string.serviceName.default.svc.cluster.local
        * where "pod-specific-string" is managed by the StatefulSet controller.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string serviceName = 5;</code>
@@ -39911,6 +40359,8 @@ public final class V1Apps {
        * pattern: pod-specific-string.serviceName.default.svc.cluster.local
        * where "pod-specific-string" is managed by the StatefulSet controller.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string serviceName = 5;</code>
@@ -39936,6 +40386,8 @@ public final class V1Apps {
        * pattern: pod-specific-string.serviceName.default.svc.cluster.local
        * where "pod-specific-string" is managed by the StatefulSet controller.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string serviceName = 5;</code>
@@ -39958,6 +40410,8 @@ public final class V1Apps {
        * pattern: pod-specific-string.serviceName.default.svc.cluster.local
        * where "pod-specific-string" is managed by the StatefulSet controller.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string serviceName = 5;</code>
@@ -39976,6 +40430,8 @@ public final class V1Apps {
        * pattern: pod-specific-string.serviceName.default.svc.cluster.local
        * where "pod-specific-string" is managed by the StatefulSet controller.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string serviceName = 5;</code>
@@ -40003,6 +40459,8 @@ public final class V1Apps {
        * to match the desired scale without waiting, and on scale down will delete
        * all pods at once.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string podManagementPolicy = 6;</code>
@@ -40021,6 +40479,8 @@ public final class V1Apps {
        * to match the desired scale without waiting, and on scale down will delete
        * all pods at once.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string podManagementPolicy = 6;</code>
@@ -40050,6 +40510,8 @@ public final class V1Apps {
        * to match the desired scale without waiting, and on scale down will delete
        * all pods at once.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string podManagementPolicy = 6;</code>
@@ -40078,6 +40540,8 @@ public final class V1Apps {
        * to match the desired scale without waiting, and on scale down will delete
        * all pods at once.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string podManagementPolicy = 6;</code>
@@ -40103,6 +40567,8 @@ public final class V1Apps {
        * to match the desired scale without waiting, and on scale down will delete
        * all pods at once.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string podManagementPolicy = 6;</code>
@@ -40124,6 +40590,8 @@ public final class V1Apps {
        * to match the desired scale without waiting, and on scale down will delete
        * all pods at once.
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:immutable
+       * +k8s:alpha(since: "1.37")=+k8s:optional
        * </pre>
        *
        * <code>optional string podManagementPolicy = 6;</code>
@@ -40147,6 +40615,7 @@ public final class V1Apps {
        * updateStrategy indicates the StatefulSetUpdateStrategy that will be
        * employed to update Pods in the StatefulSet when a revision is made to
        * Template.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -40159,6 +40628,7 @@ public final class V1Apps {
        * updateStrategy indicates the StatefulSetUpdateStrategy that will be
        * employed to update Pods in the StatefulSet when a revision is made to
        * Template.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -40175,6 +40645,7 @@ public final class V1Apps {
        * updateStrategy indicates the StatefulSetUpdateStrategy that will be
        * employed to update Pods in the StatefulSet when a revision is made to
        * Template.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -40197,6 +40668,7 @@ public final class V1Apps {
        * updateStrategy indicates the StatefulSetUpdateStrategy that will be
        * employed to update Pods in the StatefulSet when a revision is made to
        * Template.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -40217,6 +40689,7 @@ public final class V1Apps {
        * updateStrategy indicates the StatefulSetUpdateStrategy that will be
        * employed to update Pods in the StatefulSet when a revision is made to
        * Template.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -40243,6 +40716,7 @@ public final class V1Apps {
        * updateStrategy indicates the StatefulSetUpdateStrategy that will be
        * employed to update Pods in the StatefulSet when a revision is made to
        * Template.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -40262,6 +40736,7 @@ public final class V1Apps {
        * updateStrategy indicates the StatefulSetUpdateStrategy that will be
        * employed to update Pods in the StatefulSet when a revision is made to
        * Template.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -40276,6 +40751,7 @@ public final class V1Apps {
        * updateStrategy indicates the StatefulSetUpdateStrategy that will be
        * employed to update Pods in the StatefulSet when a revision is made to
        * Template.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -40293,6 +40769,7 @@ public final class V1Apps {
        * updateStrategy indicates the StatefulSetUpdateStrategy that will be
        * employed to update Pods in the StatefulSet when a revision is made to
        * Template.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.apps.v1.StatefulSetUpdateStrategy updateStrategy = 7;</code>
@@ -40318,6 +40795,7 @@ public final class V1Apps {
        * be maintained in the StatefulSet's revision history. The revision history
        * consists of all revisions not represented by a currently applied
        * StatefulSetSpec version. The default value is 10.
+       * +optional
        * </pre>
        *
        * <code>optional int32 revisionHistoryLimit = 8;</code>
@@ -40331,6 +40809,7 @@ public final class V1Apps {
        * be maintained in the StatefulSet's revision history. The revision history
        * consists of all revisions not represented by a currently applied
        * StatefulSetSpec version. The default value is 10.
+       * +optional
        * </pre>
        *
        * <code>optional int32 revisionHistoryLimit = 8;</code>
@@ -40344,6 +40823,7 @@ public final class V1Apps {
        * be maintained in the StatefulSet's revision history. The revision history
        * consists of all revisions not represented by a currently applied
        * StatefulSetSpec version. The default value is 10.
+       * +optional
        * </pre>
        *
        * <code>optional int32 revisionHistoryLimit = 8;</code>
@@ -40360,6 +40840,7 @@ public final class V1Apps {
        * be maintained in the StatefulSet's revision history. The revision history
        * consists of all revisions not represented by a currently applied
        * StatefulSetSpec version. The default value is 10.
+       * +optional
        * </pre>
        *
        * <code>optional int32 revisionHistoryLimit = 8;</code>

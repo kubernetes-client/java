@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.
  */
 @ApiModel(description = "A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1TopologySelectorLabelRequirement {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)

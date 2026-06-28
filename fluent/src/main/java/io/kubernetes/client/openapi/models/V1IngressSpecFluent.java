@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -51,7 +51,7 @@ public class V1IngressSpecFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1IngressRule item : items) {
         V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
-        _visitables.get("rules").add(builder);
+        this._visitables.get("rules").add(builder);
         this.rules.add(builder);
     }
     return (A) this;
@@ -63,7 +63,7 @@ public class V1IngressSpecFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1IngressTLS item : items) {
         V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
-        _visitables.get("tls").add(builder);
+        this._visitables.get("tls").add(builder);
         this.tls.add(builder);
     }
     return (A) this;
@@ -91,7 +91,7 @@ public class V1IngressSpecFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1IngressRule item : items) {
         V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
-        _visitables.get("rules").add(builder);
+        this._visitables.get("rules").add(builder);
         this.rules.add(builder);
     }
     return (A) this;
@@ -102,12 +102,12 @@ public class V1IngressSpecFluent<A extends io.kubernetes.client.openapi.models.V
       this.rules = new ArrayList();
     }
     V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
-    if (index < 0 || index >= rules.size()) {
-        _visitables.get("rules").add(builder);
-        rules.add(builder);
+    if (index < 0 || index >= this.rules.size()) {
+        this._visitables.get("rules").add(builder);
+        this.rules.add(builder);
     } else {
-        _visitables.get("rules").add(builder);
-        rules.add(index, builder);
+        this._visitables.get("rules").add(builder);
+        this.rules.add(index, builder);
     }
     return (A) this;
   }
@@ -118,7 +118,7 @@ public class V1IngressSpecFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1IngressTLS item : items) {
         V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
-        _visitables.get("tls").add(builder);
+        this._visitables.get("tls").add(builder);
         this.tls.add(builder);
     }
     return (A) this;
@@ -129,12 +129,12 @@ public class V1IngressSpecFluent<A extends io.kubernetes.client.openapi.models.V
       this.tls = new ArrayList();
     }
     V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
-    if (index < 0 || index >= tls.size()) {
-        _visitables.get("tls").add(builder);
-        tls.add(builder);
+    if (index < 0 || index >= this.tls.size()) {
+        this._visitables.get("tls").add(builder);
+        this.tls.add(builder);
     } else {
-        _visitables.get("tls").add(builder);
-        tls.add(index, builder);
+        this._visitables.get("tls").add(builder);
+        this.tls.add(index, builder);
     }
     return (A) this;
   }
@@ -408,7 +408,7 @@ public class V1IngressSpecFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<V1IngressRuleBuilder> each = rules.iterator();
-    List visitables = _visitables.get("rules");
+    List visitables = this._visitables.get("rules");
     while (each.hasNext()) {
         V1IngressRuleBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -424,7 +424,7 @@ public class V1IngressSpecFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<V1IngressTLSBuilder> each = tls.iterator();
-    List visitables = _visitables.get("tls");
+    List visitables = this._visitables.get("tls");
     while (each.hasNext()) {
         V1IngressTLSBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -448,12 +448,12 @@ public class V1IngressSpecFluent<A extends io.kubernetes.client.openapi.models.V
       this.rules = new ArrayList();
     }
     V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
-    if (index < 0 || index >= rules.size()) {
-        _visitables.get("rules").add(builder);
-        rules.add(builder);
+    if (index < 0 || index >= this.rules.size()) {
+        this._visitables.get("rules").add(builder);
+        this.rules.add(builder);
     } else {
-        _visitables.get("rules").add(builder);
-        rules.set(index, builder);
+        this._visitables.get("rules").add(builder);
+        this.rules.set(index, builder);
     }
     return (A) this;
   }
@@ -463,12 +463,12 @@ public class V1IngressSpecFluent<A extends io.kubernetes.client.openapi.models.V
       this.tls = new ArrayList();
     }
     V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
-    if (index < 0 || index >= tls.size()) {
-        _visitables.get("tls").add(builder);
-        tls.add(builder);
+    if (index < 0 || index >= this.tls.size()) {
+        this._visitables.get("tls").add(builder);
+        this.tls.add(builder);
     } else {
-        _visitables.get("tls").add(builder);
-        tls.set(index, builder);
+        this._visitables.get("tls").add(builder);
+        this.tls.set(index, builder);
     }
     return (A) this;
   }

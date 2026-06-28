@@ -2323,7 +2323,7 @@ public final class V1Networking {
      * <pre>
      * spec is the desired state of the IPAddress.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -2333,7 +2333,7 @@ public final class V1Networking {
      * <pre>
      * spec is the desired state of the IPAddress.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -2343,7 +2343,7 @@ public final class V1Networking {
      * <pre>
      * spec is the desired state of the IPAddress.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -2503,7 +2503,7 @@ public final class V1Networking {
      * <pre>
      * spec is the desired state of the IPAddress.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -2515,7 +2515,7 @@ public final class V1Networking {
      * <pre>
      * spec is the desired state of the IPAddress.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -2527,7 +2527,7 @@ public final class V1Networking {
      * <pre>
      * spec is the desired state of the IPAddress.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -3083,7 +3083,7 @@ public final class V1Networking {
        * <pre>
        * spec is the desired state of the IPAddress.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -3095,7 +3095,7 @@ public final class V1Networking {
        * <pre>
        * spec is the desired state of the IPAddress.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -3111,7 +3111,7 @@ public final class V1Networking {
        * <pre>
        * spec is the desired state of the IPAddress.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -3133,7 +3133,7 @@ public final class V1Networking {
        * <pre>
        * spec is the desired state of the IPAddress.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -3153,7 +3153,7 @@ public final class V1Networking {
        * <pre>
        * spec is the desired state of the IPAddress.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -3179,7 +3179,7 @@ public final class V1Networking {
        * <pre>
        * spec is the desired state of the IPAddress.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -3198,7 +3198,7 @@ public final class V1Networking {
        * <pre>
        * spec is the desired state of the IPAddress.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -3212,7 +3212,7 @@ public final class V1Networking {
        * <pre>
        * spec is the desired state of the IPAddress.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -3229,7 +3229,7 @@ public final class V1Networking {
        * <pre>
        * spec is the desired state of the IPAddress.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPAddressSpec spec = 2;</code>
@@ -4503,6 +4503,8 @@ public final class V1Networking {
      * ParentRef references the resource that an IPAddress is attached to.
      * An IPAddress must reference a parent object.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -4513,6 +4515,8 @@ public final class V1Networking {
      * ParentRef references the resource that an IPAddress is attached to.
      * An IPAddress must reference a parent object.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -4523,6 +4527,8 @@ public final class V1Networking {
      * ParentRef references the resource that an IPAddress is attached to.
      * An IPAddress must reference a parent object.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -4625,6 +4631,8 @@ public final class V1Networking {
      * ParentRef references the resource that an IPAddress is attached to.
      * An IPAddress must reference a parent object.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -4637,6 +4645,8 @@ public final class V1Networking {
      * ParentRef references the resource that an IPAddress is attached to.
      * An IPAddress must reference a parent object.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -4649,6 +4659,8 @@ public final class V1Networking {
      * ParentRef references the resource that an IPAddress is attached to.
      * An IPAddress must reference a parent object.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -4993,6 +5005,8 @@ public final class V1Networking {
        * ParentRef references the resource that an IPAddress is attached to.
        * An IPAddress must reference a parent object.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -5005,6 +5019,8 @@ public final class V1Networking {
        * ParentRef references the resource that an IPAddress is attached to.
        * An IPAddress must reference a parent object.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -5021,6 +5037,8 @@ public final class V1Networking {
        * ParentRef references the resource that an IPAddress is attached to.
        * An IPAddress must reference a parent object.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -5043,6 +5061,8 @@ public final class V1Networking {
        * ParentRef references the resource that an IPAddress is attached to.
        * An IPAddress must reference a parent object.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -5063,6 +5083,8 @@ public final class V1Networking {
        * ParentRef references the resource that an IPAddress is attached to.
        * An IPAddress must reference a parent object.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -5089,6 +5111,8 @@ public final class V1Networking {
        * ParentRef references the resource that an IPAddress is attached to.
        * An IPAddress must reference a parent object.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -5108,6 +5132,8 @@ public final class V1Networking {
        * ParentRef references the resource that an IPAddress is attached to.
        * An IPAddress must reference a parent object.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -5122,6 +5148,8 @@ public final class V1Networking {
        * ParentRef references the resource that an IPAddress is attached to.
        * An IPAddress must reference a parent object.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -5139,6 +5167,8 @@ public final class V1Networking {
        * ParentRef references the resource that an IPAddress is attached to.
        * An IPAddress must reference a parent object.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.ParentReference parentRef = 1;</code>
@@ -5217,6 +5247,8 @@ public final class V1Networking {
      * <pre>
      * cidr is a string representing the IPBlock
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -5226,6 +5258,8 @@ public final class V1Networking {
      * <pre>
      * cidr is a string representing the IPBlock
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -5235,6 +5269,8 @@ public final class V1Networking {
      * <pre>
      * cidr is a string representing the IPBlock
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -5397,6 +5433,8 @@ public final class V1Networking {
      * <pre>
      * cidr is a string representing the IPBlock
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -5408,6 +5446,8 @@ public final class V1Networking {
      * <pre>
      * cidr is a string representing the IPBlock
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -5430,6 +5470,8 @@ public final class V1Networking {
      * <pre>
      * cidr is a string representing the IPBlock
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -5870,6 +5912,8 @@ public final class V1Networking {
        * <pre>
        * cidr is a string representing the IPBlock
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -5881,6 +5925,8 @@ public final class V1Networking {
        * <pre>
        * cidr is a string representing the IPBlock
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -5903,6 +5949,8 @@ public final class V1Networking {
        * <pre>
        * cidr is a string representing the IPBlock
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -5924,6 +5972,8 @@ public final class V1Networking {
        * <pre>
        * cidr is a string representing the IPBlock
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -5942,6 +5992,8 @@ public final class V1Networking {
        * <pre>
        * cidr is a string representing the IPBlock
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -5956,6 +6008,8 @@ public final class V1Networking {
        * <pre>
        * cidr is a string representing the IPBlock
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -6291,6 +6345,7 @@ public final class V1Networking {
    * endpoints defined by a backend. An Ingress can be configured to give services
    * externally-reachable urls, load balance traffic, terminate SSL, offer name
    * based virtual hosting etc.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.networking.v1.Ingress}
@@ -6719,6 +6774,7 @@ public final class V1Networking {
      * endpoints defined by a backend. An Ingress can be configured to give services
      * externally-reachable urls, load balance traffic, terminate SSL, offer name
      * based virtual hosting etc.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.networking.v1.Ingress}
@@ -10755,7 +10811,7 @@ public final class V1Networking {
      * <pre>
      * kind is the type of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -10765,7 +10821,7 @@ public final class V1Networking {
      * <pre>
      * kind is the type of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -10775,7 +10831,7 @@ public final class V1Networking {
      * <pre>
      * kind is the type of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -10787,7 +10843,7 @@ public final class V1Networking {
      * <pre>
      * name is the name of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -10797,7 +10853,7 @@ public final class V1Networking {
      * <pre>
      * name is the name of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -10807,7 +10863,7 @@ public final class V1Networking {
      * <pre>
      * name is the name of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -11063,7 +11119,7 @@ public final class V1Networking {
      * <pre>
      * kind is the type of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -11075,7 +11131,7 @@ public final class V1Networking {
      * <pre>
      * kind is the type of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -11098,7 +11154,7 @@ public final class V1Networking {
      * <pre>
      * kind is the type of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string kind = 2;</code>
@@ -11123,7 +11179,7 @@ public final class V1Networking {
      * <pre>
      * name is the name of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -11135,7 +11191,7 @@ public final class V1Networking {
      * <pre>
      * name is the name of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -11158,7 +11214,7 @@ public final class V1Networking {
      * <pre>
      * name is the name of resource being referenced.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -11848,7 +11904,7 @@ public final class V1Networking {
        * <pre>
        * kind is the type of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11860,7 +11916,7 @@ public final class V1Networking {
        * <pre>
        * kind is the type of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11883,7 +11939,7 @@ public final class V1Networking {
        * <pre>
        * kind is the type of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11905,7 +11961,7 @@ public final class V1Networking {
        * <pre>
        * kind is the type of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11924,7 +11980,7 @@ public final class V1Networking {
        * <pre>
        * kind is the type of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11939,7 +11995,7 @@ public final class V1Networking {
        * <pre>
        * kind is the type of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string kind = 2;</code>
@@ -11960,7 +12016,7 @@ public final class V1Networking {
        * <pre>
        * name is the name of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -11972,7 +12028,7 @@ public final class V1Networking {
        * <pre>
        * name is the name of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -11995,7 +12051,7 @@ public final class V1Networking {
        * <pre>
        * name is the name of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -12017,7 +12073,7 @@ public final class V1Networking {
        * <pre>
        * name is the name of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -12036,7 +12092,7 @@ public final class V1Networking {
        * <pre>
        * name is the name of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -12051,7 +12107,7 @@ public final class V1Networking {
        * <pre>
        * name is the name of resource being referenced.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -12400,7 +12456,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -12412,7 +12468,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -12424,7 +12480,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -12604,7 +12660,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -12618,7 +12674,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -12632,7 +12688,7 @@ public final class V1Networking {
      * configuration for the controller. This is optional if the controller does
      * not require extra parameters.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13134,7 +13190,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13148,7 +13204,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13166,7 +13222,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13190,7 +13246,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13212,7 +13268,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13240,7 +13296,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13261,7 +13317,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13277,7 +13333,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -13296,7 +13352,7 @@ public final class V1Networking {
        * configuration for the controller. This is optional if the controller does
        * not require extra parameters.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IngressClassParametersReference parameters = 2;</code>
@@ -25994,6 +26050,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -26009,6 +26066,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -26023,6 +26081,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -26037,6 +26096,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -26052,6 +26112,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -26258,6 +26319,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -26274,6 +26336,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -26291,6 +26354,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -26307,6 +26371,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -26323,6 +26388,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27177,6 +27243,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27197,6 +27264,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27217,6 +27285,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27237,6 +27306,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27264,6 +27334,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27288,6 +27359,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27314,6 +27386,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27341,6 +27414,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27365,6 +27439,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27389,6 +27464,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27414,6 +27490,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27437,6 +27514,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27460,6 +27538,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27477,6 +27556,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27497,6 +27577,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27518,6 +27599,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27535,6 +27617,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27553,6 +27636,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer to = 2;</code>
@@ -27715,6 +27799,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -27730,6 +27815,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -27744,6 +27830,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -27758,6 +27845,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -27773,6 +27861,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -27978,6 +28067,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -27994,6 +28084,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -28011,6 +28102,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -28027,6 +28119,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -28043,6 +28136,7 @@ public final class V1Networking {
      * allows traffic only if the traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -28896,6 +28990,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -28916,6 +29011,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -28936,6 +29032,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -28956,6 +29053,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -28983,6 +29081,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29007,6 +29106,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29033,6 +29133,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29060,6 +29161,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29084,6 +29186,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29108,6 +29211,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29133,6 +29237,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29156,6 +29261,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29179,6 +29285,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29196,6 +29303,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29216,6 +29324,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29237,6 +29346,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29254,6 +29364,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -29272,6 +29383,7 @@ public final class V1Networking {
        * allows traffic only if the traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyPeer from = 2;</code>
@@ -30630,6 +30742,7 @@ public final class V1Networking {
      * ipBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -30640,6 +30753,7 @@ public final class V1Networking {
      * ipBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -30650,6 +30764,7 @@ public final class V1Networking {
      * ipBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -30875,6 +30990,7 @@ public final class V1Networking {
      * ipBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -30887,6 +31003,7 @@ public final class V1Networking {
      * ipBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -30899,6 +31016,7 @@ public final class V1Networking {
      * ipBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -31710,6 +31828,7 @@ public final class V1Networking {
        * ipBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -31722,6 +31841,7 @@ public final class V1Networking {
        * ipBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -31738,6 +31858,7 @@ public final class V1Networking {
        * ipBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -31760,6 +31881,7 @@ public final class V1Networking {
        * ipBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -31780,6 +31902,7 @@ public final class V1Networking {
        * ipBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -31806,6 +31929,7 @@ public final class V1Networking {
        * ipBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -31825,6 +31949,7 @@ public final class V1Networking {
        * ipBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -31839,6 +31964,7 @@ public final class V1Networking {
        * ipBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -31856,6 +31982,7 @@ public final class V1Networking {
        * ipBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.networking.v1.IPBlock ipBlock = 3;</code>
@@ -33117,6 +33244,7 @@ public final class V1Networking {
      * solely to ensure that the pods it selects are isolated by default)
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -33134,6 +33262,7 @@ public final class V1Networking {
      * solely to ensure that the pods it selects are isolated by default)
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -33150,6 +33279,7 @@ public final class V1Networking {
      * solely to ensure that the pods it selects are isolated by default)
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -33166,6 +33296,7 @@ public final class V1Networking {
      * solely to ensure that the pods it selects are isolated by default)
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -33183,6 +33314,7 @@ public final class V1Networking {
      * solely to ensure that the pods it selects are isolated by default)
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -33201,6 +33333,7 @@ public final class V1Networking {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -33218,6 +33351,7 @@ public final class V1Networking {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -33234,6 +33368,7 @@ public final class V1Networking {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -33250,6 +33385,7 @@ public final class V1Networking {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -33267,6 +33403,7 @@ public final class V1Networking {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -33545,6 +33682,7 @@ public final class V1Networking {
      * solely to ensure that the pods it selects are isolated by default)
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -33563,6 +33701,7 @@ public final class V1Networking {
      * solely to ensure that the pods it selects are isolated by default)
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -33582,6 +33721,7 @@ public final class V1Networking {
      * solely to ensure that the pods it selects are isolated by default)
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -33600,6 +33740,7 @@ public final class V1Networking {
      * solely to ensure that the pods it selects are isolated by default)
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -33618,6 +33759,7 @@ public final class V1Networking {
      * solely to ensure that the pods it selects are isolated by default)
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -33640,6 +33782,7 @@ public final class V1Networking {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -33658,6 +33801,7 @@ public final class V1Networking {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -33677,6 +33821,7 @@ public final class V1Networking {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -33695,6 +33840,7 @@ public final class V1Networking {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -33713,6 +33859,7 @@ public final class V1Networking {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -34514,6 +34661,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34536,6 +34684,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34558,6 +34707,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34580,6 +34730,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34609,6 +34760,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34635,6 +34787,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34663,6 +34816,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34692,6 +34846,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34718,6 +34873,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34744,6 +34900,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34771,6 +34928,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34796,6 +34954,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34821,6 +34980,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34840,6 +35000,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34862,6 +35023,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34885,6 +35047,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34904,6 +35067,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34924,6 +35088,7 @@ public final class V1Networking {
        * solely to ensure that the pods it selects are isolated by default)
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -34970,6 +35135,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -34992,6 +35158,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35014,6 +35181,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35036,6 +35204,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35065,6 +35234,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35091,6 +35261,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35119,6 +35290,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35148,6 +35320,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35174,6 +35347,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35200,6 +35374,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35227,6 +35402,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35252,6 +35428,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35277,6 +35454,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35296,6 +35474,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35318,6 +35497,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35341,6 +35521,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35360,6 +35541,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35380,6 +35562,7 @@ public final class V1Networking {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.networking.v1.NetworkPolicyEgressRule egress = 3;</code>
@@ -35720,6 +35903,7 @@ public final class V1Networking {
      * <pre>
      * Resource is the resource of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string resource = 2;</code>
@@ -35729,6 +35913,7 @@ public final class V1Networking {
      * <pre>
      * Resource is the resource of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string resource = 2;</code>
@@ -35738,6 +35923,7 @@ public final class V1Networking {
      * <pre>
      * Resource is the resource of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string resource = 2;</code>
@@ -35778,6 +35964,7 @@ public final class V1Networking {
      * <pre>
      * Name is the name of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 4;</code>
@@ -35787,6 +35974,7 @@ public final class V1Networking {
      * <pre>
      * Name is the name of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 4;</code>
@@ -35796,6 +35984,7 @@ public final class V1Networking {
      * <pre>
      * Name is the name of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 4;</code>
@@ -35970,6 +36159,7 @@ public final class V1Networking {
      * <pre>
      * Resource is the resource of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string resource = 2;</code>
@@ -35981,6 +36171,7 @@ public final class V1Networking {
      * <pre>
      * Resource is the resource of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string resource = 2;</code>
@@ -36003,6 +36194,7 @@ public final class V1Networking {
      * <pre>
      * Resource is the resource of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string resource = 2;</code>
@@ -36084,6 +36276,7 @@ public final class V1Networking {
      * <pre>
      * Name is the name of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 4;</code>
@@ -36095,6 +36288,7 @@ public final class V1Networking {
      * <pre>
      * Name is the name of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 4;</code>
@@ -36117,6 +36311,7 @@ public final class V1Networking {
      * <pre>
      * Name is the name of the object being referenced.
      * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string name = 4;</code>
@@ -36644,6 +36839,7 @@ public final class V1Networking {
        * <pre>
        * Resource is the resource of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string resource = 2;</code>
@@ -36655,6 +36851,7 @@ public final class V1Networking {
        * <pre>
        * Resource is the resource of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string resource = 2;</code>
@@ -36677,6 +36874,7 @@ public final class V1Networking {
        * <pre>
        * Resource is the resource of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string resource = 2;</code>
@@ -36698,6 +36896,7 @@ public final class V1Networking {
        * <pre>
        * Resource is the resource of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string resource = 2;</code>
@@ -36716,6 +36915,7 @@ public final class V1Networking {
        * <pre>
        * Resource is the resource of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string resource = 2;</code>
@@ -36730,6 +36930,7 @@ public final class V1Networking {
        * <pre>
        * Resource is the resource of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string resource = 2;</code>
@@ -36856,6 +37057,7 @@ public final class V1Networking {
        * <pre>
        * Name is the name of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 4;</code>
@@ -36867,6 +37069,7 @@ public final class V1Networking {
        * <pre>
        * Name is the name of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 4;</code>
@@ -36889,6 +37092,7 @@ public final class V1Networking {
        * <pre>
        * Name is the name of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 4;</code>
@@ -36910,6 +37114,7 @@ public final class V1Networking {
        * <pre>
        * Name is the name of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 4;</code>
@@ -36928,6 +37133,7 @@ public final class V1Networking {
        * <pre>
        * Name is the name of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 4;</code>
@@ -36942,6 +37148,7 @@ public final class V1Networking {
        * <pre>
        * Name is the name of the object being referenced.
        * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string name = 4;</code>
@@ -37910,6 +38117,7 @@ public final class V1Networking {
    * <pre>
    * ServiceCIDR defines a range of IP addresses using CIDR format (e.g. 192.168.0.0/24 or 2001:db2::/64).
    * This range is used to allocate ClusterIPs to Service objects.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.networking.v1.ServiceCIDR}
@@ -38336,6 +38544,7 @@ public final class V1Networking {
      * <pre>
      * ServiceCIDR defines a range of IP addresses using CIDR format (e.g. 192.168.0.0/24 or 2001:db2::/64).
      * This range is used to allocate ClusterIPs to Service objects.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.networking.v1.ServiceCIDR}
@@ -41058,6 +41267,7 @@ public final class V1Networking {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41073,6 +41283,7 @@ public final class V1Networking {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41087,6 +41298,7 @@ public final class V1Networking {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41101,6 +41313,7 @@ public final class V1Networking {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41116,6 +41329,7 @@ public final class V1Networking {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41222,6 +41436,7 @@ public final class V1Networking {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41238,6 +41453,7 @@ public final class V1Networking {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41255,6 +41471,7 @@ public final class V1Networking {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41271,6 +41488,7 @@ public final class V1Networking {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41287,6 +41505,7 @@ public final class V1Networking {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41664,6 +41883,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41684,6 +41904,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41704,6 +41925,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41724,6 +41946,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41751,6 +41974,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41775,6 +41999,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41801,6 +42026,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41828,6 +42054,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41852,6 +42079,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41876,6 +42104,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41901,6 +42130,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41924,6 +42154,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41947,6 +42178,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41964,6 +42196,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -41984,6 +42217,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -42005,6 +42239,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -42022,6 +42257,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>
@@ -42040,6 +42276,7 @@ public final class V1Networking {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:eachVal=+k8s:opaqueType
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 1;</code>

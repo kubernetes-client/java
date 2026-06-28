@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * NamespaceSpec describes the attributes on a Namespace.
  */
 @ApiModel(description = "NamespaceSpec describes the attributes on a Namespace.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1NamespaceSpec {
   public static final String SERIALIZED_NAME_FINALIZERS = "finalizers";
   @SerializedName(SERIALIZED_NAME_FINALIZERS)

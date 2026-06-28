@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * PriorityLevelConfigurationReference contains information that points to the \&quot;request-priority\&quot; being used.
  */
 @ApiModel(description = "PriorityLevelConfigurationReference contains information that points to the \"request-priority\" being used.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PriorityLevelConfigurationReference {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

@@ -1086,6 +1086,7 @@ public final class V1Policy {
   /**
    * <pre>
    * PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.policy.v1.PodDisruptionBudget}
@@ -1505,6 +1506,7 @@ public final class V1Policy {
     /**
      * <pre>
      * PodDisruptionBudget is an object to define the max disruption that can be caused to a collection of pods
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.policy.v1.PodDisruptionBudget}
@@ -5413,6 +5415,7 @@ public final class V1Policy {
     /**
      * <pre>
      * Number of pod disruptions that are currently allowed.
+     * +optional
      * </pre>
      *
      * <code>optional int32 disruptionsAllowed = 3;</code>
@@ -5421,6 +5424,7 @@ public final class V1Policy {
     /**
      * <pre>
      * Number of pod disruptions that are currently allowed.
+     * +optional
      * </pre>
      *
      * <code>optional int32 disruptionsAllowed = 3;</code>
@@ -5430,6 +5434,7 @@ public final class V1Policy {
     /**
      * <pre>
      * current number of healthy pods
+     * +optional
      * </pre>
      *
      * <code>optional int32 currentHealthy = 4;</code>
@@ -5438,6 +5443,7 @@ public final class V1Policy {
     /**
      * <pre>
      * current number of healthy pods
+     * +optional
      * </pre>
      *
      * <code>optional int32 currentHealthy = 4;</code>
@@ -5447,6 +5453,7 @@ public final class V1Policy {
     /**
      * <pre>
      * minimum desired number of healthy pods
+     * +optional
      * </pre>
      *
      * <code>optional int32 desiredHealthy = 5;</code>
@@ -5455,6 +5462,7 @@ public final class V1Policy {
     /**
      * <pre>
      * minimum desired number of healthy pods
+     * +optional
      * </pre>
      *
      * <code>optional int32 desiredHealthy = 5;</code>
@@ -5464,6 +5472,7 @@ public final class V1Policy {
     /**
      * <pre>
      * total number of pods counted by this disruption budget
+     * +optional
      * </pre>
      *
      * <code>optional int32 expectedPods = 6;</code>
@@ -5472,6 +5481,7 @@ public final class V1Policy {
     /**
      * <pre>
      * total number of pods counted by this disruption budget
+     * +optional
      * </pre>
      *
      * <code>optional int32 expectedPods = 6;</code>
@@ -5497,6 +5507,9 @@ public final class V1Policy {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:listType=map
+     * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -5522,6 +5535,9 @@ public final class V1Policy {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:listType=map
+     * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -5546,6 +5562,9 @@ public final class V1Policy {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:listType=map
+     * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -5570,6 +5589,9 @@ public final class V1Policy {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:listType=map
+     * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -5595,6 +5617,9 @@ public final class V1Policy {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:listType=map
+     * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -5915,6 +5940,7 @@ public final class V1Policy {
     /**
      * <pre>
      * Number of pod disruptions that are currently allowed.
+     * +optional
      * </pre>
      *
      * <code>optional int32 disruptionsAllowed = 3;</code>
@@ -5925,6 +5951,7 @@ public final class V1Policy {
     /**
      * <pre>
      * Number of pod disruptions that are currently allowed.
+     * +optional
      * </pre>
      *
      * <code>optional int32 disruptionsAllowed = 3;</code>
@@ -5938,6 +5965,7 @@ public final class V1Policy {
     /**
      * <pre>
      * current number of healthy pods
+     * +optional
      * </pre>
      *
      * <code>optional int32 currentHealthy = 4;</code>
@@ -5948,6 +5976,7 @@ public final class V1Policy {
     /**
      * <pre>
      * current number of healthy pods
+     * +optional
      * </pre>
      *
      * <code>optional int32 currentHealthy = 4;</code>
@@ -5961,6 +5990,7 @@ public final class V1Policy {
     /**
      * <pre>
      * minimum desired number of healthy pods
+     * +optional
      * </pre>
      *
      * <code>optional int32 desiredHealthy = 5;</code>
@@ -5971,6 +6001,7 @@ public final class V1Policy {
     /**
      * <pre>
      * minimum desired number of healthy pods
+     * +optional
      * </pre>
      *
      * <code>optional int32 desiredHealthy = 5;</code>
@@ -5984,6 +6015,7 @@ public final class V1Policy {
     /**
      * <pre>
      * total number of pods counted by this disruption budget
+     * +optional
      * </pre>
      *
      * <code>optional int32 expectedPods = 6;</code>
@@ -5994,6 +6026,7 @@ public final class V1Policy {
     /**
      * <pre>
      * total number of pods counted by this disruption budget
+     * +optional
      * </pre>
      *
      * <code>optional int32 expectedPods = 6;</code>
@@ -6023,6 +6056,9 @@ public final class V1Policy {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:listType=map
+     * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -6049,6 +6085,9 @@ public final class V1Policy {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:listType=map
+     * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -6076,6 +6115,9 @@ public final class V1Policy {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:listType=map
+     * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -6102,6 +6144,9 @@ public final class V1Policy {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:listType=map
+     * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -6128,6 +6173,9 @@ public final class V1Policy {
      * +patchStrategy=merge
      * +listType=map
      * +listMapKey=type
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:listType=map
+     * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
      * </pre>
      *
      * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -6950,6 +6998,7 @@ public final class V1Policy {
       /**
        * <pre>
        * Number of pod disruptions that are currently allowed.
+       * +optional
        * </pre>
        *
        * <code>optional int32 disruptionsAllowed = 3;</code>
@@ -6960,6 +7009,7 @@ public final class V1Policy {
       /**
        * <pre>
        * Number of pod disruptions that are currently allowed.
+       * +optional
        * </pre>
        *
        * <code>optional int32 disruptionsAllowed = 3;</code>
@@ -6970,6 +7020,7 @@ public final class V1Policy {
       /**
        * <pre>
        * Number of pod disruptions that are currently allowed.
+       * +optional
        * </pre>
        *
        * <code>optional int32 disruptionsAllowed = 3;</code>
@@ -6983,6 +7034,7 @@ public final class V1Policy {
       /**
        * <pre>
        * Number of pod disruptions that are currently allowed.
+       * +optional
        * </pre>
        *
        * <code>optional int32 disruptionsAllowed = 3;</code>
@@ -6998,6 +7050,7 @@ public final class V1Policy {
       /**
        * <pre>
        * current number of healthy pods
+       * +optional
        * </pre>
        *
        * <code>optional int32 currentHealthy = 4;</code>
@@ -7008,6 +7061,7 @@ public final class V1Policy {
       /**
        * <pre>
        * current number of healthy pods
+       * +optional
        * </pre>
        *
        * <code>optional int32 currentHealthy = 4;</code>
@@ -7018,6 +7072,7 @@ public final class V1Policy {
       /**
        * <pre>
        * current number of healthy pods
+       * +optional
        * </pre>
        *
        * <code>optional int32 currentHealthy = 4;</code>
@@ -7031,6 +7086,7 @@ public final class V1Policy {
       /**
        * <pre>
        * current number of healthy pods
+       * +optional
        * </pre>
        *
        * <code>optional int32 currentHealthy = 4;</code>
@@ -7046,6 +7102,7 @@ public final class V1Policy {
       /**
        * <pre>
        * minimum desired number of healthy pods
+       * +optional
        * </pre>
        *
        * <code>optional int32 desiredHealthy = 5;</code>
@@ -7056,6 +7113,7 @@ public final class V1Policy {
       /**
        * <pre>
        * minimum desired number of healthy pods
+       * +optional
        * </pre>
        *
        * <code>optional int32 desiredHealthy = 5;</code>
@@ -7066,6 +7124,7 @@ public final class V1Policy {
       /**
        * <pre>
        * minimum desired number of healthy pods
+       * +optional
        * </pre>
        *
        * <code>optional int32 desiredHealthy = 5;</code>
@@ -7079,6 +7138,7 @@ public final class V1Policy {
       /**
        * <pre>
        * minimum desired number of healthy pods
+       * +optional
        * </pre>
        *
        * <code>optional int32 desiredHealthy = 5;</code>
@@ -7094,6 +7154,7 @@ public final class V1Policy {
       /**
        * <pre>
        * total number of pods counted by this disruption budget
+       * +optional
        * </pre>
        *
        * <code>optional int32 expectedPods = 6;</code>
@@ -7104,6 +7165,7 @@ public final class V1Policy {
       /**
        * <pre>
        * total number of pods counted by this disruption budget
+       * +optional
        * </pre>
        *
        * <code>optional int32 expectedPods = 6;</code>
@@ -7114,6 +7176,7 @@ public final class V1Policy {
       /**
        * <pre>
        * total number of pods counted by this disruption budget
+       * +optional
        * </pre>
        *
        * <code>optional int32 expectedPods = 6;</code>
@@ -7127,6 +7190,7 @@ public final class V1Policy {
       /**
        * <pre>
        * total number of pods counted by this disruption budget
+       * +optional
        * </pre>
        *
        * <code>optional int32 expectedPods = 6;</code>
@@ -7169,6 +7233,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7199,6 +7266,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7229,6 +7299,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7259,6 +7332,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7296,6 +7372,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7330,6 +7409,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7366,6 +7448,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7403,6 +7488,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7437,6 +7525,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7471,6 +7562,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7506,6 +7600,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7539,6 +7636,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7572,6 +7672,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7599,6 +7702,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7629,6 +7735,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7660,6 +7769,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7687,6 +7799,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>
@@ -7715,6 +7830,9 @@ public final class V1Policy {
        * +patchStrategy=merge
        * +listType=map
        * +listMapKey=type
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:listType=map
+       * +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
        * </pre>
        *
        * <code>repeated .k8s.io.apimachinery.pkg.apis.meta.v1.Condition conditions = 7;</code>

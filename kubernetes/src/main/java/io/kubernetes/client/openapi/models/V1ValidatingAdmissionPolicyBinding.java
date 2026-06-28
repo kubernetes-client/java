@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * ValidatingAdmissionPolicyBinding binds the ValidatingAdmissionPolicy with paramerized resources. ValidatingAdmissionPolicyBinding and parameter CRDs together define how cluster administrators configure policies for clusters.  For a given admission request, each binding will cause its policy to be evaluated N times, where N is 1 for policies/bindings that don&#39;t use params, otherwise N is the number of parameters selected by the binding.  The CEL expressions of a policy must have a computed CEL cost below the maximum CEL budget. Each evaluation of the policy is given an independent CEL cost budget. Adding/removing policies, bindings, or params can not affect whether a given (policy, binding, param) combination is within its own CEL budget.
  */
 @ApiModel(description = "ValidatingAdmissionPolicyBinding binds the ValidatingAdmissionPolicy with paramerized resources. ValidatingAdmissionPolicyBinding and parameter CRDs together define how cluster administrators configure policies for clusters.  For a given admission request, each binding will cause its policy to be evaluated N times, where N is 1 for policies/bindings that don't use params, otherwise N is the number of parameters selected by the binding.  The CEL expressions of a policy must have a computed CEL cost below the maximum CEL budget. Each evaluation of the policy is given an independent CEL cost budget. Adding/removing policies, bindings, or params can not affect whether a given (policy, binding, param) combination is within its own CEL budget.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ValidatingAdmissionPolicyBinding implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -71,7 +71,7 @@ public class V1ValidatingAdmissionPolicyBinding implements io.kubernetes.client.
 
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private V1ValidatingAdmissionPolicyBindingSpec spec;
 
   public V1ValidatingAdmissionPolicyBinding() {
@@ -137,7 +137,7 @@ public class V1ValidatingAdmissionPolicyBinding implements io.kubernetes.client.
   }
 
 
-  public V1ValidatingAdmissionPolicyBinding spec(@jakarta.annotation.Nullable V1ValidatingAdmissionPolicyBindingSpec spec) {
+  public V1ValidatingAdmissionPolicyBinding spec(@jakarta.annotation.Nonnull V1ValidatingAdmissionPolicyBindingSpec spec) {
     this.spec = spec;
     return this;
   }
@@ -146,13 +146,13 @@ public class V1ValidatingAdmissionPolicyBinding implements io.kubernetes.client.
    * Get spec
    * @return spec
    */
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public V1ValidatingAdmissionPolicyBindingSpec getSpec() {
     return spec;
   }
 
-  public void setSpec(@jakarta.annotation.Nullable V1ValidatingAdmissionPolicyBindingSpec spec) {
+  public void setSpec(@jakarta.annotation.Nonnull V1ValidatingAdmissionPolicyBindingSpec spec) {
     this.spec = spec;
   }
 
@@ -210,7 +210,7 @@ public class V1ValidatingAdmissionPolicyBinding implements io.kubernetes.client.
     openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "kind", "metadata", "spec"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("spec"));
   }
 
   /**
@@ -233,6 +233,13 @@ public class V1ValidatingAdmissionPolicyBinding implements io.kubernetes.client.
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1ValidatingAdmissionPolicyBinding` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1ValidatingAdmissionPolicyBinding.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
@@ -244,10 +251,8 @@ public class V1ValidatingAdmissionPolicyBinding implements io.kubernetes.client.
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
         V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
-      // validate the optional field `spec`
-      if (jsonObj.get("spec") != null && !jsonObj.get("spec").isJsonNull()) {
-        V1ValidatingAdmissionPolicyBindingSpec.validateJsonElement(jsonObj.get("spec"));
-      }
+      // validate the required field `spec`
+      V1ValidatingAdmissionPolicyBindingSpec.validateJsonElement(jsonObj.get("spec"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

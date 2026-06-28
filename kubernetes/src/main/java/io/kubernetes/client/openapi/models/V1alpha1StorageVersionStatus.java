@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.
  */
 @ApiModel(description = "API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha1StorageVersionStatus {
   public static final String SERIALIZED_NAME_COMMON_ENCODING_VERSION = "commonEncodingVersion";
   @SerializedName(SERIALIZED_NAME_COMMON_ENCODING_VERSION)
@@ -80,11 +80,11 @@ public class V1alpha1StorageVersionStatus {
   }
 
   /**
-   * If all API server instances agree on the same encoding storage version, then this field is set to that version. Otherwise this field is left empty. API servers should finish updating its storageVersionStatus entry before serving write operations, so that this field will be in sync with the reality.
+   * commonEncodingVersion is set to an encoding storage version if all API server instances share that same version. If they don&#39;t share one storage version, this field is left empty. API servers should finish updating its storageVersionStatus entry before serving write operations, so that this field will be in sync with the reality.
    * @return commonEncodingVersion
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "If all API server instances agree on the same encoding storage version, then this field is set to that version. Otherwise this field is left empty. API servers should finish updating its storageVersionStatus entry before serving write operations, so that this field will be in sync with the reality.")
+  @ApiModelProperty(value = "commonEncodingVersion is set to an encoding storage version if all API server instances share that same version. If they don't share one storage version, this field is left empty. API servers should finish updating its storageVersionStatus entry before serving write operations, so that this field will be in sync with the reality.")
   public String getCommonEncodingVersion() {
     return commonEncodingVersion;
   }
@@ -108,11 +108,11 @@ public class V1alpha1StorageVersionStatus {
   }
 
   /**
-   * The latest available observations of the storageVersion&#39;s state.
+   * conditions lists the latest available observations of the storageVersion&#39;s state.
    * @return conditions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The latest available observations of the storageVersion's state.")
+  @ApiModelProperty(value = "conditions lists the latest available observations of the storageVersion's state.")
   public List<V1alpha1StorageVersionCondition> getConditions() {
     return conditions;
   }
@@ -136,11 +136,11 @@ public class V1alpha1StorageVersionStatus {
   }
 
   /**
-   * The reported versions per API server instance.
+   * storageVersions lists the reported versions per API server instance.
    * @return storageVersions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The reported versions per API server instance.")
+  @ApiModelProperty(value = "storageVersions lists the reported versions per API server instance.")
   public List<V1alpha1ServerStorageVersion> getStorageVersions() {
     return storageVersions;
   }

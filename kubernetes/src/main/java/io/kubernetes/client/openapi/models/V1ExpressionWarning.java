@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * ExpressionWarning is a warning information that targets a specific expression.
  */
 @ApiModel(description = "ExpressionWarning is a warning information that targets a specific expression.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ExpressionWarning {
   public static final String SERIALIZED_NAME_FIELD_REF = "fieldRef";
   @SerializedName(SERIALIZED_NAME_FIELD_REF)
@@ -71,11 +71,11 @@ public class V1ExpressionWarning {
   }
 
   /**
-   * The path to the field that refers the expression. For example, the reference to the expression of the first item of validations is \&quot;spec.validations[0].expression\&quot;
+   * fieldRef is the path to the field that refers to the expression. For example, the reference to the expression of the first item of validations is \&quot;spec.validations[0].expression\&quot;
    * @return fieldRef
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The path to the field that refers the expression. For example, the reference to the expression of the first item of validations is \"spec.validations[0].expression\"")
+  @ApiModelProperty(required = true, value = "fieldRef is the path to the field that refers to the expression. For example, the reference to the expression of the first item of validations is \"spec.validations[0].expression\"")
   public String getFieldRef() {
     return fieldRef;
   }
@@ -91,11 +91,11 @@ public class V1ExpressionWarning {
   }
 
   /**
-   * The content of type checking information in a human-readable form. Each line of the warning contains the type that the expression is checked against, followed by the type check error from the compiler.
+   * warning contains the content of type checking information in a human-readable form. Each line of the warning contains the type that the expression is checked against, followed by the type check error from the compiler.
    * @return warning
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The content of type checking information in a human-readable form. Each line of the warning contains the type that the expression is checked against, followed by the type check error from the compiler.")
+  @ApiModelProperty(required = true, value = "warning contains the content of type checking information in a human-readable form. Each line of the warning contains the type that the expression is checked against, followed by the type check error from the compiler.")
   public String getWarning() {
     return warning;
   }

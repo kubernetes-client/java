@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,7 +50,7 @@ public class V1LoadBalancerIngressFluent<A extends io.kubernetes.client.openapi.
     }
     for (V1PortStatus item : items) {
         V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
-        _visitables.get("ports").add(builder);
+        this._visitables.get("ports").add(builder);
         this.ports.add(builder);
     }
     return (A) this;
@@ -70,7 +70,7 @@ public class V1LoadBalancerIngressFluent<A extends io.kubernetes.client.openapi.
     }
     for (V1PortStatus item : items) {
         V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
-        _visitables.get("ports").add(builder);
+        this._visitables.get("ports").add(builder);
         this.ports.add(builder);
     }
     return (A) this;
@@ -81,12 +81,12 @@ public class V1LoadBalancerIngressFluent<A extends io.kubernetes.client.openapi.
       this.ports = new ArrayList();
     }
     V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
-    if (index < 0 || index >= ports.size()) {
-        _visitables.get("ports").add(builder);
-        ports.add(builder);
+    if (index < 0 || index >= this.ports.size()) {
+        this._visitables.get("ports").add(builder);
+        this.ports.add(builder);
     } else {
-        _visitables.get("ports").add(builder);
-        ports.add(index, builder);
+        this._visitables.get("ports").add(builder);
+        this.ports.add(index, builder);
     }
     return (A) this;
   }
@@ -258,7 +258,7 @@ public class V1LoadBalancerIngressFluent<A extends io.kubernetes.client.openapi.
       return (A) this;
     }
     Iterator<V1PortStatusBuilder> each = ports.iterator();
-    List visitables = _visitables.get("ports");
+    List visitables = this._visitables.get("ports");
     while (each.hasNext()) {
         V1PortStatusBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -278,12 +278,12 @@ public class V1LoadBalancerIngressFluent<A extends io.kubernetes.client.openapi.
       this.ports = new ArrayList();
     }
     V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
-    if (index < 0 || index >= ports.size()) {
-        _visitables.get("ports").add(builder);
-        ports.add(builder);
+    if (index < 0 || index >= this.ports.size()) {
+        this._visitables.get("ports").add(builder);
+        this.ports.add(builder);
     } else {
-        _visitables.get("ports").add(builder);
-        ports.set(index, builder);
+        this._visitables.get("ports").add(builder);
+        this.ports.set(index, builder);
     }
     return (A) this;
   }

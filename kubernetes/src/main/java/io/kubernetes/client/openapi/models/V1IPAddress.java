@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * IPAddress represents a single IP of a single IP Family. The object is designed to be used by APIs that operate on IP addresses. The object is used by the Service core API for allocation of IP addresses. An IP address can be represented in different formats, to guarantee the uniqueness of the IP, the name of the object is the IP address in canonical format, four decimal digits separated by dots suppressing leading zeros for IPv4 and the representation defined by RFC 5952 for IPv6. Valid: 192.168.1.5 or 2001:db8::1 or 2001:db8:aaaa:bbbb:cccc:dddd:eeee:1 Invalid: 10.01.2.3 or 2001:db8:0:0:0::1
  */
 @ApiModel(description = "IPAddress represents a single IP of a single IP Family. The object is designed to be used by APIs that operate on IP addresses. The object is used by the Service core API for allocation of IP addresses. An IP address can be represented in different formats, to guarantee the uniqueness of the IP, the name of the object is the IP address in canonical format, four decimal digits separated by dots suppressing leading zeros for IPv4 and the representation defined by RFC 5952 for IPv6. Valid: 192.168.1.5 or 2001:db8::1 or 2001:db8:aaaa:bbbb:cccc:dddd:eeee:1 Invalid: 10.01.2.3 or 2001:db8:0:0:0::1")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1IPAddress implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -71,7 +71,7 @@ public class V1IPAddress implements io.kubernetes.client.common.KubernetesObject
 
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private V1IPAddressSpec spec;
 
   public V1IPAddress() {
@@ -137,7 +137,7 @@ public class V1IPAddress implements io.kubernetes.client.common.KubernetesObject
   }
 
 
-  public V1IPAddress spec(@jakarta.annotation.Nullable V1IPAddressSpec spec) {
+  public V1IPAddress spec(@jakarta.annotation.Nonnull V1IPAddressSpec spec) {
     this.spec = spec;
     return this;
   }
@@ -146,13 +146,13 @@ public class V1IPAddress implements io.kubernetes.client.common.KubernetesObject
    * Get spec
    * @return spec
    */
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public V1IPAddressSpec getSpec() {
     return spec;
   }
 
-  public void setSpec(@jakarta.annotation.Nullable V1IPAddressSpec spec) {
+  public void setSpec(@jakarta.annotation.Nonnull V1IPAddressSpec spec) {
     this.spec = spec;
   }
 
@@ -210,7 +210,7 @@ public class V1IPAddress implements io.kubernetes.client.common.KubernetesObject
     openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "kind", "metadata", "spec"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("spec"));
   }
 
   /**
@@ -233,6 +233,13 @@ public class V1IPAddress implements io.kubernetes.client.common.KubernetesObject
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1IPAddress` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1IPAddress.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
@@ -244,10 +251,8 @@ public class V1IPAddress implements io.kubernetes.client.common.KubernetesObject
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
         V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
-      // validate the optional field `spec`
-      if (jsonObj.get("spec") != null && !jsonObj.get("spec").isJsonNull()) {
-        V1IPAddressSpec.validateJsonElement(jsonObj.get("spec"));
-      }
+      // validate the required field `spec`
+      V1IPAddressSpec.validateJsonElement(jsonObj.get("spec"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

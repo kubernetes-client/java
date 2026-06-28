@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * CSIDriverSpec is the specification of a CSIDriver.
  */
 @ApiModel(description = "CSIDriverSpec is the specification of a CSIDriver.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1CSIDriverSpec {
   public static final String SERIALIZED_NAME_ATTACH_REQUIRED = "attachRequired";
   @SerializedName(SERIALIZED_NAME_ATTACH_REQUIRED)
@@ -74,6 +74,11 @@ public class V1CSIDriverSpec {
   @SerializedName(SERIALIZED_NAME_POD_INFO_ON_MOUNT)
   @jakarta.annotation.Nullable
   private Boolean podInfoOnMount;
+
+  public static final String SERIALIZED_NAME_PREVENT_POD_SCHEDULING_IF_MISSING = "preventPodSchedulingIfMissing";
+  @SerializedName(SERIALIZED_NAME_PREVENT_POD_SCHEDULING_IF_MISSING)
+  @jakarta.annotation.Nullable
+  private Boolean preventPodSchedulingIfMissing;
 
   public static final String SERIALIZED_NAME_REQUIRES_REPUBLISH = "requiresRepublish";
   @SerializedName(SERIALIZED_NAME_REQUIRES_REPUBLISH)
@@ -154,11 +159,11 @@ public class V1CSIDriverSpec {
   }
 
   /**
-   * nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by capacity-related failures are enabled. If not set, no updates occur (neither periodic nor upon detecting capacity-related failures), and the allocatable.count remains static. The minimum allowed value for this field is 10 seconds.  This is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.  This field is mutable.
+   * nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by capacity-related failures are enabled. If not set, no updates occur (neither periodic nor upon detecting capacity-related failures), and the allocatable.count remains static. The minimum allowed value for this field is 10 seconds.  This feature requires the MutableCSINodeAllocatableCount feature gate to be enabled.  This field is mutable.
    * @return nodeAllocatableUpdatePeriodSeconds
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by capacity-related failures are enabled. If not set, no updates occur (neither periodic nor upon detecting capacity-related failures), and the allocatable.count remains static. The minimum allowed value for this field is 10 seconds.  This is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.  This field is mutable.")
+  @ApiModelProperty(value = "nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by capacity-related failures are enabled. If not set, no updates occur (neither periodic nor upon detecting capacity-related failures), and the allocatable.count remains static. The minimum allowed value for this field is 10 seconds.  This feature requires the MutableCSINodeAllocatableCount feature gate to be enabled.  This field is mutable.")
   public Long getNodeAllocatableUpdatePeriodSeconds() {
     return nodeAllocatableUpdatePeriodSeconds;
   }
@@ -185,6 +190,26 @@ public class V1CSIDriverSpec {
 
   public void setPodInfoOnMount(@jakarta.annotation.Nullable Boolean podInfoOnMount) {
     this.podInfoOnMount = podInfoOnMount;
+  }
+
+
+  public V1CSIDriverSpec preventPodSchedulingIfMissing(@jakarta.annotation.Nullable Boolean preventPodSchedulingIfMissing) {
+    this.preventPodSchedulingIfMissing = preventPodSchedulingIfMissing;
+    return this;
+  }
+
+  /**
+   * PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod scheduling if the CSI driver on the node is missing.  Enabling this option will prevent the scheduler (or any other component which embeds default scheduler such as cluster-autoscaler) from scheduling pods to nodes where CSI driver is not installed.  For components(such as cluster-autoscaler) that embed the scheduler and run pod placement simulations using scheduler plugins, they MUST be aware of CSI driver registration information via CSINode object. They must create simulated CSINode objects in addition to Node objects during scheduling simulation, otherwise if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any newly created node may be rejected by the scheduler because of missing CSI driver information from the node.  This is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled. Default is \&quot;false\&quot;.
+   * @return preventPodSchedulingIfMissing
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod scheduling if the CSI driver on the node is missing.  Enabling this option will prevent the scheduler (or any other component which embeds default scheduler such as cluster-autoscaler) from scheduling pods to nodes where CSI driver is not installed.  For components(such as cluster-autoscaler) that embed the scheduler and run pod placement simulations using scheduler plugins, they MUST be aware of CSI driver registration information via CSINode object. They must create simulated CSINode objects in addition to Node objects during scheduling simulation, otherwise if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any newly created node may be rejected by the scheduler because of missing CSI driver information from the node.  This is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled. Default is \"false\".")
+  public Boolean getPreventPodSchedulingIfMissing() {
+    return preventPodSchedulingIfMissing;
+  }
+
+  public void setPreventPodSchedulingIfMissing(@jakarta.annotation.Nullable Boolean preventPodSchedulingIfMissing) {
+    this.preventPodSchedulingIfMissing = preventPodSchedulingIfMissing;
   }
 
 
@@ -338,6 +363,7 @@ public class V1CSIDriverSpec {
         Objects.equals(this.fsGroupPolicy, v1CSIDriverSpec.fsGroupPolicy) &&
         Objects.equals(this.nodeAllocatableUpdatePeriodSeconds, v1CSIDriverSpec.nodeAllocatableUpdatePeriodSeconds) &&
         Objects.equals(this.podInfoOnMount, v1CSIDriverSpec.podInfoOnMount) &&
+        Objects.equals(this.preventPodSchedulingIfMissing, v1CSIDriverSpec.preventPodSchedulingIfMissing) &&
         Objects.equals(this.requiresRepublish, v1CSIDriverSpec.requiresRepublish) &&
         Objects.equals(this.seLinuxMount, v1CSIDriverSpec.seLinuxMount) &&
         Objects.equals(this.serviceAccountTokenInSecrets, v1CSIDriverSpec.serviceAccountTokenInSecrets) &&
@@ -348,7 +374,7 @@ public class V1CSIDriverSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachRequired, fsGroupPolicy, nodeAllocatableUpdatePeriodSeconds, podInfoOnMount, requiresRepublish, seLinuxMount, serviceAccountTokenInSecrets, storageCapacity, tokenRequests, volumeLifecycleModes);
+    return Objects.hash(attachRequired, fsGroupPolicy, nodeAllocatableUpdatePeriodSeconds, podInfoOnMount, preventPodSchedulingIfMissing, requiresRepublish, seLinuxMount, serviceAccountTokenInSecrets, storageCapacity, tokenRequests, volumeLifecycleModes);
   }
 
   @Override
@@ -359,6 +385,7 @@ public class V1CSIDriverSpec {
     sb.append("    fsGroupPolicy: ").append(toIndentedString(fsGroupPolicy)).append("\n");
     sb.append("    nodeAllocatableUpdatePeriodSeconds: ").append(toIndentedString(nodeAllocatableUpdatePeriodSeconds)).append("\n");
     sb.append("    podInfoOnMount: ").append(toIndentedString(podInfoOnMount)).append("\n");
+    sb.append("    preventPodSchedulingIfMissing: ").append(toIndentedString(preventPodSchedulingIfMissing)).append("\n");
     sb.append("    requiresRepublish: ").append(toIndentedString(requiresRepublish)).append("\n");
     sb.append("    seLinuxMount: ").append(toIndentedString(seLinuxMount)).append("\n");
     sb.append("    serviceAccountTokenInSecrets: ").append(toIndentedString(serviceAccountTokenInSecrets)).append("\n");
@@ -386,7 +413,7 @@ public class V1CSIDriverSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("attachRequired", "fsGroupPolicy", "nodeAllocatableUpdatePeriodSeconds", "podInfoOnMount", "requiresRepublish", "seLinuxMount", "serviceAccountTokenInSecrets", "storageCapacity", "tokenRequests", "volumeLifecycleModes"));
+    openapiFields = new HashSet<String>(Arrays.asList("attachRequired", "fsGroupPolicy", "nodeAllocatableUpdatePeriodSeconds", "podInfoOnMount", "preventPodSchedulingIfMissing", "requiresRepublish", "seLinuxMount", "serviceAccountTokenInSecrets", "storageCapacity", "tokenRequests", "volumeLifecycleModes"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -56,7 +56,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     }
     for (V1beta1Device item : items) {
         V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);
-        _visitables.get("devices").add(builder);
+        this._visitables.get("devices").add(builder);
         this.devices.add(builder);
     }
     return (A) this;
@@ -68,7 +68,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     }
     for (V1beta1CounterSet item : items) {
         V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);
-        _visitables.get("sharedCounters").add(builder);
+        this._visitables.get("sharedCounters").add(builder);
         this.sharedCounters.add(builder);
     }
     return (A) this;
@@ -96,7 +96,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     }
     for (V1beta1Device item : items) {
         V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);
-        _visitables.get("devices").add(builder);
+        this._visitables.get("devices").add(builder);
         this.devices.add(builder);
     }
     return (A) this;
@@ -107,12 +107,12 @@ public class V1beta1ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
       this.devices = new ArrayList();
     }
     V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);
-    if (index < 0 || index >= devices.size()) {
-        _visitables.get("devices").add(builder);
-        devices.add(builder);
+    if (index < 0 || index >= this.devices.size()) {
+        this._visitables.get("devices").add(builder);
+        this.devices.add(builder);
     } else {
-        _visitables.get("devices").add(builder);
-        devices.add(index, builder);
+        this._visitables.get("devices").add(builder);
+        this.devices.add(index, builder);
     }
     return (A) this;
   }
@@ -123,7 +123,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     }
     for (V1beta1CounterSet item : items) {
         V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);
-        _visitables.get("sharedCounters").add(builder);
+        this._visitables.get("sharedCounters").add(builder);
         this.sharedCounters.add(builder);
     }
     return (A) this;
@@ -134,12 +134,12 @@ public class V1beta1ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
       this.sharedCounters = new ArrayList();
     }
     V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);
-    if (index < 0 || index >= sharedCounters.size()) {
-        _visitables.get("sharedCounters").add(builder);
-        sharedCounters.add(builder);
+    if (index < 0 || index >= this.sharedCounters.size()) {
+        this._visitables.get("sharedCounters").add(builder);
+        this.sharedCounters.add(builder);
     } else {
-        _visitables.get("sharedCounters").add(builder);
-        sharedCounters.add(index, builder);
+        this._visitables.get("sharedCounters").add(builder);
+        this.sharedCounters.add(index, builder);
     }
     return (A) this;
   }
@@ -473,7 +473,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
       return (A) this;
     }
     Iterator<V1beta1DeviceBuilder> each = devices.iterator();
-    List visitables = _visitables.get("devices");
+    List visitables = this._visitables.get("devices");
     while (each.hasNext()) {
         V1beta1DeviceBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -489,7 +489,7 @@ public class V1beta1ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
       return (A) this;
     }
     Iterator<V1beta1CounterSetBuilder> each = sharedCounters.iterator();
-    List visitables = _visitables.get("sharedCounters");
+    List visitables = this._visitables.get("sharedCounters");
     while (each.hasNext()) {
         V1beta1CounterSetBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -513,12 +513,12 @@ public class V1beta1ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
       this.devices = new ArrayList();
     }
     V1beta1DeviceBuilder builder = new V1beta1DeviceBuilder(item);
-    if (index < 0 || index >= devices.size()) {
-        _visitables.get("devices").add(builder);
-        devices.add(builder);
+    if (index < 0 || index >= this.devices.size()) {
+        this._visitables.get("devices").add(builder);
+        this.devices.add(builder);
     } else {
-        _visitables.get("devices").add(builder);
-        devices.set(index, builder);
+        this._visitables.get("devices").add(builder);
+        this.devices.set(index, builder);
     }
     return (A) this;
   }
@@ -528,12 +528,12 @@ public class V1beta1ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
       this.sharedCounters = new ArrayList();
     }
     V1beta1CounterSetBuilder builder = new V1beta1CounterSetBuilder(item);
-    if (index < 0 || index >= sharedCounters.size()) {
-        _visitables.get("sharedCounters").add(builder);
-        sharedCounters.add(builder);
+    if (index < 0 || index >= this.sharedCounters.size()) {
+        this._visitables.get("sharedCounters").add(builder);
+        this.sharedCounters.add(builder);
     } else {
-        _visitables.get("sharedCounters").add(builder);
-        sharedCounters.set(index, builder);
+        this._visitables.get("sharedCounters").add(builder);
+        this.sharedCounters.set(index, builder);
     }
     return (A) this;
   }

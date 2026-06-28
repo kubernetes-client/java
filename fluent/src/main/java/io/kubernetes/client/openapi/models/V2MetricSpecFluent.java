@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -66,7 +66,6 @@ public class V2MetricSpecFluent<A extends io.kubernetes.client.openapi.models.V2
     if (instance != null) {
         this.withContainerResource(instance.getContainerResource());
         this.withExternal(instance.getExternal());
-        this.withObject(instance.getObject());
         this.withPods(instance.getPods());
         this.withResource(instance.getResource());
         this.withType(instance.getType());

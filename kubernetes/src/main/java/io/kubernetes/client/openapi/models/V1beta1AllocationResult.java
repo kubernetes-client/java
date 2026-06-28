@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * AllocationResult contains attributes of an allocated resource.
  */
 @ApiModel(description = "AllocationResult contains attributes of an allocated resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1beta1AllocationResult {
   public static final String SERIALIZED_NAME_ALLOCATION_TIMESTAMP = "allocationTimestamp";
   @SerializedName(SERIALIZED_NAME_ALLOCATION_TIMESTAMP)
@@ -79,11 +79,11 @@ public class V1beta1AllocationResult {
   }
 
   /**
-   * AllocationTimestamp stores the time when the resources were allocated. This field is not guaranteed to be set, in which case that time is unknown.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gate.
+   * AllocationTimestamp stores the time when the resources were allocated. This field is not guaranteed to be set, in which case that time is unknown.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gate.
    * @return allocationTimestamp
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "AllocationTimestamp stores the time when the resources were allocated. This field is not guaranteed to be set, in which case that time is unknown.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gate.")
+  @ApiModelProperty(value = "AllocationTimestamp stores the time when the resources were allocated. This field is not guaranteed to be set, in which case that time is unknown.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gate.")
   public OffsetDateTime getAllocationTimestamp() {
     return allocationTimestamp;
   }

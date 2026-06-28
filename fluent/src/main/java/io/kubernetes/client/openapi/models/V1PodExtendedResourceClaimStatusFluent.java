@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -48,7 +48,7 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
     }
     for (V1ContainerExtendedResourceRequest item : items) {
         V1ContainerExtendedResourceRequestBuilder builder = new V1ContainerExtendedResourceRequestBuilder(item);
-        _visitables.get("requestMappings").add(builder);
+        this._visitables.get("requestMappings").add(builder);
         this.requestMappings.add(builder);
     }
     return (A) this;
@@ -68,7 +68,7 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
     }
     for (V1ContainerExtendedResourceRequest item : items) {
         V1ContainerExtendedResourceRequestBuilder builder = new V1ContainerExtendedResourceRequestBuilder(item);
-        _visitables.get("requestMappings").add(builder);
+        this._visitables.get("requestMappings").add(builder);
         this.requestMappings.add(builder);
     }
     return (A) this;
@@ -79,12 +79,12 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
       this.requestMappings = new ArrayList();
     }
     V1ContainerExtendedResourceRequestBuilder builder = new V1ContainerExtendedResourceRequestBuilder(item);
-    if (index < 0 || index >= requestMappings.size()) {
-        _visitables.get("requestMappings").add(builder);
-        requestMappings.add(builder);
+    if (index < 0 || index >= this.requestMappings.size()) {
+        this._visitables.get("requestMappings").add(builder);
+        this.requestMappings.add(builder);
     } else {
-        _visitables.get("requestMappings").add(builder);
-        requestMappings.add(index, builder);
+        this._visitables.get("requestMappings").add(builder);
+        this.requestMappings.add(index, builder);
     }
     return (A) this;
   }
@@ -232,7 +232,7 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
       return (A) this;
     }
     Iterator<V1ContainerExtendedResourceRequestBuilder> each = requestMappings.iterator();
-    List visitables = _visitables.get("requestMappings");
+    List visitables = this._visitables.get("requestMappings");
     while (each.hasNext()) {
         V1ContainerExtendedResourceRequestBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -252,12 +252,12 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
       this.requestMappings = new ArrayList();
     }
     V1ContainerExtendedResourceRequestBuilder builder = new V1ContainerExtendedResourceRequestBuilder(item);
-    if (index < 0 || index >= requestMappings.size()) {
-        _visitables.get("requestMappings").add(builder);
-        requestMappings.add(builder);
+    if (index < 0 || index >= this.requestMappings.size()) {
+        this._visitables.get("requestMappings").add(builder);
+        this.requestMappings.add(builder);
     } else {
-        _visitables.get("requestMappings").add(builder);
-        requestMappings.set(index, builder);
+        this._visitables.get("requestMappings").add(builder);
+        this.requestMappings.set(index, builder);
     }
     return (A) this;
   }

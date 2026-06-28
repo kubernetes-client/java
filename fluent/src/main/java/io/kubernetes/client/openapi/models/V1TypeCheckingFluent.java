@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -47,7 +47,7 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
     }
     for (V1ExpressionWarning item : items) {
         V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
-        _visitables.get("expressionWarnings").add(builder);
+        this._visitables.get("expressionWarnings").add(builder);
         this.expressionWarnings.add(builder);
     }
     return (A) this;
@@ -67,7 +67,7 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
     }
     for (V1ExpressionWarning item : items) {
         V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
-        _visitables.get("expressionWarnings").add(builder);
+        this._visitables.get("expressionWarnings").add(builder);
         this.expressionWarnings.add(builder);
     }
     return (A) this;
@@ -78,12 +78,12 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
       this.expressionWarnings = new ArrayList();
     }
     V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
-    if (index < 0 || index >= expressionWarnings.size()) {
-        _visitables.get("expressionWarnings").add(builder);
-        expressionWarnings.add(builder);
+    if (index < 0 || index >= this.expressionWarnings.size()) {
+        this._visitables.get("expressionWarnings").add(builder);
+        this.expressionWarnings.add(builder);
     } else {
-        _visitables.get("expressionWarnings").add(builder);
-        expressionWarnings.add(index, builder);
+        this._visitables.get("expressionWarnings").add(builder);
+        this.expressionWarnings.add(index, builder);
     }
     return (A) this;
   }
@@ -219,7 +219,7 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
       return (A) this;
     }
     Iterator<V1ExpressionWarningBuilder> each = expressionWarnings.iterator();
-    List visitables = _visitables.get("expressionWarnings");
+    List visitables = this._visitables.get("expressionWarnings");
     while (each.hasNext()) {
         V1ExpressionWarningBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -239,12 +239,12 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
       this.expressionWarnings = new ArrayList();
     }
     V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
-    if (index < 0 || index >= expressionWarnings.size()) {
-        _visitables.get("expressionWarnings").add(builder);
-        expressionWarnings.add(builder);
+    if (index < 0 || index >= this.expressionWarnings.size()) {
+        this._visitables.get("expressionWarnings").add(builder);
+        this.expressionWarnings.add(builder);
     } else {
-        _visitables.get("expressionWarnings").add(builder);
-        expressionWarnings.set(index, builder);
+        this._visitables.get("expressionWarnings").add(builder);
+        this.expressionWarnings.set(index, builder);
     }
     return (A) this;
   }

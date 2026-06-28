@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -47,7 +47,7 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
     }
     for (V1SuccessPolicyRule item : items) {
         V1SuccessPolicyRuleBuilder builder = new V1SuccessPolicyRuleBuilder(item);
-        _visitables.get("rules").add(builder);
+        this._visitables.get("rules").add(builder);
         this.rules.add(builder);
     }
     return (A) this;
@@ -67,7 +67,7 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
     }
     for (V1SuccessPolicyRule item : items) {
         V1SuccessPolicyRuleBuilder builder = new V1SuccessPolicyRuleBuilder(item);
-        _visitables.get("rules").add(builder);
+        this._visitables.get("rules").add(builder);
         this.rules.add(builder);
     }
     return (A) this;
@@ -78,12 +78,12 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
       this.rules = new ArrayList();
     }
     V1SuccessPolicyRuleBuilder builder = new V1SuccessPolicyRuleBuilder(item);
-    if (index < 0 || index >= rules.size()) {
-        _visitables.get("rules").add(builder);
-        rules.add(builder);
+    if (index < 0 || index >= this.rules.size()) {
+        this._visitables.get("rules").add(builder);
+        this.rules.add(builder);
     } else {
-        _visitables.get("rules").add(builder);
-        rules.add(index, builder);
+        this._visitables.get("rules").add(builder);
+        this.rules.add(index, builder);
     }
     return (A) this;
   }
@@ -219,7 +219,7 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1SuccessPolicyRuleBuilder> each = rules.iterator();
-    List visitables = _visitables.get("rules");
+    List visitables = this._visitables.get("rules");
     while (each.hasNext()) {
         V1SuccessPolicyRuleBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -239,12 +239,12 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
       this.rules = new ArrayList();
     }
     V1SuccessPolicyRuleBuilder builder = new V1SuccessPolicyRuleBuilder(item);
-    if (index < 0 || index >= rules.size()) {
-        _visitables.get("rules").add(builder);
-        rules.add(builder);
+    if (index < 0 || index >= this.rules.size()) {
+        this._visitables.get("rules").add(builder);
+        this.rules.add(builder);
     } else {
-        _visitables.get("rules").add(builder);
-        rules.set(index, builder);
+        this._visitables.get("rules").add(builder);
+        this.rules.set(index, builder);
     }
     return (A) this;
   }

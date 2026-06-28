@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -72,7 +72,7 @@ public class V1PodSecurityContextFluent<A extends io.kubernetes.client.openapi.m
     }
     for (V1Sysctl item : items) {
         V1SysctlBuilder builder = new V1SysctlBuilder(item);
-        _visitables.get("sysctls").add(builder);
+        this._visitables.get("sysctls").add(builder);
         this.sysctls.add(builder);
     }
     return (A) this;
@@ -110,7 +110,7 @@ public class V1PodSecurityContextFluent<A extends io.kubernetes.client.openapi.m
     }
     for (V1Sysctl item : items) {
         V1SysctlBuilder builder = new V1SysctlBuilder(item);
-        _visitables.get("sysctls").add(builder);
+        this._visitables.get("sysctls").add(builder);
         this.sysctls.add(builder);
     }
     return (A) this;
@@ -121,12 +121,12 @@ public class V1PodSecurityContextFluent<A extends io.kubernetes.client.openapi.m
       this.sysctls = new ArrayList();
     }
     V1SysctlBuilder builder = new V1SysctlBuilder(item);
-    if (index < 0 || index >= sysctls.size()) {
-        _visitables.get("sysctls").add(builder);
-        sysctls.add(builder);
+    if (index < 0 || index >= this.sysctls.size()) {
+        this._visitables.get("sysctls").add(builder);
+        this.sysctls.add(builder);
     } else {
-        _visitables.get("sysctls").add(builder);
-        sysctls.add(index, builder);
+        this._visitables.get("sysctls").add(builder);
+        this.sysctls.add(index, builder);
     }
     return (A) this;
   }
@@ -504,7 +504,7 @@ public class V1PodSecurityContextFluent<A extends io.kubernetes.client.openapi.m
       return (A) this;
     }
     Iterator<V1SysctlBuilder> each = sysctls.iterator();
-    List visitables = _visitables.get("sysctls");
+    List visitables = this._visitables.get("sysctls");
     while (each.hasNext()) {
         V1SysctlBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -532,12 +532,12 @@ public class V1PodSecurityContextFluent<A extends io.kubernetes.client.openapi.m
       this.sysctls = new ArrayList();
     }
     V1SysctlBuilder builder = new V1SysctlBuilder(item);
-    if (index < 0 || index >= sysctls.size()) {
-        _visitables.get("sysctls").add(builder);
-        sysctls.add(builder);
+    if (index < 0 || index >= this.sysctls.size()) {
+        this._visitables.get("sysctls").add(builder);
+        this.sysctls.add(builder);
     } else {
-        _visitables.get("sysctls").add(builder);
-        sysctls.set(index, builder);
+        this._visitables.get("sysctls").add(builder);
+        this.sysctls.set(index, builder);
     }
     return (A) this;
   }

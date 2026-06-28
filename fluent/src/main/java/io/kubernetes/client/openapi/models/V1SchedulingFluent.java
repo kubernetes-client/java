@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,7 +50,7 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1Toleration item : items) {
         V1TolerationBuilder builder = new V1TolerationBuilder(item);
-        _visitables.get("tolerations").add(builder);
+        this._visitables.get("tolerations").add(builder);
         this.tolerations.add(builder);
     }
     return (A) this;
@@ -90,7 +90,7 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1Toleration item : items) {
         V1TolerationBuilder builder = new V1TolerationBuilder(item);
-        _visitables.get("tolerations").add(builder);
+        this._visitables.get("tolerations").add(builder);
         this.tolerations.add(builder);
     }
     return (A) this;
@@ -101,12 +101,12 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
       this.tolerations = new ArrayList();
     }
     V1TolerationBuilder builder = new V1TolerationBuilder(item);
-    if (index < 0 || index >= tolerations.size()) {
-        _visitables.get("tolerations").add(builder);
-        tolerations.add(builder);
+    if (index < 0 || index >= this.tolerations.size()) {
+        this._visitables.get("tolerations").add(builder);
+        this.tolerations.add(builder);
     } else {
-        _visitables.get("tolerations").add(builder);
-        tolerations.add(index, builder);
+        this._visitables.get("tolerations").add(builder);
+        this.tolerations.add(index, builder);
     }
     return (A) this;
   }
@@ -278,7 +278,7 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1TolerationBuilder> each = tolerations.iterator();
-    List visitables = _visitables.get("tolerations");
+    List visitables = this._visitables.get("tolerations");
     while (each.hasNext()) {
         V1TolerationBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -298,12 +298,12 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
       this.tolerations = new ArrayList();
     }
     V1TolerationBuilder builder = new V1TolerationBuilder(item);
-    if (index < 0 || index >= tolerations.size()) {
-        _visitables.get("tolerations").add(builder);
-        tolerations.add(builder);
+    if (index < 0 || index >= this.tolerations.size()) {
+        this._visitables.get("tolerations").add(builder);
+        this.tolerations.add(builder);
     } else {
-        _visitables.get("tolerations").add(builder);
-        tolerations.set(index, builder);
+        this._visitables.get("tolerations").add(builder);
+        this.tolerations.set(index, builder);
     }
     return (A) this;
   }

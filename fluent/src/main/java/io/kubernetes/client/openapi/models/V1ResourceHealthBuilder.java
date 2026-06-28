@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -39,6 +39,7 @@ public class V1ResourceHealthBuilder extends V1ResourceHealthFluent<V1ResourceHe
   public V1ResourceHealth build() {
     V1ResourceHealth buildable = new V1ResourceHealth();
     buildable.setHealth(fluent.getHealth());
+    buildable.setMessage(fluent.getMessage());
     buildable.setResourceID(fluent.getResourceID());
     return buildable;
   }

@@ -51,57 +51,57 @@ import io.kubernetes.client.openapi.JSON;
  * TokenRequestStatus is the result of a token request.
  */
 @ApiModel(description = "TokenRequestStatus is the result of a token request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1TokenRequestStatus {
   public static final String SERIALIZED_NAME_EXPIRATION_TIMESTAMP = "expirationTimestamp";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_TIMESTAMP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private OffsetDateTime expirationTimestamp;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String token;
 
   public V1TokenRequestStatus() {
   }
 
-  public V1TokenRequestStatus expirationTimestamp(@jakarta.annotation.Nonnull OffsetDateTime expirationTimestamp) {
+  public V1TokenRequestStatus expirationTimestamp(@jakarta.annotation.Nullable OffsetDateTime expirationTimestamp) {
     this.expirationTimestamp = expirationTimestamp;
     return this;
   }
 
   /**
-   * ExpirationTimestamp is the time of expiration of the returned token.
+   * expirationTimestamp is the time of expiration of the returned token.
    * @return expirationTimestamp
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ExpirationTimestamp is the time of expiration of the returned token.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "expirationTimestamp is the time of expiration of the returned token.")
   public OffsetDateTime getExpirationTimestamp() {
     return expirationTimestamp;
   }
 
-  public void setExpirationTimestamp(@jakarta.annotation.Nonnull OffsetDateTime expirationTimestamp) {
+  public void setExpirationTimestamp(@jakarta.annotation.Nullable OffsetDateTime expirationTimestamp) {
     this.expirationTimestamp = expirationTimestamp;
   }
 
 
-  public V1TokenRequestStatus token(@jakarta.annotation.Nonnull String token) {
+  public V1TokenRequestStatus token(@jakarta.annotation.Nullable String token) {
     this.token = token;
     return this;
   }
 
   /**
-   * Token is the opaque bearer token.
+   * token is the opaque bearer token.
    * @return token
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Token is the opaque bearer token.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "token is the opaque bearer token.")
   public String getToken() {
     return token;
   }
 
-  public void setToken(@jakarta.annotation.Nonnull String token) {
+  public void setToken(@jakarta.annotation.Nullable String token) {
     this.token = token;
   }
 
@@ -155,7 +155,7 @@ public class V1TokenRequestStatus {
     openapiFields = new HashSet<String>(Arrays.asList("expirationTimestamp", "token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("expirationTimestamp", "token"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -178,15 +178,8 @@ public class V1TokenRequestStatus {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1TokenRequestStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : V1TokenRequestStatus.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("token").isJsonPrimitive()) {
+      if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
   }

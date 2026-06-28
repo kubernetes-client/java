@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * ParamRef describes how to locate the params to be used as input to expressions of rules applied by a policy binding.
  */
 @ApiModel(description = "ParamRef describes how to locate the params to be used as input to expressions of rules applied by a policy binding.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha1ParamRef {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -82,11 +82,11 @@ public class V1alpha1ParamRef {
   }
 
   /**
-   * &#x60;name&#x60; is the name of the resource being referenced.  &#x60;name&#x60; and &#x60;selector&#x60; are mutually exclusive properties. If one is set, the other must be unset.
+   * name is the name of the resource being referenced.  &#x60;name&#x60; and &#x60;selector&#x60; are mutually exclusive properties. If one is set, the other must be unset.
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "`name` is the name of the resource being referenced.  `name` and `selector` are mutually exclusive properties. If one is set, the other must be unset.")
+  @ApiModelProperty(value = "name is the name of the resource being referenced.  `name` and `selector` are mutually exclusive properties. If one is set, the other must be unset.")
   public String getName() {
     return name;
   }
@@ -122,11 +122,11 @@ public class V1alpha1ParamRef {
   }
 
   /**
-   * &#x60;parameterNotFoundAction&#x60; controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to &#x60;Allow&#x60;, then no matched parameters will be treated as successful validation by the binding. If set to &#x60;Deny&#x60;, then no matched parameters will be subject to the &#x60;failurePolicy&#x60; of the policy.  Allowed values are &#x60;Allow&#x60; or &#x60;Deny&#x60; Default to &#x60;Deny&#x60;
+   * parameterNotFoundAction controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to &#x60;Allow&#x60;, then no matched parameters will be treated as successful validation by the binding. If set to &#x60;Deny&#x60;, then no matched parameters will be subject to the &#x60;failurePolicy&#x60; of the policy.  Allowed values are &#x60;Allow&#x60; or &#x60;Deny&#x60; Default to &#x60;Deny&#x60;
    * @return parameterNotFoundAction
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "`parameterNotFoundAction` controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to `Allow`, then no matched parameters will be treated as successful validation by the binding. If set to `Deny`, then no matched parameters will be subject to the `failurePolicy` of the policy.  Allowed values are `Allow` or `Deny` Default to `Deny`")
+  @ApiModelProperty(value = "parameterNotFoundAction controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to `Allow`, then no matched parameters will be treated as successful validation by the binding. If set to `Deny`, then no matched parameters will be subject to the `failurePolicy` of the policy.  Allowed values are `Allow` or `Deny` Default to `Deny`")
   public String getParameterNotFoundAction() {
     return parameterNotFoundAction;
   }

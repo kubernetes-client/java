@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,7 +50,7 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
     }
     for (V1ObjectReference item : items) {
         V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-        _visitables.get("active").add(builder);
+        this._visitables.get("active").add(builder);
         this.active.add(builder);
     }
     return (A) this;
@@ -70,7 +70,7 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
     }
     for (V1ObjectReference item : items) {
         V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-        _visitables.get("active").add(builder);
+        this._visitables.get("active").add(builder);
         this.active.add(builder);
     }
     return (A) this;
@@ -81,12 +81,12 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
       this.active = new ArrayList();
     }
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-    if (index < 0 || index >= active.size()) {
-        _visitables.get("active").add(builder);
-        active.add(builder);
+    if (index < 0 || index >= this.active.size()) {
+        this._visitables.get("active").add(builder);
+        this.active.add(builder);
     } else {
-        _visitables.get("active").add(builder);
-        active.add(index, builder);
+        this._visitables.get("active").add(builder);
+        this.active.add(index, builder);
     }
     return (A) this;
   }
@@ -246,7 +246,7 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1ObjectReferenceBuilder> each = active.iterator();
-    List visitables = _visitables.get("active");
+    List visitables = this._visitables.get("active");
     while (each.hasNext()) {
         V1ObjectReferenceBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -266,12 +266,12 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
       this.active = new ArrayList();
     }
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-    if (index < 0 || index >= active.size()) {
-        _visitables.get("active").add(builder);
-        active.add(builder);
+    if (index < 0 || index >= this.active.size()) {
+        this._visitables.get("active").add(builder);
+        this.active.add(builder);
     } else {
-        _visitables.get("active").add(builder);
-        active.set(index, builder);
+        this._visitables.get("active").add(builder);
+        this.active.set(index, builder);
     }
     return (A) this;
   }

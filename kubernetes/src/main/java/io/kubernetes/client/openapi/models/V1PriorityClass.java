@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
  */
 @ApiModel(description = "PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PriorityClass implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -85,7 +85,7 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer value;
 
   public V1PriorityClass() {
@@ -211,7 +211,7 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
   }
 
 
-  public V1PriorityClass value(@jakarta.annotation.Nonnull Integer value) {
+  public V1PriorityClass value(@jakarta.annotation.Nullable Integer value) {
     this.value = value;
     return this;
   }
@@ -220,13 +220,13 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
    * value represents the integer value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
    * @return value
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "value represents the integer value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "value represents the integer value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.")
   public Integer getValue() {
     return value;
   }
 
-  public void setValue(@jakarta.annotation.Nonnull Integer value) {
+  public void setValue(@jakarta.annotation.Nullable Integer value) {
     this.value = value;
   }
 
@@ -290,7 +290,7 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
     openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "description", "globalDefault", "kind", "metadata", "preemptionPolicy", "value"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("value"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -311,13 +311,6 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PriorityClass.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PriorityClass` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : V1PriorityClass.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

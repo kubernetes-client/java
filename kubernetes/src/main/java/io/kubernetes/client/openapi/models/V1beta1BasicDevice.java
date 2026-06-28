@@ -23,6 +23,7 @@ import io.kubernetes.client.openapi.models.V1beta1DeviceAttribute;
 import io.kubernetes.client.openapi.models.V1beta1DeviceCapacity;
 import io.kubernetes.client.openapi.models.V1beta1DeviceCounterConsumption;
 import io.kubernetes.client.openapi.models.V1beta1DeviceTaint;
+import io.kubernetes.client.openapi.models.V1beta1NodeAllocatableResourceMapping;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -59,7 +60,7 @@ import io.kubernetes.client.openapi.JSON;
  * BasicDevice defines one device instance.
  */
 @ApiModel(description = "BasicDevice defines one device instance.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1beta1BasicDevice {
   public static final String SERIALIZED_NAME_ALL_NODES = "allNodes";
   @SerializedName(SERIALIZED_NAME_ALL_NODES)
@@ -100,6 +101,11 @@ public class V1beta1BasicDevice {
   @SerializedName(SERIALIZED_NAME_CONSUMES_COUNTERS)
   @jakarta.annotation.Nullable
   private List<V1beta1DeviceCounterConsumption> consumesCounters = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_NODE_ALLOCATABLE_RESOURCE_MAPPINGS = "nodeAllocatableResourceMappings";
+  @SerializedName(SERIALIZED_NAME_NODE_ALLOCATABLE_RESOURCE_MAPPINGS)
+  @jakarta.annotation.Nullable
+  private Map<String, V1beta1NodeAllocatableResourceMapping> nodeAllocatableResourceMappings = new HashMap<>();
 
   public static final String SERIALIZED_NAME_NODE_NAME = "nodeName";
   @SerializedName(SERIALIZED_NAME_NODE_NAME)
@@ -201,11 +207,11 @@ public class V1beta1BasicDevice {
   }
 
   /**
-   * BindingConditions defines the conditions for proceeding with binding. All of these conditions must be set in the per-device status conditions with a value of True to proceed with binding the pod to the node while scheduling the pod.  The maximum number of binding conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * BindingConditions defines the conditions for proceeding with binding. All of these conditions must be set in the per-device status conditions with a value of True to proceed with binding the pod to the node while scheduling the pod.  The maximum number of binding conditions is 4.  The conditions must be a valid condition type string.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
    * @return bindingConditions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "BindingConditions defines the conditions for proceeding with binding. All of these conditions must be set in the per-device status conditions with a value of True to proceed with binding the pod to the node while scheduling the pod.  The maximum number of binding conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+  @ApiModelProperty(value = "BindingConditions defines the conditions for proceeding with binding. All of these conditions must be set in the per-device status conditions with a value of True to proceed with binding the pod to the node while scheduling the pod.  The maximum number of binding conditions is 4.  The conditions must be a valid condition type string.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
   public List<String> getBindingConditions() {
     return bindingConditions;
   }
@@ -229,11 +235,11 @@ public class V1beta1BasicDevice {
   }
 
   /**
-   * BindingFailureConditions defines the conditions for binding failure. They may be set in the per-device status conditions. If any is true, a binding failure occurred.  The maximum number of binding failure conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * BindingFailureConditions defines the conditions for binding failure. They may be set in the per-device status conditions. If any is true, a binding failure occurred.  The maximum number of binding failure conditions is 4.  The conditions must be a valid condition type string.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
    * @return bindingFailureConditions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "BindingFailureConditions defines the conditions for binding failure. They may be set in the per-device status conditions. If any is true, a binding failure occurred.  The maximum number of binding failure conditions is 4.  The conditions must be a valid condition type string.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+  @ApiModelProperty(value = "BindingFailureConditions defines the conditions for binding failure. They may be set in the per-device status conditions. If any is true, a binding failure occurred.  The maximum number of binding failure conditions is 4.  The conditions must be a valid condition type string.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
   public List<String> getBindingFailureConditions() {
     return bindingFailureConditions;
   }
@@ -249,11 +255,11 @@ public class V1beta1BasicDevice {
   }
 
   /**
-   * BindsToNode indicates if the usage of an allocation involving this device has to be limited to exactly the node that was chosen when allocating the claim. If set to true, the scheduler will set the ResourceClaim.Status.Allocation.NodeSelector to match the node where the allocation was made.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * BindsToNode indicates if the usage of an allocation involving this device has to be limited to exactly the node that was chosen when allocating the claim. If set to true, the scheduler will set the ResourceClaim.Status.Allocation.NodeSelector to match the node where the allocation was made.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
    * @return bindsToNode
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "BindsToNode indicates if the usage of an allocation involving this device has to be limited to exactly the node that was chosen when allocating the claim. If set to true, the scheduler will set the ResourceClaim.Status.Allocation.NodeSelector to match the node where the allocation was made.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+  @ApiModelProperty(value = "BindsToNode indicates if the usage of an allocation involving this device has to be limited to exactly the node that was chosen when allocating the claim. If set to true, the scheduler will set the ResourceClaim.Status.Allocation.NodeSelector to match the node where the allocation was made.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
   public Boolean getBindsToNode() {
     return bindsToNode;
   }
@@ -319,6 +325,34 @@ public class V1beta1BasicDevice {
   }
 
 
+  public V1beta1BasicDevice nodeAllocatableResourceMappings(@jakarta.annotation.Nullable Map<String, V1beta1NodeAllocatableResourceMapping> nodeAllocatableResourceMappings) {
+    this.nodeAllocatableResourceMappings = nodeAllocatableResourceMappings;
+    return this;
+  }
+
+  public V1beta1BasicDevice putNodeAllocatableResourceMappingsItem(String key, V1beta1NodeAllocatableResourceMapping nodeAllocatableResourceMappingsItem) {
+    if (this.nodeAllocatableResourceMappings == null) {
+      this.nodeAllocatableResourceMappings = new HashMap<>();
+    }
+    this.nodeAllocatableResourceMappings.put(key, nodeAllocatableResourceMappingsItem);
+    return this;
+  }
+
+  /**
+   * NodeAllocatableResourceMappings defines the mapping of node resources that are managed by the DRA driver exposing this device. This includes resources currently reported in v1.Node &#x60;status.allocatable&#x60; that are not extended resources (see https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#extended-resources). Examples include \&quot;cpu\&quot;, \&quot;memory\&quot;, \&quot;ephemeral-storage\&quot;, and hugepages. In addition to standard requests made through the Pod &#x60;spec&#x60;, these resources can also be requested through claims and allocated by the DRA driver. For example, a CPU DRA driver might allocate exclusive CPUs or auxiliary node memory dependencies of an accelerator device. The keys of this map are the node-allocatable resource names (e.g., \&quot;cpu\&quot;, \&quot;memory\&quot;). Extended resource names are not permitted as keys.
+   * @return nodeAllocatableResourceMappings
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "NodeAllocatableResourceMappings defines the mapping of node resources that are managed by the DRA driver exposing this device. This includes resources currently reported in v1.Node `status.allocatable` that are not extended resources (see https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#extended-resources). Examples include \"cpu\", \"memory\", \"ephemeral-storage\", and hugepages. In addition to standard requests made through the Pod `spec`, these resources can also be requested through claims and allocated by the DRA driver. For example, a CPU DRA driver might allocate exclusive CPUs or auxiliary node memory dependencies of an accelerator device. The keys of this map are the node-allocatable resource names (e.g., \"cpu\", \"memory\"). Extended resource names are not permitted as keys.")
+  public Map<String, V1beta1NodeAllocatableResourceMapping> getNodeAllocatableResourceMappings() {
+    return nodeAllocatableResourceMappings;
+  }
+
+  public void setNodeAllocatableResourceMappings(@jakarta.annotation.Nullable Map<String, V1beta1NodeAllocatableResourceMapping> nodeAllocatableResourceMappings) {
+    this.nodeAllocatableResourceMappings = nodeAllocatableResourceMappings;
+  }
+
+
   public V1beta1BasicDevice nodeName(@jakarta.annotation.Nullable String nodeName) {
     this.nodeName = nodeName;
     return this;
@@ -373,11 +407,11 @@ public class V1beta1BasicDevice {
   }
 
   /**
-   * If specified, these are the driver-defined taints.  The maximum number of taints is 16. If taints are set for any device in a ResourceSlice, then the maximum number of allowed devices per ResourceSlice is 64 instead of 128.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.
+   * If specified, these are the driver-defined taints.  The maximum number of taints is 16. If taints are set for any device in a ResourceSlice, then the maximum number of allowed devices per ResourceSlice is 64 instead of 128.  This is a beta field and requires enabling the DRADeviceTaints feature gate.
    * @return taints
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "If specified, these are the driver-defined taints.  The maximum number of taints is 16. If taints are set for any device in a ResourceSlice, then the maximum number of allowed devices per ResourceSlice is 64 instead of 128.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.")
+  @ApiModelProperty(value = "If specified, these are the driver-defined taints.  The maximum number of taints is 16. If taints are set for any device in a ResourceSlice, then the maximum number of allowed devices per ResourceSlice is 64 instead of 128.  This is a beta field and requires enabling the DRADeviceTaints feature gate.")
   public List<V1beta1DeviceTaint> getTaints() {
     return taints;
   }
@@ -405,6 +439,7 @@ public class V1beta1BasicDevice {
         Objects.equals(this.bindsToNode, v1beta1BasicDevice.bindsToNode) &&
         Objects.equals(this.capacity, v1beta1BasicDevice.capacity) &&
         Objects.equals(this.consumesCounters, v1beta1BasicDevice.consumesCounters) &&
+        Objects.equals(this.nodeAllocatableResourceMappings, v1beta1BasicDevice.nodeAllocatableResourceMappings) &&
         Objects.equals(this.nodeName, v1beta1BasicDevice.nodeName) &&
         Objects.equals(this.nodeSelector, v1beta1BasicDevice.nodeSelector) &&
         Objects.equals(this.taints, v1beta1BasicDevice.taints);
@@ -412,7 +447,7 @@ public class V1beta1BasicDevice {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allNodes, allowMultipleAllocations, attributes, bindingConditions, bindingFailureConditions, bindsToNode, capacity, consumesCounters, nodeName, nodeSelector, taints);
+    return Objects.hash(allNodes, allowMultipleAllocations, attributes, bindingConditions, bindingFailureConditions, bindsToNode, capacity, consumesCounters, nodeAllocatableResourceMappings, nodeName, nodeSelector, taints);
   }
 
   @Override
@@ -427,6 +462,7 @@ public class V1beta1BasicDevice {
     sb.append("    bindsToNode: ").append(toIndentedString(bindsToNode)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    consumesCounters: ").append(toIndentedString(consumesCounters)).append("\n");
+    sb.append("    nodeAllocatableResourceMappings: ").append(toIndentedString(nodeAllocatableResourceMappings)).append("\n");
     sb.append("    nodeName: ").append(toIndentedString(nodeName)).append("\n");
     sb.append("    nodeSelector: ").append(toIndentedString(nodeSelector)).append("\n");
     sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
@@ -451,7 +487,7 @@ public class V1beta1BasicDevice {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("allNodes", "allowMultipleAllocations", "attributes", "bindingConditions", "bindingFailureConditions", "bindsToNode", "capacity", "consumesCounters", "nodeName", "nodeSelector", "taints"));
+    openapiFields = new HashSet<String>(Arrays.asList("allNodes", "allowMultipleAllocations", "attributes", "bindingConditions", "bindingFailureConditions", "bindsToNode", "capacity", "consumesCounters", "nodeAllocatableResourceMappings", "nodeName", "nodeSelector", "taints"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

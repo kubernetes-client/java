@@ -21,7 +21,9 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,27 +52,47 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceAttribute must have exactly one field set.
  */
 @ApiModel(description = "DeviceAttribute must have exactly one field set.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1beta2DeviceAttribute {
   public static final String SERIALIZED_NAME_BOOL = "bool";
   @SerializedName(SERIALIZED_NAME_BOOL)
   @jakarta.annotation.Nullable
   private Boolean bool;
 
+  public static final String SERIALIZED_NAME_BOOLS = "bools";
+  @SerializedName(SERIALIZED_NAME_BOOLS)
+  @jakarta.annotation.Nullable
+  private List<Boolean> bools = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_INT = "int";
   @SerializedName(SERIALIZED_NAME_INT)
   @jakarta.annotation.Nullable
   private Long _int;
+
+  public static final String SERIALIZED_NAME_INTS = "ints";
+  @SerializedName(SERIALIZED_NAME_INTS)
+  @jakarta.annotation.Nullable
+  private List<Long> ints = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STRING = "string";
   @SerializedName(SERIALIZED_NAME_STRING)
   @jakarta.annotation.Nullable
   private String string;
 
+  public static final String SERIALIZED_NAME_STRINGS = "strings";
+  @SerializedName(SERIALIZED_NAME_STRINGS)
+  @jakarta.annotation.Nullable
+  private List<String> strings = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   @jakarta.annotation.Nullable
   private String version;
+
+  public static final String SERIALIZED_NAME_VERSIONS = "versions";
+  @SerializedName(SERIALIZED_NAME_VERSIONS)
+  @jakarta.annotation.Nullable
+  private List<String> versions = new ArrayList<>();
 
   public V1beta2DeviceAttribute() {
   }
@@ -95,6 +117,34 @@ public class V1beta2DeviceAttribute {
   }
 
 
+  public V1beta2DeviceAttribute bools(@jakarta.annotation.Nullable List<Boolean> bools) {
+    this.bools = bools;
+    return this;
+  }
+
+  public V1beta2DeviceAttribute addBoolsItem(Boolean boolsItem) {
+    if (this.bools == null) {
+      this.bools = new ArrayList<>();
+    }
+    this.bools.add(boolsItem);
+    return this;
+  }
+
+  /**
+   * BoolValues is a non-empty list of true/false values.
+   * @return bools
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "BoolValues is a non-empty list of true/false values.")
+  public List<Boolean> getBools() {
+    return bools;
+  }
+
+  public void setBools(@jakarta.annotation.Nullable List<Boolean> bools) {
+    this.bools = bools;
+  }
+
+
   public V1beta2DeviceAttribute _int(@jakarta.annotation.Nullable Long _int) {
     this._int = _int;
     return this;
@@ -112,6 +162,34 @@ public class V1beta2DeviceAttribute {
 
   public void setInt(@jakarta.annotation.Nullable Long _int) {
     this._int = _int;
+  }
+
+
+  public V1beta2DeviceAttribute ints(@jakarta.annotation.Nullable List<Long> ints) {
+    this.ints = ints;
+    return this;
+  }
+
+  public V1beta2DeviceAttribute addIntsItem(Long intsItem) {
+    if (this.ints == null) {
+      this.ints = new ArrayList<>();
+    }
+    this.ints.add(intsItem);
+    return this;
+  }
+
+  /**
+   * IntValues is a non-empty list of numbers.  This is an alpha field and requires enabling the DRAListTypeAttributes feature gate.
+   * @return ints
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "IntValues is a non-empty list of numbers.  This is an alpha field and requires enabling the DRAListTypeAttributes feature gate.")
+  public List<Long> getInts() {
+    return ints;
+  }
+
+  public void setInts(@jakarta.annotation.Nullable List<Long> ints) {
+    this.ints = ints;
   }
 
 
@@ -135,6 +213,34 @@ public class V1beta2DeviceAttribute {
   }
 
 
+  public V1beta2DeviceAttribute strings(@jakarta.annotation.Nullable List<String> strings) {
+    this.strings = strings;
+    return this;
+  }
+
+  public V1beta2DeviceAttribute addStringsItem(String stringsItem) {
+    if (this.strings == null) {
+      this.strings = new ArrayList<>();
+    }
+    this.strings.add(stringsItem);
+    return this;
+  }
+
+  /**
+   * StringValues is a non-empty list of strings. Each string must not be longer than 64 characters.  This is an alpha field and requires enabling the DRAListTypeAttributes feature gate.
+   * @return strings
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "StringValues is a non-empty list of strings. Each string must not be longer than 64 characters.  This is an alpha field and requires enabling the DRAListTypeAttributes feature gate.")
+  public List<String> getStrings() {
+    return strings;
+  }
+
+  public void setStrings(@jakarta.annotation.Nullable List<String> strings) {
+    this.strings = strings;
+  }
+
+
   public V1beta2DeviceAttribute version(@jakarta.annotation.Nullable String version) {
     this.version = version;
     return this;
@@ -155,6 +261,34 @@ public class V1beta2DeviceAttribute {
   }
 
 
+  public V1beta2DeviceAttribute versions(@jakarta.annotation.Nullable List<String> versions) {
+    this.versions = versions;
+    return this;
+  }
+
+  public V1beta2DeviceAttribute addVersionsItem(String versionsItem) {
+    if (this.versions == null) {
+      this.versions = new ArrayList<>();
+    }
+    this.versions.add(versionsItem);
+    return this;
+  }
+
+  /**
+   * VersionValues is a non-empty list of semantic versions according to semver.org spec 2.0.0. Each version string must not be longer than 64 characters.  This is an alpha field and requires enabling the DRAListTypeAttributes feature gate.
+   * @return versions
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "VersionValues is a non-empty list of semantic versions according to semver.org spec 2.0.0. Each version string must not be longer than 64 characters.  This is an alpha field and requires enabling the DRAListTypeAttributes feature gate.")
+  public List<String> getVersions() {
+    return versions;
+  }
+
+  public void setVersions(@jakarta.annotation.Nullable List<String> versions) {
+    this.versions = versions;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -166,14 +300,18 @@ public class V1beta2DeviceAttribute {
     }
     V1beta2DeviceAttribute v1beta2DeviceAttribute = (V1beta2DeviceAttribute) o;
     return Objects.equals(this.bool, v1beta2DeviceAttribute.bool) &&
+        Objects.equals(this.bools, v1beta2DeviceAttribute.bools) &&
         Objects.equals(this._int, v1beta2DeviceAttribute._int) &&
+        Objects.equals(this.ints, v1beta2DeviceAttribute.ints) &&
         Objects.equals(this.string, v1beta2DeviceAttribute.string) &&
-        Objects.equals(this.version, v1beta2DeviceAttribute.version);
+        Objects.equals(this.strings, v1beta2DeviceAttribute.strings) &&
+        Objects.equals(this.version, v1beta2DeviceAttribute.version) &&
+        Objects.equals(this.versions, v1beta2DeviceAttribute.versions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bool, _int, string, version);
+    return Objects.hash(bool, bools, _int, ints, string, strings, version, versions);
   }
 
   @Override
@@ -181,9 +319,13 @@ public class V1beta2DeviceAttribute {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta2DeviceAttribute {\n");
     sb.append("    bool: ").append(toIndentedString(bool)).append("\n");
+    sb.append("    bools: ").append(toIndentedString(bools)).append("\n");
     sb.append("    _int: ").append(toIndentedString(_int)).append("\n");
+    sb.append("    ints: ").append(toIndentedString(ints)).append("\n");
     sb.append("    string: ").append(toIndentedString(string)).append("\n");
+    sb.append("    strings: ").append(toIndentedString(strings)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -205,7 +347,7 @@ public class V1beta2DeviceAttribute {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("bool", "int", "string", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("bool", "bools", "int", "ints", "string", "strings", "version", "versions"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -232,11 +374,27 @@ public class V1beta2DeviceAttribute {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("bools") != null && !jsonObj.get("bools").isJsonNull() && !jsonObj.get("bools").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bools` to be an array in the JSON string but got `%s`", jsonObj.get("bools").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("ints") != null && !jsonObj.get("ints").isJsonNull() && !jsonObj.get("ints").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ints` to be an array in the JSON string but got `%s`", jsonObj.get("ints").toString()));
+      }
       if ((jsonObj.get("string") != null && !jsonObj.get("string").isJsonNull()) && !jsonObj.get("string").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `string` to be a primitive type in the JSON string but got `%s`", jsonObj.get("string").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("strings") != null && !jsonObj.get("strings").isJsonNull() && !jsonObj.get("strings").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `strings` to be an array in the JSON string but got `%s`", jsonObj.get("strings").toString()));
+      }
       if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("versions") != null && !jsonObj.get("versions").isJsonNull() && !jsonObj.get("versions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `versions` to be an array in the JSON string but got `%s`", jsonObj.get("versions").toString()));
       }
   }
 
