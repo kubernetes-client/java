@@ -1062,7 +1062,7 @@ public class ResourceV1beta1Api {
     public APIcreateResourceSliceRequest createResourceSlice(@jakarta.annotation.Nonnull V1beta1ResourceSlice body) {
         return new APIcreateResourceSliceRequest(body);
     }
-    private okhttp3.Call deleteCollectionDeviceClassCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionDeviceClassCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1139,6 +1139,10 @@ public class ResourceV1beta1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -1167,21 +1171,21 @@ public class ResourceV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionDeviceClassValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-        return deleteCollectionDeviceClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+    private okhttp3.Call deleteCollectionDeviceClassValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        return deleteCollectionDeviceClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionDeviceClassWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionDeviceClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+    private ApiResponse<V1Status> deleteCollectionDeviceClassWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionDeviceClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionDeviceClassAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionDeviceClassAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionDeviceClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionDeviceClassValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1214,6 +1218,8 @@ public class ResourceV1beta1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -1353,6 +1359,16 @@ public class ResourceV1beta1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIdeleteCollectionDeviceClassRequest
+         */
+        public APIdeleteCollectionDeviceClassRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionDeviceClassRequest
@@ -1386,7 +1402,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionDeviceClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionDeviceClassCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         }
 
         /**
@@ -1402,7 +1418,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteCollectionDeviceClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            ApiResponse<V1Status> localVarResp = deleteCollectionDeviceClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body);
             return localVarResp.getData();
         }
 
@@ -1419,7 +1435,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionDeviceClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return deleteCollectionDeviceClassWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body);
         }
 
         /**
@@ -1436,7 +1452,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteCollectionDeviceClassAsync(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionDeviceClassAsync(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         }
     }
 
@@ -1455,7 +1471,7 @@ public class ResourceV1beta1Api {
     public APIdeleteCollectionDeviceClassRequest deleteCollectionDeviceClass() {
         return new APIdeleteCollectionDeviceClassRequest();
     }
-    private okhttp3.Call deleteCollectionNamespacedResourceClaimCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedResourceClaimCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1533,6 +1549,10 @@ public class ResourceV1beta1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -1561,26 +1581,26 @@ public class ResourceV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedResourceClaimValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedResourceClaimValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedResourceClaim(Async)");
         }
 
-        return deleteCollectionNamespacedResourceClaimCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        return deleteCollectionNamespacedResourceClaimCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionNamespacedResourceClaimWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClaimValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+    private ApiResponse<V1Status> deleteCollectionNamespacedResourceClaimWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClaimValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedResourceClaimAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedResourceClaimAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClaimValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClaimValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1615,6 +1635,8 @@ public class ResourceV1beta1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -1755,6 +1777,16 @@ public class ResourceV1beta1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionNamespacedResourceClaimRequest
@@ -1788,7 +1820,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionNamespacedResourceClaimCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionNamespacedResourceClaimCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         }
 
         /**
@@ -1804,7 +1836,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedResourceClaimWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedResourceClaimWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body);
             return localVarResp.getData();
         }
 
@@ -1821,7 +1853,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionNamespacedResourceClaimWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return deleteCollectionNamespacedResourceClaimWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body);
         }
 
         /**
@@ -1838,7 +1870,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteCollectionNamespacedResourceClaimAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionNamespacedResourceClaimAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         }
     }
 
@@ -1858,7 +1890,7 @@ public class ResourceV1beta1Api {
     public APIdeleteCollectionNamespacedResourceClaimRequest deleteCollectionNamespacedResourceClaim(@jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteCollectionNamespacedResourceClaimRequest(namespace);
     }
-    private okhttp3.Call deleteCollectionNamespacedResourceClaimTemplateCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedResourceClaimTemplateCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1936,6 +1968,10 @@ public class ResourceV1beta1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -1964,26 +2000,26 @@ public class ResourceV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedResourceClaimTemplateValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedResourceClaimTemplateValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedResourceClaimTemplate(Async)");
         }
 
-        return deleteCollectionNamespacedResourceClaimTemplateCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        return deleteCollectionNamespacedResourceClaimTemplateCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionNamespacedResourceClaimTemplateWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClaimTemplateValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+    private ApiResponse<V1Status> deleteCollectionNamespacedResourceClaimTemplateWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClaimTemplateValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedResourceClaimTemplateAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedResourceClaimTemplateAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClaimTemplateValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionNamespacedResourceClaimTemplateValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2018,6 +2054,8 @@ public class ResourceV1beta1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -2158,6 +2196,16 @@ public class ResourceV1beta1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIdeleteCollectionNamespacedResourceClaimTemplateRequest
+         */
+        public APIdeleteCollectionNamespacedResourceClaimTemplateRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionNamespacedResourceClaimTemplateRequest
@@ -2191,7 +2239,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionNamespacedResourceClaimTemplateCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionNamespacedResourceClaimTemplateCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         }
 
         /**
@@ -2207,7 +2255,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedResourceClaimTemplateWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedResourceClaimTemplateWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body);
             return localVarResp.getData();
         }
 
@@ -2224,7 +2272,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionNamespacedResourceClaimTemplateWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return deleteCollectionNamespacedResourceClaimTemplateWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body);
         }
 
         /**
@@ -2241,7 +2289,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteCollectionNamespacedResourceClaimTemplateAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionNamespacedResourceClaimTemplateAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         }
     }
 
@@ -2261,7 +2309,7 @@ public class ResourceV1beta1Api {
     public APIdeleteCollectionNamespacedResourceClaimTemplateRequest deleteCollectionNamespacedResourceClaimTemplate(@jakarta.annotation.Nonnull String namespace) {
         return new APIdeleteCollectionNamespacedResourceClaimTemplateRequest(namespace);
     }
-    private okhttp3.Call deleteCollectionResourceSliceCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionResourceSliceCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2338,6 +2386,10 @@ public class ResourceV1beta1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -2366,21 +2418,21 @@ public class ResourceV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionResourceSliceValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-        return deleteCollectionResourceSliceCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+    private okhttp3.Call deleteCollectionResourceSliceValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        return deleteCollectionResourceSliceCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionResourceSliceWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionResourceSliceValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+    private ApiResponse<V1Status> deleteCollectionResourceSliceWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionResourceSliceValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionResourceSliceAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionResourceSliceAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionResourceSliceValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionResourceSliceValidateBeforeCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2413,6 +2465,8 @@ public class ResourceV1beta1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -2552,6 +2606,16 @@ public class ResourceV1beta1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIdeleteCollectionResourceSliceRequest
+         */
+        public APIdeleteCollectionResourceSliceRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionResourceSliceRequest
@@ -2585,7 +2649,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionResourceSliceCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionResourceSliceCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         }
 
         /**
@@ -2601,7 +2665,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteCollectionResourceSliceWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            ApiResponse<V1Status> localVarResp = deleteCollectionResourceSliceWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body);
             return localVarResp.getData();
         }
 
@@ -2618,7 +2682,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionResourceSliceWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return deleteCollectionResourceSliceWithHttpInfo(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body);
         }
 
         /**
@@ -2635,7 +2699,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteCollectionResourceSliceAsync(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionResourceSliceAsync(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         }
     }
 
@@ -3950,7 +4014,7 @@ public class ResourceV1beta1Api {
     public APIgetAPIResourcesRequest getAPIResources() {
         return new APIgetAPIResourcesRequest();
     }
-    private okhttp3.Call listDeviceClassCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDeviceClassCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4011,6 +4075,10 @@ public class ResourceV1beta1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -4045,21 +4113,21 @@ public class ResourceV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDeviceClassValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
-        return listDeviceClassCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+    private okhttp3.Call listDeviceClassValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+        return listDeviceClassCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1beta1DeviceClassList> listDeviceClassWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
-        okhttp3.Call localVarCall = listDeviceClassValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+    private ApiResponse<V1beta1DeviceClassList> listDeviceClassWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listDeviceClassValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1beta1DeviceClassList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listDeviceClassAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1DeviceClassList> _callback) throws ApiException {
+    private okhttp3.Call listDeviceClassAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1DeviceClassList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listDeviceClassValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        okhttp3.Call localVarCall = listDeviceClassValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1beta1DeviceClassList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4084,6 +4152,8 @@ public class ResourceV1beta1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -4183,6 +4253,16 @@ public class ResourceV1beta1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIlistDeviceClassRequest
+         */
+        public APIlistDeviceClassRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistDeviceClassRequest
@@ -4216,7 +4296,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listDeviceClassCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listDeviceClassCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
 
         /**
@@ -4232,7 +4312,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public V1beta1DeviceClassList execute() throws ApiException {
-            ApiResponse<V1beta1DeviceClassList> localVarResp = listDeviceClassWithHttpInfo(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            ApiResponse<V1beta1DeviceClassList> localVarResp = listDeviceClassWithHttpInfo(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
             return localVarResp.getData();
         }
 
@@ -4249,7 +4329,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public ApiResponse<V1beta1DeviceClassList> executeWithHttpInfo() throws ApiException {
-            return listDeviceClassWithHttpInfo(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return listDeviceClassWithHttpInfo(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
         }
 
         /**
@@ -4266,7 +4346,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1beta1DeviceClassList> _callback) throws ApiException {
-            return listDeviceClassAsync(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listDeviceClassAsync(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
     }
 
@@ -4285,7 +4365,7 @@ public class ResourceV1beta1Api {
     public APIlistDeviceClassRequest listDeviceClass() {
         return new APIlistDeviceClassRequest();
     }
-    private okhttp3.Call listNamespacedResourceClaimCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedResourceClaimCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4347,6 +4427,10 @@ public class ResourceV1beta1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -4381,26 +4465,26 @@ public class ResourceV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listNamespacedResourceClaimValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedResourceClaimValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedResourceClaim(Async)");
         }
 
-        return listNamespacedResourceClaimCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        return listNamespacedResourceClaimCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1beta1ResourceClaimList> listNamespacedResourceClaimWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
-        okhttp3.Call localVarCall = listNamespacedResourceClaimValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+    private ApiResponse<V1beta1ResourceClaimList> listNamespacedResourceClaimWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listNamespacedResourceClaimValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1beta1ResourceClaimList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listNamespacedResourceClaimAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1ResourceClaimList> _callback) throws ApiException {
+    private okhttp3.Call listNamespacedResourceClaimAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1ResourceClaimList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listNamespacedResourceClaimValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        okhttp3.Call localVarCall = listNamespacedResourceClaimValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ResourceClaimList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4427,6 +4511,8 @@ public class ResourceV1beta1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -4527,6 +4613,16 @@ public class ResourceV1beta1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIlistNamespacedResourceClaimRequest
+         */
+        public APIlistNamespacedResourceClaimRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistNamespacedResourceClaimRequest
@@ -4560,7 +4656,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listNamespacedResourceClaimCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listNamespacedResourceClaimCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
 
         /**
@@ -4576,7 +4672,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public V1beta1ResourceClaimList execute() throws ApiException {
-            ApiResponse<V1beta1ResourceClaimList> localVarResp = listNamespacedResourceClaimWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            ApiResponse<V1beta1ResourceClaimList> localVarResp = listNamespacedResourceClaimWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
             return localVarResp.getData();
         }
 
@@ -4593,7 +4689,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public ApiResponse<V1beta1ResourceClaimList> executeWithHttpInfo() throws ApiException {
-            return listNamespacedResourceClaimWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return listNamespacedResourceClaimWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
         }
 
         /**
@@ -4610,7 +4706,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1beta1ResourceClaimList> _callback) throws ApiException {
-            return listNamespacedResourceClaimAsync(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listNamespacedResourceClaimAsync(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
     }
 
@@ -4630,7 +4726,7 @@ public class ResourceV1beta1Api {
     public APIlistNamespacedResourceClaimRequest listNamespacedResourceClaim(@jakarta.annotation.Nonnull String namespace) {
         return new APIlistNamespacedResourceClaimRequest(namespace);
     }
-    private okhttp3.Call listNamespacedResourceClaimTemplateCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedResourceClaimTemplateCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4692,6 +4788,10 @@ public class ResourceV1beta1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -4726,26 +4826,26 @@ public class ResourceV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listNamespacedResourceClaimTemplateValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedResourceClaimTemplateValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedResourceClaimTemplate(Async)");
         }
 
-        return listNamespacedResourceClaimTemplateCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        return listNamespacedResourceClaimTemplateCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1beta1ResourceClaimTemplateList> listNamespacedResourceClaimTemplateWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
-        okhttp3.Call localVarCall = listNamespacedResourceClaimTemplateValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+    private ApiResponse<V1beta1ResourceClaimTemplateList> listNamespacedResourceClaimTemplateWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listNamespacedResourceClaimTemplateValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1beta1ResourceClaimTemplateList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listNamespacedResourceClaimTemplateAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1ResourceClaimTemplateList> _callback) throws ApiException {
+    private okhttp3.Call listNamespacedResourceClaimTemplateAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1ResourceClaimTemplateList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listNamespacedResourceClaimTemplateValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        okhttp3.Call localVarCall = listNamespacedResourceClaimTemplateValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ResourceClaimTemplateList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4772,6 +4872,8 @@ public class ResourceV1beta1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -4872,6 +4974,16 @@ public class ResourceV1beta1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIlistNamespacedResourceClaimTemplateRequest
+         */
+        public APIlistNamespacedResourceClaimTemplateRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistNamespacedResourceClaimTemplateRequest
@@ -4905,7 +5017,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listNamespacedResourceClaimTemplateCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listNamespacedResourceClaimTemplateCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
 
         /**
@@ -4921,7 +5033,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public V1beta1ResourceClaimTemplateList execute() throws ApiException {
-            ApiResponse<V1beta1ResourceClaimTemplateList> localVarResp = listNamespacedResourceClaimTemplateWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            ApiResponse<V1beta1ResourceClaimTemplateList> localVarResp = listNamespacedResourceClaimTemplateWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
             return localVarResp.getData();
         }
 
@@ -4938,7 +5050,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public ApiResponse<V1beta1ResourceClaimTemplateList> executeWithHttpInfo() throws ApiException {
-            return listNamespacedResourceClaimTemplateWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return listNamespacedResourceClaimTemplateWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
         }
 
         /**
@@ -4955,7 +5067,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1beta1ResourceClaimTemplateList> _callback) throws ApiException {
-            return listNamespacedResourceClaimTemplateAsync(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listNamespacedResourceClaimTemplateAsync(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
     }
 
@@ -4975,7 +5087,7 @@ public class ResourceV1beta1Api {
     public APIlistNamespacedResourceClaimTemplateRequest listNamespacedResourceClaimTemplate(@jakarta.annotation.Nonnull String namespace) {
         return new APIlistNamespacedResourceClaimTemplateRequest(namespace);
     }
-    private okhttp3.Call listResourceClaimForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listResourceClaimForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5036,6 +5148,10 @@ public class ResourceV1beta1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -5070,21 +5186,21 @@ public class ResourceV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listResourceClaimForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
-        return listResourceClaimForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+    private okhttp3.Call listResourceClaimForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+        return listResourceClaimForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1beta1ResourceClaimList> listResourceClaimForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
-        okhttp3.Call localVarCall = listResourceClaimForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+    private ApiResponse<V1beta1ResourceClaimList> listResourceClaimForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listResourceClaimForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1beta1ResourceClaimList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listResourceClaimForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1ResourceClaimList> _callback) throws ApiException {
+    private okhttp3.Call listResourceClaimForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1ResourceClaimList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listResourceClaimForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        okhttp3.Call localVarCall = listResourceClaimForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ResourceClaimList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5109,6 +5225,8 @@ public class ResourceV1beta1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -5208,6 +5326,16 @@ public class ResourceV1beta1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIlistResourceClaimForAllNamespacesRequest
+         */
+        public APIlistResourceClaimForAllNamespacesRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistResourceClaimForAllNamespacesRequest
@@ -5241,7 +5369,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listResourceClaimForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listResourceClaimForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
 
         /**
@@ -5257,7 +5385,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public V1beta1ResourceClaimList execute() throws ApiException {
-            ApiResponse<V1beta1ResourceClaimList> localVarResp = listResourceClaimForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            ApiResponse<V1beta1ResourceClaimList> localVarResp = listResourceClaimForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
             return localVarResp.getData();
         }
 
@@ -5274,7 +5402,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public ApiResponse<V1beta1ResourceClaimList> executeWithHttpInfo() throws ApiException {
-            return listResourceClaimForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return listResourceClaimForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
         }
 
         /**
@@ -5291,7 +5419,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1beta1ResourceClaimList> _callback) throws ApiException {
-            return listResourceClaimForAllNamespacesAsync(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listResourceClaimForAllNamespacesAsync(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
     }
 
@@ -5310,7 +5438,7 @@ public class ResourceV1beta1Api {
     public APIlistResourceClaimForAllNamespacesRequest listResourceClaimForAllNamespaces() {
         return new APIlistResourceClaimForAllNamespacesRequest();
     }
-    private okhttp3.Call listResourceClaimTemplateForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listResourceClaimTemplateForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5371,6 +5499,10 @@ public class ResourceV1beta1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -5405,21 +5537,21 @@ public class ResourceV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listResourceClaimTemplateForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
-        return listResourceClaimTemplateForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+    private okhttp3.Call listResourceClaimTemplateForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+        return listResourceClaimTemplateForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1beta1ResourceClaimTemplateList> listResourceClaimTemplateForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
-        okhttp3.Call localVarCall = listResourceClaimTemplateForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+    private ApiResponse<V1beta1ResourceClaimTemplateList> listResourceClaimTemplateForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listResourceClaimTemplateForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1beta1ResourceClaimTemplateList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listResourceClaimTemplateForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1ResourceClaimTemplateList> _callback) throws ApiException {
+    private okhttp3.Call listResourceClaimTemplateForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1ResourceClaimTemplateList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listResourceClaimTemplateForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        okhttp3.Call localVarCall = listResourceClaimTemplateForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ResourceClaimTemplateList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5444,6 +5576,8 @@ public class ResourceV1beta1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -5543,6 +5677,16 @@ public class ResourceV1beta1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIlistResourceClaimTemplateForAllNamespacesRequest
+         */
+        public APIlistResourceClaimTemplateForAllNamespacesRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistResourceClaimTemplateForAllNamespacesRequest
@@ -5576,7 +5720,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listResourceClaimTemplateForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listResourceClaimTemplateForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
 
         /**
@@ -5592,7 +5736,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public V1beta1ResourceClaimTemplateList execute() throws ApiException {
-            ApiResponse<V1beta1ResourceClaimTemplateList> localVarResp = listResourceClaimTemplateForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            ApiResponse<V1beta1ResourceClaimTemplateList> localVarResp = listResourceClaimTemplateForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
             return localVarResp.getData();
         }
 
@@ -5609,7 +5753,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public ApiResponse<V1beta1ResourceClaimTemplateList> executeWithHttpInfo() throws ApiException {
-            return listResourceClaimTemplateForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return listResourceClaimTemplateForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
         }
 
         /**
@@ -5626,7 +5770,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1beta1ResourceClaimTemplateList> _callback) throws ApiException {
-            return listResourceClaimTemplateForAllNamespacesAsync(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listResourceClaimTemplateForAllNamespacesAsync(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
     }
 
@@ -5645,7 +5789,7 @@ public class ResourceV1beta1Api {
     public APIlistResourceClaimTemplateForAllNamespacesRequest listResourceClaimTemplateForAllNamespaces() {
         return new APIlistResourceClaimTemplateForAllNamespacesRequest();
     }
-    private okhttp3.Call listResourceSliceCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listResourceSliceCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5706,6 +5850,10 @@ public class ResourceV1beta1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -5740,21 +5888,21 @@ public class ResourceV1beta1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listResourceSliceValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
-        return listResourceSliceCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+    private okhttp3.Call listResourceSliceValidateBeforeCall(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+        return listResourceSliceCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1beta1ResourceSliceList> listResourceSliceWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
-        okhttp3.Call localVarCall = listResourceSliceValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+    private ApiResponse<V1beta1ResourceSliceList> listResourceSliceWithHttpInfo(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listResourceSliceValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1beta1ResourceSliceList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listResourceSliceAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1ResourceSliceList> _callback) throws ApiException {
+    private okhttp3.Call listResourceSliceAsync(@jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1beta1ResourceSliceList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listResourceSliceValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        okhttp3.Call localVarCall = listResourceSliceValidateBeforeCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1beta1ResourceSliceList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5779,6 +5927,8 @@ public class ResourceV1beta1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -5878,6 +6028,16 @@ public class ResourceV1beta1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIlistResourceSliceRequest
+         */
+        public APIlistResourceSliceRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistResourceSliceRequest
@@ -5911,7 +6071,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listResourceSliceCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listResourceSliceCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
 
         /**
@@ -5927,7 +6087,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public V1beta1ResourceSliceList execute() throws ApiException {
-            ApiResponse<V1beta1ResourceSliceList> localVarResp = listResourceSliceWithHttpInfo(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            ApiResponse<V1beta1ResourceSliceList> localVarResp = listResourceSliceWithHttpInfo(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
             return localVarResp.getData();
         }
 
@@ -5944,7 +6104,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public ApiResponse<V1beta1ResourceSliceList> executeWithHttpInfo() throws ApiException {
-            return listResourceSliceWithHttpInfo(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return listResourceSliceWithHttpInfo(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
         }
 
         /**
@@ -5961,7 +6121,7 @@ public class ResourceV1beta1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1beta1ResourceSliceList> _callback) throws ApiException {
-            return listResourceSliceAsync(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listResourceSliceAsync(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
     }
 

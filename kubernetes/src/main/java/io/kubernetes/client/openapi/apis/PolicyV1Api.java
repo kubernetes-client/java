@@ -326,7 +326,7 @@ public class PolicyV1Api {
     public APIcreateNamespacedPodDisruptionBudgetRequest createNamespacedPodDisruptionBudget(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1PodDisruptionBudget body) {
         return new APIcreateNamespacedPodDisruptionBudgetRequest(namespace, body);
     }
-    private okhttp3.Call deleteCollectionNamespacedPodDisruptionBudgetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedPodDisruptionBudgetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -404,6 +404,10 @@ public class PolicyV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -432,26 +436,26 @@ public class PolicyV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedPodDisruptionBudget(Async)");
         }
 
-        return deleteCollectionNamespacedPodDisruptionBudgetCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        return deleteCollectionNamespacedPodDisruptionBudgetCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
 
     }
 
 
-    private ApiResponse<V1Status> deleteCollectionNamespacedPodDisruptionBudgetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, null);
+    private ApiResponse<V1Status> deleteCollectionNamespacedPodDisruptionBudgetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, null);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedPodDisruptionBudgetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedPodDisruptionBudgetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable Integer gracePeriodSeconds, @jakarta.annotation.Nullable Boolean ignoreStoreReadErrorWithClusterBreakingPotential, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable Boolean orphanDependents, @jakarta.annotation.Nullable String propagationPolicy, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable V1DeleteOptions body, final ApiCallback<V1Status> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         Type localVarReturnType = new TypeToken<V1Status>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -486,6 +490,8 @@ public class PolicyV1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -626,6 +632,16 @@ public class PolicyV1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIdeleteCollectionNamespacedPodDisruptionBudgetRequest
+         */
+        public APIdeleteCollectionNamespacedPodDisruptionBudgetRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIdeleteCollectionNamespacedPodDisruptionBudgetRequest
@@ -659,7 +675,7 @@ public class PolicyV1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionNamespacedPodDisruptionBudgetCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionNamespacedPodDisruptionBudgetCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         }
 
         /**
@@ -675,7 +691,7 @@ public class PolicyV1Api {
          </table>
          */
         public V1Status execute() throws ApiException {
-            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedPodDisruptionBudgetWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            ApiResponse<V1Status> localVarResp = deleteCollectionNamespacedPodDisruptionBudgetWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body);
             return localVarResp.getData();
         }
 
@@ -692,7 +708,7 @@ public class PolicyV1Api {
          </table>
          */
         public ApiResponse<V1Status> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionNamespacedPodDisruptionBudgetWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body);
+            return deleteCollectionNamespacedPodDisruptionBudgetWithHttpInfo(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body);
         }
 
         /**
@@ -709,7 +725,7 @@ public class PolicyV1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1Status> _callback) throws ApiException {
-            return deleteCollectionNamespacedPodDisruptionBudgetAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
+            return deleteCollectionNamespacedPodDisruptionBudgetAsync(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, ignoreStoreReadErrorWithClusterBreakingPotential, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, body, _callback);
         }
     }
 
@@ -1175,7 +1191,7 @@ public class PolicyV1Api {
     public APIgetAPIResourcesRequest getAPIResources() {
         return new APIgetAPIResourcesRequest();
     }
-    private okhttp3.Call listNamespacedPodDisruptionBudgetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedPodDisruptionBudgetCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1237,6 +1253,10 @@ public class PolicyV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -1271,26 +1291,26 @@ public class PolicyV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listNamespacedPodDisruptionBudgetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listNamespacedPodDisruptionBudgetValidateBeforeCall(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedPodDisruptionBudget(Async)");
         }
 
-        return listNamespacedPodDisruptionBudgetCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        return listNamespacedPodDisruptionBudgetCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1PodDisruptionBudgetList> listNamespacedPodDisruptionBudgetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
-        okhttp3.Call localVarCall = listNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+    private ApiResponse<V1PodDisruptionBudgetList> listNamespacedPodDisruptionBudgetWithHttpInfo(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1PodDisruptionBudgetList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listNamespacedPodDisruptionBudgetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1PodDisruptionBudgetList> _callback) throws ApiException {
+    private okhttp3.Call listNamespacedPodDisruptionBudgetAsync(@jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1PodDisruptionBudgetList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        okhttp3.Call localVarCall = listNamespacedPodDisruptionBudgetValidateBeforeCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1PodDisruptionBudgetList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1317,6 +1337,8 @@ public class PolicyV1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -1417,6 +1439,16 @@ public class PolicyV1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIlistNamespacedPodDisruptionBudgetRequest
+         */
+        public APIlistNamespacedPodDisruptionBudgetRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistNamespacedPodDisruptionBudgetRequest
@@ -1450,7 +1482,7 @@ public class PolicyV1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listNamespacedPodDisruptionBudgetCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listNamespacedPodDisruptionBudgetCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
 
         /**
@@ -1466,7 +1498,7 @@ public class PolicyV1Api {
          </table>
          */
         public V1PodDisruptionBudgetList execute() throws ApiException {
-            ApiResponse<V1PodDisruptionBudgetList> localVarResp = listNamespacedPodDisruptionBudgetWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            ApiResponse<V1PodDisruptionBudgetList> localVarResp = listNamespacedPodDisruptionBudgetWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
             return localVarResp.getData();
         }
 
@@ -1483,7 +1515,7 @@ public class PolicyV1Api {
          </table>
          */
         public ApiResponse<V1PodDisruptionBudgetList> executeWithHttpInfo() throws ApiException {
-            return listNamespacedPodDisruptionBudgetWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return listNamespacedPodDisruptionBudgetWithHttpInfo(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
         }
 
         /**
@@ -1500,7 +1532,7 @@ public class PolicyV1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1PodDisruptionBudgetList> _callback) throws ApiException {
-            return listNamespacedPodDisruptionBudgetAsync(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listNamespacedPodDisruptionBudgetAsync(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
     }
 
@@ -1520,7 +1552,7 @@ public class PolicyV1Api {
     public APIlistNamespacedPodDisruptionBudgetRequest listNamespacedPodDisruptionBudget(@jakarta.annotation.Nonnull String namespace) {
         return new APIlistNamespacedPodDisruptionBudgetRequest(namespace);
     }
-    private okhttp3.Call listPodDisruptionBudgetForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listPodDisruptionBudgetForAllNamespacesCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1581,6 +1613,10 @@ public class PolicyV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendInitialEvents", sendInitialEvents));
         }
 
+        if (shardSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("shardSelector", shardSelector));
+        }
+
         if (timeoutSeconds != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
@@ -1615,21 +1651,21 @@ public class PolicyV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
-        return listPodDisruptionBudgetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+    private okhttp3.Call listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback _callback) throws ApiException {
+        return listPodDisruptionBudgetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
 
     }
 
 
-    private ApiResponse<V1PodDisruptionBudgetList> listPodDisruptionBudgetForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
-        okhttp3.Call localVarCall = listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, null);
+    private ApiResponse<V1PodDisruptionBudgetList> listPodDisruptionBudgetForAllNamespacesWithHttpInfo(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch) throws ApiException {
+        okhttp3.Call localVarCall = listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, null);
         Type localVarReturnType = new TypeToken<V1PodDisruptionBudgetList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call listPodDisruptionBudgetForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1PodDisruptionBudgetList> _callback) throws ApiException {
+    private okhttp3.Call listPodDisruptionBudgetForAllNamespacesAsync(@jakarta.annotation.Nullable Boolean allowWatchBookmarks, @jakarta.annotation.Nullable String _continue, @jakarta.annotation.Nullable String fieldSelector, @jakarta.annotation.Nullable String labelSelector, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String resourceVersion, @jakarta.annotation.Nullable String resourceVersionMatch, @jakarta.annotation.Nullable Boolean sendInitialEvents, @jakarta.annotation.Nullable String shardSelector, @jakarta.annotation.Nullable Integer timeoutSeconds, @jakarta.annotation.Nullable Boolean watch, final ApiCallback<V1PodDisruptionBudgetList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+        okhttp3.Call localVarCall = listPodDisruptionBudgetForAllNamespacesValidateBeforeCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         Type localVarReturnType = new TypeToken<V1PodDisruptionBudgetList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1654,6 +1690,8 @@ public class PolicyV1Api {
         private String resourceVersionMatch;
         @jakarta.annotation.Nullable
         private Boolean sendInitialEvents;
+        @jakarta.annotation.Nullable
+        private String shardSelector;
         @jakarta.annotation.Nullable
         private Integer timeoutSeconds;
         @jakarta.annotation.Nullable
@@ -1753,6 +1791,16 @@ public class PolicyV1Api {
         }
 
         /**
+         * Set shardSelector
+         * @param shardSelector shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:    shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;)   shardRange(object.metadata.uid, &#39;0x0&#39;, &#39;0x8000000000000000&#39;) || shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)  Field paths use CEL-style object-rooted syntax (e.g. \&quot;object.metadata.uid\&quot;), NOT the fieldSelector format (\&quot;metadata.uid\&quot;). Currently supported paths:   - object.metadata.uid   - object.metadata.namespace  hexStart and hexEnd are single-quoted CEL string literals with a &#39;0x&#39; prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.  Examples:   2-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0x10000000000000000&#39;)   4-shard split:     shard 0: shardRange(object.metadata.uid, &#39;0x0000000000000000&#39;, &#39;0x4000000000000000&#39;)     shard 1: shardRange(object.metadata.uid, &#39;0x4000000000000000&#39;, &#39;0x8000000000000000&#39;)     shard 2: shardRange(object.metadata.uid, &#39;0x8000000000000000&#39;, &#39;0xc000000000000000&#39;)     shard 3: shardRange(object.metadata.uid, &#39;0xc000000000000000&#39;, &#39;0x10000000000000000&#39;)  This is an alpha field and requires enabling the ShardedListAndWatch feature gate. (optional)
+         * @return APIlistPodDisruptionBudgetForAllNamespacesRequest
+         */
+        public APIlistPodDisruptionBudgetForAllNamespacesRequest shardSelector(@jakarta.annotation.Nullable String shardSelector) {
+            this.shardSelector = shardSelector;
+            return this;
+        }
+
+        /**
          * Set timeoutSeconds
          * @param timeoutSeconds Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. (optional)
          * @return APIlistPodDisruptionBudgetForAllNamespacesRequest
@@ -1786,7 +1834,7 @@ public class PolicyV1Api {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return listPodDisruptionBudgetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listPodDisruptionBudgetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
 
         /**
@@ -1802,7 +1850,7 @@ public class PolicyV1Api {
          </table>
          */
         public V1PodDisruptionBudgetList execute() throws ApiException {
-            ApiResponse<V1PodDisruptionBudgetList> localVarResp = listPodDisruptionBudgetForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            ApiResponse<V1PodDisruptionBudgetList> localVarResp = listPodDisruptionBudgetForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
             return localVarResp.getData();
         }
 
@@ -1819,7 +1867,7 @@ public class PolicyV1Api {
          </table>
          */
         public ApiResponse<V1PodDisruptionBudgetList> executeWithHttpInfo() throws ApiException {
-            return listPodDisruptionBudgetForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch);
+            return listPodDisruptionBudgetForAllNamespacesWithHttpInfo(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch);
         }
 
         /**
@@ -1836,7 +1884,7 @@ public class PolicyV1Api {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<V1PodDisruptionBudgetList> _callback) throws ApiException {
-            return listPodDisruptionBudgetForAllNamespacesAsync(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
+            return listPodDisruptionBudgetForAllNamespacesAsync(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, shardSelector, timeoutSeconds, watch, _callback);
         }
     }
 

@@ -3315,7 +3315,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -3325,7 +3325,7 @@ public final class V1Authorization {
     boolean hasMetadata();
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -3335,7 +3335,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -3346,7 +3346,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+     * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
      * you made the request against.  If empty, it is defaulted.
      * </pre>
      *
@@ -3355,7 +3355,7 @@ public final class V1Authorization {
     boolean hasSpec();
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+     * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
      * you made the request against.  If empty, it is defaulted.
      * </pre>
      *
@@ -3364,7 +3364,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec getSpec();
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+     * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
      * you made the request against.  If empty, it is defaulted.
      * </pre>
      *
@@ -3374,7 +3374,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -3383,7 +3383,7 @@ public final class V1Authorization {
     boolean hasStatus();
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -3392,7 +3392,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus getStatus();
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -3405,6 +3405,7 @@ public final class V1Authorization {
    * LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace.
    * Having a namespace scoped resource makes it much easier to grant namespace scoped policy that includes permissions
    * checking.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.authorization.v1.LocalSubjectAccessReview}
@@ -3521,7 +3522,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -3533,7 +3534,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -3545,7 +3546,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -3560,7 +3561,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec spec_;
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+     * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
      * you made the request against.  If empty, it is defaulted.
      * </pre>
      *
@@ -3571,7 +3572,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+     * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
      * you made the request against.  If empty, it is defaulted.
      * </pre>
      *
@@ -3582,7 +3583,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+     * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
      * you made the request against.  If empty, it is defaulted.
      * </pre>
      *
@@ -3596,7 +3597,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus status_;
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -3607,7 +3608,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -3618,7 +3619,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -3826,6 +3827,7 @@ public final class V1Authorization {
      * LocalSubjectAccessReview checks whether or not a user or group can perform an action in a given namespace.
      * Having a namespace scoped resource makes it much easier to grant namespace scoped policy that includes permissions
      * checking.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.authorization.v1.LocalSubjectAccessReview}
@@ -4031,7 +4033,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -4043,7 +4045,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -4059,7 +4061,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -4081,7 +4083,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -4101,7 +4103,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -4127,7 +4129,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -4146,7 +4148,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -4160,7 +4162,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -4177,7 +4179,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -4203,7 +4205,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec, io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec.Builder, io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpecOrBuilder> specBuilder_;
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+       * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
@@ -4214,7 +4216,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+       * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
@@ -4229,7 +4231,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+       * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
@@ -4250,7 +4252,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+       * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
@@ -4269,7 +4271,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+       * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
@@ -4294,7 +4296,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+       * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
@@ -4312,7 +4314,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+       * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
@@ -4325,7 +4327,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+       * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
@@ -4341,7 +4343,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
+       * spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace
        * you made the request against.  If empty, it is defaulted.
        * </pre>
        *
@@ -4366,7 +4368,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus, io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus.Builder, io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatusOrBuilder> statusBuilder_;
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -4377,7 +4379,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -4392,7 +4394,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -4413,7 +4415,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -4432,7 +4434,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -4457,7 +4459,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -4475,7 +4477,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -4488,7 +4490,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -4504,7 +4506,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -4582,7 +4584,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Path is the URL path of the request
+     * path is the URL path of the request
      * +optional
      * </pre>
      *
@@ -4591,7 +4593,7 @@ public final class V1Authorization {
     boolean hasPath();
     /**
      * <pre>
-     * Path is the URL path of the request
+     * path is the URL path of the request
      * +optional
      * </pre>
      *
@@ -4600,7 +4602,7 @@ public final class V1Authorization {
     java.lang.String getPath();
     /**
      * <pre>
-     * Path is the URL path of the request
+     * path is the URL path of the request
      * +optional
      * </pre>
      *
@@ -4611,7 +4613,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Verb is the standard HTTP verb
+     * verb is the standard HTTP verb
      * +optional
      * </pre>
      *
@@ -4620,7 +4622,7 @@ public final class V1Authorization {
     boolean hasVerb();
     /**
      * <pre>
-     * Verb is the standard HTTP verb
+     * verb is the standard HTTP verb
      * +optional
      * </pre>
      *
@@ -4629,7 +4631,7 @@ public final class V1Authorization {
     java.lang.String getVerb();
     /**
      * <pre>
-     * Verb is the standard HTTP verb
+     * verb is the standard HTTP verb
      * +optional
      * </pre>
      *
@@ -4732,7 +4734,7 @@ public final class V1Authorization {
     private volatile java.lang.Object path_;
     /**
      * <pre>
-     * Path is the URL path of the request
+     * path is the URL path of the request
      * +optional
      * </pre>
      *
@@ -4743,7 +4745,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Path is the URL path of the request
+     * path is the URL path of the request
      * +optional
      * </pre>
      *
@@ -4765,7 +4767,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Path is the URL path of the request
+     * path is the URL path of the request
      * +optional
      * </pre>
      *
@@ -4789,7 +4791,7 @@ public final class V1Authorization {
     private volatile java.lang.Object verb_;
     /**
      * <pre>
-     * Verb is the standard HTTP verb
+     * verb is the standard HTTP verb
      * +optional
      * </pre>
      *
@@ -4800,7 +4802,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Verb is the standard HTTP verb
+     * verb is the standard HTTP verb
      * +optional
      * </pre>
      *
@@ -4822,7 +4824,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Verb is the standard HTTP verb
+     * verb is the standard HTTP verb
      * +optional
      * </pre>
      *
@@ -5191,7 +5193,7 @@ public final class V1Authorization {
       private java.lang.Object path_ = "";
       /**
        * <pre>
-       * Path is the URL path of the request
+       * path is the URL path of the request
        * +optional
        * </pre>
        *
@@ -5202,7 +5204,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Path is the URL path of the request
+       * path is the URL path of the request
        * +optional
        * </pre>
        *
@@ -5224,7 +5226,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Path is the URL path of the request
+       * path is the URL path of the request
        * +optional
        * </pre>
        *
@@ -5245,7 +5247,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Path is the URL path of the request
+       * path is the URL path of the request
        * +optional
        * </pre>
        *
@@ -5263,7 +5265,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Path is the URL path of the request
+       * path is the URL path of the request
        * +optional
        * </pre>
        *
@@ -5277,7 +5279,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Path is the URL path of the request
+       * path is the URL path of the request
        * +optional
        * </pre>
        *
@@ -5297,7 +5299,7 @@ public final class V1Authorization {
       private java.lang.Object verb_ = "";
       /**
        * <pre>
-       * Verb is the standard HTTP verb
+       * verb is the standard HTTP verb
        * +optional
        * </pre>
        *
@@ -5308,7 +5310,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is the standard HTTP verb
+       * verb is the standard HTTP verb
        * +optional
        * </pre>
        *
@@ -5330,7 +5332,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is the standard HTTP verb
+       * verb is the standard HTTP verb
        * +optional
        * </pre>
        *
@@ -5351,7 +5353,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is the standard HTTP verb
+       * verb is the standard HTTP verb
        * +optional
        * </pre>
        *
@@ -5369,7 +5371,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is the standard HTTP verb
+       * verb is the standard HTTP verb
        * +optional
        * </pre>
        *
@@ -5383,7 +5385,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is the standard HTTP verb
+       * verb is the standard HTTP verb
        * +optional
        * </pre>
        *
@@ -5458,7 +5460,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+     * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -5468,7 +5470,7 @@ public final class V1Authorization {
         getVerbsList();
     /**
      * <pre>
-     * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+     * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -5477,7 +5479,7 @@ public final class V1Authorization {
     int getVerbsCount();
     /**
      * <pre>
-     * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+     * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -5486,7 +5488,7 @@ public final class V1Authorization {
     java.lang.String getVerbs(int index);
     /**
      * <pre>
-     * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+     * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -5497,7 +5499,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+     * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
      * final step in the path.  "*" means all.
      * +optional
      * +listType=atomic
@@ -5509,7 +5511,7 @@ public final class V1Authorization {
         getNonResourceURLsList();
     /**
      * <pre>
-     * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+     * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
      * final step in the path.  "*" means all.
      * +optional
      * +listType=atomic
@@ -5520,7 +5522,7 @@ public final class V1Authorization {
     int getNonResourceURLsCount();
     /**
      * <pre>
-     * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+     * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
      * final step in the path.  "*" means all.
      * +optional
      * +listType=atomic
@@ -5531,7 +5533,7 @@ public final class V1Authorization {
     java.lang.String getNonResourceURLs(int index);
     /**
      * <pre>
-     * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+     * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
      * final step in the path.  "*" means all.
      * +optional
      * +listType=atomic
@@ -5647,7 +5649,7 @@ public final class V1Authorization {
     private com.google.protobuf.LazyStringList verbs_;
     /**
      * <pre>
-     * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+     * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -5659,7 +5661,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+     * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -5670,7 +5672,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+     * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -5681,7 +5683,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+     * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -5696,7 +5698,7 @@ public final class V1Authorization {
     private com.google.protobuf.LazyStringList nonResourceURLs_;
     /**
      * <pre>
-     * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+     * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
      * final step in the path.  "*" means all.
      * +optional
      * +listType=atomic
@@ -5710,7 +5712,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+     * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
      * final step in the path.  "*" means all.
      * +optional
      * +listType=atomic
@@ -5723,7 +5725,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+     * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
      * final step in the path.  "*" means all.
      * +optional
      * +listType=atomic
@@ -5736,7 +5738,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+     * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
      * final step in the path.  "*" means all.
      * +optional
      * +listType=atomic
@@ -6118,7 +6120,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+       * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -6130,7 +6132,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+       * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -6141,7 +6143,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+       * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -6152,7 +6154,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+       * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -6164,7 +6166,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+       * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -6182,7 +6184,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+       * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -6200,7 +6202,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+       * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -6216,7 +6218,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+       * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -6230,7 +6232,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
+       * verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -6256,7 +6258,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+       * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
        * final step in the path.  "*" means all.
        * +optional
        * +listType=atomic
@@ -6270,7 +6272,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+       * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
        * final step in the path.  "*" means all.
        * +optional
        * +listType=atomic
@@ -6283,7 +6285,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+       * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
        * final step in the path.  "*" means all.
        * +optional
        * +listType=atomic
@@ -6296,7 +6298,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+       * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
        * final step in the path.  "*" means all.
        * +optional
        * +listType=atomic
@@ -6310,7 +6312,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+       * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
        * final step in the path.  "*" means all.
        * +optional
        * +listType=atomic
@@ -6330,7 +6332,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+       * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
        * final step in the path.  "*" means all.
        * +optional
        * +listType=atomic
@@ -6350,7 +6352,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+       * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
        * final step in the path.  "*" means all.
        * +optional
        * +listType=atomic
@@ -6368,7 +6370,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+       * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
        * final step in the path.  "*" means all.
        * +optional
        * +listType=atomic
@@ -6384,7 +6386,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
+       * nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full,
        * final step in the path.  "*" means all.
        * +optional
        * +listType=atomic
@@ -6461,7 +6463,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+     * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
      * "" (empty) is defaulted for LocalSubjectAccessReviews
      * "" (empty) is empty for cluster-scoped resources
      * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -6473,7 +6475,7 @@ public final class V1Authorization {
     boolean hasNamespace();
     /**
      * <pre>
-     * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+     * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
      * "" (empty) is defaulted for LocalSubjectAccessReviews
      * "" (empty) is empty for cluster-scoped resources
      * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -6485,7 +6487,7 @@ public final class V1Authorization {
     java.lang.String getNamespace();
     /**
      * <pre>
-     * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+     * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
      * "" (empty) is defaulted for LocalSubjectAccessReviews
      * "" (empty) is empty for cluster-scoped resources
      * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -6499,7 +6501,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6508,7 +6510,7 @@ public final class V1Authorization {
     boolean hasVerb();
     /**
      * <pre>
-     * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6517,7 +6519,7 @@ public final class V1Authorization {
     java.lang.String getVerb();
     /**
      * <pre>
-     * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6528,7 +6530,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Group is the API Group of the Resource.  "*" means all.
+     * group is the API Group of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6537,7 +6539,7 @@ public final class V1Authorization {
     boolean hasGroup();
     /**
      * <pre>
-     * Group is the API Group of the Resource.  "*" means all.
+     * group is the API Group of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6546,7 +6548,7 @@ public final class V1Authorization {
     java.lang.String getGroup();
     /**
      * <pre>
-     * Group is the API Group of the Resource.  "*" means all.
+     * group is the API Group of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6557,7 +6559,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Version is the API Version of the Resource.  "*" means all.
+     * version is the API Version of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6566,7 +6568,7 @@ public final class V1Authorization {
     boolean hasVersion();
     /**
      * <pre>
-     * Version is the API Version of the Resource.  "*" means all.
+     * version is the API Version of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6575,7 +6577,7 @@ public final class V1Authorization {
     java.lang.String getVersion();
     /**
      * <pre>
-     * Version is the API Version of the Resource.  "*" means all.
+     * version is the API Version of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6586,7 +6588,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Resource is one of the existing resource types.  "*" means all.
+     * resource is one of the existing resource types.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6595,7 +6597,7 @@ public final class V1Authorization {
     boolean hasResource();
     /**
      * <pre>
-     * Resource is one of the existing resource types.  "*" means all.
+     * resource is one of the existing resource types.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6604,7 +6606,7 @@ public final class V1Authorization {
     java.lang.String getResource();
     /**
      * <pre>
-     * Resource is one of the existing resource types.  "*" means all.
+     * resource is one of the existing resource types.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6615,7 +6617,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Subresource is one of the existing resource types.  "" means none.
+     * subresource is one of the existing resource types.  "" means none.
      * +optional
      * </pre>
      *
@@ -6624,7 +6626,7 @@ public final class V1Authorization {
     boolean hasSubresource();
     /**
      * <pre>
-     * Subresource is one of the existing resource types.  "" means none.
+     * subresource is one of the existing resource types.  "" means none.
      * +optional
      * </pre>
      *
@@ -6633,7 +6635,7 @@ public final class V1Authorization {
     java.lang.String getSubresource();
     /**
      * <pre>
-     * Subresource is one of the existing resource types.  "" means none.
+     * subresource is one of the existing resource types.  "" means none.
      * +optional
      * </pre>
      *
@@ -6644,7 +6646,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+     * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
      * +optional
      * </pre>
      *
@@ -6653,7 +6655,7 @@ public final class V1Authorization {
     boolean hasName();
     /**
      * <pre>
-     * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+     * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
      * +optional
      * </pre>
      *
@@ -6662,7 +6664,7 @@ public final class V1Authorization {
     java.lang.String getName();
     /**
      * <pre>
-     * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+     * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
      * +optional
      * </pre>
      *
@@ -6882,7 +6884,7 @@ public final class V1Authorization {
     private volatile java.lang.Object namespace_;
     /**
      * <pre>
-     * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+     * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
      * "" (empty) is defaulted for LocalSubjectAccessReviews
      * "" (empty) is empty for cluster-scoped resources
      * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -6896,7 +6898,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+     * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
      * "" (empty) is defaulted for LocalSubjectAccessReviews
      * "" (empty) is empty for cluster-scoped resources
      * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -6921,7 +6923,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+     * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
      * "" (empty) is defaulted for LocalSubjectAccessReviews
      * "" (empty) is empty for cluster-scoped resources
      * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -6948,7 +6950,7 @@ public final class V1Authorization {
     private volatile java.lang.Object verb_;
     /**
      * <pre>
-     * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6959,7 +6961,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +optional
      * </pre>
      *
@@ -6981,7 +6983,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +optional
      * </pre>
      *
@@ -7005,7 +7007,7 @@ public final class V1Authorization {
     private volatile java.lang.Object group_;
     /**
      * <pre>
-     * Group is the API Group of the Resource.  "*" means all.
+     * group is the API Group of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -7016,7 +7018,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Group is the API Group of the Resource.  "*" means all.
+     * group is the API Group of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -7038,7 +7040,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Group is the API Group of the Resource.  "*" means all.
+     * group is the API Group of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -7062,7 +7064,7 @@ public final class V1Authorization {
     private volatile java.lang.Object version_;
     /**
      * <pre>
-     * Version is the API Version of the Resource.  "*" means all.
+     * version is the API Version of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -7073,7 +7075,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Version is the API Version of the Resource.  "*" means all.
+     * version is the API Version of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -7095,7 +7097,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Version is the API Version of the Resource.  "*" means all.
+     * version is the API Version of the Resource.  "*" means all.
      * +optional
      * </pre>
      *
@@ -7119,7 +7121,7 @@ public final class V1Authorization {
     private volatile java.lang.Object resource_;
     /**
      * <pre>
-     * Resource is one of the existing resource types.  "*" means all.
+     * resource is one of the existing resource types.  "*" means all.
      * +optional
      * </pre>
      *
@@ -7130,7 +7132,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Resource is one of the existing resource types.  "*" means all.
+     * resource is one of the existing resource types.  "*" means all.
      * +optional
      * </pre>
      *
@@ -7152,7 +7154,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Resource is one of the existing resource types.  "*" means all.
+     * resource is one of the existing resource types.  "*" means all.
      * +optional
      * </pre>
      *
@@ -7176,7 +7178,7 @@ public final class V1Authorization {
     private volatile java.lang.Object subresource_;
     /**
      * <pre>
-     * Subresource is one of the existing resource types.  "" means none.
+     * subresource is one of the existing resource types.  "" means none.
      * +optional
      * </pre>
      *
@@ -7187,7 +7189,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Subresource is one of the existing resource types.  "" means none.
+     * subresource is one of the existing resource types.  "" means none.
      * +optional
      * </pre>
      *
@@ -7209,7 +7211,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Subresource is one of the existing resource types.  "" means none.
+     * subresource is one of the existing resource types.  "" means none.
      * +optional
      * </pre>
      *
@@ -7233,7 +7235,7 @@ public final class V1Authorization {
     private volatile java.lang.Object name_;
     /**
      * <pre>
-     * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+     * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
      * +optional
      * </pre>
      *
@@ -7244,7 +7246,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+     * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
      * +optional
      * </pre>
      *
@@ -7266,7 +7268,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+     * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
      * +optional
      * </pre>
      *
@@ -7905,7 +7907,7 @@ public final class V1Authorization {
       private java.lang.Object namespace_ = "";
       /**
        * <pre>
-       * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+       * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
        * "" (empty) is defaulted for LocalSubjectAccessReviews
        * "" (empty) is empty for cluster-scoped resources
        * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -7919,7 +7921,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+       * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
        * "" (empty) is defaulted for LocalSubjectAccessReviews
        * "" (empty) is empty for cluster-scoped resources
        * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -7944,7 +7946,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+       * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
        * "" (empty) is defaulted for LocalSubjectAccessReviews
        * "" (empty) is empty for cluster-scoped resources
        * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -7968,7 +7970,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+       * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
        * "" (empty) is defaulted for LocalSubjectAccessReviews
        * "" (empty) is empty for cluster-scoped resources
        * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -7989,7 +7991,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+       * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
        * "" (empty) is defaulted for LocalSubjectAccessReviews
        * "" (empty) is empty for cluster-scoped resources
        * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -8006,7 +8008,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
+       * namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces
        * "" (empty) is defaulted for LocalSubjectAccessReviews
        * "" (empty) is empty for cluster-scoped resources
        * "" (empty) means "all" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
@@ -8029,7 +8031,7 @@ public final class V1Authorization {
       private java.lang.Object verb_ = "";
       /**
        * <pre>
-       * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8040,7 +8042,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8062,7 +8064,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8083,7 +8085,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8101,7 +8103,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8115,7 +8117,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8135,7 +8137,7 @@ public final class V1Authorization {
       private java.lang.Object group_ = "";
       /**
        * <pre>
-       * Group is the API Group of the Resource.  "*" means all.
+       * group is the API Group of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8146,7 +8148,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Group is the API Group of the Resource.  "*" means all.
+       * group is the API Group of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8168,7 +8170,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Group is the API Group of the Resource.  "*" means all.
+       * group is the API Group of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8189,7 +8191,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Group is the API Group of the Resource.  "*" means all.
+       * group is the API Group of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8207,7 +8209,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Group is the API Group of the Resource.  "*" means all.
+       * group is the API Group of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8221,7 +8223,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Group is the API Group of the Resource.  "*" means all.
+       * group is the API Group of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8241,7 +8243,7 @@ public final class V1Authorization {
       private java.lang.Object version_ = "";
       /**
        * <pre>
-       * Version is the API Version of the Resource.  "*" means all.
+       * version is the API Version of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8252,7 +8254,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Version is the API Version of the Resource.  "*" means all.
+       * version is the API Version of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8274,7 +8276,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Version is the API Version of the Resource.  "*" means all.
+       * version is the API Version of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8295,7 +8297,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Version is the API Version of the Resource.  "*" means all.
+       * version is the API Version of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8313,7 +8315,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Version is the API Version of the Resource.  "*" means all.
+       * version is the API Version of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8327,7 +8329,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Version is the API Version of the Resource.  "*" means all.
+       * version is the API Version of the Resource.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8347,7 +8349,7 @@ public final class V1Authorization {
       private java.lang.Object resource_ = "";
       /**
        * <pre>
-       * Resource is one of the existing resource types.  "*" means all.
+       * resource is one of the existing resource types.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8358,7 +8360,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resource is one of the existing resource types.  "*" means all.
+       * resource is one of the existing resource types.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8380,7 +8382,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resource is one of the existing resource types.  "*" means all.
+       * resource is one of the existing resource types.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8401,7 +8403,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resource is one of the existing resource types.  "*" means all.
+       * resource is one of the existing resource types.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8419,7 +8421,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resource is one of the existing resource types.  "*" means all.
+       * resource is one of the existing resource types.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8433,7 +8435,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resource is one of the existing resource types.  "*" means all.
+       * resource is one of the existing resource types.  "*" means all.
        * +optional
        * </pre>
        *
@@ -8453,7 +8455,7 @@ public final class V1Authorization {
       private java.lang.Object subresource_ = "";
       /**
        * <pre>
-       * Subresource is one of the existing resource types.  "" means none.
+       * subresource is one of the existing resource types.  "" means none.
        * +optional
        * </pre>
        *
@@ -8464,7 +8466,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Subresource is one of the existing resource types.  "" means none.
+       * subresource is one of the existing resource types.  "" means none.
        * +optional
        * </pre>
        *
@@ -8486,7 +8488,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Subresource is one of the existing resource types.  "" means none.
+       * subresource is one of the existing resource types.  "" means none.
        * +optional
        * </pre>
        *
@@ -8507,7 +8509,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Subresource is one of the existing resource types.  "" means none.
+       * subresource is one of the existing resource types.  "" means none.
        * +optional
        * </pre>
        *
@@ -8525,7 +8527,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Subresource is one of the existing resource types.  "" means none.
+       * subresource is one of the existing resource types.  "" means none.
        * +optional
        * </pre>
        *
@@ -8539,7 +8541,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Subresource is one of the existing resource types.  "" means none.
+       * subresource is one of the existing resource types.  "" means none.
        * +optional
        * </pre>
        *
@@ -8559,7 +8561,7 @@ public final class V1Authorization {
       private java.lang.Object name_ = "";
       /**
        * <pre>
-       * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+       * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
        * +optional
        * </pre>
        *
@@ -8570,7 +8572,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+       * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
        * +optional
        * </pre>
        *
@@ -8592,7 +8594,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+       * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
        * +optional
        * </pre>
        *
@@ -8613,7 +8615,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+       * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
        * +optional
        * </pre>
        *
@@ -8631,7 +8633,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+       * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
        * +optional
        * </pre>
        *
@@ -8645,7 +8647,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
+       * name is the name of the resource being requested for a "get" or deleted for a "delete". "" (empty) means all.
        * +optional
        * </pre>
        *
@@ -9046,7 +9048,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -9056,7 +9058,7 @@ public final class V1Authorization {
         getVerbsList();
     /**
      * <pre>
-     * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -9065,7 +9067,7 @@ public final class V1Authorization {
     int getVerbsCount();
     /**
      * <pre>
-     * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -9074,7 +9076,7 @@ public final class V1Authorization {
     java.lang.String getVerbs(int index);
     /**
      * <pre>
-     * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -9085,7 +9087,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+     * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
      * the enumerated resources in any API group will be allowed.  "*" means all.
      * +optional
      * +listType=atomic
@@ -9097,7 +9099,7 @@ public final class V1Authorization {
         getApiGroupsList();
     /**
      * <pre>
-     * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+     * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
      * the enumerated resources in any API group will be allowed.  "*" means all.
      * +optional
      * +listType=atomic
@@ -9108,7 +9110,7 @@ public final class V1Authorization {
     int getApiGroupsCount();
     /**
      * <pre>
-     * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+     * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
      * the enumerated resources in any API group will be allowed.  "*" means all.
      * +optional
      * +listType=atomic
@@ -9119,7 +9121,7 @@ public final class V1Authorization {
     java.lang.String getApiGroups(int index);
     /**
      * <pre>
-     * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+     * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
      * the enumerated resources in any API group will be allowed.  "*" means all.
      * +optional
      * +listType=atomic
@@ -9132,7 +9134,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+     * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
      *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
      * +optional
      * +listType=atomic
@@ -9144,7 +9146,7 @@ public final class V1Authorization {
         getResourcesList();
     /**
      * <pre>
-     * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+     * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
      *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
      * +optional
      * +listType=atomic
@@ -9155,7 +9157,7 @@ public final class V1Authorization {
     int getResourcesCount();
     /**
      * <pre>
-     * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+     * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
      *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
      * +optional
      * +listType=atomic
@@ -9166,7 +9168,7 @@ public final class V1Authorization {
     java.lang.String getResources(int index);
     /**
      * <pre>
-     * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+     * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
      *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
      * +optional
      * +listType=atomic
@@ -9179,7 +9181,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+     * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
      * +optional
      * +listType=atomic
      * </pre>
@@ -9190,7 +9192,7 @@ public final class V1Authorization {
         getResourceNamesList();
     /**
      * <pre>
-     * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+     * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
      * +optional
      * +listType=atomic
      * </pre>
@@ -9200,7 +9202,7 @@ public final class V1Authorization {
     int getResourceNamesCount();
     /**
      * <pre>
-     * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+     * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
      * +optional
      * +listType=atomic
      * </pre>
@@ -9210,7 +9212,7 @@ public final class V1Authorization {
     java.lang.String getResourceNames(int index);
     /**
      * <pre>
-     * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+     * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
      * +optional
      * +listType=atomic
      * </pre>
@@ -9352,7 +9354,7 @@ public final class V1Authorization {
     private com.google.protobuf.LazyStringList verbs_;
     /**
      * <pre>
-     * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -9364,7 +9366,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -9375,7 +9377,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -9386,7 +9388,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+     * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
      * +listType=atomic
      * </pre>
      *
@@ -9401,7 +9403,7 @@ public final class V1Authorization {
     private com.google.protobuf.LazyStringList apiGroups_;
     /**
      * <pre>
-     * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+     * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
      * the enumerated resources in any API group will be allowed.  "*" means all.
      * +optional
      * +listType=atomic
@@ -9415,7 +9417,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+     * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
      * the enumerated resources in any API group will be allowed.  "*" means all.
      * +optional
      * +listType=atomic
@@ -9428,7 +9430,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+     * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
      * the enumerated resources in any API group will be allowed.  "*" means all.
      * +optional
      * +listType=atomic
@@ -9441,7 +9443,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+     * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
      * the enumerated resources in any API group will be allowed.  "*" means all.
      * +optional
      * +listType=atomic
@@ -9458,7 +9460,7 @@ public final class V1Authorization {
     private com.google.protobuf.LazyStringList resources_;
     /**
      * <pre>
-     * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+     * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
      *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
      * +optional
      * +listType=atomic
@@ -9472,7 +9474,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+     * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
      *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
      * +optional
      * +listType=atomic
@@ -9485,7 +9487,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+     * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
      *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
      * +optional
      * +listType=atomic
@@ -9498,7 +9500,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+     * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
      *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
      * +optional
      * +listType=atomic
@@ -9515,7 +9517,7 @@ public final class V1Authorization {
     private com.google.protobuf.LazyStringList resourceNames_;
     /**
      * <pre>
-     * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+     * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
      * +optional
      * +listType=atomic
      * </pre>
@@ -9528,7 +9530,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+     * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
      * +optional
      * +listType=atomic
      * </pre>
@@ -9540,7 +9542,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+     * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
      * +optional
      * +listType=atomic
      * </pre>
@@ -9552,7 +9554,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+     * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
      * +optional
      * +listType=atomic
      * </pre>
@@ -10002,7 +10004,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -10014,7 +10016,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -10025,7 +10027,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -10036,7 +10038,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -10048,7 +10050,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -10066,7 +10068,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -10084,7 +10086,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -10100,7 +10102,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -10114,7 +10116,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
+       * verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  "*" means all.
        * +listType=atomic
        * </pre>
        *
@@ -10140,7 +10142,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+       * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
        * the enumerated resources in any API group will be allowed.  "*" means all.
        * +optional
        * +listType=atomic
@@ -10154,7 +10156,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+       * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
        * the enumerated resources in any API group will be allowed.  "*" means all.
        * +optional
        * +listType=atomic
@@ -10167,7 +10169,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+       * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
        * the enumerated resources in any API group will be allowed.  "*" means all.
        * +optional
        * +listType=atomic
@@ -10180,7 +10182,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+       * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
        * the enumerated resources in any API group will be allowed.  "*" means all.
        * +optional
        * +listType=atomic
@@ -10194,7 +10196,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+       * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
        * the enumerated resources in any API group will be allowed.  "*" means all.
        * +optional
        * +listType=atomic
@@ -10214,7 +10216,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+       * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
        * the enumerated resources in any API group will be allowed.  "*" means all.
        * +optional
        * +listType=atomic
@@ -10234,7 +10236,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+       * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
        * the enumerated resources in any API group will be allowed.  "*" means all.
        * +optional
        * +listType=atomic
@@ -10252,7 +10254,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+       * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
        * the enumerated resources in any API group will be allowed.  "*" means all.
        * +optional
        * +listType=atomic
@@ -10268,7 +10270,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
+       * apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of
        * the enumerated resources in any API group will be allowed.  "*" means all.
        * +optional
        * +listType=atomic
@@ -10296,7 +10298,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+       * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
        *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
        * +optional
        * +listType=atomic
@@ -10310,7 +10312,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+       * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
        *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
        * +optional
        * +listType=atomic
@@ -10323,7 +10325,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+       * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
        *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
        * +optional
        * +listType=atomic
@@ -10336,7 +10338,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+       * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
        *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
        * +optional
        * +listType=atomic
@@ -10350,7 +10352,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+       * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
        *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
        * +optional
        * +listType=atomic
@@ -10370,7 +10372,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+       * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
        *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
        * +optional
        * +listType=atomic
@@ -10390,7 +10392,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+       * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
        *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
        * +optional
        * +listType=atomic
@@ -10408,7 +10410,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+       * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
        *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
        * +optional
        * +listType=atomic
@@ -10424,7 +10426,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
+       * resources is a list of resources this rule applies to.  "*" means all in the specified apiGroups.
        *  "*&#47;foo" represents the subresource 'foo' for all resources in the specified apiGroups.
        * +optional
        * +listType=atomic
@@ -10452,7 +10454,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+       * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
        * +optional
        * +listType=atomic
        * </pre>
@@ -10465,7 +10467,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+       * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
        * +optional
        * +listType=atomic
        * </pre>
@@ -10477,7 +10479,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+       * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
        * +optional
        * +listType=atomic
        * </pre>
@@ -10489,7 +10491,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+       * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
        * +optional
        * +listType=atomic
        * </pre>
@@ -10502,7 +10504,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+       * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
        * +optional
        * +listType=atomic
        * </pre>
@@ -10521,7 +10523,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+       * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
        * +optional
        * +listType=atomic
        * </pre>
@@ -10540,7 +10542,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+       * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
        * +optional
        * +listType=atomic
        * </pre>
@@ -10557,7 +10559,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+       * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
        * +optional
        * +listType=atomic
        * </pre>
@@ -10572,7 +10574,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
+       * resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  "*" means all.
        * +optional
        * +listType=atomic
        * </pre>
@@ -10648,7 +10650,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -10658,7 +10660,7 @@ public final class V1Authorization {
     boolean hasMetadata();
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -10668,7 +10670,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -10679,7 +10681,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  user and groups must be empty
+     * spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -10687,7 +10689,7 @@ public final class V1Authorization {
     boolean hasSpec();
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  user and groups must be empty
+     * spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -10695,7 +10697,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec getSpec();
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  user and groups must be empty
+     * spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -10704,7 +10706,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -10713,7 +10715,7 @@ public final class V1Authorization {
     boolean hasStatus();
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -10722,7 +10724,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus getStatus();
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -10735,6 +10737,7 @@ public final class V1Authorization {
    * SelfSubjectAccessReview checks whether or the current user can perform an action.  Not filling in a
    * spec.namespace means "in all namespaces".  Self is a special case, because users should always be able
    * to check whether they can perform an action
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.authorization.v1.SelfSubjectAccessReview}
@@ -10851,7 +10854,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -10863,7 +10866,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -10875,7 +10878,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -10890,7 +10893,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec spec_;
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  user and groups must be empty
+     * spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -10900,7 +10903,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  user and groups must be empty
+     * spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -10910,7 +10913,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.  user and groups must be empty
+     * spec holds information about the request being evaluated.  user and groups must be empty
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -10923,7 +10926,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus status_;
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -10934,7 +10937,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -10945,7 +10948,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -11153,6 +11156,7 @@ public final class V1Authorization {
      * SelfSubjectAccessReview checks whether or the current user can perform an action.  Not filling in a
      * spec.namespace means "in all namespaces".  Self is a special case, because users should always be able
      * to check whether they can perform an action
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.authorization.v1.SelfSubjectAccessReview}
@@ -11358,7 +11362,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -11370,7 +11374,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -11386,7 +11390,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -11408,7 +11412,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -11428,7 +11432,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -11454,7 +11458,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -11473,7 +11477,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -11487,7 +11491,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -11504,7 +11508,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -11530,7 +11534,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec, io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpec.Builder, io.kubernetes.client.proto.V1Authorization.SelfSubjectAccessReviewSpecOrBuilder> specBuilder_;
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  user and groups must be empty
+       * spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -11540,7 +11544,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  user and groups must be empty
+       * spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -11554,7 +11558,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  user and groups must be empty
+       * spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -11574,7 +11578,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  user and groups must be empty
+       * spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -11592,7 +11596,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  user and groups must be empty
+       * spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -11616,7 +11620,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  user and groups must be empty
+       * spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -11633,7 +11637,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  user and groups must be empty
+       * spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -11645,7 +11649,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  user and groups must be empty
+       * spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -11660,7 +11664,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.  user and groups must be empty
+       * spec holds information about the request being evaluated.  user and groups must be empty
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec spec = 2;</code>
@@ -11684,7 +11688,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus, io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus.Builder, io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatusOrBuilder> statusBuilder_;
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -11695,7 +11699,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -11710,7 +11714,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -11731,7 +11735,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -11750,7 +11754,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -11775,7 +11779,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -11793,7 +11797,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -11806,7 +11810,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -11822,7 +11826,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -11900,8 +11904,10 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -11909,8 +11915,10 @@ public final class V1Authorization {
     boolean hasResourceAttributes();
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -11918,8 +11926,10 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.ResourceAttributes getResourceAttributes();
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -11928,8 +11938,10 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -11937,8 +11949,10 @@ public final class V1Authorization {
     boolean hasNonResourceAttributes();
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -11946,8 +11960,10 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.NonResourceAttributes getNonResourceAttributes();
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -11956,8 +11972,8 @@ public final class V1Authorization {
   }
   /**
    * <pre>
-   * SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes
-   * and NonResourceAuthorizationAttributes must be set
+   * SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes
+   * and nonResourceAttributes must be set
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec}
@@ -12061,8 +12077,10 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.ResourceAttributes resourceAttributes_;
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12072,8 +12090,10 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12083,8 +12103,10 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12097,8 +12119,10 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.NonResourceAttributes nonResourceAttributes_;
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12108,8 +12132,10 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12119,8 +12145,10 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12308,8 +12336,8 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes
-     * and NonResourceAuthorizationAttributes must be set
+     * SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes
+     * and nonResourceAttributes must be set
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.authorization.v1.SelfSubjectAccessReviewSpec}
@@ -12497,8 +12525,10 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.ResourceAttributes, io.kubernetes.client.proto.V1Authorization.ResourceAttributes.Builder, io.kubernetes.client.proto.V1Authorization.ResourceAttributesOrBuilder> resourceAttributesBuilder_;
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12508,8 +12538,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12523,8 +12555,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12544,8 +12578,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12563,8 +12599,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12588,8 +12626,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12606,8 +12646,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12619,8 +12661,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12635,8 +12679,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -12660,8 +12706,10 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.NonResourceAttributes, io.kubernetes.client.proto.V1Authorization.NonResourceAttributes.Builder, io.kubernetes.client.proto.V1Authorization.NonResourceAttributesOrBuilder> nonResourceAttributesBuilder_;
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12671,8 +12719,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12686,8 +12736,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12707,8 +12759,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12726,8 +12780,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12751,8 +12807,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12769,8 +12827,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12782,8 +12842,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12798,8 +12860,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -12876,7 +12940,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -12886,7 +12950,7 @@ public final class V1Authorization {
     boolean hasMetadata();
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -12896,7 +12960,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -12907,7 +12971,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.
+     * spec holds information about the request being evaluated.
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -12915,7 +12979,7 @@ public final class V1Authorization {
     boolean hasSpec();
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.
+     * spec holds information about the request being evaluated.
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -12923,7 +12987,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec getSpec();
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.
+     * spec holds information about the request being evaluated.
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -12932,7 +12996,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Status is filled in by the server and indicates the set of actions a user can perform.
+     * status is filled in by the server and indicates the set of actions a user can perform.
      * +optional
      * </pre>
      *
@@ -12941,7 +13005,7 @@ public final class V1Authorization {
     boolean hasStatus();
     /**
      * <pre>
-     * Status is filled in by the server and indicates the set of actions a user can perform.
+     * status is filled in by the server and indicates the set of actions a user can perform.
      * +optional
      * </pre>
      *
@@ -12950,7 +13014,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus getStatus();
     /**
      * <pre>
-     * Status is filled in by the server and indicates the set of actions a user can perform.
+     * status is filled in by the server and indicates the set of actions a user can perform.
      * +optional
      * </pre>
      *
@@ -12966,6 +13030,7 @@ public final class V1Authorization {
    * or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to
    * drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns.
    * SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.authorization.v1.SelfSubjectRulesReview}
@@ -13082,7 +13147,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -13094,7 +13159,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -13106,7 +13171,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -13121,7 +13186,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec spec_;
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.
+     * spec holds information about the request being evaluated.
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13131,7 +13196,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.
+     * spec holds information about the request being evaluated.
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13141,7 +13206,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Spec holds information about the request being evaluated.
+     * spec holds information about the request being evaluated.
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13154,7 +13219,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus status_;
     /**
      * <pre>
-     * Status is filled in by the server and indicates the set of actions a user can perform.
+     * status is filled in by the server and indicates the set of actions a user can perform.
      * +optional
      * </pre>
      *
@@ -13165,7 +13230,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Status is filled in by the server and indicates the set of actions a user can perform.
+     * status is filled in by the server and indicates the set of actions a user can perform.
      * +optional
      * </pre>
      *
@@ -13176,7 +13241,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Status is filled in by the server and indicates the set of actions a user can perform.
+     * status is filled in by the server and indicates the set of actions a user can perform.
      * +optional
      * </pre>
      *
@@ -13387,6 +13452,7 @@ public final class V1Authorization {
      * or to quickly let an end user reason about their permissions. It should NOT Be used by external systems to
      * drive authorization decisions as this raises confused deputy, cache lifetime/revocation, and correctness concerns.
      * SubjectAccessReview, and LocalAccessReview are the correct way to defer authorization decisions to the API server.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.authorization.v1.SelfSubjectRulesReview}
@@ -13592,7 +13658,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -13604,7 +13670,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -13620,7 +13686,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -13642,7 +13708,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -13662,7 +13728,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -13688,7 +13754,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -13707,7 +13773,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -13721,7 +13787,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -13738,7 +13804,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -13764,7 +13830,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec, io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpec.Builder, io.kubernetes.client.proto.V1Authorization.SelfSubjectRulesReviewSpecOrBuilder> specBuilder_;
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.
+       * spec holds information about the request being evaluated.
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13774,7 +13840,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.
+       * spec holds information about the request being evaluated.
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13788,7 +13854,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.
+       * spec holds information about the request being evaluated.
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13808,7 +13874,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.
+       * spec holds information about the request being evaluated.
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13826,7 +13892,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.
+       * spec holds information about the request being evaluated.
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13850,7 +13916,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.
+       * spec holds information about the request being evaluated.
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13867,7 +13933,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.
+       * spec holds information about the request being evaluated.
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13879,7 +13945,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.
+       * spec holds information about the request being evaluated.
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13894,7 +13960,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated.
+       * spec holds information about the request being evaluated.
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SelfSubjectRulesReviewSpec spec = 2;</code>
@@ -13918,7 +13984,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus, io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatus.Builder, io.kubernetes.client.proto.V1Authorization.SubjectRulesReviewStatusOrBuilder> statusBuilder_;
       /**
        * <pre>
-       * Status is filled in by the server and indicates the set of actions a user can perform.
+       * status is filled in by the server and indicates the set of actions a user can perform.
        * +optional
        * </pre>
        *
@@ -13929,7 +13995,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates the set of actions a user can perform.
+       * status is filled in by the server and indicates the set of actions a user can perform.
        * +optional
        * </pre>
        *
@@ -13944,7 +14010,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates the set of actions a user can perform.
+       * status is filled in by the server and indicates the set of actions a user can perform.
        * +optional
        * </pre>
        *
@@ -13965,7 +14031,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates the set of actions a user can perform.
+       * status is filled in by the server and indicates the set of actions a user can perform.
        * +optional
        * </pre>
        *
@@ -13984,7 +14050,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates the set of actions a user can perform.
+       * status is filled in by the server and indicates the set of actions a user can perform.
        * +optional
        * </pre>
        *
@@ -14009,7 +14075,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates the set of actions a user can perform.
+       * status is filled in by the server and indicates the set of actions a user can perform.
        * +optional
        * </pre>
        *
@@ -14027,7 +14093,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates the set of actions a user can perform.
+       * status is filled in by the server and indicates the set of actions a user can perform.
        * +optional
        * </pre>
        *
@@ -14040,7 +14106,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates the set of actions a user can perform.
+       * status is filled in by the server and indicates the set of actions a user can perform.
        * +optional
        * </pre>
        *
@@ -14056,7 +14122,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates the set of actions a user can perform.
+       * status is filled in by the server and indicates the set of actions a user can perform.
        * +optional
        * </pre>
        *
@@ -14134,7 +14200,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Namespace to evaluate rules for. Required.
+     * namespace to evaluate rules for. Required.
      * </pre>
      *
      * <code>optional string namespace = 1;</code>
@@ -14142,7 +14208,7 @@ public final class V1Authorization {
     boolean hasNamespace();
     /**
      * <pre>
-     * Namespace to evaluate rules for. Required.
+     * namespace to evaluate rules for. Required.
      * </pre>
      *
      * <code>optional string namespace = 1;</code>
@@ -14150,7 +14216,7 @@ public final class V1Authorization {
     java.lang.String getNamespace();
     /**
      * <pre>
-     * Namespace to evaluate rules for. Required.
+     * namespace to evaluate rules for. Required.
      * </pre>
      *
      * <code>optional string namespace = 1;</code>
@@ -14245,7 +14311,7 @@ public final class V1Authorization {
     private volatile java.lang.Object namespace_;
     /**
      * <pre>
-     * Namespace to evaluate rules for. Required.
+     * namespace to evaluate rules for. Required.
      * </pre>
      *
      * <code>optional string namespace = 1;</code>
@@ -14255,7 +14321,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Namespace to evaluate rules for. Required.
+     * namespace to evaluate rules for. Required.
      * </pre>
      *
      * <code>optional string namespace = 1;</code>
@@ -14276,7 +14342,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Namespace to evaluate rules for. Required.
+     * namespace to evaluate rules for. Required.
      * </pre>
      *
      * <code>optional string namespace = 1;</code>
@@ -14618,7 +14684,7 @@ public final class V1Authorization {
       private java.lang.Object namespace_ = "";
       /**
        * <pre>
-       * Namespace to evaluate rules for. Required.
+       * namespace to evaluate rules for. Required.
        * </pre>
        *
        * <code>optional string namespace = 1;</code>
@@ -14628,7 +14694,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Namespace to evaluate rules for. Required.
+       * namespace to evaluate rules for. Required.
        * </pre>
        *
        * <code>optional string namespace = 1;</code>
@@ -14649,7 +14715,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Namespace to evaluate rules for. Required.
+       * namespace to evaluate rules for. Required.
        * </pre>
        *
        * <code>optional string namespace = 1;</code>
@@ -14669,7 +14735,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Namespace to evaluate rules for. Required.
+       * namespace to evaluate rules for. Required.
        * </pre>
        *
        * <code>optional string namespace = 1;</code>
@@ -14686,7 +14752,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Namespace to evaluate rules for. Required.
+       * namespace to evaluate rules for. Required.
        * </pre>
        *
        * <code>optional string namespace = 1;</code>
@@ -14699,7 +14765,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Namespace to evaluate rules for. Required.
+       * namespace to evaluate rules for. Required.
        * </pre>
        *
        * <code>optional string namespace = 1;</code>
@@ -14773,7 +14839,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -14783,7 +14849,7 @@ public final class V1Authorization {
     boolean hasMetadata();
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -14793,7 +14859,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.Meta.ObjectMeta getMetadata();
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -14804,7 +14870,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -14812,7 +14878,7 @@ public final class V1Authorization {
     boolean hasSpec();
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -14820,7 +14886,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec getSpec();
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -14829,7 +14895,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -14838,7 +14904,7 @@ public final class V1Authorization {
     boolean hasStatus();
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -14847,7 +14913,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus getStatus();
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -14858,6 +14924,7 @@ public final class V1Authorization {
   /**
    * <pre>
    * SubjectAccessReview checks whether or not a user or group can perform an action.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.authorization.v1.SubjectAccessReview}
@@ -14974,7 +15041,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.Meta.ObjectMeta metadata_;
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -14986,7 +15053,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -14998,7 +15065,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Standard list metadata.
+     * metadata is the standard list metadata.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
      * +optional
      * </pre>
@@ -15013,7 +15080,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec spec_;
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15023,7 +15090,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15033,7 +15100,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Spec holds information about the request being evaluated
+     * spec holds information about the request being evaluated
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15046,7 +15113,7 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus status_;
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -15057,7 +15124,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -15068,7 +15135,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Status is filled in by the server and indicates whether the request is allowed or not
+     * status is filled in by the server and indicates whether the request is allowed or not
      * +optional
      * </pre>
      *
@@ -15274,6 +15341,7 @@ public final class V1Authorization {
     /**
      * <pre>
      * SubjectAccessReview checks whether or not a user or group can perform an action.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.authorization.v1.SubjectAccessReview}
@@ -15479,7 +15547,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.Meta.ObjectMeta, io.kubernetes.client.proto.Meta.ObjectMeta.Builder, io.kubernetes.client.proto.Meta.ObjectMetaOrBuilder> metadataBuilder_;
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -15491,7 +15559,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -15507,7 +15575,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -15529,7 +15597,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -15549,7 +15617,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -15575,7 +15643,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -15594,7 +15662,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -15608,7 +15676,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -15625,7 +15693,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Standard list metadata.
+       * metadata is the standard list metadata.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata
        * +optional
        * </pre>
@@ -15651,7 +15719,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec, io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpec.Builder, io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewSpecOrBuilder> specBuilder_;
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15661,7 +15729,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15675,7 +15743,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15695,7 +15763,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15713,7 +15781,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15737,7 +15805,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15754,7 +15822,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15766,7 +15834,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15781,7 +15849,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Spec holds information about the request being evaluated
+       * spec holds information about the request being evaluated
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.SubjectAccessReviewSpec spec = 2;</code>
@@ -15805,7 +15873,7 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus, io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatus.Builder, io.kubernetes.client.proto.V1Authorization.SubjectAccessReviewStatusOrBuilder> statusBuilder_;
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -15816,7 +15884,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -15831,7 +15899,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -15852,7 +15920,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -15871,7 +15939,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -15896,7 +15964,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -15914,7 +15982,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -15927,7 +15995,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -15943,7 +16011,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Status is filled in by the server and indicates whether the request is allowed or not
+       * status is filled in by the server and indicates whether the request is allowed or not
        * +optional
        * </pre>
        *
@@ -16021,8 +16089,10 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -16030,8 +16100,10 @@ public final class V1Authorization {
     boolean hasResourceAttributes();
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -16039,8 +16111,10 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.ResourceAttributes getResourceAttributes();
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -16049,8 +16123,10 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -16058,8 +16134,10 @@ public final class V1Authorization {
     boolean hasNonResourceAttributes();
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -16067,8 +16145,10 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.NonResourceAttributes getNonResourceAttributes();
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -16077,7 +16157,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * User is the user you're testing for.
+     * user is the user you're testing for.
      * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
      * +optional
      * </pre>
@@ -16087,7 +16167,7 @@ public final class V1Authorization {
     boolean hasUser();
     /**
      * <pre>
-     * User is the user you're testing for.
+     * user is the user you're testing for.
      * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
      * +optional
      * </pre>
@@ -16097,7 +16177,7 @@ public final class V1Authorization {
     java.lang.String getUser();
     /**
      * <pre>
-     * User is the user you're testing for.
+     * user is the user you're testing for.
      * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
      * +optional
      * </pre>
@@ -16109,7 +16189,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Groups is the groups you're testing for.
+     * groups is the groups you're testing for.
      * +optional
      * +listType=atomic
      * </pre>
@@ -16120,7 +16200,7 @@ public final class V1Authorization {
         getGroupsList();
     /**
      * <pre>
-     * Groups is the groups you're testing for.
+     * groups is the groups you're testing for.
      * +optional
      * +listType=atomic
      * </pre>
@@ -16130,7 +16210,7 @@ public final class V1Authorization {
     int getGroupsCount();
     /**
      * <pre>
-     * Groups is the groups you're testing for.
+     * groups is the groups you're testing for.
      * +optional
      * +listType=atomic
      * </pre>
@@ -16140,7 +16220,7 @@ public final class V1Authorization {
     java.lang.String getGroups(int index);
     /**
      * <pre>
-     * Groups is the groups you're testing for.
+     * groups is the groups you're testing for.
      * +optional
      * +listType=atomic
      * </pre>
@@ -16152,7 +16232,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+     * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
      * it needs a reflection here.
      * +optional
      * </pre>
@@ -16162,7 +16242,7 @@ public final class V1Authorization {
     int getExtraCount();
     /**
      * <pre>
-     * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+     * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
      * it needs a reflection here.
      * +optional
      * </pre>
@@ -16179,7 +16259,7 @@ public final class V1Authorization {
     getExtra();
     /**
      * <pre>
-     * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+     * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
      * it needs a reflection here.
      * +optional
      * </pre>
@@ -16190,7 +16270,7 @@ public final class V1Authorization {
     getExtraMap();
     /**
      * <pre>
-     * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+     * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
      * it needs a reflection here.
      * +optional
      * </pre>
@@ -16203,7 +16283,7 @@ public final class V1Authorization {
         io.kubernetes.client.proto.V1Authorization.ExtraValue defaultValue);
     /**
      * <pre>
-     * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+     * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
      * it needs a reflection here.
      * +optional
      * </pre>
@@ -16216,7 +16296,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * UID information about the requesting user.
+     * uid information about the requesting user.
      * +optional
      * </pre>
      *
@@ -16225,7 +16305,7 @@ public final class V1Authorization {
     boolean hasUid();
     /**
      * <pre>
-     * UID information about the requesting user.
+     * uid information about the requesting user.
      * +optional
      * </pre>
      *
@@ -16234,7 +16314,7 @@ public final class V1Authorization {
     java.lang.String getUid();
     /**
      * <pre>
-     * UID information about the requesting user.
+     * uid information about the requesting user.
      * +optional
      * </pre>
      *
@@ -16245,8 +16325,8 @@ public final class V1Authorization {
   }
   /**
    * <pre>
-   * SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes
-   * and NonResourceAuthorizationAttributes must be set
+   * SubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes
+   * and nonResourceAttributes must be set
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.authorization.v1.SubjectAccessReviewSpec}
@@ -16402,8 +16482,10 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.ResourceAttributes resourceAttributes_;
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -16413,8 +16495,10 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -16424,8 +16508,10 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * ResourceAuthorizationAttributes describes information for a resource access request
+     * resourceAttributes describes information for a resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -16438,8 +16524,10 @@ public final class V1Authorization {
     private io.kubernetes.client.proto.V1Authorization.NonResourceAttributes nonResourceAttributes_;
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -16449,8 +16537,10 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -16460,8 +16550,10 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * NonResourceAttributes describes information for a non-resource access request
+     * nonResourceAttributes describes information for a non-resource access request
      * +optional
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:unionMember
      * </pre>
      *
      * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -16474,7 +16566,7 @@ public final class V1Authorization {
     private volatile java.lang.Object user_;
     /**
      * <pre>
-     * User is the user you're testing for.
+     * user is the user you're testing for.
      * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
      * +optional
      * </pre>
@@ -16486,7 +16578,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * User is the user you're testing for.
+     * user is the user you're testing for.
      * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
      * +optional
      * </pre>
@@ -16509,7 +16601,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * User is the user you're testing for.
+     * user is the user you're testing for.
      * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
      * +optional
      * </pre>
@@ -16534,7 +16626,7 @@ public final class V1Authorization {
     private com.google.protobuf.LazyStringList groups_;
     /**
      * <pre>
-     * Groups is the groups you're testing for.
+     * groups is the groups you're testing for.
      * +optional
      * +listType=atomic
      * </pre>
@@ -16547,7 +16639,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Groups is the groups you're testing for.
+     * groups is the groups you're testing for.
      * +optional
      * +listType=atomic
      * </pre>
@@ -16559,7 +16651,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Groups is the groups you're testing for.
+     * groups is the groups you're testing for.
      * +optional
      * +listType=atomic
      * </pre>
@@ -16571,7 +16663,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Groups is the groups you're testing for.
+     * groups is the groups you're testing for.
      * +optional
      * +listType=atomic
      * </pre>
@@ -16611,7 +16703,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+     * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
      * it needs a reflection here.
      * +optional
      * </pre>
@@ -16633,7 +16725,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+     * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
      * it needs a reflection here.
      * +optional
      * </pre>
@@ -16646,7 +16738,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+     * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
      * it needs a reflection here.
      * +optional
      * </pre>
@@ -16664,7 +16756,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+     * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
      * it needs a reflection here.
      * +optional
      * </pre>
@@ -16687,7 +16779,7 @@ public final class V1Authorization {
     private volatile java.lang.Object uid_;
     /**
      * <pre>
-     * UID information about the requesting user.
+     * uid information about the requesting user.
      * +optional
      * </pre>
      *
@@ -16698,7 +16790,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * UID information about the requesting user.
+     * uid information about the requesting user.
      * +optional
      * </pre>
      *
@@ -16720,7 +16812,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * UID information about the requesting user.
+     * uid information about the requesting user.
      * +optional
      * </pre>
      *
@@ -16988,8 +17080,8 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes
-     * and NonResourceAuthorizationAttributes must be set
+     * SubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes
+     * and nonResourceAttributes must be set
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.authorization.v1.SubjectAccessReviewSpec}
@@ -17243,8 +17335,10 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.ResourceAttributes, io.kubernetes.client.proto.V1Authorization.ResourceAttributes.Builder, io.kubernetes.client.proto.V1Authorization.ResourceAttributesOrBuilder> resourceAttributesBuilder_;
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -17254,8 +17348,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -17269,8 +17365,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -17290,8 +17388,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -17309,8 +17409,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -17334,8 +17436,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -17352,8 +17456,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -17365,8 +17471,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -17381,8 +17489,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceAuthorizationAttributes describes information for a resource access request
+       * resourceAttributes describes information for a resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.ResourceAttributes resourceAttributes = 1;</code>
@@ -17406,8 +17516,10 @@ public final class V1Authorization {
           io.kubernetes.client.proto.V1Authorization.NonResourceAttributes, io.kubernetes.client.proto.V1Authorization.NonResourceAttributes.Builder, io.kubernetes.client.proto.V1Authorization.NonResourceAttributesOrBuilder> nonResourceAttributesBuilder_;
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -17417,8 +17529,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -17432,8 +17546,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -17453,8 +17569,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -17472,8 +17590,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -17497,8 +17617,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -17515,8 +17637,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -17528,8 +17652,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -17544,8 +17670,10 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceAttributes describes information for a non-resource access request
+       * nonResourceAttributes describes information for a non-resource access request
        * +optional
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:unionMember
        * </pre>
        *
        * <code>optional .k8s.io.api.authorization.v1.NonResourceAttributes nonResourceAttributes = 2;</code>
@@ -17567,7 +17695,7 @@ public final class V1Authorization {
       private java.lang.Object user_ = "";
       /**
        * <pre>
-       * User is the user you're testing for.
+       * user is the user you're testing for.
        * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
        * +optional
        * </pre>
@@ -17579,7 +17707,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * User is the user you're testing for.
+       * user is the user you're testing for.
        * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
        * +optional
        * </pre>
@@ -17602,7 +17730,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * User is the user you're testing for.
+       * user is the user you're testing for.
        * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
        * +optional
        * </pre>
@@ -17624,7 +17752,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * User is the user you're testing for.
+       * user is the user you're testing for.
        * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
        * +optional
        * </pre>
@@ -17643,7 +17771,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * User is the user you're testing for.
+       * user is the user you're testing for.
        * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
        * +optional
        * </pre>
@@ -17658,7 +17786,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * User is the user you're testing for.
+       * user is the user you're testing for.
        * If you specify "User" but not "Groups", then is it interpreted as "What if User were not a member of any groups
        * +optional
        * </pre>
@@ -17685,7 +17813,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Groups is the groups you're testing for.
+       * groups is the groups you're testing for.
        * +optional
        * +listType=atomic
        * </pre>
@@ -17698,7 +17826,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Groups is the groups you're testing for.
+       * groups is the groups you're testing for.
        * +optional
        * +listType=atomic
        * </pre>
@@ -17710,7 +17838,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Groups is the groups you're testing for.
+       * groups is the groups you're testing for.
        * +optional
        * +listType=atomic
        * </pre>
@@ -17722,7 +17850,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Groups is the groups you're testing for.
+       * groups is the groups you're testing for.
        * +optional
        * +listType=atomic
        * </pre>
@@ -17735,7 +17863,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Groups is the groups you're testing for.
+       * groups is the groups you're testing for.
        * +optional
        * +listType=atomic
        * </pre>
@@ -17754,7 +17882,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Groups is the groups you're testing for.
+       * groups is the groups you're testing for.
        * +optional
        * +listType=atomic
        * </pre>
@@ -17773,7 +17901,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Groups is the groups you're testing for.
+       * groups is the groups you're testing for.
        * +optional
        * +listType=atomic
        * </pre>
@@ -17790,7 +17918,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Groups is the groups you're testing for.
+       * groups is the groups you're testing for.
        * +optional
        * +listType=atomic
        * </pre>
@@ -17805,7 +17933,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Groups is the groups you're testing for.
+       * groups is the groups you're testing for.
        * +optional
        * +listType=atomic
        * </pre>
@@ -17851,7 +17979,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+       * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
        * it needs a reflection here.
        * +optional
        * </pre>
@@ -17873,7 +18001,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+       * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
        * it needs a reflection here.
        * +optional
        * </pre>
@@ -17886,7 +18014,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+       * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
        * it needs a reflection here.
        * +optional
        * </pre>
@@ -17904,7 +18032,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+       * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
        * it needs a reflection here.
        * +optional
        * </pre>
@@ -17930,7 +18058,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+       * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
        * it needs a reflection here.
        * +optional
        * </pre>
@@ -17955,7 +18083,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+       * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
        * it needs a reflection here.
        * +optional
        * </pre>
@@ -17973,7 +18101,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
+       * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer
        * it needs a reflection here.
        * +optional
        * </pre>
@@ -17991,7 +18119,7 @@ public final class V1Authorization {
       private java.lang.Object uid_ = "";
       /**
        * <pre>
-       * UID information about the requesting user.
+       * uid information about the requesting user.
        * +optional
        * </pre>
        *
@@ -18002,7 +18130,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * UID information about the requesting user.
+       * uid information about the requesting user.
        * +optional
        * </pre>
        *
@@ -18024,7 +18152,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * UID information about the requesting user.
+       * uid information about the requesting user.
        * +optional
        * </pre>
        *
@@ -18045,7 +18173,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * UID information about the requesting user.
+       * uid information about the requesting user.
        * +optional
        * </pre>
        *
@@ -18063,7 +18191,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * UID information about the requesting user.
+       * uid information about the requesting user.
        * +optional
        * </pre>
        *
@@ -18077,7 +18205,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * UID information about the requesting user.
+       * uid information about the requesting user.
        * +optional
        * </pre>
        *
@@ -18152,7 +18280,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Allowed is required. True if the action would be allowed, false otherwise.
+     * allowed is required. True if the action would be allowed, false otherwise.
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
@@ -18160,7 +18288,7 @@ public final class V1Authorization {
     boolean hasAllowed();
     /**
      * <pre>
-     * Allowed is required. True if the action would be allowed, false otherwise.
+     * allowed is required. True if the action would be allowed, false otherwise.
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
@@ -18169,7 +18297,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Denied is optional. True if the action would be denied, otherwise
+     * denied is optional. True if the action would be denied, otherwise
      * false. If both allowed is false and denied is false, then the
      * authorizer has no opinion on whether to authorize the action. Denied
      * may not be true if Allowed is true.
@@ -18181,7 +18309,7 @@ public final class V1Authorization {
     boolean hasDenied();
     /**
      * <pre>
-     * Denied is optional. True if the action would be denied, otherwise
+     * denied is optional. True if the action would be denied, otherwise
      * false. If both allowed is false and denied is false, then the
      * authorizer has no opinion on whether to authorize the action. Denied
      * may not be true if Allowed is true.
@@ -18194,7 +18322,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Reason is optional.  It indicates why a request was allowed or denied.
+     * reason is optional.  It indicates why a request was allowed or denied.
      * +optional
      * </pre>
      *
@@ -18203,7 +18331,7 @@ public final class V1Authorization {
     boolean hasReason();
     /**
      * <pre>
-     * Reason is optional.  It indicates why a request was allowed or denied.
+     * reason is optional.  It indicates why a request was allowed or denied.
      * +optional
      * </pre>
      *
@@ -18212,7 +18340,7 @@ public final class V1Authorization {
     java.lang.String getReason();
     /**
      * <pre>
-     * Reason is optional.  It indicates why a request was allowed or denied.
+     * reason is optional.  It indicates why a request was allowed or denied.
      * +optional
      * </pre>
      *
@@ -18223,7 +18351,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * EvaluationError is an indication that some error occurred during the authorization check.
+     * evaluationError is an indication that some error occurred during the authorization check.
      * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
      * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
      * +optional
@@ -18234,7 +18362,7 @@ public final class V1Authorization {
     boolean hasEvaluationError();
     /**
      * <pre>
-     * EvaluationError is an indication that some error occurred during the authorization check.
+     * evaluationError is an indication that some error occurred during the authorization check.
      * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
      * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
      * +optional
@@ -18245,7 +18373,7 @@ public final class V1Authorization {
     java.lang.String getEvaluationError();
     /**
      * <pre>
-     * EvaluationError is an indication that some error occurred during the authorization check.
+     * evaluationError is an indication that some error occurred during the authorization check.
      * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
      * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
      * +optional
@@ -18362,7 +18490,7 @@ public final class V1Authorization {
     private boolean allowed_;
     /**
      * <pre>
-     * Allowed is required. True if the action would be allowed, false otherwise.
+     * allowed is required. True if the action would be allowed, false otherwise.
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
@@ -18372,7 +18500,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Allowed is required. True if the action would be allowed, false otherwise.
+     * allowed is required. True if the action would be allowed, false otherwise.
      * </pre>
      *
      * <code>optional bool allowed = 1;</code>
@@ -18385,7 +18513,7 @@ public final class V1Authorization {
     private boolean denied_;
     /**
      * <pre>
-     * Denied is optional. True if the action would be denied, otherwise
+     * denied is optional. True if the action would be denied, otherwise
      * false. If both allowed is false and denied is false, then the
      * authorizer has no opinion on whether to authorize the action. Denied
      * may not be true if Allowed is true.
@@ -18399,7 +18527,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Denied is optional. True if the action would be denied, otherwise
+     * denied is optional. True if the action would be denied, otherwise
      * false. If both allowed is false and denied is false, then the
      * authorizer has no opinion on whether to authorize the action. Denied
      * may not be true if Allowed is true.
@@ -18416,7 +18544,7 @@ public final class V1Authorization {
     private volatile java.lang.Object reason_;
     /**
      * <pre>
-     * Reason is optional.  It indicates why a request was allowed or denied.
+     * reason is optional.  It indicates why a request was allowed or denied.
      * +optional
      * </pre>
      *
@@ -18427,7 +18555,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Reason is optional.  It indicates why a request was allowed or denied.
+     * reason is optional.  It indicates why a request was allowed or denied.
      * +optional
      * </pre>
      *
@@ -18449,7 +18577,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Reason is optional.  It indicates why a request was allowed or denied.
+     * reason is optional.  It indicates why a request was allowed or denied.
      * +optional
      * </pre>
      *
@@ -18473,7 +18601,7 @@ public final class V1Authorization {
     private volatile java.lang.Object evaluationError_;
     /**
      * <pre>
-     * EvaluationError is an indication that some error occurred during the authorization check.
+     * evaluationError is an indication that some error occurred during the authorization check.
      * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
      * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
      * +optional
@@ -18486,7 +18614,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * EvaluationError is an indication that some error occurred during the authorization check.
+     * evaluationError is an indication that some error occurred during the authorization check.
      * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
      * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
      * +optional
@@ -18510,7 +18638,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * EvaluationError is an indication that some error occurred during the authorization check.
+     * evaluationError is an indication that some error occurred during the authorization check.
      * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
      * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
      * +optional
@@ -18933,7 +19061,7 @@ public final class V1Authorization {
       private boolean allowed_ ;
       /**
        * <pre>
-       * Allowed is required. True if the action would be allowed, false otherwise.
+       * allowed is required. True if the action would be allowed, false otherwise.
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>
@@ -18943,7 +19071,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Allowed is required. True if the action would be allowed, false otherwise.
+       * allowed is required. True if the action would be allowed, false otherwise.
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>
@@ -18953,7 +19081,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Allowed is required. True if the action would be allowed, false otherwise.
+       * allowed is required. True if the action would be allowed, false otherwise.
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>
@@ -18966,7 +19094,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Allowed is required. True if the action would be allowed, false otherwise.
+       * allowed is required. True if the action would be allowed, false otherwise.
        * </pre>
        *
        * <code>optional bool allowed = 1;</code>
@@ -18981,7 +19109,7 @@ public final class V1Authorization {
       private boolean denied_ ;
       /**
        * <pre>
-       * Denied is optional. True if the action would be denied, otherwise
+       * denied is optional. True if the action would be denied, otherwise
        * false. If both allowed is false and denied is false, then the
        * authorizer has no opinion on whether to authorize the action. Denied
        * may not be true if Allowed is true.
@@ -18995,7 +19123,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Denied is optional. True if the action would be denied, otherwise
+       * denied is optional. True if the action would be denied, otherwise
        * false. If both allowed is false and denied is false, then the
        * authorizer has no opinion on whether to authorize the action. Denied
        * may not be true if Allowed is true.
@@ -19009,7 +19137,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Denied is optional. True if the action would be denied, otherwise
+       * denied is optional. True if the action would be denied, otherwise
        * false. If both allowed is false and denied is false, then the
        * authorizer has no opinion on whether to authorize the action. Denied
        * may not be true if Allowed is true.
@@ -19026,7 +19154,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Denied is optional. True if the action would be denied, otherwise
+       * denied is optional. True if the action would be denied, otherwise
        * false. If both allowed is false and denied is false, then the
        * authorizer has no opinion on whether to authorize the action. Denied
        * may not be true if Allowed is true.
@@ -19045,7 +19173,7 @@ public final class V1Authorization {
       private java.lang.Object reason_ = "";
       /**
        * <pre>
-       * Reason is optional.  It indicates why a request was allowed or denied.
+       * reason is optional.  It indicates why a request was allowed or denied.
        * +optional
        * </pre>
        *
@@ -19056,7 +19184,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Reason is optional.  It indicates why a request was allowed or denied.
+       * reason is optional.  It indicates why a request was allowed or denied.
        * +optional
        * </pre>
        *
@@ -19078,7 +19206,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Reason is optional.  It indicates why a request was allowed or denied.
+       * reason is optional.  It indicates why a request was allowed or denied.
        * +optional
        * </pre>
        *
@@ -19099,7 +19227,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Reason is optional.  It indicates why a request was allowed or denied.
+       * reason is optional.  It indicates why a request was allowed or denied.
        * +optional
        * </pre>
        *
@@ -19117,7 +19245,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Reason is optional.  It indicates why a request was allowed or denied.
+       * reason is optional.  It indicates why a request was allowed or denied.
        * +optional
        * </pre>
        *
@@ -19131,7 +19259,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Reason is optional.  It indicates why a request was allowed or denied.
+       * reason is optional.  It indicates why a request was allowed or denied.
        * +optional
        * </pre>
        *
@@ -19151,7 +19279,7 @@ public final class V1Authorization {
       private java.lang.Object evaluationError_ = "";
       /**
        * <pre>
-       * EvaluationError is an indication that some error occurred during the authorization check.
+       * evaluationError is an indication that some error occurred during the authorization check.
        * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
        * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
        * +optional
@@ -19164,7 +19292,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * EvaluationError is an indication that some error occurred during the authorization check.
+       * evaluationError is an indication that some error occurred during the authorization check.
        * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
        * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
        * +optional
@@ -19188,7 +19316,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * EvaluationError is an indication that some error occurred during the authorization check.
+       * evaluationError is an indication that some error occurred during the authorization check.
        * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
        * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
        * +optional
@@ -19211,7 +19339,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * EvaluationError is an indication that some error occurred during the authorization check.
+       * evaluationError is an indication that some error occurred during the authorization check.
        * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
        * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
        * +optional
@@ -19231,7 +19359,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * EvaluationError is an indication that some error occurred during the authorization check.
+       * evaluationError is an indication that some error occurred during the authorization check.
        * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
        * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
        * +optional
@@ -19247,7 +19375,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * EvaluationError is an indication that some error occurred during the authorization check.
+       * evaluationError is an indication that some error occurred during the authorization check.
        * It is entirely possible to get an error and be able to continue determine authorization status in spite of it.
        * For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
        * +optional
@@ -19324,7 +19452,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * ResourceRules is the list of actions the subject is allowed to perform on resources.
+     * resourceRules is the list of actions the subject is allowed to perform on resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19335,7 +19463,7 @@ public final class V1Authorization {
         getResourceRulesList();
     /**
      * <pre>
-     * ResourceRules is the list of actions the subject is allowed to perform on resources.
+     * resourceRules is the list of actions the subject is allowed to perform on resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19345,7 +19473,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.ResourceRule getResourceRules(int index);
     /**
      * <pre>
-     * ResourceRules is the list of actions the subject is allowed to perform on resources.
+     * resourceRules is the list of actions the subject is allowed to perform on resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19355,7 +19483,7 @@ public final class V1Authorization {
     int getResourceRulesCount();
     /**
      * <pre>
-     * ResourceRules is the list of actions the subject is allowed to perform on resources.
+     * resourceRules is the list of actions the subject is allowed to perform on resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19366,7 +19494,7 @@ public final class V1Authorization {
         getResourceRulesOrBuilderList();
     /**
      * <pre>
-     * ResourceRules is the list of actions the subject is allowed to perform on resources.
+     * resourceRules is the list of actions the subject is allowed to perform on resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19378,7 +19506,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+     * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19389,7 +19517,7 @@ public final class V1Authorization {
         getNonResourceRulesList();
     /**
      * <pre>
-     * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+     * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19399,7 +19527,7 @@ public final class V1Authorization {
     io.kubernetes.client.proto.V1Authorization.NonResourceRule getNonResourceRules(int index);
     /**
      * <pre>
-     * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+     * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19409,7 +19537,7 @@ public final class V1Authorization {
     int getNonResourceRulesCount();
     /**
      * <pre>
-     * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+     * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19420,7 +19548,7 @@ public final class V1Authorization {
         getNonResourceRulesOrBuilderList();
     /**
      * <pre>
-     * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+     * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19432,7 +19560,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * Incomplete is true when the rules returned by this call are incomplete. This is most commonly
+     * incomplete is true when the rules returned by this call are incomplete. This is most commonly
      * encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.
      * </pre>
      *
@@ -19441,7 +19569,7 @@ public final class V1Authorization {
     boolean hasIncomplete();
     /**
      * <pre>
-     * Incomplete is true when the rules returned by this call are incomplete. This is most commonly
+     * incomplete is true when the rules returned by this call are incomplete. This is most commonly
      * encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.
      * </pre>
      *
@@ -19451,7 +19579,7 @@ public final class V1Authorization {
 
     /**
      * <pre>
-     * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+     * evaluationError can appear in combination with Rules. It indicates an error occurred during
      * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
      * ResourceRules and/or NonResourceRules may be incomplete.
      * +optional
@@ -19462,7 +19590,7 @@ public final class V1Authorization {
     boolean hasEvaluationError();
     /**
      * <pre>
-     * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+     * evaluationError can appear in combination with Rules. It indicates an error occurred during
      * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
      * ResourceRules and/or NonResourceRules may be incomplete.
      * +optional
@@ -19473,7 +19601,7 @@ public final class V1Authorization {
     java.lang.String getEvaluationError();
     /**
      * <pre>
-     * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+     * evaluationError can appear in combination with Rules. It indicates an error occurred during
      * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
      * ResourceRules and/or NonResourceRules may be incomplete.
      * +optional
@@ -19606,7 +19734,7 @@ public final class V1Authorization {
     private java.util.List<io.kubernetes.client.proto.V1Authorization.ResourceRule> resourceRules_;
     /**
      * <pre>
-     * ResourceRules is the list of actions the subject is allowed to perform on resources.
+     * resourceRules is the list of actions the subject is allowed to perform on resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19618,7 +19746,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * ResourceRules is the list of actions the subject is allowed to perform on resources.
+     * resourceRules is the list of actions the subject is allowed to perform on resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19631,7 +19759,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * ResourceRules is the list of actions the subject is allowed to perform on resources.
+     * resourceRules is the list of actions the subject is allowed to perform on resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19643,7 +19771,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * ResourceRules is the list of actions the subject is allowed to perform on resources.
+     * resourceRules is the list of actions the subject is allowed to perform on resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19655,7 +19783,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * ResourceRules is the list of actions the subject is allowed to perform on resources.
+     * resourceRules is the list of actions the subject is allowed to perform on resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19671,7 +19799,7 @@ public final class V1Authorization {
     private java.util.List<io.kubernetes.client.proto.V1Authorization.NonResourceRule> nonResourceRules_;
     /**
      * <pre>
-     * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+     * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19683,7 +19811,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+     * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19696,7 +19824,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+     * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19708,7 +19836,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+     * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19720,7 +19848,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+     * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
      * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
      * +listType=atomic
      * </pre>
@@ -19736,7 +19864,7 @@ public final class V1Authorization {
     private boolean incomplete_;
     /**
      * <pre>
-     * Incomplete is true when the rules returned by this call are incomplete. This is most commonly
+     * incomplete is true when the rules returned by this call are incomplete. This is most commonly
      * encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.
      * </pre>
      *
@@ -19747,7 +19875,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * Incomplete is true when the rules returned by this call are incomplete. This is most commonly
+     * incomplete is true when the rules returned by this call are incomplete. This is most commonly
      * encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.
      * </pre>
      *
@@ -19761,7 +19889,7 @@ public final class V1Authorization {
     private volatile java.lang.Object evaluationError_;
     /**
      * <pre>
-     * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+     * evaluationError can appear in combination with Rules. It indicates an error occurred during
      * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
      * ResourceRules and/or NonResourceRules may be incomplete.
      * +optional
@@ -19774,7 +19902,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+     * evaluationError can appear in combination with Rules. It indicates an error occurred during
      * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
      * ResourceRules and/or NonResourceRules may be incomplete.
      * +optional
@@ -19798,7 +19926,7 @@ public final class V1Authorization {
     }
     /**
      * <pre>
-     * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+     * evaluationError can appear in combination with Rules. It indicates an error occurred during
      * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
      * ResourceRules and/or NonResourceRules may be incomplete.
      * +optional
@@ -20293,7 +20421,7 @@ public final class V1Authorization {
 
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20309,7 +20437,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20325,7 +20453,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20341,7 +20469,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20364,7 +20492,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20384,7 +20512,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20406,7 +20534,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20429,7 +20557,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20449,7 +20577,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20469,7 +20597,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20490,7 +20618,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20509,7 +20637,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20528,7 +20656,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20541,7 +20669,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20557,7 +20685,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20574,7 +20702,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20587,7 +20715,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20601,7 +20729,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * ResourceRules is the list of actions the subject is allowed to perform on resources.
+       * resourceRules is the list of actions the subject is allowed to perform on resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20641,7 +20769,7 @@ public final class V1Authorization {
 
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20657,7 +20785,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20673,7 +20801,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20689,7 +20817,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20712,7 +20840,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20732,7 +20860,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20754,7 +20882,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20777,7 +20905,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20797,7 +20925,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20817,7 +20945,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20838,7 +20966,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20857,7 +20985,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20876,7 +21004,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20889,7 +21017,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20905,7 +21033,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20922,7 +21050,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20935,7 +21063,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20949,7 +21077,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * NonResourceRules is the list of actions the subject is allowed to perform on non-resources.
+       * nonResourceRules is the list of actions the subject is allowed to perform on non-resources.
        * The list ordering isn't significant, may contain duplicates, and possibly be incomplete.
        * +listType=atomic
        * </pre>
@@ -20978,7 +21106,7 @@ public final class V1Authorization {
       private boolean incomplete_ ;
       /**
        * <pre>
-       * Incomplete is true when the rules returned by this call are incomplete. This is most commonly
+       * incomplete is true when the rules returned by this call are incomplete. This is most commonly
        * encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.
        * </pre>
        *
@@ -20989,7 +21117,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Incomplete is true when the rules returned by this call are incomplete. This is most commonly
+       * incomplete is true when the rules returned by this call are incomplete. This is most commonly
        * encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.
        * </pre>
        *
@@ -21000,7 +21128,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Incomplete is true when the rules returned by this call are incomplete. This is most commonly
+       * incomplete is true when the rules returned by this call are incomplete. This is most commonly
        * encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.
        * </pre>
        *
@@ -21014,7 +21142,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * Incomplete is true when the rules returned by this call are incomplete. This is most commonly
+       * incomplete is true when the rules returned by this call are incomplete. This is most commonly
        * encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.
        * </pre>
        *
@@ -21030,7 +21158,7 @@ public final class V1Authorization {
       private java.lang.Object evaluationError_ = "";
       /**
        * <pre>
-       * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+       * evaluationError can appear in combination with Rules. It indicates an error occurred during
        * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
        * ResourceRules and/or NonResourceRules may be incomplete.
        * +optional
@@ -21043,7 +21171,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+       * evaluationError can appear in combination with Rules. It indicates an error occurred during
        * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
        * ResourceRules and/or NonResourceRules may be incomplete.
        * +optional
@@ -21067,7 +21195,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+       * evaluationError can appear in combination with Rules. It indicates an error occurred during
        * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
        * ResourceRules and/or NonResourceRules may be incomplete.
        * +optional
@@ -21090,7 +21218,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+       * evaluationError can appear in combination with Rules. It indicates an error occurred during
        * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
        * ResourceRules and/or NonResourceRules may be incomplete.
        * +optional
@@ -21110,7 +21238,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+       * evaluationError can appear in combination with Rules. It indicates an error occurred during
        * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
        * ResourceRules and/or NonResourceRules may be incomplete.
        * +optional
@@ -21126,7 +21254,7 @@ public final class V1Authorization {
       }
       /**
        * <pre>
-       * EvaluationError can appear in combination with Rules. It indicates an error occurred during
+       * evaluationError can appear in combination with Rules. It indicates an error occurred during
        * rule evaluation, such as an authorizer that doesn't support rule evaluation, and that
        * ResourceRules and/or NonResourceRules may be incomplete.
        * +optional

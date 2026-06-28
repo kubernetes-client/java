@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -53,7 +53,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
     }
     for (V1Endpoint item : items) {
         V1EndpointBuilder builder = new V1EndpointBuilder(item);
-        _visitables.get("endpoints").add(builder);
+        this._visitables.get("endpoints").add(builder);
         this.endpoints.add(builder);
     }
     return (A) this;
@@ -65,7 +65,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
     }
     for (DiscoveryV1EndpointPort item : items) {
         DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
-        _visitables.get("ports").add(builder);
+        this._visitables.get("ports").add(builder);
         this.ports.add(builder);
     }
     return (A) this;
@@ -93,7 +93,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
     }
     for (V1Endpoint item : items) {
         V1EndpointBuilder builder = new V1EndpointBuilder(item);
-        _visitables.get("endpoints").add(builder);
+        this._visitables.get("endpoints").add(builder);
         this.endpoints.add(builder);
     }
     return (A) this;
@@ -104,12 +104,12 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
       this.endpoints = new ArrayList();
     }
     V1EndpointBuilder builder = new V1EndpointBuilder(item);
-    if (index < 0 || index >= endpoints.size()) {
-        _visitables.get("endpoints").add(builder);
-        endpoints.add(builder);
+    if (index < 0 || index >= this.endpoints.size()) {
+        this._visitables.get("endpoints").add(builder);
+        this.endpoints.add(builder);
     } else {
-        _visitables.get("endpoints").add(builder);
-        endpoints.add(index, builder);
+        this._visitables.get("endpoints").add(builder);
+        this.endpoints.add(index, builder);
     }
     return (A) this;
   }
@@ -120,7 +120,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
     }
     for (DiscoveryV1EndpointPort item : items) {
         DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
-        _visitables.get("ports").add(builder);
+        this._visitables.get("ports").add(builder);
         this.ports.add(builder);
     }
     return (A) this;
@@ -131,12 +131,12 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
       this.ports = new ArrayList();
     }
     DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
-    if (index < 0 || index >= ports.size()) {
-        _visitables.get("ports").add(builder);
-        ports.add(builder);
+    if (index < 0 || index >= this.ports.size()) {
+        this._visitables.get("ports").add(builder);
+        this.ports.add(builder);
     } else {
-        _visitables.get("ports").add(builder);
-        ports.add(index, builder);
+        this._visitables.get("ports").add(builder);
+        this.ports.add(index, builder);
     }
     return (A) this;
   }
@@ -434,7 +434,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1EndpointBuilder> each = endpoints.iterator();
-    List visitables = _visitables.get("endpoints");
+    List visitables = this._visitables.get("endpoints");
     while (each.hasNext()) {
         V1EndpointBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -450,7 +450,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<DiscoveryV1EndpointPortBuilder> each = ports.iterator();
-    List visitables = _visitables.get("ports");
+    List visitables = this._visitables.get("ports");
     while (each.hasNext()) {
         DiscoveryV1EndpointPortBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -474,12 +474,12 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
       this.endpoints = new ArrayList();
     }
     V1EndpointBuilder builder = new V1EndpointBuilder(item);
-    if (index < 0 || index >= endpoints.size()) {
-        _visitables.get("endpoints").add(builder);
-        endpoints.add(builder);
+    if (index < 0 || index >= this.endpoints.size()) {
+        this._visitables.get("endpoints").add(builder);
+        this.endpoints.add(builder);
     } else {
-        _visitables.get("endpoints").add(builder);
-        endpoints.set(index, builder);
+        this._visitables.get("endpoints").add(builder);
+        this.endpoints.set(index, builder);
     }
     return (A) this;
   }
@@ -489,12 +489,12 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
       this.ports = new ArrayList();
     }
     DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
-    if (index < 0 || index >= ports.size()) {
-        _visitables.get("ports").add(builder);
-        ports.add(builder);
+    if (index < 0 || index >= this.ports.size()) {
+        this._visitables.get("ports").add(builder);
+        this.ports.add(builder);
     } else {
-        _visitables.get("ports").add(builder);
-        ports.set(index, builder);
+        this._visitables.get("ports").add(builder);
+        this.ports.set(index, builder);
     }
     return (A) this;
   }

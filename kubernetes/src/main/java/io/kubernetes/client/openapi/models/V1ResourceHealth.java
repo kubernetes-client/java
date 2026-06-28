@@ -50,12 +50,17 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceHealth represents the health of a resource. It has the latest device health information. This is a part of KEP https://kep.k8s.io/4680.
  */
 @ApiModel(description = "ResourceHealth represents the health of a resource. It has the latest device health information. This is a part of KEP https://kep.k8s.io/4680.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ResourceHealth {
   public static final String SERIALIZED_NAME_HEALTH = "health";
   @SerializedName(SERIALIZED_NAME_HEALTH)
   @jakarta.annotation.Nullable
   private String health;
+
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @jakarta.annotation.Nullable
+  private String message;
 
   public static final String SERIALIZED_NAME_RESOURCE_I_D = "resourceID";
   @SerializedName(SERIALIZED_NAME_RESOURCE_I_D)
@@ -82,6 +87,26 @@ public class V1ResourceHealth {
 
   public void setHealth(@jakarta.annotation.Nullable String health) {
     this.health = health;
+  }
+
+
+  public V1ResourceHealth message(@jakarta.annotation.Nullable String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Message provides human-readable context for Health (e.g. \&quot;ECC error count exceeded threshold\&quot;). This field is populated by the kubelet when ResourceHealthStatusMessage is enabled if the DRA plugin returns a message, and is null otherwise.
+   * @return message
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Message provides human-readable context for Health (e.g. \"ECC error count exceeded threshold\"). This field is populated by the kubelet when ResourceHealthStatusMessage is enabled if the DRA plugin returns a message, and is null otherwise.")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(@jakarta.annotation.Nullable String message) {
+    this.message = message;
   }
 
 
@@ -116,12 +141,13 @@ public class V1ResourceHealth {
     }
     V1ResourceHealth v1ResourceHealth = (V1ResourceHealth) o;
     return Objects.equals(this.health, v1ResourceHealth.health) &&
+        Objects.equals(this.message, v1ResourceHealth.message) &&
         Objects.equals(this.resourceID, v1ResourceHealth.resourceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(health, resourceID);
+    return Objects.hash(health, message, resourceID);
   }
 
   @Override
@@ -129,6 +155,7 @@ public class V1ResourceHealth {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ResourceHealth {\n");
     sb.append("    health: ").append(toIndentedString(health)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    resourceID: ").append(toIndentedString(resourceID)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -151,7 +178,7 @@ public class V1ResourceHealth {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("health", "resourceID"));
+    openapiFields = new HashSet<String>(Arrays.asList("health", "message", "resourceID"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("resourceID"));
@@ -187,6 +214,9 @@ public class V1ResourceHealth {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("health") != null && !jsonObj.get("health").isJsonNull()) && !jsonObj.get("health").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `health` to be a primitive type in the JSON string but got `%s`", jsonObj.get("health").toString()));
+      }
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       if (!jsonObj.get("resourceID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resourceID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resourceID").toString()));

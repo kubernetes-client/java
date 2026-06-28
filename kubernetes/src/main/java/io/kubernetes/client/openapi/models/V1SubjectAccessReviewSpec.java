@@ -53,10 +53,10 @@ import java.util.Set;
 import io.kubernetes.client.openapi.JSON;
 
 /**
- * SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set
+ * SubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes and nonResourceAttributes must be set
  */
-@ApiModel(description = "SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@ApiModel(description = "SubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes and nonResourceAttributes must be set")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1SubjectAccessReviewSpec {
   public static final String SERIALIZED_NAME_EXTRA = "extra";
   @SerializedName(SERIALIZED_NAME_EXTRA)
@@ -105,11 +105,11 @@ public class V1SubjectAccessReviewSpec {
   }
 
   /**
-   * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.
+   * extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.
    * @return extra
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.")
+  @ApiModelProperty(value = "extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.")
   public Map<String, List<String>> getExtra() {
     return extra;
   }
@@ -133,11 +133,11 @@ public class V1SubjectAccessReviewSpec {
   }
 
   /**
-   * Groups is the groups you&#39;re testing for.
+   * groups is the groups you&#39;re testing for.
    * @return groups
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Groups is the groups you're testing for.")
+  @ApiModelProperty(value = "groups is the groups you're testing for.")
   public List<String> getGroups() {
     return groups;
   }
@@ -193,11 +193,11 @@ public class V1SubjectAccessReviewSpec {
   }
 
   /**
-   * UID information about the requesting user.
+   * uid information about the requesting user.
    * @return uid
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "UID information about the requesting user.")
+  @ApiModelProperty(value = "uid information about the requesting user.")
   public String getUid() {
     return uid;
   }
@@ -213,11 +213,11 @@ public class V1SubjectAccessReviewSpec {
   }
 
   /**
-   * User is the user you&#39;re testing for. If you specify \&quot;User\&quot; but not \&quot;Groups\&quot;, then is it interpreted as \&quot;What if User were not a member of any groups
+   * user is the user you&#39;re testing for. If you specify \&quot;User\&quot; but not \&quot;Groups\&quot;, then is it interpreted as \&quot;What if User were not a member of any groups
    * @return user
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "User is the user you're testing for. If you specify \"User\" but not \"Groups\", then is it interpreted as \"What if User were not a member of any groups")
+  @ApiModelProperty(value = "user is the user you're testing for. If you specify \"User\" but not \"Groups\", then is it interpreted as \"What if User were not a member of any groups")
   public String getUser() {
     return user;
   }

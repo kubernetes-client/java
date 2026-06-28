@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -49,7 +49,7 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
     }
     for (V1APIGroup item : items) {
         V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
-        _visitables.get("groups").add(builder);
+        this._visitables.get("groups").add(builder);
         this.groups.add(builder);
     }
     return (A) this;
@@ -69,7 +69,7 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
     }
     for (V1APIGroup item : items) {
         V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
-        _visitables.get("groups").add(builder);
+        this._visitables.get("groups").add(builder);
         this.groups.add(builder);
     }
     return (A) this;
@@ -80,12 +80,12 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
       this.groups = new ArrayList();
     }
     V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
-    if (index < 0 || index >= groups.size()) {
-        _visitables.get("groups").add(builder);
-        groups.add(builder);
+    if (index < 0 || index >= this.groups.size()) {
+        this._visitables.get("groups").add(builder);
+        this.groups.add(builder);
     } else {
-        _visitables.get("groups").add(builder);
-        groups.add(index, builder);
+        this._visitables.get("groups").add(builder);
+        this.groups.add(index, builder);
     }
     return (A) this;
   }
@@ -245,7 +245,7 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
       return (A) this;
     }
     Iterator<V1APIGroupBuilder> each = groups.iterator();
-    List visitables = _visitables.get("groups");
+    List visitables = this._visitables.get("groups");
     while (each.hasNext()) {
         V1APIGroupBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -265,12 +265,12 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
       this.groups = new ArrayList();
     }
     V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
-    if (index < 0 || index >= groups.size()) {
-        _visitables.get("groups").add(builder);
-        groups.add(builder);
+    if (index < 0 || index >= this.groups.size()) {
+        this._visitables.get("groups").add(builder);
+        this.groups.add(builder);
     } else {
-        _visitables.get("groups").add(builder);
-        groups.set(index, builder);
+        this._visitables.get("groups").add(builder);
+        this.groups.set(index, builder);
     }
     return (A) this;
   }

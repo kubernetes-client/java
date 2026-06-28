@@ -56,7 +56,7 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceRequestAllocationResult contains the allocation result for one request.
  */
 @ApiModel(description = "DeviceRequestAllocationResult contains the allocation result for one request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1DeviceRequestAllocationResult {
   public static final String SERIALIZED_NAME_ADMIN_ACCESS = "adminAccess";
   @SerializedName(SERIALIZED_NAME_ADMIN_ACCESS)
@@ -117,11 +117,11 @@ public class V1DeviceRequestAllocationResult {
   }
 
   /**
-   * AdminAccess indicates that this device was allocated for administrative access. See the corresponding request field for a definition of mode.  This is an alpha field and requires enabling the DRAAdminAccess feature gate. Admin access is disabled if this field is unset or set to false, otherwise it is enabled.
+   * AdminAccess indicates that this device was allocated for administrative access. See the corresponding request field for a definition of mode.  Admin access is disabled if this field is unset or set to false, otherwise it is enabled.
    * @return adminAccess
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "AdminAccess indicates that this device was allocated for administrative access. See the corresponding request field for a definition of mode.  This is an alpha field and requires enabling the DRAAdminAccess feature gate. Admin access is disabled if this field is unset or set to false, otherwise it is enabled.")
+  @ApiModelProperty(value = "AdminAccess indicates that this device was allocated for administrative access. See the corresponding request field for a definition of mode.  Admin access is disabled if this field is unset or set to false, otherwise it is enabled.")
   public Boolean getAdminAccess() {
     return adminAccess;
   }
@@ -145,11 +145,11 @@ public class V1DeviceRequestAllocationResult {
   }
 
   /**
-   * BindingConditions contains a copy of the BindingConditions from the corresponding ResourceSlice at the time of allocation.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * BindingConditions contains a copy of the BindingConditions from the corresponding ResourceSlice at the time of allocation.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
    * @return bindingConditions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "BindingConditions contains a copy of the BindingConditions from the corresponding ResourceSlice at the time of allocation.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+  @ApiModelProperty(value = "BindingConditions contains a copy of the BindingConditions from the corresponding ResourceSlice at the time of allocation.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
   public List<String> getBindingConditions() {
     return bindingConditions;
   }
@@ -173,11 +173,11 @@ public class V1DeviceRequestAllocationResult {
   }
 
   /**
-   * BindingFailureConditions contains a copy of the BindingFailureConditions from the corresponding ResourceSlice at the time of allocation.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
+   * BindingFailureConditions contains a copy of the BindingFailureConditions from the corresponding ResourceSlice at the time of allocation.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.
    * @return bindingFailureConditions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "BindingFailureConditions contains a copy of the BindingFailureConditions from the corresponding ResourceSlice at the time of allocation.  This is an alpha field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
+  @ApiModelProperty(value = "BindingFailureConditions contains a copy of the BindingFailureConditions from the corresponding ResourceSlice at the time of allocation.  This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.")
   public List<String> getBindingFailureConditions() {
     return bindingFailureConditions;
   }
@@ -329,11 +329,11 @@ public class V1DeviceRequestAllocationResult {
   }
 
   /**
-   * A copy of all tolerations specified in the request at the time when the device got allocated.  The maximum number of tolerations is 16.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.
+   * A copy of all tolerations specified in the request at the time when the device got allocated.  The maximum number of tolerations is 16.  This is a beta field and requires enabling the DRADeviceTaints feature gate.
    * @return tolerations
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A copy of all tolerations specified in the request at the time when the device got allocated.  The maximum number of tolerations is 16.  This is an alpha field and requires enabling the DRADeviceTaints feature gate.")
+  @ApiModelProperty(value = "A copy of all tolerations specified in the request at the time when the device got allocated.  The maximum number of tolerations is 16.  This is a beta field and requires enabling the DRADeviceTaints feature gate.")
   public List<V1DeviceToleration> getTolerations() {
     return tolerations;
   }

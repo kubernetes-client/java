@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -59,7 +59,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
     }
     for (V1PodDNSConfigOption item : items) {
         V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
-        _visitables.get("options").add(builder);
+        this._visitables.get("options").add(builder);
         this.options.add(builder);
     }
     return (A) this;
@@ -107,7 +107,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
     }
     for (V1PodDNSConfigOption item : items) {
         V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
-        _visitables.get("options").add(builder);
+        this._visitables.get("options").add(builder);
         this.options.add(builder);
     }
     return (A) this;
@@ -118,12 +118,12 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
       this.options = new ArrayList();
     }
     V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
-    if (index < 0 || index >= options.size()) {
-        _visitables.get("options").add(builder);
-        options.add(builder);
+    if (index < 0 || index >= this.options.size()) {
+        this._visitables.get("options").add(builder);
+        this.options.add(builder);
     } else {
-        _visitables.get("options").add(builder);
-        options.add(index, builder);
+        this._visitables.get("options").add(builder);
+        this.options.add(index, builder);
     }
     return (A) this;
   }
@@ -401,7 +401,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
       return (A) this;
     }
     Iterator<V1PodDNSConfigOptionBuilder> each = options.iterator();
-    List visitables = _visitables.get("options");
+    List visitables = this._visitables.get("options");
     while (each.hasNext()) {
         V1PodDNSConfigOptionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -429,12 +429,12 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
       this.options = new ArrayList();
     }
     V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
-    if (index < 0 || index >= options.size()) {
-        _visitables.get("options").add(builder);
-        options.add(builder);
+    if (index < 0 || index >= this.options.size()) {
+        this._visitables.get("options").add(builder);
+        this.options.add(builder);
     } else {
-        _visitables.get("options").add(builder);
-        options.set(index, builder);
+        this._visitables.get("options").add(builder);
+        this.options.set(index, builder);
     }
     return (A) this;
   }

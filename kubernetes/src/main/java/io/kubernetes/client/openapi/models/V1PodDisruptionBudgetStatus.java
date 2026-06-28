@@ -56,7 +56,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodDisruptionBudgetStatus represents information about the status of a PodDisruptionBudget. Status may trail the actual state of a system.
  */
 @ApiModel(description = "PodDisruptionBudgetStatus represents information about the status of a PodDisruptionBudget. Status may trail the actual state of a system.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PodDisruptionBudgetStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
@@ -65,12 +65,12 @@ public class V1PodDisruptionBudgetStatus {
 
   public static final String SERIALIZED_NAME_CURRENT_HEALTHY = "currentHealthy";
   @SerializedName(SERIALIZED_NAME_CURRENT_HEALTHY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer currentHealthy;
 
   public static final String SERIALIZED_NAME_DESIRED_HEALTHY = "desiredHealthy";
   @SerializedName(SERIALIZED_NAME_DESIRED_HEALTHY)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer desiredHealthy;
 
   public static final String SERIALIZED_NAME_DISRUPTED_PODS = "disruptedPods";
@@ -80,12 +80,12 @@ public class V1PodDisruptionBudgetStatus {
 
   public static final String SERIALIZED_NAME_DISRUPTIONS_ALLOWED = "disruptionsAllowed";
   @SerializedName(SERIALIZED_NAME_DISRUPTIONS_ALLOWED)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer disruptionsAllowed;
 
   public static final String SERIALIZED_NAME_EXPECTED_PODS = "expectedPods";
   @SerializedName(SERIALIZED_NAME_EXPECTED_PODS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Integer expectedPods;
 
   public static final String SERIALIZED_NAME_OBSERVED_GENERATION = "observedGeneration";
@@ -124,7 +124,7 @@ public class V1PodDisruptionBudgetStatus {
   }
 
 
-  public V1PodDisruptionBudgetStatus currentHealthy(@jakarta.annotation.Nonnull Integer currentHealthy) {
+  public V1PodDisruptionBudgetStatus currentHealthy(@jakarta.annotation.Nullable Integer currentHealthy) {
     this.currentHealthy = currentHealthy;
     return this;
   }
@@ -133,18 +133,18 @@ public class V1PodDisruptionBudgetStatus {
    * current number of healthy pods
    * @return currentHealthy
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "current number of healthy pods")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "current number of healthy pods")
   public Integer getCurrentHealthy() {
     return currentHealthy;
   }
 
-  public void setCurrentHealthy(@jakarta.annotation.Nonnull Integer currentHealthy) {
+  public void setCurrentHealthy(@jakarta.annotation.Nullable Integer currentHealthy) {
     this.currentHealthy = currentHealthy;
   }
 
 
-  public V1PodDisruptionBudgetStatus desiredHealthy(@jakarta.annotation.Nonnull Integer desiredHealthy) {
+  public V1PodDisruptionBudgetStatus desiredHealthy(@jakarta.annotation.Nullable Integer desiredHealthy) {
     this.desiredHealthy = desiredHealthy;
     return this;
   }
@@ -153,13 +153,13 @@ public class V1PodDisruptionBudgetStatus {
    * minimum desired number of healthy pods
    * @return desiredHealthy
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "minimum desired number of healthy pods")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "minimum desired number of healthy pods")
   public Integer getDesiredHealthy() {
     return desiredHealthy;
   }
 
-  public void setDesiredHealthy(@jakarta.annotation.Nonnull Integer desiredHealthy) {
+  public void setDesiredHealthy(@jakarta.annotation.Nullable Integer desiredHealthy) {
     this.desiredHealthy = desiredHealthy;
   }
 
@@ -192,7 +192,7 @@ public class V1PodDisruptionBudgetStatus {
   }
 
 
-  public V1PodDisruptionBudgetStatus disruptionsAllowed(@jakarta.annotation.Nonnull Integer disruptionsAllowed) {
+  public V1PodDisruptionBudgetStatus disruptionsAllowed(@jakarta.annotation.Nullable Integer disruptionsAllowed) {
     this.disruptionsAllowed = disruptionsAllowed;
     return this;
   }
@@ -201,18 +201,18 @@ public class V1PodDisruptionBudgetStatus {
    * Number of pod disruptions that are currently allowed.
    * @return disruptionsAllowed
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Number of pod disruptions that are currently allowed.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Number of pod disruptions that are currently allowed.")
   public Integer getDisruptionsAllowed() {
     return disruptionsAllowed;
   }
 
-  public void setDisruptionsAllowed(@jakarta.annotation.Nonnull Integer disruptionsAllowed) {
+  public void setDisruptionsAllowed(@jakarta.annotation.Nullable Integer disruptionsAllowed) {
     this.disruptionsAllowed = disruptionsAllowed;
   }
 
 
-  public V1PodDisruptionBudgetStatus expectedPods(@jakarta.annotation.Nonnull Integer expectedPods) {
+  public V1PodDisruptionBudgetStatus expectedPods(@jakarta.annotation.Nullable Integer expectedPods) {
     this.expectedPods = expectedPods;
     return this;
   }
@@ -221,13 +221,13 @@ public class V1PodDisruptionBudgetStatus {
    * total number of pods counted by this disruption budget
    * @return expectedPods
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "total number of pods counted by this disruption budget")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "total number of pods counted by this disruption budget")
   public Integer getExpectedPods() {
     return expectedPods;
   }
 
-  public void setExpectedPods(@jakarta.annotation.Nonnull Integer expectedPods) {
+  public void setExpectedPods(@jakarta.annotation.Nullable Integer expectedPods) {
     this.expectedPods = expectedPods;
   }
 
@@ -311,7 +311,7 @@ public class V1PodDisruptionBudgetStatus {
     openapiFields = new HashSet<String>(Arrays.asList("conditions", "currentHealthy", "desiredHealthy", "disruptedPods", "disruptionsAllowed", "expectedPods", "observedGeneration"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("currentHealthy", "desiredHealthy", "disruptionsAllowed", "expectedPods"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -332,13 +332,6 @@ public class V1PodDisruptionBudgetStatus {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!V1PodDisruptionBudgetStatus.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PodDisruptionBudgetStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : V1PodDisruptionBudgetStatus.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

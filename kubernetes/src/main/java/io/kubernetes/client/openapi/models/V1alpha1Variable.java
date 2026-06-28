@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * Variable is the definition of a variable that is used for composition.
  */
 @ApiModel(description = "Variable is the definition of a variable that is used for composition.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha1Variable {
   public static final String SERIALIZED_NAME_EXPRESSION = "expression";
   @SerializedName(SERIALIZED_NAME_EXPRESSION)
@@ -71,11 +71,11 @@ public class V1alpha1Variable {
   }
 
   /**
-   * Expression is the expression that will be evaluated as the value of the variable. The CEL expression has access to the same identifiers as the CEL expressions in Validation.
+   * expression is the expression that will be evaluated as the value of the variable. The CEL expression has access to the same identifiers as the CEL expressions in Validation.
    * @return expression
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Expression is the expression that will be evaluated as the value of the variable. The CEL expression has access to the same identifiers as the CEL expressions in Validation.")
+  @ApiModelProperty(required = true, value = "expression is the expression that will be evaluated as the value of the variable. The CEL expression has access to the same identifiers as the CEL expressions in Validation.")
   public String getExpression() {
     return expression;
   }
@@ -91,11 +91,11 @@ public class V1alpha1Variable {
   }
 
   /**
-   * Name is the name of the variable. The name must be a valid CEL identifier and unique among all variables. The variable can be accessed in other expressions through &#x60;variables&#x60; For example, if name is \&quot;foo\&quot;, the variable will be available as &#x60;variables.foo&#x60;
+   * name is the name of the variable. The name must be a valid CEL identifier and unique among all variables. The variable can be accessed in other expressions through &#x60;variables&#x60; For example, if name is \&quot;foo\&quot;, the variable will be available as &#x60;variables.foo&#x60;
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name is the name of the variable. The name must be a valid CEL identifier and unique among all variables. The variable can be accessed in other expressions through `variables` For example, if name is \"foo\", the variable will be available as `variables.foo`")
+  @ApiModelProperty(required = true, value = "name is the name of the variable. The name must be a valid CEL identifier and unique among all variables. The variable can be accessed in other expressions through `variables` For example, if name is \"foo\", the variable will be available as `variables.foo`")
   public String getName() {
     return name;
   }

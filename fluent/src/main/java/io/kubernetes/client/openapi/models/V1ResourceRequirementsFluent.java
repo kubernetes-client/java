@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -52,7 +52,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
     }
     for (CoreV1ResourceClaim item : items) {
         CoreV1ResourceClaimBuilder builder = new CoreV1ResourceClaimBuilder(item);
-        _visitables.get("claims").add(builder);
+        this._visitables.get("claims").add(builder);
         this.claims.add(builder);
     }
     return (A) this;
@@ -72,7 +72,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
     }
     for (CoreV1ResourceClaim item : items) {
         CoreV1ResourceClaimBuilder builder = new CoreV1ResourceClaimBuilder(item);
-        _visitables.get("claims").add(builder);
+        this._visitables.get("claims").add(builder);
         this.claims.add(builder);
     }
     return (A) this;
@@ -83,12 +83,12 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
       this.claims = new ArrayList();
     }
     CoreV1ResourceClaimBuilder builder = new CoreV1ResourceClaimBuilder(item);
-    if (index < 0 || index >= claims.size()) {
-        _visitables.get("claims").add(builder);
-        claims.add(builder);
+    if (index < 0 || index >= this.claims.size()) {
+        this._visitables.get("claims").add(builder);
+        this.claims.add(builder);
     } else {
-        _visitables.get("claims").add(builder);
-        claims.add(index, builder);
+        this._visitables.get("claims").add(builder);
+        this.claims.add(index, builder);
     }
     return (A) this;
   }
@@ -336,7 +336,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
       return (A) this;
     }
     Iterator<CoreV1ResourceClaimBuilder> each = claims.iterator();
-    List visitables = _visitables.get("claims");
+    List visitables = this._visitables.get("claims");
     while (each.hasNext()) {
         CoreV1ResourceClaimBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -356,12 +356,12 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
       this.claims = new ArrayList();
     }
     CoreV1ResourceClaimBuilder builder = new CoreV1ResourceClaimBuilder(item);
-    if (index < 0 || index >= claims.size()) {
-        _visitables.get("claims").add(builder);
-        claims.add(builder);
+    if (index < 0 || index >= this.claims.size()) {
+        this._visitables.get("claims").add(builder);
+        this.claims.add(builder);
     } else {
-        _visitables.get("claims").add(builder);
-        claims.set(index, builder);
+        this._visitables.get("claims").add(builder);
+        this.claims.set(index, builder);
     }
     return (A) this;
   }

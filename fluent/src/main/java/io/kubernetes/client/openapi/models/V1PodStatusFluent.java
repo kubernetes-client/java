@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -47,6 +47,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
   private ArrayList<V1HostIPBuilder> hostIPs;
   private ArrayList<V1ContainerStatusBuilder> initContainerStatuses;
   private String message;
+  private ArrayList<V1NodeAllocatableResourceClaimStatusBuilder> nodeAllocatableResourceClaimStatuses;
   private String nominatedNodeName;
   private Long observedGeneration;
   private String phase;
@@ -72,7 +73,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1PodCondition item : items) {
         V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
+        this._visitables.get("conditions").add(builder);
         this.conditions.add(builder);
     }
     return (A) this;
@@ -84,7 +85,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1ContainerStatus item : items) {
         V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-        _visitables.get("containerStatuses").add(builder);
+        this._visitables.get("containerStatuses").add(builder);
         this.containerStatuses.add(builder);
     }
     return (A) this;
@@ -96,7 +97,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1ContainerStatus item : items) {
         V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-        _visitables.get("ephemeralContainerStatuses").add(builder);
+        this._visitables.get("ephemeralContainerStatuses").add(builder);
         this.ephemeralContainerStatuses.add(builder);
     }
     return (A) this;
@@ -108,7 +109,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1HostIP item : items) {
         V1HostIPBuilder builder = new V1HostIPBuilder(item);
-        _visitables.get("hostIPs").add(builder);
+        this._visitables.get("hostIPs").add(builder);
         this.hostIPs.add(builder);
     }
     return (A) this;
@@ -120,8 +121,20 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1ContainerStatus item : items) {
         V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-        _visitables.get("initContainerStatuses").add(builder);
+        this._visitables.get("initContainerStatuses").add(builder);
         this.initContainerStatuses.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public A addAllToNodeAllocatableResourceClaimStatuses(Collection<V1NodeAllocatableResourceClaimStatus> items) {
+    if (this.nodeAllocatableResourceClaimStatuses == null) {
+      this.nodeAllocatableResourceClaimStatuses = new ArrayList();
+    }
+    for (V1NodeAllocatableResourceClaimStatus item : items) {
+        V1NodeAllocatableResourceClaimStatusBuilder builder = new V1NodeAllocatableResourceClaimStatusBuilder(item);
+        this._visitables.get("nodeAllocatableResourceClaimStatuses").add(builder);
+        this.nodeAllocatableResourceClaimStatuses.add(builder);
     }
     return (A) this;
   }
@@ -132,7 +145,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1PodIP item : items) {
         V1PodIPBuilder builder = new V1PodIPBuilder(item);
-        _visitables.get("podIPs").add(builder);
+        this._visitables.get("podIPs").add(builder);
         this.podIPs.add(builder);
     }
     return (A) this;
@@ -144,7 +157,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1PodResourceClaimStatus item : items) {
         V1PodResourceClaimStatusBuilder builder = new V1PodResourceClaimStatusBuilder(item);
-        _visitables.get("resourceClaimStatuses").add(builder);
+        this._visitables.get("resourceClaimStatuses").add(builder);
         this.resourceClaimStatuses.add(builder);
     }
     return (A) this;
@@ -190,6 +203,14 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     return new InitContainerStatusesNested(-1, item);
   }
   
+  public NodeAllocatableResourceClaimStatusesNested<A> addNewNodeAllocatableResourceClaimStatus() {
+    return new NodeAllocatableResourceClaimStatusesNested(-1, null);
+  }
+  
+  public NodeAllocatableResourceClaimStatusesNested<A> addNewNodeAllocatableResourceClaimStatusLike(V1NodeAllocatableResourceClaimStatus item) {
+    return new NodeAllocatableResourceClaimStatusesNested(-1, item);
+  }
+  
   public PodIPsNested<A> addNewPodIP() {
     return new PodIPsNested(-1, null);
   }
@@ -232,7 +253,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1PodCondition item : items) {
         V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
+        this._visitables.get("conditions").add(builder);
         this.conditions.add(builder);
     }
     return (A) this;
@@ -243,12 +264,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.conditions = new ArrayList();
     }
     V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
+    if (index < 0 || index >= this.conditions.size()) {
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
     } else {
-        _visitables.get("conditions").add(builder);
-        conditions.add(index, builder);
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(index, builder);
     }
     return (A) this;
   }
@@ -259,7 +280,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1ContainerStatus item : items) {
         V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-        _visitables.get("containerStatuses").add(builder);
+        this._visitables.get("containerStatuses").add(builder);
         this.containerStatuses.add(builder);
     }
     return (A) this;
@@ -270,12 +291,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.containerStatuses = new ArrayList();
     }
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= containerStatuses.size()) {
-        _visitables.get("containerStatuses").add(builder);
-        containerStatuses.add(builder);
+    if (index < 0 || index >= this.containerStatuses.size()) {
+        this._visitables.get("containerStatuses").add(builder);
+        this.containerStatuses.add(builder);
     } else {
-        _visitables.get("containerStatuses").add(builder);
-        containerStatuses.add(index, builder);
+        this._visitables.get("containerStatuses").add(builder);
+        this.containerStatuses.add(index, builder);
     }
     return (A) this;
   }
@@ -286,7 +307,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1ContainerStatus item : items) {
         V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-        _visitables.get("ephemeralContainerStatuses").add(builder);
+        this._visitables.get("ephemeralContainerStatuses").add(builder);
         this.ephemeralContainerStatuses.add(builder);
     }
     return (A) this;
@@ -297,12 +318,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.ephemeralContainerStatuses = new ArrayList();
     }
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= ephemeralContainerStatuses.size()) {
-        _visitables.get("ephemeralContainerStatuses").add(builder);
-        ephemeralContainerStatuses.add(builder);
+    if (index < 0 || index >= this.ephemeralContainerStatuses.size()) {
+        this._visitables.get("ephemeralContainerStatuses").add(builder);
+        this.ephemeralContainerStatuses.add(builder);
     } else {
-        _visitables.get("ephemeralContainerStatuses").add(builder);
-        ephemeralContainerStatuses.add(index, builder);
+        this._visitables.get("ephemeralContainerStatuses").add(builder);
+        this.ephemeralContainerStatuses.add(index, builder);
     }
     return (A) this;
   }
@@ -313,7 +334,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1HostIP item : items) {
         V1HostIPBuilder builder = new V1HostIPBuilder(item);
-        _visitables.get("hostIPs").add(builder);
+        this._visitables.get("hostIPs").add(builder);
         this.hostIPs.add(builder);
     }
     return (A) this;
@@ -324,12 +345,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.hostIPs = new ArrayList();
     }
     V1HostIPBuilder builder = new V1HostIPBuilder(item);
-    if (index < 0 || index >= hostIPs.size()) {
-        _visitables.get("hostIPs").add(builder);
-        hostIPs.add(builder);
+    if (index < 0 || index >= this.hostIPs.size()) {
+        this._visitables.get("hostIPs").add(builder);
+        this.hostIPs.add(builder);
     } else {
-        _visitables.get("hostIPs").add(builder);
-        hostIPs.add(index, builder);
+        this._visitables.get("hostIPs").add(builder);
+        this.hostIPs.add(index, builder);
     }
     return (A) this;
   }
@@ -340,7 +361,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1ContainerStatus item : items) {
         V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-        _visitables.get("initContainerStatuses").add(builder);
+        this._visitables.get("initContainerStatuses").add(builder);
         this.initContainerStatuses.add(builder);
     }
     return (A) this;
@@ -351,12 +372,39 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.initContainerStatuses = new ArrayList();
     }
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= initContainerStatuses.size()) {
-        _visitables.get("initContainerStatuses").add(builder);
-        initContainerStatuses.add(builder);
+    if (index < 0 || index >= this.initContainerStatuses.size()) {
+        this._visitables.get("initContainerStatuses").add(builder);
+        this.initContainerStatuses.add(builder);
     } else {
-        _visitables.get("initContainerStatuses").add(builder);
-        initContainerStatuses.add(index, builder);
+        this._visitables.get("initContainerStatuses").add(builder);
+        this.initContainerStatuses.add(index, builder);
+    }
+    return (A) this;
+  }
+  
+  public A addToNodeAllocatableResourceClaimStatuses(V1NodeAllocatableResourceClaimStatus... items) {
+    if (this.nodeAllocatableResourceClaimStatuses == null) {
+      this.nodeAllocatableResourceClaimStatuses = new ArrayList();
+    }
+    for (V1NodeAllocatableResourceClaimStatus item : items) {
+        V1NodeAllocatableResourceClaimStatusBuilder builder = new V1NodeAllocatableResourceClaimStatusBuilder(item);
+        this._visitables.get("nodeAllocatableResourceClaimStatuses").add(builder);
+        this.nodeAllocatableResourceClaimStatuses.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public A addToNodeAllocatableResourceClaimStatuses(int index,V1NodeAllocatableResourceClaimStatus item) {
+    if (this.nodeAllocatableResourceClaimStatuses == null) {
+      this.nodeAllocatableResourceClaimStatuses = new ArrayList();
+    }
+    V1NodeAllocatableResourceClaimStatusBuilder builder = new V1NodeAllocatableResourceClaimStatusBuilder(item);
+    if (index < 0 || index >= this.nodeAllocatableResourceClaimStatuses.size()) {
+        this._visitables.get("nodeAllocatableResourceClaimStatuses").add(builder);
+        this.nodeAllocatableResourceClaimStatuses.add(builder);
+    } else {
+        this._visitables.get("nodeAllocatableResourceClaimStatuses").add(builder);
+        this.nodeAllocatableResourceClaimStatuses.add(index, builder);
     }
     return (A) this;
   }
@@ -367,7 +415,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1PodIP item : items) {
         V1PodIPBuilder builder = new V1PodIPBuilder(item);
-        _visitables.get("podIPs").add(builder);
+        this._visitables.get("podIPs").add(builder);
         this.podIPs.add(builder);
     }
     return (A) this;
@@ -378,12 +426,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.podIPs = new ArrayList();
     }
     V1PodIPBuilder builder = new V1PodIPBuilder(item);
-    if (index < 0 || index >= podIPs.size()) {
-        _visitables.get("podIPs").add(builder);
-        podIPs.add(builder);
+    if (index < 0 || index >= this.podIPs.size()) {
+        this._visitables.get("podIPs").add(builder);
+        this.podIPs.add(builder);
     } else {
-        _visitables.get("podIPs").add(builder);
-        podIPs.add(index, builder);
+        this._visitables.get("podIPs").add(builder);
+        this.podIPs.add(index, builder);
     }
     return (A) this;
   }
@@ -394,7 +442,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     for (V1PodResourceClaimStatus item : items) {
         V1PodResourceClaimStatusBuilder builder = new V1PodResourceClaimStatusBuilder(item);
-        _visitables.get("resourceClaimStatuses").add(builder);
+        this._visitables.get("resourceClaimStatuses").add(builder);
         this.resourceClaimStatuses.add(builder);
     }
     return (A) this;
@@ -405,12 +453,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.resourceClaimStatuses = new ArrayList();
     }
     V1PodResourceClaimStatusBuilder builder = new V1PodResourceClaimStatusBuilder(item);
-    if (index < 0 || index >= resourceClaimStatuses.size()) {
-        _visitables.get("resourceClaimStatuses").add(builder);
-        resourceClaimStatuses.add(builder);
+    if (index < 0 || index >= this.resourceClaimStatuses.size()) {
+        this._visitables.get("resourceClaimStatuses").add(builder);
+        this.resourceClaimStatuses.add(builder);
     } else {
-        _visitables.get("resourceClaimStatuses").add(builder);
-        resourceClaimStatuses.add(index, builder);
+        this._visitables.get("resourceClaimStatuses").add(builder);
+        this.resourceClaimStatuses.add(index, builder);
     }
     return (A) this;
   }
@@ -463,6 +511,10 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     return this.initContainerStatuses.get(0).build();
   }
   
+  public V1NodeAllocatableResourceClaimStatus buildFirstNodeAllocatableResourceClaimStatus() {
+    return this.nodeAllocatableResourceClaimStatuses.get(0).build();
+  }
+  
   public V1PodIP buildFirstPodIP() {
     return this.podIPs.get(0).build();
   }
@@ -505,6 +557,10 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
   
   public V1ContainerStatus buildLastInitContainerStatus() {
     return this.initContainerStatuses.get(initContainerStatuses.size() - 1).build();
+  }
+  
+  public V1NodeAllocatableResourceClaimStatus buildLastNodeAllocatableResourceClaimStatus() {
+    return this.nodeAllocatableResourceClaimStatuses.get(nodeAllocatableResourceClaimStatuses.size() - 1).build();
   }
   
   public V1PodIP buildLastPodIP() {
@@ -560,6 +616,15 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       return null;
   }
   
+  public V1NodeAllocatableResourceClaimStatus buildMatchingNodeAllocatableResourceClaimStatus(Predicate<V1NodeAllocatableResourceClaimStatusBuilder> predicate) {
+      for (V1NodeAllocatableResourceClaimStatusBuilder item : nodeAllocatableResourceClaimStatuses) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
+  }
+  
   public V1PodIP buildMatchingPodIP(Predicate<V1PodIPBuilder> predicate) {
       for (V1PodIPBuilder item : podIPs) {
         if (predicate.test(item)) {
@@ -576,6 +641,14 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
         }
       }
       return null;
+  }
+  
+  public V1NodeAllocatableResourceClaimStatus buildNodeAllocatableResourceClaimStatus(int index) {
+    return this.nodeAllocatableResourceClaimStatuses.get(index).build();
+  }
+  
+  public List<V1NodeAllocatableResourceClaimStatus> buildNodeAllocatableResourceClaimStatuses() {
+    return this.nodeAllocatableResourceClaimStatuses != null ? build(nodeAllocatableResourceClaimStatuses) : null;
   }
   
   public V1PodIP buildPodIP(int index) {
@@ -610,6 +683,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
         this.withHostIPs(instance.getHostIPs());
         this.withInitContainerStatuses(instance.getInitContainerStatuses());
         this.withMessage(instance.getMessage());
+        this.withNodeAllocatableResourceClaimStatuses(instance.getNodeAllocatableResourceClaimStatuses());
         this.withNominatedNodeName(instance.getNominatedNodeName());
         this.withObservedGeneration(instance.getObservedGeneration());
         this.withPhase(instance.getPhase());
@@ -684,6 +758,13 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     return this.setNewInitContainerStatusLike(0, this.buildInitContainerStatus(0));
   }
   
+  public NodeAllocatableResourceClaimStatusesNested<A> editFirstNodeAllocatableResourceClaimStatus() {
+    if (nodeAllocatableResourceClaimStatuses.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "nodeAllocatableResourceClaimStatuses"));
+    }
+    return this.setNewNodeAllocatableResourceClaimStatusLike(0, this.buildNodeAllocatableResourceClaimStatus(0));
+  }
+  
   public PodIPsNested<A> editFirstPodIP() {
     if (podIPs.size() == 0) {
       throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "podIPs"));
@@ -750,6 +831,14 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "initContainerStatuses"));
     }
     return this.setNewInitContainerStatusLike(index, this.buildInitContainerStatus(index));
+  }
+  
+  public NodeAllocatableResourceClaimStatusesNested<A> editLastNodeAllocatableResourceClaimStatus() {
+    int index = nodeAllocatableResourceClaimStatuses.size() - 1;
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "nodeAllocatableResourceClaimStatuses"));
+    }
+    return this.setNewNodeAllocatableResourceClaimStatusLike(index, this.buildNodeAllocatableResourceClaimStatus(index));
   }
   
   public PodIPsNested<A> editLastPodIP() {
@@ -838,6 +927,20 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     return this.setNewInitContainerStatusLike(index, this.buildInitContainerStatus(index));
   }
   
+  public NodeAllocatableResourceClaimStatusesNested<A> editMatchingNodeAllocatableResourceClaimStatus(Predicate<V1NodeAllocatableResourceClaimStatusBuilder> predicate) {
+    int index = -1;
+    for (int i = 0;i < nodeAllocatableResourceClaimStatuses.size();i++) {
+      if (predicate.test(nodeAllocatableResourceClaimStatuses.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "nodeAllocatableResourceClaimStatuses"));
+    }
+    return this.setNewNodeAllocatableResourceClaimStatusLike(index, this.buildNodeAllocatableResourceClaimStatus(index));
+  }
+  
   public PodIPsNested<A> editMatchingPodIP(Predicate<V1PodIPBuilder> predicate) {
     int index = -1;
     for (int i = 0;i < podIPs.size();i++) {
@@ -864,6 +967,13 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "resourceClaimStatuses"));
     }
     return this.setNewResourceClaimStatusLike(index, this.buildResourceClaimStatus(index));
+  }
+  
+  public NodeAllocatableResourceClaimStatusesNested<A> editNodeAllocatableResourceClaimStatus(int index) {
+    if (nodeAllocatableResourceClaimStatuses.size() <= index) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "nodeAllocatableResourceClaimStatuses"));
+    }
+    return this.setNewNodeAllocatableResourceClaimStatusLike(index, this.buildNodeAllocatableResourceClaimStatus(index));
   }
   
   public ExtendedResourceClaimStatusNested<A> editOrNewExtendedResourceClaimStatus() {
@@ -936,6 +1046,9 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       return false;
     }
     if (!(Objects.equals(message, that.message))) {
+      return false;
+    }
+    if (!(Objects.equals(nodeAllocatableResourceClaimStatuses, that.nodeAllocatableResourceClaimStatuses))) {
       return false;
     }
     if (!(Objects.equals(nominatedNodeName, that.nominatedNodeName))) {
@@ -1095,6 +1208,15 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       return false;
   }
   
+  public boolean hasMatchingNodeAllocatableResourceClaimStatus(Predicate<V1NodeAllocatableResourceClaimStatusBuilder> predicate) {
+      for (V1NodeAllocatableResourceClaimStatusBuilder item : nodeAllocatableResourceClaimStatuses) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
   public boolean hasMatchingPodIP(Predicate<V1PodIPBuilder> predicate) {
       for (V1PodIPBuilder item : podIPs) {
         if (predicate.test(item)) {
@@ -1115,6 +1237,10 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
   
   public boolean hasMessage() {
     return this.message != null;
+  }
+  
+  public boolean hasNodeAllocatableResourceClaimStatuses() {
+    return this.nodeAllocatableResourceClaimStatuses != null && !(this.nodeAllocatableResourceClaimStatuses.isEmpty());
   }
   
   public boolean hasNominatedNodeName() {
@@ -1162,7 +1288,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
   }
   
   public int hashCode() {
-    return Objects.hash(allocatedResources, conditions, containerStatuses, ephemeralContainerStatuses, extendedResourceClaimStatus, hostIP, hostIPs, initContainerStatuses, message, nominatedNodeName, observedGeneration, phase, podIP, podIPs, qosClass, reason, resize, resourceClaimStatuses, resources, startTime);
+    return Objects.hash(allocatedResources, conditions, containerStatuses, ephemeralContainerStatuses, extendedResourceClaimStatus, hostIP, hostIPs, initContainerStatuses, message, nodeAllocatableResourceClaimStatuses, nominatedNodeName, observedGeneration, phase, podIP, podIPs, qosClass, reason, resize, resourceClaimStatuses, resources, startTime);
   }
   
   public A removeAllFromConditions(Collection<V1PodCondition> items) {
@@ -1221,6 +1347,18 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
         V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
         _visitables.get("initContainerStatuses").remove(builder);
         this.initContainerStatuses.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeAllFromNodeAllocatableResourceClaimStatuses(Collection<V1NodeAllocatableResourceClaimStatus> items) {
+    if (this.nodeAllocatableResourceClaimStatuses == null) {
+      return (A) this;
+    }
+    for (V1NodeAllocatableResourceClaimStatus item : items) {
+        V1NodeAllocatableResourceClaimStatusBuilder builder = new V1NodeAllocatableResourceClaimStatusBuilder(item);
+        _visitables.get("nodeAllocatableResourceClaimStatuses").remove(builder);
+        this.nodeAllocatableResourceClaimStatuses.remove(builder);
     }
     return (A) this;
   }
@@ -1333,6 +1471,18 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     return (A) this;
   }
   
+  public A removeFromNodeAllocatableResourceClaimStatuses(V1NodeAllocatableResourceClaimStatus... items) {
+    if (this.nodeAllocatableResourceClaimStatuses == null) {
+      return (A) this;
+    }
+    for (V1NodeAllocatableResourceClaimStatus item : items) {
+        V1NodeAllocatableResourceClaimStatusBuilder builder = new V1NodeAllocatableResourceClaimStatusBuilder(item);
+        _visitables.get("nodeAllocatableResourceClaimStatuses").remove(builder);
+        this.nodeAllocatableResourceClaimStatuses.remove(builder);
+    }
+    return (A) this;
+  }
+  
   public A removeFromPodIPs(V1PodIP... items) {
     if (this.podIPs == null) {
       return (A) this;
@@ -1362,7 +1512,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       return (A) this;
     }
     Iterator<V1PodConditionBuilder> each = conditions.iterator();
-    List visitables = _visitables.get("conditions");
+    List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1PodConditionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1378,7 +1528,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       return (A) this;
     }
     Iterator<V1ContainerStatusBuilder> each = containerStatuses.iterator();
-    List visitables = _visitables.get("containerStatuses");
+    List visitables = this._visitables.get("containerStatuses");
     while (each.hasNext()) {
         V1ContainerStatusBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1394,7 +1544,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       return (A) this;
     }
     Iterator<V1ContainerStatusBuilder> each = ephemeralContainerStatuses.iterator();
-    List visitables = _visitables.get("ephemeralContainerStatuses");
+    List visitables = this._visitables.get("ephemeralContainerStatuses");
     while (each.hasNext()) {
         V1ContainerStatusBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1410,7 +1560,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       return (A) this;
     }
     Iterator<V1HostIPBuilder> each = hostIPs.iterator();
-    List visitables = _visitables.get("hostIPs");
+    List visitables = this._visitables.get("hostIPs");
     while (each.hasNext()) {
         V1HostIPBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1426,9 +1576,25 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       return (A) this;
     }
     Iterator<V1ContainerStatusBuilder> each = initContainerStatuses.iterator();
-    List visitables = _visitables.get("initContainerStatuses");
+    List visitables = this._visitables.get("initContainerStatuses");
     while (each.hasNext()) {
         V1ContainerStatusBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
+  public A removeMatchingFromNodeAllocatableResourceClaimStatuses(Predicate<V1NodeAllocatableResourceClaimStatusBuilder> predicate) {
+    if (nodeAllocatableResourceClaimStatuses == null) {
+      return (A) this;
+    }
+    Iterator<V1NodeAllocatableResourceClaimStatusBuilder> each = nodeAllocatableResourceClaimStatuses.iterator();
+    List visitables = this._visitables.get("nodeAllocatableResourceClaimStatuses");
+    while (each.hasNext()) {
+        V1NodeAllocatableResourceClaimStatusBuilder builder = each.next();
         if (predicate.test(builder)) {
             visitables.remove(builder);
             each.remove();
@@ -1442,7 +1608,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       return (A) this;
     }
     Iterator<V1PodIPBuilder> each = podIPs.iterator();
-    List visitables = _visitables.get("podIPs");
+    List visitables = this._visitables.get("podIPs");
     while (each.hasNext()) {
         V1PodIPBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1458,7 +1624,7 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       return (A) this;
     }
     Iterator<V1PodResourceClaimStatusBuilder> each = resourceClaimStatuses.iterator();
-    List visitables = _visitables.get("resourceClaimStatuses");
+    List visitables = this._visitables.get("resourceClaimStatuses");
     while (each.hasNext()) {
         V1PodResourceClaimStatusBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1489,6 +1655,10 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     return new InitContainerStatusesNested(index, item);
   }
   
+  public NodeAllocatableResourceClaimStatusesNested<A> setNewNodeAllocatableResourceClaimStatusLike(int index,V1NodeAllocatableResourceClaimStatus item) {
+    return new NodeAllocatableResourceClaimStatusesNested(index, item);
+  }
+  
   public PodIPsNested<A> setNewPodIPLike(int index,V1PodIP item) {
     return new PodIPsNested(index, item);
   }
@@ -1502,12 +1672,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.conditions = new ArrayList();
     }
     V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
+    if (index < 0 || index >= this.conditions.size()) {
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
     } else {
-        _visitables.get("conditions").add(builder);
-        conditions.set(index, builder);
+        this._visitables.get("conditions").add(builder);
+        this.conditions.set(index, builder);
     }
     return (A) this;
   }
@@ -1517,12 +1687,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.containerStatuses = new ArrayList();
     }
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= containerStatuses.size()) {
-        _visitables.get("containerStatuses").add(builder);
-        containerStatuses.add(builder);
+    if (index < 0 || index >= this.containerStatuses.size()) {
+        this._visitables.get("containerStatuses").add(builder);
+        this.containerStatuses.add(builder);
     } else {
-        _visitables.get("containerStatuses").add(builder);
-        containerStatuses.set(index, builder);
+        this._visitables.get("containerStatuses").add(builder);
+        this.containerStatuses.set(index, builder);
     }
     return (A) this;
   }
@@ -1532,12 +1702,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.ephemeralContainerStatuses = new ArrayList();
     }
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= ephemeralContainerStatuses.size()) {
-        _visitables.get("ephemeralContainerStatuses").add(builder);
-        ephemeralContainerStatuses.add(builder);
+    if (index < 0 || index >= this.ephemeralContainerStatuses.size()) {
+        this._visitables.get("ephemeralContainerStatuses").add(builder);
+        this.ephemeralContainerStatuses.add(builder);
     } else {
-        _visitables.get("ephemeralContainerStatuses").add(builder);
-        ephemeralContainerStatuses.set(index, builder);
+        this._visitables.get("ephemeralContainerStatuses").add(builder);
+        this.ephemeralContainerStatuses.set(index, builder);
     }
     return (A) this;
   }
@@ -1547,12 +1717,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.hostIPs = new ArrayList();
     }
     V1HostIPBuilder builder = new V1HostIPBuilder(item);
-    if (index < 0 || index >= hostIPs.size()) {
-        _visitables.get("hostIPs").add(builder);
-        hostIPs.add(builder);
+    if (index < 0 || index >= this.hostIPs.size()) {
+        this._visitables.get("hostIPs").add(builder);
+        this.hostIPs.add(builder);
     } else {
-        _visitables.get("hostIPs").add(builder);
-        hostIPs.set(index, builder);
+        this._visitables.get("hostIPs").add(builder);
+        this.hostIPs.set(index, builder);
     }
     return (A) this;
   }
@@ -1562,12 +1732,27 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.initContainerStatuses = new ArrayList();
     }
     V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
-    if (index < 0 || index >= initContainerStatuses.size()) {
-        _visitables.get("initContainerStatuses").add(builder);
-        initContainerStatuses.add(builder);
+    if (index < 0 || index >= this.initContainerStatuses.size()) {
+        this._visitables.get("initContainerStatuses").add(builder);
+        this.initContainerStatuses.add(builder);
     } else {
-        _visitables.get("initContainerStatuses").add(builder);
-        initContainerStatuses.set(index, builder);
+        this._visitables.get("initContainerStatuses").add(builder);
+        this.initContainerStatuses.set(index, builder);
+    }
+    return (A) this;
+  }
+  
+  public A setToNodeAllocatableResourceClaimStatuses(int index,V1NodeAllocatableResourceClaimStatus item) {
+    if (this.nodeAllocatableResourceClaimStatuses == null) {
+      this.nodeAllocatableResourceClaimStatuses = new ArrayList();
+    }
+    V1NodeAllocatableResourceClaimStatusBuilder builder = new V1NodeAllocatableResourceClaimStatusBuilder(item);
+    if (index < 0 || index >= this.nodeAllocatableResourceClaimStatuses.size()) {
+        this._visitables.get("nodeAllocatableResourceClaimStatuses").add(builder);
+        this.nodeAllocatableResourceClaimStatuses.add(builder);
+    } else {
+        this._visitables.get("nodeAllocatableResourceClaimStatuses").add(builder);
+        this.nodeAllocatableResourceClaimStatuses.set(index, builder);
     }
     return (A) this;
   }
@@ -1577,12 +1762,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.podIPs = new ArrayList();
     }
     V1PodIPBuilder builder = new V1PodIPBuilder(item);
-    if (index < 0 || index >= podIPs.size()) {
-        _visitables.get("podIPs").add(builder);
-        podIPs.add(builder);
+    if (index < 0 || index >= this.podIPs.size()) {
+        this._visitables.get("podIPs").add(builder);
+        this.podIPs.add(builder);
     } else {
-        _visitables.get("podIPs").add(builder);
-        podIPs.set(index, builder);
+        this._visitables.get("podIPs").add(builder);
+        this.podIPs.set(index, builder);
     }
     return (A) this;
   }
@@ -1592,12 +1777,12 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
       this.resourceClaimStatuses = new ArrayList();
     }
     V1PodResourceClaimStatusBuilder builder = new V1PodResourceClaimStatusBuilder(item);
-    if (index < 0 || index >= resourceClaimStatuses.size()) {
-        _visitables.get("resourceClaimStatuses").add(builder);
-        resourceClaimStatuses.add(builder);
+    if (index < 0 || index >= this.resourceClaimStatuses.size()) {
+        this._visitables.get("resourceClaimStatuses").add(builder);
+        this.resourceClaimStatuses.add(builder);
     } else {
-        _visitables.get("resourceClaimStatuses").add(builder);
-        resourceClaimStatuses.set(index, builder);
+        this._visitables.get("resourceClaimStatuses").add(builder);
+        this.resourceClaimStatuses.set(index, builder);
     }
     return (A) this;
   }
@@ -1648,6 +1833,11 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     if (!(message == null)) {
         sb.append("message:");
         sb.append(message);
+        sb.append(",");
+    }
+    if (!(nodeAllocatableResourceClaimStatuses == null) && !(nodeAllocatableResourceClaimStatuses.isEmpty())) {
+        sb.append("nodeAllocatableResourceClaimStatuses:");
+        sb.append(nodeAllocatableResourceClaimStatuses);
         sb.append(",");
     }
     if (!(nominatedNodeName == null)) {
@@ -1895,6 +2085,34 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     return new ResourcesNested(item);
   }
   
+  public A withNodeAllocatableResourceClaimStatuses(List<V1NodeAllocatableResourceClaimStatus> nodeAllocatableResourceClaimStatuses) {
+    if (this.nodeAllocatableResourceClaimStatuses != null) {
+      this._visitables.get("nodeAllocatableResourceClaimStatuses").clear();
+    }
+    if (nodeAllocatableResourceClaimStatuses != null) {
+        this.nodeAllocatableResourceClaimStatuses = new ArrayList();
+        for (V1NodeAllocatableResourceClaimStatus item : nodeAllocatableResourceClaimStatuses) {
+          this.addToNodeAllocatableResourceClaimStatuses(item);
+        }
+    } else {
+      this.nodeAllocatableResourceClaimStatuses = null;
+    }
+    return (A) this;
+  }
+  
+  public A withNodeAllocatableResourceClaimStatuses(V1NodeAllocatableResourceClaimStatus... nodeAllocatableResourceClaimStatuses) {
+    if (this.nodeAllocatableResourceClaimStatuses != null) {
+        this.nodeAllocatableResourceClaimStatuses.clear();
+        _visitables.remove("nodeAllocatableResourceClaimStatuses");
+    }
+    if (nodeAllocatableResourceClaimStatuses != null) {
+      for (V1NodeAllocatableResourceClaimStatus item : nodeAllocatableResourceClaimStatuses) {
+        this.addToNodeAllocatableResourceClaimStatuses(item);
+      }
+    }
+    return (A) this;
+  }
+  
   public A withNominatedNodeName(String nominatedNodeName) {
     this.nominatedNodeName = nominatedNodeName;
     return (A) this;
@@ -2110,6 +2328,25 @@ public class V1PodStatusFluent<A extends io.kubernetes.client.openapi.models.V1P
     }
     
     public N endInitContainerStatus() {
+      return and();
+    }
+    
+  }
+  public class NodeAllocatableResourceClaimStatusesNested<N> extends V1NodeAllocatableResourceClaimStatusFluent<NodeAllocatableResourceClaimStatusesNested<N>> implements Nested<N>{
+  
+    V1NodeAllocatableResourceClaimStatusBuilder builder;
+    int index;
+  
+    NodeAllocatableResourceClaimStatusesNested(int index,V1NodeAllocatableResourceClaimStatus item) {
+      this.index = index;
+      this.builder = new V1NodeAllocatableResourceClaimStatusBuilder(this, item);
+    }
+  
+    public N and() {
+      return (N) V1PodStatusFluent.this.setToNodeAllocatableResourceClaimStatuses(index, builder.build());
+    }
+    
+    public N endNodeAllocatableResourceClaimStatus() {
       return and();
     }
     

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -38,8 +38,7 @@ public class V1WatchEventFluent<A extends io.kubernetes.client.openapi.models.V1
   protected void copyInstance(V1WatchEvent instance) {
     instance = instance != null ? instance : new V1WatchEvent();
     if (instance != null) {
-        this.withObject(instance.getObject());
-        this.withType(instance.getType());
+      this.withType(instance.getType());
     }
   }
   

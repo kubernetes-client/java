@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceStatus represents the status of a single resource allocated to a Pod.
  */
 @ApiModel(description = "ResourceStatus represents the status of a single resource allocated to a Pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ResourceStatus {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

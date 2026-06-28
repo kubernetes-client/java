@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * ServiceReference holds a reference to Service.legacy.k8s.io
  */
 @ApiModel(description = "ServiceReference holds a reference to Service.legacy.k8s.io")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class AdmissionregistrationV1ServiceReference {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -81,11 +81,11 @@ public class AdmissionregistrationV1ServiceReference {
   }
 
   /**
-   * &#x60;name&#x60; is the name of the service. Required
+   * name is the name of the service. Required
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "`name` is the name of the service. Required")
+  @ApiModelProperty(required = true, value = "name is the name of the service. Required")
   public String getName() {
     return name;
   }
@@ -101,11 +101,11 @@ public class AdmissionregistrationV1ServiceReference {
   }
 
   /**
-   * &#x60;namespace&#x60; is the namespace of the service. Required
+   * namespace is the namespace of the service. Required
    * @return namespace
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "`namespace` is the namespace of the service. Required")
+  @ApiModelProperty(required = true, value = "namespace is the namespace of the service. Required")
   public String getNamespace() {
     return namespace;
   }
@@ -121,11 +121,11 @@ public class AdmissionregistrationV1ServiceReference {
   }
 
   /**
-   * &#x60;path&#x60; is an optional URL path which will be sent in any request to this service.
+   * path is an optional URL path which will be sent in any request to this service.
    * @return path
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "`path` is an optional URL path which will be sent in any request to this service.")
+  @ApiModelProperty(value = "path is an optional URL path which will be sent in any request to this service.")
   public String getPath() {
     return path;
   }
@@ -141,11 +141,11 @@ public class AdmissionregistrationV1ServiceReference {
   }
 
   /**
-   * If specified, the port on the service that hosting webhook. Default to 443 for backward compatibility. &#x60;port&#x60; should be a valid port number (1-65535, inclusive).
+   * port is the port on the service that hosts the webhook. Default to 443 for backward compatibility. &#x60;port&#x60; should be a valid port number (1-65535, inclusive).
    * @return port
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "If specified, the port on the service that hosting webhook. Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).")
+  @ApiModelProperty(value = "port is the port on the service that hosts the webhook. Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).")
   public Integer getPort() {
     return port;
   }

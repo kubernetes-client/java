@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,7 +50,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
     }
     for (V1AllocatedDeviceStatus item : items) {
         V1AllocatedDeviceStatusBuilder builder = new V1AllocatedDeviceStatusBuilder(item);
-        _visitables.get("devices").add(builder);
+        this._visitables.get("devices").add(builder);
         this.devices.add(builder);
     }
     return (A) this;
@@ -62,7 +62,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
     }
     for (V1ResourceClaimConsumerReference item : items) {
         V1ResourceClaimConsumerReferenceBuilder builder = new V1ResourceClaimConsumerReferenceBuilder(item);
-        _visitables.get("reservedFor").add(builder);
+        this._visitables.get("reservedFor").add(builder);
         this.reservedFor.add(builder);
     }
     return (A) this;
@@ -90,7 +90,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
     }
     for (V1AllocatedDeviceStatus item : items) {
         V1AllocatedDeviceStatusBuilder builder = new V1AllocatedDeviceStatusBuilder(item);
-        _visitables.get("devices").add(builder);
+        this._visitables.get("devices").add(builder);
         this.devices.add(builder);
     }
     return (A) this;
@@ -101,12 +101,12 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
       this.devices = new ArrayList();
     }
     V1AllocatedDeviceStatusBuilder builder = new V1AllocatedDeviceStatusBuilder(item);
-    if (index < 0 || index >= devices.size()) {
-        _visitables.get("devices").add(builder);
-        devices.add(builder);
+    if (index < 0 || index >= this.devices.size()) {
+        this._visitables.get("devices").add(builder);
+        this.devices.add(builder);
     } else {
-        _visitables.get("devices").add(builder);
-        devices.add(index, builder);
+        this._visitables.get("devices").add(builder);
+        this.devices.add(index, builder);
     }
     return (A) this;
   }
@@ -117,7 +117,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
     }
     for (V1ResourceClaimConsumerReference item : items) {
         V1ResourceClaimConsumerReferenceBuilder builder = new V1ResourceClaimConsumerReferenceBuilder(item);
-        _visitables.get("reservedFor").add(builder);
+        this._visitables.get("reservedFor").add(builder);
         this.reservedFor.add(builder);
     }
     return (A) this;
@@ -128,12 +128,12 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
       this.reservedFor = new ArrayList();
     }
     V1ResourceClaimConsumerReferenceBuilder builder = new V1ResourceClaimConsumerReferenceBuilder(item);
-    if (index < 0 || index >= reservedFor.size()) {
-        _visitables.get("reservedFor").add(builder);
-        reservedFor.add(builder);
+    if (index < 0 || index >= this.reservedFor.size()) {
+        this._visitables.get("reservedFor").add(builder);
+        this.reservedFor.add(builder);
     } else {
-        _visitables.get("reservedFor").add(builder);
-        reservedFor.add(index, builder);
+        this._visitables.get("reservedFor").add(builder);
+        this.reservedFor.add(index, builder);
     }
     return (A) this;
   }
@@ -395,7 +395,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
       return (A) this;
     }
     Iterator<V1AllocatedDeviceStatusBuilder> each = devices.iterator();
-    List visitables = _visitables.get("devices");
+    List visitables = this._visitables.get("devices");
     while (each.hasNext()) {
         V1AllocatedDeviceStatusBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -411,7 +411,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
       return (A) this;
     }
     Iterator<V1ResourceClaimConsumerReferenceBuilder> each = reservedFor.iterator();
-    List visitables = _visitables.get("reservedFor");
+    List visitables = this._visitables.get("reservedFor");
     while (each.hasNext()) {
         V1ResourceClaimConsumerReferenceBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -435,12 +435,12 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
       this.devices = new ArrayList();
     }
     V1AllocatedDeviceStatusBuilder builder = new V1AllocatedDeviceStatusBuilder(item);
-    if (index < 0 || index >= devices.size()) {
-        _visitables.get("devices").add(builder);
-        devices.add(builder);
+    if (index < 0 || index >= this.devices.size()) {
+        this._visitables.get("devices").add(builder);
+        this.devices.add(builder);
     } else {
-        _visitables.get("devices").add(builder);
-        devices.set(index, builder);
+        this._visitables.get("devices").add(builder);
+        this.devices.set(index, builder);
     }
     return (A) this;
   }
@@ -450,12 +450,12 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
       this.reservedFor = new ArrayList();
     }
     V1ResourceClaimConsumerReferenceBuilder builder = new V1ResourceClaimConsumerReferenceBuilder(item);
-    if (index < 0 || index >= reservedFor.size()) {
-        _visitables.get("reservedFor").add(builder);
-        reservedFor.add(builder);
+    if (index < 0 || index >= this.reservedFor.size()) {
+        this._visitables.get("reservedFor").add(builder);
+        this.reservedFor.add(builder);
     } else {
-        _visitables.get("reservedFor").add(builder);
-        reservedFor.set(index, builder);
+        this._visitables.get("reservedFor").add(builder);
+        this.reservedFor.set(index, builder);
     }
     return (A) this;
   }

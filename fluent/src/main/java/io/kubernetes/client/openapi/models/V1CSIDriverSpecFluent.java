@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -38,6 +38,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   private String fsGroupPolicy;
   private Long nodeAllocatableUpdatePeriodSeconds;
   private Boolean podInfoOnMount;
+  private Boolean preventPodSchedulingIfMissing;
   private Boolean requiresRepublish;
   private Boolean seLinuxMount;
   private Boolean serviceAccountTokenInSecrets;
@@ -58,7 +59,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
     }
     for (StorageV1TokenRequest item : items) {
         StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-        _visitables.get("tokenRequests").add(builder);
+        this._visitables.get("tokenRequests").add(builder);
         this.tokenRequests.add(builder);
     }
     return (A) this;
@@ -88,7 +89,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
     }
     for (StorageV1TokenRequest item : items) {
         StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-        _visitables.get("tokenRequests").add(builder);
+        this._visitables.get("tokenRequests").add(builder);
         this.tokenRequests.add(builder);
     }
     return (A) this;
@@ -99,12 +100,12 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
       this.tokenRequests = new ArrayList();
     }
     StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-    if (index < 0 || index >= tokenRequests.size()) {
-        _visitables.get("tokenRequests").add(builder);
-        tokenRequests.add(builder);
+    if (index < 0 || index >= this.tokenRequests.size()) {
+        this._visitables.get("tokenRequests").add(builder);
+        this.tokenRequests.add(builder);
     } else {
-        _visitables.get("tokenRequests").add(builder);
-        tokenRequests.add(index, builder);
+        this._visitables.get("tokenRequests").add(builder);
+        this.tokenRequests.add(index, builder);
     }
     return (A) this;
   }
@@ -159,6 +160,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
         this.withFsGroupPolicy(instance.getFsGroupPolicy());
         this.withNodeAllocatableUpdatePeriodSeconds(instance.getNodeAllocatableUpdatePeriodSeconds());
         this.withPodInfoOnMount(instance.getPodInfoOnMount());
+        this.withPreventPodSchedulingIfMissing(instance.getPreventPodSchedulingIfMissing());
         this.withRequiresRepublish(instance.getRequiresRepublish());
         this.withSeLinuxMount(instance.getSeLinuxMount());
         this.withServiceAccountTokenInSecrets(instance.getServiceAccountTokenInSecrets());
@@ -227,6 +229,9 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
     if (!(Objects.equals(podInfoOnMount, that.podInfoOnMount))) {
       return false;
     }
+    if (!(Objects.equals(preventPodSchedulingIfMissing, that.preventPodSchedulingIfMissing))) {
+      return false;
+    }
     if (!(Objects.equals(requiresRepublish, that.requiresRepublish))) {
       return false;
     }
@@ -279,6 +284,10 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public Boolean getPodInfoOnMount() {
     return this.podInfoOnMount;
+  }
+  
+  public Boolean getPreventPodSchedulingIfMissing() {
+    return this.preventPodSchedulingIfMissing;
   }
   
   public Boolean getRequiresRepublish() {
@@ -339,6 +348,10 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
     return this.podInfoOnMount != null;
   }
   
+  public boolean hasPreventPodSchedulingIfMissing() {
+    return this.preventPodSchedulingIfMissing != null;
+  }
+  
   public boolean hasRequiresRepublish() {
     return this.requiresRepublish != null;
   }
@@ -364,7 +377,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public int hashCode() {
-    return Objects.hash(attachRequired, fsGroupPolicy, nodeAllocatableUpdatePeriodSeconds, podInfoOnMount, requiresRepublish, seLinuxMount, serviceAccountTokenInSecrets, storageCapacity, tokenRequests, volumeLifecycleModes);
+    return Objects.hash(attachRequired, fsGroupPolicy, nodeAllocatableUpdatePeriodSeconds, podInfoOnMount, preventPodSchedulingIfMissing, requiresRepublish, seLinuxMount, serviceAccountTokenInSecrets, storageCapacity, tokenRequests, volumeLifecycleModes);
   }
   
   public A removeAllFromTokenRequests(Collection<StorageV1TokenRequest> items) {
@@ -416,7 +429,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<StorageV1TokenRequestBuilder> each = tokenRequests.iterator();
-    List visitables = _visitables.get("tokenRequests");
+    List visitables = this._visitables.get("tokenRequests");
     while (each.hasNext()) {
         StorageV1TokenRequestBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -436,12 +449,12 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
       this.tokenRequests = new ArrayList();
     }
     StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-    if (index < 0 || index >= tokenRequests.size()) {
-        _visitables.get("tokenRequests").add(builder);
-        tokenRequests.add(builder);
+    if (index < 0 || index >= this.tokenRequests.size()) {
+        this._visitables.get("tokenRequests").add(builder);
+        this.tokenRequests.add(builder);
     } else {
-        _visitables.get("tokenRequests").add(builder);
-        tokenRequests.set(index, builder);
+        this._visitables.get("tokenRequests").add(builder);
+        this.tokenRequests.set(index, builder);
     }
     return (A) this;
   }
@@ -475,6 +488,11 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
     if (!(podInfoOnMount == null)) {
         sb.append("podInfoOnMount:");
         sb.append(podInfoOnMount);
+        sb.append(",");
+    }
+    if (!(preventPodSchedulingIfMissing == null)) {
+        sb.append("preventPodSchedulingIfMissing:");
+        sb.append(preventPodSchedulingIfMissing);
         sb.append(",");
     }
     if (!(requiresRepublish == null)) {
@@ -535,6 +553,15 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public A withPodInfoOnMount(Boolean podInfoOnMount) {
     this.podInfoOnMount = podInfoOnMount;
+    return (A) this;
+  }
+  
+  public A withPreventPodSchedulingIfMissing() {
+    return withPreventPodSchedulingIfMissing(true);
+  }
+  
+  public A withPreventPodSchedulingIfMissing(Boolean preventPodSchedulingIfMissing) {
+    this.preventPodSchedulingIfMissing = preventPodSchedulingIfMissing;
     return (A) this;
   }
   

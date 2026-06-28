@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,7 +50,7 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
     }
     for (V1PodFailurePolicyOnPodConditionsPattern item : items) {
         V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
-        _visitables.get("onPodConditions").add(builder);
+        this._visitables.get("onPodConditions").add(builder);
         this.onPodConditions.add(builder);
     }
     return (A) this;
@@ -70,7 +70,7 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
     }
     for (V1PodFailurePolicyOnPodConditionsPattern item : items) {
         V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
-        _visitables.get("onPodConditions").add(builder);
+        this._visitables.get("onPodConditions").add(builder);
         this.onPodConditions.add(builder);
     }
     return (A) this;
@@ -81,12 +81,12 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
       this.onPodConditions = new ArrayList();
     }
     V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
-    if (index < 0 || index >= onPodConditions.size()) {
-        _visitables.get("onPodConditions").add(builder);
-        onPodConditions.add(builder);
+    if (index < 0 || index >= this.onPodConditions.size()) {
+        this._visitables.get("onPodConditions").add(builder);
+        this.onPodConditions.add(builder);
     } else {
-        _visitables.get("onPodConditions").add(builder);
-        onPodConditions.add(index, builder);
+        this._visitables.get("onPodConditions").add(builder);
+        this.onPodConditions.add(index, builder);
     }
     return (A) this;
   }
@@ -258,7 +258,7 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
       return (A) this;
     }
     Iterator<V1PodFailurePolicyOnPodConditionsPatternBuilder> each = onPodConditions.iterator();
-    List visitables = _visitables.get("onPodConditions");
+    List visitables = this._visitables.get("onPodConditions");
     while (each.hasNext()) {
         V1PodFailurePolicyOnPodConditionsPatternBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -278,12 +278,12 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
       this.onPodConditions = new ArrayList();
     }
     V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
-    if (index < 0 || index >= onPodConditions.size()) {
-        _visitables.get("onPodConditions").add(builder);
-        onPodConditions.add(builder);
+    if (index < 0 || index >= this.onPodConditions.size()) {
+        this._visitables.get("onPodConditions").add(builder);
+        this.onPodConditions.add(builder);
     } else {
-        _visitables.get("onPodConditions").add(builder);
-        onPodConditions.set(index, builder);
+        this._visitables.get("onPodConditions").add(builder);
+        this.onPodConditions.set(index, builder);
     }
     return (A) this;
   }

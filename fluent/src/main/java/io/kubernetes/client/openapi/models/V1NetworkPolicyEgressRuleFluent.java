@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -48,7 +48,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
     }
     for (V1NetworkPolicyPort item : items) {
         V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
-        _visitables.get("ports").add(builder);
+        this._visitables.get("ports").add(builder);
         this.ports.add(builder);
     }
     return (A) this;
@@ -60,7 +60,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
     }
     for (V1NetworkPolicyPeer item : items) {
         V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
-        _visitables.get("to").add(builder);
+        this._visitables.get("to").add(builder);
         this.to.add(builder);
     }
     return (A) this;
@@ -88,7 +88,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
     }
     for (V1NetworkPolicyPort item : items) {
         V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
-        _visitables.get("ports").add(builder);
+        this._visitables.get("ports").add(builder);
         this.ports.add(builder);
     }
     return (A) this;
@@ -99,12 +99,12 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
       this.ports = new ArrayList();
     }
     V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
-    if (index < 0 || index >= ports.size()) {
-        _visitables.get("ports").add(builder);
-        ports.add(builder);
+    if (index < 0 || index >= this.ports.size()) {
+        this._visitables.get("ports").add(builder);
+        this.ports.add(builder);
     } else {
-        _visitables.get("ports").add(builder);
-        ports.add(index, builder);
+        this._visitables.get("ports").add(builder);
+        this.ports.add(index, builder);
     }
     return (A) this;
   }
@@ -115,7 +115,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
     }
     for (V1NetworkPolicyPeer item : items) {
         V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
-        _visitables.get("to").add(builder);
+        this._visitables.get("to").add(builder);
         this.to.add(builder);
     }
     return (A) this;
@@ -126,12 +126,12 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
       this.to = new ArrayList();
     }
     V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
-    if (index < 0 || index >= to.size()) {
-        _visitables.get("to").add(builder);
-        to.add(builder);
+    if (index < 0 || index >= this.to.size()) {
+        this._visitables.get("to").add(builder);
+        this.to.add(builder);
     } else {
-        _visitables.get("to").add(builder);
-        to.add(index, builder);
+        this._visitables.get("to").add(builder);
+        this.to.add(index, builder);
     }
     return (A) this;
   }
@@ -369,7 +369,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<V1NetworkPolicyPortBuilder> each = ports.iterator();
-    List visitables = _visitables.get("ports");
+    List visitables = this._visitables.get("ports");
     while (each.hasNext()) {
         V1NetworkPolicyPortBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -385,7 +385,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<V1NetworkPolicyPeerBuilder> each = to.iterator();
-    List visitables = _visitables.get("to");
+    List visitables = this._visitables.get("to");
     while (each.hasNext()) {
         V1NetworkPolicyPeerBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -409,12 +409,12 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
       this.ports = new ArrayList();
     }
     V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
-    if (index < 0 || index >= ports.size()) {
-        _visitables.get("ports").add(builder);
-        ports.add(builder);
+    if (index < 0 || index >= this.ports.size()) {
+        this._visitables.get("ports").add(builder);
+        this.ports.add(builder);
     } else {
-        _visitables.get("ports").add(builder);
-        ports.set(index, builder);
+        this._visitables.get("ports").add(builder);
+        this.ports.set(index, builder);
     }
     return (A) this;
   }
@@ -424,12 +424,12 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
       this.to = new ArrayList();
     }
     V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
-    if (index < 0 || index >= to.size()) {
-        _visitables.get("to").add(builder);
-        to.add(builder);
+    if (index < 0 || index >= this.to.size()) {
+        this._visitables.get("to").add(builder);
+        this.to.add(builder);
     } else {
-        _visitables.get("to").add(builder);
-        to.set(index, builder);
+        this._visitables.get("to").add(builder);
+        this.to.set(index, builder);
     }
     return (A) this;
   }

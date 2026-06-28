@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * Pod is a collection of containers that can run on a host. This resource is created by clients and scheduled onto hosts.
  */
 @ApiModel(description = "Pod is a collection of containers that can run on a host. This resource is created by clients and scheduled onto hosts.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1Pod implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * BoundObjectReference is a reference to an object that a token is bound to.
  */
 @ApiModel(description = "BoundObjectReference is a reference to an object that a token is bound to.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1BoundObjectReference {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -81,11 +81,11 @@ public class V1BoundObjectReference {
   }
 
   /**
-   * API version of the referent.
+   * apiVersion is API version of the referent.
    * @return apiVersion
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "API version of the referent.")
+  @ApiModelProperty(value = "apiVersion is API version of the referent.")
   public String getApiVersion() {
     return apiVersion;
   }
@@ -101,11 +101,11 @@ public class V1BoundObjectReference {
   }
 
   /**
-   * Kind of the referent. Valid kinds are &#39;Pod&#39; and &#39;Secret&#39;.
+   * kind of the referent. Valid kinds are &#39;Pod&#39; and &#39;Secret&#39;.
    * @return kind
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Kind of the referent. Valid kinds are 'Pod' and 'Secret'.")
+  @ApiModelProperty(value = "kind of the referent. Valid kinds are 'Pod' and 'Secret'.")
   public String getKind() {
     return kind;
   }
@@ -121,11 +121,11 @@ public class V1BoundObjectReference {
   }
 
   /**
-   * Name of the referent.
+   * name of the referent.
    * @return name
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Name of the referent.")
+  @ApiModelProperty(value = "name of the referent.")
   public String getName() {
     return name;
   }
@@ -141,11 +141,11 @@ public class V1BoundObjectReference {
   }
 
   /**
-   * UID of the referent.
+   * uid of the referent.
    * @return uid
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "UID of the referent.")
+  @ApiModelProperty(value = "uid of the referent.")
   public String getUid() {
     return uid;
   }

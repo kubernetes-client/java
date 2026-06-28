@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * UserInfo holds the information about the user needed to implement the user.Info interface.
  */
 @ApiModel(description = "UserInfo holds the information about the user needed to implement the user.Info interface.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1UserInfo {
   public static final String SERIALIZED_NAME_EXTRA = "extra";
   @SerializedName(SERIALIZED_NAME_EXTRA)
@@ -93,11 +93,11 @@ public class V1UserInfo {
   }
 
   /**
-   * Any additional information provided by the authenticator.
+   * extra is any additional information provided by the authenticator.
    * @return extra
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Any additional information provided by the authenticator.")
+  @ApiModelProperty(value = "extra is any additional information provided by the authenticator.")
   public Map<String, List<String>> getExtra() {
     return extra;
   }
@@ -121,11 +121,11 @@ public class V1UserInfo {
   }
 
   /**
-   * The names of groups this user is a part of.
+   * groups is the names of groups this user is a part of.
    * @return groups
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The names of groups this user is a part of.")
+  @ApiModelProperty(value = "groups is the names of groups this user is a part of.")
   public List<String> getGroups() {
     return groups;
   }
@@ -141,11 +141,11 @@ public class V1UserInfo {
   }
 
   /**
-   * A unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.
+   * uid is a unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.
    * @return uid
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "A unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.")
+  @ApiModelProperty(value = "uid is a unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.")
   public String getUid() {
     return uid;
   }
@@ -161,11 +161,11 @@ public class V1UserInfo {
   }
 
   /**
-   * The name that uniquely identifies this user among all active users.
+   * username is the name that uniquely identifies this user among all active users.
    * @return username
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The name that uniquely identifies this user among all active users.")
+  @ApiModelProperty(value = "username is the name that uniquely identifies this user among all active users.")
   public String getUsername() {
     return username;
   }

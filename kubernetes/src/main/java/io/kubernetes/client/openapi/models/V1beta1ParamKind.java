@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * ParamKind is a tuple of Group Kind and Version.
  */
 @ApiModel(description = "ParamKind is a tuple of Group Kind and Version.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1beta1ParamKind {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -71,11 +71,11 @@ public class V1beta1ParamKind {
   }
 
   /**
-   * APIVersion is the API group version the resources belong to. In format of \&quot;group/version\&quot;. Required.
+   * apiVersion is the API group version the resources belong to. In format of \&quot;group/version\&quot;. Required.
    * @return apiVersion
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "APIVersion is the API group version the resources belong to. In format of \"group/version\". Required.")
+  @ApiModelProperty(value = "apiVersion is the API group version the resources belong to. In format of \"group/version\". Required.")
   public String getApiVersion() {
     return apiVersion;
   }
@@ -91,11 +91,11 @@ public class V1beta1ParamKind {
   }
 
   /**
-   * Kind is the API kind the resources belong to. Required.
+   * kind is the API kind the resources belong to. Required.
    * @return kind
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Kind is the API kind the resources belong to. Required.")
+  @ApiModelProperty(value = "kind is the API kind the resources belong to. Required.")
   public String getKind() {
     return kind;
   }

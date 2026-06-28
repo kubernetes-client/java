@@ -1,0 +1,338 @@
+/*
+Copyright 2026 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1GroupVersionKind;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
+/**
+ * APISubresourceDiscovery provides information about an API subresource for discovery.
+ */
+@ApiModel(description = "APISubresourceDiscovery provides information about an API subresource for discovery.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+public class V2beta1APISubresourceDiscovery {
+  public static final String SERIALIZED_NAME_SUBRESOURCE = "subresource";
+  @SerializedName(SERIALIZED_NAME_SUBRESOURCE)
+  @jakarta.annotation.Nonnull
+  private String subresource;
+
+  public static final String SERIALIZED_NAME_RESPONSE_KIND = "responseKind";
+  @SerializedName(SERIALIZED_NAME_RESPONSE_KIND)
+  @jakarta.annotation.Nullable
+  private V1GroupVersionKind responseKind;
+
+  public static final String SERIALIZED_NAME_VERBS = "verbs";
+  @SerializedName(SERIALIZED_NAME_VERBS)
+  @jakarta.annotation.Nonnull
+  private List<String> verbs = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_ACCEPTED_TYPES = "acceptedTypes";
+  @SerializedName(SERIALIZED_NAME_ACCEPTED_TYPES)
+  @jakarta.annotation.Nullable
+  private List<V1GroupVersionKind> acceptedTypes = new ArrayList<>();
+
+  public V2beta1APISubresourceDiscovery() {
+  }
+
+  public V2beta1APISubresourceDiscovery subresource(@jakarta.annotation.Nonnull String subresource) {
+    this.subresource = subresource;
+    return this;
+  }
+
+  /**
+   * subresource is the name of the subresource.
+   * @return subresource
+   */
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "subresource is the name of the subresource.")
+  public String getSubresource() {
+    return subresource;
+  }
+
+  public void setSubresource(@jakarta.annotation.Nonnull String subresource) {
+    this.subresource = subresource;
+  }
+
+
+  public V2beta1APISubresourceDiscovery responseKind(@jakarta.annotation.Nullable V1GroupVersionKind responseKind) {
+    this.responseKind = responseKind;
+    return this;
+  }
+
+  /**
+   * Get responseKind
+   * @return responseKind
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1GroupVersionKind getResponseKind() {
+    return responseKind;
+  }
+
+  public void setResponseKind(@jakarta.annotation.Nullable V1GroupVersionKind responseKind) {
+    this.responseKind = responseKind;
+  }
+
+
+  public V2beta1APISubresourceDiscovery verbs(@jakarta.annotation.Nonnull List<String> verbs) {
+    this.verbs = verbs;
+    return this;
+  }
+
+  public V2beta1APISubresourceDiscovery addVerbsItem(String verbsItem) {
+    if (this.verbs == null) {
+      this.verbs = new ArrayList<>();
+    }
+    this.verbs.add(verbsItem);
+    return this;
+  }
+
+  /**
+   * verbs is a list of supported API operation types
+   * @return verbs
+   */
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "verbs is a list of supported API operation types")
+  public List<String> getVerbs() {
+    return verbs;
+  }
+
+  public void setVerbs(@jakarta.annotation.Nonnull List<String> verbs) {
+    this.verbs = verbs;
+  }
+
+
+  public V2beta1APISubresourceDiscovery acceptedTypes(@jakarta.annotation.Nullable List<V1GroupVersionKind> acceptedTypes) {
+    this.acceptedTypes = acceptedTypes;
+    return this;
+  }
+
+  public V2beta1APISubresourceDiscovery addAcceptedTypesItem(V1GroupVersionKind acceptedTypesItem) {
+    if (this.acceptedTypes == null) {
+      this.acceptedTypes = new ArrayList<>();
+    }
+    this.acceptedTypes.add(acceptedTypesItem);
+    return this;
+  }
+
+  /**
+   * Get acceptedTypes
+   * @return acceptedTypes
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public List<V1GroupVersionKind> getAcceptedTypes() {
+    return acceptedTypes;
+  }
+
+  public void setAcceptedTypes(@jakarta.annotation.Nullable List<V1GroupVersionKind> acceptedTypes) {
+    this.acceptedTypes = acceptedTypes;
+  }
+
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    V2beta1APISubresourceDiscovery v2beta1APISubresourceDiscovery = (V2beta1APISubresourceDiscovery) o;
+    return Objects.equals(this.subresource, v2beta1APISubresourceDiscovery.subresource) &&
+        Objects.equals(this.responseKind, v2beta1APISubresourceDiscovery.responseKind) &&
+        Objects.equals(this.verbs, v2beta1APISubresourceDiscovery.verbs) &&
+        Objects.equals(this.acceptedTypes, v2beta1APISubresourceDiscovery.acceptedTypes);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(subresource, responseKind, verbs, acceptedTypes);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class V2beta1APISubresourceDiscovery {\n");
+    sb.append("    subresource: ").append(toIndentedString(subresource)).append("\n");
+    sb.append("    responseKind: ").append(toIndentedString(responseKind)).append("\n");
+    sb.append("    verbs: ").append(toIndentedString(verbs)).append("\n");
+    sb.append("    acceptedTypes: ").append(toIndentedString(acceptedTypes)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>(Arrays.asList("subresource", "responseKind", "verbs", "acceptedTypes"));
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("subresource", "verbs"));
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V2beta1APISubresourceDiscovery
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V2beta1APISubresourceDiscovery.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V2beta1APISubresourceDiscovery is not found in the empty JSON string", V2beta1APISubresourceDiscovery.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!V2beta1APISubresourceDiscovery.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V2beta1APISubresourceDiscovery` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V2beta1APISubresourceDiscovery.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("subresource").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subresource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subresource").toString()));
+      }
+      // validate the optional field `responseKind`
+      if (jsonObj.get("responseKind") != null && !jsonObj.get("responseKind").isJsonNull()) {
+        V1GroupVersionKind.validateJsonElement(jsonObj.get("responseKind"));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("verbs") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("verbs").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `verbs` to be an array in the JSON string but got `%s`", jsonObj.get("verbs").toString()));
+      }
+      if (jsonObj.get("acceptedTypes") != null && !jsonObj.get("acceptedTypes").isJsonNull()) {
+        JsonArray jsonArrayacceptedTypes = jsonObj.getAsJsonArray("acceptedTypes");
+        if (jsonArrayacceptedTypes != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("acceptedTypes").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `acceptedTypes` to be an array in the JSON string but got `%s`", jsonObj.get("acceptedTypes").toString()));
+          }
+
+          // validate the optional field `acceptedTypes` (array)
+          for (int i = 0; i < jsonArrayacceptedTypes.size(); i++) {
+            V1GroupVersionKind.validateJsonElement(jsonArrayacceptedTypes.get(i));
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V2beta1APISubresourceDiscovery.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V2beta1APISubresourceDiscovery' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V2beta1APISubresourceDiscovery> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V2beta1APISubresourceDiscovery.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V2beta1APISubresourceDiscovery>() {
+           @Override
+           public void write(JsonWriter out, V2beta1APISubresourceDiscovery value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V2beta1APISubresourceDiscovery read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of V2beta1APISubresourceDiscovery given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V2beta1APISubresourceDiscovery
+   * @throws IOException if the JSON string is invalid with respect to V2beta1APISubresourceDiscovery
+   */
+  public static V2beta1APISubresourceDiscovery fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V2beta1APISubresourceDiscovery.class);
+  }
+
+  /**
+   * Convert an instance of V2beta1APISubresourceDiscovery to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
+}

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -47,7 +47,7 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1CSINodeDriver item : items) {
         V1CSINodeDriverBuilder builder = new V1CSINodeDriverBuilder(item);
-        _visitables.get("drivers").add(builder);
+        this._visitables.get("drivers").add(builder);
         this.drivers.add(builder);
     }
     return (A) this;
@@ -67,7 +67,7 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1CSINodeDriver item : items) {
         V1CSINodeDriverBuilder builder = new V1CSINodeDriverBuilder(item);
-        _visitables.get("drivers").add(builder);
+        this._visitables.get("drivers").add(builder);
         this.drivers.add(builder);
     }
     return (A) this;
@@ -78,12 +78,12 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
       this.drivers = new ArrayList();
     }
     V1CSINodeDriverBuilder builder = new V1CSINodeDriverBuilder(item);
-    if (index < 0 || index >= drivers.size()) {
-        _visitables.get("drivers").add(builder);
-        drivers.add(builder);
+    if (index < 0 || index >= this.drivers.size()) {
+        this._visitables.get("drivers").add(builder);
+        this.drivers.add(builder);
     } else {
-        _visitables.get("drivers").add(builder);
-        drivers.add(index, builder);
+        this._visitables.get("drivers").add(builder);
+        this.drivers.add(index, builder);
     }
     return (A) this;
   }
@@ -219,7 +219,7 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<V1CSINodeDriverBuilder> each = drivers.iterator();
-    List visitables = _visitables.get("drivers");
+    List visitables = this._visitables.get("drivers");
     while (each.hasNext()) {
         V1CSINodeDriverBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -239,12 +239,12 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
       this.drivers = new ArrayList();
     }
     V1CSINodeDriverBuilder builder = new V1CSINodeDriverBuilder(item);
-    if (index < 0 || index >= drivers.size()) {
-        _visitables.get("drivers").add(builder);
-        drivers.add(builder);
+    if (index < 0 || index >= this.drivers.size()) {
+        this._visitables.get("drivers").add(builder);
+        this.drivers.add(builder);
     } else {
-        _visitables.get("drivers").add(builder);
-        drivers.set(index, builder);
+        this._visitables.get("drivers").add(builder);
+        this.drivers.set(index, builder);
     }
     return (A) this;
   }

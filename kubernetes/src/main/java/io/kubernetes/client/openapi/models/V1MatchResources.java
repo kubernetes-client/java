@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * MatchResources decides whether to run the admission control policy on an object based on whether it meets the match criteria. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)
  */
 @ApiModel(description = "MatchResources decides whether to run the admission control policy on an object based on whether it meets the match criteria. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1MatchResources {
   public static final String SERIALIZED_NAME_EXCLUDE_RESOURCE_RULES = "excludeResourceRules";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_RESOURCE_RULES)
@@ -98,11 +98,11 @@ public class V1MatchResources {
   }
 
   /**
-   * ExcludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)
+   * excludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)
    * @return excludeResourceRules
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "ExcludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)")
+  @ApiModelProperty(value = "excludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)")
   public List<V1NamedRuleWithOperations> getExcludeResourceRules() {
     return excludeResourceRules;
   }
@@ -186,11 +186,11 @@ public class V1MatchResources {
   }
 
   /**
-   * ResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.
+   * resourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.
    * @return resourceRules
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "ResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.")
+  @ApiModelProperty(value = "resourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.")
   public List<V1NamedRuleWithOperations> getResourceRules() {
     return resourceRules;
   }

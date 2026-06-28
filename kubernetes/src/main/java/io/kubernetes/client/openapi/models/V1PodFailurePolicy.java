@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodFailurePolicy describes how failed pods influence the backoffLimit.
  */
 @ApiModel(description = "PodFailurePolicy describes how failed pods influence the backoffLimit.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PodFailurePolicy {
   public static final String SERIALIZED_NAME_RULES = "rules";
   @SerializedName(SERIALIZED_NAME_RULES)

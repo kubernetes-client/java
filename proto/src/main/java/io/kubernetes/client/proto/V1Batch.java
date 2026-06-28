@@ -53,7 +53,7 @@ public final class V1Batch {
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -63,7 +63,7 @@ public final class V1Batch {
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -73,7 +73,7 @@ public final class V1Batch {
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -114,6 +114,7 @@ public final class V1Batch {
   /**
    * <pre>
    * CronJob represents the configuration of a single cron job.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.batch.v1.CronJob}
@@ -271,7 +272,7 @@ public final class V1Batch {
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -283,7 +284,7 @@ public final class V1Batch {
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -295,7 +296,7 @@ public final class V1Batch {
      * <pre>
      * Specification of the desired behavior of a cron job, including the schedule.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -539,6 +540,7 @@ public final class V1Batch {
     /**
      * <pre>
      * CronJob represents the configuration of a single cron job.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.batch.v1.CronJob}
@@ -918,7 +920,7 @@ public final class V1Batch {
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -930,7 +932,7 @@ public final class V1Batch {
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -946,7 +948,7 @@ public final class V1Batch {
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -968,7 +970,7 @@ public final class V1Batch {
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -988,7 +990,7 @@ public final class V1Batch {
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -1014,7 +1016,7 @@ public final class V1Batch {
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -1033,7 +1035,7 @@ public final class V1Batch {
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -1047,7 +1049,7 @@ public final class V1Batch {
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -1064,7 +1066,7 @@ public final class V1Batch {
        * <pre>
        * Specification of the desired behavior of a cron job, including the schedule.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.batch.v1.CronJobSpec spec = 2;</code>
@@ -2509,7 +2511,7 @@ public final class V1Batch {
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -2519,7 +2521,7 @@ public final class V1Batch {
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -2529,7 +2531,7 @@ public final class V1Batch {
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -2880,7 +2882,7 @@ public final class V1Batch {
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -2892,7 +2894,7 @@ public final class V1Batch {
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -2915,7 +2917,7 @@ public final class V1Batch {
      * <pre>
      * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string schedule = 1;</code>
@@ -3738,7 +3740,7 @@ public final class V1Batch {
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>
@@ -3750,7 +3752,7 @@ public final class V1Batch {
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>
@@ -3773,7 +3775,7 @@ public final class V1Batch {
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>
@@ -3795,7 +3797,7 @@ public final class V1Batch {
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>
@@ -3814,7 +3816,7 @@ public final class V1Batch {
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>
@@ -3829,7 +3831,7 @@ public final class V1Batch {
        * <pre>
        * The schedule in Cron format, see https://en.wikipedia.org/wiki/Cron.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string schedule = 1;</code>
@@ -6168,6 +6170,7 @@ public final class V1Batch {
   /**
    * <pre>
    * Job represents the configuration of a single job.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.batch.v1.Job}
@@ -6593,6 +6596,7 @@ public final class V1Batch {
     /**
      * <pre>
      * Job represents the configuration of a single job.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.batch.v1.Job}
@@ -10641,6 +10645,8 @@ public final class V1Batch {
      * It can be null or up to completions. It is required and must be
      * less than or equal to 10^4 when is completions greater than 10^5.
      * +optional
+     * +k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:dependentRequired("backoffLimitPerIndex")
      * </pre>
      *
      * <code>optional int32 maxFailedIndexes = 13;</code>
@@ -10657,6 +10663,8 @@ public final class V1Batch {
      * It can be null or up to completions. It is required and must be
      * less than or equal to 10^4 when is completions greater than 10^5.
      * +optional
+     * +k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:dependentRequired("backoffLimitPerIndex")
      * </pre>
      *
      * <code>optional int32 maxFailedIndexes = 13;</code>
@@ -11496,6 +11504,8 @@ public final class V1Batch {
      * It can be null or up to completions. It is required and must be
      * less than or equal to 10^4 when is completions greater than 10^5.
      * +optional
+     * +k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:dependentRequired("backoffLimitPerIndex")
      * </pre>
      *
      * <code>optional int32 maxFailedIndexes = 13;</code>
@@ -11514,6 +11524,8 @@ public final class V1Batch {
      * It can be null or up to completions. It is required and must be
      * less than or equal to 10^4 when is completions greater than 10^5.
      * +optional
+     * +k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:dependentRequired("backoffLimitPerIndex")
      * </pre>
      *
      * <code>optional int32 maxFailedIndexes = 13;</code>
@@ -13494,6 +13506,8 @@ public final class V1Batch {
        * It can be null or up to completions. It is required and must be
        * less than or equal to 10^4 when is completions greater than 10^5.
        * +optional
+       * +k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:dependentRequired("backoffLimitPerIndex")
        * </pre>
        *
        * <code>optional int32 maxFailedIndexes = 13;</code>
@@ -13512,6 +13526,8 @@ public final class V1Batch {
        * It can be null or up to completions. It is required and must be
        * less than or equal to 10^4 when is completions greater than 10^5.
        * +optional
+       * +k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:dependentRequired("backoffLimitPerIndex")
        * </pre>
        *
        * <code>optional int32 maxFailedIndexes = 13;</code>
@@ -13530,6 +13546,8 @@ public final class V1Batch {
        * It can be null or up to completions. It is required and must be
        * less than or equal to 10^4 when is completions greater than 10^5.
        * +optional
+       * +k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:dependentRequired("backoffLimitPerIndex")
        * </pre>
        *
        * <code>optional int32 maxFailedIndexes = 13;</code>
@@ -13551,6 +13569,8 @@ public final class V1Batch {
        * It can be null or up to completions. It is required and must be
        * less than or equal to 10^4 when is completions greater than 10^5.
        * +optional
+       * +k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:dependentRequired("backoffLimitPerIndex")
        * </pre>
        *
        * <code>optional int32 maxFailedIndexes = 13;</code>
@@ -14998,8 +15018,6 @@ public final class V1Batch {
      * <pre>
      * The number of pods which are terminating (in phase Pending or Running
      * and have a deletionTimestamp).
-     * This field is beta-level. The job controller populates the field when
-     * the feature gate JobPodReplacementPolicy is enabled (enabled by default).
      * +optional
      * </pre>
      *
@@ -15010,8 +15028,6 @@ public final class V1Batch {
      * <pre>
      * The number of pods which are terminating (in phase Pending or Running
      * and have a deletionTimestamp).
-     * This field is beta-level. The job controller populates the field when
-     * the feature gate JobPodReplacementPolicy is enabled (enabled by default).
      * +optional
      * </pre>
      *
@@ -15689,8 +15705,6 @@ public final class V1Batch {
      * <pre>
      * The number of pods which are terminating (in phase Pending or Running
      * and have a deletionTimestamp).
-     * This field is beta-level. The job controller populates the field when
-     * the feature gate JobPodReplacementPolicy is enabled (enabled by default).
      * +optional
      * </pre>
      *
@@ -15703,8 +15717,6 @@ public final class V1Batch {
      * <pre>
      * The number of pods which are terminating (in phase Pending or Running
      * and have a deletionTimestamp).
-     * This field is beta-level. The job controller populates the field when
-     * the feature gate JobPodReplacementPolicy is enabled (enabled by default).
      * +optional
      * </pre>
      *
@@ -17753,8 +17765,6 @@ public final class V1Batch {
        * <pre>
        * The number of pods which are terminating (in phase Pending or Running
        * and have a deletionTimestamp).
-       * This field is beta-level. The job controller populates the field when
-       * the feature gate JobPodReplacementPolicy is enabled (enabled by default).
        * +optional
        * </pre>
        *
@@ -17767,8 +17777,6 @@ public final class V1Batch {
        * <pre>
        * The number of pods which are terminating (in phase Pending or Running
        * and have a deletionTimestamp).
-       * This field is beta-level. The job controller populates the field when
-       * the feature gate JobPodReplacementPolicy is enabled (enabled by default).
        * +optional
        * </pre>
        *
@@ -17781,8 +17789,6 @@ public final class V1Batch {
        * <pre>
        * The number of pods which are terminating (in phase Pending or Running
        * and have a deletionTimestamp).
-       * This field is beta-level. The job controller populates the field when
-       * the feature gate JobPodReplacementPolicy is enabled (enabled by default).
        * +optional
        * </pre>
        *
@@ -17798,8 +17804,6 @@ public final class V1Batch {
        * <pre>
        * The number of pods which are terminating (in phase Pending or Running
        * and have a deletionTimestamp).
-       * This field is beta-level. The job controller populates the field when
-       * the feature gate JobPodReplacementPolicy is enabled (enabled by default).
        * +optional
        * </pre>
        *

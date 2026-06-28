@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview.
  */
 @ApiModel(description = "SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1SelfSubjectRulesReviewSpec {
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
@@ -66,11 +66,11 @@ public class V1SelfSubjectRulesReviewSpec {
   }
 
   /**
-   * Namespace to evaluate rules for. Required.
+   * namespace to evaluate rules for. Required.
    * @return namespace
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Namespace to evaluate rules for. Required.")
+  @ApiModelProperty(value = "namespace to evaluate rules for. Required.")
   public String getNamespace() {
     return namespace;
   }

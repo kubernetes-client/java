@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * ValidatingAdmissionPolicyStatus represents the status of an admission validation policy.
  */
 @ApiModel(description = "ValidatingAdmissionPolicyStatus represents the status of an admission validation policy.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ValidatingAdmissionPolicyStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
@@ -88,11 +88,11 @@ public class V1ValidatingAdmissionPolicyStatus {
   }
 
   /**
-   * The conditions represent the latest available observations of a policy&#39;s current state.
+   * conditions represent the latest available observations of a policy&#39;s current state.
    * @return conditions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The conditions represent the latest available observations of a policy's current state.")
+  @ApiModelProperty(value = "conditions represent the latest available observations of a policy's current state.")
   public List<V1Condition> getConditions() {
     return conditions;
   }
@@ -108,11 +108,11 @@ public class V1ValidatingAdmissionPolicyStatus {
   }
 
   /**
-   * The generation observed by the controller.
+   * observedGeneration is the generation observed by the controller.
    * @return observedGeneration
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The generation observed by the controller.")
+  @ApiModelProperty(value = "observedGeneration is the generation observed by the controller.")
   public Long getObservedGeneration() {
     return observedGeneration;
   }

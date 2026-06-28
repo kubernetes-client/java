@@ -29,12 +29,12 @@ import io.kubernetes.client.openapi.models.V1PodOS;
 import io.kubernetes.client.openapi.models.V1PodReadinessGate;
 import io.kubernetes.client.openapi.models.V1PodResourceClaim;
 import io.kubernetes.client.openapi.models.V1PodSchedulingGate;
+import io.kubernetes.client.openapi.models.V1PodSchedulingGroup;
 import io.kubernetes.client.openapi.models.V1PodSecurityContext;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1Toleration;
 import io.kubernetes.client.openapi.models.V1TopologySpreadConstraint;
 import io.kubernetes.client.openapi.models.V1Volume;
-import io.kubernetes.client.openapi.models.V1WorkloadReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -71,7 +71,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodSpec is a description of a pod.
  */
 @ApiModel(description = "PodSpec is a description of a pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS)
@@ -228,6 +228,11 @@ public class V1PodSpec {
   @jakarta.annotation.Nullable
   private List<V1PodSchedulingGate> schedulingGates = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SCHEDULING_GROUP = "schedulingGroup";
+  @SerializedName(SERIALIZED_NAME_SCHEDULING_GROUP)
+  @jakarta.annotation.Nullable
+  private V1PodSchedulingGroup schedulingGroup;
+
   public static final String SERIALIZED_NAME_SECURITY_CONTEXT = "securityContext";
   @SerializedName(SERIALIZED_NAME_SECURITY_CONTEXT)
   @jakarta.annotation.Nullable
@@ -277,11 +282,6 @@ public class V1PodSpec {
   @SerializedName(SERIALIZED_NAME_VOLUMES)
   @jakarta.annotation.Nullable
   private List<V1Volume> volumes = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_WORKLOAD_REF = "workloadRef";
-  @SerializedName(SERIALIZED_NAME_WORKLOAD_REF)
-  @jakarta.annotation.Nullable
-  private V1WorkloadReference workloadRef;
 
   public V1PodSpec() {
   }
@@ -556,11 +556,11 @@ public class V1PodSpec {
   }
 
   /**
-   * Use the host&#39;s user namespace. Optional: Default to true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new userns is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host. This field is alpha-level and is only honored by servers that enable the UserNamespacesSupport feature.
+   * Use the host&#39;s user namespace. Optional: Default to true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new userns is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host.
    * @return hostUsers
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Use the host's user namespace. Optional: Default to true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new userns is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host. This field is alpha-level and is only honored by servers that enable the UserNamespacesSupport feature.")
+  @ApiModelProperty(value = "Use the host's user namespace. Optional: Default to true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new userns is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host.")
   public Boolean getHostUsers() {
     return hostUsers;
   }
@@ -986,6 +986,26 @@ public class V1PodSpec {
   }
 
 
+  public V1PodSpec schedulingGroup(@jakarta.annotation.Nullable V1PodSchedulingGroup schedulingGroup) {
+    this.schedulingGroup = schedulingGroup;
+    return this;
+  }
+
+  /**
+   * Get schedulingGroup
+   * @return schedulingGroup
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1PodSchedulingGroup getSchedulingGroup() {
+    return schedulingGroup;
+  }
+
+  public void setSchedulingGroup(@jakarta.annotation.Nullable V1PodSchedulingGroup schedulingGroup) {
+    this.schedulingGroup = schedulingGroup;
+  }
+
+
   public V1PodSpec securityContext(@jakarta.annotation.Nullable V1PodSecurityContext securityContext) {
     this.securityContext = securityContext;
     return this;
@@ -1210,26 +1230,6 @@ public class V1PodSpec {
   }
 
 
-  public V1PodSpec workloadRef(@jakarta.annotation.Nullable V1WorkloadReference workloadRef) {
-    this.workloadRef = workloadRef;
-    return this;
-  }
-
-  /**
-   * Get workloadRef
-   * @return workloadRef
-   */
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
-  public V1WorkloadReference getWorkloadRef() {
-    return workloadRef;
-  }
-
-  public void setWorkloadRef(@jakarta.annotation.Nullable V1WorkloadReference workloadRef) {
-    this.workloadRef = workloadRef;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -1271,6 +1271,7 @@ public class V1PodSpec {
         Objects.equals(this.runtimeClassName, v1PodSpec.runtimeClassName) &&
         Objects.equals(this.schedulerName, v1PodSpec.schedulerName) &&
         Objects.equals(this.schedulingGates, v1PodSpec.schedulingGates) &&
+        Objects.equals(this.schedulingGroup, v1PodSpec.schedulingGroup) &&
         Objects.equals(this.securityContext, v1PodSpec.securityContext) &&
         Objects.equals(this.serviceAccount, v1PodSpec.serviceAccount) &&
         Objects.equals(this.serviceAccountName, v1PodSpec.serviceAccountName) &&
@@ -1280,13 +1281,12 @@ public class V1PodSpec {
         Objects.equals(this.terminationGracePeriodSeconds, v1PodSpec.terminationGracePeriodSeconds) &&
         Objects.equals(this.tolerations, v1PodSpec.tolerations) &&
         Objects.equals(this.topologySpreadConstraints, v1PodSpec.topologySpreadConstraints) &&
-        Objects.equals(this.volumes, v1PodSpec.volumes) &&
-        Objects.equals(this.workloadRef, v1PodSpec.workloadRef);
+        Objects.equals(this.volumes, v1PodSpec.volumes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDeadlineSeconds, affinity, automountServiceAccountToken, containers, dnsConfig, dnsPolicy, enableServiceLinks, ephemeralContainers, hostAliases, hostIPC, hostNetwork, hostPID, hostUsers, hostname, hostnameOverride, imagePullSecrets, initContainers, nodeName, nodeSelector, os, overhead, preemptionPolicy, priority, priorityClassName, readinessGates, resourceClaims, resources, restartPolicy, runtimeClassName, schedulerName, schedulingGates, securityContext, serviceAccount, serviceAccountName, setHostnameAsFQDN, shareProcessNamespace, subdomain, terminationGracePeriodSeconds, tolerations, topologySpreadConstraints, volumes, workloadRef);
+    return Objects.hash(activeDeadlineSeconds, affinity, automountServiceAccountToken, containers, dnsConfig, dnsPolicy, enableServiceLinks, ephemeralContainers, hostAliases, hostIPC, hostNetwork, hostPID, hostUsers, hostname, hostnameOverride, imagePullSecrets, initContainers, nodeName, nodeSelector, os, overhead, preemptionPolicy, priority, priorityClassName, readinessGates, resourceClaims, resources, restartPolicy, runtimeClassName, schedulerName, schedulingGates, schedulingGroup, securityContext, serviceAccount, serviceAccountName, setHostnameAsFQDN, shareProcessNamespace, subdomain, terminationGracePeriodSeconds, tolerations, topologySpreadConstraints, volumes);
   }
 
   @Override
@@ -1324,6 +1324,7 @@ public class V1PodSpec {
     sb.append("    runtimeClassName: ").append(toIndentedString(runtimeClassName)).append("\n");
     sb.append("    schedulerName: ").append(toIndentedString(schedulerName)).append("\n");
     sb.append("    schedulingGates: ").append(toIndentedString(schedulingGates)).append("\n");
+    sb.append("    schedulingGroup: ").append(toIndentedString(schedulingGroup)).append("\n");
     sb.append("    securityContext: ").append(toIndentedString(securityContext)).append("\n");
     sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
     sb.append("    serviceAccountName: ").append(toIndentedString(serviceAccountName)).append("\n");
@@ -1334,7 +1335,6 @@ public class V1PodSpec {
     sb.append("    tolerations: ").append(toIndentedString(tolerations)).append("\n");
     sb.append("    topologySpreadConstraints: ").append(toIndentedString(topologySpreadConstraints)).append("\n");
     sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");
-    sb.append("    workloadRef: ").append(toIndentedString(workloadRef)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1356,7 +1356,7 @@ public class V1PodSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("activeDeadlineSeconds", "affinity", "automountServiceAccountToken", "containers", "dnsConfig", "dnsPolicy", "enableServiceLinks", "ephemeralContainers", "hostAliases", "hostIPC", "hostNetwork", "hostPID", "hostUsers", "hostname", "hostnameOverride", "imagePullSecrets", "initContainers", "nodeName", "nodeSelector", "os", "overhead", "preemptionPolicy", "priority", "priorityClassName", "readinessGates", "resourceClaims", "resources", "restartPolicy", "runtimeClassName", "schedulerName", "schedulingGates", "securityContext", "serviceAccount", "serviceAccountName", "setHostnameAsFQDN", "shareProcessNamespace", "subdomain", "terminationGracePeriodSeconds", "tolerations", "topologySpreadConstraints", "volumes", "workloadRef"));
+    openapiFields = new HashSet<String>(Arrays.asList("activeDeadlineSeconds", "affinity", "automountServiceAccountToken", "containers", "dnsConfig", "dnsPolicy", "enableServiceLinks", "ephemeralContainers", "hostAliases", "hostIPC", "hostNetwork", "hostPID", "hostUsers", "hostname", "hostnameOverride", "imagePullSecrets", "initContainers", "nodeName", "nodeSelector", "os", "overhead", "preemptionPolicy", "priority", "priorityClassName", "readinessGates", "resourceClaims", "resources", "restartPolicy", "runtimeClassName", "schedulerName", "schedulingGates", "schedulingGroup", "securityContext", "serviceAccount", "serviceAccountName", "setHostnameAsFQDN", "shareProcessNamespace", "subdomain", "terminationGracePeriodSeconds", "tolerations", "topologySpreadConstraints", "volumes"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("containers"));
@@ -1541,6 +1541,10 @@ public class V1PodSpec {
           };
         }
       }
+      // validate the optional field `schedulingGroup`
+      if (jsonObj.get("schedulingGroup") != null && !jsonObj.get("schedulingGroup").isJsonNull()) {
+        V1PodSchedulingGroup.validateJsonElement(jsonObj.get("schedulingGroup"));
+      }
       // validate the optional field `securityContext`
       if (jsonObj.get("securityContext") != null && !jsonObj.get("securityContext").isJsonNull()) {
         V1PodSecurityContext.validateJsonElement(jsonObj.get("securityContext"));
@@ -1595,10 +1599,6 @@ public class V1PodSpec {
             V1Volume.validateJsonElement(jsonArrayvolumes.get(i));
           };
         }
-      }
-      // validate the optional field `workloadRef`
-      if (jsonObj.get("workloadRef") != null && !jsonObj.get("workloadRef").isJsonNull()) {
-        V1WorkloadReference.validateJsonElement(jsonObj.get("workloadRef"));
       }
   }
 

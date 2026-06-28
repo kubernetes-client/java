@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * Describes the state of the storageVersion at a certain point.
  */
 @ApiModel(description = "Describes the state of the storageVersion at a certain point.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha1StorageVersionCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
@@ -92,11 +92,11 @@ public class V1alpha1StorageVersionCondition {
   }
 
   /**
-   * Last time the condition transitioned from one status to another.
+   * lastTransitionTime is the last time the condition transitioned from one status to another.
    * @return lastTransitionTime
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Last time the condition transitioned from one status to another.")
+  @ApiModelProperty(value = "lastTransitionTime is the last time the condition transitioned from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
@@ -112,11 +112,11 @@ public class V1alpha1StorageVersionCondition {
   }
 
   /**
-   * A human readable message indicating details about the transition.
+   * message is a human readable string indicating details about the transition.
    * @return message
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "A human readable message indicating details about the transition.")
+  @ApiModelProperty(required = true, value = "message is a human readable string indicating details about the transition.")
   public String getMessage() {
     return message;
   }
@@ -132,11 +132,11 @@ public class V1alpha1StorageVersionCondition {
   }
 
   /**
-   * If set, this represents the .metadata.generation that the condition was set based upon.
+   * observedGeneration represents the .metadata.generation that the condition was set based upon, if field is set.
    * @return observedGeneration
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "If set, this represents the .metadata.generation that the condition was set based upon.")
+  @ApiModelProperty(value = "observedGeneration represents the .metadata.generation that the condition was set based upon, if field is set.")
   public Long getObservedGeneration() {
     return observedGeneration;
   }
@@ -152,11 +152,11 @@ public class V1alpha1StorageVersionCondition {
   }
 
   /**
-   * The reason for the condition&#39;s last transition.
+   * reason for the condition&#39;s last transition.
    * @return reason
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The reason for the condition's last transition.")
+  @ApiModelProperty(required = true, value = "reason for the condition's last transition.")
   public String getReason() {
     return reason;
   }
@@ -172,11 +172,11 @@ public class V1alpha1StorageVersionCondition {
   }
 
   /**
-   * Status of the condition, one of True, False, Unknown.
+   * status of the condition, one of True, False, Unknown.
    * @return status
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Status of the condition, one of True, False, Unknown.")
+  @ApiModelProperty(required = true, value = "status of the condition, one of True, False, Unknown.")
   public String getStatus() {
     return status;
   }
@@ -192,11 +192,11 @@ public class V1alpha1StorageVersionCondition {
   }
 
   /**
-   * Type of the condition.
+   * type of the condition.
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Type of the condition.")
+  @ApiModelProperty(required = true, value = "type of the condition.")
   public String getType() {
     return type;
   }

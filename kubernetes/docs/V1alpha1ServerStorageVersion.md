@@ -8,10 +8,10 @@ An API server instance reports the version it can decode and the version it enco
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**apiServerID** | **String** | The ID of the reporting API server. |  [optional] |
-|**decodableVersions** | **List&lt;String&gt;** | The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions. |  [optional] |
-|**encodingVersion** | **String** | The API server encodes the object to this version when persisting it in the backend (e.g., etcd). |  [optional] |
-|**servedVersions** | **List&lt;String&gt;** | The API server can serve these versions. DecodableVersions must include all ServedVersions. |  [optional] |
+|**apiServerID** | **String** | apiServerID is the ID of the reporting API server. |  |
+|**decodableVersions** | **List&lt;String&gt;** | decodableVersions are the encoding versions the API server can handle to decode. The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions. |  |
+|**encodingVersion** | **String** | encodingVersion the API server encodes the object to when persisting it in the backend (e.g., etcd). |  |
+|**servedVersions** | **List&lt;String&gt;** | servedVersions lists all versions the API server can serve. DecodableVersions must include all ServedVersions. |  [optional] |
 
 
 

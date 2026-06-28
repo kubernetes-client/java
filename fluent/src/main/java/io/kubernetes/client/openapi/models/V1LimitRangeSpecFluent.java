@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -47,7 +47,7 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1LimitRangeItem item : items) {
         V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
-        _visitables.get("limits").add(builder);
+        this._visitables.get("limits").add(builder);
         this.limits.add(builder);
     }
     return (A) this;
@@ -67,7 +67,7 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1LimitRangeItem item : items) {
         V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
-        _visitables.get("limits").add(builder);
+        this._visitables.get("limits").add(builder);
         this.limits.add(builder);
     }
     return (A) this;
@@ -78,12 +78,12 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
       this.limits = new ArrayList();
     }
     V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
-    if (index < 0 || index >= limits.size()) {
-        _visitables.get("limits").add(builder);
-        limits.add(builder);
+    if (index < 0 || index >= this.limits.size()) {
+        this._visitables.get("limits").add(builder);
+        this.limits.add(builder);
     } else {
-        _visitables.get("limits").add(builder);
-        limits.add(index, builder);
+        this._visitables.get("limits").add(builder);
+        this.limits.add(index, builder);
     }
     return (A) this;
   }
@@ -219,7 +219,7 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1LimitRangeItemBuilder> each = limits.iterator();
-    List visitables = _visitables.get("limits");
+    List visitables = this._visitables.get("limits");
     while (each.hasNext()) {
         V1LimitRangeItemBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -239,12 +239,12 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
       this.limits = new ArrayList();
     }
     V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
-    if (index < 0 || index >= limits.size()) {
-        _visitables.get("limits").add(builder);
-        limits.add(builder);
+    if (index < 0 || index >= this.limits.size()) {
+        this._visitables.get("limits").add(builder);
+        this.limits.add(builder);
     } else {
-        _visitables.get("limits").add(builder);
-        limits.set(index, builder);
+        this._visitables.get("limits").add(builder);
+        this.limits.set(index, builder);
     }
     return (A) this;
   }

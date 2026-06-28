@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -13,12 +13,14 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
@@ -30,6 +32,7 @@ public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.mo
   private String name;
   private Boolean readOnly;
   private String recursiveReadOnly;
+  private V1VolumeStatusBuilder volumeStatus;
 
   public V1VolumeMountStatusFluent() {
   }
@@ -38,6 +41,10 @@ public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.mo
     this.copyInstance(instance);
   }
 
+  public V1VolumeStatus buildVolumeStatus() {
+    return this.volumeStatus != null ? this.volumeStatus.build() : null;
+  }
+  
   protected void copyInstance(V1VolumeMountStatus instance) {
     instance = instance != null ? instance : new V1VolumeMountStatus();
     if (instance != null) {
@@ -45,7 +52,20 @@ public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.mo
         this.withName(instance.getName());
         this.withReadOnly(instance.getReadOnly());
         this.withRecursiveReadOnly(instance.getRecursiveReadOnly());
+        this.withVolumeStatus(instance.getVolumeStatus());
     }
+  }
+  
+  public VolumeStatusNested<A> editOrNewVolumeStatus() {
+    return this.withNewVolumeStatusLike(Optional.ofNullable(this.buildVolumeStatus()).orElse(new V1VolumeStatusBuilder().build()));
+  }
+  
+  public VolumeStatusNested<A> editOrNewVolumeStatusLike(V1VolumeStatus item) {
+    return this.withNewVolumeStatusLike(Optional.ofNullable(this.buildVolumeStatus()).orElse(item));
+  }
+  
+  public VolumeStatusNested<A> editVolumeStatus() {
+    return this.withNewVolumeStatusLike(Optional.ofNullable(this.buildVolumeStatus()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -69,6 +89,9 @@ public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.mo
       return false;
     }
     if (!(Objects.equals(recursiveReadOnly, that.recursiveReadOnly))) {
+      return false;
+    }
+    if (!(Objects.equals(volumeStatus, that.volumeStatus))) {
       return false;
     }
     return true;
@@ -106,8 +129,12 @@ public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.mo
     return this.recursiveReadOnly != null;
   }
   
+  public boolean hasVolumeStatus() {
+    return this.volumeStatus != null;
+  }
+  
   public int hashCode() {
-    return Objects.hash(mountPath, name, readOnly, recursiveReadOnly);
+    return Objects.hash(mountPath, name, readOnly, recursiveReadOnly, volumeStatus);
   }
   
   public String toString() {
@@ -131,6 +158,11 @@ public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.mo
     if (!(recursiveReadOnly == null)) {
         sb.append("recursiveReadOnly:");
         sb.append(recursiveReadOnly);
+        sb.append(",");
+    }
+    if (!(volumeStatus == null)) {
+        sb.append("volumeStatus:");
+        sb.append(volumeStatus);
     }
     sb.append("}");
     return sb.toString();
@@ -144,6 +176,14 @@ public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.mo
   public A withName(String name) {
     this.name = name;
     return (A) this;
+  }
+  
+  public VolumeStatusNested<A> withNewVolumeStatus() {
+    return new VolumeStatusNested(null);
+  }
+  
+  public VolumeStatusNested<A> withNewVolumeStatusLike(V1VolumeStatus item) {
+    return new VolumeStatusNested(item);
   }
   
   public A withReadOnly() {
@@ -160,4 +200,32 @@ public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.mo
     return (A) this;
   }
   
+  public A withVolumeStatus(V1VolumeStatus volumeStatus) {
+    this._visitables.remove("volumeStatus");
+    if (volumeStatus != null) {
+        this.volumeStatus = new V1VolumeStatusBuilder(volumeStatus);
+        this._visitables.get("volumeStatus").add(this.volumeStatus);
+    } else {
+        this.volumeStatus = null;
+        this._visitables.get("volumeStatus").remove(this.volumeStatus);
+    }
+    return (A) this;
+  }
+  public class VolumeStatusNested<N> extends V1VolumeStatusFluent<VolumeStatusNested<N>> implements Nested<N>{
+  
+    V1VolumeStatusBuilder builder;
+  
+    VolumeStatusNested(V1VolumeStatus item) {
+      this.builder = new V1VolumeStatusBuilder(this, item);
+    }
+  
+    public N and() {
+      return (N) V1VolumeMountStatusFluent.this.withVolumeStatus(builder.build());
+    }
+    
+    public N endVolumeStatus() {
+      return and();
+    }
+    
+  }
 }

@@ -8,8 +8,8 @@ TokenRequestStatus is the result of a token request.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**expirationTimestamp** | **OffsetDateTime** | ExpirationTimestamp is the time of expiration of the returned token. |  |
-|**token** | **String** | Token is the opaque bearer token. |  |
+|**expirationTimestamp** | **OffsetDateTime** | expirationTimestamp is the time of expiration of the returned token. |  [optional] |
+|**token** | **String** | token is the opaque bearer token. |  [optional] |
 
 
 

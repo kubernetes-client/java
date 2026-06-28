@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -50,7 +50,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1ServerAddressByClientCIDR item : items) {
         V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
-        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        this._visitables.get("serverAddressByClientCIDRs").add(builder);
         this.serverAddressByClientCIDRs.add(builder);
     }
     return (A) this;
@@ -80,7 +80,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1ServerAddressByClientCIDR item : items) {
         V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
-        _visitables.get("serverAddressByClientCIDRs").add(builder);
+        this._visitables.get("serverAddressByClientCIDRs").add(builder);
         this.serverAddressByClientCIDRs.add(builder);
     }
     return (A) this;
@@ -91,12 +91,12 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
       this.serverAddressByClientCIDRs = new ArrayList();
     }
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
-    if (index < 0 || index >= serverAddressByClientCIDRs.size()) {
-        _visitables.get("serverAddressByClientCIDRs").add(builder);
-        serverAddressByClientCIDRs.add(builder);
+    if (index < 0 || index >= this.serverAddressByClientCIDRs.size()) {
+        this._visitables.get("serverAddressByClientCIDRs").add(builder);
+        this.serverAddressByClientCIDRs.add(builder);
     } else {
-        _visitables.get("serverAddressByClientCIDRs").add(builder);
-        serverAddressByClientCIDRs.add(index, builder);
+        this._visitables.get("serverAddressByClientCIDRs").add(builder);
+        this.serverAddressByClientCIDRs.add(index, builder);
     }
     return (A) this;
   }
@@ -336,7 +336,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<V1ServerAddressByClientCIDRBuilder> each = serverAddressByClientCIDRs.iterator();
-    List visitables = _visitables.get("serverAddressByClientCIDRs");
+    List visitables = this._visitables.get("serverAddressByClientCIDRs");
     while (each.hasNext()) {
         V1ServerAddressByClientCIDRBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -356,12 +356,12 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
       this.serverAddressByClientCIDRs = new ArrayList();
     }
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
-    if (index < 0 || index >= serverAddressByClientCIDRs.size()) {
-        _visitables.get("serverAddressByClientCIDRs").add(builder);
-        serverAddressByClientCIDRs.add(builder);
+    if (index < 0 || index >= this.serverAddressByClientCIDRs.size()) {
+        this._visitables.get("serverAddressByClientCIDRs").add(builder);
+        this.serverAddressByClientCIDRs.add(builder);
     } else {
-        _visitables.get("serverAddressByClientCIDRs").add(builder);
-        serverAddressByClientCIDRs.set(index, builder);
+        this._visitables.get("serverAddressByClientCIDRs").add(builder);
+        this.serverAddressByClientCIDRs.set(index, builder);
     }
     return (A) this;
   }

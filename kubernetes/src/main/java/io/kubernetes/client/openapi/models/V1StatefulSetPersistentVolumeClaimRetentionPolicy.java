@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.
  */
 @ApiModel(description = "StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1StatefulSetPersistentVolumeClaimRetentionPolicy {
   public static final String SERIALIZED_NAME_WHEN_DELETED = "whenDeleted";
   @SerializedName(SERIALIZED_NAME_WHEN_DELETED)
