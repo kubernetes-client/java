@@ -19,9 +19,9 @@ jobs:
           distribution: 'temurin'
           java-version: 17.0.x
           cache: maven
-          server-id: ossrh
-          server-username: OSSRH_USERNAME
-          server-password: OSSRH_TOKEN
+          server-id: central
+          server-username: CENTRAL_USERNAME
+          server-password: CENTRAL_TOKEN
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: GPG_PASSPHRASE
       - name: Assert Snapshot Version
@@ -35,6 +35,6 @@ jobs:
       - name: Publish to Apache Maven Central
         run: ./mvnw deploy
         env:
-          OSSRH_USERNAME: ${{ secrets.SNAPSHOT_UPLOAD_USER }}
-          OSSRH_TOKEN: ${{ secrets.SNAPSHOT_UPLOAD_PASSWORD }}
+          CENTRAL_USERNAME: ${{ secrets.SNAPSHOT_UPLOAD_USER }}
+          CENTRAL_TOKEN: ${{ secrets.SNAPSHOT_UPLOAD_PASSWORD }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSWORD }}
