@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -46,6 +46,7 @@ public class V1beta1BasicDeviceBuilder extends V1beta1BasicDeviceFluent<V1beta1B
     buildable.setBindsToNode(fluent.getBindsToNode());
     buildable.setCapacity(fluent.getCapacity());
     buildable.setConsumesCounters(fluent.buildConsumesCounters());
+    buildable.setNodeAllocatableResourceMappings(fluent.getNodeAllocatableResourceMappings());
     buildable.setNodeName(fluent.getNodeName());
     buildable.setNodeSelector(fluent.buildNodeSelector());
     buildable.setTaints(fluent.buildTaints());

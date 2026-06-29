@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -54,7 +54,7 @@ public class V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1LocalObjectReference item : items) {
         V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
-        _visitables.get("imagePullSecrets").add(builder);
+        this._visitables.get("imagePullSecrets").add(builder);
         this.imagePullSecrets.add(builder);
     }
     return (A) this;
@@ -66,7 +66,7 @@ public class V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1ObjectReference item : items) {
         V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-        _visitables.get("secrets").add(builder);
+        this._visitables.get("secrets").add(builder);
         this.secrets.add(builder);
     }
     return (A) this;
@@ -94,7 +94,7 @@ public class V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1LocalObjectReference item : items) {
         V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
-        _visitables.get("imagePullSecrets").add(builder);
+        this._visitables.get("imagePullSecrets").add(builder);
         this.imagePullSecrets.add(builder);
     }
     return (A) this;
@@ -105,12 +105,12 @@ public class V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.model
       this.imagePullSecrets = new ArrayList();
     }
     V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
-    if (index < 0 || index >= imagePullSecrets.size()) {
-        _visitables.get("imagePullSecrets").add(builder);
-        imagePullSecrets.add(builder);
+    if (index < 0 || index >= this.imagePullSecrets.size()) {
+        this._visitables.get("imagePullSecrets").add(builder);
+        this.imagePullSecrets.add(builder);
     } else {
-        _visitables.get("imagePullSecrets").add(builder);
-        imagePullSecrets.add(index, builder);
+        this._visitables.get("imagePullSecrets").add(builder);
+        this.imagePullSecrets.add(index, builder);
     }
     return (A) this;
   }
@@ -121,7 +121,7 @@ public class V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1ObjectReference item : items) {
         V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-        _visitables.get("secrets").add(builder);
+        this._visitables.get("secrets").add(builder);
         this.secrets.add(builder);
     }
     return (A) this;
@@ -132,12 +132,12 @@ public class V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.model
       this.secrets = new ArrayList();
     }
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-    if (index < 0 || index >= secrets.size()) {
-        _visitables.get("secrets").add(builder);
-        secrets.add(builder);
+    if (index < 0 || index >= this.secrets.size()) {
+        this._visitables.get("secrets").add(builder);
+        this.secrets.add(builder);
     } else {
-        _visitables.get("secrets").add(builder);
-        secrets.add(index, builder);
+        this._visitables.get("secrets").add(builder);
+        this.secrets.add(index, builder);
     }
     return (A) this;
   }
@@ -435,7 +435,7 @@ public class V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1LocalObjectReferenceBuilder> each = imagePullSecrets.iterator();
-    List visitables = _visitables.get("imagePullSecrets");
+    List visitables = this._visitables.get("imagePullSecrets");
     while (each.hasNext()) {
         V1LocalObjectReferenceBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -451,7 +451,7 @@ public class V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1ObjectReferenceBuilder> each = secrets.iterator();
-    List visitables = _visitables.get("secrets");
+    List visitables = this._visitables.get("secrets");
     while (each.hasNext()) {
         V1ObjectReferenceBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -475,12 +475,12 @@ public class V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.model
       this.imagePullSecrets = new ArrayList();
     }
     V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
-    if (index < 0 || index >= imagePullSecrets.size()) {
-        _visitables.get("imagePullSecrets").add(builder);
-        imagePullSecrets.add(builder);
+    if (index < 0 || index >= this.imagePullSecrets.size()) {
+        this._visitables.get("imagePullSecrets").add(builder);
+        this.imagePullSecrets.add(builder);
     } else {
-        _visitables.get("imagePullSecrets").add(builder);
-        imagePullSecrets.set(index, builder);
+        this._visitables.get("imagePullSecrets").add(builder);
+        this.imagePullSecrets.set(index, builder);
     }
     return (A) this;
   }
@@ -490,12 +490,12 @@ public class V1ServiceAccountFluent<A extends io.kubernetes.client.openapi.model
       this.secrets = new ArrayList();
     }
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
-    if (index < 0 || index >= secrets.size()) {
-        _visitables.get("secrets").add(builder);
-        secrets.add(builder);
+    if (index < 0 || index >= this.secrets.size()) {
+        this._visitables.get("secrets").add(builder);
+        this.secrets.add(builder);
     } else {
-        _visitables.get("secrets").add(builder);
-        secrets.set(index, builder);
+        this._visitables.get("secrets").add(builder);
+        this.secrets.set(index, builder);
     }
     return (A) this;
   }

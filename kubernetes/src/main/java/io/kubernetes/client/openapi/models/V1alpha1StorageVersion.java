@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * Storage version of a specific resource.
  */
 @ApiModel(description = "Storage version of a specific resource.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha1StorageVersion implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -66,17 +66,17 @@ public class V1alpha1StorageVersion implements io.kubernetes.client.common.Kuber
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private V1ObjectMeta metadata;
 
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Object spec;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V1alpha1StorageVersionStatus status;
 
   public V1alpha1StorageVersion() {
@@ -122,7 +122,7 @@ public class V1alpha1StorageVersion implements io.kubernetes.client.common.Kuber
   }
 
 
-  public V1alpha1StorageVersion metadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
+  public V1alpha1StorageVersion metadata(@jakarta.annotation.Nonnull V1ObjectMeta metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -131,38 +131,38 @@ public class V1alpha1StorageVersion implements io.kubernetes.client.common.Kuber
    * Get metadata
    * @return metadata
    */
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(@jakarta.annotation.Nullable V1ObjectMeta metadata) {
+  public void setMetadata(@jakarta.annotation.Nonnull V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
 
 
-  public V1alpha1StorageVersion spec(@jakarta.annotation.Nonnull Object spec) {
+  public V1alpha1StorageVersion spec(@jakarta.annotation.Nullable Object spec) {
     this.spec = spec;
     return this;
   }
 
   /**
-   * Spec is an empty spec. It is here to comply with Kubernetes API style.
+   * spec is an empty spec. It is here to comply with Kubernetes API style.
    * @return spec
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Spec is an empty spec. It is here to comply with Kubernetes API style.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "spec is an empty spec. It is here to comply with Kubernetes API style.")
   public Object getSpec() {
     return spec;
   }
 
-  public void setSpec(@jakarta.annotation.Nonnull Object spec) {
+  public void setSpec(@jakarta.annotation.Nullable Object spec) {
     this.spec = spec;
   }
 
 
-  public V1alpha1StorageVersion status(@jakarta.annotation.Nonnull V1alpha1StorageVersionStatus status) {
+  public V1alpha1StorageVersion status(@jakarta.annotation.Nullable V1alpha1StorageVersionStatus status) {
     this.status = status;
     return this;
   }
@@ -171,13 +171,13 @@ public class V1alpha1StorageVersion implements io.kubernetes.client.common.Kuber
    * Get status
    * @return status
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1alpha1StorageVersionStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nonnull V1alpha1StorageVersionStatus status) {
+  public void setStatus(@jakarta.annotation.Nullable V1alpha1StorageVersionStatus status) {
     this.status = status;
   }
 
@@ -237,7 +237,7 @@ public class V1alpha1StorageVersion implements io.kubernetes.client.common.Kuber
     openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "kind", "metadata", "spec", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("spec", "status"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("metadata"));
   }
 
   /**
@@ -274,12 +274,12 @@ public class V1alpha1StorageVersion implements io.kubernetes.client.common.Kuber
       if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }
-      // validate the optional field `metadata`
-      if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-        V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
+      // validate the required field `metadata`
+      V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
+      // validate the optional field `status`
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+        V1alpha1StorageVersionStatus.validateJsonElement(jsonObj.get("status"));
       }
-      // validate the required field `status`
-      V1alpha1StorageVersionStatus.validateJsonElement(jsonObj.get("status"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -1993,6 +1993,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * status is filled in by the server with the user attributes.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2001,6 +2002,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * status is filled in by the server with the user attributes.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2009,6 +2011,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * status is filled in by the server with the user attributes.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2020,6 +2023,7 @@ public final class V1Authentication {
    * SelfSubjectReview contains the user information that the kube-apiserver has about the user making this request.
    * When using impersonation, users will receive the user info of the user being impersonated.  If impersonation or
    * request header authentication is used, any extra keys will have their case ignored and returned as lowercase.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.authentication.v1.SelfSubjectReview}
@@ -2163,6 +2167,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * status is filled in by the server with the user attributes.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2173,6 +2178,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * status is filled in by the server with the user attributes.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2183,6 +2189,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * status is filled in by the server with the user attributes.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2373,6 +2380,7 @@ public final class V1Authentication {
      * SelfSubjectReview contains the user information that the kube-apiserver has about the user making this request.
      * When using impersonation, users will receive the user info of the user being impersonated.  If impersonation or
      * request header authentication is used, any extra keys will have their case ignored and returned as lowercase.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.authentication.v1.SelfSubjectReview}
@@ -2733,6 +2741,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * status is filled in by the server with the user attributes.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2743,6 +2752,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * status is filled in by the server with the user attributes.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2757,6 +2767,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * status is filled in by the server with the user attributes.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2777,6 +2788,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * status is filled in by the server with the user attributes.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2795,6 +2807,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * status is filled in by the server with the user attributes.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2819,6 +2832,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * status is filled in by the server with the user attributes.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2836,6 +2850,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * status is filled in by the server with the user attributes.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2848,6 +2863,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * status is filled in by the server with the user attributes.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -2863,6 +2879,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * status is filled in by the server with the user attributes.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.SelfSubjectReviewStatus status = 2;</code>
@@ -3671,6 +3688,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -3679,6 +3697,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -3687,6 +3706,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -3880,6 +3900,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -3890,6 +3911,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -3900,6 +3922,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -4518,6 +4541,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -4528,6 +4552,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -4542,6 +4567,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -4562,6 +4588,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -4580,6 +4607,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -4604,6 +4632,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -4621,6 +4650,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -4633,6 +4663,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -4648,6 +4679,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenRequestSpec spec = 2;</code>
@@ -4893,6 +4925,7 @@ public final class V1Authentication {
      * token issued for multiple audiences may be used to authenticate
      * against any of the audiences listed but implies a high degree of
      * trust between the target audiences.
+     * +optional
      * +listType=atomic
      * </pre>
      *
@@ -4908,6 +4941,7 @@ public final class V1Authentication {
      * token issued for multiple audiences may be used to authenticate
      * against any of the audiences listed but implies a high degree of
      * trust between the target audiences.
+     * +optional
      * +listType=atomic
      * </pre>
      *
@@ -4922,6 +4956,7 @@ public final class V1Authentication {
      * token issued for multiple audiences may be used to authenticate
      * against any of the audiences listed but implies a high degree of
      * trust between the target audiences.
+     * +optional
      * +listType=atomic
      * </pre>
      *
@@ -4936,6 +4971,7 @@ public final class V1Authentication {
      * token issued for multiple audiences may be used to authenticate
      * against any of the audiences listed but implies a high degree of
      * trust between the target audiences.
+     * +optional
      * +listType=atomic
      * </pre>
      *
@@ -5125,6 +5161,7 @@ public final class V1Authentication {
      * token issued for multiple audiences may be used to authenticate
      * against any of the audiences listed but implies a high degree of
      * trust between the target audiences.
+     * +optional
      * +listType=atomic
      * </pre>
      *
@@ -5142,6 +5179,7 @@ public final class V1Authentication {
      * token issued for multiple audiences may be used to authenticate
      * against any of the audiences listed but implies a high degree of
      * trust between the target audiences.
+     * +optional
      * +listType=atomic
      * </pre>
      *
@@ -5158,6 +5196,7 @@ public final class V1Authentication {
      * token issued for multiple audiences may be used to authenticate
      * against any of the audiences listed but implies a high degree of
      * trust between the target audiences.
+     * +optional
      * +listType=atomic
      * </pre>
      *
@@ -5174,6 +5213,7 @@ public final class V1Authentication {
      * token issued for multiple audiences may be used to authenticate
      * against any of the audiences listed but implies a high degree of
      * trust between the target audiences.
+     * +optional
      * +listType=atomic
      * </pre>
      *
@@ -5664,6 +5704,7 @@ public final class V1Authentication {
        * token issued for multiple audiences may be used to authenticate
        * against any of the audiences listed but implies a high degree of
        * trust between the target audiences.
+       * +optional
        * +listType=atomic
        * </pre>
        *
@@ -5681,6 +5722,7 @@ public final class V1Authentication {
        * token issued for multiple audiences may be used to authenticate
        * against any of the audiences listed but implies a high degree of
        * trust between the target audiences.
+       * +optional
        * +listType=atomic
        * </pre>
        *
@@ -5697,6 +5739,7 @@ public final class V1Authentication {
        * token issued for multiple audiences may be used to authenticate
        * against any of the audiences listed but implies a high degree of
        * trust between the target audiences.
+       * +optional
        * +listType=atomic
        * </pre>
        *
@@ -5713,6 +5756,7 @@ public final class V1Authentication {
        * token issued for multiple audiences may be used to authenticate
        * against any of the audiences listed but implies a high degree of
        * trust between the target audiences.
+       * +optional
        * +listType=atomic
        * </pre>
        *
@@ -5730,6 +5774,7 @@ public final class V1Authentication {
        * token issued for multiple audiences may be used to authenticate
        * against any of the audiences listed but implies a high degree of
        * trust between the target audiences.
+       * +optional
        * +listType=atomic
        * </pre>
        *
@@ -5753,6 +5798,7 @@ public final class V1Authentication {
        * token issued for multiple audiences may be used to authenticate
        * against any of the audiences listed but implies a high degree of
        * trust between the target audiences.
+       * +optional
        * +listType=atomic
        * </pre>
        *
@@ -5776,6 +5822,7 @@ public final class V1Authentication {
        * token issued for multiple audiences may be used to authenticate
        * against any of the audiences listed but implies a high degree of
        * trust between the target audiences.
+       * +optional
        * +listType=atomic
        * </pre>
        *
@@ -5797,6 +5844,7 @@ public final class V1Authentication {
        * token issued for multiple audiences may be used to authenticate
        * against any of the audiences listed but implies a high degree of
        * trust between the target audiences.
+       * +optional
        * +listType=atomic
        * </pre>
        *
@@ -5816,6 +5864,7 @@ public final class V1Authentication {
        * token issued for multiple audiences may be used to authenticate
        * against any of the audiences listed but implies a high degree of
        * trust between the target audiences.
+       * +optional
        * +listType=atomic
        * </pre>
        *
@@ -6150,6 +6199,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
+     * +optional
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -6158,6 +6208,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
+     * +optional
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -6166,6 +6217,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
+     * +optional
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -6176,6 +6228,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * expirationTimestamp is the time of expiration of the returned token.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6184,6 +6237,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * expirationTimestamp is the time of expiration of the returned token.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6192,6 +6246,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * expirationTimestamp is the time of expiration of the returned token.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6299,6 +6354,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
+     * +optional
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -6309,6 +6365,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
+     * +optional
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -6330,6 +6387,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
+     * +optional
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -6353,6 +6411,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * expirationTimestamp is the time of expiration of the returned token.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6363,6 +6422,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * expirationTimestamp is the time of expiration of the returned token.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6373,6 +6433,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * expirationTimestamp is the time of expiration of the returned token.
+     * +optional
      * </pre>
      *
      * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6739,6 +6800,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
+       * +optional
        * </pre>
        *
        * <code>optional string token = 1;</code>
@@ -6749,6 +6811,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
+       * +optional
        * </pre>
        *
        * <code>optional string token = 1;</code>
@@ -6770,6 +6833,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
+       * +optional
        * </pre>
        *
        * <code>optional string token = 1;</code>
@@ -6790,6 +6854,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
+       * +optional
        * </pre>
        *
        * <code>optional string token = 1;</code>
@@ -6807,6 +6872,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
+       * +optional
        * </pre>
        *
        * <code>optional string token = 1;</code>
@@ -6820,6 +6886,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
+       * +optional
        * </pre>
        *
        * <code>optional string token = 1;</code>
@@ -6841,6 +6908,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * expirationTimestamp is the time of expiration of the returned token.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6851,6 +6919,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * expirationTimestamp is the time of expiration of the returned token.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6865,6 +6934,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * expirationTimestamp is the time of expiration of the returned token.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6885,6 +6955,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * expirationTimestamp is the time of expiration of the returned token.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6903,6 +6974,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * expirationTimestamp is the time of expiration of the returned token.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6927,6 +6999,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * expirationTimestamp is the time of expiration of the returned token.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6944,6 +7017,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * expirationTimestamp is the time of expiration of the returned token.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6956,6 +7030,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * expirationTimestamp is the time of expiration of the returned token.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -6971,6 +7046,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * expirationTimestamp is the time of expiration of the returned token.
+       * +optional
        * </pre>
        *
        * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.Time expirationTimestamp = 2;</code>
@@ -7079,6 +7155,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -7087,6 +7164,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -7095,6 +7173,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -7134,6 +7213,7 @@ public final class V1Authentication {
    * TokenReview attempts to authenticate a token to a known user.
    * Note: TokenReview requests may be cached by the webhook token authenticator
    * plugin in the kube-apiserver.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.authentication.v1.TokenReview}
@@ -7290,6 +7370,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -7300,6 +7381,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -7310,6 +7392,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * spec holds information about the request being evaluated
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -7552,6 +7635,7 @@ public final class V1Authentication {
      * TokenReview attempts to authenticate a token to a known user.
      * Note: TokenReview requests may be cached by the webhook token authenticator
      * plugin in the kube-apiserver.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.authentication.v1.TokenReview}
@@ -7930,6 +8014,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -7940,6 +8025,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -7954,6 +8040,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -7974,6 +8061,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -7992,6 +8080,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -8016,6 +8105,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -8033,6 +8123,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -8045,6 +8136,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -8060,6 +8152,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * spec holds information about the request being evaluated
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.authentication.v1.TokenReviewSpec spec = 2;</code>
@@ -8300,7 +8393,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -8309,7 +8402,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -8318,7 +8411,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -8486,7 +8579,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -8497,7 +8590,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -8519,7 +8612,7 @@ public final class V1Authentication {
     /**
      * <pre>
      * token is the opaque bearer token.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional string token = 1;</code>
@@ -8965,7 +9058,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional string token = 1;</code>
@@ -8976,7 +9069,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional string token = 1;</code>
@@ -8998,7 +9091,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional string token = 1;</code>
@@ -9019,7 +9112,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional string token = 1;</code>
@@ -9037,7 +9130,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional string token = 1;</code>
@@ -9051,7 +9144,7 @@ public final class V1Authentication {
       /**
        * <pre>
        * token is the opaque bearer token.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional string token = 1;</code>

@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * TokenRequest requests a token for a given service account.
  */
 @ApiModel(description = "TokenRequest requests a token for a given service account.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class AuthenticationV1TokenRequest implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -72,7 +72,7 @@ public class AuthenticationV1TokenRequest implements io.kubernetes.client.common
 
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V1TokenRequestSpec spec;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
@@ -143,7 +143,7 @@ public class AuthenticationV1TokenRequest implements io.kubernetes.client.common
   }
 
 
-  public AuthenticationV1TokenRequest spec(@jakarta.annotation.Nonnull V1TokenRequestSpec spec) {
+  public AuthenticationV1TokenRequest spec(@jakarta.annotation.Nullable V1TokenRequestSpec spec) {
     this.spec = spec;
     return this;
   }
@@ -152,13 +152,13 @@ public class AuthenticationV1TokenRequest implements io.kubernetes.client.common
    * Get spec
    * @return spec
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1TokenRequestSpec getSpec() {
     return spec;
   }
 
-  public void setSpec(@jakarta.annotation.Nonnull V1TokenRequestSpec spec) {
+  public void setSpec(@jakarta.annotation.Nullable V1TokenRequestSpec spec) {
     this.spec = spec;
   }
 
@@ -238,7 +238,7 @@ public class AuthenticationV1TokenRequest implements io.kubernetes.client.common
     openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "kind", "metadata", "spec", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("spec"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -261,13 +261,6 @@ public class AuthenticationV1TokenRequest implements io.kubernetes.client.common
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AuthenticationV1TokenRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AuthenticationV1TokenRequest.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
@@ -279,8 +272,10 @@ public class AuthenticationV1TokenRequest implements io.kubernetes.client.common
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
         V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
-      // validate the required field `spec`
-      V1TokenRequestSpec.validateJsonElement(jsonObj.get("spec"));
+      // validate the optional field `spec`
+      if (jsonObj.get("spec") != null && !jsonObj.get("spec").isJsonNull()) {
+        V1TokenRequestSpec.validateJsonElement(jsonObj.get("spec"));
+      }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
         V1TokenRequestStatus.validateJsonElement(jsonObj.get("status"));

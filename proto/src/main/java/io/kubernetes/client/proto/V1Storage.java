@@ -2741,7 +2741,7 @@ public final class V1Storage {
      * updates triggered by capacity-related failures are enabled. If not set, no updates
      * occur (neither periodic nor upon detecting capacity-related failures), and the
      * allocatable.count remains static. The minimum allowed value for this field is 10 seconds.
-     * This is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.
+     * This feature requires the MutableCSINodeAllocatableCount feature gate to be enabled.
      * This field is mutable.
      * +featureGate=MutableCSINodeAllocatableCount
      * +optional
@@ -2757,7 +2757,7 @@ public final class V1Storage {
      * updates triggered by capacity-related failures are enabled. If not set, no updates
      * occur (neither periodic nor upon detecting capacity-related failures), and the
      * allocatable.count remains static. The minimum allowed value for this field is 10 seconds.
-     * This is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.
+     * This feature requires the MutableCSINodeAllocatableCount feature gate to be enabled.
      * This field is mutable.
      * +featureGate=MutableCSINodeAllocatableCount
      * +optional
@@ -2815,6 +2815,53 @@ public final class V1Storage {
      * <code>optional bool serviceAccountTokenInSecrets = 10;</code>
      */
     boolean getServiceAccountTokenInSecrets();
+
+    /**
+     * <pre>
+     * PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod
+     * scheduling if the CSI driver on the node is missing.
+     * Enabling this option will prevent the scheduler (or any other
+     * component which embeds default scheduler such as cluster-autoscaler) from
+     * scheduling pods to nodes where CSI driver is not installed.
+     * For components(such as cluster-autoscaler) that embed the scheduler and run
+     * pod placement simulations using scheduler plugins, they MUST be aware of
+     * CSI driver registration information via CSINode object. They must create simulated
+     * CSINode objects in addition to Node objects during scheduling simulation, otherwise
+     * if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any
+     * newly created node may be rejected by the scheduler because of missing CSI driver
+     * information from the node.
+     * This is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled.
+     * Default is "false".
+     * +featureGate=VolumeLimitScaling
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool preventPodSchedulingIfMissing = 11;</code>
+     */
+    boolean hasPreventPodSchedulingIfMissing();
+    /**
+     * <pre>
+     * PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod
+     * scheduling if the CSI driver on the node is missing.
+     * Enabling this option will prevent the scheduler (or any other
+     * component which embeds default scheduler such as cluster-autoscaler) from
+     * scheduling pods to nodes where CSI driver is not installed.
+     * For components(such as cluster-autoscaler) that embed the scheduler and run
+     * pod placement simulations using scheduler plugins, they MUST be aware of
+     * CSI driver registration information via CSINode object. They must create simulated
+     * CSINode objects in addition to Node objects during scheduling simulation, otherwise
+     * if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any
+     * newly created node may be rejected by the scheduler because of missing CSI driver
+     * information from the node.
+     * This is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled.
+     * Default is "false".
+     * +featureGate=VolumeLimitScaling
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool preventPodSchedulingIfMissing = 11;</code>
+     */
+    boolean getPreventPodSchedulingIfMissing();
   }
   /**
    * <pre>
@@ -2843,6 +2890,7 @@ public final class V1Storage {
       seLinuxMount_ = false;
       nodeAllocatableUpdatePeriodSeconds_ = 0L;
       serviceAccountTokenInSecrets_ = false;
+      preventPodSchedulingIfMissing_ = false;
     }
 
     @java.lang.Override
@@ -2926,6 +2974,11 @@ public final class V1Storage {
             case 80: {
               bitField0_ |= 0x00000080;
               serviceAccountTokenInSecrets_ = input.readBool();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000100;
+              preventPodSchedulingIfMissing_ = input.readBool();
               break;
             }
             default: {
@@ -3520,7 +3573,7 @@ public final class V1Storage {
      * updates triggered by capacity-related failures are enabled. If not set, no updates
      * occur (neither periodic nor upon detecting capacity-related failures), and the
      * allocatable.count remains static. The minimum allowed value for this field is 10 seconds.
-     * This is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.
+     * This feature requires the MutableCSINodeAllocatableCount feature gate to be enabled.
      * This field is mutable.
      * +featureGate=MutableCSINodeAllocatableCount
      * +optional
@@ -3538,7 +3591,7 @@ public final class V1Storage {
      * updates triggered by capacity-related failures are enabled. If not set, no updates
      * occur (neither periodic nor upon detecting capacity-related failures), and the
      * allocatable.count remains static. The minimum allowed value for this field is 10 seconds.
-     * This is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.
+     * This feature requires the MutableCSINodeAllocatableCount feature gate to be enabled.
      * This field is mutable.
      * +featureGate=MutableCSINodeAllocatableCount
      * +optional
@@ -3605,6 +3658,59 @@ public final class V1Storage {
       return serviceAccountTokenInSecrets_;
     }
 
+    public static final int PREVENTPODSCHEDULINGIFMISSING_FIELD_NUMBER = 11;
+    private boolean preventPodSchedulingIfMissing_;
+    /**
+     * <pre>
+     * PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod
+     * scheduling if the CSI driver on the node is missing.
+     * Enabling this option will prevent the scheduler (or any other
+     * component which embeds default scheduler such as cluster-autoscaler) from
+     * scheduling pods to nodes where CSI driver is not installed.
+     * For components(such as cluster-autoscaler) that embed the scheduler and run
+     * pod placement simulations using scheduler plugins, they MUST be aware of
+     * CSI driver registration information via CSINode object. They must create simulated
+     * CSINode objects in addition to Node objects during scheduling simulation, otherwise
+     * if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any
+     * newly created node may be rejected by the scheduler because of missing CSI driver
+     * information from the node.
+     * This is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled.
+     * Default is "false".
+     * +featureGate=VolumeLimitScaling
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool preventPodSchedulingIfMissing = 11;</code>
+     */
+    public boolean hasPreventPodSchedulingIfMissing() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <pre>
+     * PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod
+     * scheduling if the CSI driver on the node is missing.
+     * Enabling this option will prevent the scheduler (or any other
+     * component which embeds default scheduler such as cluster-autoscaler) from
+     * scheduling pods to nodes where CSI driver is not installed.
+     * For components(such as cluster-autoscaler) that embed the scheduler and run
+     * pod placement simulations using scheduler plugins, they MUST be aware of
+     * CSI driver registration information via CSINode object. They must create simulated
+     * CSINode objects in addition to Node objects during scheduling simulation, otherwise
+     * if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any
+     * newly created node may be rejected by the scheduler because of missing CSI driver
+     * information from the node.
+     * This is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled.
+     * Default is "false".
+     * +featureGate=VolumeLimitScaling
+     * +optional
+     * </pre>
+     *
+     * <code>optional bool preventPodSchedulingIfMissing = 11;</code>
+     */
+    public boolean getPreventPodSchedulingIfMissing() {
+      return preventPodSchedulingIfMissing_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3648,6 +3754,9 @@ public final class V1Storage {
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeBool(10, serviceAccountTokenInSecrets_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeBool(11, preventPodSchedulingIfMissing_);
       }
       unknownFields.writeTo(output);
     }
@@ -3700,6 +3809,10 @@ public final class V1Storage {
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(10, serviceAccountTokenInSecrets_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(11, preventPodSchedulingIfMissing_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3761,6 +3874,11 @@ public final class V1Storage {
         result = result && (getServiceAccountTokenInSecrets()
             == other.getServiceAccountTokenInSecrets());
       }
+      result = result && (hasPreventPodSchedulingIfMissing() == other.hasPreventPodSchedulingIfMissing());
+      if (hasPreventPodSchedulingIfMissing()) {
+        result = result && (getPreventPodSchedulingIfMissing()
+            == other.getPreventPodSchedulingIfMissing());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3818,6 +3936,11 @@ public final class V1Storage {
         hash = (37 * hash) + SERVICEACCOUNTTOKENINSECRETS_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getServiceAccountTokenInSecrets());
+      }
+      if (hasPreventPodSchedulingIfMissing()) {
+        hash = (37 * hash) + PREVENTPODSCHEDULINGIFMISSING_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getPreventPodSchedulingIfMissing());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3981,6 +4104,8 @@ public final class V1Storage {
         bitField0_ = (bitField0_ & ~0x00000100);
         serviceAccountTokenInSecrets_ = false;
         bitField0_ = (bitField0_ & ~0x00000200);
+        preventPodSchedulingIfMissing_ = false;
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -4055,6 +4180,10 @@ public final class V1Storage {
           to_bitField0_ |= 0x00000080;
         }
         result.serviceAccountTokenInSecrets_ = serviceAccountTokenInSecrets_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.preventPodSchedulingIfMissing_ = preventPodSchedulingIfMissing_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -4165,6 +4294,9 @@ public final class V1Storage {
         }
         if (other.hasServiceAccountTokenInSecrets()) {
           setServiceAccountTokenInSecrets(other.getServiceAccountTokenInSecrets());
+        }
+        if (other.hasPreventPodSchedulingIfMissing()) {
+          setPreventPodSchedulingIfMissing(other.getPreventPodSchedulingIfMissing());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5667,7 +5799,7 @@ public final class V1Storage {
        * updates triggered by capacity-related failures are enabled. If not set, no updates
        * occur (neither periodic nor upon detecting capacity-related failures), and the
        * allocatable.count remains static. The minimum allowed value for this field is 10 seconds.
-       * This is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.
+       * This feature requires the MutableCSINodeAllocatableCount feature gate to be enabled.
        * This field is mutable.
        * +featureGate=MutableCSINodeAllocatableCount
        * +optional
@@ -5685,7 +5817,7 @@ public final class V1Storage {
        * updates triggered by capacity-related failures are enabled. If not set, no updates
        * occur (neither periodic nor upon detecting capacity-related failures), and the
        * allocatable.count remains static. The minimum allowed value for this field is 10 seconds.
-       * This is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.
+       * This feature requires the MutableCSINodeAllocatableCount feature gate to be enabled.
        * This field is mutable.
        * +featureGate=MutableCSINodeAllocatableCount
        * +optional
@@ -5703,7 +5835,7 @@ public final class V1Storage {
        * updates triggered by capacity-related failures are enabled. If not set, no updates
        * occur (neither periodic nor upon detecting capacity-related failures), and the
        * allocatable.count remains static. The minimum allowed value for this field is 10 seconds.
-       * This is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.
+       * This feature requires the MutableCSINodeAllocatableCount feature gate to be enabled.
        * This field is mutable.
        * +featureGate=MutableCSINodeAllocatableCount
        * +optional
@@ -5724,7 +5856,7 @@ public final class V1Storage {
        * updates triggered by capacity-related failures are enabled. If not set, no updates
        * occur (neither periodic nor upon detecting capacity-related failures), and the
        * allocatable.count remains static. The minimum allowed value for this field is 10 seconds.
-       * This is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.
+       * This feature requires the MutableCSINodeAllocatableCount feature gate to be enabled.
        * This field is mutable.
        * +featureGate=MutableCSINodeAllocatableCount
        * +optional
@@ -5847,6 +5979,114 @@ public final class V1Storage {
       public Builder clearServiceAccountTokenInSecrets() {
         bitField0_ = (bitField0_ & ~0x00000200);
         serviceAccountTokenInSecrets_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean preventPodSchedulingIfMissing_ ;
+      /**
+       * <pre>
+       * PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod
+       * scheduling if the CSI driver on the node is missing.
+       * Enabling this option will prevent the scheduler (or any other
+       * component which embeds default scheduler such as cluster-autoscaler) from
+       * scheduling pods to nodes where CSI driver is not installed.
+       * For components(such as cluster-autoscaler) that embed the scheduler and run
+       * pod placement simulations using scheduler plugins, they MUST be aware of
+       * CSI driver registration information via CSINode object. They must create simulated
+       * CSINode objects in addition to Node objects during scheduling simulation, otherwise
+       * if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any
+       * newly created node may be rejected by the scheduler because of missing CSI driver
+       * information from the node.
+       * This is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled.
+       * Default is "false".
+       * +featureGate=VolumeLimitScaling
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool preventPodSchedulingIfMissing = 11;</code>
+       */
+      public boolean hasPreventPodSchedulingIfMissing() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <pre>
+       * PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod
+       * scheduling if the CSI driver on the node is missing.
+       * Enabling this option will prevent the scheduler (or any other
+       * component which embeds default scheduler such as cluster-autoscaler) from
+       * scheduling pods to nodes where CSI driver is not installed.
+       * For components(such as cluster-autoscaler) that embed the scheduler and run
+       * pod placement simulations using scheduler plugins, they MUST be aware of
+       * CSI driver registration information via CSINode object. They must create simulated
+       * CSINode objects in addition to Node objects during scheduling simulation, otherwise
+       * if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any
+       * newly created node may be rejected by the scheduler because of missing CSI driver
+       * information from the node.
+       * This is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled.
+       * Default is "false".
+       * +featureGate=VolumeLimitScaling
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool preventPodSchedulingIfMissing = 11;</code>
+       */
+      public boolean getPreventPodSchedulingIfMissing() {
+        return preventPodSchedulingIfMissing_;
+      }
+      /**
+       * <pre>
+       * PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod
+       * scheduling if the CSI driver on the node is missing.
+       * Enabling this option will prevent the scheduler (or any other
+       * component which embeds default scheduler such as cluster-autoscaler) from
+       * scheduling pods to nodes where CSI driver is not installed.
+       * For components(such as cluster-autoscaler) that embed the scheduler and run
+       * pod placement simulations using scheduler plugins, they MUST be aware of
+       * CSI driver registration information via CSINode object. They must create simulated
+       * CSINode objects in addition to Node objects during scheduling simulation, otherwise
+       * if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any
+       * newly created node may be rejected by the scheduler because of missing CSI driver
+       * information from the node.
+       * This is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled.
+       * Default is "false".
+       * +featureGate=VolumeLimitScaling
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool preventPodSchedulingIfMissing = 11;</code>
+       */
+      public Builder setPreventPodSchedulingIfMissing(boolean value) {
+        bitField0_ |= 0x00000400;
+        preventPodSchedulingIfMissing_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod
+       * scheduling if the CSI driver on the node is missing.
+       * Enabling this option will prevent the scheduler (or any other
+       * component which embeds default scheduler such as cluster-autoscaler) from
+       * scheduling pods to nodes where CSI driver is not installed.
+       * For components(such as cluster-autoscaler) that embed the scheduler and run
+       * pod placement simulations using scheduler plugins, they MUST be aware of
+       * CSI driver registration information via CSINode object. They must create simulated
+       * CSINode objects in addition to Node objects during scheduling simulation, otherwise
+       * if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any
+       * newly created node may be rejected by the scheduler because of missing CSI driver
+       * information from the node.
+       * This is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled.
+       * Default is "false".
+       * +featureGate=VolumeLimitScaling
+       * +optional
+       * </pre>
+       *
+       * <code>optional bool preventPodSchedulingIfMissing = 11;</code>
+       */
+      public Builder clearPreventPodSchedulingIfMissing() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        preventPodSchedulingIfMissing_ = false;
         onChanged();
         return this;
       }
@@ -14249,7 +14489,8 @@ public final class V1Storage {
      * <pre>
      * provisioner indicates the type of the provisioner.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional string provisioner = 2;</code>
@@ -14259,7 +14500,8 @@ public final class V1Storage {
      * <pre>
      * provisioner indicates the type of the provisioner.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional string provisioner = 2;</code>
@@ -14269,7 +14511,8 @@ public final class V1Storage {
      * <pre>
      * provisioner indicates the type of the provisioner.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional string provisioner = 2;</code>
@@ -14282,6 +14525,8 @@ public final class V1Storage {
      * parameters holds the parameters for the provisioner that should
      * create volumes of this storage class.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -14292,6 +14537,8 @@ public final class V1Storage {
      * parameters holds the parameters for the provisioner that should
      * create volumes of this storage class.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -14309,6 +14556,8 @@ public final class V1Storage {
      * parameters holds the parameters for the provisioner that should
      * create volumes of this storage class.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -14320,6 +14569,8 @@ public final class V1Storage {
      * parameters holds the parameters for the provisioner that should
      * create volumes of this storage class.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -14333,6 +14584,8 @@ public final class V1Storage {
      * parameters holds the parameters for the provisioner that should
      * create volumes of this storage class.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -14346,6 +14599,8 @@ public final class V1Storage {
      * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
      * Defaults to Delete.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string reclaimPolicy = 4;</code>
@@ -14356,6 +14611,8 @@ public final class V1Storage {
      * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
      * Defaults to Delete.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string reclaimPolicy = 4;</code>
@@ -14366,6 +14623,8 @@ public final class V1Storage {
      * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
      * Defaults to Delete.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string reclaimPolicy = 4;</code>
@@ -14449,6 +14708,8 @@ public final class V1Storage {
      * provisioned and bound.  When unset, VolumeBindingImmediate is used.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string volumeBindingMode = 7;</code>
@@ -14460,6 +14721,8 @@ public final class V1Storage {
      * provisioned and bound.  When unset, VolumeBindingImmediate is used.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string volumeBindingMode = 7;</code>
@@ -14471,6 +14734,8 @@ public final class V1Storage {
      * provisioned and bound.  When unset, VolumeBindingImmediate is used.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string volumeBindingMode = 7;</code>
@@ -14762,7 +15027,8 @@ public final class V1Storage {
      * <pre>
      * provisioner indicates the type of the provisioner.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional string provisioner = 2;</code>
@@ -14774,7 +15040,8 @@ public final class V1Storage {
      * <pre>
      * provisioner indicates the type of the provisioner.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional string provisioner = 2;</code>
@@ -14797,7 +15064,8 @@ public final class V1Storage {
      * <pre>
      * provisioner indicates the type of the provisioner.
      * +required
-     * +k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
      * </pre>
      *
      * <code>optional string provisioner = 2;</code>
@@ -14847,6 +15115,8 @@ public final class V1Storage {
      * parameters holds the parameters for the provisioner that should
      * create volumes of this storage class.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -14869,6 +15139,8 @@ public final class V1Storage {
      * parameters holds the parameters for the provisioner that should
      * create volumes of this storage class.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -14882,6 +15154,8 @@ public final class V1Storage {
      * parameters holds the parameters for the provisioner that should
      * create volumes of this storage class.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -14900,6 +15174,8 @@ public final class V1Storage {
      * parameters holds the parameters for the provisioner that should
      * create volumes of this storage class.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -14923,6 +15199,8 @@ public final class V1Storage {
      * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
      * Defaults to Delete.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string reclaimPolicy = 4;</code>
@@ -14935,6 +15213,8 @@ public final class V1Storage {
      * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
      * Defaults to Delete.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string reclaimPolicy = 4;</code>
@@ -14958,6 +15238,8 @@ public final class V1Storage {
      * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
      * Defaults to Delete.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string reclaimPolicy = 4;</code>
@@ -15070,6 +15352,8 @@ public final class V1Storage {
      * provisioned and bound.  When unset, VolumeBindingImmediate is used.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string volumeBindingMode = 7;</code>
@@ -15083,6 +15367,8 @@ public final class V1Storage {
      * provisioned and bound.  When unset, VolumeBindingImmediate is used.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string volumeBindingMode = 7;</code>
@@ -15107,6 +15393,8 @@ public final class V1Storage {
      * provisioned and bound.  When unset, VolumeBindingImmediate is used.
      * This field is only honored by servers that enable the VolumeScheduling feature.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional string volumeBindingMode = 7;</code>
@@ -15955,7 +16243,8 @@ public final class V1Storage {
        * <pre>
        * provisioner indicates the type of the provisioner.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional string provisioner = 2;</code>
@@ -15967,7 +16256,8 @@ public final class V1Storage {
        * <pre>
        * provisioner indicates the type of the provisioner.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional string provisioner = 2;</code>
@@ -15990,7 +16280,8 @@ public final class V1Storage {
        * <pre>
        * provisioner indicates the type of the provisioner.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional string provisioner = 2;</code>
@@ -16012,7 +16303,8 @@ public final class V1Storage {
        * <pre>
        * provisioner indicates the type of the provisioner.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional string provisioner = 2;</code>
@@ -16031,7 +16323,8 @@ public final class V1Storage {
        * <pre>
        * provisioner indicates the type of the provisioner.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional string provisioner = 2;</code>
@@ -16046,7 +16339,8 @@ public final class V1Storage {
        * <pre>
        * provisioner indicates the type of the provisioner.
        * +required
-       * +k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
        * </pre>
        *
        * <code>optional string provisioner = 2;</code>
@@ -16093,6 +16387,8 @@ public final class V1Storage {
        * parameters holds the parameters for the provisioner that should
        * create volumes of this storage class.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -16115,6 +16411,8 @@ public final class V1Storage {
        * parameters holds the parameters for the provisioner that should
        * create volumes of this storage class.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -16128,6 +16426,8 @@ public final class V1Storage {
        * parameters holds the parameters for the provisioner that should
        * create volumes of this storage class.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -16146,6 +16446,8 @@ public final class V1Storage {
        * parameters holds the parameters for the provisioner that should
        * create volumes of this storage class.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -16172,6 +16474,8 @@ public final class V1Storage {
        * parameters holds the parameters for the provisioner that should
        * create volumes of this storage class.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -16197,6 +16501,8 @@ public final class V1Storage {
        * parameters holds the parameters for the provisioner that should
        * create volumes of this storage class.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -16215,6 +16521,8 @@ public final class V1Storage {
        * parameters holds the parameters for the provisioner that should
        * create volumes of this storage class.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>map&lt;string, string&gt; parameters = 3;</code>
@@ -16233,6 +16541,8 @@ public final class V1Storage {
        * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
        * Defaults to Delete.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string reclaimPolicy = 4;</code>
@@ -16245,6 +16555,8 @@ public final class V1Storage {
        * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
        * Defaults to Delete.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string reclaimPolicy = 4;</code>
@@ -16268,6 +16580,8 @@ public final class V1Storage {
        * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
        * Defaults to Delete.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string reclaimPolicy = 4;</code>
@@ -16290,6 +16604,8 @@ public final class V1Storage {
        * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
        * Defaults to Delete.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string reclaimPolicy = 4;</code>
@@ -16309,6 +16625,8 @@ public final class V1Storage {
        * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
        * Defaults to Delete.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string reclaimPolicy = 4;</code>
@@ -16324,6 +16642,8 @@ public final class V1Storage {
        * reclaimPolicy controls the reclaimPolicy for dynamically provisioned PersistentVolumes of this storage class.
        * Defaults to Delete.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string reclaimPolicy = 4;</code>
@@ -16563,6 +16883,8 @@ public final class V1Storage {
        * provisioned and bound.  When unset, VolumeBindingImmediate is used.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string volumeBindingMode = 7;</code>
@@ -16576,6 +16898,8 @@ public final class V1Storage {
        * provisioned and bound.  When unset, VolumeBindingImmediate is used.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string volumeBindingMode = 7;</code>
@@ -16600,6 +16924,8 @@ public final class V1Storage {
        * provisioned and bound.  When unset, VolumeBindingImmediate is used.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string volumeBindingMode = 7;</code>
@@ -16623,6 +16949,8 @@ public final class V1Storage {
        * provisioned and bound.  When unset, VolumeBindingImmediate is used.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string volumeBindingMode = 7;</code>
@@ -16643,6 +16971,8 @@ public final class V1Storage {
        * provisioned and bound.  When unset, VolumeBindingImmediate is used.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string volumeBindingMode = 7;</code>
@@ -16659,6 +16989,8 @@ public final class V1Storage {
        * provisioned and bound.  When unset, VolumeBindingImmediate is used.
        * This field is only honored by servers that enable the VolumeScheduling feature.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional string volumeBindingMode = 7;</code>
@@ -19148,6 +19480,8 @@ public final class V1Storage {
      * <pre>
      * spec represents specification of the desired attach/detach volume behavior.
      * Populated by the Kubernetes system.
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -19157,6 +19491,8 @@ public final class V1Storage {
      * <pre>
      * spec represents specification of the desired attach/detach volume behavior.
      * Populated by the Kubernetes system.
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -19166,6 +19502,8 @@ public final class V1Storage {
      * <pre>
      * spec represents specification of the desired attach/detach volume behavior.
      * Populated by the Kubernetes system.
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -19368,6 +19706,8 @@ public final class V1Storage {
      * <pre>
      * spec represents specification of the desired attach/detach volume behavior.
      * Populated by the Kubernetes system.
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -19379,6 +19719,8 @@ public final class V1Storage {
      * <pre>
      * spec represents specification of the desired attach/detach volume behavior.
      * Populated by the Kubernetes system.
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -19390,6 +19732,8 @@ public final class V1Storage {
      * <pre>
      * spec represents specification of the desired attach/detach volume behavior.
      * Populated by the Kubernetes system.
+     * +k8s:alpha(since: "1.36")=+k8s:immutable
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -20017,6 +20361,8 @@ public final class V1Storage {
        * <pre>
        * spec represents specification of the desired attach/detach volume behavior.
        * Populated by the Kubernetes system.
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -20028,6 +20374,8 @@ public final class V1Storage {
        * <pre>
        * spec represents specification of the desired attach/detach volume behavior.
        * Populated by the Kubernetes system.
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -20043,6 +20391,8 @@ public final class V1Storage {
        * <pre>
        * spec represents specification of the desired attach/detach volume behavior.
        * Populated by the Kubernetes system.
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -20064,6 +20414,8 @@ public final class V1Storage {
        * <pre>
        * spec represents specification of the desired attach/detach volume behavior.
        * Populated by the Kubernetes system.
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -20083,6 +20435,8 @@ public final class V1Storage {
        * <pre>
        * spec represents specification of the desired attach/detach volume behavior.
        * Populated by the Kubernetes system.
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -20108,6 +20462,8 @@ public final class V1Storage {
        * <pre>
        * spec represents specification of the desired attach/detach volume behavior.
        * Populated by the Kubernetes system.
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -20126,6 +20482,8 @@ public final class V1Storage {
        * <pre>
        * spec represents specification of the desired attach/detach volume behavior.
        * Populated by the Kubernetes system.
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -20139,6 +20497,8 @@ public final class V1Storage {
        * <pre>
        * spec represents specification of the desired attach/detach volume behavior.
        * Populated by the Kubernetes system.
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -20155,6 +20515,8 @@ public final class V1Storage {
        * <pre>
        * spec represents specification of the desired attach/detach volume behavior.
        * Populated by the Kubernetes system.
+       * +k8s:alpha(since: "1.36")=+k8s:immutable
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.storage.v1.VolumeAttachmentSpec spec = 2;</code>
@@ -22614,6 +22976,10 @@ public final class V1Storage {
      * <pre>
      * attacher indicates the name of the volume driver that MUST handle this
      * request. This is the name returned by GetPluginName().
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+     * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
      * </pre>
      *
      * <code>optional string attacher = 1;</code>
@@ -22623,6 +22989,10 @@ public final class V1Storage {
      * <pre>
      * attacher indicates the name of the volume driver that MUST handle this
      * request. This is the name returned by GetPluginName().
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+     * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
      * </pre>
      *
      * <code>optional string attacher = 1;</code>
@@ -22632,6 +23002,10 @@ public final class V1Storage {
      * <pre>
      * attacher indicates the name of the volume driver that MUST handle this
      * request. This is the name returned by GetPluginName().
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+     * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
      * </pre>
      *
      * <code>optional string attacher = 1;</code>
@@ -22799,6 +23173,10 @@ public final class V1Storage {
      * <pre>
      * attacher indicates the name of the volume driver that MUST handle this
      * request. This is the name returned by GetPluginName().
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+     * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
      * </pre>
      *
      * <code>optional string attacher = 1;</code>
@@ -22810,6 +23188,10 @@ public final class V1Storage {
      * <pre>
      * attacher indicates the name of the volume driver that MUST handle this
      * request. This is the name returned by GetPluginName().
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+     * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
      * </pre>
      *
      * <code>optional string attacher = 1;</code>
@@ -22832,6 +23214,10 @@ public final class V1Storage {
      * <pre>
      * attacher indicates the name of the volume driver that MUST handle this
      * request. This is the name returned by GetPluginName().
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+     * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
      * </pre>
      *
      * <code>optional string attacher = 1;</code>
@@ -23322,6 +23708,10 @@ public final class V1Storage {
        * <pre>
        * attacher indicates the name of the volume driver that MUST handle this
        * request. This is the name returned by GetPluginName().
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+       * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
        * </pre>
        *
        * <code>optional string attacher = 1;</code>
@@ -23333,6 +23723,10 @@ public final class V1Storage {
        * <pre>
        * attacher indicates the name of the volume driver that MUST handle this
        * request. This is the name returned by GetPluginName().
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+       * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
        * </pre>
        *
        * <code>optional string attacher = 1;</code>
@@ -23355,6 +23749,10 @@ public final class V1Storage {
        * <pre>
        * attacher indicates the name of the volume driver that MUST handle this
        * request. This is the name returned by GetPluginName().
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+       * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
        * </pre>
        *
        * <code>optional string attacher = 1;</code>
@@ -23376,6 +23774,10 @@ public final class V1Storage {
        * <pre>
        * attacher indicates the name of the volume driver that MUST handle this
        * request. This is the name returned by GetPluginName().
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+       * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
        * </pre>
        *
        * <code>optional string attacher = 1;</code>
@@ -23394,6 +23796,10 @@ public final class V1Storage {
        * <pre>
        * attacher indicates the name of the volume driver that MUST handle this
        * request. This is the name returned by GetPluginName().
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+       * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
        * </pre>
        *
        * <code>optional string attacher = 1;</code>
@@ -23408,6 +23814,10 @@ public final class V1Storage {
        * <pre>
        * attacher indicates the name of the volume driver that MUST handle this
        * request. This is the name returned by GetPluginName().
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:format="k8s-long-name-caseless"
+       * +k8s:alpha(since: "1.36")=+k8s:maxLength=63
        * </pre>
        *
        * <code>optional string attacher = 1;</code>
@@ -28105,7 +28515,7 @@ public final class V1Storage {
     /**
      * <pre>
      * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.
-     * This is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+     * This field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
      * +featureGate=MutableCSINodeAllocatableCount
      * +optional
      * </pre>
@@ -28116,7 +28526,7 @@ public final class V1Storage {
     /**
      * <pre>
      * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.
-     * This is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+     * This field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
      * +featureGate=MutableCSINodeAllocatableCount
      * +optional
      * </pre>
@@ -28331,7 +28741,7 @@ public final class V1Storage {
     /**
      * <pre>
      * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.
-     * This is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+     * This field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
      * +featureGate=MutableCSINodeAllocatableCount
      * +optional
      * </pre>
@@ -28344,7 +28754,7 @@ public final class V1Storage {
     /**
      * <pre>
      * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.
-     * This is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+     * This field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
      * +featureGate=MutableCSINodeAllocatableCount
      * +optional
      * </pre>
@@ -29019,7 +29429,7 @@ public final class V1Storage {
       /**
        * <pre>
        * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.
-       * This is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+       * This field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
        * +featureGate=MutableCSINodeAllocatableCount
        * +optional
        * </pre>
@@ -29032,7 +29442,7 @@ public final class V1Storage {
       /**
        * <pre>
        * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.
-       * This is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+       * This field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
        * +featureGate=MutableCSINodeAllocatableCount
        * +optional
        * </pre>
@@ -29045,7 +29455,7 @@ public final class V1Storage {
       /**
        * <pre>
        * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.
-       * This is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+       * This field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
        * +featureGate=MutableCSINodeAllocatableCount
        * +optional
        * </pre>
@@ -29061,7 +29471,7 @@ public final class V1Storage {
       /**
        * <pre>
        * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.
-       * This is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+       * This field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
        * +featureGate=MutableCSINodeAllocatableCount
        * +optional
        * </pre>
@@ -29847,7 +30257,7 @@ public final class V1Storage {
       "rSpec\"\202\001\n\rCSIDriverList\022@\n\010metadata\030\001 \001(" +
       "\0132..k8s.io.apimachinery.pkg.apis.meta.v1" +
       ".ListMeta\022/\n\005items\030\002 \003(\0132 .k8s.io.api.st" +
-      "orage.v1.CSIDriver\"\314\002\n\rCSIDriverSpec\022\026\n\016" +
+      "orage.v1.CSIDriver\"\363\002\n\rCSIDriverSpec\022\026\n\016" +
       "attachRequired\030\001 \001(\010\022\026\n\016podInfoOnMount\030\002" +
       " \001(\010\022\034\n\024volumeLifecycleModes\030\003 \003(\t\022\027\n\017st" +
       "orageCapacity\030\004 \001(\010\022\025\n\rfsGroupPolicy\030\005 \001" +
@@ -29855,84 +30265,85 @@ public final class V1Storage {
       "torage.v1.TokenRequest\022\031\n\021requiresRepubl" +
       "ish\030\007 \001(\010\022\024\n\014seLinuxMount\030\010 \001(\010\022*\n\"nodeA" +
       "llocatableUpdatePeriodSeconds\030\t \001(\003\022$\n\034s" +
-      "erviceAccountTokenInSecrets\030\n \001(\010\"\177\n\007CSI" +
-      "Node\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachi" +
-      "nery.pkg.apis.meta.v1.ObjectMeta\0220\n\004spec" +
-      "\030\002 \001(\0132\".k8s.io.api.storage.v1.CSINodeSp" +
-      "ec\"\204\001\n\rCSINodeDriver\022\014\n\004name\030\001 \001(\t\022\016\n\006no" +
-      "deID\030\002 \001(\t\022\024\n\014topologyKeys\030\003 \003(\t\022?\n\013allo" +
-      "catable\030\004 \001(\0132*.k8s.io.api.storage.v1.Vo" +
-      "lumeNodeResources\"~\n\013CSINodeList\022@\n\010meta" +
-      "data\030\001 \001(\0132..k8s.io.apimachinery.pkg.api" +
-      "s.meta.v1.ListMeta\022-\n\005items\030\002 \003(\0132\036.k8s." +
-      "io.api.storage.v1.CSINode\"D\n\013CSINodeSpec" +
-      "\0225\n\007drivers\030\001 \003(\0132$.k8s.io.api.storage.v" +
-      "1.CSINodeDriver\"\312\002\n\022CSIStorageCapacity\022B" +
-      "\n\010metadata\030\001 \001(\01320.k8s.io.apimachinery.p" +
-      "kg.apis.meta.v1.ObjectMeta\022I\n\014nodeTopolo" +
-      "gy\030\002 \001(\01323.k8s.io.apimachinery.pkg.apis." +
-      "meta.v1.LabelSelector\022\030\n\020storageClassNam" +
-      "e\030\003 \001(\t\022@\n\010capacity\030\004 \001(\0132..k8s.io.apima" +
-      "chinery.pkg.api.resource.Quantity\022I\n\021max" +
-      "imumVolumeSize\030\005 \001(\0132..k8s.io.apimachine" +
-      "ry.pkg.api.resource.Quantity\"\224\001\n\026CSIStor" +
-      "ageCapacityList\022@\n\010metadata\030\001 \001(\0132..k8s." +
+      "erviceAccountTokenInSecrets\030\n \001(\010\022%\n\035pre" +
+      "ventPodSchedulingIfMissing\030\013 \001(\010\"\177\n\007CSIN" +
+      "ode\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachin" +
+      "ery.pkg.apis.meta.v1.ObjectMeta\0220\n\004spec\030" +
+      "\002 \001(\0132\".k8s.io.api.storage.v1.CSINodeSpe" +
+      "c\"\204\001\n\rCSINodeDriver\022\014\n\004name\030\001 \001(\t\022\016\n\006nod" +
+      "eID\030\002 \001(\t\022\024\n\014topologyKeys\030\003 \003(\t\022?\n\013alloc" +
+      "atable\030\004 \001(\0132*.k8s.io.api.storage.v1.Vol" +
+      "umeNodeResources\"~\n\013CSINodeList\022@\n\010metad" +
+      "ata\030\001 \001(\0132..k8s.io.apimachinery.pkg.apis" +
+      ".meta.v1.ListMeta\022-\n\005items\030\002 \003(\0132\036.k8s.i" +
+      "o.api.storage.v1.CSINode\"D\n\013CSINodeSpec\022" +
+      "5\n\007drivers\030\001 \003(\0132$.k8s.io.api.storage.v1" +
+      ".CSINodeDriver\"\312\002\n\022CSIStorageCapacity\022B\n" +
+      "\010metadata\030\001 \001(\01320.k8s.io.apimachinery.pk" +
+      "g.apis.meta.v1.ObjectMeta\022I\n\014nodeTopolog" +
+      "y\030\002 \001(\01323.k8s.io.apimachinery.pkg.apis.m" +
+      "eta.v1.LabelSelector\022\030\n\020storageClassName" +
+      "\030\003 \001(\t\022@\n\010capacity\030\004 \001(\0132..k8s.io.apimac" +
+      "hinery.pkg.api.resource.Quantity\022I\n\021maxi" +
+      "mumVolumeSize\030\005 \001(\0132..k8s.io.apimachiner" +
+      "y.pkg.api.resource.Quantity\"\224\001\n\026CSIStora" +
+      "geCapacityList\022@\n\010metadata\030\001 \001(\0132..k8s.i" +
+      "o.apimachinery.pkg.apis.meta.v1.ListMeta" +
+      "\0228\n\005items\030\002 \003(\0132).k8s.io.api.storage.v1." +
+      "CSIStorageCapacity\"\216\003\n\014StorageClass\022B\n\010m" +
+      "etadata\030\001 \001(\01320.k8s.io.apimachinery.pkg." +
+      "apis.meta.v1.ObjectMeta\022\023\n\013provisioner\030\002" +
+      " \001(\t\022G\n\nparameters\030\003 \003(\01323.k8s.io.api.st" +
+      "orage.v1.StorageClass.ParametersEntry\022\025\n" +
+      "\rreclaimPolicy\030\004 \001(\t\022\024\n\014mountOptions\030\005 \003" +
+      "(\t\022\034\n\024allowVolumeExpansion\030\006 \001(\010\022\031\n\021volu" +
+      "meBindingMode\030\007 \001(\t\022C\n\021allowedTopologies" +
+      "\030\010 \003(\0132(.k8s.io.api.core.v1.TopologySele" +
+      "ctorTerm\0321\n\017ParametersEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001\"\210\001\n\020StorageClassList" +
+      "\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachinery" +
+      ".pkg.apis.meta.v1.ListMeta\0222\n\005items\030\002 \003(" +
+      "\0132#.k8s.io.api.storage.v1.StorageClass\";" +
+      "\n\014TokenRequest\022\020\n\010audience\030\001 \001(\t\022\031\n\021expi" +
+      "rationSeconds\030\002 \001(\003\"\320\001\n\020VolumeAttachment" +
+      "\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachinery" +
+      ".pkg.apis.meta.v1.ObjectMeta\0229\n\004spec\030\002 \001" +
+      "(\0132+.k8s.io.api.storage.v1.VolumeAttachm" +
+      "entSpec\022=\n\006status\030\003 \001(\0132-.k8s.io.api.sto" +
+      "rage.v1.VolumeAttachmentStatus\"\220\001\n\024Volum" +
+      "eAttachmentList\022@\n\010metadata\030\001 \001(\0132..k8s." +
       "io.apimachinery.pkg.apis.meta.v1.ListMet" +
-      "a\0228\n\005items\030\002 \003(\0132).k8s.io.api.storage.v1" +
-      ".CSIStorageCapacity\"\216\003\n\014StorageClass\022B\n\010" +
-      "metadata\030\001 \001(\01320.k8s.io.apimachinery.pkg" +
-      ".apis.meta.v1.ObjectMeta\022\023\n\013provisioner\030" +
-      "\002 \001(\t\022G\n\nparameters\030\003 \003(\01323.k8s.io.api.s" +
-      "torage.v1.StorageClass.ParametersEntry\022\025" +
-      "\n\rreclaimPolicy\030\004 \001(\t\022\024\n\014mountOptions\030\005 " +
-      "\003(\t\022\034\n\024allowVolumeExpansion\030\006 \001(\010\022\031\n\021vol" +
-      "umeBindingMode\030\007 \001(\t\022C\n\021allowedTopologie" +
-      "s\030\010 \003(\0132(.k8s.io.api.core.v1.TopologySel" +
-      "ectorTerm\0321\n\017ParametersEntry\022\013\n\003key\030\001 \001(" +
-      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\210\001\n\020StorageClassLis" +
-      "t\022@\n\010metadata\030\001 \001(\0132..k8s.io.apimachiner" +
-      "y.pkg.apis.meta.v1.ListMeta\0222\n\005items\030\002 \003" +
-      "(\0132#.k8s.io.api.storage.v1.StorageClass\"" +
-      ";\n\014TokenRequest\022\020\n\010audience\030\001 \001(\t\022\031\n\021exp" +
-      "irationSeconds\030\002 \001(\003\"\320\001\n\020VolumeAttachmen" +
-      "t\022B\n\010metadata\030\001 \001(\01320.k8s.io.apimachiner" +
-      "y.pkg.apis.meta.v1.ObjectMeta\0229\n\004spec\030\002 " +
-      "\001(\0132+.k8s.io.api.storage.v1.VolumeAttach" +
-      "mentSpec\022=\n\006status\030\003 \001(\0132-.k8s.io.api.st" +
-      "orage.v1.VolumeAttachmentStatus\"\220\001\n\024Volu" +
-      "meAttachmentList\022@\n\010metadata\030\001 \001(\0132..k8s" +
-      ".io.apimachinery.pkg.apis.meta.v1.ListMe" +
-      "ta\0226\n\005items\030\002 \003(\0132\'.k8s.io.api.storage.v" +
-      "1.VolumeAttachment\"z\n\026VolumeAttachmentSo" +
-      "urce\022\034\n\024persistentVolumeName\030\001 \001(\t\022B\n\020in" +
-      "lineVolumeSpec\030\002 \001(\0132(.k8s.io.api.core.v" +
-      "1.PersistentVolumeSpec\"y\n\024VolumeAttachme" +
-      "ntSpec\022\020\n\010attacher\030\001 \001(\t\022=\n\006source\030\002 \001(\013" +
-      "2-.k8s.io.api.storage.v1.VolumeAttachmen" +
-      "tSource\022\020\n\010nodeName\030\003 \001(\t\"\272\002\n\026VolumeAtta" +
-      "chmentStatus\022\020\n\010attached\030\001 \001(\010\022a\n\022attach" +
-      "mentMetadata\030\002 \003(\0132E.k8s.io.api.storage." +
-      "v1.VolumeAttachmentStatus.AttachmentMeta" +
-      "dataEntry\0227\n\013attachError\030\003 \001(\0132\".k8s.io." +
-      "api.storage.v1.VolumeError\0227\n\013detachErro" +
-      "r\030\004 \001(\0132\".k8s.io.api.storage.v1.VolumeEr" +
-      "ror\0329\n\027AttachmentMetadataEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\364\001\n\025VolumeAttribu" +
-      "tesClass\022B\n\010metadata\030\001 \001(\01320.k8s.io.apim" +
-      "achinery.pkg.apis.meta.v1.ObjectMeta\022\022\n\n" +
-      "driverName\030\002 \001(\t\022P\n\nparameters\030\003 \003(\0132<.k" +
-      "8s.io.api.storage.v1.VolumeAttributesCla" +
-      "ss.ParametersEntry\0321\n\017ParametersEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\232\001\n\031Volume" +
-      "AttributesClassList\022@\n\010metadata\030\001 \001(\0132.." +
-      "k8s.io.apimachinery.pkg.apis.meta.v1.Lis" +
-      "tMeta\022;\n\005items\030\002 \003(\0132,.k8s.io.api.storag" +
-      "e.v1.VolumeAttributesClass\"k\n\013VolumeErro" +
-      "r\0228\n\004time\030\001 \001(\0132*.k8s.io.apimachinery.pk" +
-      "g.apis.meta.v1.Time\022\017\n\007message\030\002 \001(\t\022\021\n\t" +
-      "errorCode\030\003 \001(\005\"$\n\023VolumeNodeResources\022\r" +
-      "\n\005count\030\001 \001(\005B>\n\032io.kubernetes.client.pr" +
-      "otoB\tV1StorageZ\025k8s.io/api/storage/v1"
+      "a\0226\n\005items\030\002 \003(\0132\'.k8s.io.api.storage.v1" +
+      ".VolumeAttachment\"z\n\026VolumeAttachmentSou" +
+      "rce\022\034\n\024persistentVolumeName\030\001 \001(\t\022B\n\020inl" +
+      "ineVolumeSpec\030\002 \001(\0132(.k8s.io.api.core.v1" +
+      ".PersistentVolumeSpec\"y\n\024VolumeAttachmen" +
+      "tSpec\022\020\n\010attacher\030\001 \001(\t\022=\n\006source\030\002 \001(\0132" +
+      "-.k8s.io.api.storage.v1.VolumeAttachment" +
+      "Source\022\020\n\010nodeName\030\003 \001(\t\"\272\002\n\026VolumeAttac" +
+      "hmentStatus\022\020\n\010attached\030\001 \001(\010\022a\n\022attachm" +
+      "entMetadata\030\002 \003(\0132E.k8s.io.api.storage.v" +
+      "1.VolumeAttachmentStatus.AttachmentMetad" +
+      "ataEntry\0227\n\013attachError\030\003 \001(\0132\".k8s.io.a" +
+      "pi.storage.v1.VolumeError\0227\n\013detachError" +
+      "\030\004 \001(\0132\".k8s.io.api.storage.v1.VolumeErr" +
+      "or\0329\n\027AttachmentMetadataEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\364\001\n\025VolumeAttribut" +
+      "esClass\022B\n\010metadata\030\001 \001(\01320.k8s.io.apima" +
+      "chinery.pkg.apis.meta.v1.ObjectMeta\022\022\n\nd" +
+      "riverName\030\002 \001(\t\022P\n\nparameters\030\003 \003(\0132<.k8" +
+      "s.io.api.storage.v1.VolumeAttributesClas" +
+      "s.ParametersEntry\0321\n\017ParametersEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\232\001\n\031VolumeA" +
+      "ttributesClassList\022@\n\010metadata\030\001 \001(\0132..k" +
+      "8s.io.apimachinery.pkg.apis.meta.v1.List" +
+      "Meta\022;\n\005items\030\002 \003(\0132,.k8s.io.api.storage" +
+      ".v1.VolumeAttributesClass\"k\n\013VolumeError" +
+      "\0228\n\004time\030\001 \001(\0132*.k8s.io.apimachinery.pkg" +
+      ".apis.meta.v1.Time\022\017\n\007message\030\002 \001(\t\022\021\n\te" +
+      "rrorCode\030\003 \001(\005\"$\n\023VolumeNodeResources\022\r\n" +
+      "\005count\030\001 \001(\005B>\n\032io.kubernetes.client.pro" +
+      "toB\tV1StorageZ\025k8s.io/api/storage/v1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -29968,7 +30379,7 @@ public final class V1Storage {
     internal_static_k8s_io_api_storage_v1_CSIDriverSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_storage_v1_CSIDriverSpec_descriptor,
-        new java.lang.String[] { "AttachRequired", "PodInfoOnMount", "VolumeLifecycleModes", "StorageCapacity", "FsGroupPolicy", "TokenRequests", "RequiresRepublish", "SeLinuxMount", "NodeAllocatableUpdatePeriodSeconds", "ServiceAccountTokenInSecrets", });
+        new java.lang.String[] { "AttachRequired", "PodInfoOnMount", "VolumeLifecycleModes", "StorageCapacity", "FsGroupPolicy", "TokenRequests", "RequiresRepublish", "SeLinuxMount", "NodeAllocatableUpdatePeriodSeconds", "ServiceAccountTokenInSecrets", "PreventPodSchedulingIfMissing", });
     internal_static_k8s_io_api_storage_v1_CSINode_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_k8s_io_api_storage_v1_CSINode_fieldAccessorTable = new

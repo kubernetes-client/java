@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -49,7 +49,7 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1DeviceClaimConfiguration item : items) {
         V1DeviceClaimConfigurationBuilder builder = new V1DeviceClaimConfigurationBuilder(item);
-        _visitables.get("config").add(builder);
+        this._visitables.get("config").add(builder);
         this.config.add(builder);
     }
     return (A) this;
@@ -61,7 +61,7 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1DeviceConstraint item : items) {
         V1DeviceConstraintBuilder builder = new V1DeviceConstraintBuilder(item);
-        _visitables.get("constraints").add(builder);
+        this._visitables.get("constraints").add(builder);
         this.constraints.add(builder);
     }
     return (A) this;
@@ -73,7 +73,7 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1DeviceRequest item : items) {
         V1DeviceRequestBuilder builder = new V1DeviceRequestBuilder(item);
-        _visitables.get("requests").add(builder);
+        this._visitables.get("requests").add(builder);
         this.requests.add(builder);
     }
     return (A) this;
@@ -109,7 +109,7 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1DeviceClaimConfiguration item : items) {
         V1DeviceClaimConfigurationBuilder builder = new V1DeviceClaimConfigurationBuilder(item);
-        _visitables.get("config").add(builder);
+        this._visitables.get("config").add(builder);
         this.config.add(builder);
     }
     return (A) this;
@@ -120,12 +120,12 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
       this.config = new ArrayList();
     }
     V1DeviceClaimConfigurationBuilder builder = new V1DeviceClaimConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) {
-        _visitables.get("config").add(builder);
-        config.add(builder);
+    if (index < 0 || index >= this.config.size()) {
+        this._visitables.get("config").add(builder);
+        this.config.add(builder);
     } else {
-        _visitables.get("config").add(builder);
-        config.add(index, builder);
+        this._visitables.get("config").add(builder);
+        this.config.add(index, builder);
     }
     return (A) this;
   }
@@ -136,7 +136,7 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1DeviceConstraint item : items) {
         V1DeviceConstraintBuilder builder = new V1DeviceConstraintBuilder(item);
-        _visitables.get("constraints").add(builder);
+        this._visitables.get("constraints").add(builder);
         this.constraints.add(builder);
     }
     return (A) this;
@@ -147,12 +147,12 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
       this.constraints = new ArrayList();
     }
     V1DeviceConstraintBuilder builder = new V1DeviceConstraintBuilder(item);
-    if (index < 0 || index >= constraints.size()) {
-        _visitables.get("constraints").add(builder);
-        constraints.add(builder);
+    if (index < 0 || index >= this.constraints.size()) {
+        this._visitables.get("constraints").add(builder);
+        this.constraints.add(builder);
     } else {
-        _visitables.get("constraints").add(builder);
-        constraints.add(index, builder);
+        this._visitables.get("constraints").add(builder);
+        this.constraints.add(index, builder);
     }
     return (A) this;
   }
@@ -163,7 +163,7 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
     }
     for (V1DeviceRequest item : items) {
         V1DeviceRequestBuilder builder = new V1DeviceRequestBuilder(item);
-        _visitables.get("requests").add(builder);
+        this._visitables.get("requests").add(builder);
         this.requests.add(builder);
     }
     return (A) this;
@@ -174,12 +174,12 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
       this.requests = new ArrayList();
     }
     V1DeviceRequestBuilder builder = new V1DeviceRequestBuilder(item);
-    if (index < 0 || index >= requests.size()) {
-        _visitables.get("requests").add(builder);
-        requests.add(builder);
+    if (index < 0 || index >= this.requests.size()) {
+        this._visitables.get("requests").add(builder);
+        this.requests.add(builder);
     } else {
-        _visitables.get("requests").add(builder);
-        requests.add(index, builder);
+        this._visitables.get("requests").add(builder);
+        this.requests.add(index, builder);
     }
     return (A) this;
   }
@@ -519,7 +519,7 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<V1DeviceClaimConfigurationBuilder> each = config.iterator();
-    List visitables = _visitables.get("config");
+    List visitables = this._visitables.get("config");
     while (each.hasNext()) {
         V1DeviceClaimConfigurationBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -535,7 +535,7 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<V1DeviceConstraintBuilder> each = constraints.iterator();
-    List visitables = _visitables.get("constraints");
+    List visitables = this._visitables.get("constraints");
     while (each.hasNext()) {
         V1DeviceConstraintBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -551,7 +551,7 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<V1DeviceRequestBuilder> each = requests.iterator();
-    List visitables = _visitables.get("requests");
+    List visitables = this._visitables.get("requests");
     while (each.hasNext()) {
         V1DeviceRequestBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -579,12 +579,12 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
       this.config = new ArrayList();
     }
     V1DeviceClaimConfigurationBuilder builder = new V1DeviceClaimConfigurationBuilder(item);
-    if (index < 0 || index >= config.size()) {
-        _visitables.get("config").add(builder);
-        config.add(builder);
+    if (index < 0 || index >= this.config.size()) {
+        this._visitables.get("config").add(builder);
+        this.config.add(builder);
     } else {
-        _visitables.get("config").add(builder);
-        config.set(index, builder);
+        this._visitables.get("config").add(builder);
+        this.config.set(index, builder);
     }
     return (A) this;
   }
@@ -594,12 +594,12 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
       this.constraints = new ArrayList();
     }
     V1DeviceConstraintBuilder builder = new V1DeviceConstraintBuilder(item);
-    if (index < 0 || index >= constraints.size()) {
-        _visitables.get("constraints").add(builder);
-        constraints.add(builder);
+    if (index < 0 || index >= this.constraints.size()) {
+        this._visitables.get("constraints").add(builder);
+        this.constraints.add(builder);
     } else {
-        _visitables.get("constraints").add(builder);
-        constraints.set(index, builder);
+        this._visitables.get("constraints").add(builder);
+        this.constraints.set(index, builder);
     }
     return (A) this;
   }
@@ -609,12 +609,12 @@ public class V1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V
       this.requests = new ArrayList();
     }
     V1DeviceRequestBuilder builder = new V1DeviceRequestBuilder(item);
-    if (index < 0 || index >= requests.size()) {
-        _visitables.get("requests").add(builder);
-        requests.add(builder);
+    if (index < 0 || index >= this.requests.size()) {
+        this._visitables.get("requests").add(builder);
+        this.requests.add(builder);
     } else {
-        _visitables.get("requests").add(builder);
-        requests.set(index, builder);
+        this._visitables.get("requests").add(builder);
+        this.requests.set(index, builder);
     }
     return (A) this;
   }

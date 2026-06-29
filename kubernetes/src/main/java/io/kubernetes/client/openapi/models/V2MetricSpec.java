@@ -55,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * MetricSpec specifies how to scale based on a single metric (only &#x60;type&#x60; and one other matching field should be set at once).
  */
 @ApiModel(description = "MetricSpec specifies how to scale based on a single metric (only `type` and one other matching field should be set at once).")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V2MetricSpec {
   public static final String SERIALIZED_NAME_CONTAINER_RESOURCE = "containerResource";
   @SerializedName(SERIALIZED_NAME_CONTAINER_RESOURCE)

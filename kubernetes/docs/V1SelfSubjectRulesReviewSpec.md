@@ -8,7 +8,7 @@ SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**namespace** | **String** | Namespace to evaluate rules for. Required. |  [optional] |
+|**namespace** | **String** | namespace to evaluate rules for. Required. |  [optional] |
 
 
 

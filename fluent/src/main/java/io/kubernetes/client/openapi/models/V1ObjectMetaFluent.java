@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -75,7 +75,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1ManagedFieldsEntry item : items) {
         V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
-        _visitables.get("managedFields").add(builder);
+        this._visitables.get("managedFields").add(builder);
         this.managedFields.add(builder);
     }
     return (A) this;
@@ -87,7 +87,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1OwnerReference item : items) {
         V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
-        _visitables.get("ownerReferences").add(builder);
+        this._visitables.get("ownerReferences").add(builder);
         this.ownerReferences.add(builder);
     }
     return (A) this;
@@ -173,7 +173,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1ManagedFieldsEntry item : items) {
         V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
-        _visitables.get("managedFields").add(builder);
+        this._visitables.get("managedFields").add(builder);
         this.managedFields.add(builder);
     }
     return (A) this;
@@ -184,12 +184,12 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
       this.managedFields = new ArrayList();
     }
     V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
-    if (index < 0 || index >= managedFields.size()) {
-        _visitables.get("managedFields").add(builder);
-        managedFields.add(builder);
+    if (index < 0 || index >= this.managedFields.size()) {
+        this._visitables.get("managedFields").add(builder);
+        this.managedFields.add(builder);
     } else {
-        _visitables.get("managedFields").add(builder);
-        managedFields.add(index, builder);
+        this._visitables.get("managedFields").add(builder);
+        this.managedFields.add(index, builder);
     }
     return (A) this;
   }
@@ -200,7 +200,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     for (V1OwnerReference item : items) {
         V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
-        _visitables.get("ownerReferences").add(builder);
+        this._visitables.get("ownerReferences").add(builder);
         this.ownerReferences.add(builder);
     }
     return (A) this;
@@ -211,12 +211,12 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
       this.ownerReferences = new ArrayList();
     }
     V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
-    if (index < 0 || index >= ownerReferences.size()) {
-        _visitables.get("ownerReferences").add(builder);
-        ownerReferences.add(builder);
+    if (index < 0 || index >= this.ownerReferences.size()) {
+        this._visitables.get("ownerReferences").add(builder);
+        this.ownerReferences.add(builder);
     } else {
-        _visitables.get("ownerReferences").add(builder);
-        ownerReferences.add(index, builder);
+        this._visitables.get("ownerReferences").add(builder);
+        this.ownerReferences.add(index, builder);
     }
     return (A) this;
   }
@@ -708,7 +708,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1ManagedFieldsEntryBuilder> each = managedFields.iterator();
-    List visitables = _visitables.get("managedFields");
+    List visitables = this._visitables.get("managedFields");
     while (each.hasNext()) {
         V1ManagedFieldsEntryBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -724,7 +724,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1OwnerReferenceBuilder> each = ownerReferences.iterator();
-    List visitables = _visitables.get("ownerReferences");
+    List visitables = this._visitables.get("ownerReferences");
     while (each.hasNext()) {
         V1OwnerReferenceBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -756,12 +756,12 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
       this.managedFields = new ArrayList();
     }
     V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
-    if (index < 0 || index >= managedFields.size()) {
-        _visitables.get("managedFields").add(builder);
-        managedFields.add(builder);
+    if (index < 0 || index >= this.managedFields.size()) {
+        this._visitables.get("managedFields").add(builder);
+        this.managedFields.add(builder);
     } else {
-        _visitables.get("managedFields").add(builder);
-        managedFields.set(index, builder);
+        this._visitables.get("managedFields").add(builder);
+        this.managedFields.set(index, builder);
     }
     return (A) this;
   }
@@ -771,12 +771,12 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
       this.ownerReferences = new ArrayList();
     }
     V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
-    if (index < 0 || index >= ownerReferences.size()) {
-        _visitables.get("ownerReferences").add(builder);
-        ownerReferences.add(builder);
+    if (index < 0 || index >= this.ownerReferences.size()) {
+        this._visitables.get("ownerReferences").add(builder);
+        this.ownerReferences.add(builder);
     } else {
-        _visitables.get("ownerReferences").add(builder);
-        ownerReferences.set(index, builder);
+        this._visitables.get("ownerReferences").add(builder);
+        this.ownerReferences.set(index, builder);
     }
     return (A) this;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -13,12 +13,14 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.Nested;
 import java.lang.Long;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Generated
@@ -30,6 +32,7 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
   private Long remainingItemCount;
   private String resourceVersion;
   private String selfLink;
+  private V1ShardInfoBuilder shardInfo;
 
   public V1ListMetaFluent() {
   }
@@ -38,14 +41,30 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
     this.copyInstance(instance);
   }
 
+  public V1ShardInfo buildShardInfo() {
+    return this.shardInfo != null ? this.shardInfo.build() : null;
+  }
+  
   protected void copyInstance(V1ListMeta instance) {
     instance = instance != null ? instance : new V1ListMeta();
     if (instance != null) {
-        this.withContinue(instance.getContinue());
         this.withRemainingItemCount(instance.getRemainingItemCount());
         this.withResourceVersion(instance.getResourceVersion());
         this.withSelfLink(instance.getSelfLink());
+        this.withShardInfo(instance.getShardInfo());
     }
+  }
+  
+  public ShardInfoNested<A> editOrNewShardInfo() {
+    return this.withNewShardInfoLike(Optional.ofNullable(this.buildShardInfo()).orElse(new V1ShardInfoBuilder().build()));
+  }
+  
+  public ShardInfoNested<A> editOrNewShardInfoLike(V1ShardInfo item) {
+    return this.withNewShardInfoLike(Optional.ofNullable(this.buildShardInfo()).orElse(item));
+  }
+  
+  public ShardInfoNested<A> editShardInfo() {
+    return this.withNewShardInfoLike(Optional.ofNullable(this.buildShardInfo()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -69,6 +88,9 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
       return false;
     }
     if (!(Objects.equals(selfLink, that.selfLink))) {
+      return false;
+    }
+    if (!(Objects.equals(shardInfo, that.shardInfo))) {
       return false;
     }
     return true;
@@ -106,8 +128,12 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
     return this.selfLink != null;
   }
   
+  public boolean hasShardInfo() {
+    return this.shardInfo != null;
+  }
+  
   public int hashCode() {
-    return Objects.hash(_continue, remainingItemCount, resourceVersion, selfLink);
+    return Objects.hash(_continue, remainingItemCount, resourceVersion, selfLink, shardInfo);
   }
   
   public String toString() {
@@ -131,6 +157,11 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
     if (!(selfLink == null)) {
         sb.append("selfLink:");
         sb.append(selfLink);
+        sb.append(",");
+    }
+    if (!(shardInfo == null)) {
+        sb.append("shardInfo:");
+        sb.append(shardInfo);
     }
     sb.append("}");
     return sb.toString();
@@ -139,6 +170,14 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
   public A withContinue(String _continue) {
     this._continue = _continue;
     return (A) this;
+  }
+  
+  public ShardInfoNested<A> withNewShardInfo() {
+    return new ShardInfoNested(null);
+  }
+  
+  public ShardInfoNested<A> withNewShardInfoLike(V1ShardInfo item) {
+    return new ShardInfoNested(item);
   }
   
   public A withRemainingItemCount(Long remainingItemCount) {
@@ -156,4 +195,32 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
     return (A) this;
   }
   
+  public A withShardInfo(V1ShardInfo shardInfo) {
+    this._visitables.remove("shardInfo");
+    if (shardInfo != null) {
+        this.shardInfo = new V1ShardInfoBuilder(shardInfo);
+        this._visitables.get("shardInfo").add(this.shardInfo);
+    } else {
+        this.shardInfo = null;
+        this._visitables.get("shardInfo").remove(this.shardInfo);
+    }
+    return (A) this;
+  }
+  public class ShardInfoNested<N> extends V1ShardInfoFluent<ShardInfoNested<N>> implements Nested<N>{
+  
+    V1ShardInfoBuilder builder;
+  
+    ShardInfoNested(V1ShardInfo item) {
+      this.builder = new V1ShardInfoBuilder(this, item);
+    }
+  
+    public N and() {
+      return (N) V1ListMetaFluent.this.withShardInfo(builder.build());
+    }
+    
+    public N endShardInfo() {
+      return and();
+    }
+    
+  }
 }

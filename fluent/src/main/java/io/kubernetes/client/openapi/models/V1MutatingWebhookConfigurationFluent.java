@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -51,7 +51,7 @@ public class V1MutatingWebhookConfigurationFluent<A extends io.kubernetes.client
     }
     for (V1MutatingWebhook item : items) {
         V1MutatingWebhookBuilder builder = new V1MutatingWebhookBuilder(item);
-        _visitables.get("webhooks").add(builder);
+        this._visitables.get("webhooks").add(builder);
         this.webhooks.add(builder);
     }
     return (A) this;
@@ -71,7 +71,7 @@ public class V1MutatingWebhookConfigurationFluent<A extends io.kubernetes.client
     }
     for (V1MutatingWebhook item : items) {
         V1MutatingWebhookBuilder builder = new V1MutatingWebhookBuilder(item);
-        _visitables.get("webhooks").add(builder);
+        this._visitables.get("webhooks").add(builder);
         this.webhooks.add(builder);
     }
     return (A) this;
@@ -82,12 +82,12 @@ public class V1MutatingWebhookConfigurationFluent<A extends io.kubernetes.client
       this.webhooks = new ArrayList();
     }
     V1MutatingWebhookBuilder builder = new V1MutatingWebhookBuilder(item);
-    if (index < 0 || index >= webhooks.size()) {
-        _visitables.get("webhooks").add(builder);
-        webhooks.add(builder);
+    if (index < 0 || index >= this.webhooks.size()) {
+        this._visitables.get("webhooks").add(builder);
+        this.webhooks.add(builder);
     } else {
-        _visitables.get("webhooks").add(builder);
-        webhooks.add(index, builder);
+        this._visitables.get("webhooks").add(builder);
+        this.webhooks.add(index, builder);
     }
     return (A) this;
   }
@@ -271,7 +271,7 @@ public class V1MutatingWebhookConfigurationFluent<A extends io.kubernetes.client
       return (A) this;
     }
     Iterator<V1MutatingWebhookBuilder> each = webhooks.iterator();
-    List visitables = _visitables.get("webhooks");
+    List visitables = this._visitables.get("webhooks");
     while (each.hasNext()) {
         V1MutatingWebhookBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -291,12 +291,12 @@ public class V1MutatingWebhookConfigurationFluent<A extends io.kubernetes.client
       this.webhooks = new ArrayList();
     }
     V1MutatingWebhookBuilder builder = new V1MutatingWebhookBuilder(item);
-    if (index < 0 || index >= webhooks.size()) {
-        _visitables.get("webhooks").add(builder);
-        webhooks.add(builder);
+    if (index < 0 || index >= this.webhooks.size()) {
+        this._visitables.get("webhooks").add(builder);
+        this.webhooks.add(builder);
     } else {
-        _visitables.get("webhooks").add(builder);
-        webhooks.set(index, builder);
+        this._visitables.get("webhooks").add(builder);
+        this.webhooks.set(index, builder);
     }
     return (A) this;
   }

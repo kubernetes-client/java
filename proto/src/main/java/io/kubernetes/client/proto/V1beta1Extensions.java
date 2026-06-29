@@ -125,6 +125,7 @@ public final class V1beta1Extensions {
    * DEPRECATED - This group version of DaemonSet is deprecated by apps/v1beta2/DaemonSet. See the release notes for
    * more information.
    * DaemonSet represents the configuration of a daemon set.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.extensions.v1beta1.DaemonSet}
@@ -561,6 +562,7 @@ public final class V1beta1Extensions {
      * DEPRECATED - This group version of DaemonSet is deprecated by apps/v1beta2/DaemonSet. See the release notes for
      * more information.
      * DaemonSet represents the configuration of a daemon set.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.extensions.v1beta1.DaemonSet}
@@ -9257,6 +9259,7 @@ public final class V1beta1Extensions {
    * DEPRECATED - This group version of Deployment is deprecated by apps/v1beta2/Deployment. See the release notes for
    * more information.
    * Deployment enables declarative updates for Pods and ReplicaSets.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.extensions.v1beta1.Deployment}
@@ -9675,6 +9678,7 @@ public final class V1beta1Extensions {
      * DEPRECATED - This group version of Deployment is deprecated by apps/v1beta2/Deployment. See the release notes for
      * more information.
      * Deployment enables declarative updates for Pods and ReplicaSets.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.extensions.v1beta1.Deployment}
@@ -22319,6 +22323,8 @@ public final class V1beta1Extensions {
      * <pre>
      * CIDR is a string representing the IP Block
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -22328,6 +22334,8 @@ public final class V1beta1Extensions {
      * <pre>
      * CIDR is a string representing the IP Block
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -22337,6 +22345,8 @@ public final class V1beta1Extensions {
      * <pre>
      * CIDR is a string representing the IP Block
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -22500,6 +22510,8 @@ public final class V1beta1Extensions {
      * <pre>
      * CIDR is a string representing the IP Block
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -22511,6 +22523,8 @@ public final class V1beta1Extensions {
      * <pre>
      * CIDR is a string representing the IP Block
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -22533,6 +22547,8 @@ public final class V1beta1Extensions {
      * <pre>
      * CIDR is a string representing the IP Block
      * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+     * +required
+     * +k8s:alpha(since: "1.36")=+k8s:required
      * </pre>
      *
      * <code>optional string cidr = 1;</code>
@@ -22974,6 +22990,8 @@ public final class V1beta1Extensions {
        * <pre>
        * CIDR is a string representing the IP Block
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -22985,6 +23003,8 @@ public final class V1beta1Extensions {
        * <pre>
        * CIDR is a string representing the IP Block
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -23007,6 +23027,8 @@ public final class V1beta1Extensions {
        * <pre>
        * CIDR is a string representing the IP Block
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -23028,6 +23050,8 @@ public final class V1beta1Extensions {
        * <pre>
        * CIDR is a string representing the IP Block
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -23046,6 +23070,8 @@ public final class V1beta1Extensions {
        * <pre>
        * CIDR is a string representing the IP Block
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -23060,6 +23086,8 @@ public final class V1beta1Extensions {
        * <pre>
        * CIDR is a string representing the IP Block
        * Valid examples are "192.168.1.0/24" or "2001:db8::/64"
+       * +required
+       * +k8s:alpha(since: "1.36")=+k8s:required
        * </pre>
        *
        * <code>optional string cidr = 1;</code>
@@ -23396,6 +23424,7 @@ public final class V1beta1Extensions {
    * externally-reachable urls, load balance traffic, terminate SSL, offer name
    * based virtual hosting etc.
    * DEPRECATED - This group version of Ingress is deprecated by networking.k8s.io/v1beta1 Ingress. See the release notes for more information.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.extensions.v1beta1.Ingress}
@@ -23825,6 +23854,7 @@ public final class V1beta1Extensions {
      * externally-reachable urls, load balance traffic, terminate SSL, offer name
      * based virtual hosting etc.
      * DEPRECATED - This group version of Ingress is deprecated by networking.k8s.io/v1beta1 Ingress. See the release notes for more information.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.extensions.v1beta1.Ingress}
@@ -37601,6 +37631,7 @@ public final class V1beta1Extensions {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -37616,6 +37647,7 @@ public final class V1beta1Extensions {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -37630,6 +37662,7 @@ public final class V1beta1Extensions {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -37644,6 +37677,7 @@ public final class V1beta1Extensions {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -37659,6 +37693,7 @@ public final class V1beta1Extensions {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -37866,6 +37901,7 @@ public final class V1beta1Extensions {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -37882,6 +37918,7 @@ public final class V1beta1Extensions {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -37899,6 +37936,7 @@ public final class V1beta1Extensions {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -37915,6 +37953,7 @@ public final class V1beta1Extensions {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -37931,6 +37970,7 @@ public final class V1beta1Extensions {
      * allows traffic only if the traffic matches at least one item in the to list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -38786,6 +38826,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -38806,6 +38847,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -38826,6 +38868,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -38846,6 +38889,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -38873,6 +38917,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -38897,6 +38942,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -38923,6 +38969,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -38950,6 +38997,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -38974,6 +39022,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -38998,6 +39047,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -39023,6 +39073,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -39046,6 +39097,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -39069,6 +39121,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -39086,6 +39139,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -39106,6 +39160,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -39127,6 +39182,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -39144,6 +39200,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -39162,6 +39219,7 @@ public final class V1beta1Extensions {
        * allows traffic only if the traffic matches at least one item in the to list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer to = 2;</code>
@@ -39324,6 +39382,7 @@ public final class V1beta1Extensions {
      * traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -39339,6 +39398,7 @@ public final class V1beta1Extensions {
      * traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -39353,6 +39413,7 @@ public final class V1beta1Extensions {
      * traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -39367,6 +39428,7 @@ public final class V1beta1Extensions {
      * traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -39382,6 +39444,7 @@ public final class V1beta1Extensions {
      * traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -39587,6 +39650,7 @@ public final class V1beta1Extensions {
      * traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -39603,6 +39667,7 @@ public final class V1beta1Extensions {
      * traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -39620,6 +39685,7 @@ public final class V1beta1Extensions {
      * traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -39636,6 +39702,7 @@ public final class V1beta1Extensions {
      * traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -39652,6 +39719,7 @@ public final class V1beta1Extensions {
      * traffic matches at least one item in the from list.
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40505,6 +40573,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40525,6 +40594,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40545,6 +40615,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40565,6 +40636,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40592,6 +40664,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40616,6 +40689,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40642,6 +40716,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40669,6 +40744,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40693,6 +40769,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40717,6 +40794,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40742,6 +40820,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40765,6 +40844,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40788,6 +40868,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40805,6 +40886,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40825,6 +40907,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40846,6 +40929,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40863,6 +40947,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -40881,6 +40966,7 @@ public final class V1beta1Extensions {
        * traffic matches at least one item in the from list.
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyPeer from = 2;</code>
@@ -42241,6 +42327,7 @@ public final class V1beta1Extensions {
      * IPBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -42251,6 +42338,7 @@ public final class V1beta1Extensions {
      * IPBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -42261,6 +42349,7 @@ public final class V1beta1Extensions {
      * IPBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -42485,6 +42574,7 @@ public final class V1beta1Extensions {
      * IPBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -42497,6 +42587,7 @@ public final class V1beta1Extensions {
      * IPBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -42509,6 +42600,7 @@ public final class V1beta1Extensions {
      * IPBlock defines policy on a particular IPBlock. If this field is set then
      * neither of the other fields can be.
      * +optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -43319,6 +43411,7 @@ public final class V1beta1Extensions {
        * IPBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -43331,6 +43424,7 @@ public final class V1beta1Extensions {
        * IPBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -43347,6 +43441,7 @@ public final class V1beta1Extensions {
        * IPBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -43369,6 +43464,7 @@ public final class V1beta1Extensions {
        * IPBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -43389,6 +43485,7 @@ public final class V1beta1Extensions {
        * IPBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -43415,6 +43512,7 @@ public final class V1beta1Extensions {
        * IPBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -43434,6 +43532,7 @@ public final class V1beta1Extensions {
        * IPBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -43448,6 +43547,7 @@ public final class V1beta1Extensions {
        * IPBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -43465,6 +43565,7 @@ public final class V1beta1Extensions {
        * IPBlock defines policy on a particular IPBlock. If this field is set then
        * neither of the other fields can be.
        * +optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>optional .k8s.io.api.extensions.v1beta1.IPBlock ipBlock = 3;</code>
@@ -44720,6 +44821,7 @@ public final class V1beta1Extensions {
      * (and serves solely to ensure that the pods it selects are isolated by default).
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -44737,6 +44839,7 @@ public final class V1beta1Extensions {
      * (and serves solely to ensure that the pods it selects are isolated by default).
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -44753,6 +44856,7 @@ public final class V1beta1Extensions {
      * (and serves solely to ensure that the pods it selects are isolated by default).
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -44769,6 +44873,7 @@ public final class V1beta1Extensions {
      * (and serves solely to ensure that the pods it selects are isolated by default).
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -44786,6 +44891,7 @@ public final class V1beta1Extensions {
      * (and serves solely to ensure that the pods it selects are isolated by default).
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -44804,6 +44910,7 @@ public final class V1beta1Extensions {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -44821,6 +44928,7 @@ public final class V1beta1Extensions {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -44837,6 +44945,7 @@ public final class V1beta1Extensions {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -44853,6 +44962,7 @@ public final class V1beta1Extensions {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -44870,6 +44980,7 @@ public final class V1beta1Extensions {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -45142,6 +45253,7 @@ public final class V1beta1Extensions {
      * (and serves solely to ensure that the pods it selects are isolated by default).
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -45160,6 +45272,7 @@ public final class V1beta1Extensions {
      * (and serves solely to ensure that the pods it selects are isolated by default).
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -45179,6 +45292,7 @@ public final class V1beta1Extensions {
      * (and serves solely to ensure that the pods it selects are isolated by default).
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -45197,6 +45311,7 @@ public final class V1beta1Extensions {
      * (and serves solely to ensure that the pods it selects are isolated by default).
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -45215,6 +45330,7 @@ public final class V1beta1Extensions {
      * (and serves solely to ensure that the pods it selects are isolated by default).
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -45237,6 +45353,7 @@ public final class V1beta1Extensions {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -45255,6 +45372,7 @@ public final class V1beta1Extensions {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -45274,6 +45392,7 @@ public final class V1beta1Extensions {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -45292,6 +45411,7 @@ public final class V1beta1Extensions {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -45310,6 +45430,7 @@ public final class V1beta1Extensions {
      * This field is beta-level in 1.8
      * +optional
      * +listType=atomic
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * </pre>
      *
      * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46093,6 +46214,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46115,6 +46237,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46137,6 +46260,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46159,6 +46283,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46188,6 +46313,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46214,6 +46340,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46242,6 +46369,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46271,6 +46399,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46297,6 +46426,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46323,6 +46453,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46350,6 +46481,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46375,6 +46507,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46400,6 +46533,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46419,6 +46553,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46441,6 +46576,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46464,6 +46600,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46483,6 +46620,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46503,6 +46641,7 @@ public final class V1beta1Extensions {
        * (and serves solely to ensure that the pods it selects are isolated by default).
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyIngressRule ingress = 2;</code>
@@ -46549,6 +46688,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46571,6 +46711,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46593,6 +46734,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46615,6 +46757,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46644,6 +46787,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46670,6 +46814,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46698,6 +46843,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46727,6 +46873,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46753,6 +46900,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46779,6 +46927,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46806,6 +46955,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46831,6 +46981,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46856,6 +47007,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46875,6 +47027,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46897,6 +47050,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46920,6 +47074,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46939,6 +47094,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -46959,6 +47115,7 @@ public final class V1beta1Extensions {
        * This field is beta-level in 1.8
        * +optional
        * +listType=atomic
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * </pre>
        *
        * <code>repeated .k8s.io.api.extensions.v1beta1.NetworkPolicyEgressRule egress = 3;</code>
@@ -47376,6 +47533,7 @@ public final class V1beta1Extensions {
    * DEPRECATED - This group version of ReplicaSet is deprecated by apps/v1beta2/ReplicaSet. See the release notes for
    * more information.
    * ReplicaSet ensures that a specified number of pod replicas are running at any given time.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.extensions.v1beta1.ReplicaSet}
@@ -47815,6 +47973,7 @@ public final class V1beta1Extensions {
      * DEPRECATED - This group version of ReplicaSet is deprecated by apps/v1beta2/ReplicaSet. See the release notes for
      * more information.
      * ReplicaSet ensures that a specified number of pod replicas are running at any given time.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.extensions.v1beta1.ReplicaSet}
@@ -59092,9 +59251,9 @@ public final class V1beta1Extensions {
      * <pre>
      * desired number of instances for the scaled object.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * +default=0
-     * +k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 replicas = 1;</code>
@@ -59104,9 +59263,9 @@ public final class V1beta1Extensions {
      * <pre>
      * desired number of instances for the scaled object.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * +default=0
-     * +k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 replicas = 1;</code>
@@ -59201,9 +59360,9 @@ public final class V1beta1Extensions {
      * <pre>
      * desired number of instances for the scaled object.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * +default=0
-     * +k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 replicas = 1;</code>
@@ -59215,9 +59374,9 @@ public final class V1beta1Extensions {
      * <pre>
      * desired number of instances for the scaled object.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
      * +default=0
-     * +k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int32 replicas = 1;</code>
@@ -59550,9 +59709,9 @@ public final class V1beta1Extensions {
        * <pre>
        * desired number of instances for the scaled object.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * +default=0
-       * +k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 replicas = 1;</code>
@@ -59564,9 +59723,9 @@ public final class V1beta1Extensions {
        * <pre>
        * desired number of instances for the scaled object.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * +default=0
-       * +k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 replicas = 1;</code>
@@ -59578,9 +59737,9 @@ public final class V1beta1Extensions {
        * <pre>
        * desired number of instances for the scaled object.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * +default=0
-       * +k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 replicas = 1;</code>
@@ -59595,9 +59754,9 @@ public final class V1beta1Extensions {
        * <pre>
        * desired number of instances for the scaled object.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
        * +default=0
-       * +k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int32 replicas = 1;</code>

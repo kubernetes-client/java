@@ -55,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * EndpointSlice represents a set of service endpoints. Most EndpointSlices are created by the EndpointSlice controller to represent the Pods selected by Service objects. For a given service there may be multiple EndpointSlice objects which must be joined to produce the full set of endpoints; you can find all of the slices for a given service by listing EndpointSlices in the service&#39;s namespace whose &#x60;kubernetes.io/service-name&#x60; label contains the service&#39;s name.
  */
 @ApiModel(description = "EndpointSlice represents a set of service endpoints. Most EndpointSlices are created by the EndpointSlice controller to represent the Pods selected by Service objects. For a given service there may be multiple EndpointSlice objects which must be joined to produce the full set of endpoints; you can find all of the slices for a given service by listing EndpointSlices in the service's namespace whose `kubernetes.io/service-name` label contains the service's name.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1EndpointSlice implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ADDRESS_TYPE = "addressType";
   @SerializedName(SERIALIZED_NAME_ADDRESS_TYPE)
@@ -69,7 +69,7 @@ public class V1EndpointSlice implements io.kubernetes.client.common.KubernetesOb
 
   public static final String SERIALIZED_NAME_ENDPOINTS = "endpoints";
   @SerializedName(SERIALIZED_NAME_ENDPOINTS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private List<V1Endpoint> endpoints = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_KIND = "kind";
@@ -130,7 +130,7 @@ public class V1EndpointSlice implements io.kubernetes.client.common.KubernetesOb
   }
 
 
-  public V1EndpointSlice endpoints(@jakarta.annotation.Nonnull List<V1Endpoint> endpoints) {
+  public V1EndpointSlice endpoints(@jakarta.annotation.Nullable List<V1Endpoint> endpoints) {
     this.endpoints = endpoints;
     return this;
   }
@@ -147,13 +147,13 @@ public class V1EndpointSlice implements io.kubernetes.client.common.KubernetesOb
    * endpoints is a list of unique endpoints in this slice. Each slice may include a maximum of 1000 endpoints.
    * @return endpoints
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "endpoints is a list of unique endpoints in this slice. Each slice may include a maximum of 1000 endpoints.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "endpoints is a list of unique endpoints in this slice. Each slice may include a maximum of 1000 endpoints.")
   public List<V1Endpoint> getEndpoints() {
     return endpoints;
   }
 
-  public void setEndpoints(@jakarta.annotation.Nonnull List<V1Endpoint> endpoints) {
+  public void setEndpoints(@jakarta.annotation.Nullable List<V1Endpoint> endpoints) {
     this.endpoints = endpoints;
   }
 
@@ -283,7 +283,7 @@ public class V1EndpointSlice implements io.kubernetes.client.common.KubernetesOb
     openapiFields = new HashSet<String>(Arrays.asList("addressType", "apiVersion", "endpoints", "kind", "metadata", "ports"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("addressType", "endpoints"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addressType"));
   }
 
   /**
@@ -320,16 +320,20 @@ public class V1EndpointSlice implements io.kubernetes.client.common.KubernetesOb
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("endpoints").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `endpoints` to be an array in the JSON string but got `%s`", jsonObj.get("endpoints").toString()));
-      }
+      if (jsonObj.get("endpoints") != null && !jsonObj.get("endpoints").isJsonNull()) {
+        JsonArray jsonArrayendpoints = jsonObj.getAsJsonArray("endpoints");
+        if (jsonArrayendpoints != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("endpoints").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `endpoints` to be an array in the JSON string but got `%s`", jsonObj.get("endpoints").toString()));
+          }
 
-      JsonArray jsonArrayendpoints = jsonObj.getAsJsonArray("endpoints");
-      // validate the required field `endpoints` (array)
-      for (int i = 0; i < jsonArrayendpoints.size(); i++) {
-        V1Endpoint.validateJsonElement(jsonArrayendpoints.get(i));
-      };
+          // validate the optional field `endpoints` (array)
+          for (int i = 0; i < jsonArrayendpoints.size(); i++) {
+            V1Endpoint.validateJsonElement(jsonArrayendpoints.get(i));
+          };
+        }
+      }
       if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }

@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * VolumeError captures an error encountered during a volume operation.
  */
 @ApiModel(description = "VolumeError captures an error encountered during a volume operation.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1VolumeError {
   public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
   @SerializedName(SERIALIZED_NAME_ERROR_CODE)
@@ -77,11 +77,11 @@ public class V1VolumeError {
   }
 
   /**
-   * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.  This is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
+   * errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.  This field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.
    * @return errorCode
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.  This is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.")
+  @ApiModelProperty(value = "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.  This field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.")
   public Integer getErrorCode() {
     return errorCode;
   }

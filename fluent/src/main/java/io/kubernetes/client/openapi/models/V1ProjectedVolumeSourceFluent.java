@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -49,7 +49,7 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
     }
     for (V1VolumeProjection item : items) {
         V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
-        _visitables.get("sources").add(builder);
+        this._visitables.get("sources").add(builder);
         this.sources.add(builder);
     }
     return (A) this;
@@ -69,7 +69,7 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
     }
     for (V1VolumeProjection item : items) {
         V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
-        _visitables.get("sources").add(builder);
+        this._visitables.get("sources").add(builder);
         this.sources.add(builder);
     }
     return (A) this;
@@ -80,12 +80,12 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
       this.sources = new ArrayList();
     }
     V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
-    if (index < 0 || index >= sources.size()) {
-        _visitables.get("sources").add(builder);
-        sources.add(builder);
+    if (index < 0 || index >= this.sources.size()) {
+        this._visitables.get("sources").add(builder);
+        this.sources.add(builder);
     } else {
-        _visitables.get("sources").add(builder);
-        sources.add(index, builder);
+        this._visitables.get("sources").add(builder);
+        this.sources.add(index, builder);
     }
     return (A) this;
   }
@@ -233,7 +233,7 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
       return (A) this;
     }
     Iterator<V1VolumeProjectionBuilder> each = sources.iterator();
-    List visitables = _visitables.get("sources");
+    List visitables = this._visitables.get("sources");
     while (each.hasNext()) {
         V1VolumeProjectionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -253,12 +253,12 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
       this.sources = new ArrayList();
     }
     V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
-    if (index < 0 || index >= sources.size()) {
-        _visitables.get("sources").add(builder);
-        sources.add(builder);
+    if (index < 0 || index >= this.sources.size()) {
+        this._visitables.get("sources").add(builder);
+        this.sources.add(builder);
     } else {
-        _visitables.get("sources").add(builder);
-        sources.set(index, builder);
+        this._visitables.get("sources").add(builder);
+        this.sources.set(index, builder);
     }
     return (A) this;
   }

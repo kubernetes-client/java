@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -49,7 +49,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
     }
     for (V1alpha1StorageVersionCondition item : items) {
         V1alpha1StorageVersionConditionBuilder builder = new V1alpha1StorageVersionConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
+        this._visitables.get("conditions").add(builder);
         this.conditions.add(builder);
     }
     return (A) this;
@@ -61,7 +61,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
     }
     for (V1alpha1ServerStorageVersion item : items) {
         V1alpha1ServerStorageVersionBuilder builder = new V1alpha1ServerStorageVersionBuilder(item);
-        _visitables.get("storageVersions").add(builder);
+        this._visitables.get("storageVersions").add(builder);
         this.storageVersions.add(builder);
     }
     return (A) this;
@@ -89,7 +89,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
     }
     for (V1alpha1StorageVersionCondition item : items) {
         V1alpha1StorageVersionConditionBuilder builder = new V1alpha1StorageVersionConditionBuilder(item);
-        _visitables.get("conditions").add(builder);
+        this._visitables.get("conditions").add(builder);
         this.conditions.add(builder);
     }
     return (A) this;
@@ -100,12 +100,12 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
       this.conditions = new ArrayList();
     }
     V1alpha1StorageVersionConditionBuilder builder = new V1alpha1StorageVersionConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
+    if (index < 0 || index >= this.conditions.size()) {
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
     } else {
-        _visitables.get("conditions").add(builder);
-        conditions.add(index, builder);
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(index, builder);
     }
     return (A) this;
   }
@@ -116,7 +116,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
     }
     for (V1alpha1ServerStorageVersion item : items) {
         V1alpha1ServerStorageVersionBuilder builder = new V1alpha1ServerStorageVersionBuilder(item);
-        _visitables.get("storageVersions").add(builder);
+        this._visitables.get("storageVersions").add(builder);
         this.storageVersions.add(builder);
     }
     return (A) this;
@@ -127,12 +127,12 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
       this.storageVersions = new ArrayList();
     }
     V1alpha1ServerStorageVersionBuilder builder = new V1alpha1ServerStorageVersionBuilder(item);
-    if (index < 0 || index >= storageVersions.size()) {
-        _visitables.get("storageVersions").add(builder);
-        storageVersions.add(builder);
+    if (index < 0 || index >= this.storageVersions.size()) {
+        this._visitables.get("storageVersions").add(builder);
+        this.storageVersions.add(builder);
     } else {
-        _visitables.get("storageVersions").add(builder);
-        storageVersions.add(index, builder);
+        this._visitables.get("storageVersions").add(builder);
+        this.storageVersions.add(index, builder);
     }
     return (A) this;
   }
@@ -382,7 +382,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
       return (A) this;
     }
     Iterator<V1alpha1StorageVersionConditionBuilder> each = conditions.iterator();
-    List visitables = _visitables.get("conditions");
+    List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1alpha1StorageVersionConditionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -398,7 +398,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
       return (A) this;
     }
     Iterator<V1alpha1ServerStorageVersionBuilder> each = storageVersions.iterator();
-    List visitables = _visitables.get("storageVersions");
+    List visitables = this._visitables.get("storageVersions");
     while (each.hasNext()) {
         V1alpha1ServerStorageVersionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -422,12 +422,12 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
       this.conditions = new ArrayList();
     }
     V1alpha1StorageVersionConditionBuilder builder = new V1alpha1StorageVersionConditionBuilder(item);
-    if (index < 0 || index >= conditions.size()) {
-        _visitables.get("conditions").add(builder);
-        conditions.add(builder);
+    if (index < 0 || index >= this.conditions.size()) {
+        this._visitables.get("conditions").add(builder);
+        this.conditions.add(builder);
     } else {
-        _visitables.get("conditions").add(builder);
-        conditions.set(index, builder);
+        this._visitables.get("conditions").add(builder);
+        this.conditions.set(index, builder);
     }
     return (A) this;
   }
@@ -437,12 +437,12 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
       this.storageVersions = new ArrayList();
     }
     V1alpha1ServerStorageVersionBuilder builder = new V1alpha1ServerStorageVersionBuilder(item);
-    if (index < 0 || index >= storageVersions.size()) {
-        _visitables.get("storageVersions").add(builder);
-        storageVersions.add(builder);
+    if (index < 0 || index >= this.storageVersions.size()) {
+        this._visitables.get("storageVersions").add(builder);
+        this.storageVersions.add(builder);
     } else {
-        _visitables.get("storageVersions").add(builder);
-        storageVersions.set(index, builder);
+        this._visitables.get("storageVersions").add(builder);
+        this.storageVersions.set(index, builder);
     }
     return (A) this;
   }

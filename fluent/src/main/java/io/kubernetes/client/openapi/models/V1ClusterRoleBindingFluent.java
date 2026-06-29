@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -52,7 +52,7 @@ public class V1ClusterRoleBindingFluent<A extends io.kubernetes.client.openapi.m
     }
     for (RbacV1Subject item : items) {
         RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
-        _visitables.get("subjects").add(builder);
+        this._visitables.get("subjects").add(builder);
         this.subjects.add(builder);
     }
     return (A) this;
@@ -72,7 +72,7 @@ public class V1ClusterRoleBindingFluent<A extends io.kubernetes.client.openapi.m
     }
     for (RbacV1Subject item : items) {
         RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
-        _visitables.get("subjects").add(builder);
+        this._visitables.get("subjects").add(builder);
         this.subjects.add(builder);
     }
     return (A) this;
@@ -83,12 +83,12 @@ public class V1ClusterRoleBindingFluent<A extends io.kubernetes.client.openapi.m
       this.subjects = new ArrayList();
     }
     RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
-    if (index < 0 || index >= subjects.size()) {
-        _visitables.get("subjects").add(builder);
-        subjects.add(builder);
+    if (index < 0 || index >= this.subjects.size()) {
+        this._visitables.get("subjects").add(builder);
+        this.subjects.add(builder);
     } else {
-        _visitables.get("subjects").add(builder);
-        subjects.add(index, builder);
+        this._visitables.get("subjects").add(builder);
+        this.subjects.add(index, builder);
     }
     return (A) this;
   }
@@ -296,7 +296,7 @@ public class V1ClusterRoleBindingFluent<A extends io.kubernetes.client.openapi.m
       return (A) this;
     }
     Iterator<RbacV1SubjectBuilder> each = subjects.iterator();
-    List visitables = _visitables.get("subjects");
+    List visitables = this._visitables.get("subjects");
     while (each.hasNext()) {
         RbacV1SubjectBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -316,12 +316,12 @@ public class V1ClusterRoleBindingFluent<A extends io.kubernetes.client.openapi.m
       this.subjects = new ArrayList();
     }
     RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
-    if (index < 0 || index >= subjects.size()) {
-        _visitables.get("subjects").add(builder);
-        subjects.add(builder);
+    if (index < 0 || index >= this.subjects.size()) {
+        this._visitables.get("subjects").add(builder);
+        this.subjects.add(builder);
     } else {
-        _visitables.get("subjects").add(builder);
-        subjects.set(index, builder);
+        this._visitables.get("subjects").add(builder);
+        this.subjects.set(index, builder);
     }
     return (A) this;
   }

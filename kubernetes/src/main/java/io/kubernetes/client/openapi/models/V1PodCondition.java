@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodCondition contains details for the current condition of this pod.
  */
 @ApiModel(description = "PodCondition contains details for the current condition of this pod.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PodCondition {
   public static final String SERIALIZED_NAME_LAST_PROBE_TIME = "lastProbeTime";
   @SerializedName(SERIALIZED_NAME_LAST_PROBE_TIME)
@@ -157,11 +157,11 @@ public class V1PodCondition {
   }
 
   /**
-   * If set, this represents the .metadata.generation that the pod condition was set based upon. The PodObservedGenerationTracking feature gate must be enabled to use this field.
+   * If set, this represents the .metadata.generation that the pod condition was set based upon.
    * @return observedGeneration
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "If set, this represents the .metadata.generation that the pod condition was set based upon. The PodObservedGenerationTracking feature gate must be enabled to use this field.")
+  @ApiModelProperty(value = "If set, this represents the .metadata.generation that the pod condition was set based upon.")
   public Long getObservedGeneration() {
     return observedGeneration;
   }

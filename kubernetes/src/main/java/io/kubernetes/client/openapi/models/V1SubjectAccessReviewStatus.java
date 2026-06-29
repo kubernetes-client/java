@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * SubjectAccessReviewStatus
  */
 @ApiModel(description = "SubjectAccessReviewStatus")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1SubjectAccessReviewStatus {
   public static final String SERIALIZED_NAME_ALLOWED = "allowed";
   @SerializedName(SERIALIZED_NAME_ALLOWED)
@@ -81,11 +81,11 @@ public class V1SubjectAccessReviewStatus {
   }
 
   /**
-   * Allowed is required. True if the action would be allowed, false otherwise.
+   * allowed is required. True if the action would be allowed, false otherwise.
    * @return allowed
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Allowed is required. True if the action would be allowed, false otherwise.")
+  @ApiModelProperty(required = true, value = "allowed is required. True if the action would be allowed, false otherwise.")
   public Boolean getAllowed() {
     return allowed;
   }
@@ -101,11 +101,11 @@ public class V1SubjectAccessReviewStatus {
   }
 
   /**
-   * Denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.
+   * denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.
    * @return denied
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.")
+  @ApiModelProperty(value = "denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.")
   public Boolean getDenied() {
     return denied;
   }
@@ -121,11 +121,11 @@ public class V1SubjectAccessReviewStatus {
   }
 
   /**
-   * EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
+   * evaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.
    * @return evaluationError
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.")
+  @ApiModelProperty(value = "evaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.")
   public String getEvaluationError() {
     return evaluationError;
   }
@@ -141,11 +141,11 @@ public class V1SubjectAccessReviewStatus {
   }
 
   /**
-   * Reason is optional.  It indicates why a request was allowed or denied.
+   * reason is optional.  It indicates why a request was allowed or denied.
    * @return reason
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Reason is optional.  It indicates why a request was allowed or denied.")
+  @ApiModelProperty(value = "reason is optional.  It indicates why a request was allowed or denied.")
   public String getReason() {
     return reason;
   }

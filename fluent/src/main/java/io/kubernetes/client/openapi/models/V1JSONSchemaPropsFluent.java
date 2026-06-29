@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -89,7 +89,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-        _visitables.get("allOf").add(builder);
+        this._visitables.get("allOf").add(builder);
         this.allOf.add(builder);
     }
     return (A) this;
@@ -101,7 +101,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-        _visitables.get("anyOf").add(builder);
+        this._visitables.get("anyOf").add(builder);
         this.anyOf.add(builder);
     }
     return (A) this;
@@ -123,7 +123,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-        _visitables.get("oneOf").add(builder);
+        this._visitables.get("oneOf").add(builder);
         this.oneOf.add(builder);
     }
     return (A) this;
@@ -169,7 +169,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-        _visitables.get("allOf").add(builder);
+        this._visitables.get("allOf").add(builder);
         this.allOf.add(builder);
     }
     return (A) this;
@@ -180,12 +180,12 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       this.allOf = new ArrayList();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= allOf.size()) {
-        _visitables.get("allOf").add(builder);
-        allOf.add(builder);
+    if (index < 0 || index >= this.allOf.size()) {
+        this._visitables.get("allOf").add(builder);
+        this.allOf.add(builder);
     } else {
-        _visitables.get("allOf").add(builder);
-        allOf.add(index, builder);
+        this._visitables.get("allOf").add(builder);
+        this.allOf.add(index, builder);
     }
     return (A) this;
   }
@@ -196,7 +196,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-        _visitables.get("anyOf").add(builder);
+        this._visitables.get("anyOf").add(builder);
         this.anyOf.add(builder);
     }
     return (A) this;
@@ -207,12 +207,12 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       this.anyOf = new ArrayList();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= anyOf.size()) {
-        _visitables.get("anyOf").add(builder);
-        anyOf.add(builder);
+    if (index < 0 || index >= this.anyOf.size()) {
+        this._visitables.get("anyOf").add(builder);
+        this.anyOf.add(builder);
     } else {
-        _visitables.get("anyOf").add(builder);
-        anyOf.add(index, builder);
+        this._visitables.get("anyOf").add(builder);
+        this.anyOf.add(index, builder);
     }
     return (A) this;
   }
@@ -281,7 +281,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-        _visitables.get("oneOf").add(builder);
+        this._visitables.get("oneOf").add(builder);
         this.oneOf.add(builder);
     }
     return (A) this;
@@ -292,12 +292,12 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       this.oneOf = new ArrayList();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= oneOf.size()) {
-        _visitables.get("oneOf").add(builder);
-        oneOf.add(builder);
+    if (index < 0 || index >= this.oneOf.size()) {
+        this._visitables.get("oneOf").add(builder);
+        this.oneOf.add(builder);
     } else {
-        _visitables.get("oneOf").add(builder);
-        oneOf.add(index, builder);
+        this._visitables.get("oneOf").add(builder);
+        this.oneOf.add(index, builder);
     }
     return (A) this;
   }
@@ -452,11 +452,9 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
         this.withAdditionalProperties(instance.getAdditionalProperties());
         this.withAllOf(instance.getAllOf());
         this.withAnyOf(instance.getAnyOf());
-        this.withDefault(instance.getDefault());
         this.withDefinitions(instance.getDefinitions());
         this.withDependencies(instance.getDependencies());
         this.withDescription(instance.getDescription());
-        this.withEnum(instance.getEnum());
         this.withExample(instance.getExample());
         this.withExclusiveMaximum(instance.getExclusiveMaximum());
         this.withExclusiveMinimum(instance.getExclusiveMinimum());
@@ -1323,7 +1321,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1JSONSchemaPropsBuilder> each = allOf.iterator();
-    List visitables = _visitables.get("allOf");
+    List visitables = this._visitables.get("allOf");
     while (each.hasNext()) {
         V1JSONSchemaPropsBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1339,7 +1337,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1JSONSchemaPropsBuilder> each = anyOf.iterator();
-    List visitables = _visitables.get("anyOf");
+    List visitables = this._visitables.get("anyOf");
     while (each.hasNext()) {
         V1JSONSchemaPropsBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1355,7 +1353,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1JSONSchemaPropsBuilder> each = oneOf.iterator();
-    List visitables = _visitables.get("oneOf");
+    List visitables = this._visitables.get("oneOf");
     while (each.hasNext()) {
         V1JSONSchemaPropsBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -1383,12 +1381,12 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       this.allOf = new ArrayList();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= allOf.size()) {
-        _visitables.get("allOf").add(builder);
-        allOf.add(builder);
+    if (index < 0 || index >= this.allOf.size()) {
+        this._visitables.get("allOf").add(builder);
+        this.allOf.add(builder);
     } else {
-        _visitables.get("allOf").add(builder);
-        allOf.set(index, builder);
+        this._visitables.get("allOf").add(builder);
+        this.allOf.set(index, builder);
     }
     return (A) this;
   }
@@ -1398,12 +1396,12 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       this.anyOf = new ArrayList();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= anyOf.size()) {
-        _visitables.get("anyOf").add(builder);
-        anyOf.add(builder);
+    if (index < 0 || index >= this.anyOf.size()) {
+        this._visitables.get("anyOf").add(builder);
+        this.anyOf.add(builder);
     } else {
-        _visitables.get("anyOf").add(builder);
-        anyOf.set(index, builder);
+        this._visitables.get("anyOf").add(builder);
+        this.anyOf.set(index, builder);
     }
     return (A) this;
   }
@@ -1421,12 +1419,12 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       this.oneOf = new ArrayList();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= oneOf.size()) {
-        _visitables.get("oneOf").add(builder);
-        oneOf.add(builder);
+    if (index < 0 || index >= this.oneOf.size()) {
+        this._visitables.get("oneOf").add(builder);
+        this.oneOf.add(builder);
     } else {
-        _visitables.get("oneOf").add(builder);
-        oneOf.set(index, builder);
+        this._visitables.get("oneOf").add(builder);
+        this.oneOf.set(index, builder);
     }
     return (A) this;
   }

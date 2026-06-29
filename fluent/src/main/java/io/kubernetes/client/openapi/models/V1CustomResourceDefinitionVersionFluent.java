@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -57,7 +57,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
     }
     for (V1CustomResourceColumnDefinition item : items) {
         V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-        _visitables.get("additionalPrinterColumns").add(builder);
+        this._visitables.get("additionalPrinterColumns").add(builder);
         this.additionalPrinterColumns.add(builder);
     }
     return (A) this;
@@ -69,7 +69,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
     }
     for (V1SelectableField item : items) {
         V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
-        _visitables.get("selectableFields").add(builder);
+        this._visitables.get("selectableFields").add(builder);
         this.selectableFields.add(builder);
     }
     return (A) this;
@@ -97,7 +97,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
     }
     for (V1CustomResourceColumnDefinition item : items) {
         V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-        _visitables.get("additionalPrinterColumns").add(builder);
+        this._visitables.get("additionalPrinterColumns").add(builder);
         this.additionalPrinterColumns.add(builder);
     }
     return (A) this;
@@ -108,12 +108,12 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       this.additionalPrinterColumns = new ArrayList();
     }
     V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-    if (index < 0 || index >= additionalPrinterColumns.size()) {
-        _visitables.get("additionalPrinterColumns").add(builder);
-        additionalPrinterColumns.add(builder);
+    if (index < 0 || index >= this.additionalPrinterColumns.size()) {
+        this._visitables.get("additionalPrinterColumns").add(builder);
+        this.additionalPrinterColumns.add(builder);
     } else {
-        _visitables.get("additionalPrinterColumns").add(builder);
-        additionalPrinterColumns.add(index, builder);
+        this._visitables.get("additionalPrinterColumns").add(builder);
+        this.additionalPrinterColumns.add(index, builder);
     }
     return (A) this;
   }
@@ -124,7 +124,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
     }
     for (V1SelectableField item : items) {
         V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
-        _visitables.get("selectableFields").add(builder);
+        this._visitables.get("selectableFields").add(builder);
         this.selectableFields.add(builder);
     }
     return (A) this;
@@ -135,12 +135,12 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       this.selectableFields = new ArrayList();
     }
     V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
-    if (index < 0 || index >= selectableFields.size()) {
-        _visitables.get("selectableFields").add(builder);
-        selectableFields.add(builder);
+    if (index < 0 || index >= this.selectableFields.size()) {
+        this._visitables.get("selectableFields").add(builder);
+        this.selectableFields.add(builder);
     } else {
-        _visitables.get("selectableFields").add(builder);
-        selectableFields.add(index, builder);
+        this._visitables.get("selectableFields").add(builder);
+        this.selectableFields.add(index, builder);
     }
     return (A) this;
   }
@@ -486,7 +486,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       return (A) this;
     }
     Iterator<V1CustomResourceColumnDefinitionBuilder> each = additionalPrinterColumns.iterator();
-    List visitables = _visitables.get("additionalPrinterColumns");
+    List visitables = this._visitables.get("additionalPrinterColumns");
     while (each.hasNext()) {
         V1CustomResourceColumnDefinitionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -502,7 +502,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       return (A) this;
     }
     Iterator<V1SelectableFieldBuilder> each = selectableFields.iterator();
-    List visitables = _visitables.get("selectableFields");
+    List visitables = this._visitables.get("selectableFields");
     while (each.hasNext()) {
         V1SelectableFieldBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -526,12 +526,12 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       this.additionalPrinterColumns = new ArrayList();
     }
     V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-    if (index < 0 || index >= additionalPrinterColumns.size()) {
-        _visitables.get("additionalPrinterColumns").add(builder);
-        additionalPrinterColumns.add(builder);
+    if (index < 0 || index >= this.additionalPrinterColumns.size()) {
+        this._visitables.get("additionalPrinterColumns").add(builder);
+        this.additionalPrinterColumns.add(builder);
     } else {
-        _visitables.get("additionalPrinterColumns").add(builder);
-        additionalPrinterColumns.set(index, builder);
+        this._visitables.get("additionalPrinterColumns").add(builder);
+        this.additionalPrinterColumns.set(index, builder);
     }
     return (A) this;
   }
@@ -541,12 +541,12 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       this.selectableFields = new ArrayList();
     }
     V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
-    if (index < 0 || index >= selectableFields.size()) {
-        _visitables.get("selectableFields").add(builder);
-        selectableFields.add(builder);
+    if (index < 0 || index >= this.selectableFields.size()) {
+        this._visitables.get("selectableFields").add(builder);
+        this.selectableFields.add(builder);
     } else {
-        _visitables.get("selectableFields").add(builder);
-        selectableFields.set(index, builder);
+        this._visitables.get("selectableFields").add(builder);
+        this.selectableFields.set(index, builder);
     }
     return (A) this;
   }

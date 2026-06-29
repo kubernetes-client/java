@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * WebhookClientConfig contains the information to make a TLS connection with the webhook.
  */
 @ApiModel(description = "WebhookClientConfig contains the information to make a TLS connection with the webhook.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class ApiextensionsV1WebhookClientConfig {
   public static final String SERIALIZED_NAME_CA_BUNDLE = "caBundle";
   @SerializedName(SERIALIZED_NAME_CA_BUNDLE)

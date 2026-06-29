@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * TokenReviewStatus is the result of the token authentication request.
  */
 @ApiModel(description = "TokenReviewStatus is the result of the token authentication request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1TokenReviewStatus {
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
   @SerializedName(SERIALIZED_NAME_AUDIENCES)
@@ -92,11 +92,11 @@ public class V1TokenReviewStatus {
   }
 
   /**
-   * Audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token&#39;s audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \&quot;true\&quot;, the token is valid against the audience of the Kubernetes API server.
+   * audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token&#39;s audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \&quot;true\&quot;, the token is valid against the audience of the Kubernetes API server.
    * @return audiences
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token's audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \"true\", the token is valid against the audience of the Kubernetes API server.")
+  @ApiModelProperty(value = "audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token's audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \"true\", the token is valid against the audience of the Kubernetes API server.")
   public List<String> getAudiences() {
     return audiences;
   }
@@ -112,11 +112,11 @@ public class V1TokenReviewStatus {
   }
 
   /**
-   * Authenticated indicates that the token was associated with a known user.
+   * authenticated indicates that the token was associated with a known user.
    * @return authenticated
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Authenticated indicates that the token was associated with a known user.")
+  @ApiModelProperty(value = "authenticated indicates that the token was associated with a known user.")
   public Boolean getAuthenticated() {
     return authenticated;
   }
@@ -132,11 +132,11 @@ public class V1TokenReviewStatus {
   }
 
   /**
-   * Error indicates that the token couldn&#39;t be checked
+   * error indicates that the token couldn&#39;t be checked
    * @return error
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Error indicates that the token couldn't be checked")
+  @ApiModelProperty(value = "error indicates that the token couldn't be checked")
   public String getError() {
     return error;
   }

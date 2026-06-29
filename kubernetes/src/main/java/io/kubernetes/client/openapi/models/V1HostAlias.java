@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod&#39;s hosts file.
  */
 @ApiModel(description = "HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1HostAlias {
   public static final String SERIALIZED_NAME_HOSTNAMES = "hostnames";
   @SerializedName(SERIALIZED_NAME_HOSTNAMES)

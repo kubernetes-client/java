@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * CustomResourceDefinitionNames indicates the names to serve this CustomResourceDefinition
  */
 @ApiModel(description = "CustomResourceDefinitionNames indicates the names to serve this CustomResourceDefinition")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1CustomResourceDefinitionNames {
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)

@@ -8035,7 +8035,7 @@ public final class V2Autoscaling {
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8045,7 +8045,7 @@ public final class V2Autoscaling {
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8055,7 +8055,7 @@ public final class V2Autoscaling {
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8095,6 +8095,7 @@ public final class V2Autoscaling {
    * HorizontalPodAutoscaler is the configuration for a horizontal pod
    * autoscaler, which automatically manages the replica count of any resource
    * implementing the scale subresource based on the metrics specified.
+   * +k8s:supportsSubresource="/status"
    * </pre>
    *
    * Protobuf type {@code k8s.io.api.autoscaling.v2.HorizontalPodAutoscaler}
@@ -8252,7 +8253,7 @@ public final class V2Autoscaling {
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8264,7 +8265,7 @@ public final class V2Autoscaling {
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8276,7 +8277,7 @@ public final class V2Autoscaling {
      * <pre>
      * spec is the specification for the behaviour of the autoscaler.
      * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-     * +optional
+     * +required
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8519,6 +8520,7 @@ public final class V2Autoscaling {
      * HorizontalPodAutoscaler is the configuration for a horizontal pod
      * autoscaler, which automatically manages the replica count of any resource
      * implementing the scale subresource based on the metrics specified.
+     * +k8s:supportsSubresource="/status"
      * </pre>
      *
      * Protobuf type {@code k8s.io.api.autoscaling.v2.HorizontalPodAutoscaler}
@@ -8898,7 +8900,7 @@ public final class V2Autoscaling {
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8910,7 +8912,7 @@ public final class V2Autoscaling {
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8926,7 +8928,7 @@ public final class V2Autoscaling {
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8948,7 +8950,7 @@ public final class V2Autoscaling {
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8968,7 +8970,7 @@ public final class V2Autoscaling {
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -8994,7 +8996,7 @@ public final class V2Autoscaling {
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -9013,7 +9015,7 @@ public final class V2Autoscaling {
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -9027,7 +9029,7 @@ public final class V2Autoscaling {
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -9044,7 +9046,7 @@ public final class V2Autoscaling {
        * <pre>
        * spec is the specification for the behaviour of the autoscaler.
        * More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status.
-       * +optional
+       * +required
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.HorizontalPodAutoscalerSpec spec = 2;</code>
@@ -10506,6 +10508,29 @@ public final class V2Autoscaling {
      */
     com.google.protobuf.ByteString
         getMessageBytes();
+
+    /**
+     * <pre>
+     * observedGeneration represents the .metadata.generation that the condition was set based upon.
+     * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+     * with respect to the current state of the instance.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 observedGeneration = 6;</code>
+     */
+    boolean hasObservedGeneration();
+    /**
+     * <pre>
+     * observedGeneration represents the .metadata.generation that the condition was set based upon.
+     * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+     * with respect to the current state of the instance.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 observedGeneration = 6;</code>
+     */
+    long getObservedGeneration();
   }
   /**
    * <pre>
@@ -10529,6 +10554,7 @@ public final class V2Autoscaling {
       status_ = "";
       reason_ = "";
       message_ = "";
+      observedGeneration_ = 0L;
     }
 
     @java.lang.Override
@@ -10590,6 +10616,11 @@ public final class V2Autoscaling {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
               message_ = bs;
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              observedGeneration_ = input.readInt64();
               break;
             }
             default: {
@@ -10889,6 +10920,35 @@ public final class V2Autoscaling {
       }
     }
 
+    public static final int OBSERVEDGENERATION_FIELD_NUMBER = 6;
+    private long observedGeneration_;
+    /**
+     * <pre>
+     * observedGeneration represents the .metadata.generation that the condition was set based upon.
+     * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+     * with respect to the current state of the instance.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 observedGeneration = 6;</code>
+     */
+    public boolean hasObservedGeneration() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <pre>
+     * observedGeneration represents the .metadata.generation that the condition was set based upon.
+     * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+     * with respect to the current state of the instance.
+     * +optional
+     * </pre>
+     *
+     * <code>optional int64 observedGeneration = 6;</code>
+     */
+    public long getObservedGeneration() {
+      return observedGeneration_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -10918,6 +10978,9 @@ public final class V2Autoscaling {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, message_);
       }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt64(6, observedGeneration_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -10942,6 +11005,10 @@ public final class V2Autoscaling {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, message_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, observedGeneration_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10984,6 +11051,11 @@ public final class V2Autoscaling {
         result = result && getMessage()
             .equals(other.getMessage());
       }
+      result = result && (hasObservedGeneration() == other.hasObservedGeneration());
+      if (hasObservedGeneration()) {
+        result = result && (getObservedGeneration()
+            == other.getObservedGeneration());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -11014,6 +11086,11 @@ public final class V2Autoscaling {
       if (hasMessage()) {
         hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
         hash = (53 * hash) + getMessage().hashCode();
+      }
+      if (hasObservedGeneration()) {
+        hash = (37 * hash) + OBSERVEDGENERATION_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getObservedGeneration());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -11168,6 +11245,8 @@ public final class V2Autoscaling {
         bitField0_ = (bitField0_ & ~0x00000008);
         message_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
+        observedGeneration_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -11220,6 +11299,10 @@ public final class V2Autoscaling {
           to_bitField0_ |= 0x00000010;
         }
         result.message_ = message_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.observedGeneration_ = observedGeneration_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -11291,6 +11374,9 @@ public final class V2Autoscaling {
           bitField0_ |= 0x00000010;
           message_ = other.message_;
           onChanged();
+        }
+        if (other.hasObservedGeneration()) {
+          setObservedGeneration(other.getObservedGeneration());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -11908,6 +11994,66 @@ public final class V2Autoscaling {
   }
   bitField0_ |= 0x00000010;
         message_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long observedGeneration_ ;
+      /**
+       * <pre>
+       * observedGeneration represents the .metadata.generation that the condition was set based upon.
+       * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+       * with respect to the current state of the instance.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 observedGeneration = 6;</code>
+       */
+      public boolean hasObservedGeneration() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <pre>
+       * observedGeneration represents the .metadata.generation that the condition was set based upon.
+       * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+       * with respect to the current state of the instance.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 observedGeneration = 6;</code>
+       */
+      public long getObservedGeneration() {
+        return observedGeneration_;
+      }
+      /**
+       * <pre>
+       * observedGeneration represents the .metadata.generation that the condition was set based upon.
+       * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+       * with respect to the current state of the instance.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 observedGeneration = 6;</code>
+       */
+      public Builder setObservedGeneration(long value) {
+        bitField0_ |= 0x00000020;
+        observedGeneration_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * observedGeneration represents the .metadata.generation that the condition was set based upon.
+       * For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date
+       * with respect to the current state of the instance.
+       * +optional
+       * </pre>
+       *
+       * <code>optional int64 observedGeneration = 6;</code>
+       */
+      public Builder clearObservedGeneration() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        observedGeneration_ = 0L;
         onChanged();
         return this;
       }
@@ -13183,7 +13329,9 @@ public final class V2Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -13197,7 +13345,9 @@ public final class V2Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -13209,8 +13359,8 @@ public final class V2Autoscaling {
      * maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up.
      * It cannot be less that minReplicas.
      * +required
-     * +k8s:required
-     * +k8s:minimum=1
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -13221,8 +13371,8 @@ public final class V2Autoscaling {
      * maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up.
      * It cannot be less that minReplicas.
      * +required
-     * +k8s:required
-     * +k8s:minimum=1
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -13525,7 +13675,9 @@ public final class V2Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -13541,7 +13693,9 @@ public final class V2Autoscaling {
      * metric is configured.  Scaling is active as long as at least one metric value is
      * available.
      * +optional
-     * +k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:optional
+     * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+     * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 minReplicas = 2;</code>
@@ -13557,8 +13711,8 @@ public final class V2Autoscaling {
      * maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up.
      * It cannot be less that minReplicas.
      * +required
-     * +k8s:required
-     * +k8s:minimum=1
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -13571,8 +13725,8 @@ public final class V2Autoscaling {
      * maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up.
      * It cannot be less that minReplicas.
      * +required
-     * +k8s:required
-     * +k8s:minimum=1
+     * +k8s:alpha(since: "1.36")=+k8s:required
+     * +k8s:alpha(since: "1.36")=+k8s:minimum=1
      * </pre>
      *
      * <code>optional int32 maxReplicas = 3;</code>
@@ -14362,7 +14516,9 @@ public final class V2Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -14378,7 +14534,9 @@ public final class V2Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -14394,7 +14552,9 @@ public final class V2Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -14413,7 +14573,9 @@ public final class V2Autoscaling {
        * metric is configured.  Scaling is active as long as at least one metric value is
        * available.
        * +optional
-       * +k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:optional
+       * +k8s:alpha(since: "1.36")=+k8s:ifEnabled(HPAScaleToZero)=+k8s:minimum=0
+       * +k8s:alpha(since: "1.36")=+k8s:ifDisabled(HPAScaleToZero)=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 minReplicas = 2;</code>
@@ -14431,8 +14593,8 @@ public final class V2Autoscaling {
        * maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up.
        * It cannot be less that minReplicas.
        * +required
-       * +k8s:required
-       * +k8s:minimum=1
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>
@@ -14445,8 +14607,8 @@ public final class V2Autoscaling {
        * maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up.
        * It cannot be less that minReplicas.
        * +required
-       * +k8s:required
-       * +k8s:minimum=1
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>
@@ -14459,8 +14621,8 @@ public final class V2Autoscaling {
        * maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up.
        * It cannot be less that minReplicas.
        * +required
-       * +k8s:required
-       * +k8s:minimum=1
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>
@@ -14476,8 +14638,8 @@ public final class V2Autoscaling {
        * maxReplicas is the upper limit for the number of replicas to which the autoscaler can scale up.
        * It cannot be less that minReplicas.
        * +required
-       * +k8s:required
-       * +k8s:minimum=1
+       * +k8s:alpha(since: "1.36")=+k8s:required
+       * +k8s:alpha(since: "1.36")=+k8s:minimum=1
        * </pre>
        *
        * <code>optional int32 maxReplicas = 3;</code>
@@ -20814,7 +20976,7 @@ public final class V2Autoscaling {
 
     /**
      * <pre>
-     * container resource refers to a resource metric (such as those specified in
+     * containerResource refers to a resource metric (such as those specified in
      * requests and limits) known to Kubernetes describing a single container in each pod in the
      * current scale target (e.g. CPU or memory). Such metrics are built in to
      * Kubernetes, and have special scaling options on top of those available
@@ -20827,7 +20989,7 @@ public final class V2Autoscaling {
     boolean hasContainerResource();
     /**
      * <pre>
-     * container resource refers to a resource metric (such as those specified in
+     * containerResource refers to a resource metric (such as those specified in
      * requests and limits) known to Kubernetes describing a single container in each pod in the
      * current scale target (e.g. CPU or memory). Such metrics are built in to
      * Kubernetes, and have special scaling options on top of those available
@@ -20840,7 +21002,7 @@ public final class V2Autoscaling {
     io.kubernetes.client.proto.V2Autoscaling.ContainerResourceMetricStatus getContainerResource();
     /**
      * <pre>
-     * container resource refers to a resource metric (such as those specified in
+     * containerResource refers to a resource metric (such as those specified in
      * requests and limits) known to Kubernetes describing a single container in each pod in the
      * current scale target (e.g. CPU or memory). Such metrics are built in to
      * Kubernetes, and have special scaling options on top of those available
@@ -21230,7 +21392,7 @@ public final class V2Autoscaling {
     private io.kubernetes.client.proto.V2Autoscaling.ContainerResourceMetricStatus containerResource_;
     /**
      * <pre>
-     * container resource refers to a resource metric (such as those specified in
+     * containerResource refers to a resource metric (such as those specified in
      * requests and limits) known to Kubernetes describing a single container in each pod in the
      * current scale target (e.g. CPU or memory). Such metrics are built in to
      * Kubernetes, and have special scaling options on top of those available
@@ -21245,7 +21407,7 @@ public final class V2Autoscaling {
     }
     /**
      * <pre>
-     * container resource refers to a resource metric (such as those specified in
+     * containerResource refers to a resource metric (such as those specified in
      * requests and limits) known to Kubernetes describing a single container in each pod in the
      * current scale target (e.g. CPU or memory). Such metrics are built in to
      * Kubernetes, and have special scaling options on top of those available
@@ -21260,7 +21422,7 @@ public final class V2Autoscaling {
     }
     /**
      * <pre>
-     * container resource refers to a resource metric (such as those specified in
+     * containerResource refers to a resource metric (such as those specified in
      * requests and limits) known to Kubernetes describing a single container in each pod in the
      * current scale target (e.g. CPU or memory). Such metrics are built in to
      * Kubernetes, and have special scaling options on top of those available
@@ -22475,7 +22637,7 @@ public final class V2Autoscaling {
           io.kubernetes.client.proto.V2Autoscaling.ContainerResourceMetricStatus, io.kubernetes.client.proto.V2Autoscaling.ContainerResourceMetricStatus.Builder, io.kubernetes.client.proto.V2Autoscaling.ContainerResourceMetricStatusOrBuilder> containerResourceBuilder_;
       /**
        * <pre>
-       * container resource refers to a resource metric (such as those specified in
+       * containerResource refers to a resource metric (such as those specified in
        * requests and limits) known to Kubernetes describing a single container in each pod in the
        * current scale target (e.g. CPU or memory). Such metrics are built in to
        * Kubernetes, and have special scaling options on top of those available
@@ -22490,7 +22652,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * container resource refers to a resource metric (such as those specified in
+       * containerResource refers to a resource metric (such as those specified in
        * requests and limits) known to Kubernetes describing a single container in each pod in the
        * current scale target (e.g. CPU or memory). Such metrics are built in to
        * Kubernetes, and have special scaling options on top of those available
@@ -22509,7 +22671,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * container resource refers to a resource metric (such as those specified in
+       * containerResource refers to a resource metric (such as those specified in
        * requests and limits) known to Kubernetes describing a single container in each pod in the
        * current scale target (e.g. CPU or memory). Such metrics are built in to
        * Kubernetes, and have special scaling options on top of those available
@@ -22534,7 +22696,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * container resource refers to a resource metric (such as those specified in
+       * containerResource refers to a resource metric (such as those specified in
        * requests and limits) known to Kubernetes describing a single container in each pod in the
        * current scale target (e.g. CPU or memory). Such metrics are built in to
        * Kubernetes, and have special scaling options on top of those available
@@ -22557,7 +22719,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * container resource refers to a resource metric (such as those specified in
+       * containerResource refers to a resource metric (such as those specified in
        * requests and limits) known to Kubernetes describing a single container in each pod in the
        * current scale target (e.g. CPU or memory). Such metrics are built in to
        * Kubernetes, and have special scaling options on top of those available
@@ -22586,7 +22748,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * container resource refers to a resource metric (such as those specified in
+       * containerResource refers to a resource metric (such as those specified in
        * requests and limits) known to Kubernetes describing a single container in each pod in the
        * current scale target (e.g. CPU or memory). Such metrics are built in to
        * Kubernetes, and have special scaling options on top of those available
@@ -22608,7 +22770,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * container resource refers to a resource metric (such as those specified in
+       * containerResource refers to a resource metric (such as those specified in
        * requests and limits) known to Kubernetes describing a single container in each pod in the
        * current scale target (e.g. CPU or memory). Such metrics are built in to
        * Kubernetes, and have special scaling options on top of those available
@@ -22625,7 +22787,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * container resource refers to a resource metric (such as those specified in
+       * containerResource refers to a resource metric (such as those specified in
        * requests and limits) known to Kubernetes describing a single container in each pod in the
        * current scale target (e.g. CPU or memory). Such metrics are built in to
        * Kubernetes, and have special scaling options on top of those available
@@ -22645,7 +22807,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * container resource refers to a resource metric (such as those specified in
+       * containerResource refers to a resource metric (such as those specified in
        * requests and limits) known to Kubernetes describing a single container in each pod in the
        * current scale target (e.g. CPU or memory). Such metrics are built in to
        * Kubernetes, and have special scaling options on top of those available
@@ -24338,7 +24500,7 @@ public final class V2Autoscaling {
 
     /**
      * <pre>
-     * currentAverageUtilization is the current value of the average of the
+     * averageUtilization is the current value of the average of the
      * resource metric across all relevant pods, represented as a percentage of
      * the requested value of the resource for the pods.
      * +optional
@@ -24349,7 +24511,7 @@ public final class V2Autoscaling {
     boolean hasAverageUtilization();
     /**
      * <pre>
-     * currentAverageUtilization is the current value of the average of the
+     * averageUtilization is the current value of the average of the
      * resource metric across all relevant pods, represented as a percentage of
      * the requested value of the resource for the pods.
      * +optional
@@ -24546,7 +24708,7 @@ public final class V2Autoscaling {
     private int averageUtilization_;
     /**
      * <pre>
-     * currentAverageUtilization is the current value of the average of the
+     * averageUtilization is the current value of the average of the
      * resource metric across all relevant pods, represented as a percentage of
      * the requested value of the resource for the pods.
      * +optional
@@ -24559,7 +24721,7 @@ public final class V2Autoscaling {
     }
     /**
      * <pre>
-     * currentAverageUtilization is the current value of the average of the
+     * averageUtilization is the current value of the average of the
      * resource metric across all relevant pods, represented as a percentage of
      * the requested value of the resource for the pods.
      * +optional
@@ -25296,7 +25458,7 @@ public final class V2Autoscaling {
       private int averageUtilization_ ;
       /**
        * <pre>
-       * currentAverageUtilization is the current value of the average of the
+       * averageUtilization is the current value of the average of the
        * resource metric across all relevant pods, represented as a percentage of
        * the requested value of the resource for the pods.
        * +optional
@@ -25309,7 +25471,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * currentAverageUtilization is the current value of the average of the
+       * averageUtilization is the current value of the average of the
        * resource metric across all relevant pods, represented as a percentage of
        * the requested value of the resource for the pods.
        * +optional
@@ -25322,7 +25484,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * currentAverageUtilization is the current value of the average of the
+       * averageUtilization is the current value of the average of the
        * resource metric across all relevant pods, represented as a percentage of
        * the requested value of the resource for the pods.
        * +optional
@@ -25338,7 +25500,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * currentAverageUtilization is the current value of the average of the
+       * averageUtilization is the current value of the average of the
        * resource metric across all relevant pods, represented as a percentage of
        * the requested value of the resource for the pods.
        * +optional
@@ -26666,7 +26828,7 @@ public final class V2Autoscaling {
 
     /**
      * <pre>
-     * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+     * describedObject specifies the descriptions of a object,such as kind,name apiVersion
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -26674,7 +26836,7 @@ public final class V2Autoscaling {
     boolean hasDescribedObject();
     /**
      * <pre>
-     * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+     * describedObject specifies the descriptions of a object,such as kind,name apiVersion
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -26682,7 +26844,7 @@ public final class V2Autoscaling {
     io.kubernetes.client.proto.V2Autoscaling.CrossVersionObjectReference getDescribedObject();
     /**
      * <pre>
-     * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+     * describedObject specifies the descriptions of a object,such as kind,name apiVersion
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -26875,7 +27037,7 @@ public final class V2Autoscaling {
     private io.kubernetes.client.proto.V2Autoscaling.CrossVersionObjectReference describedObject_;
     /**
      * <pre>
-     * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+     * describedObject specifies the descriptions of a object,such as kind,name apiVersion
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -26885,7 +27047,7 @@ public final class V2Autoscaling {
     }
     /**
      * <pre>
-     * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+     * describedObject specifies the descriptions of a object,such as kind,name apiVersion
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -26895,7 +27057,7 @@ public final class V2Autoscaling {
     }
     /**
      * <pre>
-     * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+     * describedObject specifies the descriptions of a object,such as kind,name apiVersion
      * </pre>
      *
      * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -27614,7 +27776,7 @@ public final class V2Autoscaling {
           io.kubernetes.client.proto.V2Autoscaling.CrossVersionObjectReference, io.kubernetes.client.proto.V2Autoscaling.CrossVersionObjectReference.Builder, io.kubernetes.client.proto.V2Autoscaling.CrossVersionObjectReferenceOrBuilder> describedObjectBuilder_;
       /**
        * <pre>
-       * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+       * describedObject specifies the descriptions of a object,such as kind,name apiVersion
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -27624,7 +27786,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+       * describedObject specifies the descriptions of a object,such as kind,name apiVersion
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -27638,7 +27800,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+       * describedObject specifies the descriptions of a object,such as kind,name apiVersion
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -27658,7 +27820,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+       * describedObject specifies the descriptions of a object,such as kind,name apiVersion
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -27676,7 +27838,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+       * describedObject specifies the descriptions of a object,such as kind,name apiVersion
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -27700,7 +27862,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+       * describedObject specifies the descriptions of a object,such as kind,name apiVersion
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -27717,7 +27879,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+       * describedObject specifies the descriptions of a object,such as kind,name apiVersion
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -27729,7 +27891,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+       * describedObject specifies the descriptions of a object,such as kind,name apiVersion
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -27744,7 +27906,7 @@ public final class V2Autoscaling {
       }
       /**
        * <pre>
-       * DescribedObject specifies the descriptions of a object,such as kind,name apiVersion
+       * describedObject specifies the descriptions of a object,such as kind,name apiVersion
        * </pre>
        *
        * <code>optional .k8s.io.api.autoscaling.v2.CrossVersionObjectReference describedObject = 3;</code>
@@ -31696,86 +31858,87 @@ public final class V2Autoscaling {
       "AutoscalerBehavior\022;\n\007scaleUp\030\001 \001(\0132*.k8" +
       "s.io.api.autoscaling.v2.HPAScalingRules\022" +
       "=\n\tscaleDown\030\002 \001(\0132*.k8s.io.api.autoscal" +
-      "ing.v2.HPAScalingRules\"\251\001\n HorizontalPod" +
+      "ing.v2.HPAScalingRules\"\305\001\n HorizontalPod" +
       "AutoscalerCondition\022\014\n\004type\030\001 \001(\t\022\016\n\006sta" +
       "tus\030\002 \001(\t\022F\n\022lastTransitionTime\030\003 \001(\0132*." +
       "k8s.io.apimachinery.pkg.apis.meta.v1.Tim" +
-      "e\022\016\n\006reason\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\"\242\001\n\033H" +
-      "orizontalPodAutoscalerList\022@\n\010metadata\030\001" +
-      " \001(\0132..k8s.io.apimachinery.pkg.apis.meta" +
-      ".v1.ListMeta\022A\n\005items\030\002 \003(\01322.k8s.io.api" +
-      ".autoscaling.v2.HorizontalPodAutoscaler\"" +
-      "\235\002\n\033HorizontalPodAutoscalerSpec\022N\n\016scale" +
-      "TargetRef\030\001 \001(\01326.k8s.io.api.autoscaling" +
-      ".v2.CrossVersionObjectReference\022\023\n\013minRe" +
-      "plicas\030\002 \001(\005\022\023\n\013maxReplicas\030\003 \001(\005\0226\n\007met" +
-      "rics\030\004 \003(\0132%.k8s.io.api.autoscaling.v2.M" +
-      "etricSpec\022L\n\010behavior\030\005 \001(\0132:.k8s.io.api" +
-      ".autoscaling.v2.HorizontalPodAutoscalerB" +
-      "ehavior\"\302\002\n\035HorizontalPodAutoscalerStatu" +
-      "s\022\032\n\022observedGeneration\030\001 \001(\003\022A\n\rlastSca" +
-      "leTime\030\002 \001(\0132*.k8s.io.apimachinery.pkg.a" +
-      "pis.meta.v1.Time\022\027\n\017currentReplicas\030\003 \001(" +
-      "\005\022\027\n\017desiredReplicas\030\004 \001(\005\022?\n\016currentMet" +
-      "rics\030\005 \003(\0132\'.k8s.io.api.autoscaling.v2.M" +
-      "etricStatus\022O\n\nconditions\030\006 \003(\0132;.k8s.io" +
-      ".api.autoscaling.v2.HorizontalPodAutosca" +
-      "lerCondition\"g\n\020MetricIdentifier\022\014\n\004name" +
-      "\030\001 \001(\t\022E\n\010selector\030\002 \001(\01323.k8s.io.apimac" +
-      "hinery.pkg.apis.meta.v1.LabelSelector\"\357\002" +
-      "\n\nMetricSpec\022\014\n\004type\030\001 \001(\t\022=\n\006object\030\002 \001" +
+      "e\022\016\n\006reason\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\022\032\n\022ob" +
+      "servedGeneration\030\006 \001(\003\"\242\001\n\033HorizontalPod" +
+      "AutoscalerList\022@\n\010metadata\030\001 \001(\0132..k8s.i" +
+      "o.apimachinery.pkg.apis.meta.v1.ListMeta" +
+      "\022A\n\005items\030\002 \003(\01322.k8s.io.api.autoscaling" +
+      ".v2.HorizontalPodAutoscaler\"\235\002\n\033Horizont" +
+      "alPodAutoscalerSpec\022N\n\016scaleTargetRef\030\001 " +
+      "\001(\01326.k8s.io.api.autoscaling.v2.CrossVer" +
+      "sionObjectReference\022\023\n\013minReplicas\030\002 \001(\005" +
+      "\022\023\n\013maxReplicas\030\003 \001(\005\0226\n\007metrics\030\004 \003(\0132%" +
+      ".k8s.io.api.autoscaling.v2.MetricSpec\022L\n" +
+      "\010behavior\030\005 \001(\0132:.k8s.io.api.autoscaling" +
+      ".v2.HorizontalPodAutoscalerBehavior\"\302\002\n\035" +
+      "HorizontalPodAutoscalerStatus\022\032\n\022observe" +
+      "dGeneration\030\001 \001(\003\022A\n\rlastScaleTime\030\002 \001(\013" +
+      "2*.k8s.io.apimachinery.pkg.apis.meta.v1." +
+      "Time\022\027\n\017currentReplicas\030\003 \001(\005\022\027\n\017desired" +
+      "Replicas\030\004 \001(\005\022?\n\016currentMetrics\030\005 \003(\0132\'" +
+      ".k8s.io.api.autoscaling.v2.MetricStatus\022" +
+      "O\n\nconditions\030\006 \003(\0132;.k8s.io.api.autosca" +
+      "ling.v2.HorizontalPodAutoscalerCondition" +
+      "\"g\n\020MetricIdentifier\022\014\n\004name\030\001 \001(\t\022E\n\010se" +
+      "lector\030\002 \001(\01323.k8s.io.apimachinery.pkg.a" +
+      "pis.meta.v1.LabelSelector\"\357\002\n\nMetricSpec" +
+      "\022\014\n\004type\030\001 \001(\t\022=\n\006object\030\002 \001(\0132-.k8s.io." +
+      "api.autoscaling.v2.ObjectMetricSource\0229\n" +
+      "\004pods\030\003 \001(\0132+.k8s.io.api.autoscaling.v2." +
+      "PodsMetricSource\022A\n\010resource\030\004 \001(\0132/.k8s" +
+      ".io.api.autoscaling.v2.ResourceMetricSou" +
+      "rce\022S\n\021containerResource\030\007 \001(\01328.k8s.io." +
+      "api.autoscaling.v2.ContainerResourceMetr" +
+      "icSource\022A\n\010external\030\005 \001(\0132/.k8s.io.api." +
+      "autoscaling.v2.ExternalMetricSource\"\361\002\n\014" +
+      "MetricStatus\022\014\n\004type\030\001 \001(\t\022=\n\006object\030\002 \001" +
       "(\0132-.k8s.io.api.autoscaling.v2.ObjectMet" +
-      "ricSource\0229\n\004pods\030\003 \001(\0132+.k8s.io.api.aut" +
-      "oscaling.v2.PodsMetricSource\022A\n\010resource" +
+      "ricStatus\0229\n\004pods\030\003 \001(\0132+.k8s.io.api.aut" +
+      "oscaling.v2.PodsMetricStatus\022A\n\010resource" +
       "\030\004 \001(\0132/.k8s.io.api.autoscaling.v2.Resou" +
-      "rceMetricSource\022S\n\021containerResource\030\007 \001" +
+      "rceMetricStatus\022S\n\021containerResource\030\007 \001" +
       "(\01328.k8s.io.api.autoscaling.v2.Container" +
-      "ResourceMetricSource\022A\n\010external\030\005 \001(\0132/" +
+      "ResourceMetricStatus\022A\n\010external\030\005 \001(\0132/" +
       ".k8s.io.api.autoscaling.v2.ExternalMetri" +
-      "cSource\"\361\002\n\014MetricStatus\022\014\n\004type\030\001 \001(\t\022=" +
-      "\n\006object\030\002 \001(\0132-.k8s.io.api.autoscaling." +
-      "v2.ObjectMetricStatus\0229\n\004pods\030\003 \001(\0132+.k8" +
-      "s.io.api.autoscaling.v2.PodsMetricStatus" +
-      "\022A\n\010resource\030\004 \001(\0132/.k8s.io.api.autoscal" +
-      "ing.v2.ResourceMetricStatus\022S\n\021container" +
-      "Resource\030\007 \001(\01328.k8s.io.api.autoscaling." +
-      "v2.ContainerResourceMetricStatus\022A\n\010exte" +
-      "rnal\030\005 \001(\0132/.k8s.io.api.autoscaling.v2.E" +
-      "xternalMetricStatus\"\275\001\n\014MetricTarget\022\014\n\004" +
-      "type\030\001 \001(\t\022=\n\005value\030\002 \001(\0132..k8s.io.apima" +
-      "chinery.pkg.api.resource.Quantity\022D\n\014ave" +
-      "rageValue\030\003 \001(\0132..k8s.io.apimachinery.pk" +
-      "g.api.resource.Quantity\022\032\n\022averageUtiliz" +
-      "ation\030\004 \001(\005\"\264\001\n\021MetricValueStatus\022=\n\005val" +
-      "ue\030\001 \001(\0132..k8s.io.apimachinery.pkg.api.r" +
-      "esource.Quantity\022D\n\014averageValue\030\002 \001(\0132." +
-      ".k8s.io.apimachinery.pkg.api.resource.Qu" +
-      "antity\022\032\n\022averageUtilization\030\003 \001(\005\"\333\001\n\022O" +
-      "bjectMetricSource\022O\n\017describedObject\030\001 \001" +
-      "(\01326.k8s.io.api.autoscaling.v2.CrossVers" +
-      "ionObjectReference\0227\n\006target\030\002 \001(\0132\'.k8s" +
-      ".io.api.autoscaling.v2.MetricTarget\022;\n\006m" +
-      "etric\030\003 \001(\0132+.k8s.io.api.autoscaling.v2." +
-      "MetricIdentifier\"\341\001\n\022ObjectMetricStatus\022" +
-      ";\n\006metric\030\001 \001(\0132+.k8s.io.api.autoscaling" +
-      ".v2.MetricIdentifier\022=\n\007current\030\002 \001(\0132,." +
-      "k8s.io.api.autoscaling.v2.MetricValueSta" +
-      "tus\022O\n\017describedObject\030\003 \001(\01326.k8s.io.ap" +
-      "i.autoscaling.v2.CrossVersionObjectRefer" +
-      "ence\"\210\001\n\020PodsMetricSource\022;\n\006metric\030\001 \001(" +
-      "\0132+.k8s.io.api.autoscaling.v2.MetricIden" +
-      "tifier\0227\n\006target\030\002 \001(\0132\'.k8s.io.api.auto" +
-      "scaling.v2.MetricTarget\"\216\001\n\020PodsMetricSt" +
-      "atus\022;\n\006metric\030\001 \001(\0132+.k8s.io.api.autosc" +
-      "aling.v2.MetricIdentifier\022=\n\007current\030\002 \001" +
-      "(\0132,.k8s.io.api.autoscaling.v2.MetricVal" +
-      "ueStatus\"]\n\024ResourceMetricSource\022\014\n\004name" +
-      "\030\001 \001(\t\0227\n\006target\030\002 \001(\0132\'.k8s.io.api.auto" +
-      "scaling.v2.MetricTarget\"c\n\024ResourceMetri" +
-      "cStatus\022\014\n\004name\030\001 \001(\t\022=\n\007current\030\002 \001(\0132," +
-      ".k8s.io.api.autoscaling.v2.MetricValueSt" +
-      "atusBF\n\032io.kubernetes.client.protoB\rV2Au" +
-      "toscalingZ\031k8s.io/api/autoscaling/v2"
+      "cStatus\"\275\001\n\014MetricTarget\022\014\n\004type\030\001 \001(\t\022=" +
+      "\n\005value\030\002 \001(\0132..k8s.io.apimachinery.pkg." +
+      "api.resource.Quantity\022D\n\014averageValue\030\003 " +
+      "\001(\0132..k8s.io.apimachinery.pkg.api.resour" +
+      "ce.Quantity\022\032\n\022averageUtilization\030\004 \001(\005\"" +
+      "\264\001\n\021MetricValueStatus\022=\n\005value\030\001 \001(\0132..k" +
+      "8s.io.apimachinery.pkg.api.resource.Quan" +
+      "tity\022D\n\014averageValue\030\002 \001(\0132..k8s.io.apim" +
+      "achinery.pkg.api.resource.Quantity\022\032\n\022av" +
+      "erageUtilization\030\003 \001(\005\"\333\001\n\022ObjectMetricS" +
+      "ource\022O\n\017describedObject\030\001 \001(\01326.k8s.io." +
+      "api.autoscaling.v2.CrossVersionObjectRef" +
+      "erence\0227\n\006target\030\002 \001(\0132\'.k8s.io.api.auto" +
+      "scaling.v2.MetricTarget\022;\n\006metric\030\003 \001(\0132" +
+      "+.k8s.io.api.autoscaling.v2.MetricIdenti" +
+      "fier\"\341\001\n\022ObjectMetricStatus\022;\n\006metric\030\001 " +
+      "\001(\0132+.k8s.io.api.autoscaling.v2.MetricId" +
+      "entifier\022=\n\007current\030\002 \001(\0132,.k8s.io.api.a" +
+      "utoscaling.v2.MetricValueStatus\022O\n\017descr" +
+      "ibedObject\030\003 \001(\01326.k8s.io.api.autoscalin" +
+      "g.v2.CrossVersionObjectReference\"\210\001\n\020Pod" +
+      "sMetricSource\022;\n\006metric\030\001 \001(\0132+.k8s.io.a" +
+      "pi.autoscaling.v2.MetricIdentifier\0227\n\006ta" +
+      "rget\030\002 \001(\0132\'.k8s.io.api.autoscaling.v2.M" +
+      "etricTarget\"\216\001\n\020PodsMetricStatus\022;\n\006metr" +
+      "ic\030\001 \001(\0132+.k8s.io.api.autoscaling.v2.Met" +
+      "ricIdentifier\022=\n\007current\030\002 \001(\0132,.k8s.io." +
+      "api.autoscaling.v2.MetricValueStatus\"]\n\024" +
+      "ResourceMetricSource\022\014\n\004name\030\001 \001(\t\0227\n\006ta" +
+      "rget\030\002 \001(\0132\'.k8s.io.api.autoscaling.v2.M" +
+      "etricTarget\"c\n\024ResourceMetricStatus\022\014\n\004n" +
+      "ame\030\001 \001(\t\022=\n\007current\030\002 \001(\0132,.k8s.io.api." +
+      "autoscaling.v2.MetricValueStatusBF\n\032io.k" +
+      "ubernetes.client.protoB\rV2AutoscalingZ\031k" +
+      "8s.io/api/autoscaling/v2"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -31853,7 +32016,7 @@ public final class V2Autoscaling {
     internal_static_k8s_io_api_autoscaling_v2_HorizontalPodAutoscalerCondition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_api_autoscaling_v2_HorizontalPodAutoscalerCondition_descriptor,
-        new java.lang.String[] { "Type", "Status", "LastTransitionTime", "Reason", "Message", });
+        new java.lang.String[] { "Type", "Status", "LastTransitionTime", "Reason", "Message", "ObservedGeneration", });
     internal_static_k8s_io_api_autoscaling_v2_HorizontalPodAutoscalerList_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_k8s_io_api_autoscaling_v2_HorizontalPodAutoscalerList_fieldAccessorTable = new

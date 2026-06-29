@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -48,7 +48,7 @@ public class V1PodAntiAffinityFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1WeightedPodAffinityTerm item : items) {
         V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
-        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this._visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
         this.preferredDuringSchedulingIgnoredDuringExecution.add(builder);
     }
     return (A) this;
@@ -60,7 +60,7 @@ public class V1PodAntiAffinityFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1PodAffinityTerm item : items) {
         V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
-        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this._visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
         this.requiredDuringSchedulingIgnoredDuringExecution.add(builder);
     }
     return (A) this;
@@ -88,7 +88,7 @@ public class V1PodAntiAffinityFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1WeightedPodAffinityTerm item : items) {
         V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
-        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this._visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
         this.preferredDuringSchedulingIgnoredDuringExecution.add(builder);
     }
     return (A) this;
@@ -99,12 +99,12 @@ public class V1PodAntiAffinityFluent<A extends io.kubernetes.client.openapi.mode
       this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
     }
     V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
-    if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) {
-        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
-        preferredDuringSchedulingIgnoredDuringExecution.add(builder);
+    if (index < 0 || index >= this.preferredDuringSchedulingIgnoredDuringExecution.size()) {
+        this._visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.preferredDuringSchedulingIgnoredDuringExecution.add(builder);
     } else {
-        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
-        preferredDuringSchedulingIgnoredDuringExecution.add(index, builder);
+        this._visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.preferredDuringSchedulingIgnoredDuringExecution.add(index, builder);
     }
     return (A) this;
   }
@@ -115,7 +115,7 @@ public class V1PodAntiAffinityFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1PodAffinityTerm item : items) {
         V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
-        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this._visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
         this.requiredDuringSchedulingIgnoredDuringExecution.add(builder);
     }
     return (A) this;
@@ -126,12 +126,12 @@ public class V1PodAntiAffinityFluent<A extends io.kubernetes.client.openapi.mode
       this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList();
     }
     V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
-    if (index < 0 || index >= requiredDuringSchedulingIgnoredDuringExecution.size()) {
-        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
-        requiredDuringSchedulingIgnoredDuringExecution.add(builder);
+    if (index < 0 || index >= this.requiredDuringSchedulingIgnoredDuringExecution.size()) {
+        this._visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.requiredDuringSchedulingIgnoredDuringExecution.add(builder);
     } else {
-        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
-        requiredDuringSchedulingIgnoredDuringExecution.add(index, builder);
+        this._visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.requiredDuringSchedulingIgnoredDuringExecution.add(index, builder);
     }
     return (A) this;
   }
@@ -369,7 +369,7 @@ public class V1PodAntiAffinityFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1WeightedPodAffinityTermBuilder> each = preferredDuringSchedulingIgnoredDuringExecution.iterator();
-    List visitables = _visitables.get("preferredDuringSchedulingIgnoredDuringExecution");
+    List visitables = this._visitables.get("preferredDuringSchedulingIgnoredDuringExecution");
     while (each.hasNext()) {
         V1WeightedPodAffinityTermBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -385,7 +385,7 @@ public class V1PodAntiAffinityFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1PodAffinityTermBuilder> each = requiredDuringSchedulingIgnoredDuringExecution.iterator();
-    List visitables = _visitables.get("requiredDuringSchedulingIgnoredDuringExecution");
+    List visitables = this._visitables.get("requiredDuringSchedulingIgnoredDuringExecution");
     while (each.hasNext()) {
         V1PodAffinityTermBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -409,12 +409,12 @@ public class V1PodAntiAffinityFluent<A extends io.kubernetes.client.openapi.mode
       this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
     }
     V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
-    if (index < 0 || index >= preferredDuringSchedulingIgnoredDuringExecution.size()) {
-        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
-        preferredDuringSchedulingIgnoredDuringExecution.add(builder);
+    if (index < 0 || index >= this.preferredDuringSchedulingIgnoredDuringExecution.size()) {
+        this._visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.preferredDuringSchedulingIgnoredDuringExecution.add(builder);
     } else {
-        _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
-        preferredDuringSchedulingIgnoredDuringExecution.set(index, builder);
+        this._visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.preferredDuringSchedulingIgnoredDuringExecution.set(index, builder);
     }
     return (A) this;
   }
@@ -424,12 +424,12 @@ public class V1PodAntiAffinityFluent<A extends io.kubernetes.client.openapi.mode
       this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList();
     }
     V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
-    if (index < 0 || index >= requiredDuringSchedulingIgnoredDuringExecution.size()) {
-        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
-        requiredDuringSchedulingIgnoredDuringExecution.add(builder);
+    if (index < 0 || index >= this.requiredDuringSchedulingIgnoredDuringExecution.size()) {
+        this._visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.requiredDuringSchedulingIgnoredDuringExecution.add(builder);
     } else {
-        _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
-        requiredDuringSchedulingIgnoredDuringExecution.set(index, builder);
+        this._visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
+        this.requiredDuringSchedulingIgnoredDuringExecution.set(index, builder);
     }
     return (A) this;
   }

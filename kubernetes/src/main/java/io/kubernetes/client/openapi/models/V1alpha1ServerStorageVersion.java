@@ -52,21 +52,21 @@ import io.kubernetes.client.openapi.JSON;
  * An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.
  */
 @ApiModel(description = "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha1ServerStorageVersion {
   public static final String SERIALIZED_NAME_API_SERVER_I_D = "apiServerID";
   @SerializedName(SERIALIZED_NAME_API_SERVER_I_D)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String apiServerID;
 
   public static final String SERIALIZED_NAME_DECODABLE_VERSIONS = "decodableVersions";
   @SerializedName(SERIALIZED_NAME_DECODABLE_VERSIONS)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private List<String> decodableVersions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ENCODING_VERSION = "encodingVersion";
   @SerializedName(SERIALIZED_NAME_ENCODING_VERSION)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String encodingVersion;
 
   public static final String SERIALIZED_NAME_SERVED_VERSIONS = "servedVersions";
@@ -77,27 +77,27 @@ public class V1alpha1ServerStorageVersion {
   public V1alpha1ServerStorageVersion() {
   }
 
-  public V1alpha1ServerStorageVersion apiServerID(@jakarta.annotation.Nullable String apiServerID) {
+  public V1alpha1ServerStorageVersion apiServerID(@jakarta.annotation.Nonnull String apiServerID) {
     this.apiServerID = apiServerID;
     return this;
   }
 
   /**
-   * The ID of the reporting API server.
+   * apiServerID is the ID of the reporting API server.
    * @return apiServerID
    */
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the reporting API server.")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "apiServerID is the ID of the reporting API server.")
   public String getApiServerID() {
     return apiServerID;
   }
 
-  public void setApiServerID(@jakarta.annotation.Nullable String apiServerID) {
+  public void setApiServerID(@jakarta.annotation.Nonnull String apiServerID) {
     this.apiServerID = apiServerID;
   }
 
 
-  public V1alpha1ServerStorageVersion decodableVersions(@jakarta.annotation.Nullable List<String> decodableVersions) {
+  public V1alpha1ServerStorageVersion decodableVersions(@jakarta.annotation.Nonnull List<String> decodableVersions) {
     this.decodableVersions = decodableVersions;
     return this;
   }
@@ -111,36 +111,36 @@ public class V1alpha1ServerStorageVersion {
   }
 
   /**
-   * The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.
+   * decodableVersions are the encoding versions the API server can handle to decode. The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.
    * @return decodableVersions
    */
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "decodableVersions are the encoding versions the API server can handle to decode. The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.")
   public List<String> getDecodableVersions() {
     return decodableVersions;
   }
 
-  public void setDecodableVersions(@jakarta.annotation.Nullable List<String> decodableVersions) {
+  public void setDecodableVersions(@jakarta.annotation.Nonnull List<String> decodableVersions) {
     this.decodableVersions = decodableVersions;
   }
 
 
-  public V1alpha1ServerStorageVersion encodingVersion(@jakarta.annotation.Nullable String encodingVersion) {
+  public V1alpha1ServerStorageVersion encodingVersion(@jakarta.annotation.Nonnull String encodingVersion) {
     this.encodingVersion = encodingVersion;
     return this;
   }
 
   /**
-   * The API server encodes the object to this version when persisting it in the backend (e.g., etcd).
+   * encodingVersion the API server encodes the object to when persisting it in the backend (e.g., etcd).
    * @return encodingVersion
    */
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The API server encodes the object to this version when persisting it in the backend (e.g., etcd).")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "encodingVersion the API server encodes the object to when persisting it in the backend (e.g., etcd).")
   public String getEncodingVersion() {
     return encodingVersion;
   }
 
-  public void setEncodingVersion(@jakarta.annotation.Nullable String encodingVersion) {
+  public void setEncodingVersion(@jakarta.annotation.Nonnull String encodingVersion) {
     this.encodingVersion = encodingVersion;
   }
 
@@ -159,11 +159,11 @@ public class V1alpha1ServerStorageVersion {
   }
 
   /**
-   * The API server can serve these versions. DecodableVersions must include all ServedVersions.
+   * servedVersions lists all versions the API server can serve. DecodableVersions must include all ServedVersions.
    * @return servedVersions
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The API server can serve these versions. DecodableVersions must include all ServedVersions.")
+  @ApiModelProperty(value = "servedVersions lists all versions the API server can serve. DecodableVersions must include all ServedVersions.")
   public List<String> getServedVersions() {
     return servedVersions;
   }
@@ -226,7 +226,7 @@ public class V1alpha1ServerStorageVersion {
     openapiFields = new HashSet<String>(Arrays.asList("apiServerID", "decodableVersions", "encodingVersion", "servedVersions"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("apiServerID", "decodableVersions", "encodingVersion"));
   }
 
   /**
@@ -249,15 +249,24 @@ public class V1alpha1ServerStorageVersion {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1alpha1ServerStorageVersion` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1alpha1ServerStorageVersion.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("apiServerID") != null && !jsonObj.get("apiServerID").isJsonNull()) && !jsonObj.get("apiServerID").isJsonPrimitive()) {
+      if (!jsonObj.get("apiServerID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiServerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiServerID").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("decodableVersions") != null && !jsonObj.get("decodableVersions").isJsonNull() && !jsonObj.get("decodableVersions").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("decodableVersions") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("decodableVersions").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `decodableVersions` to be an array in the JSON string but got `%s`", jsonObj.get("decodableVersions").toString()));
       }
-      if ((jsonObj.get("encodingVersion") != null && !jsonObj.get("encodingVersion").isJsonNull()) && !jsonObj.get("encodingVersion").isJsonPrimitive()) {
+      if (!jsonObj.get("encodingVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `encodingVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encodingVersion").toString()));
       }
       // ensure the optional json data is an array if present

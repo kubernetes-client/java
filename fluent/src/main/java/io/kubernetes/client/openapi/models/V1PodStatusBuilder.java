@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -47,6 +47,7 @@ public class V1PodStatusBuilder extends V1PodStatusFluent<V1PodStatusBuilder> im
     buildable.setHostIPs(fluent.buildHostIPs());
     buildable.setInitContainerStatuses(fluent.buildInitContainerStatuses());
     buildable.setMessage(fluent.getMessage());
+    buildable.setNodeAllocatableResourceClaimStatuses(fluent.buildNodeAllocatableResourceClaimStatuses());
     buildable.setNominatedNodeName(fluent.getNominatedNodeName());
     buildable.setObservedGeneration(fluent.getObservedGeneration());
     buildable.setPhase(fluent.getPhase());

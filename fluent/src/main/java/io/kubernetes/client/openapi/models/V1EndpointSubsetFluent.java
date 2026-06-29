@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -49,7 +49,7 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1EndpointAddress item : items) {
         V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-        _visitables.get("addresses").add(builder);
+        this._visitables.get("addresses").add(builder);
         this.addresses.add(builder);
     }
     return (A) this;
@@ -61,7 +61,7 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1EndpointAddress item : items) {
         V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-        _visitables.get("notReadyAddresses").add(builder);
+        this._visitables.get("notReadyAddresses").add(builder);
         this.notReadyAddresses.add(builder);
     }
     return (A) this;
@@ -73,7 +73,7 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
     }
     for (CoreV1EndpointPort item : items) {
         CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
-        _visitables.get("ports").add(builder);
+        this._visitables.get("ports").add(builder);
         this.ports.add(builder);
     }
     return (A) this;
@@ -109,7 +109,7 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1EndpointAddress item : items) {
         V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-        _visitables.get("addresses").add(builder);
+        this._visitables.get("addresses").add(builder);
         this.addresses.add(builder);
     }
     return (A) this;
@@ -120,12 +120,12 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
       this.addresses = new ArrayList();
     }
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-    if (index < 0 || index >= addresses.size()) {
-        _visitables.get("addresses").add(builder);
-        addresses.add(builder);
+    if (index < 0 || index >= this.addresses.size()) {
+        this._visitables.get("addresses").add(builder);
+        this.addresses.add(builder);
     } else {
-        _visitables.get("addresses").add(builder);
-        addresses.add(index, builder);
+        this._visitables.get("addresses").add(builder);
+        this.addresses.add(index, builder);
     }
     return (A) this;
   }
@@ -136,7 +136,7 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
     }
     for (V1EndpointAddress item : items) {
         V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-        _visitables.get("notReadyAddresses").add(builder);
+        this._visitables.get("notReadyAddresses").add(builder);
         this.notReadyAddresses.add(builder);
     }
     return (A) this;
@@ -147,12 +147,12 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
       this.notReadyAddresses = new ArrayList();
     }
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-    if (index < 0 || index >= notReadyAddresses.size()) {
-        _visitables.get("notReadyAddresses").add(builder);
-        notReadyAddresses.add(builder);
+    if (index < 0 || index >= this.notReadyAddresses.size()) {
+        this._visitables.get("notReadyAddresses").add(builder);
+        this.notReadyAddresses.add(builder);
     } else {
-        _visitables.get("notReadyAddresses").add(builder);
-        notReadyAddresses.add(index, builder);
+        this._visitables.get("notReadyAddresses").add(builder);
+        this.notReadyAddresses.add(index, builder);
     }
     return (A) this;
   }
@@ -163,7 +163,7 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
     }
     for (CoreV1EndpointPort item : items) {
         CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
-        _visitables.get("ports").add(builder);
+        this._visitables.get("ports").add(builder);
         this.ports.add(builder);
     }
     return (A) this;
@@ -174,12 +174,12 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
       this.ports = new ArrayList();
     }
     CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
-    if (index < 0 || index >= ports.size()) {
-        _visitables.get("ports").add(builder);
-        ports.add(builder);
+    if (index < 0 || index >= this.ports.size()) {
+        this._visitables.get("ports").add(builder);
+        this.ports.add(builder);
     } else {
-        _visitables.get("ports").add(builder);
-        ports.add(index, builder);
+        this._visitables.get("ports").add(builder);
+        this.ports.add(index, builder);
     }
     return (A) this;
   }
@@ -519,7 +519,7 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1EndpointAddressBuilder> each = addresses.iterator();
-    List visitables = _visitables.get("addresses");
+    List visitables = this._visitables.get("addresses");
     while (each.hasNext()) {
         V1EndpointAddressBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -535,7 +535,7 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1EndpointAddressBuilder> each = notReadyAddresses.iterator();
-    List visitables = _visitables.get("notReadyAddresses");
+    List visitables = this._visitables.get("notReadyAddresses");
     while (each.hasNext()) {
         V1EndpointAddressBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -551,7 +551,7 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<CoreV1EndpointPortBuilder> each = ports.iterator();
-    List visitables = _visitables.get("ports");
+    List visitables = this._visitables.get("ports");
     while (each.hasNext()) {
         CoreV1EndpointPortBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -579,12 +579,12 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
       this.addresses = new ArrayList();
     }
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-    if (index < 0 || index >= addresses.size()) {
-        _visitables.get("addresses").add(builder);
-        addresses.add(builder);
+    if (index < 0 || index >= this.addresses.size()) {
+        this._visitables.get("addresses").add(builder);
+        this.addresses.add(builder);
     } else {
-        _visitables.get("addresses").add(builder);
-        addresses.set(index, builder);
+        this._visitables.get("addresses").add(builder);
+        this.addresses.set(index, builder);
     }
     return (A) this;
   }
@@ -594,12 +594,12 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
       this.notReadyAddresses = new ArrayList();
     }
     V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
-    if (index < 0 || index >= notReadyAddresses.size()) {
-        _visitables.get("notReadyAddresses").add(builder);
-        notReadyAddresses.add(builder);
+    if (index < 0 || index >= this.notReadyAddresses.size()) {
+        this._visitables.get("notReadyAddresses").add(builder);
+        this.notReadyAddresses.add(builder);
     } else {
-        _visitables.get("notReadyAddresses").add(builder);
-        notReadyAddresses.set(index, builder);
+        this._visitables.get("notReadyAddresses").add(builder);
+        this.notReadyAddresses.set(index, builder);
     }
     return (A) this;
   }
@@ -609,12 +609,12 @@ public class V1EndpointSubsetFluent<A extends io.kubernetes.client.openapi.model
       this.ports = new ArrayList();
     }
     CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
-    if (index < 0 || index >= ports.size()) {
-        _visitables.get("ports").add(builder);
-        ports.add(builder);
+    if (index < 0 || index >= this.ports.size()) {
+        this._visitables.get("ports").add(builder);
+        this.ports.add(builder);
     } else {
-        _visitables.get("ports").add(builder);
-        ports.set(index, builder);
+        this._visitables.get("ports").add(builder);
+        this.ports.set(index, builder);
     }
     return (A) this;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -13,7 +13,6 @@ limitations under the License.
 package io.kubernetes.client.fluent;
 
 import java.lang.Object;
-import java.lang.String;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -24,7 +23,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 public class BaseFluent<F>{
 
-  public static final String VISIT = "visit";
   public final VisitableMap _visitables = new VisitableMap();
 
   

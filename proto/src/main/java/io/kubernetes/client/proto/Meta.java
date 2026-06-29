@@ -9583,6 +9583,7 @@ public final class Meta {
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
      * +kubebuilder:validation:MaxLength=316
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -9599,6 +9600,7 @@ public final class Meta {
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
      * +kubebuilder:validation:MaxLength=316
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -9615,6 +9617,7 @@ public final class Meta {
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
      * +kubebuilder:validation:MaxLength=316
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -9628,6 +9631,7 @@ public final class Meta {
      * +required
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum=True;False;Unknown
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -9639,6 +9643,7 @@ public final class Meta {
      * +required
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum=True;False;Unknown
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -9650,6 +9655,7 @@ public final class Meta {
      * +required
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum=True;False;Unknown
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -9664,6 +9670,8 @@ public final class Meta {
      * with respect to the current state of the instance.
      * +optional
      * +kubebuilder:validation:Minimum=0
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int64 observedGeneration = 3;</code>
@@ -9676,6 +9684,8 @@ public final class Meta {
      * with respect to the current state of the instance.
      * +optional
      * +kubebuilder:validation:Minimum=0
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int64 observedGeneration = 3;</code>
@@ -9825,6 +9835,9 @@ public final class Meta {
    * 	    // +patchStrategy=merge
    * 	    // +listType=map
    * 	    // +listMapKey=type
+   * 	    // +k8s:alpha(since: "1.37")=+k8s:optional
+   * 	    // +k8s:alpha(since: "1.37")=+k8s:listType=map
+   * 	    // +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
    * 	    Conditions []metav1.Condition `json:"conditions,omitempty" patchStrategy:"merge" patchMergeKey:"type" protobuf:"bytes,1,rep,name=conditions"`
    * 	    // other fields
    * 	}
@@ -9961,6 +9974,7 @@ public final class Meta {
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
      * +kubebuilder:validation:MaxLength=316
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -9979,6 +9993,7 @@ public final class Meta {
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
      * +kubebuilder:validation:MaxLength=316
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -10008,6 +10023,7 @@ public final class Meta {
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
      * +kubebuilder:validation:MaxLength=316
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string type = 1;</code>
@@ -10034,6 +10050,7 @@ public final class Meta {
      * +required
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum=True;False;Unknown
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -10047,6 +10064,7 @@ public final class Meta {
      * +required
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum=True;False;Unknown
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -10071,6 +10089,7 @@ public final class Meta {
      * +required
      * +kubebuilder:validation:Required
      * +kubebuilder:validation:Enum=True;False;Unknown
+     * +k8s:alpha(since: "1.37")=+k8s:required
      * </pre>
      *
      * <code>optional string status = 2;</code>
@@ -10098,6 +10117,8 @@ public final class Meta {
      * with respect to the current state of the instance.
      * +optional
      * +kubebuilder:validation:Minimum=0
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int64 observedGeneration = 3;</code>
@@ -10112,6 +10133,8 @@ public final class Meta {
      * with respect to the current state of the instance.
      * +optional
      * +kubebuilder:validation:Minimum=0
+     * +k8s:alpha(since: "1.37")=+k8s:optional
+     * +k8s:alpha(since: "1.37")=+k8s:minimum=0
      * </pre>
      *
      * <code>optional int64 observedGeneration = 3;</code>
@@ -10565,6 +10588,9 @@ public final class Meta {
      * 	    // +patchStrategy=merge
      * 	    // +listType=map
      * 	    // +listMapKey=type
+     * 	    // +k8s:alpha(since: "1.37")=+k8s:optional
+     * 	    // +k8s:alpha(since: "1.37")=+k8s:listType=map
+     * 	    // +k8s:alpha(since: "1.37")=+k8s:listMapKey=type
      * 	    Conditions []metav1.Condition `json:"conditions,omitempty" patchStrategy:"merge" patchMergeKey:"type" protobuf:"bytes,1,rep,name=conditions"`
      * 	    // other fields
      * 	}
@@ -10797,6 +10823,7 @@ public final class Meta {
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
        * +kubebuilder:validation:MaxLength=316
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -10815,6 +10842,7 @@ public final class Meta {
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
        * +kubebuilder:validation:MaxLength=316
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -10844,6 +10872,7 @@ public final class Meta {
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
        * +kubebuilder:validation:MaxLength=316
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -10872,6 +10901,7 @@ public final class Meta {
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
        * +kubebuilder:validation:MaxLength=316
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -10897,6 +10927,7 @@ public final class Meta {
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
        * +kubebuilder:validation:MaxLength=316
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -10918,6 +10949,7 @@ public final class Meta {
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Pattern=`^([a-z0-9]([-a-z0-9]*[a-z0-9])?(&#92;.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*&#47;)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$`
        * +kubebuilder:validation:MaxLength=316
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string type = 1;</code>
@@ -10940,6 +10972,7 @@ public final class Meta {
        * +required
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Enum=True;False;Unknown
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -10953,6 +10986,7 @@ public final class Meta {
        * +required
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Enum=True;False;Unknown
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -10977,6 +11011,7 @@ public final class Meta {
        * +required
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Enum=True;False;Unknown
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -11000,6 +11035,7 @@ public final class Meta {
        * +required
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Enum=True;False;Unknown
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -11020,6 +11056,7 @@ public final class Meta {
        * +required
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Enum=True;False;Unknown
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -11036,6 +11073,7 @@ public final class Meta {
        * +required
        * +kubebuilder:validation:Required
        * +kubebuilder:validation:Enum=True;False;Unknown
+       * +k8s:alpha(since: "1.37")=+k8s:required
        * </pre>
        *
        * <code>optional string status = 2;</code>
@@ -11059,6 +11097,8 @@ public final class Meta {
        * with respect to the current state of the instance.
        * +optional
        * +kubebuilder:validation:Minimum=0
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int64 observedGeneration = 3;</code>
@@ -11073,6 +11113,8 @@ public final class Meta {
        * with respect to the current state of the instance.
        * +optional
        * +kubebuilder:validation:Minimum=0
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int64 observedGeneration = 3;</code>
@@ -11087,6 +11129,8 @@ public final class Meta {
        * with respect to the current state of the instance.
        * +optional
        * +kubebuilder:validation:Minimum=0
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int64 observedGeneration = 3;</code>
@@ -11104,6 +11148,8 @@ public final class Meta {
        * with respect to the current state of the instance.
        * +optional
        * +kubebuilder:validation:Minimum=0
+       * +k8s:alpha(since: "1.37")=+k8s:optional
+       * +k8s:alpha(since: "1.37")=+k8s:minimum=0
        * </pre>
        *
        * <code>optional int64 observedGeneration = 3;</code>
@@ -16738,6 +16784,7 @@ public final class Meta {
     /**
      * <pre>
      * Raw is the underlying serialization of this object.
+     * Deprecated: Direct access to this field is deprecated. Use GetRawBytes, GetRawString, SetRawBytes, SetRawString, GetRawReader, NewFieldsV1 instead.
      * </pre>
      *
      * <code>optional bytes Raw = 1;</code>
@@ -16746,6 +16793,7 @@ public final class Meta {
     /**
      * <pre>
      * Raw is the underlying serialization of this object.
+     * Deprecated: Direct access to this field is deprecated. Use GetRawBytes, GetRawString, SetRawBytes, SetRawString, GetRawReader, NewFieldsV1 instead.
      * </pre>
      *
      * <code>optional bytes Raw = 1;</code>
@@ -16763,6 +16811,8 @@ public final class Meta {
    * 'k:&lt;keys&gt;', where &lt;keys&gt; is a map of  a list item's key fields to their unique values
    * If a key maps to an empty Fields value, the field that key represents is part of the set.
    * The exact format is defined in sigs.k8s.io/structured-merge-diff
+   * +k8s:deepcopy-gen=false
+   * +protobuf.options.marshal=false
    * +protobuf.options.(gogoproto.goproto_stringer)=false
    * </pre>
    *
@@ -16848,6 +16898,7 @@ public final class Meta {
     /**
      * <pre>
      * Raw is the underlying serialization of this object.
+     * Deprecated: Direct access to this field is deprecated. Use GetRawBytes, GetRawString, SetRawBytes, SetRawString, GetRawReader, NewFieldsV1 instead.
      * </pre>
      *
      * <code>optional bytes Raw = 1;</code>
@@ -16858,6 +16909,7 @@ public final class Meta {
     /**
      * <pre>
      * Raw is the underlying serialization of this object.
+     * Deprecated: Direct access to this field is deprecated. Use GetRawBytes, GetRawString, SetRawBytes, SetRawString, GetRawReader, NewFieldsV1 instead.
      * </pre>
      *
      * <code>optional bytes Raw = 1;</code>
@@ -17038,6 +17090,8 @@ public final class Meta {
      * 'k:&lt;keys&gt;', where &lt;keys&gt; is a map of  a list item's key fields to their unique values
      * If a key maps to an empty Fields value, the field that key represents is part of the set.
      * The exact format is defined in sigs.k8s.io/structured-merge-diff
+     * +k8s:deepcopy-gen=false
+     * +protobuf.options.marshal=false
      * +protobuf.options.(gogoproto.goproto_stringer)=false
      * </pre>
      *
@@ -17198,6 +17252,7 @@ public final class Meta {
       /**
        * <pre>
        * Raw is the underlying serialization of this object.
+       * Deprecated: Direct access to this field is deprecated. Use GetRawBytes, GetRawString, SetRawBytes, SetRawString, GetRawReader, NewFieldsV1 instead.
        * </pre>
        *
        * <code>optional bytes Raw = 1;</code>
@@ -17208,6 +17263,7 @@ public final class Meta {
       /**
        * <pre>
        * Raw is the underlying serialization of this object.
+       * Deprecated: Direct access to this field is deprecated. Use GetRawBytes, GetRawString, SetRawBytes, SetRawString, GetRawReader, NewFieldsV1 instead.
        * </pre>
        *
        * <code>optional bytes Raw = 1;</code>
@@ -17218,6 +17274,7 @@ public final class Meta {
       /**
        * <pre>
        * Raw is the underlying serialization of this object.
+       * Deprecated: Direct access to this field is deprecated. Use GetRawBytes, GetRawString, SetRawBytes, SetRawString, GetRawReader, NewFieldsV1 instead.
        * </pre>
        *
        * <code>optional bytes Raw = 1;</code>
@@ -17234,6 +17291,7 @@ public final class Meta {
       /**
        * <pre>
        * Raw is the underlying serialization of this object.
+       * Deprecated: Direct access to this field is deprecated. Use GetRawBytes, GetRawString, SetRawBytes, SetRawString, GetRawReader, NewFieldsV1 instead.
        * </pre>
        *
        * <code>optional bytes Raw = 1;</code>
@@ -26917,6 +26975,52 @@ public final class Meta {
      * <code>optional int64 remainingItemCount = 4;</code>
      */
     long getRemainingItemCount();
+
+    /**
+     * <pre>
+     * shardInfo is set when the list is a filtered subset of the full collection,
+     * as selected by a shard selector on the request. It echoes back the selector
+     * so clients can verify which shard they received and merge sharded responses.
+     * Clients should not cache sharded list responses as a full representation
+     * of the collection.
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+     */
+    boolean hasShardInfo();
+    /**
+     * <pre>
+     * shardInfo is set when the list is a filtered subset of the full collection,
+     * as selected by a shard selector on the request. It echoes back the selector
+     * so clients can verify which shard they received and merge sharded responses.
+     * Clients should not cache sharded list responses as a full representation
+     * of the collection.
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+     */
+    io.kubernetes.client.proto.Meta.ShardInfo getShardInfo();
+    /**
+     * <pre>
+     * shardInfo is set when the list is a filtered subset of the full collection,
+     * as selected by a shard selector on the request. It echoes back the selector
+     * so clients can verify which shard they received and merge sharded responses.
+     * Clients should not cache sharded list responses as a full representation
+     * of the collection.
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+     */
+    io.kubernetes.client.proto.Meta.ShardInfoOrBuilder getShardInfoOrBuilder();
   }
   /**
    * <pre>
@@ -26987,6 +27091,19 @@ public final class Meta {
             case 32: {
               bitField0_ |= 0x00000008;
               remainingItemCount_ = input.readInt64();
+              break;
+            }
+            case 42: {
+              io.kubernetes.client.proto.Meta.ShardInfo.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = shardInfo_.toBuilder();
+              }
+              shardInfo_ = input.readMessage(io.kubernetes.client.proto.Meta.ShardInfo.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(shardInfo_);
+                shardInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
               break;
             }
             default: {
@@ -27264,6 +27381,60 @@ public final class Meta {
       return remainingItemCount_;
     }
 
+    public static final int SHARDINFO_FIELD_NUMBER = 5;
+    private io.kubernetes.client.proto.Meta.ShardInfo shardInfo_;
+    /**
+     * <pre>
+     * shardInfo is set when the list is a filtered subset of the full collection,
+     * as selected by a shard selector on the request. It echoes back the selector
+     * so clients can verify which shard they received and merge sharded responses.
+     * Clients should not cache sharded list responses as a full representation
+     * of the collection.
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+     */
+    public boolean hasShardInfo() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * shardInfo is set when the list is a filtered subset of the full collection,
+     * as selected by a shard selector on the request. It echoes back the selector
+     * so clients can verify which shard they received and merge sharded responses.
+     * Clients should not cache sharded list responses as a full representation
+     * of the collection.
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ShardInfo getShardInfo() {
+      return shardInfo_ == null ? io.kubernetes.client.proto.Meta.ShardInfo.getDefaultInstance() : shardInfo_;
+    }
+    /**
+     * <pre>
+     * shardInfo is set when the list is a filtered subset of the full collection,
+     * as selected by a shard selector on the request. It echoes back the selector
+     * so clients can verify which shard they received and merge sharded responses.
+     * Clients should not cache sharded list responses as a full representation
+     * of the collection.
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+     */
+    public io.kubernetes.client.proto.Meta.ShardInfoOrBuilder getShardInfoOrBuilder() {
+      return shardInfo_ == null ? io.kubernetes.client.proto.Meta.ShardInfo.getDefaultInstance() : shardInfo_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -27290,6 +27461,9 @@ public final class Meta {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt64(4, remainingItemCount_);
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, getShardInfo());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -27311,6 +27485,10 @@ public final class Meta {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(4, remainingItemCount_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getShardInfo());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -27348,6 +27526,11 @@ public final class Meta {
         result = result && (getRemainingItemCount()
             == other.getRemainingItemCount());
       }
+      result = result && (hasShardInfo() == other.hasShardInfo());
+      if (hasShardInfo()) {
+        result = result && getShardInfo()
+            .equals(other.getShardInfo());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -27375,6 +27558,10 @@ public final class Meta {
         hash = (37 * hash) + REMAININGITEMCOUNT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getRemainingItemCount());
+      }
+      if (hasShardInfo()) {
+        hash = (37 * hash) + SHARDINFO_FIELD_NUMBER;
+        hash = (53 * hash) + getShardInfo().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -27509,6 +27696,7 @@ public final class Meta {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getShardInfoFieldBuilder();
         }
       }
       @java.lang.Override
@@ -27522,6 +27710,12 @@ public final class Meta {
         bitField0_ = (bitField0_ & ~0x00000004);
         remainingItemCount_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (shardInfoBuilder_ == null) {
+          shardInfo_ = null;
+        } else {
+          shardInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -27566,6 +27760,14 @@ public final class Meta {
           to_bitField0_ |= 0x00000008;
         }
         result.remainingItemCount_ = remainingItemCount_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (shardInfoBuilder_ == null) {
+          result.shardInfo_ = shardInfo_;
+        } else {
+          result.shardInfo_ = shardInfoBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -27632,6 +27834,9 @@ public final class Meta {
         }
         if (other.hasRemainingItemCount()) {
           setRemainingItemCount(other.getRemainingItemCount());
+        }
+        if (other.hasShardInfo()) {
+          mergeShardInfo(other.getShardInfo());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -28124,6 +28329,223 @@ public final class Meta {
         onChanged();
         return this;
       }
+
+      private io.kubernetes.client.proto.Meta.ShardInfo shardInfo_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.ShardInfo, io.kubernetes.client.proto.Meta.ShardInfo.Builder, io.kubernetes.client.proto.Meta.ShardInfoOrBuilder> shardInfoBuilder_;
+      /**
+       * <pre>
+       * shardInfo is set when the list is a filtered subset of the full collection,
+       * as selected by a shard selector on the request. It echoes back the selector
+       * so clients can verify which shard they received and merge sharded responses.
+       * Clients should not cache sharded list responses as a full representation
+       * of the collection.
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+       */
+      public boolean hasShardInfo() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * shardInfo is set when the list is a filtered subset of the full collection,
+       * as selected by a shard selector on the request. It echoes back the selector
+       * so clients can verify which shard they received and merge sharded responses.
+       * Clients should not cache sharded list responses as a full representation
+       * of the collection.
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ShardInfo getShardInfo() {
+        if (shardInfoBuilder_ == null) {
+          return shardInfo_ == null ? io.kubernetes.client.proto.Meta.ShardInfo.getDefaultInstance() : shardInfo_;
+        } else {
+          return shardInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * shardInfo is set when the list is a filtered subset of the full collection,
+       * as selected by a shard selector on the request. It echoes back the selector
+       * so clients can verify which shard they received and merge sharded responses.
+       * Clients should not cache sharded list responses as a full representation
+       * of the collection.
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+       */
+      public Builder setShardInfo(io.kubernetes.client.proto.Meta.ShardInfo value) {
+        if (shardInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          shardInfo_ = value;
+          onChanged();
+        } else {
+          shardInfoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * shardInfo is set when the list is a filtered subset of the full collection,
+       * as selected by a shard selector on the request. It echoes back the selector
+       * so clients can verify which shard they received and merge sharded responses.
+       * Clients should not cache sharded list responses as a full representation
+       * of the collection.
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+       */
+      public Builder setShardInfo(
+          io.kubernetes.client.proto.Meta.ShardInfo.Builder builderForValue) {
+        if (shardInfoBuilder_ == null) {
+          shardInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          shardInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * shardInfo is set when the list is a filtered subset of the full collection,
+       * as selected by a shard selector on the request. It echoes back the selector
+       * so clients can verify which shard they received and merge sharded responses.
+       * Clients should not cache sharded list responses as a full representation
+       * of the collection.
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+       */
+      public Builder mergeShardInfo(io.kubernetes.client.proto.Meta.ShardInfo value) {
+        if (shardInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              shardInfo_ != null &&
+              shardInfo_ != io.kubernetes.client.proto.Meta.ShardInfo.getDefaultInstance()) {
+            shardInfo_ =
+              io.kubernetes.client.proto.Meta.ShardInfo.newBuilder(shardInfo_).mergeFrom(value).buildPartial();
+          } else {
+            shardInfo_ = value;
+          }
+          onChanged();
+        } else {
+          shardInfoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * shardInfo is set when the list is a filtered subset of the full collection,
+       * as selected by a shard selector on the request. It echoes back the selector
+       * so clients can verify which shard they received and merge sharded responses.
+       * Clients should not cache sharded list responses as a full representation
+       * of the collection.
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+       */
+      public Builder clearShardInfo() {
+        if (shardInfoBuilder_ == null) {
+          shardInfo_ = null;
+          onChanged();
+        } else {
+          shardInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <pre>
+       * shardInfo is set when the list is a filtered subset of the full collection,
+       * as selected by a shard selector on the request. It echoes back the selector
+       * so clients can verify which shard they received and merge sharded responses.
+       * Clients should not cache sharded list responses as a full representation
+       * of the collection.
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ShardInfo.Builder getShardInfoBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getShardInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * shardInfo is set when the list is a filtered subset of the full collection,
+       * as selected by a shard selector on the request. It echoes back the selector
+       * so clients can verify which shard they received and merge sharded responses.
+       * Clients should not cache sharded list responses as a full representation
+       * of the collection.
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+       */
+      public io.kubernetes.client.proto.Meta.ShardInfoOrBuilder getShardInfoOrBuilder() {
+        if (shardInfoBuilder_ != null) {
+          return shardInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return shardInfo_ == null ?
+              io.kubernetes.client.proto.Meta.ShardInfo.getDefaultInstance() : shardInfo_;
+        }
+      }
+      /**
+       * <pre>
+       * shardInfo is set when the list is a filtered subset of the full collection,
+       * as selected by a shard selector on the request. It echoes back the selector
+       * so clients can verify which shard they received and merge sharded responses.
+       * Clients should not cache sharded list responses as a full representation
+       * of the collection.
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional .k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo shardInfo = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.kubernetes.client.proto.Meta.ShardInfo, io.kubernetes.client.proto.Meta.ShardInfo.Builder, io.kubernetes.client.proto.Meta.ShardInfoOrBuilder> 
+          getShardInfoFieldBuilder() {
+        if (shardInfoBuilder_ == null) {
+          shardInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.kubernetes.client.proto.Meta.ShardInfo, io.kubernetes.client.proto.Meta.ShardInfo.Builder, io.kubernetes.client.proto.Meta.ShardInfoOrBuilder>(
+                  getShardInfo(),
+                  getParentForChildren(),
+                  isClean());
+          shardInfo_ = null;
+        }
+        return shardInfoBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -28563,6 +28985,104 @@ public final class Meta {
      * <code>optional bool sendInitialEvents = 11;</code>
      */
     boolean getSendInitialEvents();
+
+    /**
+     * <pre>
+     * shardSelector restricts the list of returned objects using a CEL-based
+     * shard selector expression. The format uses the shardRange() function
+     * combined with || (logical OR) to specify one or more hash ranges:
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+     * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+     *   - object.metadata.uid
+     *   - object.metadata.namespace
+     * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+     * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+     * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+     * upper bound equals 2^64.
+     * Examples:
+     *   2-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     *   4-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+     *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+     *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional string shardSelector = 15;</code>
+     */
+    boolean hasShardSelector();
+    /**
+     * <pre>
+     * shardSelector restricts the list of returned objects using a CEL-based
+     * shard selector expression. The format uses the shardRange() function
+     * combined with || (logical OR) to specify one or more hash ranges:
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+     * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+     *   - object.metadata.uid
+     *   - object.metadata.namespace
+     * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+     * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+     * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+     * upper bound equals 2^64.
+     * Examples:
+     *   2-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     *   4-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+     *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+     *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional string shardSelector = 15;</code>
+     */
+    java.lang.String getShardSelector();
+    /**
+     * <pre>
+     * shardSelector restricts the list of returned objects using a CEL-based
+     * shard selector expression. The format uses the shardRange() function
+     * combined with || (logical OR) to specify one or more hash ranges:
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+     * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+     *   - object.metadata.uid
+     *   - object.metadata.namespace
+     * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+     * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+     * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+     * upper bound equals 2^64.
+     * Examples:
+     *   2-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     *   4-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+     *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+     *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional string shardSelector = 15;</code>
+     */
+    com.google.protobuf.ByteString
+        getShardSelectorBytes();
   }
   /**
    * <pre>
@@ -28591,6 +29111,7 @@ public final class Meta {
       limit_ = 0L;
       continue_ = "";
       sendInitialEvents_ = false;
+      shardSelector_ = "";
     }
 
     @java.lang.Override
@@ -28670,6 +29191,12 @@ public final class Meta {
             case 88: {
               bitField0_ |= 0x00000200;
               sendInitialEvents_ = input.readBool();
+              break;
+            }
+            case 122: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000400;
+              shardSelector_ = bs;
               break;
             }
             default: {
@@ -29258,6 +29785,132 @@ public final class Meta {
       return sendInitialEvents_;
     }
 
+    public static final int SHARDSELECTOR_FIELD_NUMBER = 15;
+    private volatile java.lang.Object shardSelector_;
+    /**
+     * <pre>
+     * shardSelector restricts the list of returned objects using a CEL-based
+     * shard selector expression. The format uses the shardRange() function
+     * combined with || (logical OR) to specify one or more hash ranges:
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+     * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+     *   - object.metadata.uid
+     *   - object.metadata.namespace
+     * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+     * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+     * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+     * upper bound equals 2^64.
+     * Examples:
+     *   2-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     *   4-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+     *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+     *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional string shardSelector = 15;</code>
+     */
+    public boolean hasShardSelector() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    /**
+     * <pre>
+     * shardSelector restricts the list of returned objects using a CEL-based
+     * shard selector expression. The format uses the shardRange() function
+     * combined with || (logical OR) to specify one or more hash ranges:
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+     * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+     *   - object.metadata.uid
+     *   - object.metadata.namespace
+     * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+     * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+     * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+     * upper bound equals 2^64.
+     * Examples:
+     *   2-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     *   4-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+     *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+     *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional string shardSelector = 15;</code>
+     */
+    public java.lang.String getShardSelector() {
+      java.lang.Object ref = shardSelector_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          shardSelector_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * shardSelector restricts the list of returned objects using a CEL-based
+     * shard selector expression. The format uses the shardRange() function
+     * combined with || (logical OR) to specify one or more hash ranges:
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+     *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+     * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+     *   - object.metadata.uid
+     *   - object.metadata.namespace
+     * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+     * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+     * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+     * upper bound equals 2^64.
+     * Examples:
+     *   2-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+     *   4-shard split:
+     *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+     *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+     *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+     *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+     * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+     * +featureGate=ShardedListAndWatch
+     * +optional
+     * </pre>
+     *
+     * <code>optional string shardSelector = 15;</code>
+     */
+    public com.google.protobuf.ByteString
+        getShardSelectorBytes() {
+      java.lang.Object ref = shardSelector_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        shardSelector_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -29302,6 +29955,9 @@ public final class Meta {
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         output.writeBool(11, sendInitialEvents_);
       }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, shardSelector_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -29345,6 +30001,9 @@ public final class Meta {
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(11, sendInitialEvents_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, shardSelector_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -29412,6 +30071,11 @@ public final class Meta {
         result = result && (getSendInitialEvents()
             == other.getSendInitialEvents());
       }
+      result = result && (hasShardSelector() == other.hasShardSelector());
+      if (hasShardSelector()) {
+        result = result && getShardSelector()
+            .equals(other.getShardSelector());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -29467,6 +30131,10 @@ public final class Meta {
         hash = (37 * hash) + SENDINITIALEVENTS_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getSendInitialEvents());
+      }
+      if (hasShardSelector()) {
+        hash = (37 * hash) + SHARDSELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getShardSelector().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -29625,6 +30293,8 @@ public final class Meta {
         bitField0_ = (bitField0_ & ~0x00000100);
         sendInitialEvents_ = false;
         bitField0_ = (bitField0_ & ~0x00000200);
+        shardSelector_ = "";
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -29693,6 +30363,10 @@ public final class Meta {
           to_bitField0_ |= 0x00000200;
         }
         result.sendInitialEvents_ = sendInitialEvents_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
+        }
+        result.shardSelector_ = shardSelector_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -29781,6 +30455,11 @@ public final class Meta {
         }
         if (other.hasSendInitialEvents()) {
           setSendInitialEvents(other.getSendInitialEvents());
+        }
+        if (other.hasShardSelector()) {
+          bitField0_ |= 0x00000400;
+          shardSelector_ = other.shardSelector_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -30884,6 +31563,250 @@ public final class Meta {
       public Builder clearSendInitialEvents() {
         bitField0_ = (bitField0_ & ~0x00000200);
         sendInitialEvents_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object shardSelector_ = "";
+      /**
+       * <pre>
+       * shardSelector restricts the list of returned objects using a CEL-based
+       * shard selector expression. The format uses the shardRange() function
+       * combined with || (logical OR) to specify one or more hash ranges:
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+       * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+       *   - object.metadata.uid
+       *   - object.metadata.namespace
+       * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+       * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+       * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+       * upper bound equals 2^64.
+       * Examples:
+       *   2-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       *   4-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+       *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+       *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional string shardSelector = 15;</code>
+       */
+      public boolean hasShardSelector() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <pre>
+       * shardSelector restricts the list of returned objects using a CEL-based
+       * shard selector expression. The format uses the shardRange() function
+       * combined with || (logical OR) to specify one or more hash ranges:
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+       * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+       *   - object.metadata.uid
+       *   - object.metadata.namespace
+       * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+       * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+       * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+       * upper bound equals 2^64.
+       * Examples:
+       *   2-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       *   4-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+       *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+       *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional string shardSelector = 15;</code>
+       */
+      public java.lang.String getShardSelector() {
+        java.lang.Object ref = shardSelector_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            shardSelector_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * shardSelector restricts the list of returned objects using a CEL-based
+       * shard selector expression. The format uses the shardRange() function
+       * combined with || (logical OR) to specify one or more hash ranges:
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+       * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+       *   - object.metadata.uid
+       *   - object.metadata.namespace
+       * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+       * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+       * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+       * upper bound equals 2^64.
+       * Examples:
+       *   2-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       *   4-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+       *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+       *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional string shardSelector = 15;</code>
+       */
+      public com.google.protobuf.ByteString
+          getShardSelectorBytes() {
+        java.lang.Object ref = shardSelector_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          shardSelector_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * shardSelector restricts the list of returned objects using a CEL-based
+       * shard selector expression. The format uses the shardRange() function
+       * combined with || (logical OR) to specify one or more hash ranges:
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+       * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+       *   - object.metadata.uid
+       *   - object.metadata.namespace
+       * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+       * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+       * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+       * upper bound equals 2^64.
+       * Examples:
+       *   2-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       *   4-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+       *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+       *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional string shardSelector = 15;</code>
+       */
+      public Builder setShardSelector(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000400;
+        shardSelector_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * shardSelector restricts the list of returned objects using a CEL-based
+       * shard selector expression. The format uses the shardRange() function
+       * combined with || (logical OR) to specify one or more hash ranges:
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+       * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+       *   - object.metadata.uid
+       *   - object.metadata.namespace
+       * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+       * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+       * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+       * upper bound equals 2^64.
+       * Examples:
+       *   2-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       *   4-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+       *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+       *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional string shardSelector = 15;</code>
+       */
+      public Builder clearShardSelector() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        shardSelector_ = getDefaultInstance().getShardSelector();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * shardSelector restricts the list of returned objects using a CEL-based
+       * shard selector expression. The format uses the shardRange() function
+       * combined with || (logical OR) to specify one or more hash ranges:
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000')
+       *   shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       * Field paths use CEL-style object-rooted syntax (e.g. "object.metadata.uid"),
+       * NOT the fieldSelector format ("metadata.uid"). Currently supported paths:
+       *   - object.metadata.uid
+       *   - object.metadata.namespace
+       * hexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix,
+       * defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a
+       * hash space. The full range is [0x0, 0x10000000000000000), where the exclusive
+       * upper bound equals 2^64.
+       * Examples:
+       *   2-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')
+       *   4-shard split:
+       *     shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')
+       *     shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')
+       *     shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')
+       *     shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')
+       * This is an alpha field and requires enabling the ShardedListAndWatch feature gate.
+       * +featureGate=ShardedListAndWatch
+       * +optional
+       * </pre>
+       *
+       * <code>optional string shardSelector = 15;</code>
+       */
+      public Builder setShardSelectorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000400;
+        shardSelector_ = value;
         onChanged();
         return this;
       }
@@ -48020,6 +48943,671 @@ public final class Meta {
 
   }
 
+  public interface ShardInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * selector is the shard selector string from the request, echoed back so clients
+     * can verify which shard they received and merge responses from multiple shards.
+     * +required
+     * </pre>
+     *
+     * <code>optional string selector = 1;</code>
+     */
+    boolean hasSelector();
+    /**
+     * <pre>
+     * selector is the shard selector string from the request, echoed back so clients
+     * can verify which shard they received and merge responses from multiple shards.
+     * +required
+     * </pre>
+     *
+     * <code>optional string selector = 1;</code>
+     */
+    java.lang.String getSelector();
+    /**
+     * <pre>
+     * selector is the shard selector string from the request, echoed back so clients
+     * can verify which shard they received and merge responses from multiple shards.
+     * +required
+     * </pre>
+     *
+     * <code>optional string selector = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSelectorBytes();
+  }
+  /**
+   * <pre>
+   * ShardInfo describes the shard selector that was applied to produce a list response.
+   * Its presence on a list response indicates the list is a filtered subset.
+   * </pre>
+   *
+   * Protobuf type {@code k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo}
+   */
+  public  static final class ShardInfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo)
+      ShardInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ShardInfo.newBuilder() to construct.
+    private ShardInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ShardInfo() {
+      selector_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ShardInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              selector_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.kubernetes.client.proto.Meta.internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ShardInfo_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.kubernetes.client.proto.Meta.internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ShardInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.kubernetes.client.proto.Meta.ShardInfo.class, io.kubernetes.client.proto.Meta.ShardInfo.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SELECTOR_FIELD_NUMBER = 1;
+    private volatile java.lang.Object selector_;
+    /**
+     * <pre>
+     * selector is the shard selector string from the request, echoed back so clients
+     * can verify which shard they received and merge responses from multiple shards.
+     * +required
+     * </pre>
+     *
+     * <code>optional string selector = 1;</code>
+     */
+    public boolean hasSelector() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * selector is the shard selector string from the request, echoed back so clients
+     * can verify which shard they received and merge responses from multiple shards.
+     * +required
+     * </pre>
+     *
+     * <code>optional string selector = 1;</code>
+     */
+    public java.lang.String getSelector() {
+      java.lang.Object ref = selector_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          selector_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * selector is the shard selector string from the request, echoed back so clients
+     * can verify which shard they received and merge responses from multiple shards.
+     * +required
+     * </pre>
+     *
+     * <code>optional string selector = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSelectorBytes() {
+      java.lang.Object ref = selector_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        selector_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, selector_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, selector_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.kubernetes.client.proto.Meta.ShardInfo)) {
+        return super.equals(obj);
+      }
+      io.kubernetes.client.proto.Meta.ShardInfo other = (io.kubernetes.client.proto.Meta.ShardInfo) obj;
+
+      boolean result = true;
+      result = result && (hasSelector() == other.hasSelector());
+      if (hasSelector()) {
+        result = result && getSelector()
+            .equals(other.getSelector());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasSelector()) {
+        hash = (37 * hash) + SELECTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getSelector().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.kubernetes.client.proto.Meta.ShardInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.kubernetes.client.proto.Meta.ShardInfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * ShardInfo describes the shard selector that was applied to produce a list response.
+     * Its presence on a list response indicates the list is a filtered subset.
+     * </pre>
+     *
+     * Protobuf type {@code k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo)
+        io.kubernetes.client.proto.Meta.ShardInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.kubernetes.client.proto.Meta.internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ShardInfo_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.kubernetes.client.proto.Meta.internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ShardInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.kubernetes.client.proto.Meta.ShardInfo.class, io.kubernetes.client.proto.Meta.ShardInfo.Builder.class);
+      }
+
+      // Construct using io.kubernetes.client.proto.Meta.ShardInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        selector_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.kubernetes.client.proto.Meta.internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ShardInfo_descriptor;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.Meta.ShardInfo getDefaultInstanceForType() {
+        return io.kubernetes.client.proto.Meta.ShardInfo.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.Meta.ShardInfo build() {
+        io.kubernetes.client.proto.Meta.ShardInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.kubernetes.client.proto.Meta.ShardInfo buildPartial() {
+        io.kubernetes.client.proto.Meta.ShardInfo result = new io.kubernetes.client.proto.Meta.ShardInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.selector_ = selector_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.kubernetes.client.proto.Meta.ShardInfo) {
+          return mergeFrom((io.kubernetes.client.proto.Meta.ShardInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.kubernetes.client.proto.Meta.ShardInfo other) {
+        if (other == io.kubernetes.client.proto.Meta.ShardInfo.getDefaultInstance()) return this;
+        if (other.hasSelector()) {
+          bitField0_ |= 0x00000001;
+          selector_ = other.selector_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.kubernetes.client.proto.Meta.ShardInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.kubernetes.client.proto.Meta.ShardInfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object selector_ = "";
+      /**
+       * <pre>
+       * selector is the shard selector string from the request, echoed back so clients
+       * can verify which shard they received and merge responses from multiple shards.
+       * +required
+       * </pre>
+       *
+       * <code>optional string selector = 1;</code>
+       */
+      public boolean hasSelector() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * selector is the shard selector string from the request, echoed back so clients
+       * can verify which shard they received and merge responses from multiple shards.
+       * +required
+       * </pre>
+       *
+       * <code>optional string selector = 1;</code>
+       */
+      public java.lang.String getSelector() {
+        java.lang.Object ref = selector_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            selector_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * selector is the shard selector string from the request, echoed back so clients
+       * can verify which shard they received and merge responses from multiple shards.
+       * +required
+       * </pre>
+       *
+       * <code>optional string selector = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSelectorBytes() {
+        java.lang.Object ref = selector_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          selector_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * selector is the shard selector string from the request, echoed back so clients
+       * can verify which shard they received and merge responses from multiple shards.
+       * +required
+       * </pre>
+       *
+       * <code>optional string selector = 1;</code>
+       */
+      public Builder setSelector(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        selector_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the shard selector string from the request, echoed back so clients
+       * can verify which shard they received and merge responses from multiple shards.
+       * +required
+       * </pre>
+       *
+       * <code>optional string selector = 1;</code>
+       */
+      public Builder clearSelector() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        selector_ = getDefaultInstance().getSelector();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * selector is the shard selector string from the request, echoed back so clients
+       * can verify which shard they received and merge responses from multiple shards.
+       * +required
+       * </pre>
+       *
+       * <code>optional string selector = 1;</code>
+       */
+      public Builder setSelectorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        selector_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:k8s.io.apimachinery.pkg.apis.meta.v1.ShardInfo)
+    private static final io.kubernetes.client.proto.Meta.ShardInfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.kubernetes.client.proto.Meta.ShardInfo();
+    }
+
+    public static io.kubernetes.client.proto.Meta.ShardInfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ShardInfo>
+        PARSER = new com.google.protobuf.AbstractParser<ShardInfo>() {
+      @java.lang.Override
+      public ShardInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ShardInfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ShardInfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ShardInfo> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.kubernetes.client.proto.Meta.ShardInfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface StatusOrBuilder extends
       // @@protoc_insertion_point(interface_extends:k8s.io.apimachinery.pkg.apis.meta.v1.Status)
       com.google.protobuf.MessageOrBuilder {
@@ -59472,6 +61060,11 @@ public final class Meta {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ServerAddressByClientCIDR_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ShardInfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ShardInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Status_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -59595,80 +61188,83 @@ public final class Meta {
       "\030\003 \003(\t\"\206\001\n\004List\022@\n\010metadata\030\001 \001(\0132..k8s." +
       "io.apimachinery.pkg.apis.meta.v1.ListMet" +
       "a\022<\n\005items\030\002 \003(\0132-.k8s.io.apimachinery.p" +
-      "kg.runtime.RawExtension\"c\n\010ListMeta\022\020\n\010s" +
-      "elfLink\030\001 \001(\t\022\027\n\017resourceVersion\030\002 \001(\t\022\020" +
-      "\n\010continue\030\003 \001(\t\022\032\n\022remainingItemCount\030\004" +
-      " \001(\003\"\362\001\n\013ListOptions\022\025\n\rlabelSelector\030\001 " +
-      "\001(\t\022\025\n\rfieldSelector\030\002 \001(\t\022\r\n\005watch\030\003 \001(" +
-      "\010\022\033\n\023allowWatchBookmarks\030\t \001(\010\022\027\n\017resour" +
-      "ceVersion\030\004 \001(\t\022\034\n\024resourceVersionMatch\030" +
-      "\n \001(\t\022\026\n\016timeoutSeconds\030\005 \001(\003\022\r\n\005limit\030\007" +
-      " \001(\003\022\020\n\010continue\030\010 \001(\t\022\031\n\021sendInitialEve" +
-      "nts\030\013 \001(\010\"\361\001\n\022ManagedFieldsEntry\022\017\n\007mana" +
-      "ger\030\001 \001(\t\022\021\n\toperation\030\002 \001(\t\022\022\n\napiVersi" +
-      "on\030\003 \001(\t\0228\n\004time\030\004 \001(\0132*.k8s.io.apimachi" +
-      "nery.pkg.apis.meta.v1.Time\022\022\n\nfieldsType" +
-      "\030\006 \001(\t\022@\n\010fieldsV1\030\007 \001(\0132..k8s.io.apimac" +
-      "hinery.pkg.apis.meta.v1.FieldsV1\022\023\n\013subr" +
-      "esource\030\010 \001(\t\"+\n\tMicroTime\022\017\n\007seconds\030\001 " +
-      "\001(\003\022\r\n\005nanos\030\002 \001(\005\"\376\005\n\nObjectMeta\022\014\n\004nam" +
-      "e\030\001 \001(\t\022\024\n\014generateName\030\002 \001(\t\022\021\n\tnamespa" +
-      "ce\030\003 \001(\t\022\020\n\010selfLink\030\004 \001(\t\022\013\n\003uid\030\005 \001(\t\022" +
-      "\027\n\017resourceVersion\030\006 \001(\t\022\022\n\ngeneration\030\007" +
-      " \001(\003\022E\n\021creationTimestamp\030\010 \001(\0132*.k8s.io" +
-      ".apimachinery.pkg.apis.meta.v1.Time\022E\n\021d" +
-      "eletionTimestamp\030\t \001(\0132*.k8s.io.apimachi" +
-      "nery.pkg.apis.meta.v1.Time\022\"\n\032deletionGr" +
-      "acePeriodSeconds\030\n \001(\003\022L\n\006labels\030\013 \003(\0132<" +
-      ".k8s.io.apimachinery.pkg.apis.meta.v1.Ob" +
-      "jectMeta.LabelsEntry\022V\n\013annotations\030\014 \003(" +
-      "\0132A.k8s.io.apimachinery.pkg.apis.meta.v1" +
-      ".ObjectMeta.AnnotationsEntry\022M\n\017ownerRef" +
-      "erences\030\r \003(\01324.k8s.io.apimachinery.pkg." +
-      "apis.meta.v1.OwnerReference\022\022\n\nfinalizer" +
-      "s\030\016 \003(\t\022O\n\rmanagedFields\030\021 \003(\01328.k8s.io." +
-      "apimachinery.pkg.apis.meta.v1.ManagedFie" +
-      "ldsEntry\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"}\n\016OwnerRefe" +
-      "rence\022\022\n\napiVersion\030\005 \001(\t\022\014\n\004kind\030\001 \001(\t\022" +
-      "\014\n\004name\030\003 \001(\t\022\013\n\003uid\030\004 \001(\t\022\022\n\ncontroller" +
-      "\030\006 \001(\010\022\032\n\022blockOwnerDeletion\030\007 \001(\010\"[\n\025Pa" +
-      "rtialObjectMetadata\022B\n\010metadata\030\001 \001(\01320." +
-      "k8s.io.apimachinery.pkg.apis.meta.v1.Obj" +
-      "ectMeta\"\251\001\n\031PartialObjectMetadataList\022@\n" +
-      "\010metadata\030\001 \001(\0132..k8s.io.apimachinery.pk" +
-      "g.apis.meta.v1.ListMeta\022J\n\005items\030\002 \003(\0132;" +
-      ".k8s.io.apimachinery.pkg.apis.meta.v1.Pa" +
-      "rtialObjectMetadata\"\007\n\005Patch\"\\\n\014PatchOpt" +
-      "ions\022\016\n\006dryRun\030\001 \003(\t\022\r\n\005force\030\002 \001(\010\022\024\n\014f" +
-      "ieldManager\030\003 \001(\t\022\027\n\017fieldValidation\030\004 \001" +
-      "(\t\"5\n\rPreconditions\022\013\n\003uid\030\001 \001(\t\022\027\n\017reso" +
-      "urceVersion\030\002 \001(\t\"\032\n\tRootPaths\022\r\n\005paths\030" +
-      "\001 \003(\t\"F\n\031ServerAddressByClientCIDR\022\022\n\ncl" +
-      "ientCIDR\030\001 \001(\t\022\025\n\rserverAddress\030\002 \001(\t\"\317\001" +
-      "\n\006Status\022@\n\010metadata\030\001 \001(\0132..k8s.io.apim" +
-      "achinery.pkg.apis.meta.v1.ListMeta\022\016\n\006st" +
-      "atus\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\022\016\n\006reason\030\004 " +
-      "\001(\t\022D\n\007details\030\005 \001(\01323.k8s.io.apimachine" +
-      "ry.pkg.apis.meta.v1.StatusDetails\022\014\n\004cod" +
-      "e\030\006 \001(\005\"=\n\013StatusCause\022\016\n\006reason\030\001 \001(\t\022\017" +
-      "\n\007message\030\002 \001(\t\022\r\n\005field\030\003 \001(\t\"\245\001\n\rStatu" +
-      "sDetails\022\014\n\004name\030\001 \001(\t\022\r\n\005group\030\002 \001(\t\022\014\n" +
-      "\004kind\030\003 \001(\t\022\013\n\003uid\030\006 \001(\t\022A\n\006causes\030\004 \003(\013" +
-      "21.k8s.io.apimachinery.pkg.apis.meta.v1." +
-      "StatusCause\022\031\n\021retryAfterSeconds\030\005 \001(\005\"%" +
-      "\n\014TableOptions\022\025\n\rincludeObject\030\001 \001(\t\"&\n" +
-      "\004Time\022\017\n\007seconds\030\001 \001(\003\022\r\n\005nanos\030\002 \001(\005\"+\n" +
-      "\tTimestamp\022\017\n\007seconds\030\001 \001(\003\022\r\n\005nanos\030\002 \001" +
-      "(\005\",\n\010TypeMeta\022\014\n\004kind\030\001 \001(\t\022\022\n\napiVersi" +
-      "on\030\002 \001(\t\"N\n\rUpdateOptions\022\016\n\006dryRun\030\001 \003(" +
-      "\t\022\024\n\014fieldManager\030\002 \001(\t\022\027\n\017fieldValidati" +
-      "on\030\003 \001(\t\"\026\n\005Verbs\022\r\n\005items\030\001 \003(\t\"Y\n\nWatc" +
-      "hEvent\022\014\n\004type\030\001 \001(\t\022=\n\006object\030\002 \001(\0132-.k" +
-      "8s.io.apimachinery.pkg.runtime.RawExtens" +
-      "ionBH\n\032io.kubernetes.client.protoB\004MetaZ" +
-      "$k8s.io/apimachinery/pkg/apis/meta/v1"
+      "kg.runtime.RawExtension\"\247\001\n\010ListMeta\022\020\n\010" +
+      "selfLink\030\001 \001(\t\022\027\n\017resourceVersion\030\002 \001(\t\022" +
+      "\020\n\010continue\030\003 \001(\t\022\032\n\022remainingItemCount\030" +
+      "\004 \001(\003\022B\n\tshardInfo\030\005 \001(\0132/.k8s.io.apimac" +
+      "hinery.pkg.apis.meta.v1.ShardInfo\"\211\002\n\013Li" +
+      "stOptions\022\025\n\rlabelSelector\030\001 \001(\t\022\025\n\rfiel" +
+      "dSelector\030\002 \001(\t\022\r\n\005watch\030\003 \001(\010\022\033\n\023allowW" +
+      "atchBookmarks\030\t \001(\010\022\027\n\017resourceVersion\030\004" +
+      " \001(\t\022\034\n\024resourceVersionMatch\030\n \001(\t\022\026\n\016ti" +
+      "meoutSeconds\030\005 \001(\003\022\r\n\005limit\030\007 \001(\003\022\020\n\010con" +
+      "tinue\030\010 \001(\t\022\031\n\021sendInitialEvents\030\013 \001(\010\022\025" +
+      "\n\rshardSelector\030\017 \001(\t\"\361\001\n\022ManagedFieldsE" +
+      "ntry\022\017\n\007manager\030\001 \001(\t\022\021\n\toperation\030\002 \001(\t" +
+      "\022\022\n\napiVersion\030\003 \001(\t\0228\n\004time\030\004 \001(\0132*.k8s" +
+      ".io.apimachinery.pkg.apis.meta.v1.Time\022\022" +
+      "\n\nfieldsType\030\006 \001(\t\022@\n\010fieldsV1\030\007 \001(\0132..k" +
+      "8s.io.apimachinery.pkg.apis.meta.v1.Fiel" +
+      "dsV1\022\023\n\013subresource\030\010 \001(\t\"+\n\tMicroTime\022\017" +
+      "\n\007seconds\030\001 \001(\003\022\r\n\005nanos\030\002 \001(\005\"\376\005\n\nObjec" +
+      "tMeta\022\014\n\004name\030\001 \001(\t\022\024\n\014generateName\030\002 \001(" +
+      "\t\022\021\n\tnamespace\030\003 \001(\t\022\020\n\010selfLink\030\004 \001(\t\022\013" +
+      "\n\003uid\030\005 \001(\t\022\027\n\017resourceVersion\030\006 \001(\t\022\022\n\n" +
+      "generation\030\007 \001(\003\022E\n\021creationTimestamp\030\010 " +
+      "\001(\0132*.k8s.io.apimachinery.pkg.apis.meta." +
+      "v1.Time\022E\n\021deletionTimestamp\030\t \001(\0132*.k8s" +
+      ".io.apimachinery.pkg.apis.meta.v1.Time\022\"" +
+      "\n\032deletionGracePeriodSeconds\030\n \001(\003\022L\n\006la" +
+      "bels\030\013 \003(\0132<.k8s.io.apimachinery.pkg.api" +
+      "s.meta.v1.ObjectMeta.LabelsEntry\022V\n\013anno" +
+      "tations\030\014 \003(\0132A.k8s.io.apimachinery.pkg." +
+      "apis.meta.v1.ObjectMeta.AnnotationsEntry" +
+      "\022M\n\017ownerReferences\030\r \003(\01324.k8s.io.apima" +
+      "chinery.pkg.apis.meta.v1.OwnerReference\022" +
+      "\022\n\nfinalizers\030\016 \003(\t\022O\n\rmanagedFields\030\021 \003" +
+      "(\01328.k8s.io.apimachinery.pkg.apis.meta.v" +
+      "1.ManagedFieldsEntry\032-\n\013LabelsEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020Annotatio" +
+      "nsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"" +
+      "}\n\016OwnerReference\022\022\n\napiVersion\030\005 \001(\t\022\014\n" +
+      "\004kind\030\001 \001(\t\022\014\n\004name\030\003 \001(\t\022\013\n\003uid\030\004 \001(\t\022\022" +
+      "\n\ncontroller\030\006 \001(\010\022\032\n\022blockOwnerDeletion" +
+      "\030\007 \001(\010\"[\n\025PartialObjectMetadata\022B\n\010metad" +
+      "ata\030\001 \001(\01320.k8s.io.apimachinery.pkg.apis" +
+      ".meta.v1.ObjectMeta\"\251\001\n\031PartialObjectMet" +
+      "adataList\022@\n\010metadata\030\001 \001(\0132..k8s.io.api" +
+      "machinery.pkg.apis.meta.v1.ListMeta\022J\n\005i" +
+      "tems\030\002 \003(\0132;.k8s.io.apimachinery.pkg.api" +
+      "s.meta.v1.PartialObjectMetadata\"\007\n\005Patch" +
+      "\"\\\n\014PatchOptions\022\016\n\006dryRun\030\001 \003(\t\022\r\n\005forc" +
+      "e\030\002 \001(\010\022\024\n\014fieldManager\030\003 \001(\t\022\027\n\017fieldVa" +
+      "lidation\030\004 \001(\t\"5\n\rPreconditions\022\013\n\003uid\030\001" +
+      " \001(\t\022\027\n\017resourceVersion\030\002 \001(\t\"\032\n\tRootPat" +
+      "hs\022\r\n\005paths\030\001 \003(\t\"F\n\031ServerAddressByClie" +
+      "ntCIDR\022\022\n\nclientCIDR\030\001 \001(\t\022\025\n\rserverAddr" +
+      "ess\030\002 \001(\t\"\035\n\tShardInfo\022\020\n\010selector\030\001 \001(\t" +
+      "\"\317\001\n\006Status\022@\n\010metadata\030\001 \001(\0132..k8s.io.a" +
+      "pimachinery.pkg.apis.meta.v1.ListMeta\022\016\n" +
+      "\006status\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\022\016\n\006reason" +
+      "\030\004 \001(\t\022D\n\007details\030\005 \001(\01323.k8s.io.apimach" +
+      "inery.pkg.apis.meta.v1.StatusDetails\022\014\n\004" +
+      "code\030\006 \001(\005\"=\n\013StatusCause\022\016\n\006reason\030\001 \001(" +
+      "\t\022\017\n\007message\030\002 \001(\t\022\r\n\005field\030\003 \001(\t\"\245\001\n\rSt" +
+      "atusDetails\022\014\n\004name\030\001 \001(\t\022\r\n\005group\030\002 \001(\t" +
+      "\022\014\n\004kind\030\003 \001(\t\022\013\n\003uid\030\006 \001(\t\022A\n\006causes\030\004 " +
+      "\003(\01321.k8s.io.apimachinery.pkg.apis.meta." +
+      "v1.StatusCause\022\031\n\021retryAfterSeconds\030\005 \001(" +
+      "\005\"%\n\014TableOptions\022\025\n\rincludeObject\030\001 \001(\t" +
+      "\"&\n\004Time\022\017\n\007seconds\030\001 \001(\003\022\r\n\005nanos\030\002 \001(\005" +
+      "\"+\n\tTimestamp\022\017\n\007seconds\030\001 \001(\003\022\r\n\005nanos\030" +
+      "\002 \001(\005\",\n\010TypeMeta\022\014\n\004kind\030\001 \001(\t\022\022\n\napiVe" +
+      "rsion\030\002 \001(\t\"N\n\rUpdateOptions\022\016\n\006dryRun\030\001" +
+      " \003(\t\022\024\n\014fieldManager\030\002 \001(\t\022\027\n\017fieldValid" +
+      "ation\030\003 \001(\t\"\026\n\005Verbs\022\r\n\005items\030\001 \003(\t\"Y\n\nW" +
+      "atchEvent\022\014\n\004type\030\001 \001(\t\022=\n\006object\030\002 \001(\0132" +
+      "-.k8s.io.apimachinery.pkg.runtime.RawExt" +
+      "ensionBH\n\032io.kubernetes.client.protoB\004Me" +
+      "taZ$k8s.io/apimachinery/pkg/apis/meta/v1"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -59827,13 +61423,13 @@ public final class Meta {
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ListMeta_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ListMeta_descriptor,
-        new java.lang.String[] { "SelfLink", "ResourceVersion", "Continue", "RemainingItemCount", });
+        new java.lang.String[] { "SelfLink", "ResourceVersion", "Continue", "RemainingItemCount", "ShardInfo", });
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ListOptions_descriptor =
       getDescriptor().getMessageTypes().get(23);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ListOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ListOptions_descriptor,
-        new java.lang.String[] { "LabelSelector", "FieldSelector", "Watch", "AllowWatchBookmarks", "ResourceVersion", "ResourceVersionMatch", "TimeoutSeconds", "Limit", "Continue", "SendInitialEvents", });
+        new java.lang.String[] { "LabelSelector", "FieldSelector", "Watch", "AllowWatchBookmarks", "ResourceVersion", "ResourceVersionMatch", "TimeoutSeconds", "Limit", "Continue", "SendInitialEvents", "ShardSelector", });
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ManagedFieldsEntry_descriptor =
       getDescriptor().getMessageTypes().get(24);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ManagedFieldsEntry_fieldAccessorTable = new
@@ -59912,62 +61508,68 @@ public final class Meta {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ServerAddressByClientCIDR_descriptor,
         new java.lang.String[] { "ClientCIDR", "ServerAddress", });
-    internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Status_descriptor =
+    internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ShardInfo_descriptor =
       getDescriptor().getMessageTypes().get(35);
+    internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ShardInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_ShardInfo_descriptor,
+        new java.lang.String[] { "Selector", });
+    internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Status_descriptor =
+      getDescriptor().getMessageTypes().get(36);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Status_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Status_descriptor,
         new java.lang.String[] { "Metadata", "Status", "Message", "Reason", "Details", "Code", });
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_StatusCause_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_StatusCause_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_StatusCause_descriptor,
         new java.lang.String[] { "Reason", "Message", "Field", });
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_StatusDetails_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_StatusDetails_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_StatusDetails_descriptor,
         new java.lang.String[] { "Name", "Group", "Kind", "Uid", "Causes", "RetryAfterSeconds", });
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_TableOptions_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_TableOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_TableOptions_descriptor,
         new java.lang.String[] { "IncludeObject", });
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Time_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Time_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Time_descriptor,
         new java.lang.String[] { "Seconds", "Nanos", });
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Timestamp_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Timestamp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Timestamp_descriptor,
         new java.lang.String[] { "Seconds", "Nanos", });
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_TypeMeta_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_TypeMeta_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_TypeMeta_descriptor,
         new java.lang.String[] { "Kind", "ApiVersion", });
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_UpdateOptions_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_UpdateOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_UpdateOptions_descriptor,
         new java.lang.String[] { "DryRun", "FieldManager", "FieldValidation", });
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Verbs_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Verbs_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_Verbs_descriptor,
         new java.lang.String[] { "Items", });
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_WatchEvent_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_WatchEvent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_k8s_io_apimachinery_pkg_apis_meta_v1_WatchEvent_descriptor,

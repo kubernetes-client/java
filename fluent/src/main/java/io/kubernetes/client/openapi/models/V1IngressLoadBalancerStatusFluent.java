@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -47,7 +47,7 @@ public class V1IngressLoadBalancerStatusFluent<A extends io.kubernetes.client.op
     }
     for (V1IngressLoadBalancerIngress item : items) {
         V1IngressLoadBalancerIngressBuilder builder = new V1IngressLoadBalancerIngressBuilder(item);
-        _visitables.get("ingress").add(builder);
+        this._visitables.get("ingress").add(builder);
         this.ingress.add(builder);
     }
     return (A) this;
@@ -67,7 +67,7 @@ public class V1IngressLoadBalancerStatusFluent<A extends io.kubernetes.client.op
     }
     for (V1IngressLoadBalancerIngress item : items) {
         V1IngressLoadBalancerIngressBuilder builder = new V1IngressLoadBalancerIngressBuilder(item);
-        _visitables.get("ingress").add(builder);
+        this._visitables.get("ingress").add(builder);
         this.ingress.add(builder);
     }
     return (A) this;
@@ -78,12 +78,12 @@ public class V1IngressLoadBalancerStatusFluent<A extends io.kubernetes.client.op
       this.ingress = new ArrayList();
     }
     V1IngressLoadBalancerIngressBuilder builder = new V1IngressLoadBalancerIngressBuilder(item);
-    if (index < 0 || index >= ingress.size()) {
-        _visitables.get("ingress").add(builder);
-        ingress.add(builder);
+    if (index < 0 || index >= this.ingress.size()) {
+        this._visitables.get("ingress").add(builder);
+        this.ingress.add(builder);
     } else {
-        _visitables.get("ingress").add(builder);
-        ingress.add(index, builder);
+        this._visitables.get("ingress").add(builder);
+        this.ingress.add(index, builder);
     }
     return (A) this;
   }
@@ -219,7 +219,7 @@ public class V1IngressLoadBalancerStatusFluent<A extends io.kubernetes.client.op
       return (A) this;
     }
     Iterator<V1IngressLoadBalancerIngressBuilder> each = ingress.iterator();
-    List visitables = _visitables.get("ingress");
+    List visitables = this._visitables.get("ingress");
     while (each.hasNext()) {
         V1IngressLoadBalancerIngressBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -239,12 +239,12 @@ public class V1IngressLoadBalancerStatusFluent<A extends io.kubernetes.client.op
       this.ingress = new ArrayList();
     }
     V1IngressLoadBalancerIngressBuilder builder = new V1IngressLoadBalancerIngressBuilder(item);
-    if (index < 0 || index >= ingress.size()) {
-        _visitables.get("ingress").add(builder);
-        ingress.add(builder);
+    if (index < 0 || index >= this.ingress.size()) {
+        this._visitables.get("ingress").add(builder);
+        this.ingress.add(builder);
     } else {
-        _visitables.get("ingress").add(builder);
-        ingress.set(index, builder);
+        this._visitables.get("ingress").add(builder);
+        this.ingress.set(index, builder);
     }
     return (A) this;
   }

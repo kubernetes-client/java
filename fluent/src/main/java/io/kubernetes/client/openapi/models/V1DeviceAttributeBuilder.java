@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -39,9 +39,13 @@ public class V1DeviceAttributeBuilder extends V1DeviceAttributeFluent<V1DeviceAt
   public V1DeviceAttribute build() {
     V1DeviceAttribute buildable = new V1DeviceAttribute();
     buildable.setBool(fluent.getBool());
+    buildable.setBools(fluent.getBools());
     buildable.setInt(fluent.getInt());
+    buildable.setInts(fluent.getInts());
     buildable.setString(fluent.getString());
+    buildable.setStrings(fluent.getStrings());
     buildable.setVersion(fluent.getVersion());
+    buildable.setVersions(fluent.getVersions());
     return buildable;
   }
   

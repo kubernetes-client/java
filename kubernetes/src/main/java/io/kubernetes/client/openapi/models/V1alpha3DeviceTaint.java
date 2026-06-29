@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * The device this taint is attached to has the \&quot;effect\&quot; on any claim which does not tolerate the taint and, through the claim, to pods using the claim.
  */
 @ApiModel(description = "The device this taint is attached to has the \"effect\" on any claim which does not tolerate the taint and, through the claim, to pods using the claim.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha3DeviceTaint {
   public static final String SERIALIZED_NAME_EFFECT = "effect";
   @SerializedName(SERIALIZED_NAME_EFFECT)
@@ -122,11 +122,11 @@ public class V1alpha3DeviceTaint {
   }
 
   /**
-   * TimeAdded represents the time at which the taint was added. Added automatically during create or update if not set.
+   * TimeAdded represents the time at which the taint was added or (only in a DeviceTaintRule) the effect was modified. Added automatically during create or update if not set.  In addition, in a DeviceTaintRule a value provided during an update gets replaced with the current time if the provided value is the same as the old one and the new effect is different. Changing the key and/or value while keeping the effect unchanged is possible and does not update the time stamp because the eviction which uses it is either already started (NoExecute) or not started yet (NoEffect, NoSchedule).
    * @return timeAdded
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "TimeAdded represents the time at which the taint was added. Added automatically during create or update if not set.")
+  @ApiModelProperty(value = "TimeAdded represents the time at which the taint was added or (only in a DeviceTaintRule) the effect was modified. Added automatically during create or update if not set.  In addition, in a DeviceTaintRule a value provided during an update gets replaced with the current time if the provided value is the same as the old one and the new effect is different. Changing the key and/or value while keeping the effect unchanged is possible and does not update the time stamp because the eviction which uses it is either already started (NoExecute) or not started yet (NoEffect, NoSchedule).")
   public OffsetDateTime getTimeAdded() {
     return timeAdded;
   }

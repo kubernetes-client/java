@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.
  */
 @ApiModel(description = "ValidatingWebhookConfiguration describes the configuration of and admission webhook that accept or reject and object without changing it.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -153,11 +153,11 @@ public class V1ValidatingWebhookConfiguration implements io.kubernetes.client.co
   }
 
   /**
-   * Webhooks is a list of webhooks and the affected resources and operations.
+   * webhooks is a list of webhooks and the affected resources and operations.
    * @return webhooks
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Webhooks is a list of webhooks and the affected resources and operations.")
+  @ApiModelProperty(value = "webhooks is a list of webhooks and the affected resources and operations.")
   public List<V1ValidatingWebhook> getWebhooks() {
     return webhooks;
   }

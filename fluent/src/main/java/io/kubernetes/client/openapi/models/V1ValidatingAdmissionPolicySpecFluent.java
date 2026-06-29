@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -54,7 +54,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
     }
     for (V1AuditAnnotation item : items) {
         V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
-        _visitables.get("auditAnnotations").add(builder);
+        this._visitables.get("auditAnnotations").add(builder);
         this.auditAnnotations.add(builder);
     }
     return (A) this;
@@ -66,7 +66,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
     }
     for (V1MatchCondition item : items) {
         V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
-        _visitables.get("matchConditions").add(builder);
+        this._visitables.get("matchConditions").add(builder);
         this.matchConditions.add(builder);
     }
     return (A) this;
@@ -78,7 +78,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
     }
     for (V1Validation item : items) {
         V1ValidationBuilder builder = new V1ValidationBuilder(item);
-        _visitables.get("validations").add(builder);
+        this._visitables.get("validations").add(builder);
         this.validations.add(builder);
     }
     return (A) this;
@@ -90,7 +90,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
     }
     for (V1Variable item : items) {
         V1VariableBuilder builder = new V1VariableBuilder(item);
-        _visitables.get("variables").add(builder);
+        this._visitables.get("variables").add(builder);
         this.variables.add(builder);
     }
     return (A) this;
@@ -134,7 +134,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
     }
     for (V1AuditAnnotation item : items) {
         V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
-        _visitables.get("auditAnnotations").add(builder);
+        this._visitables.get("auditAnnotations").add(builder);
         this.auditAnnotations.add(builder);
     }
     return (A) this;
@@ -145,12 +145,12 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this.auditAnnotations = new ArrayList();
     }
     V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
-    if (index < 0 || index >= auditAnnotations.size()) {
-        _visitables.get("auditAnnotations").add(builder);
-        auditAnnotations.add(builder);
+    if (index < 0 || index >= this.auditAnnotations.size()) {
+        this._visitables.get("auditAnnotations").add(builder);
+        this.auditAnnotations.add(builder);
     } else {
-        _visitables.get("auditAnnotations").add(builder);
-        auditAnnotations.add(index, builder);
+        this._visitables.get("auditAnnotations").add(builder);
+        this.auditAnnotations.add(index, builder);
     }
     return (A) this;
   }
@@ -161,7 +161,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
     }
     for (V1MatchCondition item : items) {
         V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
-        _visitables.get("matchConditions").add(builder);
+        this._visitables.get("matchConditions").add(builder);
         this.matchConditions.add(builder);
     }
     return (A) this;
@@ -172,12 +172,12 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this.matchConditions = new ArrayList();
     }
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.add(builder);
+    if (index < 0 || index >= this.matchConditions.size()) {
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.add(builder);
     } else {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.add(index, builder);
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.add(index, builder);
     }
     return (A) this;
   }
@@ -188,7 +188,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
     }
     for (V1Validation item : items) {
         V1ValidationBuilder builder = new V1ValidationBuilder(item);
-        _visitables.get("validations").add(builder);
+        this._visitables.get("validations").add(builder);
         this.validations.add(builder);
     }
     return (A) this;
@@ -199,12 +199,12 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this.validations = new ArrayList();
     }
     V1ValidationBuilder builder = new V1ValidationBuilder(item);
-    if (index < 0 || index >= validations.size()) {
-        _visitables.get("validations").add(builder);
-        validations.add(builder);
+    if (index < 0 || index >= this.validations.size()) {
+        this._visitables.get("validations").add(builder);
+        this.validations.add(builder);
     } else {
-        _visitables.get("validations").add(builder);
-        validations.add(index, builder);
+        this._visitables.get("validations").add(builder);
+        this.validations.add(index, builder);
     }
     return (A) this;
   }
@@ -215,7 +215,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
     }
     for (V1Variable item : items) {
         V1VariableBuilder builder = new V1VariableBuilder(item);
-        _visitables.get("variables").add(builder);
+        this._visitables.get("variables").add(builder);
         this.variables.add(builder);
     }
     return (A) this;
@@ -226,12 +226,12 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this.variables = new ArrayList();
     }
     V1VariableBuilder builder = new V1VariableBuilder(item);
-    if (index < 0 || index >= variables.size()) {
-        _visitables.get("variables").add(builder);
-        variables.add(builder);
+    if (index < 0 || index >= this.variables.size()) {
+        this._visitables.get("variables").add(builder);
+        this.variables.add(builder);
     } else {
-        _visitables.get("variables").add(builder);
-        variables.add(index, builder);
+        this._visitables.get("variables").add(builder);
+        this.variables.add(index, builder);
     }
     return (A) this;
   }
@@ -733,7 +733,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       return (A) this;
     }
     Iterator<V1AuditAnnotationBuilder> each = auditAnnotations.iterator();
-    List visitables = _visitables.get("auditAnnotations");
+    List visitables = this._visitables.get("auditAnnotations");
     while (each.hasNext()) {
         V1AuditAnnotationBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -749,7 +749,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       return (A) this;
     }
     Iterator<V1MatchConditionBuilder> each = matchConditions.iterator();
-    List visitables = _visitables.get("matchConditions");
+    List visitables = this._visitables.get("matchConditions");
     while (each.hasNext()) {
         V1MatchConditionBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -765,7 +765,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       return (A) this;
     }
     Iterator<V1ValidationBuilder> each = validations.iterator();
-    List visitables = _visitables.get("validations");
+    List visitables = this._visitables.get("validations");
     while (each.hasNext()) {
         V1ValidationBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -781,7 +781,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       return (A) this;
     }
     Iterator<V1VariableBuilder> each = variables.iterator();
-    List visitables = _visitables.get("variables");
+    List visitables = this._visitables.get("variables");
     while (each.hasNext()) {
         V1VariableBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -813,12 +813,12 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this.auditAnnotations = new ArrayList();
     }
     V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
-    if (index < 0 || index >= auditAnnotations.size()) {
-        _visitables.get("auditAnnotations").add(builder);
-        auditAnnotations.add(builder);
+    if (index < 0 || index >= this.auditAnnotations.size()) {
+        this._visitables.get("auditAnnotations").add(builder);
+        this.auditAnnotations.add(builder);
     } else {
-        _visitables.get("auditAnnotations").add(builder);
-        auditAnnotations.set(index, builder);
+        this._visitables.get("auditAnnotations").add(builder);
+        this.auditAnnotations.set(index, builder);
     }
     return (A) this;
   }
@@ -828,12 +828,12 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this.matchConditions = new ArrayList();
     }
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
-    if (index < 0 || index >= matchConditions.size()) {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.add(builder);
+    if (index < 0 || index >= this.matchConditions.size()) {
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.add(builder);
     } else {
-        _visitables.get("matchConditions").add(builder);
-        matchConditions.set(index, builder);
+        this._visitables.get("matchConditions").add(builder);
+        this.matchConditions.set(index, builder);
     }
     return (A) this;
   }
@@ -843,12 +843,12 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this.validations = new ArrayList();
     }
     V1ValidationBuilder builder = new V1ValidationBuilder(item);
-    if (index < 0 || index >= validations.size()) {
-        _visitables.get("validations").add(builder);
-        validations.add(builder);
+    if (index < 0 || index >= this.validations.size()) {
+        this._visitables.get("validations").add(builder);
+        this.validations.add(builder);
     } else {
-        _visitables.get("validations").add(builder);
-        validations.set(index, builder);
+        this._visitables.get("validations").add(builder);
+        this.validations.set(index, builder);
     }
     return (A) this;
   }
@@ -858,12 +858,12 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this.variables = new ArrayList();
     }
     V1VariableBuilder builder = new V1VariableBuilder(item);
-    if (index < 0 || index >= variables.size()) {
-        _visitables.get("variables").add(builder);
-        variables.add(builder);
+    if (index < 0 || index >= this.variables.size()) {
+        this._visitables.get("variables").add(builder);
+        this.variables.add(builder);
     } else {
-        _visitables.get("variables").add(builder);
-        variables.set(index, builder);
+        this._visitables.get("variables").add(builder);
+        this.variables.set(index, builder);
     }
     return (A) this;
   }

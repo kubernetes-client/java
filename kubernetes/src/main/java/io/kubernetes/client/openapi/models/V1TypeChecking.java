@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * TypeChecking contains results of type checking the expressions in the ValidatingAdmissionPolicy
  */
 @ApiModel(description = "TypeChecking contains results of type checking the expressions in the ValidatingAdmissionPolicy")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-21T21:30:13.305152Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1TypeChecking {
   public static final String SERIALIZED_NAME_EXPRESSION_WARNINGS = "expressionWarnings";
   @SerializedName(SERIALIZED_NAME_EXPRESSION_WARNINGS)
@@ -77,11 +77,11 @@ public class V1TypeChecking {
   }
 
   /**
-   * The type checking warnings for each expression.
+   * expressionWarnings contains the type checking warnings for each expression.
    * @return expressionWarnings
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The type checking warnings for each expression.")
+  @ApiModelProperty(value = "expressionWarnings contains the type checking warnings for each expression.")
   public List<V1ExpressionWarning> getExpressionWarnings() {
     return expressionWarnings;
   }

@@ -1,5 +1,5 @@
 /*
-Copyright 2020 The Kubernetes Authors.
+Copyright 2026 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -47,7 +47,7 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1LabelSelector item : items) {
         V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
-        _visitables.get("clusterRoleSelectors").add(builder);
+        this._visitables.get("clusterRoleSelectors").add(builder);
         this.clusterRoleSelectors.add(builder);
     }
     return (A) this;
@@ -67,7 +67,7 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
     }
     for (V1LabelSelector item : items) {
         V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
-        _visitables.get("clusterRoleSelectors").add(builder);
+        this._visitables.get("clusterRoleSelectors").add(builder);
         this.clusterRoleSelectors.add(builder);
     }
     return (A) this;
@@ -78,12 +78,12 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
       this.clusterRoleSelectors = new ArrayList();
     }
     V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
-    if (index < 0 || index >= clusterRoleSelectors.size()) {
-        _visitables.get("clusterRoleSelectors").add(builder);
-        clusterRoleSelectors.add(builder);
+    if (index < 0 || index >= this.clusterRoleSelectors.size()) {
+        this._visitables.get("clusterRoleSelectors").add(builder);
+        this.clusterRoleSelectors.add(builder);
     } else {
-        _visitables.get("clusterRoleSelectors").add(builder);
-        clusterRoleSelectors.add(index, builder);
+        this._visitables.get("clusterRoleSelectors").add(builder);
+        this.clusterRoleSelectors.add(index, builder);
     }
     return (A) this;
   }
@@ -219,7 +219,7 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1LabelSelectorBuilder> each = clusterRoleSelectors.iterator();
-    List visitables = _visitables.get("clusterRoleSelectors");
+    List visitables = this._visitables.get("clusterRoleSelectors");
     while (each.hasNext()) {
         V1LabelSelectorBuilder builder = each.next();
         if (predicate.test(builder)) {
@@ -239,12 +239,12 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
       this.clusterRoleSelectors = new ArrayList();
     }
     V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
-    if (index < 0 || index >= clusterRoleSelectors.size()) {
-        _visitables.get("clusterRoleSelectors").add(builder);
-        clusterRoleSelectors.add(builder);
+    if (index < 0 || index >= this.clusterRoleSelectors.size()) {
+        this._visitables.get("clusterRoleSelectors").add(builder);
+        this.clusterRoleSelectors.add(builder);
     } else {
-        _visitables.get("clusterRoleSelectors").add(builder);
-        clusterRoleSelectors.set(index, builder);
+        this._visitables.get("clusterRoleSelectors").add(builder);
+        this.clusterRoleSelectors.set(index, builder);
     }
     return (A) this;
   }
