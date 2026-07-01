@@ -69,11 +69,11 @@
     <apache.commons.compress>1.28.0</apache.commons.compress>
     <apache.commons.io>2.22.0</apache.commons.io>
     <common.codec.version>1.22.0</common.codec.version>
-    <spring.boot.version>4.0.6</spring.boot.version>
+    <spring.boot.version>4.1.0</spring.boot.version>
     <spring.version>7.0.8</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
-    <aws.sdk.version>2.46.17</aws.sdk.version>
+    <aws.sdk.version>2.46.18</aws.sdk.version>
     <google.auth.version>1.48.0</google.auth.version>
     <jose4j.version>0.9.6</jose4j.version>
     <jetbrains.annotations.version>26.1.0</jetbrains.annotations.version>
@@ -503,7 +503,7 @@
         <plugin>
           <groupId>com.diffplug.spotless</groupId>
           <artifactId>spotless-maven-plugin</artifactId>
-          <version>3.7.0</version>
+          <version>3.8.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.felix</groupId>

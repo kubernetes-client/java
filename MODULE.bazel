@@ -42,12 +42,12 @@ maven.install(
         "org.slf4j:slf4j-api:2.0.18",
         "org.bouncycastle:bcpkix-jdk18on:1.84",
         "org.bouncycastle:bcprov-jdk18on:1.84",
-        "software.amazon.awssdk:sts:2.46.17",
-        "software.amazon.awssdk:auth:2.46.17",
-        "software.amazon.awssdk:http-auth-aws:2.46.17",
-        "software.amazon.awssdk:http-auth-spi:2.46.17",
-        "software.amazon.awssdk:http-client-spi:2.46.17",
-        "software.amazon.awssdk:utils:2.46.17",
+        "software.amazon.awssdk:sts:2.46.18",
+        "software.amazon.awssdk:auth:2.46.18",
+        "software.amazon.awssdk:http-auth-aws:2.46.18",
+        "software.amazon.awssdk:http-auth-spi:2.46.18",
+        "software.amazon.awssdk:http-client-spi:2.46.18",
+        "software.amazon.awssdk:utils:2.46.18",
         "com.google.protobuf:protobuf-java:4.35.1",
         "org.bitbucket.b_c:jose4j:0.9.6",
         "com.bucket4j:bucket4j-core:8.10.1",
@@ -102,7 +102,7 @@ maven.install(
     lock_file = "//:maven_install.json",
 )
 
-# Spring Boot 4.0.6 artifacts declared with exclusions to keep
+# Spring Boot 4.1.0 artifacts declared with exclusions to keep
 # spring-framework pinned to 7.0.8.
 _SPRING_FRAMEWORK_EXCLUSIONS = [
     "org.springframework:spring-core",
@@ -116,28 +116,28 @@ _SPRING_FRAMEWORK_EXCLUSIONS = [
 maven.artifact(
     artifact = "spring-boot",
     group = "org.springframework.boot",
-    version = "4.0.6",
+    version = "4.1.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
 maven.artifact(
     artifact = "spring-boot-autoconfigure",
     group = "org.springframework.boot",
-    version = "4.0.6",
+    version = "4.1.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
 maven.artifact(
     artifact = "spring-boot-actuator",
     group = "org.springframework.boot",
-    version = "4.0.6",
+    version = "4.1.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
 maven.artifact(
     artifact = "spring-boot-test",
     group = "org.springframework.boot",
-    version = "4.0.6",
+    version = "4.1.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
