@@ -1,0 +1,23 @@
+# Verify code style and license headers with Spotless on every pull request.
+
+name: spotless
+
+on:
+  pull_request:
+    branches: ["master", "release-**"]
+
+jobs:
+  verify-format:
+    runs-on: ubuntu-latest
+    name: Verify Source Format
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Setup Java
+        uses: actions/setup-java@03ad4de0992f5dab5e18fcb136590ce7c4a0ac95 # v5.6.0
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - name: Verify Format and License
+        run: ./mvnw spotless:check
