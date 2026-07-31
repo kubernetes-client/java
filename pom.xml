@@ -68,7 +68,7 @@
     <apache.commons.collections4.version>4.5.0</apache.commons.collections4.version>
     <apache.commons.compress>1.28.0</apache.commons.compress>
     <apache.commons.io>2.22.0</apache.commons.io>
-    <common.codec.version>1.22.0</common.codec.version>
+    <common.codec.version>1.22.1</common.codec.version>
     <spring.boot.version>4.1.0</spring.boot.version>
     <spring.version>7.0.8</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
@@ -508,7 +508,7 @@
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
-          <version>6.0.2</version>
+          <version>6.1.0</version>
           <extensions>true</extensions>
         </plugin>
         <plugin>
