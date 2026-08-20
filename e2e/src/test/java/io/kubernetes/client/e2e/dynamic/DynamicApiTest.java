@@ -19,12 +19,19 @@ import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.Watch;
+import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesApi;
 import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesObject;
 import io.kubernetes.client.util.generic.dynamic.Dynamics;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 
 class DynamicApiTest {
+
+  private static final long WATCH_TIMEOUT_MS = 30_000;
 
   @Test
   void dynamicApiCreateAndDeleteNamespace() throws Exception {
@@ -40,5 +47,65 @@ class DynamicApiTest {
     DynamicKubernetesObject deleted =
         dynamicApi.delete("e2e-dynamic").throwsApiException().getObject();
     assertThat(deleted).isNotNull();
+  }
+
+  @Test
+  void dynamicApiWatchPreservesRawData() throws Exception {
+    ApiClient client = ClientBuilder.defaultClient();
+    DynamicKubernetesApi dynamicApi =
+        new DynamicKubernetesApi("", "v1", "namespaces", client);
+
+    BlockingQueue<Watch.Response<DynamicKubernetesObject>> events =
+        new ArrayBlockingQueue<>(10);
+
+    try (Watchable<DynamicKubernetesObject> watch = dynamicApi.watch()) {
+      // Collect watch events in a background thread
+      Thread watchThread =
+          new Thread(
+              () -> {
+                try {
+                  while (watch.hasNext()) {
+                    events.offer(watch.next());
+                  }
+                } catch (RuntimeException e) {
+                  // watch closed
+                }
+              });
+      watchThread.setDaemon(true);
+      watchThread.start();
+
+      // Create a namespace to trigger an ADDED event
+      V1Namespace ns = new V1Namespace().metadata(new V1ObjectMeta().name("e2e-dynamic-watch"));
+      dynamicApi.create(Dynamics.newFromJson(JSON.serialize(ns))).throwsApiException();
+
+      try {
+        // Wait for an ADDED event for the created namespace
+        Watch.Response<DynamicKubernetesObject> addedEvent = null;
+        long deadline = System.currentTimeMillis() + WATCH_TIMEOUT_MS;
+        while (System.currentTimeMillis() < deadline) {
+          Watch.Response<DynamicKubernetesObject> event =
+              events.poll(5, TimeUnit.SECONDS);
+          if (event != null
+              && "ADDED".equals(event.type)
+              && event.object != null
+              && event.object.getMetadata() != null
+              && "e2e-dynamic-watch".equals(event.object.getMetadata().getName())) {
+            addedEvent = event;
+            break;
+          }
+        }
+
+        assertThat(addedEvent).isNotNull();
+        assertThat(addedEvent.object).isNotNull();
+        // Verify that the raw JSON data is preserved in the DynamicKubernetesObject
+        assertThat(addedEvent.object.getRaw()).isNotNull();
+        assertThat(addedEvent.object.getRaw().has("metadata")).isTrue();
+        assertThat(addedEvent.object.getRaw().has("kind")).isTrue();
+        assertThat(addedEvent.object.getMetadata()).isNotNull();
+        assertThat(addedEvent.object.getMetadata().getName()).isEqualTo("e2e-dynamic-watch");
+      } finally {
+        dynamicApi.delete("e2e-dynamic-watch").throwsApiException();
+      }
+    }
   }
 }
