@@ -29,6 +29,20 @@ preferring the old SDK interface, a legacy SDK module version is available with 
 - [Known Issues](https://github.com/kubernetes-client/java/wiki/6.-Known-Issues)
 - [Troubleshooting/FAQ](https://github.com/kubernetes-client/java/wiki/7.-FAQ)
 
+To update the Maven project version across all `pom.xml` files, including the
+optional `fluent-gen` module, run:
+
+```
+./scripts/update-version.sh 28.0.0-SNAPSHOT
+```
+
+The helper delegates to the Maven Versions Plugin, so the equivalent Maven
+command is:
+
+```
+./mvnw -Pfluent-gen versions:set -DnewVersion=28.0.0-SNAPSHOT -DprocessAllModules=true -DgenerateBackupPoms=false
+```
+
 ## Support
 
 If you need support, start with checking whether you're hitting known issues. If that doesn't work, please [open an issue](https://github.com/kubernetes-client/java/issues/new)
