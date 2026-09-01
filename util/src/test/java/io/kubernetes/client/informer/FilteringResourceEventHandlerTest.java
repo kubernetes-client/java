@@ -93,4 +93,15 @@ class FilteringResourceEventHandlerTest {
 
     verifyNoInteractions(delegate);
   }
+
+  @Test
+  void shouldIgnoreDeleteWhenPredicateThrows() {
+    ResourceEventHandler<V1Pod> delegate = Mockito.mock(ResourceEventHandler.class);
+    FilteringResourceEventHandler<V1Pod> handler =
+        new FilteringResourceEventHandler<>(delegate, obj -> "selected".equals(obj.getMetadata().getName()));
+
+    handler.onDelete(new V1Pod(), true);
+
+    verifyNoInteractions(delegate);
+  }
 }

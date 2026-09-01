@@ -33,15 +33,15 @@ public class FilteringResourceEventHandler<ApiType extends KubernetesObject>
 
   @Override
   public void onAdd(ApiType obj) {
-    if (filter.test(obj)) {
+    if (matches(obj)) {
       delegate.onAdd(obj);
     }
   }
 
   @Override
   public void onUpdate(ApiType oldObj, ApiType newObj) {
-    boolean oldMatched = oldObj != null && filter.test(oldObj);
-    boolean newMatched = newObj != null && filter.test(newObj);
+    boolean oldMatched = matches(oldObj);
+    boolean newMatched = matches(newObj);
     if (oldMatched && newMatched) {
       delegate.onUpdate(oldObj, newObj);
       return;
@@ -57,8 +57,19 @@ public class FilteringResourceEventHandler<ApiType extends KubernetesObject>
 
   @Override
   public void onDelete(ApiType obj, boolean deletedFinalStateUnknown) {
-    if (filter.test(obj)) {
+    if (matches(obj)) {
       delegate.onDelete(obj, deletedFinalStateUnknown);
+    }
+  }
+
+  private boolean matches(ApiType obj) {
+    if (obj == null) {
+      return false;
+    }
+    try {
+      return filter.test(obj);
+    } catch (RuntimeException e) {
+      return false;
     }
   }
 }
