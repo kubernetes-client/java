@@ -33,11 +33,13 @@ import io.kubernetes.client.util.Watch;
 import io.kubernetes.client.util.Watchable;
 import java.net.HttpURLConnection;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.BiConsumer;
 import org.awaitility.Awaitility;
@@ -359,6 +361,82 @@ class ReflectorRunnableTest {
     } finally {
       reflectorRunnable.stop();
     }
+  }
+
+  @Test
+  void reflectorWatchConnectExceptionShouldUseExponentialBackoff()
+      throws ApiException, InterruptedException {
+    List<Long> retryBackoffs = new ArrayList<>();
+    CountDownLatch latch = new CountDownLatch(3);
+    when(listerWatcher.list(any()))
+        .thenReturn(new V1PodList().metadata(new V1ListMeta().resourceVersion("100")));
+    when(listerWatcher.watch(any())).thenThrow(new RuntimeException(new java.net.ConnectException("refused")));
+    ReflectorRunnable<V1Pod, V1PodList> reflectorRunnable =
+        new ReflectorRunnable<>(
+            V1Pod.class,
+            listerWatcher,
+            deltaFIFO,
+            exceptionHandler,
+            backoff -> {
+              if (retryBackoffs.size() < 3) {
+                retryBackoffs.add(backoff);
+                latch.countDown();
+              }
+            });
+    try {
+      Thread thread = new Thread(reflectorRunnable::run);
+      thread.setDaemon(true);
+      thread.start();
+      assertThat(latch.await(5, TimeUnit.SECONDS)).isTrue();
+    } finally {
+      reflectorRunnable.stop();
+    }
+    assertThat(retryBackoffs).containsExactly(1000L, 2000L, 4000L);
+  }
+
+  @Test
+  void reflectorWatchBackoffShouldResetAfterSuccessfulWatch() {
+    List<Long> retryBackoffs = new ArrayList<>();
+    CountDownLatch latch = new CountDownLatch(2);
+    AtomicInteger watchCount = new AtomicInteger();
+
+    ReflectorRunnable<V1Pod, V1PodList> reflectorRunnable =
+        new ReflectorRunnable<>(
+            V1Pod.class,
+            new ListerWatcher<V1Pod, V1PodList>() {
+              @Override
+              public V1PodList list(CallGeneratorParams params) {
+                return new V1PodList().metadata(new V1ListMeta().resourceVersion("100"));
+              }
+
+              @Override
+              public Watchable<V1Pod> watch(CallGeneratorParams params) {
+                int call = watchCount.incrementAndGet();
+                if (call == 2) {
+                  return new MockWatch<>();
+                }
+                throw new RuntimeException(new java.net.ConnectException("refused"));
+              }
+            },
+            deltaFIFO,
+            exceptionHandler,
+            backoff -> {
+              if (retryBackoffs.size() < 2) {
+                retryBackoffs.add(backoff);
+                latch.countDown();
+              }
+            });
+    try {
+      Thread thread = new Thread(reflectorRunnable::run);
+      thread.setDaemon(true);
+      thread.start();
+      assertThat(latch.await(2, TimeUnit.SECONDS)).isTrue();
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+    } finally {
+      reflectorRunnable.stop();
+    }
+    assertThat(retryBackoffs).containsExactly(1000L, 1000L);
   }
 
   @Test
