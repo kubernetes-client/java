@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 
@@ -43,11 +44,22 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
   /** indices stores objects' keys by their indices */
   private Map<String, Map<String, Set<String>>> indices = new HashMap<>();
 
+  private Predicate<ApiType> storePredicate;
+
   public Cache() {
     this(
         Caches.NAMESPACE_INDEX,
         Caches::metaNamespaceIndexFunc,
-        Caches::deletionHandlingMetaNamespaceKeyFunc);
+        Caches::deletionHandlingMetaNamespaceKeyFunc,
+        obj -> true);
+  }
+
+  public Cache(Predicate<ApiType> storePredicate) {
+    this(
+        Caches.NAMESPACE_INDEX,
+        Caches::metaNamespaceIndexFunc,
+        Caches::deletionHandlingMetaNamespaceKeyFunc,
+        storePredicate);
   }
 
   /**
@@ -61,9 +73,18 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
       String indexName,
       Function<ApiType, List<String>> indexFunc,
       Function<ApiType, String> keyFunc) {
+    this(indexName, indexFunc, keyFunc, obj -> true);
+  }
+
+  public Cache(
+      String indexName,
+      Function<ApiType, List<String>> indexFunc,
+      Function<ApiType, String> keyFunc,
+      Predicate<ApiType> storePredicate) {
     this.indexers.put(indexName, indexFunc);
     this.keyFunc = keyFunc;
     this.indices.put(indexName, new HashMap<>());
+    this.storePredicate = storePredicate;
   }
 
   /**
@@ -73,6 +94,9 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
    */
   @Override
   public void add(ApiType obj) {
+    if (!storePredicate.test(obj)) {
+      return;
+    }
     String key = keyFunc.apply(obj);
     synchronized (this) {
       ApiType oldObj = this.items.get(key);
@@ -91,6 +115,13 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
     String key = keyFunc.apply(obj);
     synchronized (this) {
       ApiType oldObj = this.items.get(key);
+      if (!storePredicate.test(obj)) {
+        if (oldObj != null) {
+          this.deleteFromIndices(oldObj, key);
+          this.items.remove(key);
+        }
+        return;
+      }
       this.items.put(key, obj);
       updateIndices(oldObj, obj, key);
     }
@@ -123,6 +154,9 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
   public synchronized void replace(List<ApiType> list, String resourceVersion) {
     Map<String, ApiType> newItems = new HashMap<>();
     for (ApiType item : list) {
+      if (!storePredicate.test(item)) {
+        continue;
+      }
       String key = keyFunc.apply(item);
       newItems.put(key, item);
     }
