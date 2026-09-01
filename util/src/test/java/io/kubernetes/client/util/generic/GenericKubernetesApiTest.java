@@ -116,6 +116,32 @@ class GenericKubernetesApiTest {
   }
 
   @Test
+  void listNamespacedJobWithResourceVersionMatchAndWatchBookmarks() {
+    V1JobList jobList = new V1JobList().kind("JobList").metadata(new V1ListMeta());
+
+    apiServer.stubFor(
+        get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
+
+    KubernetesApiResponse<V1JobList> jobListResp =
+        jobClient.list(
+            "default",
+            new ListOptions()
+                .resourceVersion("123")
+                .resourceVersionMatch("NotOlderThan")
+                .allowWatchBookmarks(true));
+    assertThat(jobListResp.isSuccess()).isTrue();
+    assertThat(jobListResp.getObject()).isEqualTo(jobList);
+    assertThat(jobListResp.getStatus()).isNull();
+    apiServer.verify(
+        1,
+        getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
+            .withQueryParam("resourceVersion", equalTo("123"))
+            .withQueryParam("resourceVersionMatch", equalTo("NotOlderThan"))
+            .withQueryParam("allowWatchBookmarks", equalTo("true")));
+  }
+
+  @Test
   void listNamespacedJobWithPartialMetadataObjectListHeader() {
     V1JobList jobList =
         new V1JobList().kind("PartialObjectMetadataList").metadata(new V1ListMeta());
@@ -277,6 +303,30 @@ class GenericKubernetesApiTest {
         1,
         getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
             .withQueryParam("watch", equalTo("true")));
+  }
+
+  @Test
+  void watchNamespacedJobWithResourceVersionMatchAndWatchBookmarks() throws ApiException {
+    V1JobList jobList = new V1JobList().kind("JobList").metadata(new V1ListMeta());
+
+    apiServer.stubFor(
+        get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
+    Watchable<V1Job> jobListWatch =
+        jobClient.watch(
+            "default",
+            new ListOptions()
+                .resourceVersion("123")
+                .resourceVersionMatch("NotOlderThan")
+                .allowWatchBookmarks(true));
+    assertThat((Object) jobListWatch).isNotNull();
+    apiServer.verify(
+        1,
+        getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
+            .withQueryParam("watch", equalTo("true"))
+            .withQueryParam("resourceVersion", equalTo("123"))
+            .withQueryParam("resourceVersionMatch", equalTo("NotOlderThan"))
+            .withQueryParam("allowWatchBookmarks", equalTo("true")));
   }
 
   @Test
