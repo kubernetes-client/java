@@ -284,11 +284,19 @@ public class DefaultSharedIndexInformer<
           Object oldObj = this.indexer.get((ApiType) obj);
           if (oldObj != null) {
             this.indexer.update((ApiType) obj);
-            this.processor.distribute(
-                new ProcessorListener.UpdateNotification(oldObj, obj), isSync);
+            Object storedObj = this.indexer.get((ApiType) obj);
+            if (storedObj != null) {
+              this.processor.distribute(
+                  new ProcessorListener.UpdateNotification(oldObj, obj), isSync);
+            } else {
+              this.processor.distribute(new ProcessorListener.DeleteNotification(oldObj), false);
+            }
           } else {
             this.indexer.add((ApiType) obj);
-            this.processor.distribute(new ProcessorListener.AddNotification(obj), isSync);
+            Object storedObj = this.indexer.get((ApiType) obj);
+            if (storedObj != null) {
+              this.processor.distribute(new ProcessorListener.AddNotification(obj), isSync);
+            }
           }
           break;
         case Deleted:
