@@ -19,7 +19,10 @@ import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.ClientBuilder;
+import io.kubernetes.client.util.generic.KubernetesApiResponse;
+import io.kubernetes.client.util.generic.options.ListOptions;
 import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesApi;
+import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesListObject;
 import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesObject;
 import io.kubernetes.client.util.generic.dynamic.Dynamics;
 import org.junit.jupiter.api.Test;
@@ -40,5 +43,35 @@ class DynamicApiTest {
     DynamicKubernetesObject deleted =
         dynamicApi.delete("e2e-dynamic").throwsApiException().getObject();
     assertThat(deleted).isNotNull();
+  }
+
+  @Test
+  void dynamicApiListWithResourceVersionMatchAndWatchBookmarks() throws Exception {
+    ApiClient client = ClientBuilder.defaultClient();
+    DynamicKubernetesApi dynamicApi =
+        new DynamicKubernetesApi("", "v1", "namespaces", client);
+    String namespaceName = "e2e-dynamic-list-options";
+    V1Namespace namespace = new V1Namespace().metadata(new V1ObjectMeta().name(namespaceName));
+
+    DynamicKubernetesObject createdNamespace =
+        dynamicApi.create(Dynamics.newFromJson(JSON.serialize(namespace))).getObject();
+    assertThat(createdNamespace).isNotNull();
+
+    try {
+      KubernetesApiResponse<DynamicKubernetesListObject> listResponse =
+          dynamicApi.list(
+              new ListOptions()
+                  .fieldSelector("metadata.name=" + namespaceName)
+                  .resourceVersion(createdNamespace.getMetadata().getResourceVersion())
+                  .resourceVersionMatch("NotOlderThan")
+                  .allowWatchBookmarks(true));
+
+      assertThat(listResponse.isSuccess()).isTrue();
+      assertThat(listResponse.getObject()).isNotNull();
+      assertThat(listResponse.getObject().getItems())
+          .anySatisfy(item -> assertThat(item.getMetadata().getName()).isEqualTo(namespaceName));
+    } finally {
+      dynamicApi.delete(namespaceName).throwsApiException();
+    }
   }
 }

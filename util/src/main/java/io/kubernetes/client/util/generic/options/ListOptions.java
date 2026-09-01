@@ -24,6 +24,12 @@ public class ListOptions {
   @SerializedName("resourceVersion")
   private String resourceVersion;
 
+  @SerializedName("resourceVersionMatch")
+  private String resourceVersionMatch;
+
+  @SerializedName("allowWatchBookmarks")
+  private Boolean allowWatchBookmarks;
+
   @SerializedName("timeoutSeconds")
   private Integer timeoutSeconds;
 
@@ -73,6 +79,32 @@ public class ListOptions {
 
   public void setResourceVersion(String resourceVersion) {
     this.resourceVersion = resourceVersion;
+  }
+
+  public ListOptions resourceVersionMatch(String resourceVersionMatch) {
+    this.resourceVersionMatch = resourceVersionMatch;
+    return this;
+  }
+
+  public String getResourceVersionMatch() {
+    return resourceVersionMatch;
+  }
+
+  public void setResourceVersionMatch(String resourceVersionMatch) {
+    this.resourceVersionMatch = resourceVersionMatch;
+  }
+
+  public ListOptions allowWatchBookmarks(Boolean allowWatchBookmarks) {
+    this.allowWatchBookmarks = allowWatchBookmarks;
+    return this;
+  }
+
+  public Boolean getAllowWatchBookmarks() {
+    return allowWatchBookmarks;
+  }
+
+  public void setAllowWatchBookmarks(Boolean allowWatchBookmarks) {
+    this.allowWatchBookmarks = allowWatchBookmarks;
   }
 
   public ListOptions limit(Integer limit) {
