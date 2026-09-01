@@ -116,8 +116,8 @@ class NamespaceInformerTest {
 
       await().untilAsserted(() -> assertThat(nsInformer.hasSynced()).isTrue());
       assertThat(selectedSeen.await(30, TimeUnit.SECONDS)).isTrue();
-      assertThat(selectedSeenByHandler).isTrue();
-      assertThat(ignoredSeen).isFalse();
+      assertThat(selectedSeenByHandler.get()).isTrue();
+      assertThat(ignoredSeen.get()).isFalse();
     } finally {
       informerFactory.stopAllRegisteredInformers(true);
       coreV1Api.deleteNamespace(selectedNamespace).execute();

@@ -378,8 +378,10 @@ class ReflectorRunnableTest {
             deltaFIFO,
             exceptionHandler,
             backoff -> {
-              retryBackoffs.add(backoff);
-              latch.countDown();
+              if (retryBackoffs.size() < 3) {
+                retryBackoffs.add(backoff);
+                latch.countDown();
+              }
             });
     try {
       Thread thread = new Thread(reflectorRunnable::run);
@@ -389,7 +391,7 @@ class ReflectorRunnableTest {
     } finally {
       reflectorRunnable.stop();
     }
-    assertThat(retryBackoffs).startsWith(1000L, 2000L, 4000L);
+    assertThat(retryBackoffs).containsExactly(1000L, 2000L, 4000L);
   }
 
   @Test
@@ -419,8 +421,10 @@ class ReflectorRunnableTest {
             deltaFIFO,
             exceptionHandler,
             backoff -> {
-              retryBackoffs.add(backoff);
-              latch.countDown();
+              if (retryBackoffs.size() < 2) {
+                retryBackoffs.add(backoff);
+                latch.countDown();
+              }
             });
     try {
       Thread thread = new Thread(reflectorRunnable::run);

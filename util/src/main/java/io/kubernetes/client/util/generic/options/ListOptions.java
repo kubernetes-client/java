@@ -217,7 +217,17 @@ public class ListOptions {
     }
 
     public ListOptions build() {
-      return options;
+      ListOptions built = new ListOptions();
+      built.setFieldSelector(options.getFieldSelector());
+      built.setLabelSelector(options.getLabelSelector());
+      built.setResourceVersion(options.getResourceVersion());
+      built.setResourceVersionMatch(options.getResourceVersionMatch());
+      built.setAllowWatchBookmarks(options.getAllowWatchBookmarks());
+      built.setTimeoutSeconds(options.getTimeoutSeconds());
+      built.setLimit(options.getLimit());
+      built.setContinue(options.getContinue());
+      built.setPartialObjectMetadataListRequest(options.isPartialObjectMetadataListRequest());
+      return built;
     }
   }
 }

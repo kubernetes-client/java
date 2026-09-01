@@ -113,6 +113,7 @@ public class ReflectorRunnable<
    */
   public void run() {
     log.info("{}#Start listing and watching...", apiTypeClass);
+    resetWatchRetryBackoff();
 
     try {
       ApiListType list =
@@ -163,8 +164,8 @@ public class ReflectorRunnable<
             }
             watch = newWatch;
           }
-          resetWatchRetryBackoff();
           watchHandler(newWatch);
+          resetWatchRetryBackoff();
         } catch (WatchExpiredException e) {
           // Watch calls were failed due to expired resource-version. Returning
           // to unwind the list-watch loops so that we can respawn a new round
@@ -179,6 +180,9 @@ public class ReflectorRunnable<
             // we ended. If that's the case wait and resend watch request.
             log.info("{}#Watch get connect exception, retry watch", this.apiTypeClass);
             sleepForConnectExceptionRetry();
+            if (Thread.currentThread().isInterrupted()) {
+              return;
+            }
             continue;
           }
           if ((t instanceof RuntimeException)
