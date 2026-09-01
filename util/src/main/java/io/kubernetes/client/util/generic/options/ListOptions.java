@@ -42,6 +42,10 @@ public class ListOptions {
   @SerializedName("isPartialObjectMetadataListRequest")
   private Boolean isPartialObjectMetadataListRequest;
 
+  public static Builder builder() {
+    return new Builder();
+  }
+
   public ListOptions fieldSelector(String fieldSelector) {
     this.fieldSelector = fieldSelector;
     return this;
@@ -158,5 +162,62 @@ public class ListOptions {
 
   public void setPartialObjectMetadataListRequest(Boolean isPartialObjectMetadataListRequest) {
     this.isPartialObjectMetadataListRequest = isPartialObjectMetadataListRequest;
+  }
+
+  public static final class Builder {
+    private final ListOptions options;
+
+    private Builder() {
+      this.options = new ListOptions();
+    }
+
+    public Builder fieldSelector(String fieldSelector) {
+      options.fieldSelector(fieldSelector);
+      return this;
+    }
+
+    public Builder labelSelector(String labelSelector) {
+      options.labelSelector(labelSelector);
+      return this;
+    }
+
+    public Builder resourceVersion(String resourceVersion) {
+      options.resourceVersion(resourceVersion);
+      return this;
+    }
+
+    public Builder resourceVersionMatch(String resourceVersionMatch) {
+      options.resourceVersionMatch(resourceVersionMatch);
+      return this;
+    }
+
+    public Builder allowWatchBookmarks(Boolean allowWatchBookmarks) {
+      options.allowWatchBookmarks(allowWatchBookmarks);
+      return this;
+    }
+
+    public Builder timeoutSeconds(Integer timeoutSeconds) {
+      options.timeoutSeconds(timeoutSeconds);
+      return this;
+    }
+
+    public Builder limit(Integer limit) {
+      options.limit(limit);
+      return this;
+    }
+
+    public Builder _continue(String _continue) {
+      options._continue(_continue);
+      return this;
+    }
+
+    public Builder isPartialObjectMetadataListRequest(Boolean partialMetadata) {
+      options.isPartialObjectMetadataListRequest(partialMetadata);
+      return this;
+    }
+
+    public ListOptions build() {
+      return options;
+    }
   }
 }

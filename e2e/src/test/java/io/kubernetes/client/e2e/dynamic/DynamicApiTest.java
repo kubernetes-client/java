@@ -60,11 +60,12 @@ class DynamicApiTest {
     try {
       KubernetesApiResponse<DynamicKubernetesListObject> listResponse =
           dynamicApi.list(
-              new ListOptions()
+              ListOptions.builder()
                   .fieldSelector("metadata.name=" + namespaceName)
                   .resourceVersion(createdNamespace.getMetadata().getResourceVersion())
                   .resourceVersionMatch("NotOlderThan")
-                  .allowWatchBookmarks(true));
+                  .allowWatchBookmarks(true)
+                  .build());
 
       assertThat(listResponse.isSuccess()).isTrue();
       assertThat(listResponse.getObject()).isNotNull();
