@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BiConsumer;
+import java.util.function.LongConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,6 +47,8 @@ public class ReflectorRunnable<
   public static Duration REFLECTOR_WATCH_CLIENTSIDE_MAX_TIMEOUT = Duration.ofMinutes(5 * 2);
 
   private static final Logger log = LoggerFactory.getLogger(ReflectorRunnable.class);
+  private static final long WATCH_RETRY_INITIAL_BACKOFF_MILLIS = 1000L;
+  private static final long WATCH_RETRY_MAX_BACKOFF_MILLIS = 30000L;
 
   private String lastSyncResourceVersion;
 
@@ -65,6 +68,8 @@ public class ReflectorRunnable<
 
   private Method setKindMethod;
   private Method setApiVersionMethod;
+  private final LongConsumer connectExceptionSleeper;
+  private long watchRetryBackoffMillis;
 
   public ReflectorRunnable(
       Class<ApiType> apiTypeClass,
@@ -78,11 +83,22 @@ public class ReflectorRunnable<
       ListerWatcher<ApiType, ApiListType> listerWatcher,
       DeltaFIFO store,
       BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
+    this(apiTypeClass, listerWatcher, store, exceptionHandler, ReflectorRunnable::sleep);
+  }
+
+  ReflectorRunnable(
+      Class<ApiType> apiTypeClass,
+      ListerWatcher<ApiType, ApiListType> listerWatcher,
+      DeltaFIFO store,
+      BiConsumer<Class<ApiType>, Throwable> exceptionHandler,
+      LongConsumer connectExceptionSleeper) {
     this.listerWatcher = listerWatcher;
     this.store = store;
     this.apiTypeClass = apiTypeClass;
     this.exceptionHandler =
         exceptionHandler == null ? ReflectorRunnable::defaultWatchErrorHandler : exceptionHandler;
+    this.connectExceptionSleeper = connectExceptionSleeper;
+    this.watchRetryBackoffMillis = WATCH_RETRY_INITIAL_BACKOFF_MILLIS;
     try {
       this.setKindMethod = apiTypeClass.getMethod("setKind", String.class);
       this.setApiVersionMethod = apiTypeClass.getMethod("setApiVersion", String.class);
@@ -147,6 +163,7 @@ public class ReflectorRunnable<
             }
             watch = newWatch;
           }
+          resetWatchRetryBackoff();
           watchHandler(newWatch);
         } catch (WatchExpiredException e) {
           // Watch calls were failed due to expired resource-version. Returning
@@ -161,11 +178,7 @@ public class ReflectorRunnable<
             // objects because most likely we will be able to restart watch where
             // we ended. If that's the case wait and resend watch request.
             log.info("{}#Watch get connect exception, retry watch", this.apiTypeClass);
-            try {
-              Thread.sleep(1000L);
-            } catch (InterruptedException e) {
-              // no-op
-            }
+            sleepForConnectExceptionRetry();
             continue;
           }
           if ((t instanceof RuntimeException)
@@ -363,5 +376,24 @@ public class ReflectorRunnable<
     // ApiException can nest a ConnectException
     Throwable cause = t.getCause();
     return cause instanceof ConnectException;
+  }
+
+  private void sleepForConnectExceptionRetry() {
+    long currentBackoffMillis = watchRetryBackoffMillis;
+    watchRetryBackoffMillis =
+        Math.min(watchRetryBackoffMillis * 2, WATCH_RETRY_MAX_BACKOFF_MILLIS);
+    connectExceptionSleeper.accept(currentBackoffMillis);
+  }
+
+  private void resetWatchRetryBackoff() {
+    watchRetryBackoffMillis = WATCH_RETRY_INITIAL_BACKOFF_MILLIS;
+  }
+
+  private static void sleep(long durationMillis) {
+    try {
+      Thread.sleep(durationMillis);
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+    }
   }
 }
