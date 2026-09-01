@@ -113,6 +113,8 @@ public class ReflectorRunnable<
    */
   public void run() {
     log.info("{}#Start listing and watching...", apiTypeClass);
+    // run() can be invoked multiple times for the same reflector instance; always restart backoff
+    // from the initial value for each list-watch cycle.
     resetWatchRetryBackoff();
 
     try {

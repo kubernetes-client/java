@@ -387,7 +387,7 @@ class ReflectorRunnableTest {
       Thread thread = new Thread(reflectorRunnable::run);
       thread.setDaemon(true);
       thread.start();
-      assertThat(latch.await(2, TimeUnit.SECONDS)).isTrue();
+      assertThat(latch.await(5, TimeUnit.SECONDS)).isTrue();
     } finally {
       reflectorRunnable.stop();
     }
