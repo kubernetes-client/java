@@ -34,7 +34,7 @@ maven.install(
         # ---- core ----
         "org.apache.commons:commons-lang3:3.20.0",
         "org.apache.commons:commons-collections4:4.6.0",
-        "org.yaml:snakeyaml:2.6",
+        "org.yaml:snakeyaml:2.7",
         "commons-codec:commons-codec:1.22.1",
         "org.apache.commons:commons-compress:1.28.0",
         "commons-io:commons-io:2.22.0",
