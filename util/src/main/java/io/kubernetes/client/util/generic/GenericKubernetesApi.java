@@ -579,11 +579,13 @@ public class GenericKubernetesApi<
         adaptListCall(
             customObjectsApi.getApiClient(),
             customObjectsApi.listClusterCustomObject( this.apiGroup, this.apiVersion, this.resourcePlural)
+                    .allowWatchBookmarks(listOptions.getAllowWatchBookmarks())
                     ._continue(listOptions.getContinue())
                     .fieldSelector(listOptions.getFieldSelector())
                     .labelSelector(listOptions.getLabelSelector())
                     .limit(listOptions.getLimit())
                     .resourceVersion(listOptions.getResourceVersion())
+                    .resourceVersionMatch(listOptions.getResourceVersionMatch())
                     .timeoutSeconds(listOptions.getTimeoutSeconds())
                     .watch(false)
                     .buildCall(null),
@@ -626,11 +628,13 @@ public class GenericKubernetesApi<
         adaptListCall(
             customObjectsApi.getApiClient(),
             customObjectsApi.listNamespacedCustomObject(this.apiGroup, this.apiVersion, namespace, this.resourcePlural)
+                    .allowWatchBookmarks(listOptions.getAllowWatchBookmarks())
                     ._continue(listOptions.getContinue())
                     .fieldSelector(listOptions.getFieldSelector())
                     .labelSelector(listOptions.getLabelSelector())
                     .limit(listOptions.getLimit())
                     .resourceVersion(listOptions.getResourceVersion())
+                    .resourceVersionMatch(listOptions.getResourceVersionMatch())
                     .timeoutSeconds(listOptions.getTimeoutSeconds())
                     .watch(false)
                     .buildCall(null),
@@ -1229,11 +1233,13 @@ public class GenericKubernetesApi<
             this.apiGroup,
             this.apiVersion,
             this.resourcePlural)
+                .allowWatchBookmarks(listOptions.getAllowWatchBookmarks())
                 ._continue(listOptions.getContinue())
                 .fieldSelector(listOptions.getFieldSelector())
                 .labelSelector(listOptions.getLabelSelector())
                 .limit(listOptions.getLimit())
                 .resourceVersion(listOptions.getResourceVersion())
+                .resourceVersionMatch(listOptions.getResourceVersionMatch())
                 .timeoutSeconds(listOptions.getTimeoutSeconds())
                 .watch(true)
                 .buildCall(null);
@@ -1264,11 +1270,13 @@ public class GenericKubernetesApi<
             this.apiVersion,
             namespace,
             this.resourcePlural)
+                .allowWatchBookmarks(listOptions.getAllowWatchBookmarks())
                 ._continue(listOptions.getContinue())
                 .fieldSelector(listOptions.getFieldSelector())
                 .labelSelector(listOptions.getLabelSelector())
                 .limit(listOptions.getLimit())
                 .resourceVersion(listOptions.getResourceVersion())
+                .resourceVersionMatch(listOptions.getResourceVersionMatch())
                 .timeoutSeconds(listOptions.getTimeoutSeconds())
                 .watch(true)
                 .buildCall(null);
