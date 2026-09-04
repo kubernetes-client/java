@@ -17,12 +17,18 @@ import static org.awaitility.Awaitility.await;
 
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.SharedInformerFactory;
+import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.informer.cache.Lister;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1NamespaceList;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 import org.junit.jupiter.api.Test;
 
 class NamespaceInformerTest {
@@ -55,6 +61,61 @@ class NamespaceInformerTest {
               });
     } finally {
       informerFactory.stopAllRegisteredInformers(true);
+    }
+  }
+
+  @Test
+  void listWatchingNamespacesWithPredicateHandler() throws Exception {
+    ApiClient client = ClientBuilder.defaultClient();
+    CoreV1Api coreV1Api = new CoreV1Api(client);
+    SharedInformerFactory informerFactory = new SharedInformerFactory(client);
+    String selectedNamespace = "e2e-filtered-selected";
+    String ignoredNamespace = "e2e-filtered-ignored";
+
+    coreV1Api.createNamespace(new V1Namespace().metadata(new V1ObjectMeta().name(selectedNamespace))).execute();
+    coreV1Api.createNamespace(new V1Namespace().metadata(new V1ObjectMeta().name(ignoredNamespace))).execute();
+
+    GenericKubernetesApi<V1Namespace, V1NamespaceList> api =
+        new GenericKubernetesApi<>(V1Namespace.class, V1NamespaceList.class, "", "v1", "namespaces", client);
+
+    SharedIndexInformer<V1Namespace> nsInformer =
+        informerFactory.sharedIndexInformerFor(api, V1Namespace.class, 0);
+    CountDownLatch selectedSeen = new CountDownLatch(1);
+    AtomicBoolean ignoredSeen = new AtomicBoolean(false);
+    AtomicBoolean selectedSeenByHandler = new AtomicBoolean(false);
+    try {
+      nsInformer.addEventHandler(
+          new ResourceEventHandler<V1Namespace>() {
+            @Override
+            public void onAdd(V1Namespace obj) {
+              String name = obj.getMetadata().getName();
+              if (selectedNamespace.equals(name)) {
+                selectedSeenByHandler.set(true);
+                selectedSeen.countDown();
+              }
+              if (ignoredNamespace.equals(name)) {
+                ignoredSeen.set(true);
+              }
+            }
+
+            @Override
+            public void onUpdate(V1Namespace oldObj, V1Namespace newObj) {}
+
+            @Override
+            public void onDelete(V1Namespace obj, boolean deletedFinalStateUnknown) {}
+          },
+          ns -> selectedNamespace.equals(ns.getMetadata().getName()));
+
+      informerFactory.startAllRegisteredInformers();
+
+      await().untilAsserted(() -> assertThat(nsInformer.hasSynced()).isTrue());
+      assertThat(selectedSeen.await(30, TimeUnit.SECONDS)).isTrue();
+      assertThat(selectedSeenByHandler.get()).isTrue();
+      assertThat(ignoredSeen.get()).isFalse();
+    } finally {
+      informerFactory.stopAllRegisteredInformers(true);
+      coreV1Api.deleteNamespace(selectedNamespace).execute();
+      coreV1Api.deleteNamespace(ignoredNamespace).execute();
     }
   }
 }

@@ -18,6 +18,7 @@ import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.informer.SharedIndexInformer;
 import io.kubernetes.client.informer.TransformFunc;
+import io.kubernetes.client.informer.FilteringResourceEventHandler;
 import io.kubernetes.client.informer.cache.Cache;
 import io.kubernetes.client.informer.cache.Controller;
 import io.kubernetes.client.informer.cache.DeltaFIFO;
@@ -31,6 +32,7 @@ import java.util.Map;
 import java.util.concurrent.ThreadFactory;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;
@@ -152,13 +154,27 @@ public class DefaultSharedIndexInformer<
   /** add event callback */
   @Override
   public void addEventHandler(ResourceEventHandler<ApiType> handler) {
-    addEventHandlerWithResyncPeriod(handler, defaultEventHandlerResyncPeriod);
+    addEventHandler(handler, obj -> true);
+  }
+
+  @Override
+  public void addEventHandler(
+      ResourceEventHandler<ApiType> handler, Predicate<ApiType> filterPredicate) {
+    addEventHandlerWithResyncPeriod(handler, defaultEventHandlerResyncPeriod, filterPredicate);
   }
 
   /** add event callback with a resync period */
   @Override
   public void addEventHandlerWithResyncPeriod(
       ResourceEventHandler<ApiType> handler, long resyncPeriodMillis) {
+    addEventHandlerWithResyncPeriod(handler, resyncPeriodMillis, obj -> true);
+  }
+
+  @Override
+  public void addEventHandlerWithResyncPeriod(
+      ResourceEventHandler<ApiType> handler,
+      long resyncPeriodMillis,
+      Predicate<ApiType> filterPredicate) {
     if (stopped) {
       log.info(
           "DefaultSharedIndexInformer#Handler was not added to shared informer because it has stopped already");
@@ -195,7 +211,8 @@ public class DefaultSharedIndexInformer<
 
     ProcessorListener<ApiType> listener =
         new ProcessorListener(
-            handler, determineResyncPeriod(resyncCheckPeriodMillis, this.resyncCheckPeriodMillis));
+            new FilteringResourceEventHandler<>(handler, filterPredicate),
+            determineResyncPeriod(resyncCheckPeriodMillis, this.resyncCheckPeriodMillis));
     if (!started) {
       this.processor.addListener(listener);
       return;
