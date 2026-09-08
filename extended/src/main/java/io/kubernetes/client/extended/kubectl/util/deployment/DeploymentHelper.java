@@ -138,10 +138,14 @@ public class DeploymentHelper {
    */
   private static boolean equalIgnoreHash(V1PodTemplateSpec template1, V1PodTemplateSpec template2) {
     if (!Objects.equals(template1.getSpec(), template2.getSpec())) return false;
-    V1ObjectMeta m1Copy = objectMetaDeepCopy(template1.getMetadata());
-    V1ObjectMeta m2Copy = objectMetaDeepCopy(template2.getMetadata());
-    m1Copy.getLabels().remove(DEFAULT_DEPLOYMENT_UNIQUE_LABEL_KEY);
-    m2Copy.getLabels().remove(DEFAULT_DEPLOYMENT_UNIQUE_LABEL_KEY);
+    V1ObjectMeta m1Copy = objectMetaDeepCopyOrEmpty(template1.getMetadata());
+    V1ObjectMeta m2Copy = objectMetaDeepCopyOrEmpty(template2.getMetadata());
+    if (m1Copy.getLabels() != null) {
+      m1Copy.getLabels().remove(DEFAULT_DEPLOYMENT_UNIQUE_LABEL_KEY);
+    }
+    if (m2Copy.getLabels() != null) {
+      m2Copy.getLabels().remove(DEFAULT_DEPLOYMENT_UNIQUE_LABEL_KEY);
+    }
     return m1Copy.equals(m2Copy);
   }
 
@@ -170,5 +174,18 @@ public class DeploymentHelper {
   private static V1ObjectMeta objectMetaDeepCopy(V1ObjectMeta meta) {
     String data = Yaml.dump(meta);
     return Yaml.loadAs(data, V1ObjectMeta.class);
+  }
+
+  /**
+   * Same as {@link #objectMetaDeepCopy(V1ObjectMeta)}, but returns a fresh empty {@link
+   * V1ObjectMeta} instead of throwing when {@code meta} is {@code null}. A pod template's {@code
+   * metadata} field is optional, so callers comparing two templates need to treat a missing
+   * metadata block as equivalent to an empty one rather than failing.
+   */
+  private static V1ObjectMeta objectMetaDeepCopyOrEmpty(V1ObjectMeta meta) {
+    if (meta == null) {
+      return new V1ObjectMeta();
+    }
+    return objectMetaDeepCopy(meta);
   }
 }

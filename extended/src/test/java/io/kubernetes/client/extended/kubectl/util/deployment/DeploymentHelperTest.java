@@ -89,6 +89,39 @@ class DeploymentHelperTest {
   }
 
   @Test
+  void getAllReplicaSetsShouldWorkWhenTemplateHasNoLabels() throws IOException, ApiException {
+    // Regression test: pod template metadata with no labels at all (so getLabels() is null)
+    // used to throw a NullPointerException in DeploymentHelper.equalIgnoreHash.
+    String deploymentJson =
+        "{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\",\"uid\":\"dep-uid\"},"
+            + "\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"bar\"}},"
+            + "\"template\":{\"spec\":{\"containers\":[{\"name\":\"c\",\"image\":\"busybox\"}]}}}}";
+    String replicaSetListJson =
+            "{\"items\":[{\"metadata\":{\"name\":\"foo-rs\",\"namespace\":\"default\",\"uid\":\"rs-uid\","
+                    + "\"creationTimestamp\":\"2021-08-05T08:20:22.000000Z\","
+                    + "\"ownerReferences\":[{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"name\":\"foo\","
+                    + "\"uid\":\"dep-uid\",\"controller\":true}]},"
+                    + "\"spec\":{\"replicas\":3,\"selector\":{\"matchLabels\":{\"app\":\"bar\"}},"
+                    + "\"template\":{\"spec\":{\"containers\":[{\"name\":\"c\",\"image\":\"busybox\"}]}}}}]}";
+
+    apiServer.stubFor(
+        get(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets"))
+            .willReturn(aResponse().withStatus(200).withBody(replicaSetListJson)));
+    AppsV1Api api = new AppsV1Api(this.apiClient);
+
+    V1Deployment deployment = new JSON().deserialize(deploymentJson, V1Deployment.class);
+    List<V1ReplicaSet> oldRSes = new ArrayList<>();
+    List<V1ReplicaSet> allOldRSes = new ArrayList<>();
+
+    V1ReplicaSet newRs = DeploymentHelper.getAllReplicaSets(deployment, api, oldRSes, allOldRSes);
+
+    assertThat(newRs).isNotNull();
+    assertThat(newRs.getMetadata().getName()).isEqualTo("foo-rs");
+    assertThat(oldRSes).isEmpty();
+    assertThat(allOldRSes).isEmpty();
+  }
+
+  @Test
   void revisionShouldWork() throws IOException {
     V1ReplicaSetList replicaSetList =
         new JSON()
