@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.informer;
 
 import io.kubernetes.client.common.KubernetesObject;
+import java.util.function.Predicate;
 
 /*
  * SharedInformer defines basic methods of a informer.
@@ -27,6 +28,14 @@ public interface SharedInformer<ApiType extends KubernetesObject> {
   void addEventHandler(ResourceEventHandler<ApiType> handler);
 
   /**
+   * Add event handler with predicate filter.
+   *
+   * @param handler the handler
+   * @param filter the object filter
+   */
+  void addEventHandler(ResourceEventHandler<ApiType> handler, Predicate<ApiType> filter);
+
+  /**
    * addEventHandlerWithResyncPeriod adds an event handler to the shared informer using the
    * specified resync period. Events to a single handler are delivered sequentially, but there is no
    * coordination between different handlers.
@@ -35,6 +44,17 @@ public interface SharedInformer<ApiType extends KubernetesObject> {
    * @param resyncPeriod the specific resync period
    */
   void addEventHandlerWithResyncPeriod(ResourceEventHandler<ApiType> handler, long resyncPeriod);
+
+  /**
+   * addEventHandlerWithResyncPeriod adds an event handler with the specified resync period and
+   * object filter.
+   *
+   * @param handler the event handler
+   * @param resyncPeriod the specific resync period
+   * @param filter the object filter
+   */
+  void addEventHandlerWithResyncPeriod(
+      ResourceEventHandler<ApiType> handler, long resyncPeriod, Predicate<ApiType> filter);
 
   /** run starts the shared informer, which will be stopped until stop() is called. */
   void run();
