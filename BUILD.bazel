@@ -1,2 +1,0 @@
-# Root BUILD file for kubernetes-client/java.
-# Individual library targets are defined in sub-packages.

@@ -1,9 +1,0 @@
-{
-  "kind": "Status",
-  "apiVersion": "v1",
-  "metadata": {},
-  "status": "Failure",
-  "message": "invalid continue token: continue key is not valid: invalid character 'i' looking for beginning of value",
-  "reason": "BadRequest",
-  "code": 400
-}
