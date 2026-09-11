@@ -121,7 +121,7 @@ class NamespaceInformerTest {
       coreV1Api.deleteNamespace(ignoredNamespace).execute();
     }
   }
-  
+
   @Test
   void listWatchingNamespacesWithPredicateHandler() throws Exception {
     ApiClient client = ClientBuilder.defaultClient();
