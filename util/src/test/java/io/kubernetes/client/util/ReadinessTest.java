@@ -222,6 +222,30 @@ class ReadinessTest {
         assertThat(Readiness.isReplicaSetReady(replicaSet)).isFalse();
     }
 
+    @Test
+    void isReplicaSetReady_nullSpecReplicas_returnsFalse() {
+        // Regression test: a null spec.replicas must not be silently treated as "1".
+        V1ReplicaSet replicaSet = new V1ReplicaSet()
+                .metadata(new V1ObjectMeta().name("test"))
+                .spec(new V1ReplicaSetSpec())
+                .status(new V1ReplicaSetStatus().readyReplicas(1));
+        assertThat(Readiness.isReplicaSetReady(replicaSet)).isFalse();
+    }
+
+    @Test
+    void isReplicaSetReady_nullReadyReplicas_returnsFalse() {
+        // Regression test: a null status.readyReplicas must not be silently treated as "0".
+        // Uses spec.replicas(0) specifically: under the old buggy code, a null readyReplicas
+        // defaulted to 0, so 0.equals(0) would wrongly report "ready" here. A non-zero
+        // replicas value wouldn't actually catch that bug, since it wouldn't match the
+        // default of 0 either way.
+        V1ReplicaSet replicaSet = new V1ReplicaSet()
+                .metadata(new V1ObjectMeta().name("test"))
+                .spec(new V1ReplicaSetSpec().replicas(0))
+                .status(new V1ReplicaSetStatus());
+        assertThat(Readiness.isReplicaSetReady(replicaSet)).isFalse();
+    }
+
     // ========== DaemonSet Tests ==========
 
     @Test
@@ -335,6 +359,30 @@ class ReadinessTest {
                         .replicas(3)
                         .readyReplicas(3));
         assertThat(Readiness.isReplicationControllerReady(rc)).isTrue();
+    }
+
+    @Test
+    void isReplicationControllerReady_nullSpecReplicas_returnsFalse() {
+        // Regression test: a null spec.replicas must not be silently treated as "1".
+        V1ReplicationController rc = new V1ReplicationController()
+                .metadata(new V1ObjectMeta().name("test"))
+                .spec(new io.kubernetes.client.openapi.models.V1ReplicationControllerSpec())
+                .status(new V1ReplicationControllerStatus().readyReplicas(1));
+        assertThat(Readiness.isReplicationControllerReady(rc)).isFalse();
+    }
+
+    @Test
+    void isReplicationControllerReady_nullReadyReplicas_returnsFalse() {
+        // Regression test: a null status.readyReplicas must not be silently treated as "0".
+        // Uses spec.replicas(0) specifically: under the old buggy code, a null readyReplicas
+        // defaulted to 0, so 0.equals(0) would wrongly report "ready" here. A non-zero
+        // replicas value wouldn't actually catch that bug, since it wouldn't match the
+        // default of 0 either way.
+        V1ReplicationController rc = new V1ReplicationController()
+                .metadata(new V1ObjectMeta().name("test"))
+                .spec(new io.kubernetes.client.openapi.models.V1ReplicationControllerSpec().replicas(0))
+                .status(new V1ReplicationControllerStatus());
+        assertThat(Readiness.isReplicationControllerReady(rc)).isFalse();
     }
 
     // ========== PersistentVolumeClaim Tests ==========
