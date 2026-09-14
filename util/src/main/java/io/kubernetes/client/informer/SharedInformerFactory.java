@@ -37,6 +37,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.function.BiConsumer;
+import java.util.function.Predicate;
 
 /**
  * SharedInformerFactory class constructs and caches informers for api types.
@@ -200,6 +201,17 @@ public class SharedInformerFactory {
           Class<ApiType> apiTypeClass,
           long resyncPeriodInMillis,
           BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
+    return sharedIndexInformerFor(
+        listerWatcher, apiTypeClass, resyncPeriodInMillis, exceptionHandler, obj -> true);
+  }
+
+  public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
+          ListerWatcher<ApiType, ApiListType> listerWatcher,
+          Class<ApiType> apiTypeClass,
+          long resyncPeriodInMillis,
+          BiConsumer<Class<ApiType>, Throwable> exceptionHandler,
+          Predicate<ApiType> cachePredicate) {
     Type apiType = TypeToken.get(apiTypeClass).getType();
 
     if(informers.containsKey(apiType) && reuseExistingCachedInformer) {
@@ -208,7 +220,11 @@ public class SharedInformerFactory {
 
     SharedIndexInformer<ApiType> informer =
         new DefaultSharedIndexInformer<>(
-            apiTypeClass, listerWatcher, resyncPeriodInMillis, new Cache<>(), exceptionHandler);
+            apiTypeClass,
+            listerWatcher,
+            resyncPeriodInMillis,
+            new Cache<>(cachePredicate),
+            exceptionHandler);
 
     this.informers.putIfAbsent(apiType, informer);
     return informer;
@@ -233,6 +249,21 @@ public class SharedInformerFactory {
         genericKubernetesApi, apiTypeClass, resyncPeriodInMillis, Namespaces.NAMESPACE_ALL);
   }
 
+  public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
+          GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi,
+          Class<ApiType> apiTypeClass,
+          long resyncPeriodInMillis,
+          Predicate<ApiType> cachePredicate) {
+    return sharedIndexInformerFor(
+        genericKubernetesApi,
+        apiTypeClass,
+        resyncPeriodInMillis,
+        Namespaces.NAMESPACE_ALL,
+        null,
+        cachePredicate);
+  }
+
   /**
    * Working the same as {@link SharedInformerFactory#sharedIndexInformerFor} above.
    *
@@ -253,7 +284,27 @@ public class SharedInformerFactory {
           long resyncPeriodInMillis,
           String namespace) {
     return sharedIndexInformerFor(
-        genericKubernetesApi, apiTypeClass, resyncPeriodInMillis, namespace, null);
+        genericKubernetesApi,
+        apiTypeClass,
+        resyncPeriodInMillis,
+        namespace,
+        (BiConsumer<Class<ApiType>, Throwable>) null);
+  }
+
+  public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
+          GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi,
+          Class<ApiType> apiTypeClass,
+          long resyncPeriodInMillis,
+          String namespace,
+          Predicate<ApiType> cachePredicate) {
+    return sharedIndexInformerFor(
+        genericKubernetesApi,
+        apiTypeClass,
+        resyncPeriodInMillis,
+        namespace,
+        null,
+        cachePredicate);
   }
 
   /**
@@ -277,10 +328,27 @@ public class SharedInformerFactory {
           long resyncPeriodInMillis,
           String namespace,
           BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
+    return sharedIndexInformerFor(
+        genericKubernetesApi,
+        apiTypeClass,
+        resyncPeriodInMillis,
+        namespace,
+        exceptionHandler,
+        obj -> true);
+  }
+
+  public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
+          GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi,
+          Class<ApiType> apiTypeClass,
+          long resyncPeriodInMillis,
+          String namespace,
+          BiConsumer<Class<ApiType>, Throwable> exceptionHandler,
+          Predicate<ApiType> cachePredicate) {
     ListerWatcher<ApiType, ApiListType> listerWatcher =
         listerWatcherFor(genericKubernetesApi, namespace);
     return sharedIndexInformerFor(
-        listerWatcher, apiTypeClass, resyncPeriodInMillis, exceptionHandler);
+        listerWatcher, apiTypeClass, resyncPeriodInMillis, exceptionHandler, cachePredicate);
   }
 
   private <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
