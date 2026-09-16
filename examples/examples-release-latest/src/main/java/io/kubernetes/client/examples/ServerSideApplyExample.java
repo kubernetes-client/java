@@ -65,7 +65,7 @@ public final class ServerSideApplyExample {
     // that another manager may have changed in the meantime.
     configMap.data(Map.of("greeting", "hello again"));
     V1ConfigMap updated =
-        ServerSideApply.builder(client)
+        ServerSideApply.<V1ConfigMap, V1ConfigMapList>builder(client)
             .apiTypeClass(V1ConfigMap.class)
             .apiListTypeClass(V1ConfigMapList.class)
             .resource(configMap)
@@ -77,7 +77,7 @@ public final class ServerSideApplyExample {
     // A dry-run apply is validated by the server but never persisted.
     configMap.data(Map.of("greeting", "not persisted"));
     V1ConfigMap dryRun =
-        ServerSideApply.builder(client)
+        ServerSideApply.<V1ConfigMap, V1ConfigMapList>builder(client)
             .apiTypeClass(V1ConfigMap.class)
             .apiListTypeClass(V1ConfigMapList.class)
             .resource(configMap)
