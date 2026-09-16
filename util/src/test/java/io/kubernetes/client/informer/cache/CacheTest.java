@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -189,5 +190,84 @@ class CacheTest {
 
     List<V1Pod> nodeNameIndexedPods = podCache.byIndex(nodeIndex, "node1");
     assertThat(nodeNameIndexedPods).hasSize(1);
+  }
+
+  @Test
+  void cachePredicateShouldFilterAddAndReplace() {
+    Cache<V1Pod> podCache =
+        new Cache<>(pod -> "keep".equals(pod.getMetadata().getLabels().get("scope")));
+    V1Pod kept =
+        new V1Pod()
+            .metadata(
+                new V1ObjectMeta()
+                    .namespace("ns")
+                    .name("kept")
+                    .labels(Map.of("scope", "keep")));
+    V1Pod dropped =
+        new V1Pod()
+            .metadata(
+                new V1ObjectMeta()
+                    .namespace("ns")
+                    .name("dropped")
+                    .labels(Map.of("scope", "drop")));
+
+    podCache.add(kept);
+    podCache.add(dropped);
+    assertThat(podCache.list()).containsExactly(kept);
+
+    podCache.replace(Arrays.asList(kept, dropped), "1");
+    assertThat(podCache.list()).containsExactly(kept);
+  }
+
+  @Test
+  void cachePredicateShouldEvictOnUpdateWhenObjectNoLongerMatches() {
+    Cache<V1Pod> podCache =
+        new Cache<>(pod -> "keep".equals(pod.getMetadata().getLabels().get("scope")));
+    V1Pod pod =
+        new V1Pod()
+            .metadata(
+                new V1ObjectMeta()
+                    .namespace("ns")
+                    .name("pod")
+                    .labels(new HashMap<>(Map.of("scope", "keep"))));
+
+    podCache.add(pod);
+    assertThat(podCache.list()).hasSize(1);
+
+    pod.getMetadata().setLabels(Map.of("scope", "drop"));
+    podCache.update(pod);
+
+    assertThat(podCache.list()).isEmpty();
+  }
+
+  @Test
+  void cachePredicateExceptionShouldExcludeObject() {
+    Cache<V1Pod> podCache =
+        new Cache<>(
+            pod -> {
+              if ("fail".equals(pod.getMetadata().getLabels().get("predicate"))) {
+                throw new IllegalStateException("predicate failure");
+              }
+              return true;
+            });
+    V1Pod pod =
+        new V1Pod()
+            .metadata(
+                new V1ObjectMeta()
+                    .namespace("ns")
+                    .name("excluded")
+                    .labels(new HashMap<>()));
+
+    podCache.add(pod);
+    assertThat(podCache.list()).containsExactly(pod);
+
+    pod.getMetadata().getLabels().put("predicate", "fail");
+    podCache.update(pod);
+    assertThat(podCache.list()).isEmpty();
+
+    podCache.add(pod);
+    podCache.replace(List.of(pod), "1");
+
+    assertThat(podCache.list()).isEmpty();
   }
 }
