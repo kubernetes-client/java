@@ -35,6 +35,10 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -157,38 +161,47 @@ class PortForwardTest {
 
   @Test
   void brokenPortPassing() throws IOException, InterruptedException {
-    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    Semaphore streamReady = new Semaphore(0);
+    Semaphore initFinished = new Semaphore(0);
+    AtomicReference<IOException> thrownException = new AtomicReference<>();
+    WebSocketStreamHandler handler = new WebSocketStreamHandler() {
+      @Override
+      public InputStream getInputStream(int stream) {
+        InputStream inputStream = super.getInputStream(stream);
+        if (stream == 0) {
+          streamReady.release();
+        }
+        return inputStream;
+      }
+    };
     List<Integer> ports = new ArrayList<>();
     ports.add(80);
 
-    final PortForwardResult result = new PortForwardResult(handler, ports);
+    PortForwardResult result = new PortForwardResult(handler, ports);
 
     String msgData = "this is a test datum";
     handler.open("wss", null);
-    handler.bytesMessage(makeStream(new byte[] {66}, msgData.getBytes(StandardCharsets.UTF_8)));
+    // Send data to wrong stream. Stream 0 remains empty
+    handler.bytesMessage(makeStream(new byte[]{66}, msgData.getBytes(StandardCharsets.UTF_8)));
 
-    final Object block = new Object();
     Thread t =
-        new Thread(
-            () -> {
-              try {
-                result.init();
-              } catch (IOException ex) {
-                thrownException = ex;
-              } finally {
-                synchronized (block) {
-                  block.notifyAll();
-                }
-              }
-            });
-    synchronized (block) {
-      t.start();
-      Thread.sleep(2000);
-      handler.close();
-      block.wait();
-    }
+            new Thread(
+                    () -> {
+                      try {
+                        result.init();
+                      } catch (IOException ex) {
+                        thrownException.set(ex);
+                      } finally {
+                        initFinished.release();
+                      }
+                    });
+    t.start();
+    boolean ready = streamReady.tryAcquire(10, TimeUnit.SECONDS);
+    handler.close();
 
-    assertThat(thrownException).isInstanceOf(IOException.class);
+    assertThat(ready).as("init created the input stream").isTrue();
+    assertThat(initFinished.tryAcquire(10, TimeUnit.SECONDS)).as("init finished after handler closed").isTrue();
+    assertThat(thrownException.get()).isInstanceOf(IOException.class).hasMessage("Failed to read port");
   }
 
   @Test
