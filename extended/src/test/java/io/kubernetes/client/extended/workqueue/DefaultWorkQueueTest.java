@@ -12,171 +12,169 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.workqueue;
 
+import org.junit.jupiter.api.Test;
+
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.CountDownLatch;
-import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 class DefaultWorkQueueTest {
+    private static final long TIMEOUT_SECONDS = 10;
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(DefaultWorkQueueTest.class);
+    @Test
+    void multiProducerAndConsumers() throws Exception {
+        DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
+        final int producerCount = 10;
+        final int consumerCount = 5;
+        Semaphore start = new Semaphore(0);
+        ConcurrentLinkedQueue<Throwable> failures = new ConcurrentLinkedQueue<>();
 
-  @Test
-  void multiProducerAndConsumers() throws Exception {
-    DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
-    final int producerCount = 10;
-    final int consumerCount = 5;
+        // Start producers
+        CountDownLatch producerLatch = new CountDownLatch(producerCount);
+        for (int i = 0; i < producerCount; i++) {
+            final int num = i;
+            Thread t =
+                    new Thread(
+                            () -> {
+                                try {
+                                    start.acquire();
+                                    for (int j = 0; j < 50; j++) {
+                                        queue.add(String.valueOf(num));
+                                    }
+                                } catch (InterruptedException e) {
+                                    failures.add(e);
+                                    Thread.currentThread().interrupt();
+                                } finally {
+                                    producerLatch.countDown();
+                                }
+                            });
+            t.start();
+        }
 
-    // Start producers
-    CountDownLatch producerLatch = new CountDownLatch(producerCount);
-    for (int i = 0; i < producerCount; i++) {
-      final int num = i;
-      Thread t =
-          new Thread(
-              () -> {
-                try {
-                  for (int j = 0; j < 50; j++) {
-                    queue.add(String.valueOf(num));
-                    Thread.sleep(10);
-                  }
-                } catch (Exception e) {
-                  // empty body
-                } finally {
-                  producerLatch.countDown();
-                }
-              });
-      t.start();
+        // Start consumers
+        CountDownLatch consumerLatch = new CountDownLatch(consumerCount);
+        for (int i = 0; i < consumerCount; i++) {
+            Thread t =
+                    new Thread(
+                            () -> {
+                                try {
+                                    start.acquire();
+                                    for (; ; ) {
+                                        String item = queue.get();
+                                        if (item == null) {
+                                            return;
+                                        }
+                                        if ("added after shutdown!".equals(item)) {
+                                            failures.add(new AssertionError("Got an item added after shutdown"));
+                                        }
+                                        queue.done(item);
+                                    }
+                                } catch (InterruptedException e) {
+                                    failures.add(e);
+                                    Thread.currentThread().interrupt();
+                                } finally {
+                                    consumerLatch.countDown();
+                                }
+                            });
+            t.start();
+        }
+
+        start.release(producerCount + consumerCount);
+
+        boolean producersFinished;
+        try {
+            producersFinished = producerLatch.await(TIMEOUT_SECONDS, TimeUnit.SECONDS);
+        } finally {
+            queue.shutDown();
+        }
+        queue.add("added after shutdown!");
+
+        assertThat(producersFinished).as("producers finished").isTrue();
+        assertThat(consumerLatch.await(TIMEOUT_SECONDS, TimeUnit.SECONDS)).as("consumers finished").isTrue();
+        assertThat(failures).isEmpty();
+        assertThat(queue.length()).isZero();
     }
 
-    // Start consumers
-    CountDownLatch consumerLatch = new CountDownLatch(consumerCount);
-    for (int i = 0; i < consumerCount; i++) {
-      final int num = i;
-      Thread t =
-          new Thread(
-              () -> {
-                try {
-                  for (; ; ) {
-                    String item = queue.get();
-                    assertThat(item)
-                        .withFailMessage("Got an item added after shutdown")
-                        .isNotEqualTo("added after shutdown!");
-                    if (item == null) {
-                      return;
-                    }
+    @Test
+    void addWhileProcessing() throws Exception {
+        DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
+        Semaphore itemDequeued = new Semaphore(0);
+        Semaphore allowDone = new Semaphore(0);
+        CountDownLatch consumerFinished = new CountDownLatch(1);
+        AtomicReference<Throwable> failure = new AtomicReference<>();
 
-                    LOGGER.info("Worker {}: begin processing {}", num, item);
-                    Thread.sleep(50);
-                    LOGGER.info("Worker {}: done processing {}", num, item);
-                    queue.done(item);
-                  }
-                } catch (Exception e) {
-                  // empty body
-                } finally {
-                  consumerLatch.countDown();
-                }
-              });
-      t.start();
+        queue.add("foo");
+
+        Thread consumer = new Thread(() -> {
+            try {
+                String item = queue.get();
+                itemDequeued.release();
+                allowDone.acquire();
+                queue.done(item);
+            } catch (InterruptedException e) {
+                failure.set(e);
+                Thread.currentThread().interrupt();
+            } finally {
+                consumerFinished.countDown();
+            }
+        });
+        consumer.start();
+
+        boolean dequeued = itemDequeued.tryAcquire(TIMEOUT_SECONDS, TimeUnit.SECONDS);
+        try {
+            assertThat(dequeued).as("consumer dequeued the item").isTrue();
+            queue.add("foo");
+        } finally {
+            allowDone.release();
+        }
+
+        assertThat(consumerFinished.await(TIMEOUT_SECONDS, TimeUnit.SECONDS)).as("consumer finished").isTrue();
+        assertThat(failure.get()).isNull();
+        assertThat(queue.length()).isEqualTo(1);
+
+        String item = queue.get();
+        assertThat(item).isEqualTo("foo");
+        queue.done(item);
+        assertThat(queue.length()).isZero();
     }
 
-    producerLatch.await();
-    queue.shutDown();
-    queue.add("added after shutdown!");
-    consumerLatch.await();
-  }
-
-  @Test
-  void addWhileProcessing() throws Exception {
-    DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
-    final int producerCount = 10;
-    final int consumerCount = 5;
-
-    // Start producers
-    CountDownLatch producerLatch = new CountDownLatch(producerCount);
-    for (int i = 0; i < producerCount; i++) {
-      final int num = i;
-      Thread t =
-          new Thread(
-              () -> {
-                queue.add(String.valueOf(num));
-                producerLatch.countDown();
-              });
-      t.start();
+    @Test
+    void len() {
+        DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
+        queue.add("foo");
+        assertThat(queue.length()).isEqualTo(1);
+        queue.add("bar");
+        assertThat(queue.length()).isEqualTo(2);
+        queue.add("foo"); // should not increase the queue length.
+        assertThat(queue.length()).isEqualTo(2);
     }
 
-    // Start consumers
-    CountDownLatch consumerLatch = new CountDownLatch(consumerCount);
-    for (int i = 0; i < consumerCount; i++) {
-      Thread t =
-          new Thread(
-              () -> {
-                // Every worker will re-add every item up to two times.
-                // This tests the dirty-while-processing case.
-                Map<String, Integer> counters = new HashMap<>();
-                try {
-                  for (; ; ) {
-                    String item = queue.get();
-                    if (item == null) {
-                      return;
-                    }
-                    counters.putIfAbsent(item, 1);
-                    counters.computeIfPresent(item, (s, integer) -> counters.get(s) + 1);
-                    if (counters.get(item) < 2) {
-                      queue.add(item);
-                    }
-                    queue.done(item);
-                  }
-                } catch (Exception e) {
-                  // empty body
-                } finally {
-                  consumerLatch.countDown();
-                }
-              });
-      t.start();
+    @Test
+    void reinsert() throws Exception {
+        DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
+        queue.add("foo");
+
+        // Start processing
+        String item = queue.get();
+        assertThat(item).isEqualTo("foo");
+
+        // Add it back while processing
+        queue.add(item);
+
+        // Finish it up
+        queue.done(item);
+
+        // It should be back on the queue
+        item = queue.get();
+        assertThat(item).isEqualTo("foo");
+
+        // Finish that one up
+        queue.done(item);
+
+        assertThat(queue.length()).isZero();
     }
-
-    producerLatch.await();
-    queue.shutDown();
-    consumerLatch.await();
-  }
-
-  @Test
-  void len() {
-    DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
-    queue.add("foo");
-    assertThat(queue.length()).isEqualTo(1);
-    queue.add("bar");
-    assertThat(queue.length()).isEqualTo(2);
-    queue.add("foo"); // should not increase the queue length.
-    assertThat(queue.length()).isEqualTo(2);
-  }
-
-  @Test
-  void reinsert() throws Exception {
-    DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
-    queue.add("foo");
-
-    // Start processing
-    String item = queue.get();
-    assertThat(item).isEqualTo("foo");
-
-    // Add it back while processing
-    queue.add(item);
-
-    // Finish it up
-    queue.done(item);
-
-    // It should be back on the queue
-    item = queue.get();
-    assertThat(item).isEqualTo("foo");
-
-    // Finish that one up
-    queue.done(item);
-
-    assertThat(queue.length()).isZero();
-  }
 }
