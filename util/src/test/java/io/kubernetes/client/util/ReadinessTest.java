@@ -233,15 +233,26 @@ class ReadinessTest {
     }
 
     @Test
-    void isReplicaSetReady_nullReadyReplicas_returnsFalse() {
-        // Regression test: a null status.readyReplicas must not be silently treated as "0".
-        // Uses spec.replicas(0) specifically: under the old buggy code, a null readyReplicas
-        // defaulted to 0, so 0.equals(0) would wrongly report "ready" here. A non-zero
-        // replicas value wouldn't actually catch that bug, since it wouldn't match the
-        // default of 0 either way.
+    void isReplicaSetReady_zeroReplicasWithNullReadyReplicas_returnsTrue() {
+        // readyReplicas is `omitempty` on a plain int in the real API, so the API server
+        // omits it from the JSON whenever it's genuinely 0 - not just when it hasn't been
+        // reported yet. A null readyReplicas here should be treated as 0, matching
+        // client-go's own WaitForReadyReplicaSet check (spec.replicas == status.readyReplicas),
+        // which considers a zero-replica ReplicaSet ready once its status is all-zero.
         V1ReplicaSet replicaSet = new V1ReplicaSet()
                 .metadata(new V1ObjectMeta().name("test"))
                 .spec(new V1ReplicaSetSpec().replicas(0))
+                .status(new V1ReplicaSetStatus());
+        assertThat(Readiness.isReplicaSetReady(replicaSet)).isTrue();
+    }
+
+    @Test
+    void isReplicaSetReady_nonZeroReplicasWithNullReadyReplicas_returnsFalse() {
+        // A null readyReplicas is treated as 0 (see above), so a non-zero desired replica
+        // count still correctly reports not-ready when readyReplicas is null.
+        V1ReplicaSet replicaSet = new V1ReplicaSet()
+                .metadata(new V1ObjectMeta().name("test"))
+                .spec(new V1ReplicaSetSpec().replicas(3))
                 .status(new V1ReplicaSetStatus());
         assertThat(Readiness.isReplicaSetReady(replicaSet)).isFalse();
     }
@@ -372,15 +383,24 @@ class ReadinessTest {
     }
 
     @Test
-    void isReplicationControllerReady_nullReadyReplicas_returnsFalse() {
-        // Regression test: a null status.readyReplicas must not be silently treated as "0".
-        // Uses spec.replicas(0) specifically: under the old buggy code, a null readyReplicas
-        // defaulted to 0, so 0.equals(0) would wrongly report "ready" here. A non-zero
-        // replicas value wouldn't actually catch that bug, since it wouldn't match the
-        // default of 0 either way.
+    void isReplicationControllerReady_zeroReplicasWithNullReadyReplicas_returnsTrue() {
+        // readyReplicas is `omitempty` on a plain int in the real API, so it's omitted from
+        // the JSON whenever it's genuinely 0, not just when unreported. A null readyReplicas
+        // should be treated as 0, matching client-go's semantics for a zero-replica resource.
         V1ReplicationController rc = new V1ReplicationController()
                 .metadata(new V1ObjectMeta().name("test"))
                 .spec(new io.kubernetes.client.openapi.models.V1ReplicationControllerSpec().replicas(0))
+                .status(new V1ReplicationControllerStatus());
+        assertThat(Readiness.isReplicationControllerReady(rc)).isTrue();
+    }
+
+    @Test
+    void isReplicationControllerReady_nonZeroReplicasWithNullReadyReplicas_returnsFalse() {
+        // A null readyReplicas is treated as 0 (see above), so a non-zero desired replica
+        // count still correctly reports not-ready when readyReplicas is null.
+        V1ReplicationController rc = new V1ReplicationController()
+                .metadata(new V1ObjectMeta().name("test"))
+                .spec(new io.kubernetes.client.openapi.models.V1ReplicationControllerSpec().replicas(3))
                 .status(new V1ReplicationControllerStatus());
         assertThat(Readiness.isReplicationControllerReady(rc)).isFalse();
     }

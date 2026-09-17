@@ -208,11 +208,13 @@ public class Readiness {
         if (replicas == null) {
             return false;
         }
-        if (readyReplicas == null) {
-            return false;
-        }
+        // readyReplicas is `omitempty` in the real API (a plain int, not a pointer), so the
+        // API server omits it from the JSON whenever it's genuinely 0 - not just when it
+        // hasn't been reported yet. A null here means "zero", matching client-go's own
+        // comparison (*(rs.Spec.Replicas) == rs.Status.ReadyReplicas), not "unknown".
+        int effectiveReadyReplicas = readyReplicas == null ? 0 : readyReplicas;
 
-        return replicas.equals(readyReplicas);
+        return replicas.equals(effectiveReadyReplicas);
     }
 
     /**
@@ -382,11 +384,13 @@ public class Readiness {
         if (replicas == null) {
             return false;
         }
-        if (readyReplicas == null) {
-            return false;
-        }
+        // readyReplicas is `omitempty` in the real API (a plain int, not a pointer), so the
+        // API server omits it from the JSON whenever it's genuinely 0 - not just when it
+        // hasn't been reported yet. A null here means "zero", matching client-go's own
+        // semantics, not "unknown".
+        int effectiveReadyReplicas = readyReplicas == null ? 0 : readyReplicas;
 
-        return replicas.equals(readyReplicas);
+        return replicas.equals(effectiveReadyReplicas);
     }
 
     /**
