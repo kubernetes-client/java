@@ -144,8 +144,8 @@ class EventCorrelatorTest {
       Boolean expectedSkip)
       throws Exception {
     EventCorrelator correlator = new EventCorrelator();
+    OffsetDateTime now = OffsetDateTime.now();
     for (CoreV1Event event : previousEvents) {
-      OffsetDateTime now = OffsetDateTime.now();
       event.setFirstTimestamp(now);
       event.setLastTimestamp(now);
       Optional<MutablePair<CoreV1Event, V1Patch>> result = correlator.correlate(event);
@@ -153,8 +153,7 @@ class EventCorrelatorTest {
         correlator.updateState(event);
       }
     }
-    Thread.sleep(100);
-    OffsetDateTime now = OffsetDateTime.now();
+    now = now.plusNanos(10);
     newEvent.setFirstTimestamp(now);
     newEvent.setLastTimestamp(now);
     Optional<MutablePair<CoreV1Event, V1Patch>> result = correlator.correlate(newEvent);
