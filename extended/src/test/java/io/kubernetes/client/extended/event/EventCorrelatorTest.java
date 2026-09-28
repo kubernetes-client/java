@@ -153,7 +153,6 @@ class EventCorrelatorTest {
         correlator.updateState(event);
       }
     }
-    Thread.sleep(100);
     OffsetDateTime now = OffsetDateTime.now();
     newEvent.setFirstTimestamp(now);
     newEvent.setLastTimestamp(now);
