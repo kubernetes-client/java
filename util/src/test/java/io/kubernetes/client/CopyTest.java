@@ -131,6 +131,21 @@ class CopyTest {
     podName = "apod";
   }
 
+  // Wait (bounded) until the exec request reaches the mock server, instead of a fixed sleep
+  // which is flaky on slow CI runners.
+  private void waitForExecRequest() throws InterruptedException {
+    long deadline = System.currentTimeMillis() + 30000;
+    while (System.currentTimeMillis() < deadline
+        && apiServer
+            .findAll(
+                getRequestedFor(
+                    urlPathEqualTo(
+                        "/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec")))
+            .isEmpty()) {
+      Thread.sleep(100);
+    }
+  }
+
   @Test
   void url() {
     Copy copy = new Copy(client);
@@ -195,7 +210,7 @@ class CopyTest {
               }
             });
     t.start();
-    Thread.sleep(2000);
+    waitForExecRequest();
     t.interrupt();
 
     apiServer.verify(
@@ -241,7 +256,7 @@ class CopyTest {
               }
             });
     t.start();
-    Thread.sleep(2000);
+    waitForExecRequest();
     t.interrupt();
 
     apiServer.verify(
@@ -285,7 +300,7 @@ class CopyTest {
               }
             });
     t.start();
-    Thread.sleep(2000);
+    waitForExecRequest();
     t.interrupt();
 
     apiServer.verify(
