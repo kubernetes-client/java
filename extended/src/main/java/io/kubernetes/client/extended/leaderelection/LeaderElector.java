@@ -331,8 +331,17 @@ public class LeaderElector implements AutoCloseable {
 
     // 2. Record obtained with LeaderElectionRecord, check the Identity & Time
     if (!oldLeaderElectionRecord.equals(this.observedRecord)) {
+      // If this is the very first time we observe a record (e.g. right after this
+      // LeaderElector started running), we have no prior local observation to compare
+      // against. In that case, use the record's own renewTime instead of the current
+      // wall-clock time, so that an already expired lease can be acquired immediately
+      // rather than requiring a full extra leaseDuration to elapse before takeover.
+      boolean firstObservation = this.observedRecord == null;
       this.observedRecord = oldLeaderElectionRecord;
-      this.observedTimeMilliSeconds = System.currentTimeMillis();
+      this.observedTimeMilliSeconds =
+          firstObservation
+              ? oldLeaderElectionRecord.getRenewTime().getTime()
+              : System.currentTimeMillis();
     }
 
     if (observedTimeMilliSeconds + config.getLeaseDuration().toMillis() > now.getTime()
