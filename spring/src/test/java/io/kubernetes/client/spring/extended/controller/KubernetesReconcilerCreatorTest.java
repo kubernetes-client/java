@@ -47,6 +47,8 @@ import io.kubernetes.client.spring.extended.controller.annotation.UpdateWatchEve
 import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
 import io.kubernetes.client.util.ClientBuilder;
 import java.util.LinkedList;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.tuple.MutablePair;
@@ -60,6 +62,9 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootTest(classes = {KubernetesReconcilerCreatorTest.App.class})
 class KubernetesReconcilerCreatorTest {
+
+  private static final Semaphore REQUEST_ENQUEUED = new Semaphore(0);
+  private static final long TIMEOUT_SECONDS = 10;
 
   @RegisterExtension
   static WireMockExtension apiServer =
@@ -172,6 +177,7 @@ class KubernetesReconcilerCreatorTest {
     @Override
     public Request apply(KubernetesObject item) {
       workQueue.add(new Request("foo"));
+      REQUEST_ENQUEUED.release();
       return null;
     }
   }
@@ -182,23 +188,27 @@ class KubernetesReconcilerCreatorTest {
     assertThat(testReconciler).isNotNull();
 
     sharedInformerFactory.startAllRegisteredInformers();
+    try {
+      ((DefaultSharedIndexInformer<V1Pod, V1PodList>) testReconciler.podInformer)
+          .handleDeltas(
+              new LinkedList<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>>() {
+                {
+                  add(
+                      new MutablePair<>(
+                          DeltaFIFO.DeltaType.Added,
+                          new V1Pod().metadata(new V1ObjectMeta().namespace("a").name("b"))));
+                }
+              });
 
-    ((DefaultSharedIndexInformer<V1Pod, V1PodList>) testReconciler.podInformer)
-        .handleDeltas(
-            new LinkedList<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>>() {
-              {
-                add(
-                    new MutablePair<>(
-                        DeltaFIFO.DeltaType.Added,
-                        new V1Pod().metadata(new V1ObjectMeta().namespace("a").name("b"))));
-              }
-            });
+      assertThat(REQUEST_ENQUEUED.tryAcquire(TIMEOUT_SECONDS, TimeUnit.SECONDS))
+          .as("pod event added a request to the controller work queue")
+          .isTrue();
 
-    Thread.sleep(500);
-
-    WorkQueue<Request> workQueue = ((DefaultController) testController).getWorkQueue();
-    assertThat(workQueue.length()).isEqualTo(1);
-    assertThat(workQueue.get().getName()).isEqualTo("foo");
-    sharedInformerFactory.stopAllRegisteredInformers();
+      WorkQueue<Request> workQueue = ((DefaultController) testController).getWorkQueue();
+      assertThat(workQueue.length()).isEqualTo(1);
+      assertThat(workQueue.get().getName()).isEqualTo("foo");
+    } finally {
+      sharedInformerFactory.stopAllRegisteredInformers();
+    }
   }
 }
