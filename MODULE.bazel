@@ -32,7 +32,7 @@ maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
 maven.install(
     artifacts = [
         # ---- core ----
-        "org.apache.commons:commons-lang3:3.20.0",
+        "org.apache.commons:commons-lang3:3.21.0",
         "org.apache.commons:commons-collections4:4.6.0",
         "org.yaml:snakeyaml:2.7",
         "commons-codec:commons-codec:1.22.1",
@@ -42,12 +42,12 @@ maven.install(
         "org.slf4j:slf4j-api:2.0.20",
         "org.bouncycastle:bcpkix-jdk18on:1.86",
         "org.bouncycastle:bcprov-jdk18on:1.86",
-        "software.amazon.awssdk:sts:2.55.5",
-        "software.amazon.awssdk:auth:2.55.5",
-        "software.amazon.awssdk:http-auth-aws:2.55.5",
-        "software.amazon.awssdk:http-auth-spi:2.55.5",
-        "software.amazon.awssdk:http-client-spi:2.55.5",
-        "software.amazon.awssdk:utils:2.55.5",
+        "software.amazon.awssdk:sts:2.55.6",
+        "software.amazon.awssdk:auth:2.55.6",
+        "software.amazon.awssdk:http-auth-aws:2.55.6",
+        "software.amazon.awssdk:http-auth-spi:2.55.6",
+        "software.amazon.awssdk:http-client-spi:2.55.6",
+        "software.amazon.awssdk:utils:2.55.6",
         "com.google.protobuf:protobuf-java:4.36.2",
         "org.bitbucket.b_c:jose4j:0.9.7",
         "com.bucket4j:bucket4j-core:8.10.1",
