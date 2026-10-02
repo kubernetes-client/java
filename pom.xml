@@ -64,7 +64,7 @@
     <swagger-core.version>1.6.16</swagger-core.version>
     <sundrio.version>0.400.1</sundrio.version>
     <gsonfire.version>1.9.0</gsonfire.version>
-    <apache.commons.lang3.version>3.20.0</apache.commons.lang3.version>
+    <apache.commons.lang3.version>3.21.0</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.6.0</apache.commons.collections4.version>
     <apache.commons.compress>1.28.0</apache.commons.compress>
     <apache.commons.io>2.22.0</apache.commons.io>
@@ -73,7 +73,7 @@
     <spring.version>7.0.9</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
-    <aws.sdk.version>2.55.5</aws.sdk.version>
+    <aws.sdk.version>2.55.7</aws.sdk.version>
     <google.auth.version>1.53.0</google.auth.version>
     <jose4j.version>0.9.7</jose4j.version>
     <jetbrains.annotations.version>26.1.0</jetbrains.annotations.version>
@@ -503,7 +503,7 @@
         <plugin>
           <groupId>com.diffplug.spotless</groupId>
           <artifactId>spotless-maven-plugin</artifactId>
-          <version>3.10.2</version>
+          <version>3.10.3</version>
         </plugin>
         <plugin>
           <groupId>org.apache.felix</groupId>
