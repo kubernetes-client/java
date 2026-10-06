@@ -21,8 +21,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Cache is a java port of k/client-go's ThreadSafeStore. It basically saves and indexes all the
@@ -30,6 +33,8 @@ import org.apache.commons.collections4.MapUtils;
  */
 // TODO(yue9944882): Cache is very similar to a Map, replace/inherit w/ Map interface
 public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType> {
+
+  private static final Logger log = LoggerFactory.getLogger(Cache.class);
 
   /** keyFunc defines how to map objects into indices */
   private Function<ApiType, String> keyFunc;
@@ -43,11 +48,22 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
   /** indices stores objects' keys by their indices */
   private Map<String, Map<String, Set<String>>> indices = new HashMap<>();
 
+  private Predicate<ApiType> storePredicate;
+
   public Cache() {
     this(
         Caches.NAMESPACE_INDEX,
         Caches::metaNamespaceIndexFunc,
-        Caches::deletionHandlingMetaNamespaceKeyFunc);
+        Caches::deletionHandlingMetaNamespaceKeyFunc,
+        obj -> true);
+  }
+
+  public Cache(Predicate<ApiType> storePredicate) {
+    this(
+        Caches.NAMESPACE_INDEX,
+        Caches::metaNamespaceIndexFunc,
+        Caches::deletionHandlingMetaNamespaceKeyFunc,
+        storePredicate);
   }
 
   /**
@@ -61,9 +77,18 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
       String indexName,
       Function<ApiType, List<String>> indexFunc,
       Function<ApiType, String> keyFunc) {
+    this(indexName, indexFunc, keyFunc, obj -> true);
+  }
+
+  public Cache(
+      String indexName,
+      Function<ApiType, List<String>> indexFunc,
+      Function<ApiType, String> keyFunc,
+      Predicate<ApiType> storePredicate) {
     this.indexers.put(indexName, indexFunc);
     this.keyFunc = keyFunc;
     this.indices.put(indexName, new HashMap<>());
+    this.storePredicate = storePredicate;
   }
 
   /**
@@ -73,6 +98,9 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
    */
   @Override
   public void add(ApiType obj) {
+    if (!matchesStorePredicate(obj)) {
+      return;
+    }
     String key = keyFunc.apply(obj);
     synchronized (this) {
       ApiType oldObj = this.items.get(key);
@@ -91,6 +119,13 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
     String key = keyFunc.apply(obj);
     synchronized (this) {
       ApiType oldObj = this.items.get(key);
+      if (!matchesStorePredicate(obj)) {
+        if (oldObj != null) {
+          this.deleteFromIndices(oldObj, key);
+          this.items.remove(key);
+        }
+        return;
+      }
       this.items.put(key, obj);
       updateIndices(oldObj, obj, key);
     }
@@ -123,6 +158,9 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
   public synchronized void replace(List<ApiType> list, String resourceVersion) {
     Map<String, ApiType> newItems = new HashMap<>();
     for (ApiType item : list) {
+      if (!matchesStorePredicate(item)) {
+        continue;
+      }
       String key = keyFunc.apply(item);
       newItems.put(key, item);
     }
@@ -132,6 +170,15 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
     this.indices = new HashMap<>();
     for (Map.Entry<String, ApiType> itemEntry : items.entrySet()) {
       this.updateIndices(null, itemEntry.getValue(), itemEntry.getKey());
+    }
+  }
+
+  private boolean matchesStorePredicate(ApiType obj) {
+    try {
+      return storePredicate.test(obj);
+    } catch (RuntimeException e) {
+      log.warn("Cache predicate threw an exception; excluding object from informer cache", e);
+      return false;
     }
   }
 

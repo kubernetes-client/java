@@ -24,6 +24,12 @@ public class ListOptions {
   @SerializedName("resourceVersion")
   private String resourceVersion;
 
+  @SerializedName("resourceVersionMatch")
+  private String resourceVersionMatch;
+
+  @SerializedName("allowWatchBookmarks")
+  private Boolean allowWatchBookmarks;
+
   @SerializedName("timeoutSeconds")
   private Integer timeoutSeconds;
 
@@ -35,6 +41,10 @@ public class ListOptions {
 
   @SerializedName("isPartialObjectMetadataListRequest")
   private Boolean isPartialObjectMetadataListRequest;
+
+  public static Builder builder() {
+    return new Builder();
+  }
 
   public ListOptions fieldSelector(String fieldSelector) {
     this.fieldSelector = fieldSelector;
@@ -73,6 +83,32 @@ public class ListOptions {
 
   public void setResourceVersion(String resourceVersion) {
     this.resourceVersion = resourceVersion;
+  }
+
+  public ListOptions resourceVersionMatch(String resourceVersionMatch) {
+    this.resourceVersionMatch = resourceVersionMatch;
+    return this;
+  }
+
+  public String getResourceVersionMatch() {
+    return resourceVersionMatch;
+  }
+
+  public void setResourceVersionMatch(String resourceVersionMatch) {
+    this.resourceVersionMatch = resourceVersionMatch;
+  }
+
+  public ListOptions allowWatchBookmarks(Boolean allowWatchBookmarks) {
+    this.allowWatchBookmarks = allowWatchBookmarks;
+    return this;
+  }
+
+  public Boolean getAllowWatchBookmarks() {
+    return allowWatchBookmarks;
+  }
+
+  public void setAllowWatchBookmarks(Boolean allowWatchBookmarks) {
+    this.allowWatchBookmarks = allowWatchBookmarks;
   }
 
   public ListOptions limit(Integer limit) {
@@ -126,5 +162,72 @@ public class ListOptions {
 
   public void setPartialObjectMetadataListRequest(Boolean isPartialObjectMetadataListRequest) {
     this.isPartialObjectMetadataListRequest = isPartialObjectMetadataListRequest;
+  }
+
+  public static final class Builder {
+    private final ListOptions options;
+
+    private Builder() {
+      this.options = new ListOptions();
+    }
+
+    public Builder fieldSelector(String fieldSelector) {
+      options.fieldSelector(fieldSelector);
+      return this;
+    }
+
+    public Builder labelSelector(String labelSelector) {
+      options.labelSelector(labelSelector);
+      return this;
+    }
+
+    public Builder resourceVersion(String resourceVersion) {
+      options.resourceVersion(resourceVersion);
+      return this;
+    }
+
+    public Builder resourceVersionMatch(String resourceVersionMatch) {
+      options.resourceVersionMatch(resourceVersionMatch);
+      return this;
+    }
+
+    public Builder allowWatchBookmarks(Boolean allowWatchBookmarks) {
+      options.allowWatchBookmarks(allowWatchBookmarks);
+      return this;
+    }
+
+    public Builder timeoutSeconds(Integer timeoutSeconds) {
+      options.timeoutSeconds(timeoutSeconds);
+      return this;
+    }
+
+    public Builder limit(Integer limit) {
+      options.limit(limit);
+      return this;
+    }
+
+    public Builder _continue(String _continue) {
+      options._continue(_continue);
+      return this;
+    }
+
+    public Builder isPartialObjectMetadataListRequest(Boolean partialMetadata) {
+      options.isPartialObjectMetadataListRequest(partialMetadata);
+      return this;
+    }
+
+    public ListOptions build() {
+      ListOptions built = new ListOptions();
+      built.setFieldSelector(options.getFieldSelector());
+      built.setLabelSelector(options.getLabelSelector());
+      built.setResourceVersion(options.getResourceVersion());
+      built.setResourceVersionMatch(options.getResourceVersionMatch());
+      built.setAllowWatchBookmarks(options.getAllowWatchBookmarks());
+      built.setTimeoutSeconds(options.getTimeoutSeconds());
+      built.setLimit(options.getLimit());
+      built.setContinue(options.getContinue());
+      built.setPartialObjectMetadataListRequest(options.isPartialObjectMetadataListRequest());
+      return built;
+    }
   }
 }
