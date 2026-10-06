@@ -18,6 +18,9 @@ on:
 
 jobs:
   release:
+    permissions:
+      contents: write
+      pull-requests: write
     runs-on: ubuntu-latest
     env:
       BAZELISK_SKIP_VERSION_CHECK: "1"
@@ -31,7 +34,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ github.token }}
       - name: Check Actor
         run: |
           # Release actor should be in the OWNER list
@@ -111,7 +114,7 @@ jobs:
       - name: Pull Request
         if: ${{ github.event.inputs.dry-run != 'true' }}
         env:
-          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh pr create \
             --base ${{ github.ref_name }} \
@@ -121,7 +124,7 @@ jobs:
       - name: Publish Release
         if: ${{ github.event.inputs.dry-run != 'true' }}
         env:
-          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh release create v${{ github.event.inputs.releaseVersion }} \
             --title "v${{ github.event.inputs.releaseVersion }}" \
