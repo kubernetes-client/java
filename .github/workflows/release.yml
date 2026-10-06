@@ -20,7 +20,6 @@ jobs:
   release:
     permissions:
       contents: write
-      pull-requests: write
     runs-on: ubuntu-latest
     env:
       BAZELISK_SKIP_VERSION_CHECK: "1"
@@ -111,16 +110,6 @@ jobs:
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git \
             automated-release-${{ github.event.inputs.releaseVersion }}:automated-release-${{ github.event.inputs.releaseVersion }}
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git v${{ github.event.inputs.releaseVersion }}
-      - name: Pull Request
-        if: ${{ github.event.inputs.dry-run != 'true' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh pr create \
-            --base ${{ github.ref_name }} \
-            --head automated-release-${{ github.event.inputs.releaseVersion }} \
-            --title "Automated Release: ${{ github.event.inputs.releaseVersion }}" \
-            --body ""
       - name: Publish Release
         if: ${{ github.event.inputs.dry-run != 'true' }}
         env:
