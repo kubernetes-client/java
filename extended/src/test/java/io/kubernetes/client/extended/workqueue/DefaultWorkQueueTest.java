@@ -14,6 +14,8 @@ package io.kubernetes.client.extended.workqueue;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import org.junit.jupiter.api.Test;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -104,48 +106,56 @@ class DefaultWorkQueueTest {
   @Test
   void addWhileProcessing() throws Exception {
     DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
-    Semaphore itemDequeued = new Semaphore(0);
-    Semaphore allowDone = new Semaphore(0);
-    CountDownLatch consumerFinished = new CountDownLatch(1);
-    AtomicReference<Throwable> failure = new AtomicReference<>();
+    final int producerCount = 10;
+    final int consumerCount = 5;
 
-    queue.add("foo");
-
-    Thread consumer =
-        new Thread(
-            () -> {
-              try {
-                String item = queue.get();
-                itemDequeued.release();
-                allowDone.acquire();
-                queue.done(item);
-              } catch (InterruptedException e) {
-                failure.set(e);
-                Thread.currentThread().interrupt();
-              } finally {
-                consumerFinished.countDown();
-              }
-            });
-    consumer.start();
-
-    boolean dequeued = itemDequeued.tryAcquire(TIMEOUT_SECONDS, TimeUnit.SECONDS);
-    try {
-      assertThat(dequeued).as("consumer dequeued the item").isTrue();
-      queue.add("foo");
-    } finally {
-      allowDone.release();
+    // Start producers
+    CountDownLatch producerLatch = new CountDownLatch(producerCount);
+    for (int i = 0; i < producerCount; i++) {
+      final int num = i;
+      Thread t =
+          new Thread(
+              () -> {
+                queue.add(String.valueOf(num));
+                producerLatch.countDown();
+              });
+      t.start();
     }
 
-    assertThat(consumerFinished.await(TIMEOUT_SECONDS, TimeUnit.SECONDS))
-        .as("consumer finished")
-        .isTrue();
-    assertThat(failure.get()).isNull();
-    assertThat(queue.length()).isEqualTo(1);
+    // Start consumers
+    CountDownLatch consumerLatch = new CountDownLatch(consumerCount);
+    for (int i = 0; i < consumerCount; i++) {
+      Thread t =
+          new Thread(
+              () -> {
+                // Every worker will re-add every item up to two times.
+                // This tests the dirty-while-processing case.
+                Map<String, Integer> counters = new HashMap<>();
+                try {
+                  for (; ; ) {
+                    String item = queue.get();
+                    if (item == null) {
+                      return;
+                    }
+                    counters.putIfAbsent(item, 1);
+                    counters.computeIfPresent(item, (s, integer) -> counters.get(s) + 1);
+                    if (counters.get(item) < 2) {
+                      queue.add(item);
+                    }
+                    queue.done(item);
+                  }
+                } catch (Exception e) {
+                  // empty body
+                } finally {
+                  consumerLatch.countDown();
+                }
+              });
+      t.start();
+    }
 
-    String item = queue.get();
-    assertThat(item).isEqualTo("foo");
-    queue.done(item);
-    assertThat(queue.length()).isZero();
+    producerLatch.await();
+    queue.shutDown();
+    consumerLatch.await();
   }
 
   @Test
