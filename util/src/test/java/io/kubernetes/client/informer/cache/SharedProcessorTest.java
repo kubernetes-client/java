@@ -21,9 +21,15 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import org.junit.jupiter.api.Test;
 
 class SharedProcessorTest {
+
+  private static final long TIMEOUT_SECONDS = 10;
 
   @Test
   void listenerAddition() throws InterruptedException {
@@ -67,23 +73,33 @@ class SharedProcessorTest {
     SharedProcessor<V1Pod> sharedProcessor =
         new SharedProcessor<>(Executors.newCachedThreadPool(), Duration.ofSeconds(5));
     TestWorker<V1Pod> slowWorker = new TestWorker<>(null, 0);
-    final boolean[] interrupted = {false};
-    CountDownLatch latch = new CountDownLatch(1);
+    AtomicBoolean interrupted = new AtomicBoolean();
+    Semaphore workerStarted = new Semaphore(0);
+    Semaphore blockWorker = new Semaphore(0);
+    Semaphore workerFinished = new Semaphore(0);
     slowWorker.setTask(
         () -> {
+          workerStarted.release();
           try {
-            // sleep 10s so that it could be interrupted by shutdownNow()
-            Thread.sleep(10 * 1000);
+            blockWorker.acquire();
           } catch (InterruptedException e) {
-            interrupted[0] = true;
+            interrupted.set(true);
+            Thread.currentThread().interrupt();
           } finally {
-            latch.countDown();
+            workerFinished.release();
           }
         });
     sharedProcessor.addAndStartListener(slowWorker);
-    sharedProcessor.stop();
-    latch.await();
-    assertThat(interrupted[0]).isTrue();
+    boolean started = workerStarted.tryAcquire(TIMEOUT_SECONDS, TimeUnit.SECONDS);
+    try {
+      assertThat(started).as("worker started").isTrue();
+    } finally {
+      sharedProcessor.stop();
+    }
+    assertThat(workerFinished.tryAcquire(TIMEOUT_SECONDS, TimeUnit.SECONDS))
+        .as("worker finished")
+        .isTrue();
+    assertThat(interrupted.get()).as("worker was interrupted").isTrue();
   }
 
   private static class ExpectingNoticationHandler<ApiType extends KubernetesObject>
