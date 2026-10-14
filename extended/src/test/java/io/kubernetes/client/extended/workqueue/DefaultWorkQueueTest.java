@@ -18,18 +18,22 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 class DefaultWorkQueueTest {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(DefaultWorkQueueTest.class);
+  private static final long TIMEOUT_SECONDS = 10;
 
   @Test
   void multiProducerAndConsumers() throws Exception {
     DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
     final int producerCount = 10;
     final int consumerCount = 5;
+    Semaphore start = new Semaphore(0);
+    ConcurrentLinkedQueue<Throwable> failures = new ConcurrentLinkedQueue<>();
 
     // Start producers
     CountDownLatch producerLatch = new CountDownLatch(producerCount);
@@ -39,12 +43,13 @@ class DefaultWorkQueueTest {
           new Thread(
               () -> {
                 try {
+                  start.acquire();
                   for (int j = 0; j < 50; j++) {
                     queue.add(String.valueOf(num));
-                    Thread.sleep(10);
                   }
-                } catch (Exception e) {
-                  // empty body
+                } catch (InterruptedException e) {
+                  failures.add(e);
+                  Thread.currentThread().interrupt();
                 } finally {
                   producerLatch.countDown();
                 }
@@ -55,27 +60,24 @@ class DefaultWorkQueueTest {
     // Start consumers
     CountDownLatch consumerLatch = new CountDownLatch(consumerCount);
     for (int i = 0; i < consumerCount; i++) {
-      final int num = i;
       Thread t =
           new Thread(
               () -> {
                 try {
+                  start.acquire();
                   for (; ; ) {
                     String item = queue.get();
-                    assertThat(item)
-                        .withFailMessage("Got an item added after shutdown")
-                        .isNotEqualTo("added after shutdown!");
                     if (item == null) {
                       return;
                     }
-
-                    LOGGER.info("Worker {}: begin processing {}", num, item);
-                    Thread.sleep(50);
-                    LOGGER.info("Worker {}: done processing {}", num, item);
+                    if ("added after shutdown!".equals(item)) {
+                      failures.add(new AssertionError("Got an item added after shutdown"));
+                    }
                     queue.done(item);
                   }
-                } catch (Exception e) {
-                  // empty body
+                } catch (InterruptedException e) {
+                  failures.add(e);
+                  Thread.currentThread().interrupt();
                 } finally {
                   consumerLatch.countDown();
                 }
@@ -83,10 +85,22 @@ class DefaultWorkQueueTest {
       t.start();
     }
 
-    producerLatch.await();
-    queue.shutDown();
+    start.release(producerCount + consumerCount);
+
+    boolean producersFinished;
+    try {
+      producersFinished = producerLatch.await(TIMEOUT_SECONDS, TimeUnit.SECONDS);
+    } finally {
+      queue.shutDown();
+    }
     queue.add("added after shutdown!");
-    consumerLatch.await();
+
+    assertThat(producersFinished).as("producers finished").isTrue();
+    assertThat(consumerLatch.await(TIMEOUT_SECONDS, TimeUnit.SECONDS))
+        .as("consumers finished")
+        .isTrue();
+    assertThat(failures).isEmpty();
+    assertThat(queue.length()).isZero();
   }
 
   @Test
