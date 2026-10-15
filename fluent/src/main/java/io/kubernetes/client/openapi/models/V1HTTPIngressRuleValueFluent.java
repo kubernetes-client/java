@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi.models.V1HTTPIngressRuleValueFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1HTTPIngressRuleValueFluent<A extends V1HTTPIngressRuleValueFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1HTTPIngressPathBuilder> paths;
 
@@ -43,7 +45,7 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
 
   public A addAllToPaths(Collection<V1HTTPIngressPath> items) {
     if (this.paths == null) {
-      this.paths = new ArrayList();
+      this.paths = new ArrayList<>();
     }
     for (V1HTTPIngressPath item : items) {
         V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
@@ -54,16 +56,16 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
   }
   
   public PathsNested<A> addNewPath() {
-    return new PathsNested(-1, null);
+    return new PathsNested<>(-1, null);
   }
   
   public PathsNested<A> addNewPathLike(V1HTTPIngressPath item) {
-    return new PathsNested(-1, item);
+    return new PathsNested<>(-1, item);
   }
   
   public A addToPaths(V1HTTPIngressPath... items) {
     if (this.paths == null) {
-      this.paths = new ArrayList();
+      this.paths = new ArrayList<>();
     }
     for (V1HTTPIngressPath item : items) {
         V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
@@ -75,7 +77,7 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
   
   public A addToPaths(int index,V1HTTPIngressPath item) {
     if (this.paths == null) {
-      this.paths = new ArrayList();
+      this.paths = new ArrayList<>();
     }
     V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
     if (index < 0 || index >= this.paths.size()) {
@@ -166,7 +168,7 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V1HTTPIngressRuleValueFluent that = (V1HTTPIngressRuleValueFluent) o;
+    V1HTTPIngressRuleValueFluent<?> that = (V1HTTPIngressRuleValueFluent<?>) o;
     if (!(Objects.equals(paths, that.paths))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
       return (A) this;
     }
     Iterator<V1HTTPIngressPathBuilder> each = paths.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("paths");
     while (each.hasNext()) {
         V1HTTPIngressPathBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
   }
   
   public PathsNested<A> setNewPathLike(int index,V1HTTPIngressPath item) {
-    return new PathsNested(index, item);
+    return new PathsNested<>(index, item);
   }
   
   public A setToPaths(int index,V1HTTPIngressPath item) {
     if (this.paths == null) {
-      this.paths = new ArrayList();
+      this.paths = new ArrayList<>();
     }
     V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
     if (index < 0 || index >= this.paths.size()) {
@@ -265,7 +268,7 @@ public class V1HTTPIngressRuleValueFluent<A extends io.kubernetes.client.openapi
       this._visitables.get("paths").clear();
     }
     if (paths != null) {
-        this.paths = new ArrayList();
+        this.paths = new ArrayList<>();
         for (V1HTTPIngressPath item : paths) {
           this.addToPaths(item);
         }

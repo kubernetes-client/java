@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VariableFluent<A extends io.kubernetes.client.openapi.models.V1VariableFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VariableFluent<A extends V1VariableFluent<A>> extends BaseFluent<A>{
 
   private String expression;
   private String name;
@@ -53,7 +55,7 @@ public class V1VariableFluent<A extends io.kubernetes.client.openapi.models.V1Va
     if (!(super.equals(o))) {
       return false;
     }
-    V1VariableFluent that = (V1VariableFluent) o;
+    V1VariableFluent<?> that = (V1VariableFluent<?>) o;
     if (!(Objects.equals(expression, that.expression))) {
       return false;
     }

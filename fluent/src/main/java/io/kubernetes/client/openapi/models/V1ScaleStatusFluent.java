@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ScaleStatusFluent<A extends io.kubernetes.client.openapi.models.V1ScaleStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ScaleStatusFluent<A extends V1ScaleStatusFluent<A>> extends BaseFluent<A>{
 
   private Integer replicas;
   private String selector;
@@ -54,7 +56,7 @@ public class V1ScaleStatusFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1ScaleStatusFluent that = (V1ScaleStatusFluent) o;
+    V1ScaleStatusFluent<?> that = (V1ScaleStatusFluent<?>) o;
     if (!(Objects.equals(replicas, that.replicas))) {
       return false;
     }

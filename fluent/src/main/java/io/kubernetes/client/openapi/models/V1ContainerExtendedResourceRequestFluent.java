@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ContainerExtendedResourceRequestFluent<A extends io.kubernetes.client.openapi.models.V1ContainerExtendedResourceRequestFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ContainerExtendedResourceRequestFluent<A extends V1ContainerExtendedResourceRequestFluent<A>> extends BaseFluent<A>{
 
   private String containerName;
   private String requestName;
@@ -55,7 +57,7 @@ public class V1ContainerExtendedResourceRequestFluent<A extends io.kubernetes.cl
     if (!(super.equals(o))) {
       return false;
     }
-    V1ContainerExtendedResourceRequestFluent that = (V1ContainerExtendedResourceRequestFluent) o;
+    V1ContainerExtendedResourceRequestFluent<?> that = (V1ContainerExtendedResourceRequestFluent<?>) o;
     if (!(Objects.equals(containerName, that.containerName))) {
       return false;
     }

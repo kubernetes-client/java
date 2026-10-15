@@ -25,12 +25,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1TopologySpreadConstraintFluent<A extends io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1TopologySpreadConstraintFluent<A extends V1TopologySpreadConstraintFluent<A>> extends BaseFluent<A>{
 
   private V1LabelSelectorBuilder labelSelector;
   private List<String> matchLabelKeys;
@@ -50,7 +52,7 @@ public class V1TopologySpreadConstraintFluent<A extends io.kubernetes.client.ope
 
   public A addAllToMatchLabelKeys(Collection<String> items) {
     if (this.matchLabelKeys == null) {
-      this.matchLabelKeys = new ArrayList();
+      this.matchLabelKeys = new ArrayList<>();
     }
     for (String item : items) {
       this.matchLabelKeys.add(item);
@@ -60,7 +62,7 @@ public class V1TopologySpreadConstraintFluent<A extends io.kubernetes.client.ope
   
   public A addToMatchLabelKeys(String... items) {
     if (this.matchLabelKeys == null) {
-      this.matchLabelKeys = new ArrayList();
+      this.matchLabelKeys = new ArrayList<>();
     }
     for (String item : items) {
       this.matchLabelKeys.add(item);
@@ -70,7 +72,7 @@ public class V1TopologySpreadConstraintFluent<A extends io.kubernetes.client.ope
   
   public A addToMatchLabelKeys(int index,String item) {
     if (this.matchLabelKeys == null) {
-      this.matchLabelKeys = new ArrayList();
+      this.matchLabelKeys = new ArrayList<>();
     }
     this.matchLabelKeys.add(index, item);
     return (A) this;
@@ -116,7 +118,7 @@ public class V1TopologySpreadConstraintFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V1TopologySpreadConstraintFluent that = (V1TopologySpreadConstraintFluent) o;
+    V1TopologySpreadConstraintFluent<?> that = (V1TopologySpreadConstraintFluent<?>) o;
     if (!(Objects.equals(labelSelector, that.labelSelector))) {
       return false;
     }
@@ -260,7 +262,7 @@ public class V1TopologySpreadConstraintFluent<A extends io.kubernetes.client.ope
   
   public A setToMatchLabelKeys(int index,String item) {
     if (this.matchLabelKeys == null) {
-      this.matchLabelKeys = new ArrayList();
+      this.matchLabelKeys = new ArrayList<>();
     }
     this.matchLabelKeys.set(index, item);
     return (A) this;
@@ -318,15 +320,15 @@ public class V1TopologySpreadConstraintFluent<A extends io.kubernetes.client.ope
         this.labelSelector = new V1LabelSelectorBuilder(labelSelector);
         this._visitables.get("labelSelector").add(this.labelSelector);
     } else {
-        this.labelSelector = null;
         this._visitables.get("labelSelector").remove(this.labelSelector);
+        this.labelSelector = null;
     }
     return (A) this;
   }
   
   public A withMatchLabelKeys(List<String> matchLabelKeys) {
     if (matchLabelKeys != null) {
-        this.matchLabelKeys = new ArrayList();
+        this.matchLabelKeys = new ArrayList<>();
         for (String item : matchLabelKeys) {
           this.addToMatchLabelKeys(item);
         }
@@ -360,11 +362,11 @@ public class V1TopologySpreadConstraintFluent<A extends io.kubernetes.client.ope
   }
   
   public LabelSelectorNested<A> withNewLabelSelector() {
-    return new LabelSelectorNested(null);
+    return new LabelSelectorNested<>(null);
   }
   
   public LabelSelectorNested<A> withNewLabelSelectorLike(V1LabelSelector item) {
-    return new LabelSelectorNested(item);
+    return new LabelSelectorNested<>(item);
   }
   
   public A withNodeAffinityPolicy(String nodeAffinityPolicy) {

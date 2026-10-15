@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CapacityRequestPolicyRangeFluent<A extends io.kubernetes.client.openapi.models.V1CapacityRequestPolicyRangeFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CapacityRequestPolicyRangeFluent<A extends V1CapacityRequestPolicyRangeFluent<A>> extends BaseFluent<A>{
 
   private Quantity max;
   private Quantity min;
@@ -56,7 +58,7 @@ public class V1CapacityRequestPolicyRangeFluent<A extends io.kubernetes.client.o
     if (!(super.equals(o))) {
       return false;
     }
-    V1CapacityRequestPolicyRangeFluent that = (V1CapacityRequestPolicyRangeFluent) o;
+    V1CapacityRequestPolicyRangeFluent<?> that = (V1CapacityRequestPolicyRangeFluent<?>) o;
     if (!(Objects.equals(max, that.max))) {
       return false;
     }

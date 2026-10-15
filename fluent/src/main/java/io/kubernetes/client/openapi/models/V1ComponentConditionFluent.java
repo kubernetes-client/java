@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ComponentConditionFluent<A extends io.kubernetes.client.openapi.models.V1ComponentConditionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ComponentConditionFluent<A extends V1ComponentConditionFluent<A>> extends BaseFluent<A>{
 
   private String error;
   private String message;
@@ -57,7 +59,7 @@ public class V1ComponentConditionFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1ComponentConditionFluent that = (V1ComponentConditionFluent) o;
+    V1ComponentConditionFluent<?> that = (V1ComponentConditionFluent<?>) o;
     if (!(Objects.equals(error, that.error))) {
       return false;
     }

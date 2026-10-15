@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class ApiregistrationV1ServiceReferenceFluent<A extends io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class ApiregistrationV1ServiceReferenceFluent<A extends ApiregistrationV1ServiceReferenceFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private String namespace;
@@ -56,7 +58,7 @@ public class ApiregistrationV1ServiceReferenceFluent<A extends io.kubernetes.cli
     if (!(super.equals(o))) {
       return false;
     }
-    ApiregistrationV1ServiceReferenceFluent that = (ApiregistrationV1ServiceReferenceFluent) o;
+    ApiregistrationV1ServiceReferenceFluent<?> that = (ApiregistrationV1ServiceReferenceFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

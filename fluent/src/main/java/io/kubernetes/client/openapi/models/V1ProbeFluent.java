@@ -22,12 +22,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1ProbeFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ProbeFluent<A extends V1ProbeFluent<A>> extends BaseFluent<A>{
 
   private V1ExecActionBuilder exec;
   private Integer failureThreshold;
@@ -137,7 +139,7 @@ public class V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1Probe
     if (!(super.equals(o))) {
       return false;
     }
-    V1ProbeFluent that = (V1ProbeFluent) o;
+    V1ProbeFluent<?> that = (V1ProbeFluent<?>) o;
     if (!(Objects.equals(exec, that.exec))) {
       return false;
     }
@@ -301,8 +303,8 @@ public class V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1Probe
         this.exec = new V1ExecActionBuilder(exec);
         this._visitables.get("exec").add(this.exec);
     } else {
-        this.exec = null;
         this._visitables.get("exec").remove(this.exec);
+        this.exec = null;
     }
     return (A) this;
   }
@@ -318,8 +320,8 @@ public class V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1Probe
         this.grpc = new V1GRPCActionBuilder(grpc);
         this._visitables.get("grpc").add(this.grpc);
     } else {
-        this.grpc = null;
         this._visitables.get("grpc").remove(this.grpc);
+        this.grpc = null;
     }
     return (A) this;
   }
@@ -330,8 +332,8 @@ public class V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1Probe
         this.httpGet = new V1HTTPGetActionBuilder(httpGet);
         this._visitables.get("httpGet").add(this.httpGet);
     } else {
-        this.httpGet = null;
         this._visitables.get("httpGet").remove(this.httpGet);
+        this.httpGet = null;
     }
     return (A) this;
   }
@@ -342,35 +344,35 @@ public class V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1Probe
   }
   
   public ExecNested<A> withNewExec() {
-    return new ExecNested(null);
+    return new ExecNested<>(null);
   }
   
   public ExecNested<A> withNewExecLike(V1ExecAction item) {
-    return new ExecNested(item);
+    return new ExecNested<>(item);
   }
   
   public GrpcNested<A> withNewGrpc() {
-    return new GrpcNested(null);
+    return new GrpcNested<>(null);
   }
   
   public GrpcNested<A> withNewGrpcLike(V1GRPCAction item) {
-    return new GrpcNested(item);
+    return new GrpcNested<>(item);
   }
   
   public HttpGetNested<A> withNewHttpGet() {
-    return new HttpGetNested(null);
+    return new HttpGetNested<>(null);
   }
   
   public HttpGetNested<A> withNewHttpGetLike(V1HTTPGetAction item) {
-    return new HttpGetNested(item);
+    return new HttpGetNested<>(item);
   }
   
   public TcpSocketNested<A> withNewTcpSocket() {
-    return new TcpSocketNested(null);
+    return new TcpSocketNested<>(null);
   }
   
   public TcpSocketNested<A> withNewTcpSocketLike(V1TCPSocketAction item) {
-    return new TcpSocketNested(item);
+    return new TcpSocketNested<>(item);
   }
   
   public A withPeriodSeconds(Integer periodSeconds) {
@@ -389,8 +391,8 @@ public class V1ProbeFluent<A extends io.kubernetes.client.openapi.models.V1Probe
         this.tcpSocket = new V1TCPSocketActionBuilder(tcpSocket);
         this._visitables.get("tcpSocket").add(this.tcpSocket);
     } else {
-        this.tcpSocket = null;
         this._visitables.get("tcpSocket").remove(this.tcpSocket);
+        this.tcpSocket = null;
     }
     return (A) this;
   }

@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SysctlFluent<A extends io.kubernetes.client.openapi.models.V1SysctlFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SysctlFluent<A extends V1SysctlFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private String value;
@@ -53,7 +55,7 @@ public class V1SysctlFluent<A extends io.kubernetes.client.openapi.models.V1Sysc
     if (!(super.equals(o))) {
       return false;
     }
-    V1SysctlFluent that = (V1SysctlFluent) o;
+    V1SysctlFluent<?> that = (V1SysctlFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

@@ -23,12 +23,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V1APIResourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1APIResourceFluent<A extends V1APIResourceFluent<A>> extends BaseFluent<A>{
 
   private List<String> categories;
   private String group;
@@ -50,7 +52,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
 
   public A addAllToCategories(Collection<String> items) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     for (String item : items) {
       this.categories.add(item);
@@ -60,7 +62,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addAllToShortNames(Collection<String> items) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     for (String item : items) {
       this.shortNames.add(item);
@@ -70,7 +72,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addAllToVerbs(Collection<String> items) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     for (String item : items) {
       this.verbs.add(item);
@@ -80,7 +82,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToCategories(String... items) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     for (String item : items) {
       this.categories.add(item);
@@ -90,7 +92,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToCategories(int index,String item) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     this.categories.add(index, item);
     return (A) this;
@@ -98,7 +100,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToShortNames(String... items) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     for (String item : items) {
       this.shortNames.add(item);
@@ -108,7 +110,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToShortNames(int index,String item) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     this.shortNames.add(index, item);
     return (A) this;
@@ -116,7 +118,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToVerbs(String... items) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     for (String item : items) {
       this.verbs.add(item);
@@ -126,7 +128,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToVerbs(int index,String item) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     this.verbs.add(index, item);
     return (A) this;
@@ -158,7 +160,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1APIResourceFluent that = (V1APIResourceFluent) o;
+    V1APIResourceFluent<?> that = (V1APIResourceFluent<?>) o;
     if (!(Objects.equals(categories, that.categories))) {
       return false;
     }
@@ -428,7 +430,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A setToCategories(int index,String item) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     this.categories.set(index, item);
     return (A) this;
@@ -436,7 +438,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A setToShortNames(int index,String item) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     this.shortNames.set(index, item);
     return (A) this;
@@ -444,7 +446,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A setToVerbs(int index,String item) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     this.verbs.set(index, item);
     return (A) this;
@@ -508,7 +510,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A withCategories(List<String> categories) {
     if (categories != null) {
-        this.categories = new ArrayList();
+        this.categories = new ArrayList<>();
         for (String item : categories) {
           this.addToCategories(item);
         }
@@ -557,7 +559,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A withShortNames(List<String> shortNames) {
     if (shortNames != null) {
-        this.shortNames = new ArrayList();
+        this.shortNames = new ArrayList<>();
         for (String item : shortNames) {
           this.addToShortNames(item);
         }
@@ -592,7 +594,7 @@ public class V1APIResourceFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A withVerbs(List<String> verbs) {
     if (verbs != null) {
-        this.verbs = new ArrayList();
+        this.verbs = new ArrayList<>();
         for (String item : verbs) {
           this.addToVerbs(item);
         }

@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1PodCertificateProjectionBuilder extends V1PodCertificateProjectionFluent<V1PodCertificateProjectionBuilder> implements VisitableBuilder<V1PodCertificateProjection,V1PodCertificateProjectionBuilder>{
 
   V1PodCertificateProjectionFluent<?> fluent;
@@ -44,6 +45,7 @@ public class V1PodCertificateProjectionBuilder extends V1PodCertificateProjectio
     buildable.setKeyType(fluent.getKeyType());
     buildable.setMaxExpirationSeconds(fluent.getMaxExpirationSeconds());
     buildable.setSignerName(fluent.getSignerName());
+    buildable.setUser(fluent.getUser());
     buildable.setUserAnnotations(fluent.getUserAnnotations());
     return buildable;
   }

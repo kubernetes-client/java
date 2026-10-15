@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodReadinessGateFluent<A extends io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodReadinessGateFluent<A extends V1PodReadinessGateFluent<A>> extends BaseFluent<A>{
 
   private String conditionType;
 
@@ -51,7 +53,7 @@ public class V1PodReadinessGateFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodReadinessGateFluent that = (V1PodReadinessGateFluent) o;
+    V1PodReadinessGateFluent<?> that = (V1PodReadinessGateFluent<?>) o;
     if (!(Objects.equals(conditionType, that.conditionType))) {
       return false;
     }

@@ -23,12 +23,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CronJobSpecFluent<A extends io.kubernetes.client.openapi.models.V1CronJobSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CronJobSpecFluent<A extends V1CronJobSpecFluent<A>> extends BaseFluent<A>{
 
   private String concurrencyPolicy;
   private Integer failedJobsHistoryLimit;
@@ -86,7 +88,7 @@ public class V1CronJobSpecFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1CronJobSpecFluent that = (V1CronJobSpecFluent) o;
+    V1CronJobSpecFluent<?> that = (V1CronJobSpecFluent<?>) o;
     if (!(Objects.equals(concurrencyPolicy, that.concurrencyPolicy))) {
       return false;
     }
@@ -240,18 +242,18 @@ public class V1CronJobSpecFluent<A extends io.kubernetes.client.openapi.models.V
         this.jobTemplate = new V1JobTemplateSpecBuilder(jobTemplate);
         this._visitables.get("jobTemplate").add(this.jobTemplate);
     } else {
-        this.jobTemplate = null;
         this._visitables.get("jobTemplate").remove(this.jobTemplate);
+        this.jobTemplate = null;
     }
     return (A) this;
   }
   
   public JobTemplateNested<A> withNewJobTemplate() {
-    return new JobTemplateNested(null);
+    return new JobTemplateNested<>(null);
   }
   
   public JobTemplateNested<A> withNewJobTemplateLike(V1JobTemplateSpec item) {
-    return new JobTemplateNested(item);
+    return new JobTemplateNested<>(item);
   }
   
   public A withSchedule(String schedule) {

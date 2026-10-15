@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SelfSubjectReviewFluent<A extends io.kubernetes.client.openapi.models.V1SelfSubjectReviewFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SelfSubjectReviewFluent<A extends V1SelfSubjectReviewFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -91,7 +93,7 @@ public class V1SelfSubjectReviewFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1SelfSubjectReviewFluent that = (V1SelfSubjectReviewFluent) o;
+    V1SelfSubjectReviewFluent<?> that = (V1SelfSubjectReviewFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -177,26 +179,26 @@ public class V1SelfSubjectReviewFluent<A extends io.kubernetes.client.openapi.mo
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public StatusNested<A> withNewStatus() {
-    return new StatusNested(null);
+    return new StatusNested<>(null);
   }
   
   public StatusNested<A> withNewStatusLike(V1SelfSubjectReviewStatus item) {
-    return new StatusNested(item);
+    return new StatusNested<>(item);
   }
   
   public A withStatus(V1SelfSubjectReviewStatus status) {
@@ -205,8 +207,8 @@ public class V1SelfSubjectReviewFluent<A extends io.kubernetes.client.openapi.mo
         this.status = new V1SelfSubjectReviewStatusBuilder(status);
         this._visitables.get("status").add(this.status);
     } else {
-        this.status = null;
         this._visitables.get("status").remove(this.status);
+        this.status = null;
     }
     return (A) this;
   }

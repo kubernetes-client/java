@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VolumeStatusFluent<A extends io.kubernetes.client.openapi.models.V1VolumeStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VolumeStatusFluent<A extends V1VolumeStatusFluent<A>> extends BaseFluent<A>{
 
   private V1ImageVolumeStatusBuilder image;
 
@@ -69,7 +71,7 @@ public class V1VolumeStatusFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1VolumeStatusFluent that = (V1VolumeStatusFluent) o;
+    V1VolumeStatusFluent<?> that = (V1VolumeStatusFluent<?>) o;
     if (!(Objects.equals(image, that.image))) {
       return false;
     }
@@ -101,18 +103,18 @@ public class V1VolumeStatusFluent<A extends io.kubernetes.client.openapi.models.
         this.image = new V1ImageVolumeStatusBuilder(image);
         this._visitables.get("image").add(this.image);
     } else {
-        this.image = null;
         this._visitables.get("image").remove(this.image);
+        this.image = null;
     }
     return (A) this;
   }
   
   public ImageNested<A> withNewImage() {
-    return new ImageNested(null);
+    return new ImageNested<>(null);
   }
   
   public ImageNested<A> withNewImageLike(V1ImageVolumeStatus item) {
-    return new ImageNested(item);
+    return new ImageNested<>(item);
   }
   public class ImageNested<N> extends V1ImageVolumeStatusFluent<ImageNested<N>> implements Nested<N>{
   

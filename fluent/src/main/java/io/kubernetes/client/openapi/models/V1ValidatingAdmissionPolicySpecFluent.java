@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.client.openapi.models.V1ValidatingAdmissionPolicySpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ValidatingAdmissionPolicySpecFluent<A extends V1ValidatingAdmissionPolicySpecFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1AuditAnnotationBuilder> auditAnnotations;
   private String failurePolicy;
@@ -50,7 +52,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
 
   public A addAllToAuditAnnotations(Collection<V1AuditAnnotation> items) {
     if (this.auditAnnotations == null) {
-      this.auditAnnotations = new ArrayList();
+      this.auditAnnotations = new ArrayList<>();
     }
     for (V1AuditAnnotation item : items) {
         V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
@@ -62,7 +64,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A addAllToMatchConditions(Collection<V1MatchCondition> items) {
     if (this.matchConditions == null) {
-      this.matchConditions = new ArrayList();
+      this.matchConditions = new ArrayList<>();
     }
     for (V1MatchCondition item : items) {
         V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
@@ -74,7 +76,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A addAllToValidations(Collection<V1Validation> items) {
     if (this.validations == null) {
-      this.validations = new ArrayList();
+      this.validations = new ArrayList<>();
     }
     for (V1Validation item : items) {
         V1ValidationBuilder builder = new V1ValidationBuilder(item);
@@ -86,7 +88,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A addAllToVariables(Collection<V1Variable> items) {
     if (this.variables == null) {
-      this.variables = new ArrayList();
+      this.variables = new ArrayList<>();
     }
     for (V1Variable item : items) {
         V1VariableBuilder builder = new V1VariableBuilder(item);
@@ -97,40 +99,40 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   }
   
   public AuditAnnotationsNested<A> addNewAuditAnnotation() {
-    return new AuditAnnotationsNested(-1, null);
+    return new AuditAnnotationsNested<>(-1, null);
   }
   
   public AuditAnnotationsNested<A> addNewAuditAnnotationLike(V1AuditAnnotation item) {
-    return new AuditAnnotationsNested(-1, item);
+    return new AuditAnnotationsNested<>(-1, item);
   }
   
   public MatchConditionsNested<A> addNewMatchCondition() {
-    return new MatchConditionsNested(-1, null);
+    return new MatchConditionsNested<>(-1, null);
   }
   
   public MatchConditionsNested<A> addNewMatchConditionLike(V1MatchCondition item) {
-    return new MatchConditionsNested(-1, item);
+    return new MatchConditionsNested<>(-1, item);
   }
   
   public ValidationsNested<A> addNewValidation() {
-    return new ValidationsNested(-1, null);
+    return new ValidationsNested<>(-1, null);
   }
   
   public ValidationsNested<A> addNewValidationLike(V1Validation item) {
-    return new ValidationsNested(-1, item);
+    return new ValidationsNested<>(-1, item);
   }
   
   public VariablesNested<A> addNewVariable() {
-    return new VariablesNested(-1, null);
+    return new VariablesNested<>(-1, null);
   }
   
   public VariablesNested<A> addNewVariableLike(V1Variable item) {
-    return new VariablesNested(-1, item);
+    return new VariablesNested<>(-1, item);
   }
   
   public A addToAuditAnnotations(V1AuditAnnotation... items) {
     if (this.auditAnnotations == null) {
-      this.auditAnnotations = new ArrayList();
+      this.auditAnnotations = new ArrayList<>();
     }
     for (V1AuditAnnotation item : items) {
         V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
@@ -142,7 +144,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A addToAuditAnnotations(int index,V1AuditAnnotation item) {
     if (this.auditAnnotations == null) {
-      this.auditAnnotations = new ArrayList();
+      this.auditAnnotations = new ArrayList<>();
     }
     V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
     if (index < 0 || index >= this.auditAnnotations.size()) {
@@ -157,7 +159,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A addToMatchConditions(V1MatchCondition... items) {
     if (this.matchConditions == null) {
-      this.matchConditions = new ArrayList();
+      this.matchConditions = new ArrayList<>();
     }
     for (V1MatchCondition item : items) {
         V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
@@ -169,7 +171,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A addToMatchConditions(int index,V1MatchCondition item) {
     if (this.matchConditions == null) {
-      this.matchConditions = new ArrayList();
+      this.matchConditions = new ArrayList<>();
     }
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
     if (index < 0 || index >= this.matchConditions.size()) {
@@ -184,7 +186,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A addToValidations(V1Validation... items) {
     if (this.validations == null) {
-      this.validations = new ArrayList();
+      this.validations = new ArrayList<>();
     }
     for (V1Validation item : items) {
         V1ValidationBuilder builder = new V1ValidationBuilder(item);
@@ -196,7 +198,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A addToValidations(int index,V1Validation item) {
     if (this.validations == null) {
-      this.validations = new ArrayList();
+      this.validations = new ArrayList<>();
     }
     V1ValidationBuilder builder = new V1ValidationBuilder(item);
     if (index < 0 || index >= this.validations.size()) {
@@ -211,7 +213,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A addToVariables(V1Variable... items) {
     if (this.variables == null) {
-      this.variables = new ArrayList();
+      this.variables = new ArrayList<>();
     }
     for (V1Variable item : items) {
         V1VariableBuilder builder = new V1VariableBuilder(item);
@@ -223,7 +225,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A addToVariables(int index,V1Variable item) {
     if (this.variables == null) {
-      this.variables = new ArrayList();
+      this.variables = new ArrayList<>();
     }
     V1VariableBuilder builder = new V1VariableBuilder(item);
     if (index < 0 || index >= this.variables.size()) {
@@ -535,7 +537,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
     if (!(super.equals(o))) {
       return false;
     }
-    V1ValidatingAdmissionPolicySpecFluent that = (V1ValidatingAdmissionPolicySpecFluent) o;
+    V1ValidatingAdmissionPolicySpecFluent<?> that = (V1ValidatingAdmissionPolicySpecFluent<?>) o;
     if (!(Objects.equals(auditAnnotations, that.auditAnnotations))) {
       return false;
     }
@@ -733,6 +735,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       return (A) this;
     }
     Iterator<V1AuditAnnotationBuilder> each = auditAnnotations.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("auditAnnotations");
     while (each.hasNext()) {
         V1AuditAnnotationBuilder builder = each.next();
@@ -749,6 +752,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       return (A) this;
     }
     Iterator<V1MatchConditionBuilder> each = matchConditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("matchConditions");
     while (each.hasNext()) {
         V1MatchConditionBuilder builder = each.next();
@@ -765,6 +769,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       return (A) this;
     }
     Iterator<V1ValidationBuilder> each = validations.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("validations");
     while (each.hasNext()) {
         V1ValidationBuilder builder = each.next();
@@ -781,6 +786,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       return (A) this;
     }
     Iterator<V1VariableBuilder> each = variables.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("variables");
     while (each.hasNext()) {
         V1VariableBuilder builder = each.next();
@@ -793,24 +799,24 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   }
   
   public AuditAnnotationsNested<A> setNewAuditAnnotationLike(int index,V1AuditAnnotation item) {
-    return new AuditAnnotationsNested(index, item);
+    return new AuditAnnotationsNested<>(index, item);
   }
   
   public MatchConditionsNested<A> setNewMatchConditionLike(int index,V1MatchCondition item) {
-    return new MatchConditionsNested(index, item);
+    return new MatchConditionsNested<>(index, item);
   }
   
   public ValidationsNested<A> setNewValidationLike(int index,V1Validation item) {
-    return new ValidationsNested(index, item);
+    return new ValidationsNested<>(index, item);
   }
   
   public VariablesNested<A> setNewVariableLike(int index,V1Variable item) {
-    return new VariablesNested(index, item);
+    return new VariablesNested<>(index, item);
   }
   
   public A setToAuditAnnotations(int index,V1AuditAnnotation item) {
     if (this.auditAnnotations == null) {
-      this.auditAnnotations = new ArrayList();
+      this.auditAnnotations = new ArrayList<>();
     }
     V1AuditAnnotationBuilder builder = new V1AuditAnnotationBuilder(item);
     if (index < 0 || index >= this.auditAnnotations.size()) {
@@ -825,7 +831,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A setToMatchConditions(int index,V1MatchCondition item) {
     if (this.matchConditions == null) {
-      this.matchConditions = new ArrayList();
+      this.matchConditions = new ArrayList<>();
     }
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
     if (index < 0 || index >= this.matchConditions.size()) {
@@ -840,7 +846,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A setToValidations(int index,V1Validation item) {
     if (this.validations == null) {
-      this.validations = new ArrayList();
+      this.validations = new ArrayList<>();
     }
     V1ValidationBuilder builder = new V1ValidationBuilder(item);
     if (index < 0 || index >= this.validations.size()) {
@@ -855,7 +861,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
   
   public A setToVariables(int index,V1Variable item) {
     if (this.variables == null) {
-      this.variables = new ArrayList();
+      this.variables = new ArrayList<>();
     }
     V1VariableBuilder builder = new V1VariableBuilder(item);
     if (index < 0 || index >= this.variables.size()) {
@@ -914,7 +920,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this._visitables.get("auditAnnotations").clear();
     }
     if (auditAnnotations != null) {
-        this.auditAnnotations = new ArrayList();
+        this.auditAnnotations = new ArrayList<>();
         for (V1AuditAnnotation item : auditAnnotations) {
           this.addToAuditAnnotations(item);
         }
@@ -947,7 +953,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this._visitables.get("matchConditions").clear();
     }
     if (matchConditions != null) {
-        this.matchConditions = new ArrayList();
+        this.matchConditions = new ArrayList<>();
         for (V1MatchCondition item : matchConditions) {
           this.addToMatchConditions(item);
         }
@@ -976,26 +982,26 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
         this.matchConstraints = new V1MatchResourcesBuilder(matchConstraints);
         this._visitables.get("matchConstraints").add(this.matchConstraints);
     } else {
-        this.matchConstraints = null;
         this._visitables.get("matchConstraints").remove(this.matchConstraints);
+        this.matchConstraints = null;
     }
     return (A) this;
   }
   
   public MatchConstraintsNested<A> withNewMatchConstraints() {
-    return new MatchConstraintsNested(null);
+    return new MatchConstraintsNested<>(null);
   }
   
   public MatchConstraintsNested<A> withNewMatchConstraintsLike(V1MatchResources item) {
-    return new MatchConstraintsNested(item);
+    return new MatchConstraintsNested<>(item);
   }
   
   public ParamKindNested<A> withNewParamKind() {
-    return new ParamKindNested(null);
+    return new ParamKindNested<>(null);
   }
   
   public ParamKindNested<A> withNewParamKindLike(V1ParamKind item) {
-    return new ParamKindNested(item);
+    return new ParamKindNested<>(item);
   }
   
   public A withParamKind(V1ParamKind paramKind) {
@@ -1004,8 +1010,8 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
         this.paramKind = new V1ParamKindBuilder(paramKind);
         this._visitables.get("paramKind").add(this.paramKind);
     } else {
-        this.paramKind = null;
         this._visitables.get("paramKind").remove(this.paramKind);
+        this.paramKind = null;
     }
     return (A) this;
   }
@@ -1015,7 +1021,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this._visitables.get("validations").clear();
     }
     if (validations != null) {
-        this.validations = new ArrayList();
+        this.validations = new ArrayList<>();
         for (V1Validation item : validations) {
           this.addToValidations(item);
         }
@@ -1043,7 +1049,7 @@ public class V1ValidatingAdmissionPolicySpecFluent<A extends io.kubernetes.clien
       this._visitables.get("variables").clear();
     }
     if (variables != null) {
-        this.variables = new ArrayList();
+        this.variables = new ArrayList<>();
         for (V1Variable item : variables) {
           this.addToVariables(item);
         }

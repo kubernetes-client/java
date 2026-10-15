@@ -26,12 +26,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.openapi.models.V1SubjectRulesReviewStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SubjectRulesReviewStatusFluent<A extends V1SubjectRulesReviewStatusFluent<A>> extends BaseFluent<A>{
 
   private String evaluationError;
   private Boolean incomplete;
@@ -47,7 +49,7 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
 
   public A addAllToNonResourceRules(Collection<V1NonResourceRule> items) {
     if (this.nonResourceRules == null) {
-      this.nonResourceRules = new ArrayList();
+      this.nonResourceRules = new ArrayList<>();
     }
     for (V1NonResourceRule item : items) {
         V1NonResourceRuleBuilder builder = new V1NonResourceRuleBuilder(item);
@@ -59,7 +61,7 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
   
   public A addAllToResourceRules(Collection<V1ResourceRule> items) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     for (V1ResourceRule item : items) {
         V1ResourceRuleBuilder builder = new V1ResourceRuleBuilder(item);
@@ -70,24 +72,24 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
   }
   
   public NonResourceRulesNested<A> addNewNonResourceRule() {
-    return new NonResourceRulesNested(-1, null);
+    return new NonResourceRulesNested<>(-1, null);
   }
   
   public NonResourceRulesNested<A> addNewNonResourceRuleLike(V1NonResourceRule item) {
-    return new NonResourceRulesNested(-1, item);
+    return new NonResourceRulesNested<>(-1, item);
   }
   
   public ResourceRulesNested<A> addNewResourceRule() {
-    return new ResourceRulesNested(-1, null);
+    return new ResourceRulesNested<>(-1, null);
   }
   
   public ResourceRulesNested<A> addNewResourceRuleLike(V1ResourceRule item) {
-    return new ResourceRulesNested(-1, item);
+    return new ResourceRulesNested<>(-1, item);
   }
   
   public A addToNonResourceRules(V1NonResourceRule... items) {
     if (this.nonResourceRules == null) {
-      this.nonResourceRules = new ArrayList();
+      this.nonResourceRules = new ArrayList<>();
     }
     for (V1NonResourceRule item : items) {
         V1NonResourceRuleBuilder builder = new V1NonResourceRuleBuilder(item);
@@ -99,7 +101,7 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
   
   public A addToNonResourceRules(int index,V1NonResourceRule item) {
     if (this.nonResourceRules == null) {
-      this.nonResourceRules = new ArrayList();
+      this.nonResourceRules = new ArrayList<>();
     }
     V1NonResourceRuleBuilder builder = new V1NonResourceRuleBuilder(item);
     if (index < 0 || index >= this.nonResourceRules.size()) {
@@ -114,7 +116,7 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
   
   public A addToResourceRules(V1ResourceRule... items) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     for (V1ResourceRule item : items) {
         V1ResourceRuleBuilder builder = new V1ResourceRuleBuilder(item);
@@ -126,7 +128,7 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
   
   public A addToResourceRules(int index,V1ResourceRule item) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     V1ResourceRuleBuilder builder = new V1ResourceRuleBuilder(item);
     if (index < 0 || index >= this.resourceRules.size()) {
@@ -281,7 +283,7 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V1SubjectRulesReviewStatusFluent that = (V1SubjectRulesReviewStatusFluent) o;
+    V1SubjectRulesReviewStatusFluent<?> that = (V1SubjectRulesReviewStatusFluent<?>) o;
     if (!(Objects.equals(evaluationError, that.evaluationError))) {
       return false;
     }
@@ -396,6 +398,7 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
       return (A) this;
     }
     Iterator<V1NonResourceRuleBuilder> each = nonResourceRules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("nonResourceRules");
     while (each.hasNext()) {
         V1NonResourceRuleBuilder builder = each.next();
@@ -412,6 +415,7 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
       return (A) this;
     }
     Iterator<V1ResourceRuleBuilder> each = resourceRules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("resourceRules");
     while (each.hasNext()) {
         V1ResourceRuleBuilder builder = each.next();
@@ -424,16 +428,16 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
   }
   
   public NonResourceRulesNested<A> setNewNonResourceRuleLike(int index,V1NonResourceRule item) {
-    return new NonResourceRulesNested(index, item);
+    return new NonResourceRulesNested<>(index, item);
   }
   
   public ResourceRulesNested<A> setNewResourceRuleLike(int index,V1ResourceRule item) {
-    return new ResourceRulesNested(index, item);
+    return new ResourceRulesNested<>(index, item);
   }
   
   public A setToNonResourceRules(int index,V1NonResourceRule item) {
     if (this.nonResourceRules == null) {
-      this.nonResourceRules = new ArrayList();
+      this.nonResourceRules = new ArrayList<>();
     }
     V1NonResourceRuleBuilder builder = new V1NonResourceRuleBuilder(item);
     if (index < 0 || index >= this.nonResourceRules.size()) {
@@ -448,7 +452,7 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
   
   public A setToResourceRules(int index,V1ResourceRule item) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     V1ResourceRuleBuilder builder = new V1ResourceRuleBuilder(item);
     if (index < 0 || index >= this.resourceRules.size()) {
@@ -506,7 +510,7 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
       this._visitables.get("nonResourceRules").clear();
     }
     if (nonResourceRules != null) {
-        this.nonResourceRules = new ArrayList();
+        this.nonResourceRules = new ArrayList<>();
         for (V1NonResourceRule item : nonResourceRules) {
           this.addToNonResourceRules(item);
         }
@@ -534,7 +538,7 @@ public class V1SubjectRulesReviewStatusFluent<A extends io.kubernetes.client.ope
       this._visitables.get("resourceRules").clear();
     }
     if (resourceRules != null) {
-        this.resourceRules = new ArrayList();
+        this.resourceRules = new ArrayList<>();
         for (V1ResourceRule item : resourceRules) {
           this.addToResourceRules(item);
         }

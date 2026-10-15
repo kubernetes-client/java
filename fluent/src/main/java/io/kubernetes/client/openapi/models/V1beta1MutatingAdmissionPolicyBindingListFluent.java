@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1MutatingAdmissionPolicyBindingListFluent<A extends io.kubernetes.client.openapi.models.V1beta1MutatingAdmissionPolicyBindingListFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1MutatingAdmissionPolicyBindingListFluent<A extends V1beta1MutatingAdmissionPolicyBindingListFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private ArrayList<V1beta1MutatingAdmissionPolicyBindingBuilder> items;
@@ -47,7 +49,7 @@ public class V1beta1MutatingAdmissionPolicyBindingListFluent<A extends io.kubern
 
   public A addAllToItems(Collection<V1beta1MutatingAdmissionPolicyBinding> items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1beta1MutatingAdmissionPolicyBinding item : items) {
         V1beta1MutatingAdmissionPolicyBindingBuilder builder = new V1beta1MutatingAdmissionPolicyBindingBuilder(item);
@@ -58,16 +60,16 @@ public class V1beta1MutatingAdmissionPolicyBindingListFluent<A extends io.kubern
   }
   
   public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
+    return new ItemsNested<>(-1, null);
   }
   
   public ItemsNested<A> addNewItemLike(V1beta1MutatingAdmissionPolicyBinding item) {
-    return new ItemsNested(-1, item);
+    return new ItemsNested<>(-1, item);
   }
   
   public A addToItems(V1beta1MutatingAdmissionPolicyBinding... items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1beta1MutatingAdmissionPolicyBinding item : items) {
         V1beta1MutatingAdmissionPolicyBindingBuilder builder = new V1beta1MutatingAdmissionPolicyBindingBuilder(item);
@@ -79,7 +81,7 @@ public class V1beta1MutatingAdmissionPolicyBindingListFluent<A extends io.kubern
   
   public A addToItems(int index,V1beta1MutatingAdmissionPolicyBinding item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1beta1MutatingAdmissionPolicyBindingBuilder builder = new V1beta1MutatingAdmissionPolicyBindingBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -189,7 +191,7 @@ public class V1beta1MutatingAdmissionPolicyBindingListFluent<A extends io.kubern
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1MutatingAdmissionPolicyBindingListFluent that = (V1beta1MutatingAdmissionPolicyBindingListFluent) o;
+    V1beta1MutatingAdmissionPolicyBindingListFluent<?> that = (V1beta1MutatingAdmissionPolicyBindingListFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -271,6 +273,7 @@ public class V1beta1MutatingAdmissionPolicyBindingListFluent<A extends io.kubern
       return (A) this;
     }
     Iterator<V1beta1MutatingAdmissionPolicyBindingBuilder> each = items.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("items");
     while (each.hasNext()) {
         V1beta1MutatingAdmissionPolicyBindingBuilder builder = each.next();
@@ -283,12 +286,12 @@ public class V1beta1MutatingAdmissionPolicyBindingListFluent<A extends io.kubern
   }
   
   public ItemsNested<A> setNewItemLike(int index,V1beta1MutatingAdmissionPolicyBinding item) {
-    return new ItemsNested(index, item);
+    return new ItemsNested<>(index, item);
   }
   
   public A setToItems(int index,V1beta1MutatingAdmissionPolicyBinding item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1beta1MutatingAdmissionPolicyBindingBuilder builder = new V1beta1MutatingAdmissionPolicyBindingBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -337,7 +340,7 @@ public class V1beta1MutatingAdmissionPolicyBindingListFluent<A extends io.kubern
       this._visitables.get("items").clear();
     }
     if (items != null) {
-        this.items = new ArrayList();
+        this.items = new ArrayList<>();
         for (V1beta1MutatingAdmissionPolicyBinding item : items) {
           this.addToItems(item);
         }
@@ -371,18 +374,18 @@ public class V1beta1MutatingAdmissionPolicyBindingListFluent<A extends io.kubern
         this.metadata = new V1ListMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   public class ItemsNested<N> extends V1beta1MutatingAdmissionPolicyBindingFluent<ItemsNested<N>> implements Nested<N>{
   

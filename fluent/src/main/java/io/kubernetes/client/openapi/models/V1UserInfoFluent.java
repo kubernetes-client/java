@@ -24,12 +24,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.V1UserInfoFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1UserInfoFluent<A extends V1UserInfoFluent<A>> extends BaseFluent<A>{
 
   private Map<String,List<String>> extra;
   private List<String> groups;
@@ -45,7 +47,7 @@ public class V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.V1Us
 
   public A addAllToGroups(Collection<String> items) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     for (String item : items) {
       this.groups.add(item);
@@ -55,7 +57,7 @@ public class V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.V1Us
   
   public A addToExtra(Map<String,List<String>> map) {
     if (this.extra == null && map != null) {
-      this.extra = new LinkedHashMap();
+      this.extra = new LinkedHashMap<>();
     }
     if (map != null) {
       this.extra.putAll(map);
@@ -65,7 +67,7 @@ public class V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.V1Us
   
   public A addToExtra(String key,List<String> value) {
     if (this.extra == null && key != null && value != null) {
-      this.extra = new LinkedHashMap();
+      this.extra = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.extra.put(key, value);
@@ -75,7 +77,7 @@ public class V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.V1Us
   
   public A addToGroups(String... items) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     for (String item : items) {
       this.groups.add(item);
@@ -85,7 +87,7 @@ public class V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.V1Us
   
   public A addToGroups(int index,String item) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     this.groups.add(index, item);
     return (A) this;
@@ -111,7 +113,7 @@ public class V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.V1Us
     if (!(super.equals(o))) {
       return false;
     }
-    V1UserInfoFluent that = (V1UserInfoFluent) o;
+    V1UserInfoFluent<?> that = (V1UserInfoFluent<?>) o;
     if (!(Objects.equals(extra, that.extra))) {
       return false;
     }
@@ -239,7 +241,7 @@ public class V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.V1Us
   
   public A setToGroups(int index,String item) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     this.groups.set(index, item);
     return (A) this;
@@ -275,14 +277,14 @@ public class V1UserInfoFluent<A extends io.kubernetes.client.openapi.models.V1Us
     if (extra == null) {
       this.extra = null;
     } else {
-      this.extra = new LinkedHashMap(extra);
+      this.extra = new LinkedHashMap<>(extra);
     }
     return (A) this;
   }
   
   public A withGroups(List<String> groups) {
     if (groups != null) {
-        this.groups = new ArrayList();
+        this.groups = new ArrayList<>();
         for (String item : groups) {
           this.addToGroups(item);
         }

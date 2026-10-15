@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DeviceCapacityFluent<A extends io.kubernetes.client.openapi.models.V1DeviceCapacityFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DeviceCapacityFluent<A extends V1DeviceCapacityFluent<A>> extends BaseFluent<A>{
 
   private V1CapacityRequestPolicyBuilder requestPolicy;
   private Quantity value;
@@ -72,7 +74,7 @@ public class V1DeviceCapacityFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1DeviceCapacityFluent that = (V1DeviceCapacityFluent) o;
+    V1DeviceCapacityFluent<?> that = (V1DeviceCapacityFluent<?>) o;
     if (!(Objects.equals(requestPolicy, that.requestPolicy))) {
       return false;
     }
@@ -115,11 +117,11 @@ public class V1DeviceCapacityFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public RequestPolicyNested<A> withNewRequestPolicy() {
-    return new RequestPolicyNested(null);
+    return new RequestPolicyNested<>(null);
   }
   
   public RequestPolicyNested<A> withNewRequestPolicyLike(V1CapacityRequestPolicy item) {
-    return new RequestPolicyNested(item);
+    return new RequestPolicyNested<>(item);
   }
   
   public A withNewValue(String value) {
@@ -132,8 +134,8 @@ public class V1DeviceCapacityFluent<A extends io.kubernetes.client.openapi.model
         this.requestPolicy = new V1CapacityRequestPolicyBuilder(requestPolicy);
         this._visitables.get("requestPolicy").add(this.requestPolicy);
     } else {
-        this.requestPolicy = null;
         this._visitables.get("requestPolicy").remove(this.requestPolicy);
+        this.requestPolicy = null;
     }
     return (A) this;
   }

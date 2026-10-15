@@ -20,17 +20,20 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CSINodeFluent<A extends io.kubernetes.client.openapi.models.V1CSINodeFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CSINodeFluent<A extends V1CSINodeFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
   private V1ObjectMetaBuilder metadata;
   private V1CSINodeSpecBuilder spec;
+  private V1CSINodeStatusBuilder status;
 
   public V1CSINodeFluent() {
   }
@@ -47,6 +50,10 @@ public class V1CSINodeFluent<A extends io.kubernetes.client.openapi.models.V1CSI
     return this.spec != null ? this.spec.build() : null;
   }
   
+  public V1CSINodeStatus buildStatus() {
+    return this.status != null ? this.status.build() : null;
+  }
+  
   protected void copyInstance(V1CSINode instance) {
     instance = instance != null ? instance : new V1CSINode();
     if (instance != null) {
@@ -54,6 +61,7 @@ public class V1CSINodeFluent<A extends io.kubernetes.client.openapi.models.V1CSI
         this.withKind(instance.getKind());
         this.withMetadata(instance.getMetadata());
         this.withSpec(instance.getSpec());
+        this.withStatus(instance.getStatus());
     }
   }
   
@@ -77,8 +85,20 @@ public class V1CSINodeFluent<A extends io.kubernetes.client.openapi.models.V1CSI
     return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(item));
   }
   
+  public StatusNested<A> editOrNewStatus() {
+    return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(new V1CSINodeStatusBuilder().build()));
+  }
+  
+  public StatusNested<A> editOrNewStatusLike(V1CSINodeStatus item) {
+    return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(item));
+  }
+  
   public SpecNested<A> editSpec() {
     return this.withNewSpecLike(Optional.ofNullable(this.buildSpec()).orElse(null));
+  }
+  
+  public StatusNested<A> editStatus() {
+    return this.withNewStatusLike(Optional.ofNullable(this.buildStatus()).orElse(null));
   }
   
   public boolean equals(Object o) {
@@ -91,7 +111,7 @@ public class V1CSINodeFluent<A extends io.kubernetes.client.openapi.models.V1CSI
     if (!(super.equals(o))) {
       return false;
     }
-    V1CSINodeFluent that = (V1CSINodeFluent) o;
+    V1CSINodeFluent<?> that = (V1CSINodeFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -102,6 +122,9 @@ public class V1CSINodeFluent<A extends io.kubernetes.client.openapi.models.V1CSI
       return false;
     }
     if (!(Objects.equals(spec, that.spec))) {
+      return false;
+    }
+    if (!(Objects.equals(status, that.status))) {
       return false;
     }
     return true;
@@ -131,8 +154,12 @@ public class V1CSINodeFluent<A extends io.kubernetes.client.openapi.models.V1CSI
     return this.spec != null;
   }
   
+  public boolean hasStatus() {
+    return this.status != null;
+  }
+  
   public int hashCode() {
-    return Objects.hash(apiVersion, kind, metadata, spec);
+    return Objects.hash(apiVersion, kind, metadata, spec, status);
   }
   
   public String toString() {
@@ -156,6 +183,11 @@ public class V1CSINodeFluent<A extends io.kubernetes.client.openapi.models.V1CSI
     if (!(spec == null)) {
         sb.append("spec:");
         sb.append(spec);
+        sb.append(",");
+    }
+    if (!(status == null)) {
+        sb.append("status:");
+        sb.append(status);
     }
     sb.append("}");
     return sb.toString();
@@ -177,26 +209,34 @@ public class V1CSINodeFluent<A extends io.kubernetes.client.openapi.models.V1CSI
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public SpecNested<A> withNewSpec() {
-    return new SpecNested(null);
+    return new SpecNested<>(null);
   }
   
   public SpecNested<A> withNewSpecLike(V1CSINodeSpec item) {
-    return new SpecNested(item);
+    return new SpecNested<>(item);
+  }
+  
+  public StatusNested<A> withNewStatus() {
+    return new StatusNested<>(null);
+  }
+  
+  public StatusNested<A> withNewStatusLike(V1CSINodeStatus item) {
+    return new StatusNested<>(item);
   }
   
   public A withSpec(V1CSINodeSpec spec) {
@@ -205,8 +245,20 @@ public class V1CSINodeFluent<A extends io.kubernetes.client.openapi.models.V1CSI
         this.spec = new V1CSINodeSpecBuilder(spec);
         this._visitables.get("spec").add(this.spec);
     } else {
-        this.spec = null;
         this._visitables.get("spec").remove(this.spec);
+        this.spec = null;
+    }
+    return (A) this;
+  }
+  
+  public A withStatus(V1CSINodeStatus status) {
+    this._visitables.remove("status");
+    if (status != null) {
+        this.status = new V1CSINodeStatusBuilder(status);
+        this._visitables.get("status").add(this.status);
+    } else {
+        this._visitables.get("status").remove(this.status);
+        this.status = null;
     }
     return (A) this;
   }
@@ -240,6 +292,23 @@ public class V1CSINodeFluent<A extends io.kubernetes.client.openapi.models.V1CSI
     }
     
     public N endSpec() {
+      return and();
+    }
+    
+  }
+  public class StatusNested<N> extends V1CSINodeStatusFluent<StatusNested<N>> implements Nested<N>{
+  
+    V1CSINodeStatusBuilder builder;
+  
+    StatusNested(V1CSINodeStatus item) {
+      this.builder = new V1CSINodeStatusBuilder(this, item);
+    }
+  
+    public N and() {
+      return (N) V1CSINodeFluent.this.withStatus(builder.build());
+    }
+    
+    public N endStatus() {
       return and();
     }
     

@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1beta1CapacityRequestPolicyBuilder extends V1beta1CapacityRequestPolicyFluent<V1beta1CapacityRequestPolicyBuilder> implements VisitableBuilder<V1beta1CapacityRequestPolicy,V1beta1CapacityRequestPolicyBuilder>{
 
   V1beta1CapacityRequestPolicyFluent<?> fluent;

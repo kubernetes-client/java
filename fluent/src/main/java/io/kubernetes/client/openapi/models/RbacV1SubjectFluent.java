@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class RbacV1SubjectFluent<A extends io.kubernetes.client.openapi.models.RbacV1SubjectFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class RbacV1SubjectFluent<A extends RbacV1SubjectFluent<A>> extends BaseFluent<A>{
 
   private String apiGroup;
   private String kind;
@@ -57,7 +59,7 @@ public class RbacV1SubjectFluent<A extends io.kubernetes.client.openapi.models.R
     if (!(super.equals(o))) {
       return false;
     }
-    RbacV1SubjectFluent that = (RbacV1SubjectFluent) o;
+    RbacV1SubjectFluent<?> that = (RbacV1SubjectFluent<?>) o;
     if (!(Objects.equals(apiGroup, that.apiGroup))) {
       return false;
     }

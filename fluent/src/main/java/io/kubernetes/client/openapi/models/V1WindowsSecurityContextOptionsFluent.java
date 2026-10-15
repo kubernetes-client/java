@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1WindowsSecurityContextOptionsFluent<A extends io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1WindowsSecurityContextOptionsFluent<A extends V1WindowsSecurityContextOptionsFluent<A>> extends BaseFluent<A>{
 
   private String gmsaCredentialSpec;
   private String gmsaCredentialSpecName;
@@ -58,7 +60,7 @@ public class V1WindowsSecurityContextOptionsFluent<A extends io.kubernetes.clien
     if (!(super.equals(o))) {
       return false;
     }
-    V1WindowsSecurityContextOptionsFluent that = (V1WindowsSecurityContextOptionsFluent) o;
+    V1WindowsSecurityContextOptionsFluent<?> that = (V1WindowsSecurityContextOptionsFluent<?>) o;
     if (!(Objects.equals(gmsaCredentialSpec, that.gmsaCredentialSpec))) {
       return false;
     }

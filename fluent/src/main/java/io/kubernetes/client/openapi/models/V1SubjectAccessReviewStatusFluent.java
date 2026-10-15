@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SubjectAccessReviewStatusFluent<A extends io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SubjectAccessReviewStatusFluent<A extends V1SubjectAccessReviewStatusFluent<A>> extends BaseFluent<A>{
 
   private Boolean allowed;
   private Boolean denied;
@@ -58,7 +60,7 @@ public class V1SubjectAccessReviewStatusFluent<A extends io.kubernetes.client.op
     if (!(super.equals(o))) {
       return false;
     }
-    V1SubjectAccessReviewStatusFluent that = (V1SubjectAccessReviewStatusFluent) o;
+    V1SubjectAccessReviewStatusFluent<?> that = (V1SubjectAccessReviewStatusFluent<?>) o;
     if (!(Objects.equals(allowed, that.allowed))) {
       return false;
     }

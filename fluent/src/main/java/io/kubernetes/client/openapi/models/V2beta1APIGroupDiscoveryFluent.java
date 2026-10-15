@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2beta1APIGroupDiscoveryFluent<A extends io.kubernetes.client.openapi.models.V2beta1APIGroupDiscoveryFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2beta1APIGroupDiscoveryFluent<A extends V2beta1APIGroupDiscoveryFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -47,7 +49,7 @@ public class V2beta1APIGroupDiscoveryFluent<A extends io.kubernetes.client.opena
 
   public A addAllToVersions(Collection<V2beta1APIVersionDiscovery> items) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     for (V2beta1APIVersionDiscovery item : items) {
         V2beta1APIVersionDiscoveryBuilder builder = new V2beta1APIVersionDiscoveryBuilder(item);
@@ -58,16 +60,16 @@ public class V2beta1APIGroupDiscoveryFluent<A extends io.kubernetes.client.opena
   }
   
   public VersionsNested<A> addNewVersion() {
-    return new VersionsNested(-1, null);
+    return new VersionsNested<>(-1, null);
   }
   
   public VersionsNested<A> addNewVersionLike(V2beta1APIVersionDiscovery item) {
-    return new VersionsNested(-1, item);
+    return new VersionsNested<>(-1, item);
   }
   
   public A addToVersions(V2beta1APIVersionDiscovery... items) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     for (V2beta1APIVersionDiscovery item : items) {
         V2beta1APIVersionDiscoveryBuilder builder = new V2beta1APIVersionDiscoveryBuilder(item);
@@ -79,7 +81,7 @@ public class V2beta1APIGroupDiscoveryFluent<A extends io.kubernetes.client.opena
   
   public A addToVersions(int index,V2beta1APIVersionDiscovery item) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     V2beta1APIVersionDiscoveryBuilder builder = new V2beta1APIVersionDiscoveryBuilder(item);
     if (index < 0 || index >= this.versions.size()) {
@@ -189,7 +191,7 @@ public class V2beta1APIGroupDiscoveryFluent<A extends io.kubernetes.client.opena
     if (!(super.equals(o))) {
       return false;
     }
-    V2beta1APIGroupDiscoveryFluent that = (V2beta1APIGroupDiscoveryFluent) o;
+    V2beta1APIGroupDiscoveryFluent<?> that = (V2beta1APIGroupDiscoveryFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -271,6 +273,7 @@ public class V2beta1APIGroupDiscoveryFluent<A extends io.kubernetes.client.opena
       return (A) this;
     }
     Iterator<V2beta1APIVersionDiscoveryBuilder> each = versions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("versions");
     while (each.hasNext()) {
         V2beta1APIVersionDiscoveryBuilder builder = each.next();
@@ -283,12 +286,12 @@ public class V2beta1APIGroupDiscoveryFluent<A extends io.kubernetes.client.opena
   }
   
   public VersionsNested<A> setNewVersionLike(int index,V2beta1APIVersionDiscovery item) {
-    return new VersionsNested(index, item);
+    return new VersionsNested<>(index, item);
   }
   
   public A setToVersions(int index,V2beta1APIVersionDiscovery item) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     V2beta1APIVersionDiscoveryBuilder builder = new V2beta1APIVersionDiscoveryBuilder(item);
     if (index < 0 || index >= this.versions.size()) {
@@ -343,18 +346,18 @@ public class V2beta1APIGroupDiscoveryFluent<A extends io.kubernetes.client.opena
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public A withVersions(List<V2beta1APIVersionDiscovery> versions) {
@@ -362,7 +365,7 @@ public class V2beta1APIGroupDiscoveryFluent<A extends io.kubernetes.client.opena
       this._visitables.get("versions").clear();
     }
     if (versions != null) {
-        this.versions = new ArrayList();
+        this.versions = new ArrayList<>();
         for (V2beta1APIVersionDiscovery item : versions) {
           this.addToVersions(item);
         }

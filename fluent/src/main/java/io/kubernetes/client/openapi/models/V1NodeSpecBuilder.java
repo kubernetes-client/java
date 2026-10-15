@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1NodeSpecBuilder extends V1NodeSpecFluent<V1NodeSpecBuilder> implements VisitableBuilder<V1NodeSpec,V1NodeSpecBuilder>{
 
   V1NodeSpecFluent<?> fluent;
@@ -42,6 +43,7 @@ public class V1NodeSpecBuilder extends V1NodeSpecFluent<V1NodeSpecBuilder> imple
     buildable.setExternalID(fluent.getExternalID());
     buildable.setPodCIDR(fluent.getPodCIDR());
     buildable.setPodCIDRs(fluent.getPodCIDRs());
+    buildable.setPodPreemptionPolicy(fluent.buildPodPreemptionPolicy());
     buildable.setProviderID(fluent.getProviderID());
     buildable.setTaints(fluent.buildTaints());
     buildable.setUnschedulable(fluent.getUnschedulable());

@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VolumeProjectionFluent<A extends io.kubernetes.client.openapi.models.V1VolumeProjectionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>> extends BaseFluent<A>{
 
   private V1ClusterTrustBundleProjectionBuilder clusterTrustBundle;
   private V1ConfigMapProjectionBuilder configMap;
@@ -159,7 +161,7 @@ public class V1VolumeProjectionFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1VolumeProjectionFluent that = (V1VolumeProjectionFluent) o;
+    V1VolumeProjectionFluent<?> that = (V1VolumeProjectionFluent<?>) o;
     if (!(Objects.equals(clusterTrustBundle, that.clusterTrustBundle))) {
       return false;
     }
@@ -251,8 +253,8 @@ public class V1VolumeProjectionFluent<A extends io.kubernetes.client.openapi.mod
         this.clusterTrustBundle = new V1ClusterTrustBundleProjectionBuilder(clusterTrustBundle);
         this._visitables.get("clusterTrustBundle").add(this.clusterTrustBundle);
     } else {
-        this.clusterTrustBundle = null;
         this._visitables.get("clusterTrustBundle").remove(this.clusterTrustBundle);
+        this.clusterTrustBundle = null;
     }
     return (A) this;
   }
@@ -263,8 +265,8 @@ public class V1VolumeProjectionFluent<A extends io.kubernetes.client.openapi.mod
         this.configMap = new V1ConfigMapProjectionBuilder(configMap);
         this._visitables.get("configMap").add(this.configMap);
     } else {
-        this.configMap = null;
         this._visitables.get("configMap").remove(this.configMap);
+        this.configMap = null;
     }
     return (A) this;
   }
@@ -275,58 +277,58 @@ public class V1VolumeProjectionFluent<A extends io.kubernetes.client.openapi.mod
         this.downwardAPI = new V1DownwardAPIProjectionBuilder(downwardAPI);
         this._visitables.get("downwardAPI").add(this.downwardAPI);
     } else {
-        this.downwardAPI = null;
         this._visitables.get("downwardAPI").remove(this.downwardAPI);
+        this.downwardAPI = null;
     }
     return (A) this;
   }
   
   public ClusterTrustBundleNested<A> withNewClusterTrustBundle() {
-    return new ClusterTrustBundleNested(null);
+    return new ClusterTrustBundleNested<>(null);
   }
   
   public ClusterTrustBundleNested<A> withNewClusterTrustBundleLike(V1ClusterTrustBundleProjection item) {
-    return new ClusterTrustBundleNested(item);
+    return new ClusterTrustBundleNested<>(item);
   }
   
   public ConfigMapNested<A> withNewConfigMap() {
-    return new ConfigMapNested(null);
+    return new ConfigMapNested<>(null);
   }
   
   public ConfigMapNested<A> withNewConfigMapLike(V1ConfigMapProjection item) {
-    return new ConfigMapNested(item);
+    return new ConfigMapNested<>(item);
   }
   
   public DownwardAPINested<A> withNewDownwardAPI() {
-    return new DownwardAPINested(null);
+    return new DownwardAPINested<>(null);
   }
   
   public DownwardAPINested<A> withNewDownwardAPILike(V1DownwardAPIProjection item) {
-    return new DownwardAPINested(item);
+    return new DownwardAPINested<>(item);
   }
   
   public PodCertificateNested<A> withNewPodCertificate() {
-    return new PodCertificateNested(null);
+    return new PodCertificateNested<>(null);
   }
   
   public PodCertificateNested<A> withNewPodCertificateLike(V1PodCertificateProjection item) {
-    return new PodCertificateNested(item);
+    return new PodCertificateNested<>(item);
   }
   
   public SecretNested<A> withNewSecret() {
-    return new SecretNested(null);
+    return new SecretNested<>(null);
   }
   
   public SecretNested<A> withNewSecretLike(V1SecretProjection item) {
-    return new SecretNested(item);
+    return new SecretNested<>(item);
   }
   
   public ServiceAccountTokenNested<A> withNewServiceAccountToken() {
-    return new ServiceAccountTokenNested(null);
+    return new ServiceAccountTokenNested<>(null);
   }
   
   public ServiceAccountTokenNested<A> withNewServiceAccountTokenLike(V1ServiceAccountTokenProjection item) {
-    return new ServiceAccountTokenNested(item);
+    return new ServiceAccountTokenNested<>(item);
   }
   
   public A withPodCertificate(V1PodCertificateProjection podCertificate) {
@@ -335,8 +337,8 @@ public class V1VolumeProjectionFluent<A extends io.kubernetes.client.openapi.mod
         this.podCertificate = new V1PodCertificateProjectionBuilder(podCertificate);
         this._visitables.get("podCertificate").add(this.podCertificate);
     } else {
-        this.podCertificate = null;
         this._visitables.get("podCertificate").remove(this.podCertificate);
+        this.podCertificate = null;
     }
     return (A) this;
   }
@@ -347,8 +349,8 @@ public class V1VolumeProjectionFluent<A extends io.kubernetes.client.openapi.mod
         this.secret = new V1SecretProjectionBuilder(secret);
         this._visitables.get("secret").add(this.secret);
     } else {
-        this.secret = null;
         this._visitables.get("secret").remove(this.secret);
+        this.secret = null;
     }
     return (A) this;
   }
@@ -359,8 +361,8 @@ public class V1VolumeProjectionFluent<A extends io.kubernetes.client.openapi.mod
         this.serviceAccountToken = new V1ServiceAccountTokenProjectionBuilder(serviceAccountToken);
         this._visitables.get("serviceAccountToken").add(this.serviceAccountToken);
     } else {
-        this.serviceAccountToken = null;
         this._visitables.get("serviceAccountToken").remove(this.serviceAccountToken);
+        this.serviceAccountToken = null;
     }
     return (A) this;
   }

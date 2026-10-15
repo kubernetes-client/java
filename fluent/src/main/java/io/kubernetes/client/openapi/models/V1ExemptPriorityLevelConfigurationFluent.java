@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ExemptPriorityLevelConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1ExemptPriorityLevelConfigurationFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ExemptPriorityLevelConfigurationFluent<A extends V1ExemptPriorityLevelConfigurationFluent<A>> extends BaseFluent<A>{
 
   private Integer lendablePercent;
   private Integer nominalConcurrencyShares;
@@ -54,7 +56,7 @@ public class V1ExemptPriorityLevelConfigurationFluent<A extends io.kubernetes.cl
     if (!(super.equals(o))) {
       return false;
     }
-    V1ExemptPriorityLevelConfigurationFluent that = (V1ExemptPriorityLevelConfigurationFluent) o;
+    V1ExemptPriorityLevelConfigurationFluent<?> that = (V1ExemptPriorityLevelConfigurationFluent<?>) o;
     if (!(Objects.equals(lendablePercent, that.lendablePercent))) {
       return false;
     }

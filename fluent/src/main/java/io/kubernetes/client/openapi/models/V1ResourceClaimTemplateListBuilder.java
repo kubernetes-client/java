@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1ResourceClaimTemplateListBuilder extends V1ResourceClaimTemplateListFluent<V1ResourceClaimTemplateListBuilder> implements VisitableBuilder<V1ResourceClaimTemplateList,V1ResourceClaimTemplateListBuilder>{
 
   V1ResourceClaimTemplateListFluent<?> fluent;

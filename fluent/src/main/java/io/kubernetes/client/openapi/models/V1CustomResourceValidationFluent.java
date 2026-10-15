@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CustomResourceValidationFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceValidationFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CustomResourceValidationFluent<A extends V1CustomResourceValidationFluent<A>> extends BaseFluent<A>{
 
   private V1JSONSchemaPropsBuilder openAPIV3Schema;
 
@@ -69,7 +71,7 @@ public class V1CustomResourceValidationFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V1CustomResourceValidationFluent that = (V1CustomResourceValidationFluent) o;
+    V1CustomResourceValidationFluent<?> that = (V1CustomResourceValidationFluent<?>) o;
     if (!(Objects.equals(openAPIV3Schema, that.openAPIV3Schema))) {
       return false;
     }
@@ -96,11 +98,11 @@ public class V1CustomResourceValidationFluent<A extends io.kubernetes.client.ope
   }
   
   public OpenAPIV3SchemaNested<A> withNewOpenAPIV3Schema() {
-    return new OpenAPIV3SchemaNested(null);
+    return new OpenAPIV3SchemaNested<>(null);
   }
   
   public OpenAPIV3SchemaNested<A> withNewOpenAPIV3SchemaLike(V1JSONSchemaProps item) {
-    return new OpenAPIV3SchemaNested(item);
+    return new OpenAPIV3SchemaNested<>(item);
   }
   
   public A withOpenAPIV3Schema(V1JSONSchemaProps openAPIV3Schema) {
@@ -109,8 +111,8 @@ public class V1CustomResourceValidationFluent<A extends io.kubernetes.client.ope
         this.openAPIV3Schema = new V1JSONSchemaPropsBuilder(openAPIV3Schema);
         this._visitables.get("openAPIV3Schema").add(this.openAPIV3Schema);
     } else {
-        this.openAPIV3Schema = null;
         this._visitables.get("openAPIV3Schema").remove(this.openAPIV3Schema);
+        this.openAPIV3Schema = null;
     }
     return (A) this;
   }

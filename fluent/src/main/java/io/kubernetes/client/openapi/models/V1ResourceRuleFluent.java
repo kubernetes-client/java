@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.V1ResourceRuleFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ResourceRuleFluent<A extends V1ResourceRuleFluent<A>> extends BaseFluent<A>{
 
   private List<String> apiGroups;
   private List<String> resourceNames;
@@ -43,7 +45,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
 
   public A addAllToApiGroups(Collection<String> items) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList();
+      this.apiGroups = new ArrayList<>();
     }
     for (String item : items) {
       this.apiGroups.add(item);
@@ -53,7 +55,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addAllToResourceNames(Collection<String> items) {
     if (this.resourceNames == null) {
-      this.resourceNames = new ArrayList();
+      this.resourceNames = new ArrayList<>();
     }
     for (String item : items) {
       this.resourceNames.add(item);
@@ -63,7 +65,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addAllToResources(Collection<String> items) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     for (String item : items) {
       this.resources.add(item);
@@ -73,7 +75,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addAllToVerbs(Collection<String> items) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     for (String item : items) {
       this.verbs.add(item);
@@ -83,7 +85,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToApiGroups(String... items) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList();
+      this.apiGroups = new ArrayList<>();
     }
     for (String item : items) {
       this.apiGroups.add(item);
@@ -93,7 +95,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToApiGroups(int index,String item) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList();
+      this.apiGroups = new ArrayList<>();
     }
     this.apiGroups.add(index, item);
     return (A) this;
@@ -101,7 +103,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToResourceNames(String... items) {
     if (this.resourceNames == null) {
-      this.resourceNames = new ArrayList();
+      this.resourceNames = new ArrayList<>();
     }
     for (String item : items) {
       this.resourceNames.add(item);
@@ -111,7 +113,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToResourceNames(int index,String item) {
     if (this.resourceNames == null) {
-      this.resourceNames = new ArrayList();
+      this.resourceNames = new ArrayList<>();
     }
     this.resourceNames.add(index, item);
     return (A) this;
@@ -119,7 +121,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToResources(String... items) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     for (String item : items) {
       this.resources.add(item);
@@ -129,7 +131,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToResources(int index,String item) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     this.resources.add(index, item);
     return (A) this;
@@ -137,7 +139,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToVerbs(String... items) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     for (String item : items) {
       this.verbs.add(item);
@@ -147,7 +149,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToVerbs(int index,String item) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     this.verbs.add(index, item);
     return (A) this;
@@ -173,7 +175,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1ResourceRuleFluent that = (V1ResourceRuleFluent) o;
+    V1ResourceRuleFluent<?> that = (V1ResourceRuleFluent<?>) o;
     if (!(Objects.equals(apiGroups, that.apiGroups))) {
       return false;
     }
@@ -427,7 +429,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A setToApiGroups(int index,String item) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList();
+      this.apiGroups = new ArrayList<>();
     }
     this.apiGroups.set(index, item);
     return (A) this;
@@ -435,7 +437,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A setToResourceNames(int index,String item) {
     if (this.resourceNames == null) {
-      this.resourceNames = new ArrayList();
+      this.resourceNames = new ArrayList<>();
     }
     this.resourceNames.set(index, item);
     return (A) this;
@@ -443,7 +445,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A setToResources(int index,String item) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     this.resources.set(index, item);
     return (A) this;
@@ -451,7 +453,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A setToVerbs(int index,String item) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     this.verbs.set(index, item);
     return (A) this;
@@ -485,7 +487,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A withApiGroups(List<String> apiGroups) {
     if (apiGroups != null) {
-        this.apiGroups = new ArrayList();
+        this.apiGroups = new ArrayList<>();
         for (String item : apiGroups) {
           this.addToApiGroups(item);
         }
@@ -510,7 +512,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A withResourceNames(List<String> resourceNames) {
     if (resourceNames != null) {
-        this.resourceNames = new ArrayList();
+        this.resourceNames = new ArrayList<>();
         for (String item : resourceNames) {
           this.addToResourceNames(item);
         }
@@ -535,7 +537,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A withResources(List<String> resources) {
     if (resources != null) {
-        this.resources = new ArrayList();
+        this.resources = new ArrayList<>();
         for (String item : resources) {
           this.addToResources(item);
         }
@@ -560,7 +562,7 @@ public class V1ResourceRuleFluent<A extends io.kubernetes.client.openapi.models.
   
   public A withVerbs(List<String> verbs) {
     if (verbs != null) {
-        this.verbs = new ArrayList();
+        this.verbs = new ArrayList<>();
         for (String item : verbs) {
           this.addToVerbs(item);
         }

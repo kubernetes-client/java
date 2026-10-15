@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PortworxVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1PortworxVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PortworxVolumeSourceFluent<A extends V1PortworxVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String fsType;
   private Boolean readOnly;
@@ -56,7 +58,7 @@ public class V1PortworxVolumeSourceFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V1PortworxVolumeSourceFluent that = (V1PortworxVolumeSourceFluent) o;
+    V1PortworxVolumeSourceFluent<?> that = (V1PortworxVolumeSourceFluent<?>) o;
     if (!(Objects.equals(fsType, that.fsType))) {
       return false;
     }

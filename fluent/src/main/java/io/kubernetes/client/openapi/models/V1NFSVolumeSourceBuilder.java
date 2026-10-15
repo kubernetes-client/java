@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1NFSVolumeSourceBuilder extends V1NFSVolumeSourceFluent<V1NFSVolumeSourceBuilder> implements VisitableBuilder<V1NFSVolumeSource,V1NFSVolumeSourceBuilder>{
 
   V1NFSVolumeSourceFluent<?> fluent;

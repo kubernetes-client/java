@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DaemonEndpointFluent<A extends io.kubernetes.client.openapi.models.V1DaemonEndpointFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DaemonEndpointFluent<A extends V1DaemonEndpointFluent<A>> extends BaseFluent<A>{
 
   private Integer port;
 
@@ -52,7 +54,7 @@ public class V1DaemonEndpointFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1DaemonEndpointFluent that = (V1DaemonEndpointFluent) o;
+    V1DaemonEndpointFluent<?> that = (V1DaemonEndpointFluent<?>) o;
     if (!(Objects.equals(port, that.port))) {
       return false;
     }

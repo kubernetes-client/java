@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2ObjectMetricSourceFluent<A extends io.kubernetes.client.openapi.models.V2ObjectMetricSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2ObjectMetricSourceFluent<A extends V2ObjectMetricSourceFluent<A>> extends BaseFluent<A>{
 
   private V2CrossVersionObjectReferenceBuilder describedObject;
   private V2MetricIdentifierBuilder metric;
@@ -105,7 +107,7 @@ public class V2ObjectMetricSourceFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V2ObjectMetricSourceFluent that = (V2ObjectMetricSourceFluent) o;
+    V2ObjectMetricSourceFluent<?> that = (V2ObjectMetricSourceFluent<?>) o;
     if (!(Objects.equals(describedObject, that.describedObject))) {
       return false;
     }
@@ -161,8 +163,8 @@ public class V2ObjectMetricSourceFluent<A extends io.kubernetes.client.openapi.m
         this.describedObject = new V2CrossVersionObjectReferenceBuilder(describedObject);
         this._visitables.get("describedObject").add(this.describedObject);
     } else {
-        this.describedObject = null;
         this._visitables.get("describedObject").remove(this.describedObject);
+        this.describedObject = null;
     }
     return (A) this;
   }
@@ -173,34 +175,34 @@ public class V2ObjectMetricSourceFluent<A extends io.kubernetes.client.openapi.m
         this.metric = new V2MetricIdentifierBuilder(metric);
         this._visitables.get("metric").add(this.metric);
     } else {
-        this.metric = null;
         this._visitables.get("metric").remove(this.metric);
+        this.metric = null;
     }
     return (A) this;
   }
   
   public DescribedObjectNested<A> withNewDescribedObject() {
-    return new DescribedObjectNested(null);
+    return new DescribedObjectNested<>(null);
   }
   
   public DescribedObjectNested<A> withNewDescribedObjectLike(V2CrossVersionObjectReference item) {
-    return new DescribedObjectNested(item);
+    return new DescribedObjectNested<>(item);
   }
   
   public MetricNested<A> withNewMetric() {
-    return new MetricNested(null);
+    return new MetricNested<>(null);
   }
   
   public MetricNested<A> withNewMetricLike(V2MetricIdentifier item) {
-    return new MetricNested(item);
+    return new MetricNested<>(item);
   }
   
   public TargetNested<A> withNewTarget() {
-    return new TargetNested(null);
+    return new TargetNested<>(null);
   }
   
   public TargetNested<A> withNewTargetLike(V2MetricTarget item) {
-    return new TargetNested(item);
+    return new TargetNested<>(item);
   }
   
   public A withTarget(V2MetricTarget target) {
@@ -209,8 +211,8 @@ public class V2ObjectMetricSourceFluent<A extends io.kubernetes.client.openapi.m
         this.target = new V2MetricTargetBuilder(target);
         this._visitables.get("target").add(this.target);
     } else {
-        this.target = null;
         this._visitables.get("target").remove(this.target);
+        this.target = null;
     }
     return (A) this;
   }

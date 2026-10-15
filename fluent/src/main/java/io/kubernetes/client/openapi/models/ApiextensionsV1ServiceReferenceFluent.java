@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class ApiextensionsV1ServiceReferenceFluent<A extends io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class ApiextensionsV1ServiceReferenceFluent<A extends ApiextensionsV1ServiceReferenceFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private String namespace;
@@ -58,7 +60,7 @@ public class ApiextensionsV1ServiceReferenceFluent<A extends io.kubernetes.clien
     if (!(super.equals(o))) {
       return false;
     }
-    ApiextensionsV1ServiceReferenceFluent that = (ApiextensionsV1ServiceReferenceFluent) o;
+    ApiextensionsV1ServiceReferenceFluent<?> that = (ApiextensionsV1ServiceReferenceFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

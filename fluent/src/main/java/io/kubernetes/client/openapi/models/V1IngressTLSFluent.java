@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1IngressTLSFluent<A extends io.kubernetes.client.openapi.models.V1IngressTLSFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1IngressTLSFluent<A extends V1IngressTLSFluent<A>> extends BaseFluent<A>{
 
   private List<String> hosts;
   private String secretName;
@@ -41,7 +43,7 @@ public class V1IngressTLSFluent<A extends io.kubernetes.client.openapi.models.V1
 
   public A addAllToHosts(Collection<String> items) {
     if (this.hosts == null) {
-      this.hosts = new ArrayList();
+      this.hosts = new ArrayList<>();
     }
     for (String item : items) {
       this.hosts.add(item);
@@ -51,7 +53,7 @@ public class V1IngressTLSFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToHosts(String... items) {
     if (this.hosts == null) {
-      this.hosts = new ArrayList();
+      this.hosts = new ArrayList<>();
     }
     for (String item : items) {
       this.hosts.add(item);
@@ -61,7 +63,7 @@ public class V1IngressTLSFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToHosts(int index,String item) {
     if (this.hosts == null) {
-      this.hosts = new ArrayList();
+      this.hosts = new ArrayList<>();
     }
     this.hosts.add(index, item);
     return (A) this;
@@ -85,7 +87,7 @@ public class V1IngressTLSFluent<A extends io.kubernetes.client.openapi.models.V1
     if (!(super.equals(o))) {
       return false;
     }
-    V1IngressTLSFluent that = (V1IngressTLSFluent) o;
+    V1IngressTLSFluent<?> that = (V1IngressTLSFluent<?>) o;
     if (!(Objects.equals(hosts, that.hosts))) {
       return false;
     }
@@ -167,7 +169,7 @@ public class V1IngressTLSFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A setToHosts(int index,String item) {
     if (this.hosts == null) {
-      this.hosts = new ArrayList();
+      this.hosts = new ArrayList<>();
     }
     this.hosts.set(index, item);
     return (A) this;
@@ -191,7 +193,7 @@ public class V1IngressTLSFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A withHosts(List<String> hosts) {
     if (hosts != null) {
-        this.hosts = new ArrayList();
+        this.hosts = new ArrayList<>();
         for (String item : hosts) {
           this.addToHosts(item);
         }

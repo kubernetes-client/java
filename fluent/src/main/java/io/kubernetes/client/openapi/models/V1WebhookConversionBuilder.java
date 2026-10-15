@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1WebhookConversionBuilder extends V1WebhookConversionFluent<V1WebhookConversionBuilder> implements VisitableBuilder<V1WebhookConversion,V1WebhookConversionBuilder>{
 
   V1WebhookConversionFluent<?> fluent;

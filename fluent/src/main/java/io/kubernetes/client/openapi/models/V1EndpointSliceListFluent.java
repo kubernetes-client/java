@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1EndpointSliceListFluent<A extends io.kubernetes.client.openapi.models.V1EndpointSliceListFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1EndpointSliceListFluent<A extends V1EndpointSliceListFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private ArrayList<V1EndpointSliceBuilder> items;
@@ -47,7 +49,7 @@ public class V1EndpointSliceListFluent<A extends io.kubernetes.client.openapi.mo
 
   public A addAllToItems(Collection<V1EndpointSlice> items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1EndpointSlice item : items) {
         V1EndpointSliceBuilder builder = new V1EndpointSliceBuilder(item);
@@ -58,16 +60,16 @@ public class V1EndpointSliceListFluent<A extends io.kubernetes.client.openapi.mo
   }
   
   public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
+    return new ItemsNested<>(-1, null);
   }
   
   public ItemsNested<A> addNewItemLike(V1EndpointSlice item) {
-    return new ItemsNested(-1, item);
+    return new ItemsNested<>(-1, item);
   }
   
   public A addToItems(V1EndpointSlice... items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1EndpointSlice item : items) {
         V1EndpointSliceBuilder builder = new V1EndpointSliceBuilder(item);
@@ -79,7 +81,7 @@ public class V1EndpointSliceListFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToItems(int index,V1EndpointSlice item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1EndpointSliceBuilder builder = new V1EndpointSliceBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -189,7 +191,7 @@ public class V1EndpointSliceListFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1EndpointSliceListFluent that = (V1EndpointSliceListFluent) o;
+    V1EndpointSliceListFluent<?> that = (V1EndpointSliceListFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -271,6 +273,7 @@ public class V1EndpointSliceListFluent<A extends io.kubernetes.client.openapi.mo
       return (A) this;
     }
     Iterator<V1EndpointSliceBuilder> each = items.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("items");
     while (each.hasNext()) {
         V1EndpointSliceBuilder builder = each.next();
@@ -283,12 +286,12 @@ public class V1EndpointSliceListFluent<A extends io.kubernetes.client.openapi.mo
   }
   
   public ItemsNested<A> setNewItemLike(int index,V1EndpointSlice item) {
-    return new ItemsNested(index, item);
+    return new ItemsNested<>(index, item);
   }
   
   public A setToItems(int index,V1EndpointSlice item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1EndpointSliceBuilder builder = new V1EndpointSliceBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -337,7 +340,7 @@ public class V1EndpointSliceListFluent<A extends io.kubernetes.client.openapi.mo
       this._visitables.get("items").clear();
     }
     if (items != null) {
-        this.items = new ArrayList();
+        this.items = new ArrayList<>();
         for (V1EndpointSlice item : items) {
           this.addToItems(item);
         }
@@ -371,18 +374,18 @@ public class V1EndpointSliceListFluent<A extends io.kubernetes.client.openapi.mo
         this.metadata = new V1ListMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   public class ItemsNested<N> extends V1EndpointSliceFluent<ItemsNested<N>> implements Nested<N>{
   

@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CustomResourceDefinitionConditionFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CustomResourceDefinitionConditionFluent<A extends V1CustomResourceDefinitionConditionFluent<A>> extends BaseFluent<A>{
 
   private OffsetDateTime lastTransitionTime;
   private String message;
@@ -63,7 +65,7 @@ public class V1CustomResourceDefinitionConditionFluent<A extends io.kubernetes.c
     if (!(super.equals(o))) {
       return false;
     }
-    V1CustomResourceDefinitionConditionFluent that = (V1CustomResourceDefinitionConditionFluent) o;
+    V1CustomResourceDefinitionConditionFluent<?> that = (V1CustomResourceDefinitionConditionFluent<?>) o;
     if (!(Objects.equals(lastTransitionTime, that.lastTransitionTime))) {
       return false;
     }

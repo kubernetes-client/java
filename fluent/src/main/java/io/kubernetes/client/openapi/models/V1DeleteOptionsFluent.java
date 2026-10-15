@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.models.V1DeleteOptionsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private List<String> dryRun;
@@ -51,7 +53,7 @@ public class V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToDryRun(Collection<String> items) {
     if (this.dryRun == null) {
-      this.dryRun = new ArrayList();
+      this.dryRun = new ArrayList<>();
     }
     for (String item : items) {
       this.dryRun.add(item);
@@ -61,7 +63,7 @@ public class V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToDryRun(String... items) {
     if (this.dryRun == null) {
-      this.dryRun = new ArrayList();
+      this.dryRun = new ArrayList<>();
     }
     for (String item : items) {
       this.dryRun.add(item);
@@ -71,7 +73,7 @@ public class V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToDryRun(int index,String item) {
     if (this.dryRun == null) {
-      this.dryRun = new ArrayList();
+      this.dryRun = new ArrayList<>();
     }
     this.dryRun.add(index, item);
     return (A) this;
@@ -117,7 +119,7 @@ public class V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1DeleteOptionsFluent that = (V1DeleteOptionsFluent) o;
+    V1DeleteOptionsFluent<?> that = (V1DeleteOptionsFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -261,7 +263,7 @@ public class V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.models
   
   public A setToDryRun(int index,String item) {
     if (this.dryRun == null) {
-      this.dryRun = new ArrayList();
+      this.dryRun = new ArrayList<>();
     }
     this.dryRun.set(index, item);
     return (A) this;
@@ -320,7 +322,7 @@ public class V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.models
   
   public A withDryRun(List<String> dryRun) {
     if (dryRun != null) {
-        this.dryRun = new ArrayList();
+        this.dryRun = new ArrayList<>();
         for (String item : dryRun) {
           this.addToDryRun(item);
         }
@@ -363,11 +365,11 @@ public class V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public PreconditionsNested<A> withNewPreconditions() {
-    return new PreconditionsNested(null);
+    return new PreconditionsNested<>(null);
   }
   
   public PreconditionsNested<A> withNewPreconditionsLike(V1Preconditions item) {
-    return new PreconditionsNested(item);
+    return new PreconditionsNested<>(item);
   }
   
   public A withOrphanDependents() {
@@ -385,8 +387,8 @@ public class V1DeleteOptionsFluent<A extends io.kubernetes.client.openapi.models
         this.preconditions = new V1PreconditionsBuilder(preconditions);
         this._visitables.get("preconditions").add(this.preconditions);
     } else {
-        this.preconditions = null;
         this._visitables.get("preconditions").remove(this.preconditions);
+        this.preconditions = null;
     }
     return (A) this;
   }

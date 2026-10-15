@@ -19,13 +19,16 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1alpha3ResourcePoolStatusRequestSpecFluent<A extends io.kubernetes.client.openapi.models.V1alpha3ResourcePoolStatusRequestSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1alpha3ResourcePoolStatusRequestSpecFluent<A extends V1alpha3ResourcePoolStatusRequestSpecFluent<A>> extends BaseFluent<A>{
 
+  private String defaultPartitionTypeAttribute;
   private String driver;
   private Integer limit;
   private String poolName;
@@ -40,6 +43,7 @@ public class V1alpha3ResourcePoolStatusRequestSpecFluent<A extends io.kubernetes
   protected void copyInstance(V1alpha3ResourcePoolStatusRequestSpec instance) {
     instance = instance != null ? instance : new V1alpha3ResourcePoolStatusRequestSpec();
     if (instance != null) {
+        this.withDefaultPartitionTypeAttribute(instance.getDefaultPartitionTypeAttribute());
         this.withDriver(instance.getDriver());
         this.withLimit(instance.getLimit());
         this.withPoolName(instance.getPoolName());
@@ -56,7 +60,10 @@ public class V1alpha3ResourcePoolStatusRequestSpecFluent<A extends io.kubernetes
     if (!(super.equals(o))) {
       return false;
     }
-    V1alpha3ResourcePoolStatusRequestSpecFluent that = (V1alpha3ResourcePoolStatusRequestSpecFluent) o;
+    V1alpha3ResourcePoolStatusRequestSpecFluent<?> that = (V1alpha3ResourcePoolStatusRequestSpecFluent<?>) o;
+    if (!(Objects.equals(defaultPartitionTypeAttribute, that.defaultPartitionTypeAttribute))) {
+      return false;
+    }
     if (!(Objects.equals(driver, that.driver))) {
       return false;
     }
@@ -69,6 +76,10 @@ public class V1alpha3ResourcePoolStatusRequestSpecFluent<A extends io.kubernetes
     return true;
   }
   
+  public String getDefaultPartitionTypeAttribute() {
+    return this.defaultPartitionTypeAttribute;
+  }
+  
   public String getDriver() {
     return this.driver;
   }
@@ -79,6 +90,10 @@ public class V1alpha3ResourcePoolStatusRequestSpecFluent<A extends io.kubernetes
   
   public String getPoolName() {
     return this.poolName;
+  }
+  
+  public boolean hasDefaultPartitionTypeAttribute() {
+    return this.defaultPartitionTypeAttribute != null;
   }
   
   public boolean hasDriver() {
@@ -94,12 +109,17 @@ public class V1alpha3ResourcePoolStatusRequestSpecFluent<A extends io.kubernetes
   }
   
   public int hashCode() {
-    return Objects.hash(driver, limit, poolName);
+    return Objects.hash(defaultPartitionTypeAttribute, driver, limit, poolName);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
+    if (!(defaultPartitionTypeAttribute == null)) {
+        sb.append("defaultPartitionTypeAttribute:");
+        sb.append(defaultPartitionTypeAttribute);
+        sb.append(",");
+    }
     if (!(driver == null)) {
         sb.append("driver:");
         sb.append(driver);
@@ -116,6 +136,11 @@ public class V1alpha3ResourcePoolStatusRequestSpecFluent<A extends io.kubernetes
     }
     sb.append("}");
     return sb.toString();
+  }
+  
+  public A withDefaultPartitionTypeAttribute(String defaultPartitionTypeAttribute) {
+    this.defaultPartitionTypeAttribute = defaultPartitionTypeAttribute;
+    return (A) this;
   }
   
   public A withDriver(String driver) {

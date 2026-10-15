@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1TCPSocketActionFluent<A extends io.kubernetes.client.openapi.models.V1TCPSocketActionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1TCPSocketActionFluent<A extends V1TCPSocketActionFluent<A>> extends BaseFluent<A>{
 
   private String host;
   private IntOrString port;
@@ -54,7 +56,7 @@ public class V1TCPSocketActionFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1TCPSocketActionFluent that = (V1TCPSocketActionFluent) o;
+    V1TCPSocketActionFluent<?> that = (V1TCPSocketActionFluent<?>) o;
     if (!(Objects.equals(host, that.host))) {
       return false;
     }

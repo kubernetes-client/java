@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeRuntimeHandlerFluent<A extends io.kubernetes.client.openapi.models.V1NodeRuntimeHandlerFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeRuntimeHandlerFluent<A extends V1NodeRuntimeHandlerFluent<A>> extends BaseFluent<A>{
 
   private V1NodeRuntimeHandlerFeaturesBuilder features;
   private String name;
@@ -71,7 +73,7 @@ public class V1NodeRuntimeHandlerFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeRuntimeHandlerFluent that = (V1NodeRuntimeHandlerFluent) o;
+    V1NodeRuntimeHandlerFluent<?> that = (V1NodeRuntimeHandlerFluent<?>) o;
     if (!(Objects.equals(features, that.features))) {
       return false;
     }
@@ -119,8 +121,8 @@ public class V1NodeRuntimeHandlerFluent<A extends io.kubernetes.client.openapi.m
         this.features = new V1NodeRuntimeHandlerFeaturesBuilder(features);
         this._visitables.get("features").add(this.features);
     } else {
-        this.features = null;
         this._visitables.get("features").remove(this.features);
+        this.features = null;
     }
     return (A) this;
   }
@@ -131,11 +133,11 @@ public class V1NodeRuntimeHandlerFluent<A extends io.kubernetes.client.openapi.m
   }
   
   public FeaturesNested<A> withNewFeatures() {
-    return new FeaturesNested(null);
+    return new FeaturesNested<>(null);
   }
   
   public FeaturesNested<A> withNewFeaturesLike(V1NodeRuntimeHandlerFeatures item) {
-    return new FeaturesNested(item);
+    return new FeaturesNested<>(item);
   }
   public class FeaturesNested<N> extends V1NodeRuntimeHandlerFeaturesFluent<FeaturesNested<N>> implements Nested<N>{
   
