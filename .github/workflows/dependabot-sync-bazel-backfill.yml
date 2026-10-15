@@ -46,7 +46,7 @@ jobs:
       - name: Sync all open Dependabot pom.xml PRs
         shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
 

@@ -37,7 +37,7 @@ jobs:
       - name: Checkout Java
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ github.token }}
       - name: Setup Java
         uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
         with:
@@ -49,7 +49,7 @@ jobs:
         with:
           path: gen
           repository: kubernetes-client/gen
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ github.token }}
       - name: Generate Branch Name
         run: |
           SUFFIX=$(openssl rand -hex 4)
@@ -157,7 +157,7 @@ jobs:
         with:
           source_branch: ${{ env.BRANCH }}
           destination_branch: ${{ github.ref_name }}
-          github_token: ${{ secrets.PAT_TOKEN }}
+          github_token: ${{ github.token }}
           pr_title: "Automated Generate from openapi ${{ github.event.inputs.kubernetesBranch }}"
 
 
