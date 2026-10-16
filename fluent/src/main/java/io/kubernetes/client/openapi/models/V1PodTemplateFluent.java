@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodTemplateFluent<A extends io.kubernetes.client.openapi.models.V1PodTemplateFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodTemplateFluent<A extends V1PodTemplateFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -91,7 +93,7 @@ public class V1PodTemplateFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodTemplateFluent that = (V1PodTemplateFluent) o;
+    V1PodTemplateFluent<?> that = (V1PodTemplateFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -177,26 +179,26 @@ public class V1PodTemplateFluent<A extends io.kubernetes.client.openapi.models.V
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public TemplateNested<A> withNewTemplate() {
-    return new TemplateNested(null);
+    return new TemplateNested<>(null);
   }
   
   public TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
-    return new TemplateNested(item);
+    return new TemplateNested<>(item);
   }
   
   public A withTemplate(V1PodTemplateSpec template) {
@@ -205,8 +207,8 @@ public class V1PodTemplateFluent<A extends io.kubernetes.client.openapi.models.V
         this.template = new V1PodTemplateSpecBuilder(template);
         this._visitables.get("template").add(this.template);
     } else {
-        this.template = null;
         this._visitables.get("template").remove(this.template);
+        this.template = null;
     }
     return (A) this;
   }

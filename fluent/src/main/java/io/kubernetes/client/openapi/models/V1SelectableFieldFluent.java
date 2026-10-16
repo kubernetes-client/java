@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SelectableFieldFluent<A extends io.kubernetes.client.openapi.models.V1SelectableFieldFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SelectableFieldFluent<A extends V1SelectableFieldFluent<A>> extends BaseFluent<A>{
 
   private String jsonPath;
 
@@ -51,7 +53,7 @@ public class V1SelectableFieldFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1SelectableFieldFluent that = (V1SelectableFieldFluent) o;
+    V1SelectableFieldFluent<?> that = (V1SelectableFieldFluent<?>) o;
     if (!(Objects.equals(jsonPath, that.jsonPath))) {
       return false;
     }

@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1StorageOSPersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1StorageOSPersistentVolumeSourceFluent<A extends V1StorageOSPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String fsType;
   private Boolean readOnly;
@@ -78,7 +80,7 @@ public class V1StorageOSPersistentVolumeSourceFluent<A extends io.kubernetes.cli
     if (!(super.equals(o))) {
       return false;
     }
-    V1StorageOSPersistentVolumeSourceFluent that = (V1StorageOSPersistentVolumeSourceFluent) o;
+    V1StorageOSPersistentVolumeSourceFluent<?> that = (V1StorageOSPersistentVolumeSourceFluent<?>) o;
     if (!(Objects.equals(fsType, that.fsType))) {
       return false;
     }
@@ -174,11 +176,11 @@ public class V1StorageOSPersistentVolumeSourceFluent<A extends io.kubernetes.cli
   }
   
   public SecretRefNested<A> withNewSecretRef() {
-    return new SecretRefNested(null);
+    return new SecretRefNested<>(null);
   }
   
   public SecretRefNested<A> withNewSecretRefLike(V1ObjectReference item) {
-    return new SecretRefNested(item);
+    return new SecretRefNested<>(item);
   }
   
   public A withReadOnly() {
@@ -196,8 +198,8 @@ public class V1StorageOSPersistentVolumeSourceFluent<A extends io.kubernetes.cli
         this.secretRef = new V1ObjectReferenceBuilder(secretRef);
         this._visitables.get("secretRef").add(this.secretRef);
     } else {
-        this.secretRef = null;
         this._visitables.get("secretRef").remove(this.secretRef);
+        this.secretRef = null;
     }
     return (A) this;
   }

@@ -1,0 +1,48 @@
+/*
+Copyright 2026 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import io.kubernetes.client.fluent.VisitableBuilder;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
+public class V1DeviceTaintSelectorBuilder extends V1DeviceTaintSelectorFluent<V1DeviceTaintSelectorBuilder> implements VisitableBuilder<V1DeviceTaintSelector,V1DeviceTaintSelectorBuilder>{
+
+  V1DeviceTaintSelectorFluent<?> fluent;
+
+  public V1DeviceTaintSelectorBuilder() {
+    this(new V1DeviceTaintSelector());
+  }
+  
+  public V1DeviceTaintSelectorBuilder(V1DeviceTaintSelectorFluent<?> fluent) {
+    this(fluent, new V1DeviceTaintSelector());
+  }
+  
+  public V1DeviceTaintSelectorBuilder(V1DeviceTaintSelector instance) {
+    this.fluent = this;
+    this.copyInstance(instance);
+  }
+  
+  public V1DeviceTaintSelectorBuilder(V1DeviceTaintSelectorFluent<?> fluent,V1DeviceTaintSelector instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
+  public V1DeviceTaintSelector build() {
+    V1DeviceTaintSelector buildable = new V1DeviceTaintSelector();
+    buildable.setDevice(fluent.getDevice());
+    buildable.setDriver(fluent.getDriver());
+    buildable.setPool(fluent.getPool());
+    return buildable;
+  }
+  
+}

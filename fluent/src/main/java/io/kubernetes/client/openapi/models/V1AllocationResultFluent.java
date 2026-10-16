@@ -21,12 +21,14 @@ import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1AllocationResultFluent<A extends io.kubernetes.client.openapi.models.V1AllocationResultFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1AllocationResultFluent<A extends V1AllocationResultFluent<A>> extends BaseFluent<A>{
 
   private OffsetDateTime allocationTimestamp;
   private V1DeviceAllocationResultBuilder devices;
@@ -90,7 +92,7 @@ public class V1AllocationResultFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1AllocationResultFluent that = (V1AllocationResultFluent) o;
+    V1AllocationResultFluent<?> that = (V1AllocationResultFluent<?>) o;
     if (!(Objects.equals(allocationTimestamp, that.allocationTimestamp))) {
       return false;
     }
@@ -155,26 +157,26 @@ public class V1AllocationResultFluent<A extends io.kubernetes.client.openapi.mod
         this.devices = new V1DeviceAllocationResultBuilder(devices);
         this._visitables.get("devices").add(this.devices);
     } else {
-        this.devices = null;
         this._visitables.get("devices").remove(this.devices);
+        this.devices = null;
     }
     return (A) this;
   }
   
   public DevicesNested<A> withNewDevices() {
-    return new DevicesNested(null);
+    return new DevicesNested<>(null);
   }
   
   public DevicesNested<A> withNewDevicesLike(V1DeviceAllocationResult item) {
-    return new DevicesNested(item);
+    return new DevicesNested<>(item);
   }
   
   public NodeSelectorNested<A> withNewNodeSelector() {
-    return new NodeSelectorNested(null);
+    return new NodeSelectorNested<>(null);
   }
   
   public NodeSelectorNested<A> withNewNodeSelectorLike(V1NodeSelector item) {
-    return new NodeSelectorNested(item);
+    return new NodeSelectorNested<>(item);
   }
   
   public A withNodeSelector(V1NodeSelector nodeSelector) {
@@ -183,8 +185,8 @@ public class V1AllocationResultFluent<A extends io.kubernetes.client.openapi.mod
         this.nodeSelector = new V1NodeSelectorBuilder(nodeSelector);
         this._visitables.get("nodeSelector").add(this.nodeSelector);
     } else {
-        this.nodeSelector = null;
         this._visitables.get("nodeSelector").remove(this.nodeSelector);
+        this.nodeSelector = null;
     }
     return (A) this;
   }

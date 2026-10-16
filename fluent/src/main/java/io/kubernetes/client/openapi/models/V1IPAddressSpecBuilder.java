@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1IPAddressSpecBuilder extends V1IPAddressSpecFluent<V1IPAddressSpecBuilder> implements VisitableBuilder<V1IPAddressSpec,V1IPAddressSpecBuilder>{
 
   V1IPAddressSpecFluent<?> fluent;

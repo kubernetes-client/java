@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceClaim describes a request for access to resources in the cluster, for use by workloads. For example, if a workload needs an accelerator device with specific properties, this is how that request is expressed. The status stanza tracks whether this claim has been satisfied and what specific resources have been allocated.
  */
 @ApiModel(description = "ResourceClaim describes a request for access to resources in the cluster, for use by workloads. For example, if a workload needs an accelerator device with specific properties, this is how that request is expressed. The status stanza tracks whether this claim has been satisfied and what specific resources have been allocated.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class ResourceV1ResourceClaim implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -72,7 +72,7 @@ public class ResourceV1ResourceClaim implements io.kubernetes.client.common.Kube
 
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V1ResourceClaimSpec spec;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
@@ -143,7 +143,7 @@ public class ResourceV1ResourceClaim implements io.kubernetes.client.common.Kube
   }
 
 
-  public ResourceV1ResourceClaim spec(@jakarta.annotation.Nonnull V1ResourceClaimSpec spec) {
+  public ResourceV1ResourceClaim spec(@jakarta.annotation.Nullable V1ResourceClaimSpec spec) {
     this.spec = spec;
     return this;
   }
@@ -152,13 +152,13 @@ public class ResourceV1ResourceClaim implements io.kubernetes.client.common.Kube
    * Get spec
    * @return spec
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ResourceClaimSpec getSpec() {
     return spec;
   }
 
-  public void setSpec(@jakarta.annotation.Nonnull V1ResourceClaimSpec spec) {
+  public void setSpec(@jakarta.annotation.Nullable V1ResourceClaimSpec spec) {
     this.spec = spec;
   }
 
@@ -238,7 +238,7 @@ public class ResourceV1ResourceClaim implements io.kubernetes.client.common.Kube
     openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "kind", "metadata", "spec", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("spec"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -261,13 +261,6 @@ public class ResourceV1ResourceClaim implements io.kubernetes.client.common.Kube
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ResourceV1ResourceClaim` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ResourceV1ResourceClaim.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
@@ -279,8 +272,10 @@ public class ResourceV1ResourceClaim implements io.kubernetes.client.common.Kube
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
         V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
-      // validate the required field `spec`
-      V1ResourceClaimSpec.validateJsonElement(jsonObj.get("spec"));
+      // validate the optional field `spec`
+      if (jsonObj.get("spec") != null && !jsonObj.get("spec").isJsonNull()) {
+        V1ResourceClaimSpec.validateJsonElement(jsonObj.get("spec"));
+      }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
         V1ResourceClaimStatus.validateJsonElement(jsonObj.get("status"));

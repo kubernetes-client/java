@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * MetricValueStatus holds the current value for a metric
  */
 @ApiModel(description = "MetricValueStatus holds the current value for a metric")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V2MetricValueStatus {
   public static final String SERIALIZED_NAME_AVERAGE_UTILIZATION = "averageUtilization";
   @SerializedName(SERIALIZED_NAME_AVERAGE_UTILIZATION)
@@ -77,11 +77,11 @@ public class V2MetricValueStatus {
   }
 
   /**
-   * currentAverageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
+   * averageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.
    * @return averageUtilization
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "currentAverageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.")
+  @ApiModelProperty(value = "averageUtilization is the current value of the average of the resource metric across all relevant pods, represented as a percentage of the requested value of the resource for the pods.")
   public Integer getAverageUtilization() {
     return averageUtilization;
   }

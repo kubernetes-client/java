@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CustomResourceConversionFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CustomResourceConversionFluent<A extends V1CustomResourceConversionFluent<A>> extends BaseFluent<A>{
 
   private String strategy;
   private V1WebhookConversionBuilder webhook;
@@ -71,7 +73,7 @@ public class V1CustomResourceConversionFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V1CustomResourceConversionFluent that = (V1CustomResourceConversionFluent) o;
+    V1CustomResourceConversionFluent<?> that = (V1CustomResourceConversionFluent<?>) o;
     if (!(Objects.equals(strategy, that.strategy))) {
       return false;
     }
@@ -114,11 +116,11 @@ public class V1CustomResourceConversionFluent<A extends io.kubernetes.client.ope
   }
   
   public WebhookNested<A> withNewWebhook() {
-    return new WebhookNested(null);
+    return new WebhookNested<>(null);
   }
   
   public WebhookNested<A> withNewWebhookLike(V1WebhookConversion item) {
-    return new WebhookNested(item);
+    return new WebhookNested<>(item);
   }
   
   public A withStrategy(String strategy) {
@@ -132,8 +134,8 @@ public class V1CustomResourceConversionFluent<A extends io.kubernetes.client.ope
         this.webhook = new V1WebhookConversionBuilder(webhook);
         this._visitables.get("webhook").add(this.webhook);
     } else {
-        this.webhook = null;
         this._visitables.get("webhook").remove(this.webhook);
+        this.webhook = null;
     }
     return (A) this;
   }

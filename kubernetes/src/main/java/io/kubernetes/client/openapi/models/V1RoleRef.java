@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * RoleRef contains information that points to the role being used
  */
 @ApiModel(description = "RoleRef contains information that points to the role being used")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1RoleRef {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
   @SerializedName(SERIALIZED_NAME_API_GROUP)
@@ -76,11 +76,11 @@ public class V1RoleRef {
   }
 
   /**
-   * APIGroup is the group for the resource being referenced
+   * apiGroup is the group for the resource being referenced
    * @return apiGroup
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "APIGroup is the group for the resource being referenced")
+  @ApiModelProperty(value = "apiGroup is the group for the resource being referenced")
   public String getApiGroup() {
     return apiGroup;
   }
@@ -96,11 +96,11 @@ public class V1RoleRef {
   }
 
   /**
-   * Kind is the type of resource being referenced
+   * kind is the type of resource being referenced
    * @return kind
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Kind is the type of resource being referenced")
+  @ApiModelProperty(required = true, value = "kind is the type of resource being referenced")
   public String getKind() {
     return kind;
   }
@@ -116,11 +116,11 @@ public class V1RoleRef {
   }
 
   /**
-   * Name is the name of resource being referenced
+   * name is the name of resource being referenced
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name is the name of resource being referenced")
+  @ApiModelProperty(required = true, value = "name is the name of resource being referenced")
   public String getName() {
     return name;
   }

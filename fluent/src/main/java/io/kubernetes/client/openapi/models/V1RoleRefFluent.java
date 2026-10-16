@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1RoleRefFluent<A extends io.kubernetes.client.openapi.models.V1RoleRefFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1RoleRefFluent<A extends V1RoleRefFluent<A>> extends BaseFluent<A>{
 
   private String apiGroup;
   private String kind;
@@ -55,7 +57,7 @@ public class V1RoleRefFluent<A extends io.kubernetes.client.openapi.models.V1Rol
     if (!(super.equals(o))) {
       return false;
     }
-    V1RoleRefFluent that = (V1RoleRefFluent) o;
+    V1RoleRefFluent<?> that = (V1RoleRefFluent<?>) o;
     if (!(Objects.equals(apiGroup, that.apiGroup))) {
       return false;
     }

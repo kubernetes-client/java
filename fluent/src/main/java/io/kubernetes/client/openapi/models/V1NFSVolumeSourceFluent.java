@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1NFSVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NFSVolumeSourceFluent<A extends V1NFSVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String path;
   private Boolean readOnly;
@@ -56,7 +58,7 @@ public class V1NFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1NFSVolumeSourceFluent that = (V1NFSVolumeSourceFluent) o;
+    V1NFSVolumeSourceFluent<?> that = (V1NFSVolumeSourceFluent<?>) o;
     if (!(Objects.equals(path, that.path))) {
       return false;
     }

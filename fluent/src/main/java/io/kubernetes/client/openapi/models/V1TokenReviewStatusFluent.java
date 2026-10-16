@@ -25,12 +25,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1TokenReviewStatusFluent<A extends io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1TokenReviewStatusFluent<A extends V1TokenReviewStatusFluent<A>> extends BaseFluent<A>{
 
   private List<String> audiences;
   private Boolean authenticated;
@@ -46,7 +48,7 @@ public class V1TokenReviewStatusFluent<A extends io.kubernetes.client.openapi.mo
 
   public A addAllToAudiences(Collection<String> items) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     for (String item : items) {
       this.audiences.add(item);
@@ -56,7 +58,7 @@ public class V1TokenReviewStatusFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToAudiences(String... items) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     for (String item : items) {
       this.audiences.add(item);
@@ -66,7 +68,7 @@ public class V1TokenReviewStatusFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToAudiences(int index,String item) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     this.audiences.add(index, item);
     return (A) this;
@@ -108,7 +110,7 @@ public class V1TokenReviewStatusFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1TokenReviewStatusFluent that = (V1TokenReviewStatusFluent) o;
+    V1TokenReviewStatusFluent<?> that = (V1TokenReviewStatusFluent<?>) o;
     if (!(Objects.equals(audiences, that.audiences))) {
       return false;
     }
@@ -208,7 +210,7 @@ public class V1TokenReviewStatusFluent<A extends io.kubernetes.client.openapi.mo
   
   public A setToAudiences(int index,String item) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     this.audiences.set(index, item);
     return (A) this;
@@ -242,7 +244,7 @@ public class V1TokenReviewStatusFluent<A extends io.kubernetes.client.openapi.mo
   
   public A withAudiences(List<String> audiences) {
     if (audiences != null) {
-        this.audiences = new ArrayList();
+        this.audiences = new ArrayList<>();
         for (String item : audiences) {
           this.addToAudiences(item);
         }
@@ -280,11 +282,11 @@ public class V1TokenReviewStatusFluent<A extends io.kubernetes.client.openapi.mo
   }
   
   public UserNested<A> withNewUser() {
-    return new UserNested(null);
+    return new UserNested<>(null);
   }
   
   public UserNested<A> withNewUserLike(V1UserInfo item) {
-    return new UserNested(item);
+    return new UserNested<>(item);
   }
   
   public A withUser(V1UserInfo user) {
@@ -293,8 +295,8 @@ public class V1TokenReviewStatusFluent<A extends io.kubernetes.client.openapi.mo
         this.user = new V1UserInfoBuilder(user);
         this._visitables.get("user").add(this.user);
     } else {
-        this.user = null;
         this._visitables.get("user").remove(this.user);
+        this.user = null;
     }
     return (A) this;
   }

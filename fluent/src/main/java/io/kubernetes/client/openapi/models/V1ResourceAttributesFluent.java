@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ResourceAttributesFluent<A extends io.kubernetes.client.openapi.models.V1ResourceAttributesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ResourceAttributesFluent<A extends V1ResourceAttributesFluent<A>> extends BaseFluent<A>{
 
   private V1FieldSelectorAttributesBuilder fieldSelector;
   private String group;
@@ -101,7 +103,7 @@ public class V1ResourceAttributesFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1ResourceAttributesFluent that = (V1ResourceAttributesFluent) o;
+    V1ResourceAttributesFluent<?> that = (V1ResourceAttributesFluent<?>) o;
     if (!(Objects.equals(fieldSelector, that.fieldSelector))) {
       return false;
     }
@@ -257,8 +259,8 @@ public class V1ResourceAttributesFluent<A extends io.kubernetes.client.openapi.m
         this.fieldSelector = new V1FieldSelectorAttributesBuilder(fieldSelector);
         this._visitables.get("fieldSelector").add(this.fieldSelector);
     } else {
-        this.fieldSelector = null;
         this._visitables.get("fieldSelector").remove(this.fieldSelector);
+        this.fieldSelector = null;
     }
     return (A) this;
   }
@@ -274,8 +276,8 @@ public class V1ResourceAttributesFluent<A extends io.kubernetes.client.openapi.m
         this.labelSelector = new V1LabelSelectorAttributesBuilder(labelSelector);
         this._visitables.get("labelSelector").add(this.labelSelector);
     } else {
-        this.labelSelector = null;
         this._visitables.get("labelSelector").remove(this.labelSelector);
+        this.labelSelector = null;
     }
     return (A) this;
   }
@@ -291,19 +293,19 @@ public class V1ResourceAttributesFluent<A extends io.kubernetes.client.openapi.m
   }
   
   public FieldSelectorNested<A> withNewFieldSelector() {
-    return new FieldSelectorNested(null);
+    return new FieldSelectorNested<>(null);
   }
   
   public FieldSelectorNested<A> withNewFieldSelectorLike(V1FieldSelectorAttributes item) {
-    return new FieldSelectorNested(item);
+    return new FieldSelectorNested<>(item);
   }
   
   public LabelSelectorNested<A> withNewLabelSelector() {
-    return new LabelSelectorNested(null);
+    return new LabelSelectorNested<>(null);
   }
   
   public LabelSelectorNested<A> withNewLabelSelectorLike(V1LabelSelectorAttributes item) {
-    return new LabelSelectorNested(item);
+    return new LabelSelectorNested<>(item);
   }
   
   public A withResource(String resource) {

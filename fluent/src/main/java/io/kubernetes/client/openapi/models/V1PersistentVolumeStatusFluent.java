@@ -19,12 +19,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PersistentVolumeStatusFluent<A extends io.kubernetes.client.openapi.models.V1PersistentVolumeStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PersistentVolumeStatusFluent<A extends V1PersistentVolumeStatusFluent<A>> extends BaseFluent<A>{
 
   private OffsetDateTime lastPhaseTransitionTime;
   private String message;
@@ -58,7 +60,7 @@ public class V1PersistentVolumeStatusFluent<A extends io.kubernetes.client.opena
     if (!(super.equals(o))) {
       return false;
     }
-    V1PersistentVolumeStatusFluent that = (V1PersistentVolumeStatusFluent) o;
+    V1PersistentVolumeStatusFluent<?> that = (V1PersistentVolumeStatusFluent<?>) o;
     if (!(Objects.equals(lastPhaseTransitionTime, that.lastPhaseTransitionTime))) {
       return false;
     }

@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1OwnerReferenceFluent<A extends io.kubernetes.client.openapi.models.V1OwnerReferenceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1OwnerReferenceFluent<A extends V1OwnerReferenceFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private Boolean blockOwnerDeletion;
@@ -62,7 +64,7 @@ public class V1OwnerReferenceFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1OwnerReferenceFluent that = (V1OwnerReferenceFluent) o;
+    V1OwnerReferenceFluent<?> that = (V1OwnerReferenceFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }

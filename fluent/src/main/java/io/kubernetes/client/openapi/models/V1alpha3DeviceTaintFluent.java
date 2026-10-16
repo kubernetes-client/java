@@ -19,12 +19,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1alpha3DeviceTaintFluent<A extends io.kubernetes.client.openapi.models.V1alpha3DeviceTaintFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1alpha3DeviceTaintFluent<A extends V1alpha3DeviceTaintFluent<A>> extends BaseFluent<A>{
 
   private String effect;
   private String key;
@@ -58,7 +60,7 @@ public class V1alpha3DeviceTaintFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1alpha3DeviceTaintFluent that = (V1alpha3DeviceTaintFluent) o;
+    V1alpha3DeviceTaintFluent<?> that = (V1alpha3DeviceTaintFluent<?>) o;
     if (!(Objects.equals(effect, that.effect))) {
       return false;
     }

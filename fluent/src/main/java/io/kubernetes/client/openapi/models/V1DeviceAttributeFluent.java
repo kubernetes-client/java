@@ -24,12 +24,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.models.V1DeviceAttributeFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DeviceAttributeFluent<A extends V1DeviceAttributeFluent<A>> extends BaseFluent<A>{
 
   private Long _int;
   private Boolean bool;
@@ -49,7 +51,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToBools(Collection<Boolean> items) {
     if (this.bools == null) {
-      this.bools = new ArrayList();
+      this.bools = new ArrayList<>();
     }
     for (Boolean item : items) {
       this.bools.add(item);
@@ -59,7 +61,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToInts(Collection<Long> items) {
     if (this.ints == null) {
-      this.ints = new ArrayList();
+      this.ints = new ArrayList<>();
     }
     for (Long item : items) {
       this.ints.add(item);
@@ -69,7 +71,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToStrings(Collection<String> items) {
     if (this.strings == null) {
-      this.strings = new ArrayList();
+      this.strings = new ArrayList<>();
     }
     for (String item : items) {
       this.strings.add(item);
@@ -79,7 +81,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToVersions(Collection<String> items) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     for (String item : items) {
       this.versions.add(item);
@@ -89,7 +91,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToBools(Boolean... items) {
     if (this.bools == null) {
-      this.bools = new ArrayList();
+      this.bools = new ArrayList<>();
     }
     for (Boolean item : items) {
       this.bools.add(item);
@@ -99,7 +101,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToBools(int index,Boolean item) {
     if (this.bools == null) {
-      this.bools = new ArrayList();
+      this.bools = new ArrayList<>();
     }
     this.bools.add(index, item);
     return (A) this;
@@ -107,7 +109,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToInts(Long... items) {
     if (this.ints == null) {
-      this.ints = new ArrayList();
+      this.ints = new ArrayList<>();
     }
     for (Long item : items) {
       this.ints.add(item);
@@ -117,7 +119,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToInts(int index,Long item) {
     if (this.ints == null) {
-      this.ints = new ArrayList();
+      this.ints = new ArrayList<>();
     }
     this.ints.add(index, item);
     return (A) this;
@@ -125,7 +127,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToStrings(String... items) {
     if (this.strings == null) {
-      this.strings = new ArrayList();
+      this.strings = new ArrayList<>();
     }
     for (String item : items) {
       this.strings.add(item);
@@ -135,7 +137,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToStrings(int index,String item) {
     if (this.strings == null) {
-      this.strings = new ArrayList();
+      this.strings = new ArrayList<>();
     }
     this.strings.add(index, item);
     return (A) this;
@@ -143,7 +145,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToVersions(String... items) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     for (String item : items) {
       this.versions.add(item);
@@ -153,7 +155,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToVersions(int index,String item) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     this.versions.add(index, item);
     return (A) this;
@@ -182,7 +184,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1DeviceAttributeFluent that = (V1DeviceAttributeFluent) o;
+    V1DeviceAttributeFluent<?> that = (V1DeviceAttributeFluent<?>) o;
     if (!(Objects.equals(bool, that.bool))) {
       return false;
     }
@@ -480,7 +482,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToBools(int index,Boolean item) {
     if (this.bools == null) {
-      this.bools = new ArrayList();
+      this.bools = new ArrayList<>();
     }
     this.bools.set(index, item);
     return (A) this;
@@ -488,7 +490,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToInts(int index,Long item) {
     if (this.ints == null) {
-      this.ints = new ArrayList();
+      this.ints = new ArrayList<>();
     }
     this.ints.set(index, item);
     return (A) this;
@@ -496,7 +498,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToStrings(int index,String item) {
     if (this.strings == null) {
-      this.strings = new ArrayList();
+      this.strings = new ArrayList<>();
     }
     this.strings.set(index, item);
     return (A) this;
@@ -504,7 +506,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToVersions(int index,String item) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     this.versions.set(index, item);
     return (A) this;
@@ -567,7 +569,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A withBools(List<Boolean> bools) {
     if (bools != null) {
-        this.bools = new ArrayList();
+        this.bools = new ArrayList<>();
         for (Boolean item : bools) {
           this.addToBools(item);
         }
@@ -597,7 +599,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A withInts(List<Long> ints) {
     if (ints != null) {
-        this.ints = new ArrayList();
+        this.ints = new ArrayList<>();
         for (Long item : ints) {
           this.addToInts(item);
         }
@@ -627,7 +629,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A withStrings(List<String> strings) {
     if (strings != null) {
-        this.strings = new ArrayList();
+        this.strings = new ArrayList<>();
         for (String item : strings) {
           this.addToStrings(item);
         }
@@ -657,7 +659,7 @@ public class V1DeviceAttributeFluent<A extends io.kubernetes.client.openapi.mode
   
   public A withVersions(List<String> versions) {
     if (versions != null) {
-        this.versions = new ArrayList();
+        this.versions = new ArrayList<>();
         for (String item : versions) {
           this.addToVersions(item);
         }

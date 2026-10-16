@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1GroupVersionKindBuilder extends V1GroupVersionKindFluent<V1GroupVersionKindBuilder> implements VisitableBuilder<V1GroupVersionKind,V1GroupVersionKindBuilder>{
 
   V1GroupVersionKindFluent<?> fluent;
@@ -39,8 +40,8 @@ public class V1GroupVersionKindBuilder extends V1GroupVersionKindFluent<V1GroupV
   public V1GroupVersionKind build() {
     V1GroupVersionKind buildable = new V1GroupVersionKind();
     buildable.setGroup(fluent.getGroup());
-    buildable.setKind(fluent.getKind());
     buildable.setVersion(fluent.getVersion());
+    buildable.setKind(fluent.getKind());
     return buildable;
   }
   

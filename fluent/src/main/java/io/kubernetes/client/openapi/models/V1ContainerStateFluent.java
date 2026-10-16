@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ContainerStateFluent<A extends io.kubernetes.client.openapi.models.V1ContainerStateFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ContainerStateFluent<A extends V1ContainerStateFluent<A>> extends BaseFluent<A>{
 
   private V1ContainerStateRunningBuilder running;
   private V1ContainerStateTerminatedBuilder terminated;
@@ -105,7 +107,7 @@ public class V1ContainerStateFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1ContainerStateFluent that = (V1ContainerStateFluent) o;
+    V1ContainerStateFluent<?> that = (V1ContainerStateFluent<?>) o;
     if (!(Objects.equals(running, that.running))) {
       return false;
     }
@@ -156,27 +158,27 @@ public class V1ContainerStateFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public RunningNested<A> withNewRunning() {
-    return new RunningNested(null);
+    return new RunningNested<>(null);
   }
   
   public RunningNested<A> withNewRunningLike(V1ContainerStateRunning item) {
-    return new RunningNested(item);
+    return new RunningNested<>(item);
   }
   
   public TerminatedNested<A> withNewTerminated() {
-    return new TerminatedNested(null);
+    return new TerminatedNested<>(null);
   }
   
   public TerminatedNested<A> withNewTerminatedLike(V1ContainerStateTerminated item) {
-    return new TerminatedNested(item);
+    return new TerminatedNested<>(item);
   }
   
   public WaitingNested<A> withNewWaiting() {
-    return new WaitingNested(null);
+    return new WaitingNested<>(null);
   }
   
   public WaitingNested<A> withNewWaitingLike(V1ContainerStateWaiting item) {
-    return new WaitingNested(item);
+    return new WaitingNested<>(item);
   }
   
   public A withRunning(V1ContainerStateRunning running) {
@@ -185,8 +187,8 @@ public class V1ContainerStateFluent<A extends io.kubernetes.client.openapi.model
         this.running = new V1ContainerStateRunningBuilder(running);
         this._visitables.get("running").add(this.running);
     } else {
-        this.running = null;
         this._visitables.get("running").remove(this.running);
+        this.running = null;
     }
     return (A) this;
   }
@@ -197,8 +199,8 @@ public class V1ContainerStateFluent<A extends io.kubernetes.client.openapi.model
         this.terminated = new V1ContainerStateTerminatedBuilder(terminated);
         this._visitables.get("terminated").add(this.terminated);
     } else {
-        this.terminated = null;
         this._visitables.get("terminated").remove(this.terminated);
+        this.terminated = null;
     }
     return (A) this;
   }
@@ -209,8 +211,8 @@ public class V1ContainerStateFluent<A extends io.kubernetes.client.openapi.model
         this.waiting = new V1ContainerStateWaitingBuilder(waiting);
         this._visitables.get("waiting").add(this.waiting);
     } else {
-        this.waiting = null;
         this._visitables.get("waiting").remove(this.waiting);
+        this.waiting = null;
     }
     return (A) this;
   }

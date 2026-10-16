@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1IPAddressSpecFluent<A extends io.kubernetes.client.openapi.models.V1IPAddressSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1IPAddressSpecFluent<A extends V1IPAddressSpecFluent<A>> extends BaseFluent<A>{
 
   private V1ParentReferenceBuilder parentRef;
 
@@ -69,7 +71,7 @@ public class V1IPAddressSpecFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1IPAddressSpecFluent that = (V1IPAddressSpecFluent) o;
+    V1IPAddressSpecFluent<?> that = (V1IPAddressSpecFluent<?>) o;
     if (!(Objects.equals(parentRef, that.parentRef))) {
       return false;
     }
@@ -96,11 +98,11 @@ public class V1IPAddressSpecFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public ParentRefNested<A> withNewParentRef() {
-    return new ParentRefNested(null);
+    return new ParentRefNested<>(null);
   }
   
   public ParentRefNested<A> withNewParentRefLike(V1ParentReference item) {
-    return new ParentRefNested(item);
+    return new ParentRefNested<>(item);
   }
   
   public A withParentRef(V1ParentReference parentRef) {
@@ -109,8 +111,8 @@ public class V1IPAddressSpecFluent<A extends io.kubernetes.client.openapi.models
         this.parentRef = new V1ParentReferenceBuilder(parentRef);
         this._visitables.get("parentRef").add(this.parentRef);
     } else {
-        this.parentRef = null;
         this._visitables.get("parentRef").remove(this.parentRef);
+        this.parentRef = null;
     }
     return (A) this;
   }

@@ -20,12 +20,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1GCEPersistentDiskVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1GCEPersistentDiskVolumeSourceFluent<A extends V1GCEPersistentDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String fsType;
   private Integer partition;
@@ -59,7 +61,7 @@ public class V1GCEPersistentDiskVolumeSourceFluent<A extends io.kubernetes.clien
     if (!(super.equals(o))) {
       return false;
     }
-    V1GCEPersistentDiskVolumeSourceFluent that = (V1GCEPersistentDiskVolumeSourceFluent) o;
+    V1GCEPersistentDiskVolumeSourceFluent<?> that = (V1GCEPersistentDiskVolumeSourceFluent<?>) o;
     if (!(Objects.equals(fsType, that.fsType))) {
       return false;
     }

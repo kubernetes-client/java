@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DeviceClassConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1DeviceClassConfigurationFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DeviceClassConfigurationFluent<A extends V1DeviceClassConfigurationFluent<A>> extends BaseFluent<A>{
 
   private V1OpaqueDeviceConfigurationBuilder opaque;
 
@@ -69,7 +71,7 @@ public class V1DeviceClassConfigurationFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V1DeviceClassConfigurationFluent that = (V1DeviceClassConfigurationFluent) o;
+    V1DeviceClassConfigurationFluent<?> that = (V1DeviceClassConfigurationFluent<?>) o;
     if (!(Objects.equals(opaque, that.opaque))) {
       return false;
     }
@@ -96,11 +98,11 @@ public class V1DeviceClassConfigurationFluent<A extends io.kubernetes.client.ope
   }
   
   public OpaqueNested<A> withNewOpaque() {
-    return new OpaqueNested(null);
+    return new OpaqueNested<>(null);
   }
   
   public OpaqueNested<A> withNewOpaqueLike(V1OpaqueDeviceConfiguration item) {
-    return new OpaqueNested(item);
+    return new OpaqueNested<>(item);
   }
   
   public A withOpaque(V1OpaqueDeviceConfiguration opaque) {
@@ -109,8 +111,8 @@ public class V1DeviceClassConfigurationFluent<A extends io.kubernetes.client.ope
         this.opaque = new V1OpaqueDeviceConfigurationBuilder(opaque);
         this._visitables.get("opaque").add(this.opaque);
     } else {
-        this.opaque = null;
         this._visitables.get("opaque").remove(this.opaque);
+        this.opaque = null;
     }
     return (A) this;
   }

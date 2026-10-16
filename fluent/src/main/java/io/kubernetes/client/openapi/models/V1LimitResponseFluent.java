@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1LimitResponseFluent<A extends io.kubernetes.client.openapi.models.V1LimitResponseFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1LimitResponseFluent<A extends V1LimitResponseFluent<A>> extends BaseFluent<A>{
 
   private V1QueuingConfigurationBuilder queuing;
   private String type;
@@ -71,7 +73,7 @@ public class V1LimitResponseFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1LimitResponseFluent that = (V1LimitResponseFluent) o;
+    V1LimitResponseFluent<?> that = (V1LimitResponseFluent<?>) o;
     if (!(Objects.equals(queuing, that.queuing))) {
       return false;
     }
@@ -114,11 +116,11 @@ public class V1LimitResponseFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public QueuingNested<A> withNewQueuing() {
-    return new QueuingNested(null);
+    return new QueuingNested<>(null);
   }
   
   public QueuingNested<A> withNewQueuingLike(V1QueuingConfiguration item) {
-    return new QueuingNested(item);
+    return new QueuingNested<>(item);
   }
   
   public A withQueuing(V1QueuingConfiguration queuing) {
@@ -127,8 +129,8 @@ public class V1LimitResponseFluent<A extends io.kubernetes.client.openapi.models
         this.queuing = new V1QueuingConfigurationBuilder(queuing);
         this._visitables.get("queuing").add(this.queuing);
     } else {
-        this.queuing = null;
         this._visitables.get("queuing").remove(this.queuing);
+        this.queuing = null;
     }
     return (A) this;
   }

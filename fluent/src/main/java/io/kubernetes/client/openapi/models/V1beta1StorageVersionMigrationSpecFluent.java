@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1StorageVersionMigrationSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta1StorageVersionMigrationSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1StorageVersionMigrationSpecFluent<A extends V1beta1StorageVersionMigrationSpecFluent<A>> extends BaseFluent<A>{
 
   private V1GroupResourceBuilder resource;
 
@@ -69,7 +71,7 @@ public class V1beta1StorageVersionMigrationSpecFluent<A extends io.kubernetes.cl
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1StorageVersionMigrationSpecFluent that = (V1beta1StorageVersionMigrationSpecFluent) o;
+    V1beta1StorageVersionMigrationSpecFluent<?> that = (V1beta1StorageVersionMigrationSpecFluent<?>) o;
     if (!(Objects.equals(resource, that.resource))) {
       return false;
     }
@@ -96,11 +98,11 @@ public class V1beta1StorageVersionMigrationSpecFluent<A extends io.kubernetes.cl
   }
   
   public ResourceNested<A> withNewResource() {
-    return new ResourceNested(null);
+    return new ResourceNested<>(null);
   }
   
   public ResourceNested<A> withNewResourceLike(V1GroupResource item) {
-    return new ResourceNested(item);
+    return new ResourceNested<>(item);
   }
   
   public A withResource(V1GroupResource resource) {
@@ -109,8 +111,8 @@ public class V1beta1StorageVersionMigrationSpecFluent<A extends io.kubernetes.cl
         this.resource = new V1GroupResourceBuilder(resource);
         this._visitables.get("resource").add(this.resource);
     } else {
-        this.resource = null;
         this._visitables.get("resource").remove(this.resource);
+        this.resource = null;
     }
     return (A) this;
   }

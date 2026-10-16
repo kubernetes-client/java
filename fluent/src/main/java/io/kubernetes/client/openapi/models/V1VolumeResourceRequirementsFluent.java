@@ -21,12 +21,14 @@ import java.lang.SuppressWarnings;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.openapi.models.V1VolumeResourceRequirementsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VolumeResourceRequirementsFluent<A extends V1VolumeResourceRequirementsFluent<A>> extends BaseFluent<A>{
 
   private Map<String,Quantity> limits;
   private Map<String,Quantity> requests;
@@ -40,7 +42,7 @@ public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.o
 
   public A addToLimits(Map<String,Quantity> map) {
     if (this.limits == null && map != null) {
-      this.limits = new LinkedHashMap();
+      this.limits = new LinkedHashMap<>();
     }
     if (map != null) {
       this.limits.putAll(map);
@@ -50,7 +52,7 @@ public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.o
   
   public A addToLimits(String key,Quantity value) {
     if (this.limits == null && key != null && value != null) {
-      this.limits = new LinkedHashMap();
+      this.limits = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.limits.put(key, value);
@@ -60,7 +62,7 @@ public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.o
   
   public A addToRequests(Map<String,Quantity> map) {
     if (this.requests == null && map != null) {
-      this.requests = new LinkedHashMap();
+      this.requests = new LinkedHashMap<>();
     }
     if (map != null) {
       this.requests.putAll(map);
@@ -70,7 +72,7 @@ public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.o
   
   public A addToRequests(String key,Quantity value) {
     if (this.requests == null && key != null && value != null) {
-      this.requests = new LinkedHashMap();
+      this.requests = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.requests.put(key, value);
@@ -96,7 +98,7 @@ public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.o
     if (!(super.equals(o))) {
       return false;
     }
-    V1VolumeResourceRequirementsFluent that = (V1VolumeResourceRequirementsFluent) o;
+    V1VolumeResourceRequirementsFluent<?> that = (V1VolumeResourceRequirementsFluent<?>) o;
     if (!(Objects.equals(limits, that.limits))) {
       return false;
     }
@@ -194,7 +196,7 @@ public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.o
     if (limits == null) {
       this.limits = null;
     } else {
-      this.limits = new LinkedHashMap(limits);
+      this.limits = new LinkedHashMap<>(limits);
     }
     return (A) this;
   }
@@ -203,7 +205,7 @@ public class V1VolumeResourceRequirementsFluent<A extends io.kubernetes.client.o
     if (requests == null) {
       this.requests = null;
     } else {
-      this.requests = new LinkedHashMap(requests);
+      this.requests = new LinkedHashMap<>(requests);
     }
     return (A) this;
   }

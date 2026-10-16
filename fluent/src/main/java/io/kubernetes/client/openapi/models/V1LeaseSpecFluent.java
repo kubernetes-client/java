@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1LeaseSpecFluent<A extends io.kubernetes.client.openapi.models.V1LeaseSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1LeaseSpecFluent<A extends V1LeaseSpecFluent<A>> extends BaseFluent<A>{
 
   private OffsetDateTime acquireTime;
   private String holderIdentity;
@@ -65,7 +67,7 @@ public class V1LeaseSpecFluent<A extends io.kubernetes.client.openapi.models.V1L
     if (!(super.equals(o))) {
       return false;
     }
-    V1LeaseSpecFluent that = (V1LeaseSpecFluent) o;
+    V1LeaseSpecFluent<?> that = (V1LeaseSpecFluent<?>) o;
     if (!(Objects.equals(acquireTime, that.acquireTime))) {
       return false;
     }

@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1GCEPersistentDiskVolumeSourceBuilder extends V1GCEPersistentDiskVolumeSourceFluent<V1GCEPersistentDiskVolumeSourceBuilder> implements VisitableBuilder<V1GCEPersistentDiskVolumeSource,V1GCEPersistentDiskVolumeSourceBuilder>{
 
   V1GCEPersistentDiskVolumeSourceFluent<?> fluent;

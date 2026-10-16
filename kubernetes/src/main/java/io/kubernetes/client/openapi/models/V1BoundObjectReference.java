@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * BoundObjectReference is a reference to an object that a token is bound to.
  */
 @ApiModel(description = "BoundObjectReference is a reference to an object that a token is bound to.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1BoundObjectReference {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -101,11 +101,11 @@ public class V1BoundObjectReference {
   }
 
   /**
-   * kind of the referent. Valid kinds are &#39;Pod&#39; and &#39;Secret&#39;.
+   * kind of the referent. Valid kinds are &#39;Pod&#39;, &#39;Secret&#39;, &#39;Node&#39;, &#39;ValidatingWebhookConfiguration&#39;, and &#39;MutatingWebhookConfiguration&#39;.
    * @return kind
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "kind of the referent. Valid kinds are 'Pod' and 'Secret'.")
+  @ApiModelProperty(value = "kind of the referent. Valid kinds are 'Pod', 'Secret', 'Node', 'ValidatingWebhookConfiguration', and 'MutatingWebhookConfiguration'.")
   public String getKind() {
     return kind;
   }

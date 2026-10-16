@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodSchedulingGateFluent<A extends io.kubernetes.client.openapi.models.V1PodSchedulingGateFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodSchedulingGateFluent<A extends V1PodSchedulingGateFluent<A>> extends BaseFluent<A>{
 
   private String name;
 
@@ -51,7 +53,7 @@ public class V1PodSchedulingGateFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodSchedulingGateFluent that = (V1PodSchedulingGateFluent) o;
+    V1PodSchedulingGateFluent<?> that = (V1PodSchedulingGateFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

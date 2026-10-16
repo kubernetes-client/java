@@ -29,6 +29,7 @@ PodStatus represents information about the status of a pod. Status may trail the
 |**resourceClaimStatuses** | [**List&lt;V1PodResourceClaimStatus&gt;**](V1PodResourceClaimStatus.md) | Status of resource claims. |  [optional] |
 |**resources** | [**V1ResourceRequirements**](V1ResourceRequirements.md) |  |  [optional] |
 |**startTime** | **OffsetDateTime** | RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod. |  [optional] |
+|**volumeHealth** | [**List&lt;V1PodVolumeHealth&gt;**](V1PodVolumeHealth.md) | volumeHealth contains node-reported health for each volume the pod is using. Populated by the kubelet on the pod&#39;s node. |  [optional] |
 
 
 

@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta1MutatingAdmissionPolicyBindingSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends V1beta1MutatingAdmissionPolicyBindingSpecFluent<A>> extends BaseFluent<A>{
 
   private V1beta1MatchResourcesBuilder matchResources;
   private V1beta1ParamRefBuilder paramRef;
@@ -89,7 +91,7 @@ public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubern
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1MutatingAdmissionPolicyBindingSpecFluent that = (V1beta1MutatingAdmissionPolicyBindingSpecFluent) o;
+    V1beta1MutatingAdmissionPolicyBindingSpecFluent<?> that = (V1beta1MutatingAdmissionPolicyBindingSpecFluent<?>) o;
     if (!(Objects.equals(matchResources, that.matchResources))) {
       return false;
     }
@@ -149,26 +151,26 @@ public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubern
         this.matchResources = new V1beta1MatchResourcesBuilder(matchResources);
         this._visitables.get("matchResources").add(this.matchResources);
     } else {
-        this.matchResources = null;
         this._visitables.get("matchResources").remove(this.matchResources);
+        this.matchResources = null;
     }
     return (A) this;
   }
   
   public MatchResourcesNested<A> withNewMatchResources() {
-    return new MatchResourcesNested(null);
+    return new MatchResourcesNested<>(null);
   }
   
   public MatchResourcesNested<A> withNewMatchResourcesLike(V1beta1MatchResources item) {
-    return new MatchResourcesNested(item);
+    return new MatchResourcesNested<>(item);
   }
   
   public ParamRefNested<A> withNewParamRef() {
-    return new ParamRefNested(null);
+    return new ParamRefNested<>(null);
   }
   
   public ParamRefNested<A> withNewParamRefLike(V1beta1ParamRef item) {
-    return new ParamRefNested(item);
+    return new ParamRefNested<>(item);
   }
   
   public A withParamRef(V1beta1ParamRef paramRef) {
@@ -177,8 +179,8 @@ public class V1beta1MutatingAdmissionPolicyBindingSpecFluent<A extends io.kubern
         this.paramRef = new V1beta1ParamRefBuilder(paramRef);
         this._visitables.get("paramRef").add(this.paramRef);
     } else {
-        this.paramRef = null;
         this._visitables.get("paramRef").remove(this.paramRef);
+        this.paramRef = null;
     }
     return (A) this;
   }

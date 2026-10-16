@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1DeviceTolerationFluent<A extends io.kubernetes.client.openapi.models.V1beta1DeviceTolerationFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1DeviceTolerationFluent<A extends V1beta1DeviceTolerationFluent<A>> extends BaseFluent<A>{
 
   private String effect;
   private String key;
@@ -60,7 +62,7 @@ public class V1beta1DeviceTolerationFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1DeviceTolerationFluent that = (V1beta1DeviceTolerationFluent) o;
+    V1beta1DeviceTolerationFluent<?> that = (V1beta1DeviceTolerationFluent<?>) o;
     if (!(Objects.equals(effect, that.effect))) {
       return false;
     }

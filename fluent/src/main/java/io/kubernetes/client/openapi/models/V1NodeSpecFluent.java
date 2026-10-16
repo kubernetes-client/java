@@ -27,17 +27,20 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1NodeSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends BaseFluent<A>{
 
   private V1NodeConfigSourceBuilder configSource;
   private String externalID;
   private String podCIDR;
   private List<String> podCIDRs;
+  private V1NodePodPreemptionPolicyBuilder podPreemptionPolicy;
   private String providerID;
   private ArrayList<V1TaintBuilder> taints;
   private Boolean unschedulable;
@@ -51,7 +54,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
 
   public A addAllToPodCIDRs(Collection<String> items) {
     if (this.podCIDRs == null) {
-      this.podCIDRs = new ArrayList();
+      this.podCIDRs = new ArrayList<>();
     }
     for (String item : items) {
       this.podCIDRs.add(item);
@@ -61,7 +64,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
   
   public A addAllToTaints(Collection<V1Taint> items) {
     if (this.taints == null) {
-      this.taints = new ArrayList();
+      this.taints = new ArrayList<>();
     }
     for (V1Taint item : items) {
         V1TaintBuilder builder = new V1TaintBuilder(item);
@@ -72,16 +75,16 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
   }
   
   public TaintsNested<A> addNewTaint() {
-    return new TaintsNested(-1, null);
+    return new TaintsNested<>(-1, null);
   }
   
   public TaintsNested<A> addNewTaintLike(V1Taint item) {
-    return new TaintsNested(-1, item);
+    return new TaintsNested<>(-1, item);
   }
   
   public A addToPodCIDRs(String... items) {
     if (this.podCIDRs == null) {
-      this.podCIDRs = new ArrayList();
+      this.podCIDRs = new ArrayList<>();
     }
     for (String item : items) {
       this.podCIDRs.add(item);
@@ -91,7 +94,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
   
   public A addToPodCIDRs(int index,String item) {
     if (this.podCIDRs == null) {
-      this.podCIDRs = new ArrayList();
+      this.podCIDRs = new ArrayList<>();
     }
     this.podCIDRs.add(index, item);
     return (A) this;
@@ -99,7 +102,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
   
   public A addToTaints(V1Taint... items) {
     if (this.taints == null) {
-      this.taints = new ArrayList();
+      this.taints = new ArrayList<>();
     }
     for (V1Taint item : items) {
         V1TaintBuilder builder = new V1TaintBuilder(item);
@@ -111,7 +114,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
   
   public A addToTaints(int index,V1Taint item) {
     if (this.taints == null) {
-      this.taints = new ArrayList();
+      this.taints = new ArrayList<>();
     }
     V1TaintBuilder builder = new V1TaintBuilder(item);
     if (index < 0 || index >= this.taints.size()) {
@@ -145,6 +148,10 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
       return null;
   }
   
+  public V1NodePodPreemptionPolicy buildPodPreemptionPolicy() {
+    return this.podPreemptionPolicy != null ? this.podPreemptionPolicy.build() : null;
+  }
+  
   public V1Taint buildTaint(int index) {
     return this.taints.get(index).build();
   }
@@ -160,6 +167,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
         this.withExternalID(instance.getExternalID());
         this.withPodCIDR(instance.getPodCIDR());
         this.withPodCIDRs(instance.getPodCIDRs());
+        this.withPodPreemptionPolicy(instance.getPodPreemptionPolicy());
         this.withProviderID(instance.getProviderID());
         this.withTaints(instance.getTaints());
         this.withUnschedulable(instance.getUnschedulable());
@@ -207,6 +215,18 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
     return this.withNewConfigSourceLike(Optional.ofNullable(this.buildConfigSource()).orElse(item));
   }
   
+  public PodPreemptionPolicyNested<A> editOrNewPodPreemptionPolicy() {
+    return this.withNewPodPreemptionPolicyLike(Optional.ofNullable(this.buildPodPreemptionPolicy()).orElse(new V1NodePodPreemptionPolicyBuilder().build()));
+  }
+  
+  public PodPreemptionPolicyNested<A> editOrNewPodPreemptionPolicyLike(V1NodePodPreemptionPolicy item) {
+    return this.withNewPodPreemptionPolicyLike(Optional.ofNullable(this.buildPodPreemptionPolicy()).orElse(item));
+  }
+  
+  public PodPreemptionPolicyNested<A> editPodPreemptionPolicy() {
+    return this.withNewPodPreemptionPolicyLike(Optional.ofNullable(this.buildPodPreemptionPolicy()).orElse(null));
+  }
+  
   public TaintsNested<A> editTaint(int index) {
     if (taints.size() <= index) {
       throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "taints"));
@@ -224,7 +244,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeSpecFluent that = (V1NodeSpecFluent) o;
+    V1NodeSpecFluent<?> that = (V1NodeSpecFluent<?>) o;
     if (!(Objects.equals(configSource, that.configSource))) {
       return false;
     }
@@ -235,6 +255,9 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
       return false;
     }
     if (!(Objects.equals(podCIDRs, that.podCIDRs))) {
+      return false;
+    }
+    if (!(Objects.equals(podPreemptionPolicy, that.podPreemptionPolicy))) {
       return false;
     }
     if (!(Objects.equals(providerID, that.providerID))) {
@@ -324,6 +347,10 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
     return this.podCIDRs != null && !(this.podCIDRs.isEmpty());
   }
   
+  public boolean hasPodPreemptionPolicy() {
+    return this.podPreemptionPolicy != null;
+  }
+  
   public boolean hasProviderID() {
     return this.providerID != null;
   }
@@ -337,7 +364,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
   }
   
   public int hashCode() {
-    return Objects.hash(configSource, externalID, podCIDR, podCIDRs, providerID, taints, unschedulable);
+    return Objects.hash(configSource, externalID, podCIDR, podCIDRs, podPreemptionPolicy, providerID, taints, unschedulable);
   }
   
   public A removeAllFromPodCIDRs(Collection<String> items) {
@@ -389,6 +416,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
       return (A) this;
     }
     Iterator<V1TaintBuilder> each = taints.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("taints");
     while (each.hasNext()) {
         V1TaintBuilder builder = each.next();
@@ -401,12 +429,12 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
   }
   
   public TaintsNested<A> setNewTaintLike(int index,V1Taint item) {
-    return new TaintsNested(index, item);
+    return new TaintsNested<>(index, item);
   }
   
   public A setToPodCIDRs(int index,String item) {
     if (this.podCIDRs == null) {
-      this.podCIDRs = new ArrayList();
+      this.podCIDRs = new ArrayList<>();
     }
     this.podCIDRs.set(index, item);
     return (A) this;
@@ -414,7 +442,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
   
   public A setToTaints(int index,V1Taint item) {
     if (this.taints == null) {
-      this.taints = new ArrayList();
+      this.taints = new ArrayList<>();
     }
     V1TaintBuilder builder = new V1TaintBuilder(item);
     if (index < 0 || index >= this.taints.size()) {
@@ -450,6 +478,11 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
         sb.append(podCIDRs);
         sb.append(",");
     }
+    if (!(podPreemptionPolicy == null)) {
+        sb.append("podPreemptionPolicy:");
+        sb.append(podPreemptionPolicy);
+        sb.append(",");
+    }
     if (!(providerID == null)) {
         sb.append("providerID:");
         sb.append(providerID);
@@ -474,8 +507,8 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
         this.configSource = new V1NodeConfigSourceBuilder(configSource);
         this._visitables.get("configSource").add(this.configSource);
     } else {
-        this.configSource = null;
         this._visitables.get("configSource").remove(this.configSource);
+        this.configSource = null;
     }
     return (A) this;
   }
@@ -486,11 +519,19 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
   }
   
   public ConfigSourceNested<A> withNewConfigSource() {
-    return new ConfigSourceNested(null);
+    return new ConfigSourceNested<>(null);
   }
   
   public ConfigSourceNested<A> withNewConfigSourceLike(V1NodeConfigSource item) {
-    return new ConfigSourceNested(item);
+    return new ConfigSourceNested<>(item);
+  }
+  
+  public PodPreemptionPolicyNested<A> withNewPodPreemptionPolicy() {
+    return new PodPreemptionPolicyNested<>(null);
+  }
+  
+  public PodPreemptionPolicyNested<A> withNewPodPreemptionPolicyLike(V1NodePodPreemptionPolicy item) {
+    return new PodPreemptionPolicyNested<>(item);
   }
   
   public A withPodCIDR(String podCIDR) {
@@ -500,7 +541,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
   
   public A withPodCIDRs(List<String> podCIDRs) {
     if (podCIDRs != null) {
-        this.podCIDRs = new ArrayList();
+        this.podCIDRs = new ArrayList<>();
         for (String item : podCIDRs) {
           this.addToPodCIDRs(item);
         }
@@ -523,6 +564,18 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
     return (A) this;
   }
   
+  public A withPodPreemptionPolicy(V1NodePodPreemptionPolicy podPreemptionPolicy) {
+    this._visitables.remove("podPreemptionPolicy");
+    if (podPreemptionPolicy != null) {
+        this.podPreemptionPolicy = new V1NodePodPreemptionPolicyBuilder(podPreemptionPolicy);
+        this._visitables.get("podPreemptionPolicy").add(this.podPreemptionPolicy);
+    } else {
+        this._visitables.get("podPreemptionPolicy").remove(this.podPreemptionPolicy);
+        this.podPreemptionPolicy = null;
+    }
+    return (A) this;
+  }
+  
   public A withProviderID(String providerID) {
     this.providerID = providerID;
     return (A) this;
@@ -533,7 +586,7 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
       this._visitables.get("taints").clear();
     }
     if (taints != null) {
-        this.taints = new ArrayList();
+        this.taints = new ArrayList<>();
         for (V1Taint item : taints) {
           this.addToTaints(item);
         }
@@ -577,6 +630,23 @@ public class V1NodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1No
     }
     
     public N endConfigSource() {
+      return and();
+    }
+    
+  }
+  public class PodPreemptionPolicyNested<N> extends V1NodePodPreemptionPolicyFluent<PodPreemptionPolicyNested<N>> implements Nested<N>{
+  
+    V1NodePodPreemptionPolicyBuilder builder;
+  
+    PodPreemptionPolicyNested(V1NodePodPreemptionPolicy item) {
+      this.builder = new V1NodePodPreemptionPolicyBuilder(this, item);
+    }
+  
+    public N and() {
+      return (N) V1NodeSpecFluent.this.withPodPreemptionPolicy(builder.build());
+    }
+    
+    public N endPodPreemptionPolicy() {
       return and();
     }
     

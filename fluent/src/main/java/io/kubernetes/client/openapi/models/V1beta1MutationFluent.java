@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1MutationFluent<A extends io.kubernetes.client.openapi.models.V1beta1MutationFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1MutationFluent<A extends V1beta1MutationFluent<A>> extends BaseFluent<A>{
 
   private V1beta1ApplyConfigurationBuilder applyConfiguration;
   private V1beta1JSONPatchBuilder jsonPatch;
@@ -89,7 +91,7 @@ public class V1beta1MutationFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1MutationFluent that = (V1beta1MutationFluent) o;
+    V1beta1MutationFluent<?> that = (V1beta1MutationFluent<?>) o;
     if (!(Objects.equals(applyConfiguration, that.applyConfiguration))) {
       return false;
     }
@@ -149,8 +151,8 @@ public class V1beta1MutationFluent<A extends io.kubernetes.client.openapi.models
         this.applyConfiguration = new V1beta1ApplyConfigurationBuilder(applyConfiguration);
         this._visitables.get("applyConfiguration").add(this.applyConfiguration);
     } else {
-        this.applyConfiguration = null;
         this._visitables.get("applyConfiguration").remove(this.applyConfiguration);
+        this.applyConfiguration = null;
     }
     return (A) this;
   }
@@ -161,26 +163,26 @@ public class V1beta1MutationFluent<A extends io.kubernetes.client.openapi.models
         this.jsonPatch = new V1beta1JSONPatchBuilder(jsonPatch);
         this._visitables.get("jsonPatch").add(this.jsonPatch);
     } else {
-        this.jsonPatch = null;
         this._visitables.get("jsonPatch").remove(this.jsonPatch);
+        this.jsonPatch = null;
     }
     return (A) this;
   }
   
   public ApplyConfigurationNested<A> withNewApplyConfiguration() {
-    return new ApplyConfigurationNested(null);
+    return new ApplyConfigurationNested<>(null);
   }
   
   public ApplyConfigurationNested<A> withNewApplyConfigurationLike(V1beta1ApplyConfiguration item) {
-    return new ApplyConfigurationNested(item);
+    return new ApplyConfigurationNested<>(item);
   }
   
   public JsonPatchNested<A> withNewJsonPatch() {
-    return new JsonPatchNested(null);
+    return new JsonPatchNested<>(null);
   }
   
   public JsonPatchNested<A> withNewJsonPatchLike(V1beta1JSONPatch item) {
-    return new JsonPatchNested(item);
+    return new JsonPatchNested<>(item);
   }
   
   public A withPatchType(String patchType) {

@@ -55,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * JobStatus represents the current state of a Job.
  */
 @ApiModel(description = "JobStatus represents the current state of a Job.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1JobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -309,11 +309,11 @@ public class V1JobStatus {
   }
 
   /**
-   * The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).  This field is beta-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (enabled by default).
+   * The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).
    * @return terminating
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).  This field is beta-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (enabled by default).")
+  @ApiModelProperty(value = "The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).")
   public Integer getTerminating() {
     return terminating;
   }

@@ -22,12 +22,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.models.V1SecurityContextFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SecurityContextFluent<A extends V1SecurityContextFluent<A>> extends BaseFluent<A>{
 
   private Boolean allowPrivilegeEscalation;
   private V1AppArmorProfileBuilder appArmorProfile;
@@ -157,7 +159,7 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1SecurityContextFluent that = (V1SecurityContextFluent) o;
+    V1SecurityContextFluent<?> that = (V1SecurityContextFluent<?>) o;
     if (!(Objects.equals(allowPrivilegeEscalation, that.allowPrivilegeEscalation))) {
       return false;
     }
@@ -358,8 +360,8 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
         this.appArmorProfile = new V1AppArmorProfileBuilder(appArmorProfile);
         this._visitables.get("appArmorProfile").add(this.appArmorProfile);
     } else {
-        this.appArmorProfile = null;
         this._visitables.get("appArmorProfile").remove(this.appArmorProfile);
+        this.appArmorProfile = null;
     }
     return (A) this;
   }
@@ -370,50 +372,50 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
         this.capabilities = new V1CapabilitiesBuilder(capabilities);
         this._visitables.get("capabilities").add(this.capabilities);
     } else {
-        this.capabilities = null;
         this._visitables.get("capabilities").remove(this.capabilities);
+        this.capabilities = null;
     }
     return (A) this;
   }
   
   public AppArmorProfileNested<A> withNewAppArmorProfile() {
-    return new AppArmorProfileNested(null);
+    return new AppArmorProfileNested<>(null);
   }
   
   public AppArmorProfileNested<A> withNewAppArmorProfileLike(V1AppArmorProfile item) {
-    return new AppArmorProfileNested(item);
+    return new AppArmorProfileNested<>(item);
   }
   
   public CapabilitiesNested<A> withNewCapabilities() {
-    return new CapabilitiesNested(null);
+    return new CapabilitiesNested<>(null);
   }
   
   public CapabilitiesNested<A> withNewCapabilitiesLike(V1Capabilities item) {
-    return new CapabilitiesNested(item);
+    return new CapabilitiesNested<>(item);
   }
   
   public SeLinuxOptionsNested<A> withNewSeLinuxOptions() {
-    return new SeLinuxOptionsNested(null);
+    return new SeLinuxOptionsNested<>(null);
   }
   
   public SeLinuxOptionsNested<A> withNewSeLinuxOptionsLike(V1SELinuxOptions item) {
-    return new SeLinuxOptionsNested(item);
+    return new SeLinuxOptionsNested<>(item);
   }
   
   public SeccompProfileNested<A> withNewSeccompProfile() {
-    return new SeccompProfileNested(null);
+    return new SeccompProfileNested<>(null);
   }
   
   public SeccompProfileNested<A> withNewSeccompProfileLike(V1SeccompProfile item) {
-    return new SeccompProfileNested(item);
+    return new SeccompProfileNested<>(item);
   }
   
   public WindowsOptionsNested<A> withNewWindowsOptions() {
-    return new WindowsOptionsNested(null);
+    return new WindowsOptionsNested<>(null);
   }
   
   public WindowsOptionsNested<A> withNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
-    return new WindowsOptionsNested(item);
+    return new WindowsOptionsNested<>(item);
   }
   
   public A withPrivileged() {
@@ -464,8 +466,8 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
         this.seLinuxOptions = new V1SELinuxOptionsBuilder(seLinuxOptions);
         this._visitables.get("seLinuxOptions").add(this.seLinuxOptions);
     } else {
-        this.seLinuxOptions = null;
         this._visitables.get("seLinuxOptions").remove(this.seLinuxOptions);
+        this.seLinuxOptions = null;
     }
     return (A) this;
   }
@@ -476,8 +478,8 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
         this.seccompProfile = new V1SeccompProfileBuilder(seccompProfile);
         this._visitables.get("seccompProfile").add(this.seccompProfile);
     } else {
-        this.seccompProfile = null;
         this._visitables.get("seccompProfile").remove(this.seccompProfile);
+        this.seccompProfile = null;
     }
     return (A) this;
   }
@@ -488,8 +490,8 @@ public class V1SecurityContextFluent<A extends io.kubernetes.client.openapi.mode
         this.windowsOptions = new V1WindowsSecurityContextOptionsBuilder(windowsOptions);
         this._visitables.get("windowsOptions").add(this.windowsOptions);
     } else {
-        this.windowsOptions = null;
         this._visitables.get("windowsOptions").remove(this.windowsOptions);
+        this.windowsOptions = null;
     }
     return (A) this;
   }

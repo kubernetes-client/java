@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1RoleBindingFluent<A extends io.kubernetes.client.openapi.models.V1RoleBindingFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1RoleBindingFluent<A extends V1RoleBindingFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -48,7 +50,7 @@ public class V1RoleBindingFluent<A extends io.kubernetes.client.openapi.models.V
 
   public A addAllToSubjects(Collection<RbacV1Subject> items) {
     if (this.subjects == null) {
-      this.subjects = new ArrayList();
+      this.subjects = new ArrayList<>();
     }
     for (RbacV1Subject item : items) {
         RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
@@ -59,16 +61,16 @@ public class V1RoleBindingFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public SubjectsNested<A> addNewSubject() {
-    return new SubjectsNested(-1, null);
+    return new SubjectsNested<>(-1, null);
   }
   
   public SubjectsNested<A> addNewSubjectLike(RbacV1Subject item) {
-    return new SubjectsNested(-1, item);
+    return new SubjectsNested<>(-1, item);
   }
   
   public A addToSubjects(RbacV1Subject... items) {
     if (this.subjects == null) {
-      this.subjects = new ArrayList();
+      this.subjects = new ArrayList<>();
     }
     for (RbacV1Subject item : items) {
         RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
@@ -80,7 +82,7 @@ public class V1RoleBindingFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToSubjects(int index,RbacV1Subject item) {
     if (this.subjects == null) {
-      this.subjects = new ArrayList();
+      this.subjects = new ArrayList<>();
     }
     RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
     if (index < 0 || index >= this.subjects.size()) {
@@ -207,7 +209,7 @@ public class V1RoleBindingFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1RoleBindingFluent that = (V1RoleBindingFluent) o;
+    V1RoleBindingFluent<?> that = (V1RoleBindingFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -296,6 +298,7 @@ public class V1RoleBindingFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<RbacV1SubjectBuilder> each = subjects.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("subjects");
     while (each.hasNext()) {
         RbacV1SubjectBuilder builder = each.next();
@@ -308,12 +311,12 @@ public class V1RoleBindingFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public SubjectsNested<A> setNewSubjectLike(int index,RbacV1Subject item) {
-    return new SubjectsNested(index, item);
+    return new SubjectsNested<>(index, item);
   }
   
   public A setToSubjects(int index,RbacV1Subject item) {
     if (this.subjects == null) {
-      this.subjects = new ArrayList();
+      this.subjects = new ArrayList<>();
     }
     RbacV1SubjectBuilder builder = new RbacV1SubjectBuilder(item);
     if (index < 0 || index >= this.subjects.size()) {
@@ -373,26 +376,26 @@ public class V1RoleBindingFluent<A extends io.kubernetes.client.openapi.models.V
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public RoleRefNested<A> withNewRoleRef() {
-    return new RoleRefNested(null);
+    return new RoleRefNested<>(null);
   }
   
   public RoleRefNested<A> withNewRoleRefLike(V1RoleRef item) {
-    return new RoleRefNested(item);
+    return new RoleRefNested<>(item);
   }
   
   public A withRoleRef(V1RoleRef roleRef) {
@@ -401,8 +404,8 @@ public class V1RoleBindingFluent<A extends io.kubernetes.client.openapi.models.V
         this.roleRef = new V1RoleRefBuilder(roleRef);
         this._visitables.get("roleRef").add(this.roleRef);
     } else {
-        this.roleRef = null;
         this._visitables.get("roleRef").remove(this.roleRef);
+        this.roleRef = null;
     }
     return (A) this;
   }
@@ -412,7 +415,7 @@ public class V1RoleBindingFluent<A extends io.kubernetes.client.openapi.models.V
       this._visitables.get("subjects").clear();
     }
     if (subjects != null) {
-        this.subjects = new ArrayList();
+        this.subjects = new ArrayList<>();
         for (RbacV1Subject item : subjects) {
           this.addToSubjects(item);
         }

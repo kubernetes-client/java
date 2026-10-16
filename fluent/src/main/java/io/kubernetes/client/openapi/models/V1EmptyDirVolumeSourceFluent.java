@@ -14,19 +14,23 @@ package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.custom.Quantity;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1EmptyDirVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1EmptyDirVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1EmptyDirVolumeSourceFluent<A extends V1EmptyDirVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String medium;
+  private Integer mode;
   private Quantity sizeLimit;
 
   public V1EmptyDirVolumeSourceFluent() {
@@ -40,6 +44,7 @@ public class V1EmptyDirVolumeSourceFluent<A extends io.kubernetes.client.openapi
     instance = instance != null ? instance : new V1EmptyDirVolumeSource();
     if (instance != null) {
         this.withMedium(instance.getMedium());
+        this.withMode(instance.getMode());
         this.withSizeLimit(instance.getSizeLimit());
     }
   }
@@ -54,8 +59,11 @@ public class V1EmptyDirVolumeSourceFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V1EmptyDirVolumeSourceFluent that = (V1EmptyDirVolumeSourceFluent) o;
+    V1EmptyDirVolumeSourceFluent<?> that = (V1EmptyDirVolumeSourceFluent<?>) o;
     if (!(Objects.equals(medium, that.medium))) {
+      return false;
+    }
+    if (!(Objects.equals(mode, that.mode))) {
       return false;
     }
     if (!(Objects.equals(sizeLimit, that.sizeLimit))) {
@@ -68,6 +76,10 @@ public class V1EmptyDirVolumeSourceFluent<A extends io.kubernetes.client.openapi
     return this.medium;
   }
   
+  public Integer getMode() {
+    return this.mode;
+  }
+  
   public Quantity getSizeLimit() {
     return this.sizeLimit;
   }
@@ -76,12 +88,16 @@ public class V1EmptyDirVolumeSourceFluent<A extends io.kubernetes.client.openapi
     return this.medium != null;
   }
   
+  public boolean hasMode() {
+    return this.mode != null;
+  }
+  
   public boolean hasSizeLimit() {
     return this.sizeLimit != null;
   }
   
   public int hashCode() {
-    return Objects.hash(medium, sizeLimit);
+    return Objects.hash(medium, mode, sizeLimit);
   }
   
   public String toString() {
@@ -90,6 +106,11 @@ public class V1EmptyDirVolumeSourceFluent<A extends io.kubernetes.client.openapi
     if (!(medium == null)) {
         sb.append("medium:");
         sb.append(medium);
+        sb.append(",");
+    }
+    if (!(mode == null)) {
+        sb.append("mode:");
+        sb.append(mode);
         sb.append(",");
     }
     if (!(sizeLimit == null)) {
@@ -102,6 +123,11 @@ public class V1EmptyDirVolumeSourceFluent<A extends io.kubernetes.client.openapi
   
   public A withMedium(String medium) {
     this.medium = medium;
+    return (A) this;
+  }
+  
+  public A withMode(Integer mode) {
+    this.mode = mode;
     return (A) this;
   }
   

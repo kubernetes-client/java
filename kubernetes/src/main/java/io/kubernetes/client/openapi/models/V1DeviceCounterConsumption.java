@@ -22,8 +22,10 @@ import io.kubernetes.client.openapi.models.V1Counter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
@@ -53,8 +55,13 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceCounterConsumption defines a set of counters that a device will consume from a CounterSet.
  */
 @ApiModel(description = "DeviceCounterConsumption defines a set of counters that a device will consume from a CounterSet.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1DeviceCounterConsumption {
+  public static final String SERIALIZED_NAME_COMPATIBILITY_GROUPS = "compatibilityGroups";
+  @SerializedName(SERIALIZED_NAME_COMPATIBILITY_GROUPS)
+  @jakarta.annotation.Nullable
+  private List<String> compatibilityGroups = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_COUNTER_SET = "counterSet";
   @SerializedName(SERIALIZED_NAME_COUNTER_SET)
   @jakarta.annotation.Nonnull
@@ -67,6 +74,34 @@ public class V1DeviceCounterConsumption {
 
   public V1DeviceCounterConsumption() {
   }
+
+  public V1DeviceCounterConsumption compatibilityGroups(@jakarta.annotation.Nullable List<String> compatibilityGroups) {
+    this.compatibilityGroups = compatibilityGroups;
+    return this;
+  }
+
+  public V1DeviceCounterConsumption addCompatibilityGroupsItem(String compatibilityGroupsItem) {
+    if (this.compatibilityGroups == null) {
+      this.compatibilityGroups = new ArrayList<>();
+    }
+    this.compatibilityGroups.add(compatibilityGroupsItem);
+    return this;
+  }
+
+  /**
+   * CompatibilityGroups is a list of opaque group names for this counter set consumption.  Devices that consume counters from the same counter set may only be allocated at the same time (\&quot;co-allocated\&quot;) if they all share at least one common group: the intersection of the CompatibilityGroups of all co-allocated devices on that counter set must be non-empty. Devices that consume from different counter sets are never compared via this field.  An unset field, an explicit nil, and an empty list are equivalent and mean \&quot;no groups\&quot;: such a device is only co-allocatable with sibling devices on the same counter set that also have no groups, and is never co-allocatable with a device that declares one or more groups.  Group names are opaque and meaningful only within the publishing driver&#39;s pool.  The maximum number of groups is 2, and the names must be unique.
+   * @return compatibilityGroups
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "CompatibilityGroups is a list of opaque group names for this counter set consumption.  Devices that consume counters from the same counter set may only be allocated at the same time (\"co-allocated\") if they all share at least one common group: the intersection of the CompatibilityGroups of all co-allocated devices on that counter set must be non-empty. Devices that consume from different counter sets are never compared via this field.  An unset field, an explicit nil, and an empty list are equivalent and mean \"no groups\": such a device is only co-allocatable with sibling devices on the same counter set that also have no groups, and is never co-allocatable with a device that declares one or more groups.  Group names are opaque and meaningful only within the publishing driver's pool.  The maximum number of groups is 2, and the names must be unique.")
+  public List<String> getCompatibilityGroups() {
+    return compatibilityGroups;
+  }
+
+  public void setCompatibilityGroups(@jakarta.annotation.Nullable List<String> compatibilityGroups) {
+    this.compatibilityGroups = compatibilityGroups;
+  }
+
 
   public V1DeviceCounterConsumption counterSet(@jakarta.annotation.Nonnull String counterSet) {
     this.counterSet = counterSet;
@@ -126,19 +161,21 @@ public class V1DeviceCounterConsumption {
       return false;
     }
     V1DeviceCounterConsumption v1DeviceCounterConsumption = (V1DeviceCounterConsumption) o;
-    return Objects.equals(this.counterSet, v1DeviceCounterConsumption.counterSet) &&
+    return Objects.equals(this.compatibilityGroups, v1DeviceCounterConsumption.compatibilityGroups) &&
+        Objects.equals(this.counterSet, v1DeviceCounterConsumption.counterSet) &&
         Objects.equals(this.counters, v1DeviceCounterConsumption.counters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(counterSet, counters);
+    return Objects.hash(compatibilityGroups, counterSet, counters);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1DeviceCounterConsumption {\n");
+    sb.append("    compatibilityGroups: ").append(toIndentedString(compatibilityGroups)).append("\n");
     sb.append("    counterSet: ").append(toIndentedString(counterSet)).append("\n");
     sb.append("    counters: ").append(toIndentedString(counters)).append("\n");
     sb.append("}");
@@ -162,7 +199,7 @@ public class V1DeviceCounterConsumption {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("counterSet", "counters"));
+    openapiFields = new HashSet<String>(Arrays.asList("compatibilityGroups", "counterSet", "counters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("counterSet", "counters"));
@@ -196,6 +233,10 @@ public class V1DeviceCounterConsumption {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("compatibilityGroups") != null && !jsonObj.get("compatibilityGroups").isJsonNull() && !jsonObj.get("compatibilityGroups").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `compatibilityGroups` to be an array in the JSON string but got `%s`", jsonObj.get("compatibilityGroups").toString()));
+      }
       if (!jsonObj.get("counterSet").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `counterSet` to be a primitive type in the JSON string but got `%s`", jsonObj.get("counterSet").toString()));
       }

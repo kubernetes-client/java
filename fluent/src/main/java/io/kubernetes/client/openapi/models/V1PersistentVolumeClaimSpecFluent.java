@@ -24,12 +24,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaimSpecFluent<A>> extends BaseFluent<A>{
 
   private List<String> accessModes;
   private V1TypedLocalObjectReferenceBuilder dataSource;
@@ -50,7 +52,7 @@ public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.op
 
   public A addAllToAccessModes(Collection<String> items) {
     if (this.accessModes == null) {
-      this.accessModes = new ArrayList();
+      this.accessModes = new ArrayList<>();
     }
     for (String item : items) {
       this.accessModes.add(item);
@@ -60,7 +62,7 @@ public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.op
   
   public A addToAccessModes(String... items) {
     if (this.accessModes == null) {
-      this.accessModes = new ArrayList();
+      this.accessModes = new ArrayList<>();
     }
     for (String item : items) {
       this.accessModes.add(item);
@@ -70,7 +72,7 @@ public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.op
   
   public A addToAccessModes(int index,String item) {
     if (this.accessModes == null) {
-      this.accessModes = new ArrayList();
+      this.accessModes = new ArrayList<>();
     }
     this.accessModes.add(index, item);
     return (A) this;
@@ -165,7 +167,7 @@ public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.op
     if (!(super.equals(o))) {
       return false;
     }
-    V1PersistentVolumeClaimSpecFluent that = (V1PersistentVolumeClaimSpecFluent) o;
+    V1PersistentVolumeClaimSpecFluent<?> that = (V1PersistentVolumeClaimSpecFluent<?>) o;
     if (!(Objects.equals(accessModes, that.accessModes))) {
       return false;
     }
@@ -308,7 +310,7 @@ public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.op
   
   public A setToAccessModes(int index,String item) {
     if (this.accessModes == null) {
-      this.accessModes = new ArrayList();
+      this.accessModes = new ArrayList<>();
     }
     this.accessModes.set(index, item);
     return (A) this;
@@ -367,7 +369,7 @@ public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.op
   
   public A withAccessModes(List<String> accessModes) {
     if (accessModes != null) {
-        this.accessModes = new ArrayList();
+        this.accessModes = new ArrayList<>();
         for (String item : accessModes) {
           this.addToAccessModes(item);
         }
@@ -396,8 +398,8 @@ public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.op
         this.dataSource = new V1TypedLocalObjectReferenceBuilder(dataSource);
         this._visitables.get("dataSource").add(this.dataSource);
     } else {
-        this.dataSource = null;
         this._visitables.get("dataSource").remove(this.dataSource);
+        this.dataSource = null;
     }
     return (A) this;
   }
@@ -408,42 +410,42 @@ public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.op
         this.dataSourceRef = new V1TypedObjectReferenceBuilder(dataSourceRef);
         this._visitables.get("dataSourceRef").add(this.dataSourceRef);
     } else {
-        this.dataSourceRef = null;
         this._visitables.get("dataSourceRef").remove(this.dataSourceRef);
+        this.dataSourceRef = null;
     }
     return (A) this;
   }
   
   public DataSourceNested<A> withNewDataSource() {
-    return new DataSourceNested(null);
+    return new DataSourceNested<>(null);
   }
   
   public DataSourceNested<A> withNewDataSourceLike(V1TypedLocalObjectReference item) {
-    return new DataSourceNested(item);
+    return new DataSourceNested<>(item);
   }
   
   public DataSourceRefNested<A> withNewDataSourceRef() {
-    return new DataSourceRefNested(null);
+    return new DataSourceRefNested<>(null);
   }
   
   public DataSourceRefNested<A> withNewDataSourceRefLike(V1TypedObjectReference item) {
-    return new DataSourceRefNested(item);
+    return new DataSourceRefNested<>(item);
   }
   
   public ResourcesNested<A> withNewResources() {
-    return new ResourcesNested(null);
+    return new ResourcesNested<>(null);
   }
   
   public ResourcesNested<A> withNewResourcesLike(V1VolumeResourceRequirements item) {
-    return new ResourcesNested(item);
+    return new ResourcesNested<>(item);
   }
   
   public SelectorNested<A> withNewSelector() {
-    return new SelectorNested(null);
+    return new SelectorNested<>(null);
   }
   
   public SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
-    return new SelectorNested(item);
+    return new SelectorNested<>(item);
   }
   
   public A withResources(V1VolumeResourceRequirements resources) {
@@ -452,8 +454,8 @@ public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.op
         this.resources = new V1VolumeResourceRequirementsBuilder(resources);
         this._visitables.get("resources").add(this.resources);
     } else {
-        this.resources = null;
         this._visitables.get("resources").remove(this.resources);
+        this.resources = null;
     }
     return (A) this;
   }
@@ -464,8 +466,8 @@ public class V1PersistentVolumeClaimSpecFluent<A extends io.kubernetes.client.op
         this.selector = new V1LabelSelectorBuilder(selector);
         this._visitables.get("selector").add(this.selector);
     } else {
-        this.selector = null;
         this._visitables.get("selector").remove(this.selector);
+        this.selector = null;
     }
     return (A) this;
   }

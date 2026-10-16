@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeDaemonEndpointsFluent<A extends io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeDaemonEndpointsFluent<A extends V1NodeDaemonEndpointsFluent<A>> extends BaseFluent<A>{
 
   private V1DaemonEndpointBuilder kubeletEndpoint;
 
@@ -69,7 +71,7 @@ public class V1NodeDaemonEndpointsFluent<A extends io.kubernetes.client.openapi.
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeDaemonEndpointsFluent that = (V1NodeDaemonEndpointsFluent) o;
+    V1NodeDaemonEndpointsFluent<?> that = (V1NodeDaemonEndpointsFluent<?>) o;
     if (!(Objects.equals(kubeletEndpoint, that.kubeletEndpoint))) {
       return false;
     }
@@ -101,18 +103,18 @@ public class V1NodeDaemonEndpointsFluent<A extends io.kubernetes.client.openapi.
         this.kubeletEndpoint = new V1DaemonEndpointBuilder(kubeletEndpoint);
         this._visitables.get("kubeletEndpoint").add(this.kubeletEndpoint);
     } else {
-        this.kubeletEndpoint = null;
         this._visitables.get("kubeletEndpoint").remove(this.kubeletEndpoint);
+        this.kubeletEndpoint = null;
     }
     return (A) this;
   }
   
   public KubeletEndpointNested<A> withNewKubeletEndpoint() {
-    return new KubeletEndpointNested(null);
+    return new KubeletEndpointNested<>(null);
   }
   
   public KubeletEndpointNested<A> withNewKubeletEndpointLike(V1DaemonEndpoint item) {
-    return new KubeletEndpointNested(item);
+    return new KubeletEndpointNested<>(item);
   }
   public class KubeletEndpointNested<N> extends V1DaemonEndpointFluent<KubeletEndpointNested<N>> implements Nested<N>{
   

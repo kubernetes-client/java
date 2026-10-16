@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class ResourceV1ResourceClaimFluent<A extends io.kubernetes.client.openapi.models.ResourceV1ResourceClaimFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class ResourceV1ResourceClaimFluent<A extends ResourceV1ResourceClaimFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -109,7 +111,7 @@ public class ResourceV1ResourceClaimFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    ResourceV1ResourceClaimFluent that = (ResourceV1ResourceClaimFluent) o;
+    ResourceV1ResourceClaimFluent<?> that = (ResourceV1ResourceClaimFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -207,34 +209,34 @@ public class ResourceV1ResourceClaimFluent<A extends io.kubernetes.client.openap
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public SpecNested<A> withNewSpec() {
-    return new SpecNested(null);
+    return new SpecNested<>(null);
   }
   
   public SpecNested<A> withNewSpecLike(V1ResourceClaimSpec item) {
-    return new SpecNested(item);
+    return new SpecNested<>(item);
   }
   
   public StatusNested<A> withNewStatus() {
-    return new StatusNested(null);
+    return new StatusNested<>(null);
   }
   
   public StatusNested<A> withNewStatusLike(V1ResourceClaimStatus item) {
-    return new StatusNested(item);
+    return new StatusNested<>(item);
   }
   
   public A withSpec(V1ResourceClaimSpec spec) {
@@ -243,8 +245,8 @@ public class ResourceV1ResourceClaimFluent<A extends io.kubernetes.client.openap
         this.spec = new V1ResourceClaimSpecBuilder(spec);
         this._visitables.get("spec").add(this.spec);
     } else {
-        this.spec = null;
         this._visitables.get("spec").remove(this.spec);
+        this.spec = null;
     }
     return (A) this;
   }
@@ -255,8 +257,8 @@ public class ResourceV1ResourceClaimFluent<A extends io.kubernetes.client.openap
         this.status = new V1ResourceClaimStatusBuilder(status);
         this._visitables.get("status").add(this.status);
     } else {
-        this.status = null;
         this._visitables.get("status").remove(this.status);
+        this.status = null;
     }
     return (A) this;
   }

@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1JobSpecBuilder extends V1JobSpecFluent<V1JobSpecBuilder> implements VisitableBuilder<V1JobSpec,V1JobSpecBuilder>{
 
   V1JobSpecFluent<?> fluent;
@@ -49,6 +50,7 @@ public class V1JobSpecBuilder extends V1JobSpecFluent<V1JobSpecBuilder> implemen
     buildable.setParallelism(fluent.getParallelism());
     buildable.setPodFailurePolicy(fluent.buildPodFailurePolicy());
     buildable.setPodReplacementPolicy(fluent.getPodReplacementPolicy());
+    buildable.setScheduling(fluent.buildScheduling());
     buildable.setSelector(fluent.buildSelector());
     buildable.setSuccessPolicy(fluent.buildSuccessPolicy());
     buildable.setSuspend(fluent.getSuspend());

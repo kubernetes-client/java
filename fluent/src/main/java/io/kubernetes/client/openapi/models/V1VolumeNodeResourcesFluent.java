@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VolumeNodeResourcesFluent<A extends io.kubernetes.client.openapi.models.V1VolumeNodeResourcesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VolumeNodeResourcesFluent<A extends V1VolumeNodeResourcesFluent<A>> extends BaseFluent<A>{
 
   private Integer count;
 
@@ -52,7 +54,7 @@ public class V1VolumeNodeResourcesFluent<A extends io.kubernetes.client.openapi.
     if (!(super.equals(o))) {
       return false;
     }
-    V1VolumeNodeResourcesFluent that = (V1VolumeNodeResourcesFluent) o;
+    V1VolumeNodeResourcesFluent<?> that = (V1VolumeNodeResourcesFluent<?>) o;
     if (!(Objects.equals(count, that.count))) {
       return false;
     }

@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1ResourceQuotaSpecBuilder extends V1ResourceQuotaSpecFluent<V1ResourceQuotaSpecBuilder> implements VisitableBuilder<V1ResourceQuotaSpec,V1ResourceQuotaSpecBuilder>{
 
   V1ResourceQuotaSpecFluent<?> fluent;

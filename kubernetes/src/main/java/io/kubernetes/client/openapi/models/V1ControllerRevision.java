@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * ControllerRevision implements an immutable snapshot of state data. Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.
  */
 @ApiModel(description = "ControllerRevision implements an immutable snapshot of state data. Clients are responsible for serializing and deserializing the objects that contain their internal state. Once a ControllerRevision has been successfully created, it can not be updated. The API Server will fail validation of all requests that attempt to mutate the Data field. ControllerRevisions may, however, be deleted. Note that, due to its use by both the DaemonSet and StatefulSet controllers for update and rollback, this object is beta. However, it may be subject to name and representation changes in future releases, and clients should not depend on its stability. It is primarily for internal use by controllers.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ControllerRevision implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -60,7 +60,7 @@ public class V1ControllerRevision implements io.kubernetes.client.common.Kuberne
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private Object data;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
@@ -75,7 +75,7 @@ public class V1ControllerRevision implements io.kubernetes.client.common.Kuberne
 
   public static final String SERIALIZED_NAME_REVISION = "revision";
   @SerializedName(SERIALIZED_NAME_REVISION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private Long revision;
 
   public V1ControllerRevision() {
@@ -101,7 +101,7 @@ public class V1ControllerRevision implements io.kubernetes.client.common.Kuberne
   }
 
 
-  public V1ControllerRevision data(@jakarta.annotation.Nullable Object data) {
+  public V1ControllerRevision data(@jakarta.annotation.Nonnull Object data) {
     this.data = data;
     return this;
   }
@@ -110,13 +110,13 @@ public class V1ControllerRevision implements io.kubernetes.client.common.Kuberne
    * Data is the serialized representation of the state.
    * @return data
    */
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Data is the serialized representation of the state.")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Data is the serialized representation of the state.")
   public Object getData() {
     return data;
   }
 
-  public void setData(@jakarta.annotation.Nullable Object data) {
+  public void setData(@jakarta.annotation.Nonnull Object data) {
     this.data = data;
   }
 
@@ -161,7 +161,7 @@ public class V1ControllerRevision implements io.kubernetes.client.common.Kuberne
   }
 
 
-  public V1ControllerRevision revision(@jakarta.annotation.Nonnull Long revision) {
+  public V1ControllerRevision revision(@jakarta.annotation.Nullable Long revision) {
     this.revision = revision;
     return this;
   }
@@ -170,13 +170,13 @@ public class V1ControllerRevision implements io.kubernetes.client.common.Kuberne
    * Revision indicates the revision of the state represented by Data.
    * @return revision
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Revision indicates the revision of the state represented by Data.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Revision indicates the revision of the state represented by Data.")
   public Long getRevision() {
     return revision;
   }
 
-  public void setRevision(@jakarta.annotation.Nonnull Long revision) {
+  public void setRevision(@jakarta.annotation.Nullable Long revision) {
     this.revision = revision;
   }
 
@@ -236,7 +236,7 @@ public class V1ControllerRevision implements io.kubernetes.client.common.Kuberne
     openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "data", "kind", "metadata", "revision"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("revision"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data"));
   }
 
   /**

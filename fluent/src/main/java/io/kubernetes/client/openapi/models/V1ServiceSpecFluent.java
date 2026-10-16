@@ -30,12 +30,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V1ServiceSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ServiceSpecFluent<A extends V1ServiceSpecFluent<A>> extends BaseFluent<A>{
 
   private Boolean allocateLoadBalancerNodePorts;
   private String clusterIP;
@@ -67,7 +69,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public A addAllToClusterIPs(Collection<String> items) {
     if (this.clusterIPs == null) {
-      this.clusterIPs = new ArrayList();
+      this.clusterIPs = new ArrayList<>();
     }
     for (String item : items) {
       this.clusterIPs.add(item);
@@ -77,7 +79,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addAllToExternalIPs(Collection<String> items) {
     if (this.externalIPs == null) {
-      this.externalIPs = new ArrayList();
+      this.externalIPs = new ArrayList<>();
     }
     for (String item : items) {
       this.externalIPs.add(item);
@@ -87,7 +89,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addAllToIpFamilies(Collection<String> items) {
     if (this.ipFamilies == null) {
-      this.ipFamilies = new ArrayList();
+      this.ipFamilies = new ArrayList<>();
     }
     for (String item : items) {
       this.ipFamilies.add(item);
@@ -97,7 +99,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addAllToLoadBalancerSourceRanges(Collection<String> items) {
     if (this.loadBalancerSourceRanges == null) {
-      this.loadBalancerSourceRanges = new ArrayList();
+      this.loadBalancerSourceRanges = new ArrayList<>();
     }
     for (String item : items) {
       this.loadBalancerSourceRanges.add(item);
@@ -107,7 +109,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addAllToPorts(Collection<V1ServicePort> items) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     for (V1ServicePort item : items) {
         V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
@@ -118,16 +120,16 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public PortsNested<A> addNewPort() {
-    return new PortsNested(-1, null);
+    return new PortsNested<>(-1, null);
   }
   
   public PortsNested<A> addNewPortLike(V1ServicePort item) {
-    return new PortsNested(-1, item);
+    return new PortsNested<>(-1, item);
   }
   
   public A addToClusterIPs(String... items) {
     if (this.clusterIPs == null) {
-      this.clusterIPs = new ArrayList();
+      this.clusterIPs = new ArrayList<>();
     }
     for (String item : items) {
       this.clusterIPs.add(item);
@@ -137,7 +139,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToClusterIPs(int index,String item) {
     if (this.clusterIPs == null) {
-      this.clusterIPs = new ArrayList();
+      this.clusterIPs = new ArrayList<>();
     }
     this.clusterIPs.add(index, item);
     return (A) this;
@@ -145,7 +147,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToExternalIPs(String... items) {
     if (this.externalIPs == null) {
-      this.externalIPs = new ArrayList();
+      this.externalIPs = new ArrayList<>();
     }
     for (String item : items) {
       this.externalIPs.add(item);
@@ -155,7 +157,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToExternalIPs(int index,String item) {
     if (this.externalIPs == null) {
-      this.externalIPs = new ArrayList();
+      this.externalIPs = new ArrayList<>();
     }
     this.externalIPs.add(index, item);
     return (A) this;
@@ -163,7 +165,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToIpFamilies(String... items) {
     if (this.ipFamilies == null) {
-      this.ipFamilies = new ArrayList();
+      this.ipFamilies = new ArrayList<>();
     }
     for (String item : items) {
       this.ipFamilies.add(item);
@@ -173,7 +175,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToIpFamilies(int index,String item) {
     if (this.ipFamilies == null) {
-      this.ipFamilies = new ArrayList();
+      this.ipFamilies = new ArrayList<>();
     }
     this.ipFamilies.add(index, item);
     return (A) this;
@@ -181,7 +183,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToLoadBalancerSourceRanges(String... items) {
     if (this.loadBalancerSourceRanges == null) {
-      this.loadBalancerSourceRanges = new ArrayList();
+      this.loadBalancerSourceRanges = new ArrayList<>();
     }
     for (String item : items) {
       this.loadBalancerSourceRanges.add(item);
@@ -191,7 +193,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToLoadBalancerSourceRanges(int index,String item) {
     if (this.loadBalancerSourceRanges == null) {
-      this.loadBalancerSourceRanges = new ArrayList();
+      this.loadBalancerSourceRanges = new ArrayList<>();
     }
     this.loadBalancerSourceRanges.add(index, item);
     return (A) this;
@@ -199,7 +201,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToPorts(V1ServicePort... items) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     for (V1ServicePort item : items) {
         V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
@@ -211,7 +213,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToPorts(int index,V1ServicePort item) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
     if (index < 0 || index >= this.ports.size()) {
@@ -226,7 +228,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToSelector(Map<String,String> map) {
     if (this.selector == null && map != null) {
-      this.selector = new LinkedHashMap();
+      this.selector = new LinkedHashMap<>();
     }
     if (map != null) {
       this.selector.putAll(map);
@@ -236,7 +238,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToSelector(String key,String value) {
     if (this.selector == null && key != null && value != null) {
-      this.selector = new LinkedHashMap();
+      this.selector = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.selector.put(key, value);
@@ -357,7 +359,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1ServiceSpecFluent that = (V1ServiceSpecFluent) o;
+    V1ServiceSpecFluent<?> that = (V1ServiceSpecFluent<?>) o;
     if (!(Objects.equals(allocateLoadBalancerNodePorts, that.allocateLoadBalancerNodePorts))) {
       return false;
     }
@@ -839,6 +841,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<V1ServicePortBuilder> each = ports.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("ports");
     while (each.hasNext()) {
         V1ServicePortBuilder builder = each.next();
@@ -851,12 +854,12 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public PortsNested<A> setNewPortLike(int index,V1ServicePort item) {
-    return new PortsNested(index, item);
+    return new PortsNested<>(index, item);
   }
   
   public A setToClusterIPs(int index,String item) {
     if (this.clusterIPs == null) {
-      this.clusterIPs = new ArrayList();
+      this.clusterIPs = new ArrayList<>();
     }
     this.clusterIPs.set(index, item);
     return (A) this;
@@ -864,7 +867,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A setToExternalIPs(int index,String item) {
     if (this.externalIPs == null) {
-      this.externalIPs = new ArrayList();
+      this.externalIPs = new ArrayList<>();
     }
     this.externalIPs.set(index, item);
     return (A) this;
@@ -872,7 +875,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A setToIpFamilies(int index,String item) {
     if (this.ipFamilies == null) {
-      this.ipFamilies = new ArrayList();
+      this.ipFamilies = new ArrayList<>();
     }
     this.ipFamilies.set(index, item);
     return (A) this;
@@ -880,7 +883,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A setToLoadBalancerSourceRanges(int index,String item) {
     if (this.loadBalancerSourceRanges == null) {
-      this.loadBalancerSourceRanges = new ArrayList();
+      this.loadBalancerSourceRanges = new ArrayList<>();
     }
     this.loadBalancerSourceRanges.set(index, item);
     return (A) this;
@@ -888,7 +891,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A setToPorts(int index,V1ServicePort item) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
     if (index < 0 || index >= this.ports.size()) {
@@ -1023,7 +1026,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A withClusterIPs(List<String> clusterIPs) {
     if (clusterIPs != null) {
-        this.clusterIPs = new ArrayList();
+        this.clusterIPs = new ArrayList<>();
         for (String item : clusterIPs) {
           this.addToClusterIPs(item);
         }
@@ -1048,7 +1051,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A withExternalIPs(List<String> externalIPs) {
     if (externalIPs != null) {
-        this.externalIPs = new ArrayList();
+        this.externalIPs = new ArrayList<>();
         for (String item : externalIPs) {
           this.addToExternalIPs(item);
         }
@@ -1093,7 +1096,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A withIpFamilies(List<String> ipFamilies) {
     if (ipFamilies != null) {
-        this.ipFamilies = new ArrayList();
+        this.ipFamilies = new ArrayList<>();
         for (String item : ipFamilies) {
           this.addToIpFamilies(item);
         }
@@ -1133,7 +1136,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A withLoadBalancerSourceRanges(List<String> loadBalancerSourceRanges) {
     if (loadBalancerSourceRanges != null) {
-        this.loadBalancerSourceRanges = new ArrayList();
+        this.loadBalancerSourceRanges = new ArrayList<>();
         for (String item : loadBalancerSourceRanges) {
           this.addToLoadBalancerSourceRanges(item);
         }
@@ -1157,11 +1160,11 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public SessionAffinityConfigNested<A> withNewSessionAffinityConfig() {
-    return new SessionAffinityConfigNested(null);
+    return new SessionAffinityConfigNested<>(null);
   }
   
   public SessionAffinityConfigNested<A> withNewSessionAffinityConfigLike(V1SessionAffinityConfig item) {
-    return new SessionAffinityConfigNested(item);
+    return new SessionAffinityConfigNested<>(item);
   }
   
   public A withPorts(List<V1ServicePort> ports) {
@@ -1169,7 +1172,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
       this._visitables.get("ports").clear();
     }
     if (ports != null) {
-        this.ports = new ArrayList();
+        this.ports = new ArrayList<>();
         for (V1ServicePort item : ports) {
           this.addToPorts(item);
         }
@@ -1205,7 +1208,7 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
     if (selector == null) {
       this.selector = null;
     } else {
-      this.selector = new LinkedHashMap(selector);
+      this.selector = new LinkedHashMap<>(selector);
     }
     return (A) this;
   }
@@ -1221,8 +1224,8 @@ public class V1ServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V
         this.sessionAffinityConfig = new V1SessionAffinityConfigBuilder(sessionAffinityConfig);
         this._visitables.get("sessionAffinityConfig").add(this.sessionAffinityConfig);
     } else {
-        this.sessionAffinityConfig = null;
         this._visitables.get("sessionAffinityConfig").remove(this.sessionAffinityConfig);
+        this.sessionAffinityConfig = null;
     }
     return (A) this;
   }

@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1StatusCauseFluent<A extends io.kubernetes.client.openapi.models.V1StatusCauseFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1StatusCauseFluent<A extends V1StatusCauseFluent<A>> extends BaseFluent<A>{
 
   private String field;
   private String message;
@@ -55,7 +57,7 @@ public class V1StatusCauseFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1StatusCauseFluent that = (V1StatusCauseFluent) o;
+    V1StatusCauseFluent<?> that = (V1StatusCauseFluent<?>) o;
     if (!(Objects.equals(field, that.field))) {
       return false;
     }

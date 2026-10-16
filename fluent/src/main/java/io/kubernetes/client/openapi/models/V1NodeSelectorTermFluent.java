@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1NodeSelectorRequirementBuilder> matchExpressions;
   private ArrayList<V1NodeSelectorRequirementBuilder> matchFields;
@@ -44,7 +46,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
 
   public A addAllToMatchExpressions(Collection<V1NodeSelectorRequirement> items) {
     if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList();
+      this.matchExpressions = new ArrayList<>();
     }
     for (V1NodeSelectorRequirement item : items) {
         V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
@@ -56,7 +58,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addAllToMatchFields(Collection<V1NodeSelectorRequirement> items) {
     if (this.matchFields == null) {
-      this.matchFields = new ArrayList();
+      this.matchFields = new ArrayList<>();
     }
     for (V1NodeSelectorRequirement item : items) {
         V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
@@ -67,24 +69,24 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public MatchExpressionsNested<A> addNewMatchExpression() {
-    return new MatchExpressionsNested(-1, null);
+    return new MatchExpressionsNested<>(-1, null);
   }
   
   public MatchExpressionsNested<A> addNewMatchExpressionLike(V1NodeSelectorRequirement item) {
-    return new MatchExpressionsNested(-1, item);
+    return new MatchExpressionsNested<>(-1, item);
   }
   
   public MatchFieldsNested<A> addNewMatchField() {
-    return new MatchFieldsNested(-1, null);
+    return new MatchFieldsNested<>(-1, null);
   }
   
   public MatchFieldsNested<A> addNewMatchFieldLike(V1NodeSelectorRequirement item) {
-    return new MatchFieldsNested(-1, item);
+    return new MatchFieldsNested<>(-1, item);
   }
   
   public A addToMatchExpressions(V1NodeSelectorRequirement... items) {
     if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList();
+      this.matchExpressions = new ArrayList<>();
     }
     for (V1NodeSelectorRequirement item : items) {
         V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
@@ -96,7 +98,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToMatchExpressions(int index,V1NodeSelectorRequirement item) {
     if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList();
+      this.matchExpressions = new ArrayList<>();
     }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
     if (index < 0 || index >= this.matchExpressions.size()) {
@@ -111,7 +113,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToMatchFields(V1NodeSelectorRequirement... items) {
     if (this.matchFields == null) {
-      this.matchFields = new ArrayList();
+      this.matchFields = new ArrayList<>();
     }
     for (V1NodeSelectorRequirement item : items) {
         V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
@@ -123,7 +125,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToMatchFields(int index,V1NodeSelectorRequirement item) {
     if (this.matchFields == null) {
-      this.matchFields = new ArrayList();
+      this.matchFields = new ArrayList<>();
     }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
     if (index < 0 || index >= this.matchFields.size()) {
@@ -276,7 +278,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeSelectorTermFluent that = (V1NodeSelectorTermFluent) o;
+    V1NodeSelectorTermFluent<?> that = (V1NodeSelectorTermFluent<?>) o;
     if (!(Objects.equals(matchExpressions, that.matchExpressions))) {
       return false;
     }
@@ -369,6 +371,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1NodeSelectorRequirementBuilder> each = matchExpressions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("matchExpressions");
     while (each.hasNext()) {
         V1NodeSelectorRequirementBuilder builder = each.next();
@@ -385,6 +388,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1NodeSelectorRequirementBuilder> each = matchFields.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("matchFields");
     while (each.hasNext()) {
         V1NodeSelectorRequirementBuilder builder = each.next();
@@ -397,16 +401,16 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public MatchExpressionsNested<A> setNewMatchExpressionLike(int index,V1NodeSelectorRequirement item) {
-    return new MatchExpressionsNested(index, item);
+    return new MatchExpressionsNested<>(index, item);
   }
   
   public MatchFieldsNested<A> setNewMatchFieldLike(int index,V1NodeSelectorRequirement item) {
-    return new MatchFieldsNested(index, item);
+    return new MatchFieldsNested<>(index, item);
   }
   
   public A setToMatchExpressions(int index,V1NodeSelectorRequirement item) {
     if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList();
+      this.matchExpressions = new ArrayList<>();
     }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
     if (index < 0 || index >= this.matchExpressions.size()) {
@@ -421,7 +425,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
   
   public A setToMatchFields(int index,V1NodeSelectorRequirement item) {
     if (this.matchFields == null) {
-      this.matchFields = new ArrayList();
+      this.matchFields = new ArrayList<>();
     }
     V1NodeSelectorRequirementBuilder builder = new V1NodeSelectorRequirementBuilder(item);
     if (index < 0 || index >= this.matchFields.size()) {
@@ -455,7 +459,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
       this._visitables.get("matchExpressions").clear();
     }
     if (matchExpressions != null) {
-        this.matchExpressions = new ArrayList();
+        this.matchExpressions = new ArrayList<>();
         for (V1NodeSelectorRequirement item : matchExpressions) {
           this.addToMatchExpressions(item);
         }
@@ -483,7 +487,7 @@ public class V1NodeSelectorTermFluent<A extends io.kubernetes.client.openapi.mod
       this._visitables.get("matchFields").clear();
     }
     if (matchFields != null) {
-        this.matchFields = new ArrayList();
+        this.matchFields = new ArrayList<>();
         for (V1NodeSelectorRequirement item : matchFields) {
           this.addToMatchFields(item);
         }

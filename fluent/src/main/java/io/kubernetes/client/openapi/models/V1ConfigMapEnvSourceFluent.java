@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ConfigMapEnvSourceFluent<A extends io.kubernetes.client.openapi.models.V1ConfigMapEnvSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ConfigMapEnvSourceFluent<A extends V1ConfigMapEnvSourceFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private Boolean optional;
@@ -54,7 +56,7 @@ public class V1ConfigMapEnvSourceFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1ConfigMapEnvSourceFluent that = (V1ConfigMapEnvSourceFluent) o;
+    V1ConfigMapEnvSourceFluent<?> that = (V1ConfigMapEnvSourceFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

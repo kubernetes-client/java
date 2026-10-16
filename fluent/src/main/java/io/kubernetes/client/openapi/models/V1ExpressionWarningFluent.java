@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ExpressionWarningFluent<A extends io.kubernetes.client.openapi.models.V1ExpressionWarningFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ExpressionWarningFluent<A extends V1ExpressionWarningFluent<A>> extends BaseFluent<A>{
 
   private String fieldRef;
   private String warning;
@@ -53,7 +55,7 @@ public class V1ExpressionWarningFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1ExpressionWarningFluent that = (V1ExpressionWarningFluent) o;
+    V1ExpressionWarningFluent<?> that = (V1ExpressionWarningFluent<?>) o;
     if (!(Objects.equals(fieldRef, that.fieldRef))) {
       return false;
     }

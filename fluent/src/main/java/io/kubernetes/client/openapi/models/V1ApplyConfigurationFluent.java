@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ApplyConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1ApplyConfigurationFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ApplyConfigurationFluent<A extends V1ApplyConfigurationFluent<A>> extends BaseFluent<A>{
 
   private String expression;
 
@@ -51,7 +53,7 @@ public class V1ApplyConfigurationFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1ApplyConfigurationFluent that = (V1ApplyConfigurationFluent) o;
+    V1ApplyConfigurationFluent<?> that = (V1ApplyConfigurationFluent<?>) o;
     if (!(Objects.equals(expression, that.expression))) {
       return false;
     }

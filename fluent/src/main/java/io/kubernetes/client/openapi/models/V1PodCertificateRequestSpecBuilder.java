@@ -1,0 +1,55 @@
+/*
+Copyright 2026 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import io.kubernetes.client.fluent.VisitableBuilder;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
+public class V1PodCertificateRequestSpecBuilder extends V1PodCertificateRequestSpecFluent<V1PodCertificateRequestSpecBuilder> implements VisitableBuilder<V1PodCertificateRequestSpec,V1PodCertificateRequestSpecBuilder>{
+
+  V1PodCertificateRequestSpecFluent<?> fluent;
+
+  public V1PodCertificateRequestSpecBuilder() {
+    this(new V1PodCertificateRequestSpec());
+  }
+  
+  public V1PodCertificateRequestSpecBuilder(V1PodCertificateRequestSpecFluent<?> fluent) {
+    this(fluent, new V1PodCertificateRequestSpec());
+  }
+  
+  public V1PodCertificateRequestSpecBuilder(V1PodCertificateRequestSpec instance) {
+    this.fluent = this;
+    this.copyInstance(instance);
+  }
+  
+  public V1PodCertificateRequestSpecBuilder(V1PodCertificateRequestSpecFluent<?> fluent,V1PodCertificateRequestSpec instance) {
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
+  }
+
+  public V1PodCertificateRequestSpec build() {
+    V1PodCertificateRequestSpec buildable = new V1PodCertificateRequestSpec();
+    buildable.setMaxExpirationSeconds(fluent.getMaxExpirationSeconds());
+    buildable.setNodeName(fluent.getNodeName());
+    buildable.setNodeUID(fluent.getNodeUID());
+    buildable.setPodName(fluent.getPodName());
+    buildable.setPodUID(fluent.getPodUID());
+    buildable.setServiceAccountName(fluent.getServiceAccountName());
+    buildable.setServiceAccountUID(fluent.getServiceAccountUID());
+    buildable.setSignerName(fluent.getSignerName());
+    buildable.setStubPKCS10Request(fluent.getStubPKCS10Request());
+    buildable.setUnverifiedUserAnnotations(fluent.getUnverifiedUserAnnotations());
+    return buildable;
+  }
+  
+}

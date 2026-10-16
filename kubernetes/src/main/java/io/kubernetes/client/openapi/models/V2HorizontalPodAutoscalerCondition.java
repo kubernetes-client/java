@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * HorizontalPodAutoscalerCondition describes the state of a HorizontalPodAutoscaler at a certain point.
  */
 @ApiModel(description = "HorizontalPodAutoscalerCondition describes the state of a HorizontalPodAutoscaler at a certain point.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V2HorizontalPodAutoscalerCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
@@ -62,6 +62,11 @@ public class V2HorizontalPodAutoscalerCondition {
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   @jakarta.annotation.Nullable
   private String message;
+
+  public static final String SERIALIZED_NAME_OBSERVED_GENERATION = "observedGeneration";
+  @SerializedName(SERIALIZED_NAME_OBSERVED_GENERATION)
+  @jakarta.annotation.Nullable
+  private Long observedGeneration;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
@@ -118,6 +123,26 @@ public class V2HorizontalPodAutoscalerCondition {
 
   public void setMessage(@jakarta.annotation.Nullable String message) {
     this.message = message;
+  }
+
+
+  public V2HorizontalPodAutoscalerCondition observedGeneration(@jakarta.annotation.Nullable Long observedGeneration) {
+    this.observedGeneration = observedGeneration;
+    return this;
+  }
+
+  /**
+   * observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.
+   * @return observedGeneration
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.")
+  public Long getObservedGeneration() {
+    return observedGeneration;
+  }
+
+  public void setObservedGeneration(@jakarta.annotation.Nullable Long observedGeneration) {
+    this.observedGeneration = observedGeneration;
   }
 
 
@@ -193,6 +218,7 @@ public class V2HorizontalPodAutoscalerCondition {
     V2HorizontalPodAutoscalerCondition v2HorizontalPodAutoscalerCondition = (V2HorizontalPodAutoscalerCondition) o;
     return Objects.equals(this.lastTransitionTime, v2HorizontalPodAutoscalerCondition.lastTransitionTime) &&
         Objects.equals(this.message, v2HorizontalPodAutoscalerCondition.message) &&
+        Objects.equals(this.observedGeneration, v2HorizontalPodAutoscalerCondition.observedGeneration) &&
         Objects.equals(this.reason, v2HorizontalPodAutoscalerCondition.reason) &&
         Objects.equals(this.status, v2HorizontalPodAutoscalerCondition.status) &&
         Objects.equals(this.type, v2HorizontalPodAutoscalerCondition.type);
@@ -200,7 +226,7 @@ public class V2HorizontalPodAutoscalerCondition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastTransitionTime, message, reason, status, type);
+    return Objects.hash(lastTransitionTime, message, observedGeneration, reason, status, type);
   }
 
   @Override
@@ -209,6 +235,7 @@ public class V2HorizontalPodAutoscalerCondition {
     sb.append("class V2HorizontalPodAutoscalerCondition {\n");
     sb.append("    lastTransitionTime: ").append(toIndentedString(lastTransitionTime)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    observedGeneration: ").append(toIndentedString(observedGeneration)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -233,7 +260,7 @@ public class V2HorizontalPodAutoscalerCondition {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("lastTransitionTime", "message", "reason", "status", "type"));
+    openapiFields = new HashSet<String>(Arrays.asList("lastTransitionTime", "message", "observedGeneration", "reason", "status", "type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "type"));

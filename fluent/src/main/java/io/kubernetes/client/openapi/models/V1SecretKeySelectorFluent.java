@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SecretKeySelectorFluent<A extends io.kubernetes.client.openapi.models.V1SecretKeySelectorFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SecretKeySelectorFluent<A extends V1SecretKeySelectorFluent<A>> extends BaseFluent<A>{
 
   private String key;
   private String name;
@@ -56,7 +58,7 @@ public class V1SecretKeySelectorFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1SecretKeySelectorFluent that = (V1SecretKeySelectorFluent) o;
+    V1SecretKeySelectorFluent<?> that = (V1SecretKeySelectorFluent<?>) o;
     if (!(Objects.equals(key, that.key))) {
       return false;
     }

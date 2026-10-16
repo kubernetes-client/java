@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1LimitedPriorityLevelConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1LimitedPriorityLevelConfigurationFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1LimitedPriorityLevelConfigurationFluent<A extends V1LimitedPriorityLevelConfigurationFluent<A>> extends BaseFluent<A>{
 
   private Integer borrowingLimitPercent;
   private Integer lendablePercent;
@@ -76,7 +78,7 @@ public class V1LimitedPriorityLevelConfigurationFluent<A extends io.kubernetes.c
     if (!(super.equals(o))) {
       return false;
     }
-    V1LimitedPriorityLevelConfigurationFluent that = (V1LimitedPriorityLevelConfigurationFluent) o;
+    V1LimitedPriorityLevelConfigurationFluent<?> that = (V1LimitedPriorityLevelConfigurationFluent<?>) o;
     if (!(Objects.equals(borrowingLimitPercent, that.borrowingLimitPercent))) {
       return false;
     }
@@ -166,18 +168,18 @@ public class V1LimitedPriorityLevelConfigurationFluent<A extends io.kubernetes.c
         this.limitResponse = new V1LimitResponseBuilder(limitResponse);
         this._visitables.get("limitResponse").add(this.limitResponse);
     } else {
-        this.limitResponse = null;
         this._visitables.get("limitResponse").remove(this.limitResponse);
+        this.limitResponse = null;
     }
     return (A) this;
   }
   
   public LimitResponseNested<A> withNewLimitResponse() {
-    return new LimitResponseNested(null);
+    return new LimitResponseNested<>(null);
   }
   
   public LimitResponseNested<A> withNewLimitResponseLike(V1LimitResponse item) {
-    return new LimitResponseNested(item);
+    return new LimitResponseNested<>(item);
   }
   
   public A withNominalConcurrencyShares(Integer nominalConcurrencyShares) {

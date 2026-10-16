@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openapi.models.V1DownwardAPIProjectionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DownwardAPIProjectionFluent<A extends V1DownwardAPIProjectionFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1DownwardAPIVolumeFileBuilder> items;
 
@@ -43,7 +45,7 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
 
   public A addAllToItems(Collection<V1DownwardAPIVolumeFile> items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1DownwardAPIVolumeFile item : items) {
         V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
@@ -54,16 +56,16 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
   }
   
   public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
+    return new ItemsNested<>(-1, null);
   }
   
   public ItemsNested<A> addNewItemLike(V1DownwardAPIVolumeFile item) {
-    return new ItemsNested(-1, item);
+    return new ItemsNested<>(-1, item);
   }
   
   public A addToItems(V1DownwardAPIVolumeFile... items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1DownwardAPIVolumeFile item : items) {
         V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
@@ -75,7 +77,7 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
   
   public A addToItems(int index,V1DownwardAPIVolumeFile item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -166,7 +168,7 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1DownwardAPIProjectionFluent that = (V1DownwardAPIProjectionFluent) o;
+    V1DownwardAPIProjectionFluent<?> that = (V1DownwardAPIProjectionFluent<?>) o;
     if (!(Objects.equals(items, that.items))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
       return (A) this;
     }
     Iterator<V1DownwardAPIVolumeFileBuilder> each = items.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("items");
     while (each.hasNext()) {
         V1DownwardAPIVolumeFileBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
   }
   
   public ItemsNested<A> setNewItemLike(int index,V1DownwardAPIVolumeFile item) {
-    return new ItemsNested(index, item);
+    return new ItemsNested<>(index, item);
   }
   
   public A setToItems(int index,V1DownwardAPIVolumeFile item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -265,7 +268,7 @@ public class V1DownwardAPIProjectionFluent<A extends io.kubernetes.client.openap
       this._visitables.get("items").clear();
     }
     if (items != null) {
-        this.items = new ArrayList();
+        this.items = new ArrayList<>();
         for (V1DownwardAPIVolumeFile item : items) {
           this.addToItems(item);
         }

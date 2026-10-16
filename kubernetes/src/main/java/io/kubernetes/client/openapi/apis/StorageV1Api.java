@@ -8835,6 +8835,267 @@ public class StorageV1Api {
     public APIpatchCSINodeRequest patchCSINode(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
         return new APIpatchCSINodeRequest(name, body);
     }
+    private okhttp3.Call patchCSINodeStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/storage.k8s.io/v1/csinodes/{name}/status"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldManager != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
+        if (force != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchCSINodeStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling patchCSINodeStatus(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling patchCSINodeStatus(Async)");
+        }
+
+        return patchCSINodeStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+
+    }
+
+
+    private ApiResponse<V1CSINode> patchCSINodeStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchCSINodeStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, null);
+        Type localVarReturnType = new TypeToken<V1CSINode>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call patchCSINodeStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback<V1CSINode> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchCSINodeStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        Type localVarReturnType = new TypeToken<V1CSINode>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIpatchCSINodeStatusRequest {
+        @jakarta.annotation.Nonnull
+        private final String name;
+        @jakarta.annotation.Nonnull
+        private final V1Patch body;
+        @jakarta.annotation.Nullable
+        private String pretty;
+        @jakarta.annotation.Nullable
+        private String dryRun;
+        @jakarta.annotation.Nullable
+        private String fieldManager;
+        @jakarta.annotation.Nullable
+        private String fieldValidation;
+        @jakarta.annotation.Nullable
+        private Boolean force;
+
+        private APIpatchCSINodeStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
+            this.name = name;
+            this.body = body;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIpatchCSINodeStatusRequest
+         */
+        public APIpatchCSINodeStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIpatchCSINodeStatusRequest
+         */
+        public APIpatchCSINodeStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldManager
+         * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+         * @return APIpatchCSINodeStatusRequest
+         */
+        public APIpatchCSINodeStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
+            this.fieldManager = fieldManager;
+            return this;
+        }
+
+        /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
+         * @return APIpatchCSINodeStatusRequest
+         */
+        public APIpatchCSINodeStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
+         * Set force
+         * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
+         * @return APIpatchCSINodeStatusRequest
+         */
+        public APIpatchCSINodeStatusRequest force(@jakarta.annotation.Nullable Boolean force) {
+            this.force = force;
+            return this;
+        }
+
+        /**
+         * Build call for patchCSINodeStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return patchCSINodeStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        }
+
+        /**
+         * Execute patchCSINodeStatus request
+         * @return V1CSINode
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1CSINode execute() throws ApiException {
+            ApiResponse<V1CSINode> localVarResp = patchCSINodeStatusWithHttpInfo(name, body, pretty, dryRun, fieldManager, fieldValidation, force);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute patchCSINodeStatus request with HTTP info returned
+         * @return ApiResponse&lt;V1CSINode&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1CSINode> executeWithHttpInfo() throws ApiException {
+            return patchCSINodeStatusWithHttpInfo(name, body, pretty, dryRun, fieldManager, fieldValidation, force);
+        }
+
+        /**
+         * Execute patchCSINodeStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1CSINode> _callback) throws ApiException {
+            return patchCSINodeStatusAsync(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
+        }
+    }
+
+    /**
+     *
+     * partially update status of the specified CSINode
+     * @param name name of the CSINode (required)
+     * @param body  (required)
+     * @return APIpatchCSINodeStatusRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIpatchCSINodeStatusRequest patchCSINodeStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1Patch body) {
+        return new APIpatchCSINodeStatusRequest(name, body);
+    }
     private okhttp3.Call patchNamespacedCSIStorageCapacityCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1Patch body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, @jakarta.annotation.Nullable Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -10514,6 +10775,188 @@ public class StorageV1Api {
     public APIreadCSINodeRequest readCSINode(@jakarta.annotation.Nonnull String name) {
         return new APIreadCSINodeRequest(name);
     }
+    private okhttp3.Call readCSINodeStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apis/storage.k8s.io/v1/csinodes/{name}/status"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readCSINodeStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling readCSINodeStatus(Async)");
+        }
+
+        return readCSINodeStatusCall(name, pretty, _callback);
+
+    }
+
+
+    private ApiResponse<V1CSINode> readCSINodeStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty) throws ApiException {
+        okhttp3.Call localVarCall = readCSINodeStatusValidateBeforeCall(name, pretty, null);
+        Type localVarReturnType = new TypeToken<V1CSINode>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call readCSINodeStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nullable String pretty, final ApiCallback<V1CSINode> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readCSINodeStatusValidateBeforeCall(name, pretty, _callback);
+        Type localVarReturnType = new TypeToken<V1CSINode>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIreadCSINodeStatusRequest {
+        @jakarta.annotation.Nonnull
+        private final String name;
+        @jakarta.annotation.Nullable
+        private String pretty;
+
+        private APIreadCSINodeStatusRequest(@jakarta.annotation.Nonnull String name) {
+            this.name = name;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIreadCSINodeStatusRequest
+         */
+        public APIreadCSINodeStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Build call for readCSINodeStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return readCSINodeStatusCall(name, pretty, _callback);
+        }
+
+        /**
+         * Execute readCSINodeStatus request
+         * @return V1CSINode
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1CSINode execute() throws ApiException {
+            ApiResponse<V1CSINode> localVarResp = readCSINodeStatusWithHttpInfo(name, pretty);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute readCSINodeStatus request with HTTP info returned
+         * @return ApiResponse&lt;V1CSINode&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1CSINode> executeWithHttpInfo() throws ApiException {
+            return readCSINodeStatusWithHttpInfo(name, pretty);
+        }
+
+        /**
+         * Execute readCSINodeStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1CSINode> _callback) throws ApiException {
+            return readCSINodeStatusAsync(name, pretty, _callback);
+        }
+    }
+
+    /**
+     *
+     * read status of the specified CSINode
+     * @param name name of the CSINode (required)
+     * @return APIreadCSINodeStatusRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIreadCSINodeStatusRequest readCSINodeStatus(@jakarta.annotation.Nonnull String name) {
+        return new APIreadCSINodeStatusRequest(name);
+    }
     private okhttp3.Call readNamespacedCSIStorageCapacityCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nullable String pretty, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -11923,6 +12366,251 @@ public class StorageV1Api {
      */
     public APIreplaceCSINodeRequest replaceCSINode(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1CSINode body) {
         return new APIreplaceCSINodeRequest(name, body);
+    }
+    private okhttp3.Call replaceCSINodeStatusCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1CSINode body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/apis/storage.k8s.io/v1/csinodes/{name}/status"
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pretty != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (dryRun != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
+        }
+
+        if (fieldManager != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/cbor"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "BearerToken" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call replaceCSINodeStatusValidateBeforeCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1CSINode body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException("Missing the required parameter 'name' when calling replaceCSINodeStatus(Async)");
+        }
+
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling replaceCSINodeStatus(Async)");
+        }
+
+        return replaceCSINodeStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+
+    }
+
+
+    private ApiResponse<V1CSINode> replaceCSINodeStatusWithHttpInfo(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1CSINode body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceCSINodeStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, null);
+        Type localVarReturnType = new TypeToken<V1CSINode>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call replaceCSINodeStatusAsync(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1CSINode body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback<V1CSINode> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = replaceCSINodeStatusValidateBeforeCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        Type localVarReturnType = new TypeToken<V1CSINode>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIreplaceCSINodeStatusRequest {
+        @jakarta.annotation.Nonnull
+        private final String name;
+        @jakarta.annotation.Nonnull
+        private final V1CSINode body;
+        @jakarta.annotation.Nullable
+        private String pretty;
+        @jakarta.annotation.Nullable
+        private String dryRun;
+        @jakarta.annotation.Nullable
+        private String fieldManager;
+        @jakarta.annotation.Nullable
+        private String fieldValidation;
+
+        private APIreplaceCSINodeStatusRequest(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1CSINode body) {
+            this.name = name;
+            this.body = body;
+        }
+
+        /**
+         * Set pretty
+         * @param pretty If &#39;true&#39;, then the output is pretty printed. Defaults to &#39;false&#39; unless the user-agent indicates a browser or command-line HTTP tool (curl and wget). (optional)
+         * @return APIreplaceCSINodeStatusRequest
+         */
+        public APIreplaceCSINodeStatusRequest pretty(@jakarta.annotation.Nullable String pretty) {
+            this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set dryRun
+         * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
+         * @return APIreplaceCSINodeStatusRequest
+         */
+        public APIreplaceCSINodeStatusRequest dryRun(@jakarta.annotation.Nullable String dryRun) {
+            this.dryRun = dryRun;
+            return this;
+        }
+
+        /**
+         * Set fieldManager
+         * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+         * @return APIreplaceCSINodeStatusRequest
+         */
+        public APIreplaceCSINodeStatusRequest fieldManager(@jakarta.annotation.Nullable String fieldManager) {
+            this.fieldManager = fieldManager;
+            return this;
+        }
+
+        /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional)
+         * @return APIreplaceCSINodeStatusRequest
+         */
+        public APIreplaceCSINodeStatusRequest fieldValidation(@jakarta.annotation.Nullable String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
+         * Build call for replaceCSINodeStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return replaceCSINodeStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+
+        /**
+         * Execute replaceCSINodeStatus request
+         * @return V1CSINode
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public V1CSINode execute() throws ApiException {
+            ApiResponse<V1CSINode> localVarResp = replaceCSINodeStatusWithHttpInfo(name, body, pretty, dryRun, fieldManager, fieldValidation);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute replaceCSINodeStatus request with HTTP info returned
+         * @return ApiResponse&lt;V1CSINode&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<V1CSINode> executeWithHttpInfo() throws ApiException {
+            return replaceCSINodeStatusWithHttpInfo(name, body, pretty, dryRun, fieldManager, fieldValidation);
+        }
+
+        /**
+         * Execute replaceCSINodeStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<V1CSINode> _callback) throws ApiException {
+            return replaceCSINodeStatusAsync(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
+        }
+    }
+
+    /**
+     *
+     * replace status of the specified CSINode
+     * @param name name of the CSINode (required)
+     * @param body  (required)
+     * @return APIreplaceCSINodeStatusRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIreplaceCSINodeStatusRequest replaceCSINodeStatus(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull V1CSINode body) {
+        return new APIreplaceCSINodeStatusRequest(name, body);
     }
     private okhttp3.Call replaceNamespacedCSIStorageCapacityCall(@jakarta.annotation.Nonnull String name, @jakarta.annotation.Nonnull String namespace, @jakarta.annotation.Nonnull V1CSIStorageCapacity body, @jakarta.annotation.Nullable String pretty, @jakarta.annotation.Nullable String dryRun, @jakarta.annotation.Nullable String fieldManager, @jakarta.annotation.Nullable String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;

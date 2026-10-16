@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1SecretVolumeSourceBuilder extends V1SecretVolumeSourceFluent<V1SecretVolumeSourceBuilder> implements VisitableBuilder<V1SecretVolumeSource,V1SecretVolumeSourceBuilder>{
 
   V1SecretVolumeSourceFluent<?> fluent;
@@ -39,6 +40,7 @@ public class V1SecretVolumeSourceBuilder extends V1SecretVolumeSourceFluent<V1Se
   public V1SecretVolumeSource build() {
     V1SecretVolumeSource buildable = new V1SecretVolumeSource();
     buildable.setDefaultMode(fluent.getDefaultMode());
+    buildable.setDefaultUser(fluent.getDefaultUser());
     buildable.setItems(fluent.buildItems());
     buildable.setOptional(fluent.getOptional());
     buildable.setSecretName(fluent.getSecretName());

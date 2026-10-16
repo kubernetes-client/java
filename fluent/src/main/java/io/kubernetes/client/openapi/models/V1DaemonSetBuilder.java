@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1DaemonSetBuilder extends V1DaemonSetFluent<V1DaemonSetBuilder> implements VisitableBuilder<V1DaemonSet,V1DaemonSetBuilder>{
 
   V1DaemonSetFluent<?> fluent;

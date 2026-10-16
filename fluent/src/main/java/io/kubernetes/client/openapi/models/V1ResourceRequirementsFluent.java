@@ -28,12 +28,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi.models.V1ResourceRequirementsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ResourceRequirementsFluent<A extends V1ResourceRequirementsFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<CoreV1ResourceClaimBuilder> claims;
   private Map<String,Quantity> limits;
@@ -48,7 +50,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
 
   public A addAllToClaims(Collection<CoreV1ResourceClaim> items) {
     if (this.claims == null) {
-      this.claims = new ArrayList();
+      this.claims = new ArrayList<>();
     }
     for (CoreV1ResourceClaim item : items) {
         CoreV1ResourceClaimBuilder builder = new CoreV1ResourceClaimBuilder(item);
@@ -59,16 +61,16 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
   }
   
   public ClaimsNested<A> addNewClaim() {
-    return new ClaimsNested(-1, null);
+    return new ClaimsNested<>(-1, null);
   }
   
   public ClaimsNested<A> addNewClaimLike(CoreV1ResourceClaim item) {
-    return new ClaimsNested(-1, item);
+    return new ClaimsNested<>(-1, item);
   }
   
   public A addToClaims(CoreV1ResourceClaim... items) {
     if (this.claims == null) {
-      this.claims = new ArrayList();
+      this.claims = new ArrayList<>();
     }
     for (CoreV1ResourceClaim item : items) {
         CoreV1ResourceClaimBuilder builder = new CoreV1ResourceClaimBuilder(item);
@@ -80,7 +82,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
   
   public A addToClaims(int index,CoreV1ResourceClaim item) {
     if (this.claims == null) {
-      this.claims = new ArrayList();
+      this.claims = new ArrayList<>();
     }
     CoreV1ResourceClaimBuilder builder = new CoreV1ResourceClaimBuilder(item);
     if (index < 0 || index >= this.claims.size()) {
@@ -95,7 +97,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
   
   public A addToLimits(Map<String,Quantity> map) {
     if (this.limits == null && map != null) {
-      this.limits = new LinkedHashMap();
+      this.limits = new LinkedHashMap<>();
     }
     if (map != null) {
       this.limits.putAll(map);
@@ -105,7 +107,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
   
   public A addToLimits(String key,Quantity value) {
     if (this.limits == null && key != null && value != null) {
-      this.limits = new LinkedHashMap();
+      this.limits = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.limits.put(key, value);
@@ -115,7 +117,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
   
   public A addToRequests(Map<String,Quantity> map) {
     if (this.requests == null && map != null) {
-      this.requests = new LinkedHashMap();
+      this.requests = new LinkedHashMap<>();
     }
     if (map != null) {
       this.requests.putAll(map);
@@ -125,7 +127,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
   
   public A addToRequests(String key,Quantity value) {
     if (this.requests == null && key != null && value != null) {
-      this.requests = new LinkedHashMap();
+      this.requests = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.requests.put(key, value);
@@ -213,7 +215,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V1ResourceRequirementsFluent that = (V1ResourceRequirementsFluent) o;
+    V1ResourceRequirementsFluent<?> that = (V1ResourceRequirementsFluent<?>) o;
     if (!(Objects.equals(claims, that.claims))) {
       return false;
     }
@@ -336,6 +338,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
       return (A) this;
     }
     Iterator<CoreV1ResourceClaimBuilder> each = claims.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("claims");
     while (each.hasNext()) {
         CoreV1ResourceClaimBuilder builder = each.next();
@@ -348,12 +351,12 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
   }
   
   public ClaimsNested<A> setNewClaimLike(int index,CoreV1ResourceClaim item) {
-    return new ClaimsNested(index, item);
+    return new ClaimsNested<>(index, item);
   }
   
   public A setToClaims(int index,CoreV1ResourceClaim item) {
     if (this.claims == null) {
-      this.claims = new ArrayList();
+      this.claims = new ArrayList<>();
     }
     CoreV1ResourceClaimBuilder builder = new CoreV1ResourceClaimBuilder(item);
     if (index < 0 || index >= this.claims.size()) {
@@ -392,7 +395,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
       this._visitables.get("claims").clear();
     }
     if (claims != null) {
-        this.claims = new ArrayList();
+        this.claims = new ArrayList<>();
         for (CoreV1ResourceClaim item : claims) {
           this.addToClaims(item);
         }
@@ -419,7 +422,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
     if (limits == null) {
       this.limits = null;
     } else {
-      this.limits = new LinkedHashMap(limits);
+      this.limits = new LinkedHashMap<>(limits);
     }
     return (A) this;
   }
@@ -428,7 +431,7 @@ public class V1ResourceRequirementsFluent<A extends io.kubernetes.client.openapi
     if (requests == null) {
       this.requests = null;
     } else {
-      this.requests = new LinkedHashMap(requests);
+      this.requests = new LinkedHashMap<>(requests);
     }
     return (A) this;
   }

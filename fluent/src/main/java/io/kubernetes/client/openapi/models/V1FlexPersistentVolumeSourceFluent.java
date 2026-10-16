@@ -23,12 +23,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1FlexPersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1FlexPersistentVolumeSourceFluent<A extends V1FlexPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String driver;
   private String fsType;
@@ -45,7 +47,7 @@ public class V1FlexPersistentVolumeSourceFluent<A extends io.kubernetes.client.o
 
   public A addToOptions(Map<String,String> map) {
     if (this.options == null && map != null) {
-      this.options = new LinkedHashMap();
+      this.options = new LinkedHashMap<>();
     }
     if (map != null) {
       this.options.putAll(map);
@@ -55,7 +57,7 @@ public class V1FlexPersistentVolumeSourceFluent<A extends io.kubernetes.client.o
   
   public A addToOptions(String key,String value) {
     if (this.options == null && key != null && value != null) {
-      this.options = new LinkedHashMap();
+      this.options = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.options.put(key, value);
@@ -100,7 +102,7 @@ public class V1FlexPersistentVolumeSourceFluent<A extends io.kubernetes.client.o
     if (!(super.equals(o))) {
       return false;
     }
-    V1FlexPersistentVolumeSourceFluent that = (V1FlexPersistentVolumeSourceFluent) o;
+    V1FlexPersistentVolumeSourceFluent<?> that = (V1FlexPersistentVolumeSourceFluent<?>) o;
     if (!(Objects.equals(driver, that.driver))) {
       return false;
     }
@@ -225,18 +227,18 @@ public class V1FlexPersistentVolumeSourceFluent<A extends io.kubernetes.client.o
   }
   
   public SecretRefNested<A> withNewSecretRef() {
-    return new SecretRefNested(null);
+    return new SecretRefNested<>(null);
   }
   
   public SecretRefNested<A> withNewSecretRefLike(V1SecretReference item) {
-    return new SecretRefNested(item);
+    return new SecretRefNested<>(item);
   }
   
   public <K,V>A withOptions(Map<String,String> options) {
     if (options == null) {
       this.options = null;
     } else {
-      this.options = new LinkedHashMap(options);
+      this.options = new LinkedHashMap<>(options);
     }
     return (A) this;
   }
@@ -256,8 +258,8 @@ public class V1FlexPersistentVolumeSourceFluent<A extends io.kubernetes.client.o
         this.secretRef = new V1SecretReferenceBuilder(secretRef);
         this._visitables.get("secretRef").add(this.secretRef);
     } else {
-        this.secretRef = null;
         this._visitables.get("secretRef").remove(this.secretRef);
+        this.secretRef = null;
     }
     return (A) this;
   }

@@ -21,17 +21,22 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.models.V1TokenRequestSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1TokenRequestSpecFluent<A extends V1TokenRequestSpecFluent<A>> extends BaseFluent<A>{
 
+  private Map<String,List<String>> attestations;
   private List<String> audiences;
   private V1BoundObjectReferenceBuilder boundObjectRef;
   private Long expirationSeconds;
@@ -45,7 +50,7 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
 
   public A addAllToAudiences(Collection<String> items) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     for (String item : items) {
       this.audiences.add(item);
@@ -53,9 +58,29 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
     return (A) this;
   }
   
+  public A addToAttestations(Map<String,List<String>> map) {
+    if (this.attestations == null && map != null) {
+      this.attestations = new LinkedHashMap<>();
+    }
+    if (map != null) {
+      this.attestations.putAll(map);
+    }
+    return (A) this;
+  }
+  
+  public A addToAttestations(String key,List<String> value) {
+    if (this.attestations == null && key != null && value != null) {
+      this.attestations = new LinkedHashMap<>();
+    }
+    if (key != null && value != null) {
+      this.attestations.put(key, value);
+    }
+    return (A) this;
+  }
+  
   public A addToAudiences(String... items) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     for (String item : items) {
       this.audiences.add(item);
@@ -65,7 +90,7 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToAudiences(int index,String item) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     this.audiences.add(index, item);
     return (A) this;
@@ -78,6 +103,7 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
   protected void copyInstance(V1TokenRequestSpec instance) {
     instance = instance != null ? instance : new V1TokenRequestSpec();
     if (instance != null) {
+        this.withAttestations(instance.getAttestations());
         this.withAudiences(instance.getAudiences());
         this.withBoundObjectRef(instance.getBoundObjectRef());
         this.withExpirationSeconds(instance.getExpirationSeconds());
@@ -106,7 +132,10 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1TokenRequestSpecFluent that = (V1TokenRequestSpecFluent) o;
+    V1TokenRequestSpecFluent<?> that = (V1TokenRequestSpecFluent<?>) o;
+    if (!(Objects.equals(attestations, that.attestations))) {
+      return false;
+    }
     if (!(Objects.equals(audiences, that.audiences))) {
       return false;
     }
@@ -117,6 +146,10 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
       return false;
     }
     return true;
+  }
+  
+  public Map<String,List<String>> getAttestations() {
+    return this.attestations;
   }
   
   public String getAudience(int index) {
@@ -148,6 +181,10 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
       return null;
   }
   
+  public boolean hasAttestations() {
+    return this.attestations != null;
+  }
+  
   public boolean hasAudiences() {
     return this.audiences != null && !(this.audiences.isEmpty());
   }
@@ -170,7 +207,7 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public int hashCode() {
-    return Objects.hash(audiences, boundObjectRef, expirationSeconds);
+    return Objects.hash(attestations, audiences, boundObjectRef, expirationSeconds);
   }
   
   public A removeAllFromAudiences(Collection<String> items) {
@@ -179,6 +216,30 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
     }
     for (String item : items) {
       this.audiences.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromAttestations(String key) {
+    if (this.attestations == null) {
+      return (A) this;
+    }
+    if (key != null && this.attestations != null) {
+      this.attestations.remove(key);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromAttestations(Map<String,List<String>> map) {
+    if (this.attestations == null) {
+      return (A) this;
+    }
+    if (map != null) {
+      for (Object key : map.keySet()) {
+        if (this.attestations != null) {
+          this.attestations.remove(key);
+        }
+      }
     }
     return (A) this;
   }
@@ -195,7 +256,7 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
   
   public A setToAudiences(int index,String item) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     this.audiences.set(index, item);
     return (A) this;
@@ -204,6 +265,11 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
+    if (!(attestations == null) && !(attestations.isEmpty())) {
+        sb.append("attestations:");
+        sb.append(attestations);
+        sb.append(",");
+    }
     if (!(audiences == null) && !(audiences.isEmpty())) {
         sb.append("audiences:");
         sb.append(audiences);
@@ -222,9 +288,18 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
     return sb.toString();
   }
   
+  public <K,V>A withAttestations(Map<String,List<String>> attestations) {
+    if (attestations == null) {
+      this.attestations = null;
+    } else {
+      this.attestations = new LinkedHashMap<>(attestations);
+    }
+    return (A) this;
+  }
+  
   public A withAudiences(List<String> audiences) {
     if (audiences != null) {
-        this.audiences = new ArrayList();
+        this.audiences = new ArrayList<>();
         for (String item : audiences) {
           this.addToAudiences(item);
         }
@@ -253,8 +328,8 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
         this.boundObjectRef = new V1BoundObjectReferenceBuilder(boundObjectRef);
         this._visitables.get("boundObjectRef").add(this.boundObjectRef);
     } else {
-        this.boundObjectRef = null;
         this._visitables.get("boundObjectRef").remove(this.boundObjectRef);
+        this.boundObjectRef = null;
     }
     return (A) this;
   }
@@ -265,11 +340,11 @@ public class V1TokenRequestSpecFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public BoundObjectRefNested<A> withNewBoundObjectRef() {
-    return new BoundObjectRefNested(null);
+    return new BoundObjectRefNested<>(null);
   }
   
   public BoundObjectRefNested<A> withNewBoundObjectRefLike(V1BoundObjectReference item) {
-    return new BoundObjectRefNested(item);
+    return new BoundObjectRefNested<>(item);
   }
   public class BoundObjectRefNested<N> extends V1BoundObjectReferenceFluent<BoundObjectRefNested<N>> implements Nested<N>{
   

@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A extends io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A extends V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A>> extends BaseFluent<A>{
 
   private String whenDeleted;
   private String whenScaled;
@@ -53,7 +55,7 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<A extends i
     if (!(super.equals(o))) {
       return false;
     }
-    V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent that = (V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent) o;
+    V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?> that = (V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?>) o;
     if (!(Objects.equals(whenDeleted, that.whenDeleted))) {
       return false;
     }

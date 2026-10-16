@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1LifecycleHandlerFluent<A extends io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> extends BaseFluent<A>{
 
   private V1ExecActionBuilder exec;
   private V1HTTPGetActionBuilder httpGet;
@@ -123,7 +125,7 @@ public class V1LifecycleHandlerFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1LifecycleHandlerFluent that = (V1LifecycleHandlerFluent) o;
+    V1LifecycleHandlerFluent<?> that = (V1LifecycleHandlerFluent<?>) o;
     if (!(Objects.equals(exec, that.exec))) {
       return false;
     }
@@ -191,8 +193,8 @@ public class V1LifecycleHandlerFluent<A extends io.kubernetes.client.openapi.mod
         this.exec = new V1ExecActionBuilder(exec);
         this._visitables.get("exec").add(this.exec);
     } else {
-        this.exec = null;
         this._visitables.get("exec").remove(this.exec);
+        this.exec = null;
     }
     return (A) this;
   }
@@ -203,42 +205,42 @@ public class V1LifecycleHandlerFluent<A extends io.kubernetes.client.openapi.mod
         this.httpGet = new V1HTTPGetActionBuilder(httpGet);
         this._visitables.get("httpGet").add(this.httpGet);
     } else {
-        this.httpGet = null;
         this._visitables.get("httpGet").remove(this.httpGet);
+        this.httpGet = null;
     }
     return (A) this;
   }
   
   public ExecNested<A> withNewExec() {
-    return new ExecNested(null);
+    return new ExecNested<>(null);
   }
   
   public ExecNested<A> withNewExecLike(V1ExecAction item) {
-    return new ExecNested(item);
+    return new ExecNested<>(item);
   }
   
   public HttpGetNested<A> withNewHttpGet() {
-    return new HttpGetNested(null);
+    return new HttpGetNested<>(null);
   }
   
   public HttpGetNested<A> withNewHttpGetLike(V1HTTPGetAction item) {
-    return new HttpGetNested(item);
+    return new HttpGetNested<>(item);
   }
   
   public SleepNested<A> withNewSleep() {
-    return new SleepNested(null);
+    return new SleepNested<>(null);
   }
   
   public SleepNested<A> withNewSleepLike(V1SleepAction item) {
-    return new SleepNested(item);
+    return new SleepNested<>(item);
   }
   
   public TcpSocketNested<A> withNewTcpSocket() {
-    return new TcpSocketNested(null);
+    return new TcpSocketNested<>(null);
   }
   
   public TcpSocketNested<A> withNewTcpSocketLike(V1TCPSocketAction item) {
-    return new TcpSocketNested(item);
+    return new TcpSocketNested<>(item);
   }
   
   public A withSleep(V1SleepAction sleep) {
@@ -247,8 +249,8 @@ public class V1LifecycleHandlerFluent<A extends io.kubernetes.client.openapi.mod
         this.sleep = new V1SleepActionBuilder(sleep);
         this._visitables.get("sleep").add(this.sleep);
     } else {
-        this.sleep = null;
         this._visitables.get("sleep").remove(this.sleep);
+        this.sleep = null;
     }
     return (A) this;
   }
@@ -259,8 +261,8 @@ public class V1LifecycleHandlerFluent<A extends io.kubernetes.client.openapi.mod
         this.tcpSocket = new V1TCPSocketActionBuilder(tcpSocket);
         this._visitables.get("tcpSocket").add(this.tcpSocket);
     } else {
-        this.tcpSocket = null;
         this._visitables.get("tcpSocket").remove(this.tcpSocket);
+        this.tcpSocket = null;
     }
     return (A) this;
   }

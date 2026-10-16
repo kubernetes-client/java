@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1PodSpecBuilder extends V1PodSpecFluent<V1PodSpecBuilder> implements VisitableBuilder<V1PodSpec,V1PodSpecBuilder>{
 
   V1PodSpecFluent<?> fluent;
@@ -46,6 +47,7 @@ public class V1PodSpecBuilder extends V1PodSpecFluent<V1PodSpecBuilder> implemen
     buildable.setDnsPolicy(fluent.getDnsPolicy());
     buildable.setEnableServiceLinks(fluent.getEnableServiceLinks());
     buildable.setEphemeralContainers(fluent.buildEphemeralContainers());
+    buildable.setEvictionResponders(fluent.buildEvictionResponders());
     buildable.setHostAliases(fluent.buildHostAliases());
     buildable.setHostIPC(fluent.getHostIPC());
     buildable.setHostNetwork(fluent.getHostNetwork());

@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * FlowSchemaCondition describes conditions for a FlowSchema.
  */
 @ApiModel(description = "FlowSchemaCondition describes conditions for a FlowSchema.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1FlowSchemaCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
@@ -75,7 +75,7 @@ public class V1FlowSchemaCondition {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String type;
 
   public V1FlowSchemaCondition() {
@@ -147,11 +147,11 @@ public class V1FlowSchemaCondition {
   }
 
   /**
-   * &#x60;status&#x60; is the status of the condition. Can be True, False, Unknown. Required.
+   * &#x60;status&#x60; is the status of the condition. Should be specified and set to one of True, False, Unknown.
    * @return status
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "`status` is the status of the condition. Can be True, False, Unknown. Required.")
+  @ApiModelProperty(value = "`status` is the status of the condition. Should be specified and set to one of True, False, Unknown.")
   public String getStatus() {
     return status;
   }
@@ -161,7 +161,7 @@ public class V1FlowSchemaCondition {
   }
 
 
-  public V1FlowSchemaCondition type(@jakarta.annotation.Nullable String type) {
+  public V1FlowSchemaCondition type(@jakarta.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -170,13 +170,13 @@ public class V1FlowSchemaCondition {
    * &#x60;type&#x60; is the type of the condition. Required.
    * @return type
    */
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "`type` is the type of the condition. Required.")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "`type` is the type of the condition. Required.")
   public String getType() {
     return type;
   }
 
-  public void setType(@jakarta.annotation.Nullable String type) {
+  public void setType(@jakarta.annotation.Nonnull String type) {
     this.type = type;
   }
 
@@ -236,7 +236,7 @@ public class V1FlowSchemaCondition {
     openapiFields = new HashSet<String>(Arrays.asList("lastTransitionTime", "message", "reason", "status", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));
   }
 
   /**
@@ -259,6 +259,13 @@ public class V1FlowSchemaCondition {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1FlowSchemaCondition` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1FlowSchemaCondition.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
@@ -269,7 +276,7 @@ public class V1FlowSchemaCondition {
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+      if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }

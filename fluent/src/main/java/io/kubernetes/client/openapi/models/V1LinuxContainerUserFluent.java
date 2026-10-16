@@ -23,12 +23,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1LinuxContainerUserFluent<A extends io.kubernetes.client.openapi.models.V1LinuxContainerUserFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1LinuxContainerUserFluent<A extends V1LinuxContainerUserFluent<A>> extends BaseFluent<A>{
 
   private Long gid;
   private List<Long> supplementalGroups;
@@ -43,7 +45,7 @@ public class V1LinuxContainerUserFluent<A extends io.kubernetes.client.openapi.m
 
   public A addAllToSupplementalGroups(Collection<Long> items) {
     if (this.supplementalGroups == null) {
-      this.supplementalGroups = new ArrayList();
+      this.supplementalGroups = new ArrayList<>();
     }
     for (Long item : items) {
       this.supplementalGroups.add(item);
@@ -53,7 +55,7 @@ public class V1LinuxContainerUserFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToSupplementalGroups(Long... items) {
     if (this.supplementalGroups == null) {
-      this.supplementalGroups = new ArrayList();
+      this.supplementalGroups = new ArrayList<>();
     }
     for (Long item : items) {
       this.supplementalGroups.add(item);
@@ -63,7 +65,7 @@ public class V1LinuxContainerUserFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToSupplementalGroups(int index,Long item) {
     if (this.supplementalGroups == null) {
-      this.supplementalGroups = new ArrayList();
+      this.supplementalGroups = new ArrayList<>();
     }
     this.supplementalGroups.add(index, item);
     return (A) this;
@@ -88,7 +90,7 @@ public class V1LinuxContainerUserFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1LinuxContainerUserFluent that = (V1LinuxContainerUserFluent) o;
+    V1LinuxContainerUserFluent<?> that = (V1LinuxContainerUserFluent<?>) o;
     if (!(Objects.equals(gid, that.gid))) {
       return false;
     }
@@ -181,7 +183,7 @@ public class V1LinuxContainerUserFluent<A extends io.kubernetes.client.openapi.m
   
   public A setToSupplementalGroups(int index,Long item) {
     if (this.supplementalGroups == null) {
-      this.supplementalGroups = new ArrayList();
+      this.supplementalGroups = new ArrayList<>();
     }
     this.supplementalGroups.set(index, item);
     return (A) this;
@@ -215,7 +217,7 @@ public class V1LinuxContainerUserFluent<A extends io.kubernetes.client.openapi.m
   
   public A withSupplementalGroups(List<Long> supplementalGroups) {
     if (supplementalGroups != null) {
-        this.supplementalGroups = new ArrayList();
+        this.supplementalGroups = new ArrayList<>();
         for (Long item : supplementalGroups) {
           this.addToSupplementalGroups(item);
         }
