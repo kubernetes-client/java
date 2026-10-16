@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.spring.extended.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.awaitility.Awaitility.await;
 
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
@@ -47,6 +48,7 @@ import io.kubernetes.client.spring.extended.controller.annotation.UpdateWatchEve
 import io.kubernetes.client.spring.extended.controller.factory.KubernetesControllerFactory;
 import io.kubernetes.client.util.ClientBuilder;
 import java.util.LinkedList;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import jakarta.annotation.Resource;
 import org.apache.commons.lang3.tuple.MutablePair;
@@ -61,6 +63,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootTest(classes = {KubernetesReconcilerCreatorTest.App.class})
 class KubernetesReconcilerCreatorTest {
 
+  private static final long TIMEOUT_SECONDS = 10;
   @RegisterExtension
   static WireMockExtension apiServer =
       WireMockExtension.newInstance().options(WireMockConfiguration.options().port(8189)).build();
@@ -194,9 +197,10 @@ class KubernetesReconcilerCreatorTest {
               }
             });
 
-    Thread.sleep(500);
-
     WorkQueue<Request> workQueue = ((DefaultController) testController).getWorkQueue();
+    await()
+            .atMost(TIMEOUT_SECONDS, TimeUnit.SECONDS)
+            .untilAsserted(() -> assertThat(workQueue.length()).isEqualTo(1));
     assertThat(workQueue.length()).isEqualTo(1);
     assertThat(workQueue.get().getName()).isEqualTo("foo");
     sharedInformerFactory.stopAllRegisteredInformers();
