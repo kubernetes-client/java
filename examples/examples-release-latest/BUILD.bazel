@@ -1,0 +1,33 @@
+load("@rules_java//java:defs.bzl", "java_library")
+
+# Compile-check examples against core libraries already built in Bazel CI.
+# Sources that need deps not yet in MODULE.bazel (commons-cli, Spring,
+# published CRD model jars) are excluded so this change stays dependency-free.
+java_library(
+    name = "client-java-examples",
+    srcs = glob(
+        ["src/main/java/**/*.java"],
+        exclude = [
+            "src/main/java/io/kubernetes/client/examples/CertManagerExample.java",
+            "src/main/java/io/kubernetes/client/examples/ExecExample.java",
+            "src/main/java/io/kubernetes/client/examples/KubectlExample.java",
+            "src/main/java/io/kubernetes/client/examples/PromOpExample.java",
+            "src/main/java/io/kubernetes/client/examples/SpringControllerExample.java",
+            "src/main/java/io/kubernetes/client/examples/SpringLoadBalancerExample.java",
+        ],
+    ),
+    visibility = ["//visibility:public"],
+    deps = [
+        "//extended:client-java-extended",
+        "//fluent:client-java-api-fluent",
+        "//kubernetes:client-java-api",
+        "//proto:client-java-proto",
+        "//util:client-java",
+        "@maven//:com_google_code_gson_gson",
+        "@maven//:com_squareup_okhttp3_okhttp_jvm",
+        "@maven//:org_apache_commons_commons_lang3",
+        "@maven//:org_slf4j_slf4j_api",
+        "@maven//:software_amazon_awssdk_auth",
+        "@maven//:software_amazon_awssdk_sts",
+    ],
+)

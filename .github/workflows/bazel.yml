@@ -149,6 +149,7 @@ jobs:
           //util:client-java
           //fluent:client-java-api-fluent
           //extended:client-java-extended
+          //examples/examples-release-latest:client-java-examples
 
       # ----------------------------------------------------------------
       # Test — run per-module test suites
