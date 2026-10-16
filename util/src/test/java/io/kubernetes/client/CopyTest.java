@@ -19,8 +19,12 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 
+import com.github.tomakehurst.wiremock.core.Admin;
+import com.github.tomakehurst.wiremock.extension.Parameters;
+import com.github.tomakehurst.wiremock.extension.PostServeAction;
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.matching.AnythingPattern;
+import com.github.tomakehurst.wiremock.stubbing.ServeEvent;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
@@ -36,6 +40,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
@@ -119,9 +125,24 @@ class CopyTest {
     }
   }
 
+  public static class CountDownLatchAction extends PostServeAction {
+    @Override
+    public String getName() {
+      return "countdown";
+    }
+
+    @Override
+    public void doAction(ServeEvent serveEvent, Admin admin, Parameters parameters) {
+      CountDownLatch latch = (CountDownLatch) parameters.get("latch");
+      latch.countDown();
+    }
+  }
+
   @RegisterExtension
   static WireMockExtension apiServer =
-      WireMockExtension.newInstance().options(wireMockConfig().dynamicPort()).build();
+      WireMockExtension.newInstance()
+          .options(wireMockConfig().dynamicPort().extensions(new CountDownLatchAction()))
+          .build();
 
   @BeforeEach
   void setup() {
@@ -171,8 +192,13 @@ class CopyTest {
 
     Copy copy = new Copy(client);
 
+    CountDownLatch latch = new CountDownLatch(1);
+    Parameters params = new Parameters();
+    params.put("latch", latch);
+
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .withPostServeAction("countdown", params)
             .willReturn(
                 aResponse()
                     .withStatus(404)
@@ -195,7 +221,7 @@ class CopyTest {
               }
             });
     t.start();
-    Thread.sleep(2000);
+    assertTrue(latch.await(30, TimeUnit.SECONDS));
     t.interrupt();
 
     apiServer.verify(
@@ -217,8 +243,13 @@ class CopyTest {
 
     Copy copy = new Copy(client);
 
+    CountDownLatch latch = new CountDownLatch(1);
+    Parameters params = new Parameters();
+    params.put("latch", latch);
+
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .withPostServeAction("countdown", params)
             .willReturn(
                 aResponse()
                     .withStatus(404)
@@ -241,7 +272,7 @@ class CopyTest {
               }
             });
     t.start();
-    Thread.sleep(2000);
+    assertTrue(latch.await(30, TimeUnit.SECONDS));
     t.interrupt();
 
     apiServer.verify(
@@ -260,8 +291,13 @@ class CopyTest {
   void testCopyDirectoryFromPod(@TempDir Path tempDir) throws Exception {
     Copy copy = new Copy(client);
 
+    CountDownLatch latch = new CountDownLatch(1);
+    Parameters params = new Parameters();
+    params.put("latch", latch);
+
     apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .withPostServeAction("countdown", params)
             .willReturn(
                 aResponse()
                     .withStatus(404)
@@ -285,7 +321,7 @@ class CopyTest {
               }
             });
     t.start();
-    Thread.sleep(2000);
+    assertTrue(latch.await(30, TimeUnit.SECONDS));
     t.interrupt();
 
     apiServer.verify(
