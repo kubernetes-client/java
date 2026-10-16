@@ -12,7 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.leaderelection;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.time.Duration;
+import java.util.Date;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
@@ -98,6 +101,38 @@ class LeaderElectorTest {
 
     // wait for candidate2 to become leader
     startBeingLeader2.await();
+  }
+
+  /**
+   * Tests that on the very first run, a LeaderElector immediately acquires an existing lock whose
+   * lease has already expired, rather than waiting an extra leaseDuration before taking over.
+   */
+  @Test
+  @Timeout(value = 20000L, unit = TimeUnit.MILLISECONDS)
+  void acquiresAlreadyExpiredLeaseImmediately() throws Exception {
+    LockSmith lockSmith = new LockSmith();
+
+    Duration leaseDuration = Duration.ofMillis(TimeUnit.SECONDS.toMillis(10));
+
+    // Simulate a lock that was last renewed well beyond the lease duration in the past, as if
+    // its previous holder had crashed a long time ago and this is the first time any candidate
+    // observes the (already expired) record.
+    Date longAgo = new Date(System.currentTimeMillis() - leaseDuration.toMillis() * 3);
+    Lock lock = lockSmith.makeLock("previous-holder");
+    lock.create(
+        new LeaderElectionRecord(
+            "previous-holder", (int) leaseDuration.getSeconds(), longAgo, longAgo, 0));
+
+    CountDownLatch startBeingLeader = new CountDownLatch(1);
+    CountDownLatch stopBeingLeader = new CountDownLatch(1);
+
+    makeAndRunLeaderElectorAsync(lockSmith, "candidate1", startBeingLeader, stopBeingLeader);
+
+    // With the fix, the new candidate should become leader almost immediately, well before the
+    // full lease duration elapses, since the observed record is already expired.
+    assertTrue(
+        startBeingLeader.await(leaseDuration.toMillis() / 2, TimeUnit.MILLISECONDS),
+        "expected candidate to acquire the already-expired lease promptly");
   }
 
   private LeaderElector makeAndRunLeaderElectorAsync(
