@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ValidatingAdmissionPolicyBindingListFluent<A extends io.kubernetes.client.openapi.models.V1ValidatingAdmissionPolicyBindingListFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ValidatingAdmissionPolicyBindingListFluent<A extends V1ValidatingAdmissionPolicyBindingListFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private ArrayList<V1ValidatingAdmissionPolicyBindingBuilder> items;
@@ -47,7 +49,7 @@ public class V1ValidatingAdmissionPolicyBindingListFluent<A extends io.kubernete
 
   public A addAllToItems(Collection<V1ValidatingAdmissionPolicyBinding> items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1ValidatingAdmissionPolicyBinding item : items) {
         V1ValidatingAdmissionPolicyBindingBuilder builder = new V1ValidatingAdmissionPolicyBindingBuilder(item);
@@ -58,16 +60,16 @@ public class V1ValidatingAdmissionPolicyBindingListFluent<A extends io.kubernete
   }
   
   public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
+    return new ItemsNested<>(-1, null);
   }
   
   public ItemsNested<A> addNewItemLike(V1ValidatingAdmissionPolicyBinding item) {
-    return new ItemsNested(-1, item);
+    return new ItemsNested<>(-1, item);
   }
   
   public A addToItems(V1ValidatingAdmissionPolicyBinding... items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1ValidatingAdmissionPolicyBinding item : items) {
         V1ValidatingAdmissionPolicyBindingBuilder builder = new V1ValidatingAdmissionPolicyBindingBuilder(item);
@@ -79,7 +81,7 @@ public class V1ValidatingAdmissionPolicyBindingListFluent<A extends io.kubernete
   
   public A addToItems(int index,V1ValidatingAdmissionPolicyBinding item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1ValidatingAdmissionPolicyBindingBuilder builder = new V1ValidatingAdmissionPolicyBindingBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -189,7 +191,7 @@ public class V1ValidatingAdmissionPolicyBindingListFluent<A extends io.kubernete
     if (!(super.equals(o))) {
       return false;
     }
-    V1ValidatingAdmissionPolicyBindingListFluent that = (V1ValidatingAdmissionPolicyBindingListFluent) o;
+    V1ValidatingAdmissionPolicyBindingListFluent<?> that = (V1ValidatingAdmissionPolicyBindingListFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -271,6 +273,7 @@ public class V1ValidatingAdmissionPolicyBindingListFluent<A extends io.kubernete
       return (A) this;
     }
     Iterator<V1ValidatingAdmissionPolicyBindingBuilder> each = items.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("items");
     while (each.hasNext()) {
         V1ValidatingAdmissionPolicyBindingBuilder builder = each.next();
@@ -283,12 +286,12 @@ public class V1ValidatingAdmissionPolicyBindingListFluent<A extends io.kubernete
   }
   
   public ItemsNested<A> setNewItemLike(int index,V1ValidatingAdmissionPolicyBinding item) {
-    return new ItemsNested(index, item);
+    return new ItemsNested<>(index, item);
   }
   
   public A setToItems(int index,V1ValidatingAdmissionPolicyBinding item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1ValidatingAdmissionPolicyBindingBuilder builder = new V1ValidatingAdmissionPolicyBindingBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -337,7 +340,7 @@ public class V1ValidatingAdmissionPolicyBindingListFluent<A extends io.kubernete
       this._visitables.get("items").clear();
     }
     if (items != null) {
-        this.items = new ArrayList();
+        this.items = new ArrayList<>();
         for (V1ValidatingAdmissionPolicyBinding item : items) {
           this.addToItems(item);
         }
@@ -371,18 +374,18 @@ public class V1ValidatingAdmissionPolicyBindingListFluent<A extends io.kubernete
         this.metadata = new V1ListMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   public class ItemsNested<N> extends V1ValidatingAdmissionPolicyBindingFluent<ItemsNested<N>> implements Nested<N>{
   

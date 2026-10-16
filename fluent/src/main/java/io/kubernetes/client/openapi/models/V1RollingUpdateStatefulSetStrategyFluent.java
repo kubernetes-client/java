@@ -20,12 +20,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1RollingUpdateStatefulSetStrategyFluent<A extends io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1RollingUpdateStatefulSetStrategyFluent<A extends V1RollingUpdateStatefulSetStrategyFluent<A>> extends BaseFluent<A>{
 
   private IntOrString maxUnavailable;
   private Integer partition;
@@ -55,7 +57,7 @@ public class V1RollingUpdateStatefulSetStrategyFluent<A extends io.kubernetes.cl
     if (!(super.equals(o))) {
       return false;
     }
-    V1RollingUpdateStatefulSetStrategyFluent that = (V1RollingUpdateStatefulSetStrategyFluent) o;
+    V1RollingUpdateStatefulSetStrategyFluent<?> that = (V1RollingUpdateStatefulSetStrategyFluent<?>) o;
     if (!(Objects.equals(maxUnavailable, that.maxUnavailable))) {
       return false;
     }

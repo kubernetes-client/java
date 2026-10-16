@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1HostIPBuilder extends V1HostIPFluent<V1HostIPBuilder> implements VisitableBuilder<V1HostIP,V1HostIPBuilder>{
 
   V1HostIPFluent<?> fluent;

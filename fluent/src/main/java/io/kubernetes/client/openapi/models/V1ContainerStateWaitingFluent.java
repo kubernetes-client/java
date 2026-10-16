@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ContainerStateWaitingFluent<A extends io.kubernetes.client.openapi.models.V1ContainerStateWaitingFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ContainerStateWaitingFluent<A extends V1ContainerStateWaitingFluent<A>> extends BaseFluent<A>{
 
   private String message;
   private String reason;
@@ -53,7 +55,7 @@ public class V1ContainerStateWaitingFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1ContainerStateWaitingFluent that = (V1ContainerStateWaitingFluent) o;
+    V1ContainerStateWaitingFluent<?> that = (V1ContainerStateWaitingFluent<?>) o;
     if (!(Objects.equals(message, that.message))) {
       return false;
     }

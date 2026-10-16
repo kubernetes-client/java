@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SelfSubjectAccessReviewSpecFluent<A extends V1SelfSubjectAccessReviewSpecFluent<A>> extends BaseFluent<A>{
 
   private V1NonResourceAttributesBuilder nonResourceAttributes;
   private V1ResourceAttributesBuilder resourceAttributes;
@@ -87,7 +89,7 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
     if (!(super.equals(o))) {
       return false;
     }
-    V1SelfSubjectAccessReviewSpecFluent that = (V1SelfSubjectAccessReviewSpecFluent) o;
+    V1SelfSubjectAccessReviewSpecFluent<?> that = (V1SelfSubjectAccessReviewSpecFluent<?>) o;
     if (!(Objects.equals(nonResourceAttributes, that.nonResourceAttributes))) {
       return false;
     }
@@ -126,19 +128,19 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
   }
   
   public NonResourceAttributesNested<A> withNewNonResourceAttributes() {
-    return new NonResourceAttributesNested(null);
+    return new NonResourceAttributesNested<>(null);
   }
   
   public NonResourceAttributesNested<A> withNewNonResourceAttributesLike(V1NonResourceAttributes item) {
-    return new NonResourceAttributesNested(item);
+    return new NonResourceAttributesNested<>(item);
   }
   
   public ResourceAttributesNested<A> withNewResourceAttributes() {
-    return new ResourceAttributesNested(null);
+    return new ResourceAttributesNested<>(null);
   }
   
   public ResourceAttributesNested<A> withNewResourceAttributesLike(V1ResourceAttributes item) {
-    return new ResourceAttributesNested(item);
+    return new ResourceAttributesNested<>(item);
   }
   
   public A withNonResourceAttributes(V1NonResourceAttributes nonResourceAttributes) {
@@ -147,8 +149,8 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
         this.nonResourceAttributes = new V1NonResourceAttributesBuilder(nonResourceAttributes);
         this._visitables.get("nonResourceAttributes").add(this.nonResourceAttributes);
     } else {
-        this.nonResourceAttributes = null;
         this._visitables.get("nonResourceAttributes").remove(this.nonResourceAttributes);
+        this.nonResourceAttributes = null;
     }
     return (A) this;
   }
@@ -159,8 +161,8 @@ public class V1SelfSubjectAccessReviewSpecFluent<A extends io.kubernetes.client.
         this.resourceAttributes = new V1ResourceAttributesBuilder(resourceAttributes);
         this._visitables.get("resourceAttributes").add(this.resourceAttributes);
     } else {
-        this.resourceAttributes = null;
         this._visitables.get("resourceAttributes").remove(this.resourceAttributes);
+        this.resourceAttributes = null;
     }
     return (A) this;
   }

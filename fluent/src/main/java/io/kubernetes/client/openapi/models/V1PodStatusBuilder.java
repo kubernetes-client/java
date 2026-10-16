@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1PodStatusBuilder extends V1PodStatusFluent<V1PodStatusBuilder> implements VisitableBuilder<V1PodStatus,V1PodStatusBuilder>{
 
   V1PodStatusFluent<?> fluent;
@@ -59,6 +60,7 @@ public class V1PodStatusBuilder extends V1PodStatusFluent<V1PodStatusBuilder> im
     buildable.setResourceClaimStatuses(fluent.buildResourceClaimStatuses());
     buildable.setResources(fluent.buildResources());
     buildable.setStartTime(fluent.getStartTime());
+    buildable.setVolumeHealth(fluent.buildVolumeHealth());
     return buildable;
   }
   

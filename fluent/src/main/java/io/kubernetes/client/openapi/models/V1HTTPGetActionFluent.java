@@ -26,17 +26,20 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1HTTPGetActionFluent<A extends V1HTTPGetActionFluent<A>> extends BaseFluent<A>{
 
   private String host;
   private ArrayList<V1HTTPHeaderBuilder> httpHeaders;
   private String path;
   private IntOrString port;
+  private String protocol;
   private String scheme;
 
   public V1HTTPGetActionFluent() {
@@ -48,7 +51,7 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToHttpHeaders(Collection<V1HTTPHeader> items) {
     if (this.httpHeaders == null) {
-      this.httpHeaders = new ArrayList();
+      this.httpHeaders = new ArrayList<>();
     }
     for (V1HTTPHeader item : items) {
         V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
@@ -59,16 +62,16 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public HttpHeadersNested<A> addNewHttpHeader() {
-    return new HttpHeadersNested(-1, null);
+    return new HttpHeadersNested<>(-1, null);
   }
   
   public HttpHeadersNested<A> addNewHttpHeaderLike(V1HTTPHeader item) {
-    return new HttpHeadersNested(-1, item);
+    return new HttpHeadersNested<>(-1, item);
   }
   
   public A addToHttpHeaders(V1HTTPHeader... items) {
     if (this.httpHeaders == null) {
-      this.httpHeaders = new ArrayList();
+      this.httpHeaders = new ArrayList<>();
     }
     for (V1HTTPHeader item : items) {
         V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
@@ -80,7 +83,7 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToHttpHeaders(int index,V1HTTPHeader item) {
     if (this.httpHeaders == null) {
-      this.httpHeaders = new ArrayList();
+      this.httpHeaders = new ArrayList<>();
     }
     V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
     if (index < 0 || index >= this.httpHeaders.size()) {
@@ -125,6 +128,7 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
         this.withHttpHeaders(instance.getHttpHeaders());
         this.withPath(instance.getPath());
         this.withPort(instance.getPort());
+        this.withProtocol(instance.getProtocol());
         this.withScheme(instance.getScheme());
     }
   }
@@ -175,7 +179,7 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1HTTPGetActionFluent that = (V1HTTPGetActionFluent) o;
+    V1HTTPGetActionFluent<?> that = (V1HTTPGetActionFluent<?>) o;
     if (!(Objects.equals(host, that.host))) {
       return false;
     }
@@ -186,6 +190,9 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
       return false;
     }
     if (!(Objects.equals(port, that.port))) {
+      return false;
+    }
+    if (!(Objects.equals(protocol, that.protocol))) {
       return false;
     }
     if (!(Objects.equals(scheme, that.scheme))) {
@@ -204,6 +211,10 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
   
   public IntOrString getPort() {
     return this.port;
+  }
+  
+  public String getProtocol() {
+    return this.protocol;
   }
   
   public String getScheme() {
@@ -235,12 +246,16 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
     return this.port != null;
   }
   
+  public boolean hasProtocol() {
+    return this.protocol != null;
+  }
+  
   public boolean hasScheme() {
     return this.scheme != null;
   }
   
   public int hashCode() {
-    return Objects.hash(host, httpHeaders, path, port, scheme);
+    return Objects.hash(host, httpHeaders, path, port, protocol, scheme);
   }
   
   public A removeAllFromHttpHeaders(Collection<V1HTTPHeader> items) {
@@ -272,6 +287,7 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1HTTPHeaderBuilder> each = httpHeaders.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("httpHeaders");
     while (each.hasNext()) {
         V1HTTPHeaderBuilder builder = each.next();
@@ -284,12 +300,12 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public HttpHeadersNested<A> setNewHttpHeaderLike(int index,V1HTTPHeader item) {
-    return new HttpHeadersNested(index, item);
+    return new HttpHeadersNested<>(index, item);
   }
   
   public A setToHttpHeaders(int index,V1HTTPHeader item) {
     if (this.httpHeaders == null) {
-      this.httpHeaders = new ArrayList();
+      this.httpHeaders = new ArrayList<>();
     }
     V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
     if (index < 0 || index >= this.httpHeaders.size()) {
@@ -325,6 +341,11 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
         sb.append(port);
         sb.append(",");
     }
+    if (!(protocol == null)) {
+        sb.append("protocol:");
+        sb.append(protocol);
+        sb.append(",");
+    }
     if (!(scheme == null)) {
         sb.append("scheme:");
         sb.append(scheme);
@@ -343,7 +364,7 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
       this._visitables.get("httpHeaders").clear();
     }
     if (httpHeaders != null) {
-        this.httpHeaders = new ArrayList();
+        this.httpHeaders = new ArrayList<>();
         for (V1HTTPHeader item : httpHeaders) {
           this.addToHttpHeaders(item);
         }
@@ -381,6 +402,11 @@ public class V1HTTPGetActionFluent<A extends io.kubernetes.client.openapi.models
   
   public A withPort(IntOrString port) {
     this.port = port;
+    return (A) this;
+  }
+  
+  public A withProtocol(String protocol) {
+    this.protocol = protocol;
     return (A) this;
   }
   

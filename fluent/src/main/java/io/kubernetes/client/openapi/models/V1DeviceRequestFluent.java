@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DeviceRequestFluent<A extends io.kubernetes.client.openapi.models.V1DeviceRequestFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DeviceRequestFluent<A extends V1DeviceRequestFluent<A>> extends BaseFluent<A>{
 
   private V1ExactDeviceRequestBuilder exactly;
   private ArrayList<V1DeviceSubRequestBuilder> firstAvailable;
@@ -46,7 +48,7 @@ public class V1DeviceRequestFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToFirstAvailable(Collection<V1DeviceSubRequest> items) {
     if (this.firstAvailable == null) {
-      this.firstAvailable = new ArrayList();
+      this.firstAvailable = new ArrayList<>();
     }
     for (V1DeviceSubRequest item : items) {
         V1DeviceSubRequestBuilder builder = new V1DeviceSubRequestBuilder(item);
@@ -57,16 +59,16 @@ public class V1DeviceRequestFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public FirstAvailableNested<A> addNewFirstAvailable() {
-    return new FirstAvailableNested(-1, null);
+    return new FirstAvailableNested<>(-1, null);
   }
   
   public FirstAvailableNested<A> addNewFirstAvailableLike(V1DeviceSubRequest item) {
-    return new FirstAvailableNested(-1, item);
+    return new FirstAvailableNested<>(-1, item);
   }
   
   public A addToFirstAvailable(V1DeviceSubRequest... items) {
     if (this.firstAvailable == null) {
-      this.firstAvailable = new ArrayList();
+      this.firstAvailable = new ArrayList<>();
     }
     for (V1DeviceSubRequest item : items) {
         V1DeviceSubRequestBuilder builder = new V1DeviceSubRequestBuilder(item);
@@ -78,7 +80,7 @@ public class V1DeviceRequestFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToFirstAvailable(int index,V1DeviceSubRequest item) {
     if (this.firstAvailable == null) {
-      this.firstAvailable = new ArrayList();
+      this.firstAvailable = new ArrayList<>();
     }
     V1DeviceSubRequestBuilder builder = new V1DeviceSubRequestBuilder(item);
     if (index < 0 || index >= this.firstAvailable.size()) {
@@ -187,7 +189,7 @@ public class V1DeviceRequestFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1DeviceRequestFluent that = (V1DeviceRequestFluent) o;
+    V1DeviceRequestFluent<?> that = (V1DeviceRequestFluent<?>) o;
     if (!(Objects.equals(exactly, that.exactly))) {
       return false;
     }
@@ -258,6 +260,7 @@ public class V1DeviceRequestFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1DeviceSubRequestBuilder> each = firstAvailable.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("firstAvailable");
     while (each.hasNext()) {
         V1DeviceSubRequestBuilder builder = each.next();
@@ -270,12 +273,12 @@ public class V1DeviceRequestFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public FirstAvailableNested<A> setNewFirstAvailableLike(int index,V1DeviceSubRequest item) {
-    return new FirstAvailableNested(index, item);
+    return new FirstAvailableNested<>(index, item);
   }
   
   public A setToFirstAvailable(int index,V1DeviceSubRequest item) {
     if (this.firstAvailable == null) {
-      this.firstAvailable = new ArrayList();
+      this.firstAvailable = new ArrayList<>();
     }
     V1DeviceSubRequestBuilder builder = new V1DeviceSubRequestBuilder(item);
     if (index < 0 || index >= this.firstAvailable.size()) {
@@ -315,8 +318,8 @@ public class V1DeviceRequestFluent<A extends io.kubernetes.client.openapi.models
         this.exactly = new V1ExactDeviceRequestBuilder(exactly);
         this._visitables.get("exactly").add(this.exactly);
     } else {
-        this.exactly = null;
         this._visitables.get("exactly").remove(this.exactly);
+        this.exactly = null;
     }
     return (A) this;
   }
@@ -326,7 +329,7 @@ public class V1DeviceRequestFluent<A extends io.kubernetes.client.openapi.models
       this._visitables.get("firstAvailable").clear();
     }
     if (firstAvailable != null) {
-        this.firstAvailable = new ArrayList();
+        this.firstAvailable = new ArrayList<>();
         for (V1DeviceSubRequest item : firstAvailable) {
           this.addToFirstAvailable(item);
         }
@@ -355,11 +358,11 @@ public class V1DeviceRequestFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public ExactlyNested<A> withNewExactly() {
-    return new ExactlyNested(null);
+    return new ExactlyNested<>(null);
   }
   
   public ExactlyNested<A> withNewExactlyLike(V1ExactDeviceRequest item) {
-    return new ExactlyNested(item);
+    return new ExactlyNested<>(item);
   }
   public class ExactlyNested<N> extends V1ExactDeviceRequestFluent<ExactlyNested<N>> implements Nested<N>{
   

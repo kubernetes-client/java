@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta2DeviceTaintSelectorFluent<A extends io.kubernetes.client.openapi.models.V1beta2DeviceTaintSelectorFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta2DeviceTaintSelectorFluent<A extends V1beta2DeviceTaintSelectorFluent<A>> extends BaseFluent<A>{
 
   private String device;
   private String driver;
@@ -55,7 +57,7 @@ public class V1beta2DeviceTaintSelectorFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta2DeviceTaintSelectorFluent that = (V1beta2DeviceTaintSelectorFluent) o;
+    V1beta2DeviceTaintSelectorFluent<?> that = (V1beta2DeviceTaintSelectorFluent<?>) o;
     if (!(Objects.equals(device, that.device))) {
       return false;
     }

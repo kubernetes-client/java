@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1RuntimeClassFluent<A extends io.kubernetes.client.openapi.models.V1RuntimeClassFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1RuntimeClassFluent<A extends V1RuntimeClassFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String handler;
@@ -111,7 +113,7 @@ public class V1RuntimeClassFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1RuntimeClassFluent that = (V1RuntimeClassFluent) o;
+    V1RuntimeClassFluent<?> that = (V1RuntimeClassFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -230,34 +232,34 @@ public class V1RuntimeClassFluent<A extends io.kubernetes.client.openapi.models.
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public OverheadNested<A> withNewOverhead() {
-    return new OverheadNested(null);
+    return new OverheadNested<>(null);
   }
   
   public OverheadNested<A> withNewOverheadLike(V1Overhead item) {
-    return new OverheadNested(item);
+    return new OverheadNested<>(item);
   }
   
   public SchedulingNested<A> withNewScheduling() {
-    return new SchedulingNested(null);
+    return new SchedulingNested<>(null);
   }
   
   public SchedulingNested<A> withNewSchedulingLike(V1Scheduling item) {
-    return new SchedulingNested(item);
+    return new SchedulingNested<>(item);
   }
   
   public A withOverhead(V1Overhead overhead) {
@@ -266,8 +268,8 @@ public class V1RuntimeClassFluent<A extends io.kubernetes.client.openapi.models.
         this.overhead = new V1OverheadBuilder(overhead);
         this._visitables.get("overhead").add(this.overhead);
     } else {
-        this.overhead = null;
         this._visitables.get("overhead").remove(this.overhead);
+        this.overhead = null;
     }
     return (A) this;
   }
@@ -278,8 +280,8 @@ public class V1RuntimeClassFluent<A extends io.kubernetes.client.openapi.models.
         this.scheduling = new V1SchedulingBuilder(scheduling);
         this._visitables.get("scheduling").add(this.scheduling);
     } else {
-        this.scheduling = null;
         this._visitables.get("scheduling").remove(this.scheduling);
+        this.scheduling = null;
     }
     return (A) this;
   }

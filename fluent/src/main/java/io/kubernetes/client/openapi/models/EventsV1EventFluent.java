@@ -22,12 +22,14 @@ import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class EventsV1EventFluent<A extends io.kubernetes.client.openapi.models.EventsV1EventFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class EventsV1EventFluent<A extends EventsV1EventFluent<A>> extends BaseFluent<A>{
 
   private String action;
   private String apiVersion;
@@ -167,7 +169,7 @@ public class EventsV1EventFluent<A extends io.kubernetes.client.openapi.models.E
     if (!(super.equals(o))) {
       return false;
     }
-    EventsV1EventFluent that = (EventsV1EventFluent) o;
+    EventsV1EventFluent<?> that = (EventsV1EventFluent<?>) o;
     if (!(Objects.equals(action, that.action))) {
       return false;
     }
@@ -464,8 +466,8 @@ public class EventsV1EventFluent<A extends io.kubernetes.client.openapi.models.E
         this.deprecatedSource = new V1EventSourceBuilder(deprecatedSource);
         this._visitables.get("deprecatedSource").add(this.deprecatedSource);
     } else {
-        this.deprecatedSource = null;
         this._visitables.get("deprecatedSource").remove(this.deprecatedSource);
+        this.deprecatedSource = null;
     }
     return (A) this;
   }
@@ -486,50 +488,50 @@ public class EventsV1EventFluent<A extends io.kubernetes.client.openapi.models.E
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public DeprecatedSourceNested<A> withNewDeprecatedSource() {
-    return new DeprecatedSourceNested(null);
+    return new DeprecatedSourceNested<>(null);
   }
   
   public DeprecatedSourceNested<A> withNewDeprecatedSourceLike(V1EventSource item) {
-    return new DeprecatedSourceNested(item);
+    return new DeprecatedSourceNested<>(item);
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public RegardingNested<A> withNewRegarding() {
-    return new RegardingNested(null);
+    return new RegardingNested<>(null);
   }
   
   public RegardingNested<A> withNewRegardingLike(V1ObjectReference item) {
-    return new RegardingNested(item);
+    return new RegardingNested<>(item);
   }
   
   public RelatedNested<A> withNewRelated() {
-    return new RelatedNested(null);
+    return new RelatedNested<>(null);
   }
   
   public RelatedNested<A> withNewRelatedLike(V1ObjectReference item) {
-    return new RelatedNested(item);
+    return new RelatedNested<>(item);
   }
   
   public SeriesNested<A> withNewSeries() {
-    return new SeriesNested(null);
+    return new SeriesNested<>(null);
   }
   
   public SeriesNested<A> withNewSeriesLike(EventsV1EventSeries item) {
-    return new SeriesNested(item);
+    return new SeriesNested<>(item);
   }
   
   public A withNote(String note) {
@@ -548,8 +550,8 @@ public class EventsV1EventFluent<A extends io.kubernetes.client.openapi.models.E
         this.regarding = new V1ObjectReferenceBuilder(regarding);
         this._visitables.get("regarding").add(this.regarding);
     } else {
-        this.regarding = null;
         this._visitables.get("regarding").remove(this.regarding);
+        this.regarding = null;
     }
     return (A) this;
   }
@@ -560,8 +562,8 @@ public class EventsV1EventFluent<A extends io.kubernetes.client.openapi.models.E
         this.related = new V1ObjectReferenceBuilder(related);
         this._visitables.get("related").add(this.related);
     } else {
-        this.related = null;
         this._visitables.get("related").remove(this.related);
+        this.related = null;
     }
     return (A) this;
   }
@@ -582,8 +584,8 @@ public class EventsV1EventFluent<A extends io.kubernetes.client.openapi.models.E
         this.series = new EventsV1EventSeriesBuilder(series);
         this._visitables.get("series").add(this.series);
     } else {
-        this.series = null;
         this._visitables.get("series").remove(this.series);
+        this.series = null;
     }
     return (A) this;
   }

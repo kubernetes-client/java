@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V2ResourceMetricSourceBuilder extends V2ResourceMetricSourceFluent<V2ResourceMetricSourceBuilder> implements VisitableBuilder<V2ResourceMetricSource,V2ResourceMetricSourceBuilder>{
 
   V2ResourceMetricSourceFluent<?> fluent;

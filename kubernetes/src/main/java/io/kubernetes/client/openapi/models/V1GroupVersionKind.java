@@ -50,83 +50,83 @@ import io.kubernetes.client.openapi.JSON;
  * GroupVersionKind unambiguously identifies a kind.
  */
 @ApiModel(description = "GroupVersionKind unambiguously identifies a kind.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1GroupVersionKind {
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String group;
-
-  public static final String SERIALIZED_NAME_KIND = "kind";
-  @SerializedName(SERIALIZED_NAME_KIND)
-  @jakarta.annotation.Nonnull
-  private String kind;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String version;
+
+  public static final String SERIALIZED_NAME_KIND = "kind";
+  @SerializedName(SERIALIZED_NAME_KIND)
+  @jakarta.annotation.Nullable
+  private String kind;
 
   public V1GroupVersionKind() {
   }
 
-  public V1GroupVersionKind group(@jakarta.annotation.Nonnull String group) {
+  public V1GroupVersionKind group(@jakarta.annotation.Nullable String group) {
     this.group = group;
     return this;
   }
 
   /**
-   * group is the group part of the GroupVersionKind.
+   * Get group
    * @return group
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "group is the group part of the GroupVersionKind.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public String getGroup() {
     return group;
   }
 
-  public void setGroup(@jakarta.annotation.Nonnull String group) {
+  public void setGroup(@jakarta.annotation.Nullable String group) {
     this.group = group;
   }
 
 
-  public V1GroupVersionKind kind(@jakarta.annotation.Nonnull String kind) {
-    this.kind = kind;
-    return this;
-  }
-
-  /**
-   * kind is the kind part of the GroupVersionKind.
-   * @return kind
-   */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "kind is the kind part of the GroupVersionKind.")
-  public String getKind() {
-    return kind;
-  }
-
-  public void setKind(@jakarta.annotation.Nonnull String kind) {
-    this.kind = kind;
-  }
-
-
-  public V1GroupVersionKind version(@jakarta.annotation.Nonnull String version) {
+  public V1GroupVersionKind version(@jakarta.annotation.Nullable String version) {
     this.version = version;
     return this;
   }
 
   /**
-   * version is the version part of the GroupVersionKind.
+   * Get version
    * @return version
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "version is the version part of the GroupVersionKind.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public String getVersion() {
     return version;
   }
 
-  public void setVersion(@jakarta.annotation.Nonnull String version) {
+  public void setVersion(@jakarta.annotation.Nullable String version) {
     this.version = version;
+  }
+
+
+  public V1GroupVersionKind kind(@jakarta.annotation.Nullable String kind) {
+    this.kind = kind;
+    return this;
+  }
+
+  /**
+   * Get kind
+   * @return kind
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public String getKind() {
+    return kind;
+  }
+
+  public void setKind(@jakarta.annotation.Nullable String kind) {
+    this.kind = kind;
   }
 
 
@@ -141,13 +141,13 @@ public class V1GroupVersionKind {
     }
     V1GroupVersionKind v1GroupVersionKind = (V1GroupVersionKind) o;
     return Objects.equals(this.group, v1GroupVersionKind.group) &&
-        Objects.equals(this.kind, v1GroupVersionKind.kind) &&
-        Objects.equals(this.version, v1GroupVersionKind.version);
+        Objects.equals(this.version, v1GroupVersionKind.version) &&
+        Objects.equals(this.kind, v1GroupVersionKind.kind);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(group, kind, version);
+    return Objects.hash(group, version, kind);
   }
 
   @Override
@@ -155,8 +155,8 @@ public class V1GroupVersionKind {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1GroupVersionKind {\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
-    sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -178,10 +178,10 @@ public class V1GroupVersionKind {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("group", "kind", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("group", "version", "kind"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("group", "kind", "version"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -204,22 +204,15 @@ public class V1GroupVersionKind {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1GroupVersionKind` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : V1GroupVersionKind.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("group").isJsonPrimitive()) {
+      if ((jsonObj.get("group") != null && !jsonObj.get("group").isJsonNull()) && !jsonObj.get("group").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `group` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group").toString()));
       }
-      if (!jsonObj.get("kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
-      }
-      if (!jsonObj.get("version").isJsonPrimitive()) {
+      if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }
   }
 

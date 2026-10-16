@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.V1TypeCheckingFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1TypeCheckingFluent<A extends V1TypeCheckingFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1ExpressionWarningBuilder> expressionWarnings;
 
@@ -43,7 +45,7 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
 
   public A addAllToExpressionWarnings(Collection<V1ExpressionWarning> items) {
     if (this.expressionWarnings == null) {
-      this.expressionWarnings = new ArrayList();
+      this.expressionWarnings = new ArrayList<>();
     }
     for (V1ExpressionWarning item : items) {
         V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
@@ -54,16 +56,16 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
   }
   
   public ExpressionWarningsNested<A> addNewExpressionWarning() {
-    return new ExpressionWarningsNested(-1, null);
+    return new ExpressionWarningsNested<>(-1, null);
   }
   
   public ExpressionWarningsNested<A> addNewExpressionWarningLike(V1ExpressionWarning item) {
-    return new ExpressionWarningsNested(-1, item);
+    return new ExpressionWarningsNested<>(-1, item);
   }
   
   public A addToExpressionWarnings(V1ExpressionWarning... items) {
     if (this.expressionWarnings == null) {
-      this.expressionWarnings = new ArrayList();
+      this.expressionWarnings = new ArrayList<>();
     }
     for (V1ExpressionWarning item : items) {
         V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
@@ -75,7 +77,7 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToExpressionWarnings(int index,V1ExpressionWarning item) {
     if (this.expressionWarnings == null) {
-      this.expressionWarnings = new ArrayList();
+      this.expressionWarnings = new ArrayList<>();
     }
     V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
     if (index < 0 || index >= this.expressionWarnings.size()) {
@@ -166,7 +168,7 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1TypeCheckingFluent that = (V1TypeCheckingFluent) o;
+    V1TypeCheckingFluent<?> that = (V1TypeCheckingFluent<?>) o;
     if (!(Objects.equals(expressionWarnings, that.expressionWarnings))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
       return (A) this;
     }
     Iterator<V1ExpressionWarningBuilder> each = expressionWarnings.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("expressionWarnings");
     while (each.hasNext()) {
         V1ExpressionWarningBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
   }
   
   public ExpressionWarningsNested<A> setNewExpressionWarningLike(int index,V1ExpressionWarning item) {
-    return new ExpressionWarningsNested(index, item);
+    return new ExpressionWarningsNested<>(index, item);
   }
   
   public A setToExpressionWarnings(int index,V1ExpressionWarning item) {
     if (this.expressionWarnings == null) {
-      this.expressionWarnings = new ArrayList();
+      this.expressionWarnings = new ArrayList<>();
     }
     V1ExpressionWarningBuilder builder = new V1ExpressionWarningBuilder(item);
     if (index < 0 || index >= this.expressionWarnings.size()) {
@@ -265,7 +268,7 @@ public class V1TypeCheckingFluent<A extends io.kubernetes.client.openapi.models.
       this._visitables.get("expressionWarnings").clear();
     }
     if (expressionWarnings != null) {
-        this.expressionWarnings = new ArrayList();
+        this.expressionWarnings = new ArrayList<>();
         for (V1ExpressionWarning item : expressionWarnings) {
           this.addToExpressionWarnings(item);
         }

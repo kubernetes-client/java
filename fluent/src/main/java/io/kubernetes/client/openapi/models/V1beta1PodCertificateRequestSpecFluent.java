@@ -25,12 +25,14 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta1PodCertificateRequestSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1PodCertificateRequestSpecFluent<A extends V1beta1PodCertificateRequestSpecFluent<A>> extends BaseFluent<A>{
 
   private Integer maxExpirationSeconds;
   private String nodeName;
@@ -138,7 +140,7 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
   
   public A addToUnverifiedUserAnnotations(Map<String,String> map) {
     if (this.unverifiedUserAnnotations == null && map != null) {
-      this.unverifiedUserAnnotations = new LinkedHashMap();
+      this.unverifiedUserAnnotations = new LinkedHashMap<>();
     }
     if (map != null) {
       this.unverifiedUserAnnotations.putAll(map);
@@ -148,7 +150,7 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
   
   public A addToUnverifiedUserAnnotations(String key,String value) {
     if (this.unverifiedUserAnnotations == null && key != null && value != null) {
-      this.unverifiedUserAnnotations = new LinkedHashMap();
+      this.unverifiedUserAnnotations = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.unverifiedUserAnnotations.put(key, value);
@@ -184,7 +186,7 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1PodCertificateRequestSpecFluent that = (V1beta1PodCertificateRequestSpecFluent) o;
+    V1beta1PodCertificateRequestSpecFluent<?> that = (V1beta1PodCertificateRequestSpecFluent<?>) o;
     if (!(Objects.equals(maxExpirationSeconds, that.maxExpirationSeconds))) {
       return false;
     }
@@ -608,7 +610,7 @@ public class V1beta1PodCertificateRequestSpecFluent<A extends io.kubernetes.clie
     if (unverifiedUserAnnotations == null) {
       this.unverifiedUserAnnotations = null;
     } else {
-      this.unverifiedUserAnnotations = new LinkedHashMap(unverifiedUserAnnotations);
+      this.unverifiedUserAnnotations = new LinkedHashMap<>(unverifiedUserAnnotations);
     }
     return (A) this;
   }

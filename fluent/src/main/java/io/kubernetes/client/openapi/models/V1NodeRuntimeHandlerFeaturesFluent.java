@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeRuntimeHandlerFeaturesFluent<A extends io.kubernetes.client.openapi.models.V1NodeRuntimeHandlerFeaturesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeRuntimeHandlerFeaturesFluent<A extends V1NodeRuntimeHandlerFeaturesFluent<A>> extends BaseFluent<A>{
 
   private Boolean recursiveReadOnlyMounts;
   private Boolean userNamespaces;
@@ -54,7 +56,7 @@ public class V1NodeRuntimeHandlerFeaturesFluent<A extends io.kubernetes.client.o
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeRuntimeHandlerFeaturesFluent that = (V1NodeRuntimeHandlerFeaturesFluent) o;
+    V1NodeRuntimeHandlerFeaturesFluent<?> that = (V1NodeRuntimeHandlerFeaturesFluent<?>) o;
     if (!(Objects.equals(recursiveReadOnlyMounts, that.recursiveReadOnlyMounts))) {
       return false;
     }

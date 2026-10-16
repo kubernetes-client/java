@@ -17,16 +17,23 @@ import java.lang.Object;
 import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DeviceCounterConsumptionFluent<A extends io.kubernetes.client.openapi.models.V1DeviceCounterConsumptionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DeviceCounterConsumptionFluent<A extends V1DeviceCounterConsumptionFluent<A>> extends BaseFluent<A>{
 
+  private List<String> compatibilityGroups;
   private String counterSet;
   private Map<String,V1Counter> counters;
 
@@ -37,9 +44,37 @@ public class V1DeviceCounterConsumptionFluent<A extends io.kubernetes.client.ope
     this.copyInstance(instance);
   }
 
+  public A addAllToCompatibilityGroups(Collection<String> items) {
+    if (this.compatibilityGroups == null) {
+      this.compatibilityGroups = new ArrayList<>();
+    }
+    for (String item : items) {
+      this.compatibilityGroups.add(item);
+    }
+    return (A) this;
+  }
+  
+  public A addToCompatibilityGroups(String... items) {
+    if (this.compatibilityGroups == null) {
+      this.compatibilityGroups = new ArrayList<>();
+    }
+    for (String item : items) {
+      this.compatibilityGroups.add(item);
+    }
+    return (A) this;
+  }
+  
+  public A addToCompatibilityGroups(int index,String item) {
+    if (this.compatibilityGroups == null) {
+      this.compatibilityGroups = new ArrayList<>();
+    }
+    this.compatibilityGroups.add(index, item);
+    return (A) this;
+  }
+  
   public A addToCounters(Map<String,V1Counter> map) {
     if (this.counters == null && map != null) {
-      this.counters = new LinkedHashMap();
+      this.counters = new LinkedHashMap<>();
     }
     if (map != null) {
       this.counters.putAll(map);
@@ -49,7 +84,7 @@ public class V1DeviceCounterConsumptionFluent<A extends io.kubernetes.client.ope
   
   public A addToCounters(String key,V1Counter value) {
     if (this.counters == null && key != null && value != null) {
-      this.counters = new LinkedHashMap();
+      this.counters = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.counters.put(key, value);
@@ -60,6 +95,7 @@ public class V1DeviceCounterConsumptionFluent<A extends io.kubernetes.client.ope
   protected void copyInstance(V1DeviceCounterConsumption instance) {
     instance = instance != null ? instance : new V1DeviceCounterConsumption();
     if (instance != null) {
+        this.withCompatibilityGroups(instance.getCompatibilityGroups());
         this.withCounterSet(instance.getCounterSet());
         this.withCounters(instance.getCounters());
     }
@@ -75,7 +111,10 @@ public class V1DeviceCounterConsumptionFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V1DeviceCounterConsumptionFluent that = (V1DeviceCounterConsumptionFluent) o;
+    V1DeviceCounterConsumptionFluent<?> that = (V1DeviceCounterConsumptionFluent<?>) o;
+    if (!(Objects.equals(compatibilityGroups, that.compatibilityGroups))) {
+      return false;
+    }
     if (!(Objects.equals(counterSet, that.counterSet))) {
       return false;
     }
@@ -83,6 +122,14 @@ public class V1DeviceCounterConsumptionFluent<A extends io.kubernetes.client.ope
       return false;
     }
     return true;
+  }
+  
+  public String getCompatibilityGroup(int index) {
+    return this.compatibilityGroups.get(index);
+  }
+  
+  public List<String> getCompatibilityGroups() {
+    return this.compatibilityGroups;
   }
   
   public String getCounterSet() {
@@ -93,6 +140,27 @@ public class V1DeviceCounterConsumptionFluent<A extends io.kubernetes.client.ope
     return this.counters;
   }
   
+  public String getFirstCompatibilityGroup() {
+    return this.compatibilityGroups.get(0);
+  }
+  
+  public String getLastCompatibilityGroup() {
+    return this.compatibilityGroups.get(compatibilityGroups.size() - 1);
+  }
+  
+  public String getMatchingCompatibilityGroup(Predicate<String> predicate) {
+      for (String item : compatibilityGroups) {
+        if (predicate.test(item)) {
+          return item;
+        }
+      }
+      return null;
+  }
+  
+  public boolean hasCompatibilityGroups() {
+    return this.compatibilityGroups != null && !(this.compatibilityGroups.isEmpty());
+  }
+  
   public boolean hasCounterSet() {
     return this.counterSet != null;
   }
@@ -101,8 +169,37 @@ public class V1DeviceCounterConsumptionFluent<A extends io.kubernetes.client.ope
     return this.counters != null;
   }
   
+  public boolean hasMatchingCompatibilityGroup(Predicate<String> predicate) {
+      for (String item : compatibilityGroups) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
   public int hashCode() {
-    return Objects.hash(counterSet, counters);
+    return Objects.hash(compatibilityGroups, counterSet, counters);
+  }
+  
+  public A removeAllFromCompatibilityGroups(Collection<String> items) {
+    if (this.compatibilityGroups == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.compatibilityGroups.remove(item);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromCompatibilityGroups(String... items) {
+    if (this.compatibilityGroups == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.compatibilityGroups.remove(item);
+    }
+    return (A) this;
   }
   
   public A removeFromCounters(String key) {
@@ -129,9 +226,22 @@ public class V1DeviceCounterConsumptionFluent<A extends io.kubernetes.client.ope
     return (A) this;
   }
   
+  public A setToCompatibilityGroups(int index,String item) {
+    if (this.compatibilityGroups == null) {
+      this.compatibilityGroups = new ArrayList<>();
+    }
+    this.compatibilityGroups.set(index, item);
+    return (A) this;
+  }
+  
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
+    if (!(compatibilityGroups == null) && !(compatibilityGroups.isEmpty())) {
+        sb.append("compatibilityGroups:");
+        sb.append(compatibilityGroups);
+        sb.append(",");
+    }
     if (!(counterSet == null)) {
         sb.append("counterSet:");
         sb.append(counterSet);
@@ -145,6 +255,31 @@ public class V1DeviceCounterConsumptionFluent<A extends io.kubernetes.client.ope
     return sb.toString();
   }
   
+  public A withCompatibilityGroups(List<String> compatibilityGroups) {
+    if (compatibilityGroups != null) {
+        this.compatibilityGroups = new ArrayList<>();
+        for (String item : compatibilityGroups) {
+          this.addToCompatibilityGroups(item);
+        }
+    } else {
+      this.compatibilityGroups = null;
+    }
+    return (A) this;
+  }
+  
+  public A withCompatibilityGroups(String... compatibilityGroups) {
+    if (this.compatibilityGroups != null) {
+        this.compatibilityGroups.clear();
+        _visitables.remove("compatibilityGroups");
+    }
+    if (compatibilityGroups != null) {
+      for (String item : compatibilityGroups) {
+        this.addToCompatibilityGroups(item);
+      }
+    }
+    return (A) this;
+  }
+  
   public A withCounterSet(String counterSet) {
     this.counterSet = counterSet;
     return (A) this;
@@ -154,7 +289,7 @@ public class V1DeviceCounterConsumptionFluent<A extends io.kubernetes.client.ope
     if (counters == null) {
       this.counters = null;
     } else {
-      this.counters = new LinkedHashMap(counters);
+      this.counters = new LinkedHashMap<>(counters);
     }
     return (A) this;
   }

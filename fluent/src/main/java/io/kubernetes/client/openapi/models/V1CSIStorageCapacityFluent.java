@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.models.V1CSIStorageCapacityFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CSIStorageCapacityFluent<A extends V1CSIStorageCapacityFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private Quantity capacity;
@@ -98,7 +100,7 @@ public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1CSIStorageCapacityFluent that = (V1CSIStorageCapacityFluent) o;
+    V1CSIStorageCapacityFluent<?> that = (V1CSIStorageCapacityFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -242,8 +244,8 @@ public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.m
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
@@ -257,19 +259,19 @@ public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.m
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public NodeTopologyNested<A> withNewNodeTopology() {
-    return new NodeTopologyNested(null);
+    return new NodeTopologyNested<>(null);
   }
   
   public NodeTopologyNested<A> withNewNodeTopologyLike(V1LabelSelector item) {
-    return new NodeTopologyNested(item);
+    return new NodeTopologyNested<>(item);
   }
   
   public A withNodeTopology(V1LabelSelector nodeTopology) {
@@ -278,8 +280,8 @@ public class V1CSIStorageCapacityFluent<A extends io.kubernetes.client.openapi.m
         this.nodeTopology = new V1LabelSelectorBuilder(nodeTopology);
         this._visitables.get("nodeTopology").add(this.nodeTopology);
     } else {
-        this.nodeTopology = null;
         this._visitables.get("nodeTopology").remove(this.nodeTopology);
+        this.nodeTopology = null;
     }
     return (A) this;
   }

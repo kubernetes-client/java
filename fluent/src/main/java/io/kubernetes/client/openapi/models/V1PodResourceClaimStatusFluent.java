@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.models.V1PodResourceClaimStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodResourceClaimStatusFluent<A extends V1PodResourceClaimStatusFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private String resourceClaimName;
@@ -53,7 +55,7 @@ public class V1PodResourceClaimStatusFluent<A extends io.kubernetes.client.opena
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodResourceClaimStatusFluent that = (V1PodResourceClaimStatusFluent) o;
+    V1PodResourceClaimStatusFluent<?> that = (V1PodResourceClaimStatusFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

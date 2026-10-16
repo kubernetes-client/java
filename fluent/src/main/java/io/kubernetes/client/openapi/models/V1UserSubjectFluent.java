@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1UserSubjectFluent<A extends io.kubernetes.client.openapi.models.V1UserSubjectFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1UserSubjectFluent<A extends V1UserSubjectFluent<A>> extends BaseFluent<A>{
 
   private String name;
 
@@ -51,7 +53,7 @@ public class V1UserSubjectFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1UserSubjectFluent that = (V1UserSubjectFluent) o;
+    V1UserSubjectFluent<?> that = (V1UserSubjectFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

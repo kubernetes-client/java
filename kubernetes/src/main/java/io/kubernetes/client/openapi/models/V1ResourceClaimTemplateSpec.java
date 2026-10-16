@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * ResourceClaimTemplateSpec contains the metadata and fields for a ResourceClaim.
  */
 @ApiModel(description = "ResourceClaimTemplateSpec contains the metadata and fields for a ResourceClaim.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ResourceClaimTemplateSpec {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -61,7 +61,7 @@ public class V1ResourceClaimTemplateSpec {
 
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V1ResourceClaimSpec spec;
 
   public V1ResourceClaimTemplateSpec() {
@@ -87,7 +87,7 @@ public class V1ResourceClaimTemplateSpec {
   }
 
 
-  public V1ResourceClaimTemplateSpec spec(@jakarta.annotation.Nonnull V1ResourceClaimSpec spec) {
+  public V1ResourceClaimTemplateSpec spec(@jakarta.annotation.Nullable V1ResourceClaimSpec spec) {
     this.spec = spec;
     return this;
   }
@@ -96,13 +96,13 @@ public class V1ResourceClaimTemplateSpec {
    * Get spec
    * @return spec
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1ResourceClaimSpec getSpec() {
     return spec;
   }
 
-  public void setSpec(@jakarta.annotation.Nonnull V1ResourceClaimSpec spec) {
+  public void setSpec(@jakarta.annotation.Nullable V1ResourceClaimSpec spec) {
     this.spec = spec;
   }
 
@@ -156,7 +156,7 @@ public class V1ResourceClaimTemplateSpec {
     openapiFields = new HashSet<String>(Arrays.asList("metadata", "spec"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("spec"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -179,20 +179,15 @@ public class V1ResourceClaimTemplateSpec {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1ResourceClaimTemplateSpec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : V1ResourceClaimTemplateSpec.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
         V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
-      // validate the required field `spec`
-      V1ResourceClaimSpec.validateJsonElement(jsonObj.get("spec"));
+      // validate the optional field `spec`
+      if (jsonObj.get("spec") != null && !jsonObj.get("spec").isJsonNull()) {
+        V1ResourceClaimSpec.validateJsonElement(jsonObj.get("spec"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

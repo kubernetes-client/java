@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1IngressClassSpecFluent<A extends io.kubernetes.client.openapi.models.V1IngressClassSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1IngressClassSpecFluent<A extends V1IngressClassSpecFluent<A>> extends BaseFluent<A>{
 
   private String controller;
   private V1IngressClassParametersReferenceBuilder parameters;
@@ -71,7 +73,7 @@ public class V1IngressClassSpecFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1IngressClassSpecFluent that = (V1IngressClassSpecFluent) o;
+    V1IngressClassSpecFluent<?> that = (V1IngressClassSpecFluent<?>) o;
     if (!(Objects.equals(controller, that.controller))) {
       return false;
     }
@@ -119,11 +121,11 @@ public class V1IngressClassSpecFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public ParametersNested<A> withNewParameters() {
-    return new ParametersNested(null);
+    return new ParametersNested<>(null);
   }
   
   public ParametersNested<A> withNewParametersLike(V1IngressClassParametersReference item) {
-    return new ParametersNested(item);
+    return new ParametersNested<>(item);
   }
   
   public A withParameters(V1IngressClassParametersReference parameters) {
@@ -132,8 +134,8 @@ public class V1IngressClassSpecFluent<A extends io.kubernetes.client.openapi.mod
         this.parameters = new V1IngressClassParametersReferenceBuilder(parameters);
         this._visitables.get("parameters").add(this.parameters);
     } else {
-        this.parameters = null;
         this._visitables.get("parameters").remove(this.parameters);
+        this.parameters = null;
     }
     return (A) this;
   }

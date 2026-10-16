@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ModifyVolumeStatusFluent<A extends io.kubernetes.client.openapi.models.V1ModifyVolumeStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ModifyVolumeStatusFluent<A extends V1ModifyVolumeStatusFluent<A>> extends BaseFluent<A>{
 
   private String status;
   private String targetVolumeAttributesClassName;
@@ -53,7 +55,7 @@ public class V1ModifyVolumeStatusFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1ModifyVolumeStatusFluent that = (V1ModifyVolumeStatusFluent) o;
+    V1ModifyVolumeStatusFluent<?> that = (V1ModifyVolumeStatusFluent<?>) o;
     if (!(Objects.equals(status, that.status))) {
       return false;
     }

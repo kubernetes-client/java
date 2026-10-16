@@ -15,24 +15,28 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.Boolean;
+import java.lang.Long;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ClusterTrustBundleProjectionFluent<A extends io.kubernetes.client.openapi.models.V1ClusterTrustBundleProjectionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ClusterTrustBundleProjectionFluent<A extends V1ClusterTrustBundleProjectionFluent<A>> extends BaseFluent<A>{
 
   private V1LabelSelectorBuilder labelSelector;
   private String name;
   private Boolean optional;
   private String path;
   private String signerName;
+  private Long user;
 
   public V1ClusterTrustBundleProjectionFluent() {
   }
@@ -53,6 +57,7 @@ public class V1ClusterTrustBundleProjectionFluent<A extends io.kubernetes.client
         this.withOptional(instance.getOptional());
         this.withPath(instance.getPath());
         this.withSignerName(instance.getSignerName());
+        this.withUser(instance.getUser());
     }
   }
   
@@ -78,7 +83,7 @@ public class V1ClusterTrustBundleProjectionFluent<A extends io.kubernetes.client
     if (!(super.equals(o))) {
       return false;
     }
-    V1ClusterTrustBundleProjectionFluent that = (V1ClusterTrustBundleProjectionFluent) o;
+    V1ClusterTrustBundleProjectionFluent<?> that = (V1ClusterTrustBundleProjectionFluent<?>) o;
     if (!(Objects.equals(labelSelector, that.labelSelector))) {
       return false;
     }
@@ -92,6 +97,9 @@ public class V1ClusterTrustBundleProjectionFluent<A extends io.kubernetes.client
       return false;
     }
     if (!(Objects.equals(signerName, that.signerName))) {
+      return false;
+    }
+    if (!(Objects.equals(user, that.user))) {
       return false;
     }
     return true;
@@ -111,6 +119,10 @@ public class V1ClusterTrustBundleProjectionFluent<A extends io.kubernetes.client
   
   public String getSignerName() {
     return this.signerName;
+  }
+  
+  public Long getUser() {
+    return this.user;
   }
   
   public boolean hasLabelSelector() {
@@ -133,8 +145,12 @@ public class V1ClusterTrustBundleProjectionFluent<A extends io.kubernetes.client
     return this.signerName != null;
   }
   
+  public boolean hasUser() {
+    return this.user != null;
+  }
+  
   public int hashCode() {
-    return Objects.hash(labelSelector, name, optional, path, signerName);
+    return Objects.hash(labelSelector, name, optional, path, signerName, user);
   }
   
   public String toString() {
@@ -163,6 +179,11 @@ public class V1ClusterTrustBundleProjectionFluent<A extends io.kubernetes.client
     if (!(signerName == null)) {
         sb.append("signerName:");
         sb.append(signerName);
+        sb.append(",");
+    }
+    if (!(user == null)) {
+        sb.append("user:");
+        sb.append(user);
     }
     sb.append("}");
     return sb.toString();
@@ -174,8 +195,8 @@ public class V1ClusterTrustBundleProjectionFluent<A extends io.kubernetes.client
         this.labelSelector = new V1LabelSelectorBuilder(labelSelector);
         this._visitables.get("labelSelector").add(this.labelSelector);
     } else {
-        this.labelSelector = null;
         this._visitables.get("labelSelector").remove(this.labelSelector);
+        this.labelSelector = null;
     }
     return (A) this;
   }
@@ -186,11 +207,11 @@ public class V1ClusterTrustBundleProjectionFluent<A extends io.kubernetes.client
   }
   
   public LabelSelectorNested<A> withNewLabelSelector() {
-    return new LabelSelectorNested(null);
+    return new LabelSelectorNested<>(null);
   }
   
   public LabelSelectorNested<A> withNewLabelSelectorLike(V1LabelSelector item) {
-    return new LabelSelectorNested(item);
+    return new LabelSelectorNested<>(item);
   }
   
   public A withOptional() {
@@ -209,6 +230,11 @@ public class V1ClusterTrustBundleProjectionFluent<A extends io.kubernetes.client
   
   public A withSignerName(String signerName) {
     this.signerName = signerName;
+    return (A) this;
+  }
+  
+  public A withUser(Long user) {
+    this.user = user;
     return (A) this;
   }
   public class LabelSelectorNested<N> extends V1LabelSelectorFluent<LabelSelectorNested<N>> implements Nested<N>{

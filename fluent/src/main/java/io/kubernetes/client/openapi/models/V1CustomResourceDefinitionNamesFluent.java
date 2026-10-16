@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CustomResourceDefinitionNamesFluent<A extends V1CustomResourceDefinitionNamesFluent<A>> extends BaseFluent<A>{
 
   private List<String> categories;
   private String kind;
@@ -45,7 +47,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.clien
 
   public A addAllToCategories(Collection<String> items) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     for (String item : items) {
       this.categories.add(item);
@@ -55,7 +57,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.clien
   
   public A addAllToShortNames(Collection<String> items) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     for (String item : items) {
       this.shortNames.add(item);
@@ -65,7 +67,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.clien
   
   public A addToCategories(String... items) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     for (String item : items) {
       this.categories.add(item);
@@ -75,7 +77,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.clien
   
   public A addToCategories(int index,String item) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     this.categories.add(index, item);
     return (A) this;
@@ -83,7 +85,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.clien
   
   public A addToShortNames(String... items) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     for (String item : items) {
       this.shortNames.add(item);
@@ -93,7 +95,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.clien
   
   public A addToShortNames(int index,String item) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     this.shortNames.add(index, item);
     return (A) this;
@@ -121,7 +123,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.clien
     if (!(super.equals(o))) {
       return false;
     }
-    V1CustomResourceDefinitionNamesFluent that = (V1CustomResourceDefinitionNamesFluent) o;
+    V1CustomResourceDefinitionNamesFluent<?> that = (V1CustomResourceDefinitionNamesFluent<?>) o;
     if (!(Objects.equals(categories, that.categories))) {
       return false;
     }
@@ -297,7 +299,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.clien
   
   public A setToCategories(int index,String item) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     this.categories.set(index, item);
     return (A) this;
@@ -305,7 +307,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.clien
   
   public A setToShortNames(int index,String item) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     this.shortNames.set(index, item);
     return (A) this;
@@ -349,7 +351,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.clien
   
   public A withCategories(List<String> categories) {
     if (categories != null) {
-        this.categories = new ArrayList();
+        this.categories = new ArrayList<>();
         for (String item : categories) {
           this.addToCategories(item);
         }
@@ -389,7 +391,7 @@ public class V1CustomResourceDefinitionNamesFluent<A extends io.kubernetes.clien
   
   public A withShortNames(List<String> shortNames) {
     if (shortNames != null) {
-        this.shortNames = new ArrayList();
+        this.shortNames = new ArrayList<>();
         for (String item : shortNames) {
           this.addToShortNames(item);
         }

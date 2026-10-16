@@ -19,12 +19,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PersistentVolumeClaimConditionFluent<A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimConditionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PersistentVolumeClaimConditionFluent<A extends V1PersistentVolumeClaimConditionFluent<A>> extends BaseFluent<A>{
 
   private OffsetDateTime lastProbeTime;
   private OffsetDateTime lastTransitionTime;
@@ -62,7 +64,7 @@ public class V1PersistentVolumeClaimConditionFluent<A extends io.kubernetes.clie
     if (!(super.equals(o))) {
       return false;
     }
-    V1PersistentVolumeClaimConditionFluent that = (V1PersistentVolumeClaimConditionFluent) o;
+    V1PersistentVolumeClaimConditionFluent<?> that = (V1PersistentVolumeClaimConditionFluent<?>) o;
     if (!(Objects.equals(lastProbeTime, that.lastProbeTime))) {
       return false;
     }

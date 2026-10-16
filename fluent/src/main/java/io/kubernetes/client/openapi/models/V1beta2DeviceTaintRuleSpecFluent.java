@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta2DeviceTaintRuleSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta2DeviceTaintRuleSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta2DeviceTaintRuleSpecFluent<A extends V1beta2DeviceTaintRuleSpecFluent<A>> extends BaseFluent<A>{
 
   private V1beta2DeviceTaintSelectorBuilder deviceSelector;
   private V1beta2DeviceTaintBuilder taint;
@@ -87,7 +89,7 @@ public class V1beta2DeviceTaintRuleSpecFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta2DeviceTaintRuleSpecFluent that = (V1beta2DeviceTaintRuleSpecFluent) o;
+    V1beta2DeviceTaintRuleSpecFluent<?> that = (V1beta2DeviceTaintRuleSpecFluent<?>) o;
     if (!(Objects.equals(deviceSelector, that.deviceSelector))) {
       return false;
     }
@@ -131,26 +133,26 @@ public class V1beta2DeviceTaintRuleSpecFluent<A extends io.kubernetes.client.ope
         this.deviceSelector = new V1beta2DeviceTaintSelectorBuilder(deviceSelector);
         this._visitables.get("deviceSelector").add(this.deviceSelector);
     } else {
-        this.deviceSelector = null;
         this._visitables.get("deviceSelector").remove(this.deviceSelector);
+        this.deviceSelector = null;
     }
     return (A) this;
   }
   
   public DeviceSelectorNested<A> withNewDeviceSelector() {
-    return new DeviceSelectorNested(null);
+    return new DeviceSelectorNested<>(null);
   }
   
   public DeviceSelectorNested<A> withNewDeviceSelectorLike(V1beta2DeviceTaintSelector item) {
-    return new DeviceSelectorNested(item);
+    return new DeviceSelectorNested<>(item);
   }
   
   public TaintNested<A> withNewTaint() {
-    return new TaintNested(null);
+    return new TaintNested<>(null);
   }
   
   public TaintNested<A> withNewTaintLike(V1beta2DeviceTaint item) {
-    return new TaintNested(item);
+    return new TaintNested<>(item);
   }
   
   public A withTaint(V1beta2DeviceTaint taint) {
@@ -159,8 +161,8 @@ public class V1beta2DeviceTaintRuleSpecFluent<A extends io.kubernetes.client.ope
         this.taint = new V1beta2DeviceTaintBuilder(taint);
         this._visitables.get("taint").add(this.taint);
     } else {
-        this.taint = null;
         this._visitables.get("taint").remove(this.taint);
+        this.taint = null;
     }
     return (A) this;
   }

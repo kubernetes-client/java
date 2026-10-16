@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1IPBlockFluent<A extends io.kubernetes.client.openapi.models.V1IPBlockFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1IPBlockFluent<A extends V1IPBlockFluent<A>> extends BaseFluent<A>{
 
   private String cidr;
   private List<String> except;
@@ -41,7 +43,7 @@ public class V1IPBlockFluent<A extends io.kubernetes.client.openapi.models.V1IPB
 
   public A addAllToExcept(Collection<String> items) {
     if (this.except == null) {
-      this.except = new ArrayList();
+      this.except = new ArrayList<>();
     }
     for (String item : items) {
       this.except.add(item);
@@ -51,7 +53,7 @@ public class V1IPBlockFluent<A extends io.kubernetes.client.openapi.models.V1IPB
   
   public A addToExcept(String... items) {
     if (this.except == null) {
-      this.except = new ArrayList();
+      this.except = new ArrayList<>();
     }
     for (String item : items) {
       this.except.add(item);
@@ -61,7 +63,7 @@ public class V1IPBlockFluent<A extends io.kubernetes.client.openapi.models.V1IPB
   
   public A addToExcept(int index,String item) {
     if (this.except == null) {
-      this.except = new ArrayList();
+      this.except = new ArrayList<>();
     }
     this.except.add(index, item);
     return (A) this;
@@ -85,7 +87,7 @@ public class V1IPBlockFluent<A extends io.kubernetes.client.openapi.models.V1IPB
     if (!(super.equals(o))) {
       return false;
     }
-    V1IPBlockFluent that = (V1IPBlockFluent) o;
+    V1IPBlockFluent<?> that = (V1IPBlockFluent<?>) o;
     if (!(Objects.equals(cidr, that.cidr))) {
       return false;
     }
@@ -167,7 +169,7 @@ public class V1IPBlockFluent<A extends io.kubernetes.client.openapi.models.V1IPB
   
   public A setToExcept(int index,String item) {
     if (this.except == null) {
-      this.except = new ArrayList();
+      this.except = new ArrayList<>();
     }
     this.except.set(index, item);
     return (A) this;
@@ -196,7 +198,7 @@ public class V1IPBlockFluent<A extends io.kubernetes.client.openapi.models.V1IPB
   
   public A withExcept(List<String> except) {
     if (except != null) {
-        this.except = new ArrayList();
+        this.except = new ArrayList<>();
         for (String item : except) {
           this.addToExcept(item);
         }

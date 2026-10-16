@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1ConfigMapKeySelectorBuilder extends V1ConfigMapKeySelectorFluent<V1ConfigMapKeySelectorBuilder> implements VisitableBuilder<V1ConfigMapKeySelector,V1ConfigMapKeySelectorBuilder>{
 
   V1ConfigMapKeySelectorFluent<?> fluent;

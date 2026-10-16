@@ -24,12 +24,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class ApiextensionsV1WebhookClientConfigFluent<A extends io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class ApiextensionsV1WebhookClientConfigFluent<A extends ApiextensionsV1WebhookClientConfigFluent<A>> extends BaseFluent<A>{
 
   private List<Byte> caBundle;
   private ApiextensionsV1ServiceReferenceBuilder service;
@@ -105,7 +107,7 @@ public class ApiextensionsV1WebhookClientConfigFluent<A extends io.kubernetes.cl
     if (!(super.equals(o))) {
       return false;
     }
-    ApiextensionsV1WebhookClientConfigFluent that = (ApiextensionsV1WebhookClientConfigFluent) o;
+    ApiextensionsV1WebhookClientConfigFluent<?> that = (ApiextensionsV1WebhookClientConfigFluent<?>) o;
     if (!(Objects.equals(caBundle, that.caBundle))) {
       return false;
     }
@@ -214,11 +216,11 @@ public class ApiextensionsV1WebhookClientConfigFluent<A extends io.kubernetes.cl
   }
   
   public ServiceNested<A> withNewService() {
-    return new ServiceNested(null);
+    return new ServiceNested<>(null);
   }
   
   public ServiceNested<A> withNewServiceLike(ApiextensionsV1ServiceReference item) {
-    return new ServiceNested(item);
+    return new ServiceNested<>(item);
   }
   
   public A withService(ApiextensionsV1ServiceReference service) {
@@ -227,8 +229,8 @@ public class ApiextensionsV1WebhookClientConfigFluent<A extends io.kubernetes.cl
         this.service = new ApiextensionsV1ServiceReferenceBuilder(service);
         this._visitables.get("service").add(this.service);
     } else {
-        this.service = null;
         this._visitables.get("service").remove(this.service);
+        this.service = null;
     }
     return (A) this;
   }

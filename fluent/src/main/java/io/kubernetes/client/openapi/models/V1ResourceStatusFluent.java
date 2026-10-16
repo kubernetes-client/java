@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.models.V1ResourceStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ResourceStatusFluent<A extends V1ResourceStatusFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private ArrayList<V1ResourceHealthBuilder> resources;
@@ -44,7 +46,7 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
 
   public A addAllToResources(Collection<V1ResourceHealth> items) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     for (V1ResourceHealth item : items) {
         V1ResourceHealthBuilder builder = new V1ResourceHealthBuilder(item);
@@ -55,16 +57,16 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public ResourcesNested<A> addNewResource() {
-    return new ResourcesNested(-1, null);
+    return new ResourcesNested<>(-1, null);
   }
   
   public ResourcesNested<A> addNewResourceLike(V1ResourceHealth item) {
-    return new ResourcesNested(-1, item);
+    return new ResourcesNested<>(-1, item);
   }
   
   public A addToResources(V1ResourceHealth... items) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     for (V1ResourceHealth item : items) {
         V1ResourceHealthBuilder builder = new V1ResourceHealthBuilder(item);
@@ -76,7 +78,7 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToResources(int index,V1ResourceHealth item) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     V1ResourceHealthBuilder builder = new V1ResourceHealthBuilder(item);
     if (index < 0 || index >= this.resources.size()) {
@@ -168,7 +170,7 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1ResourceStatusFluent that = (V1ResourceStatusFluent) o;
+    V1ResourceStatusFluent<?> that = (V1ResourceStatusFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }
@@ -232,6 +234,7 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1ResourceHealthBuilder> each = resources.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("resources");
     while (each.hasNext()) {
         V1ResourceHealthBuilder builder = each.next();
@@ -244,12 +247,12 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public ResourcesNested<A> setNewResourceLike(int index,V1ResourceHealth item) {
-    return new ResourcesNested(index, item);
+    return new ResourcesNested<>(index, item);
   }
   
   public A setToResources(int index,V1ResourceHealth item) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     V1ResourceHealthBuilder builder = new V1ResourceHealthBuilder(item);
     if (index < 0 || index >= this.resources.size()) {
@@ -288,7 +291,7 @@ public class V1ResourceStatusFluent<A extends io.kubernetes.client.openapi.model
       this._visitables.get("resources").clear();
     }
     if (resources != null) {
-        this.resources = new ArrayList();
+        this.resources = new ArrayList<>();
         for (V1ResourceHealth item : resources) {
           this.addToResources(item);
         }

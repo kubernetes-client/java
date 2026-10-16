@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ShardInfoFluent<A extends io.kubernetes.client.openapi.models.V1ShardInfoFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ShardInfoFluent<A extends V1ShardInfoFluent<A>> extends BaseFluent<A>{
 
   private String selector;
 
@@ -51,7 +53,7 @@ public class V1ShardInfoFluent<A extends io.kubernetes.client.openapi.models.V1S
     if (!(super.equals(o))) {
       return false;
     }
-    V1ShardInfoFluent that = (V1ShardInfoFluent) o;
+    V1ShardInfoFluent<?> that = (V1ShardInfoFluent<?>) o;
     if (!(Objects.equals(selector, that.selector))) {
       return false;
     }

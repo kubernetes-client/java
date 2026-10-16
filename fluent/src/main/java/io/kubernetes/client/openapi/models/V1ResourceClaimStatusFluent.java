@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.models.V1ResourceClaimStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ResourceClaimStatusFluent<A extends V1ResourceClaimStatusFluent<A>> extends BaseFluent<A>{
 
   private V1AllocationResultBuilder allocation;
   private ArrayList<V1AllocatedDeviceStatusBuilder> devices;
@@ -46,7 +48,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
 
   public A addAllToDevices(Collection<V1AllocatedDeviceStatus> items) {
     if (this.devices == null) {
-      this.devices = new ArrayList();
+      this.devices = new ArrayList<>();
     }
     for (V1AllocatedDeviceStatus item : items) {
         V1AllocatedDeviceStatusBuilder builder = new V1AllocatedDeviceStatusBuilder(item);
@@ -58,7 +60,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
   
   public A addAllToReservedFor(Collection<V1ResourceClaimConsumerReference> items) {
     if (this.reservedFor == null) {
-      this.reservedFor = new ArrayList();
+      this.reservedFor = new ArrayList<>();
     }
     for (V1ResourceClaimConsumerReference item : items) {
         V1ResourceClaimConsumerReferenceBuilder builder = new V1ResourceClaimConsumerReferenceBuilder(item);
@@ -69,24 +71,24 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
   }
   
   public DevicesNested<A> addNewDevice() {
-    return new DevicesNested(-1, null);
+    return new DevicesNested<>(-1, null);
   }
   
   public DevicesNested<A> addNewDeviceLike(V1AllocatedDeviceStatus item) {
-    return new DevicesNested(-1, item);
+    return new DevicesNested<>(-1, item);
   }
   
   public ReservedForNested<A> addNewReservedFor() {
-    return new ReservedForNested(-1, null);
+    return new ReservedForNested<>(-1, null);
   }
   
   public ReservedForNested<A> addNewReservedForLike(V1ResourceClaimConsumerReference item) {
-    return new ReservedForNested(-1, item);
+    return new ReservedForNested<>(-1, item);
   }
   
   public A addToDevices(V1AllocatedDeviceStatus... items) {
     if (this.devices == null) {
-      this.devices = new ArrayList();
+      this.devices = new ArrayList<>();
     }
     for (V1AllocatedDeviceStatus item : items) {
         V1AllocatedDeviceStatusBuilder builder = new V1AllocatedDeviceStatusBuilder(item);
@@ -98,7 +100,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
   
   public A addToDevices(int index,V1AllocatedDeviceStatus item) {
     if (this.devices == null) {
-      this.devices = new ArrayList();
+      this.devices = new ArrayList<>();
     }
     V1AllocatedDeviceStatusBuilder builder = new V1AllocatedDeviceStatusBuilder(item);
     if (index < 0 || index >= this.devices.size()) {
@@ -113,7 +115,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
   
   public A addToReservedFor(V1ResourceClaimConsumerReference... items) {
     if (this.reservedFor == null) {
-      this.reservedFor = new ArrayList();
+      this.reservedFor = new ArrayList<>();
     }
     for (V1ResourceClaimConsumerReference item : items) {
         V1ResourceClaimConsumerReferenceBuilder builder = new V1ResourceClaimConsumerReferenceBuilder(item);
@@ -125,7 +127,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
   
   public A addToReservedFor(int index,V1ResourceClaimConsumerReference item) {
     if (this.reservedFor == null) {
-      this.reservedFor = new ArrayList();
+      this.reservedFor = new ArrayList<>();
     }
     V1ResourceClaimConsumerReferenceBuilder builder = new V1ResourceClaimConsumerReferenceBuilder(item);
     if (index < 0 || index >= this.reservedFor.size()) {
@@ -295,7 +297,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
     if (!(super.equals(o))) {
       return false;
     }
-    V1ResourceClaimStatusFluent that = (V1ResourceClaimStatusFluent) o;
+    V1ResourceClaimStatusFluent<?> that = (V1ResourceClaimStatusFluent<?>) o;
     if (!(Objects.equals(allocation, that.allocation))) {
       return false;
     }
@@ -395,6 +397,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
       return (A) this;
     }
     Iterator<V1AllocatedDeviceStatusBuilder> each = devices.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("devices");
     while (each.hasNext()) {
         V1AllocatedDeviceStatusBuilder builder = each.next();
@@ -411,6 +414,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
       return (A) this;
     }
     Iterator<V1ResourceClaimConsumerReferenceBuilder> each = reservedFor.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("reservedFor");
     while (each.hasNext()) {
         V1ResourceClaimConsumerReferenceBuilder builder = each.next();
@@ -423,16 +427,16 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
   }
   
   public DevicesNested<A> setNewDeviceLike(int index,V1AllocatedDeviceStatus item) {
-    return new DevicesNested(index, item);
+    return new DevicesNested<>(index, item);
   }
   
   public ReservedForNested<A> setNewReservedForLike(int index,V1ResourceClaimConsumerReference item) {
-    return new ReservedForNested(index, item);
+    return new ReservedForNested<>(index, item);
   }
   
   public A setToDevices(int index,V1AllocatedDeviceStatus item) {
     if (this.devices == null) {
-      this.devices = new ArrayList();
+      this.devices = new ArrayList<>();
     }
     V1AllocatedDeviceStatusBuilder builder = new V1AllocatedDeviceStatusBuilder(item);
     if (index < 0 || index >= this.devices.size()) {
@@ -447,7 +451,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
   
   public A setToReservedFor(int index,V1ResourceClaimConsumerReference item) {
     if (this.reservedFor == null) {
-      this.reservedFor = new ArrayList();
+      this.reservedFor = new ArrayList<>();
     }
     V1ResourceClaimConsumerReferenceBuilder builder = new V1ResourceClaimConsumerReferenceBuilder(item);
     if (index < 0 || index >= this.reservedFor.size()) {
@@ -487,8 +491,8 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
         this.allocation = new V1AllocationResultBuilder(allocation);
         this._visitables.get("allocation").add(this.allocation);
     } else {
-        this.allocation = null;
         this._visitables.get("allocation").remove(this.allocation);
+        this.allocation = null;
     }
     return (A) this;
   }
@@ -498,7 +502,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
       this._visitables.get("devices").clear();
     }
     if (devices != null) {
-        this.devices = new ArrayList();
+        this.devices = new ArrayList<>();
         for (V1AllocatedDeviceStatus item : devices) {
           this.addToDevices(item);
         }
@@ -522,11 +526,11 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
   }
   
   public AllocationNested<A> withNewAllocation() {
-    return new AllocationNested(null);
+    return new AllocationNested<>(null);
   }
   
   public AllocationNested<A> withNewAllocationLike(V1AllocationResult item) {
-    return new AllocationNested(item);
+    return new AllocationNested<>(item);
   }
   
   public A withReservedFor(List<V1ResourceClaimConsumerReference> reservedFor) {
@@ -534,7 +538,7 @@ public class V1ResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.
       this._visitables.get("reservedFor").clear();
     }
     if (reservedFor != null) {
-        this.reservedFor = new ArrayList();
+        this.reservedFor = new ArrayList<>();
         for (V1ResourceClaimConsumerReference item : reservedFor) {
           this.addToReservedFor(item);
         }

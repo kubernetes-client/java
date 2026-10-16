@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1beta1DeviceRequestAllocationResultBuilder extends V1beta1DeviceRequestAllocationResultFluent<V1beta1DeviceRequestAllocationResultBuilder> implements VisitableBuilder<V1beta1DeviceRequestAllocationResult,V1beta1DeviceRequestAllocationResultBuilder>{
 
   V1beta1DeviceRequestAllocationResultFluent<?> fluent;
@@ -47,6 +48,7 @@ public class V1beta1DeviceRequestAllocationResultBuilder extends V1beta1DeviceRe
     buildable.setPool(fluent.getPool());
     buildable.setRequest(fluent.getRequest());
     buildable.setShareID(fluent.getShareID());
+    buildable.setSkipNodeOperations(fluent.getSkipNodeOperations());
     buildable.setTolerations(fluent.buildTolerations());
     return buildable;
   }

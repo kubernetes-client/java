@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1HTTPGetActionBuilder extends V1HTTPGetActionFluent<V1HTTPGetActionBuilder> implements VisitableBuilder<V1HTTPGetAction,V1HTTPGetActionBuilder>{
 
   V1HTTPGetActionFluent<?> fluent;
@@ -42,6 +43,7 @@ public class V1HTTPGetActionBuilder extends V1HTTPGetActionFluent<V1HTTPGetActio
     buildable.setHttpHeaders(fluent.buildHttpHeaders());
     buildable.setPath(fluent.getPath());
     buildable.setPort(fluent.getPort());
+    buildable.setProtocol(fluent.getProtocol());
     buildable.setScheme(fluent.getScheme());
     return buildable;
   }

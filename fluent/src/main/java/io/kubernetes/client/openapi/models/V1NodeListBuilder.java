@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1NodeListBuilder extends V1NodeListFluent<V1NodeListBuilder> implements VisitableBuilder<V1NodeList,V1NodeListBuilder>{
 
   V1NodeListFluent<?> fluent;

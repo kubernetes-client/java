@@ -26,12 +26,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1APIServiceSpecFluent<A extends io.kubernetes.client.openapi.models.V1APIServiceSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1APIServiceSpecFluent<A extends V1APIServiceSpecFluent<A>> extends BaseFluent<A>{
 
   private List<Byte> caBundle;
   private String group;
@@ -115,7 +117,7 @@ public class V1APIServiceSpecFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1APIServiceSpecFluent that = (V1APIServiceSpecFluent) o;
+    V1APIServiceSpecFluent<?> that = (V1APIServiceSpecFluent<?>) o;
     if (!(Objects.equals(caBundle, that.caBundle))) {
       return false;
     }
@@ -307,11 +309,11 @@ public class V1APIServiceSpecFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public ServiceNested<A> withNewService() {
-    return new ServiceNested(null);
+    return new ServiceNested<>(null);
   }
   
   public ServiceNested<A> withNewServiceLike(ApiregistrationV1ServiceReference item) {
-    return new ServiceNested(item);
+    return new ServiceNested<>(item);
   }
   
   public A withService(ApiregistrationV1ServiceReference service) {
@@ -320,8 +322,8 @@ public class V1APIServiceSpecFluent<A extends io.kubernetes.client.openapi.model
         this.service = new ApiregistrationV1ServiceReferenceBuilder(service);
         this._visitables.get("service").add(this.service);
     } else {
-        this.service = null;
         this._visitables.get("service").remove(this.service);
+        this.service = null;
     }
     return (A) this;
   }

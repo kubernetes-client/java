@@ -24,12 +24,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta2DeviceClaimConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1beta2DeviceClaimConfigurationFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta2DeviceClaimConfigurationFluent<A extends V1beta2DeviceClaimConfigurationFluent<A>> extends BaseFluent<A>{
 
   private V1beta2OpaqueDeviceConfigurationBuilder opaque;
   private List<String> requests;
@@ -43,7 +45,7 @@ public class V1beta2DeviceClaimConfigurationFluent<A extends io.kubernetes.clien
 
   public A addAllToRequests(Collection<String> items) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     for (String item : items) {
       this.requests.add(item);
@@ -53,7 +55,7 @@ public class V1beta2DeviceClaimConfigurationFluent<A extends io.kubernetes.clien
   
   public A addToRequests(String... items) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     for (String item : items) {
       this.requests.add(item);
@@ -63,7 +65,7 @@ public class V1beta2DeviceClaimConfigurationFluent<A extends io.kubernetes.clien
   
   public A addToRequests(int index,String item) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     this.requests.add(index, item);
     return (A) this;
@@ -103,7 +105,7 @@ public class V1beta2DeviceClaimConfigurationFluent<A extends io.kubernetes.clien
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta2DeviceClaimConfigurationFluent that = (V1beta2DeviceClaimConfigurationFluent) o;
+    V1beta2DeviceClaimConfigurationFluent<?> that = (V1beta2DeviceClaimConfigurationFluent<?>) o;
     if (!(Objects.equals(opaque, that.opaque))) {
       return false;
     }
@@ -181,7 +183,7 @@ public class V1beta2DeviceClaimConfigurationFluent<A extends io.kubernetes.clien
   
   public A setToRequests(int index,String item) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     this.requests.set(index, item);
     return (A) this;
@@ -204,11 +206,11 @@ public class V1beta2DeviceClaimConfigurationFluent<A extends io.kubernetes.clien
   }
   
   public OpaqueNested<A> withNewOpaque() {
-    return new OpaqueNested(null);
+    return new OpaqueNested<>(null);
   }
   
   public OpaqueNested<A> withNewOpaqueLike(V1beta2OpaqueDeviceConfiguration item) {
-    return new OpaqueNested(item);
+    return new OpaqueNested<>(item);
   }
   
   public A withOpaque(V1beta2OpaqueDeviceConfiguration opaque) {
@@ -217,15 +219,15 @@ public class V1beta2DeviceClaimConfigurationFluent<A extends io.kubernetes.clien
         this.opaque = new V1beta2OpaqueDeviceConfigurationBuilder(opaque);
         this._visitables.get("opaque").add(this.opaque);
     } else {
-        this.opaque = null;
         this._visitables.get("opaque").remove(this.opaque);
+        this.opaque = null;
     }
     return (A) this;
   }
   
   public A withRequests(List<String> requests) {
     if (requests != null) {
-        this.requests = new ArrayList();
+        this.requests = new ArrayList<>();
         for (String item : requests) {
           this.addToRequests(item);
         }

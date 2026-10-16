@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1WeightedPodAffinityTermBuilder extends V1WeightedPodAffinityTermFluent<V1WeightedPodAffinityTermBuilder> implements VisitableBuilder<V1WeightedPodAffinityTerm,V1WeightedPodAffinityTermBuilder>{
 
   V1WeightedPodAffinityTermFluent<?> fluent;

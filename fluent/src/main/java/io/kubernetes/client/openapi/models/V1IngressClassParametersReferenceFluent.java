@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1IngressClassParametersReferenceFluent<A extends io.kubernetes.client.openapi.models.V1IngressClassParametersReferenceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1IngressClassParametersReferenceFluent<A extends V1IngressClassParametersReferenceFluent<A>> extends BaseFluent<A>{
 
   private String apiGroup;
   private String kind;
@@ -59,7 +61,7 @@ public class V1IngressClassParametersReferenceFluent<A extends io.kubernetes.cli
     if (!(super.equals(o))) {
       return false;
     }
-    V1IngressClassParametersReferenceFluent that = (V1IngressClassParametersReferenceFluent) o;
+    V1IngressClassParametersReferenceFluent<?> that = (V1IngressClassParametersReferenceFluent<?>) o;
     if (!(Objects.equals(apiGroup, that.apiGroup))) {
       return false;
     }

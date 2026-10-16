@@ -26,12 +26,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.models.V1StatusDetailsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1StatusCauseBuilder> causes;
   private String group;
@@ -49,7 +51,7 @@ public class V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToCauses(Collection<V1StatusCause> items) {
     if (this.causes == null) {
-      this.causes = new ArrayList();
+      this.causes = new ArrayList<>();
     }
     for (V1StatusCause item : items) {
         V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
@@ -60,16 +62,16 @@ public class V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public CausesNested<A> addNewCause() {
-    return new CausesNested(-1, null);
+    return new CausesNested<>(-1, null);
   }
   
   public CausesNested<A> addNewCauseLike(V1StatusCause item) {
-    return new CausesNested(-1, item);
+    return new CausesNested<>(-1, item);
   }
   
   public A addToCauses(V1StatusCause... items) {
     if (this.causes == null) {
-      this.causes = new ArrayList();
+      this.causes = new ArrayList<>();
     }
     for (V1StatusCause item : items) {
         V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
@@ -81,7 +83,7 @@ public class V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToCauses(int index,V1StatusCause item) {
     if (this.causes == null) {
-      this.causes = new ArrayList();
+      this.causes = new ArrayList<>();
     }
     V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
     if (index < 0 || index >= this.causes.size()) {
@@ -177,7 +179,7 @@ public class V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1StatusDetailsFluent that = (V1StatusDetailsFluent) o;
+    V1StatusDetailsFluent<?> that = (V1StatusDetailsFluent<?>) o;
     if (!(Objects.equals(causes, that.causes))) {
       return false;
     }
@@ -285,6 +287,7 @@ public class V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1StatusCauseBuilder> each = causes.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("causes");
     while (each.hasNext()) {
         V1StatusCauseBuilder builder = each.next();
@@ -297,12 +300,12 @@ public class V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public CausesNested<A> setNewCauseLike(int index,V1StatusCause item) {
-    return new CausesNested(index, item);
+    return new CausesNested<>(index, item);
   }
   
   public A setToCauses(int index,V1StatusCause item) {
     if (this.causes == null) {
-      this.causes = new ArrayList();
+      this.causes = new ArrayList<>();
     }
     V1StatusCauseBuilder builder = new V1StatusCauseBuilder(item);
     if (index < 0 || index >= this.causes.size()) {
@@ -356,7 +359,7 @@ public class V1StatusDetailsFluent<A extends io.kubernetes.client.openapi.models
       this._visitables.get("causes").clear();
     }
     if (causes != null) {
-        this.causes = new ArrayList();
+        this.causes = new ArrayList<>();
         for (V1StatusCause item : causes) {
           this.addToCauses(item);
         }

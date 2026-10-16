@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models.CoreV1EventListFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class CoreV1EventListFluent<A extends CoreV1EventListFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private ArrayList<CoreV1EventBuilder> items;
@@ -47,7 +49,7 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToItems(Collection<CoreV1Event> items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (CoreV1Event item : items) {
         CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
@@ -58,16 +60,16 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
+    return new ItemsNested<>(-1, null);
   }
   
   public ItemsNested<A> addNewItemLike(CoreV1Event item) {
-    return new ItemsNested(-1, item);
+    return new ItemsNested<>(-1, item);
   }
   
   public A addToItems(CoreV1Event... items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (CoreV1Event item : items) {
         CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
@@ -79,7 +81,7 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToItems(int index,CoreV1Event item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -189,7 +191,7 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    CoreV1EventListFluent that = (CoreV1EventListFluent) o;
+    CoreV1EventListFluent<?> that = (CoreV1EventListFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -271,6 +273,7 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<CoreV1EventBuilder> each = items.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("items");
     while (each.hasNext()) {
         CoreV1EventBuilder builder = each.next();
@@ -283,12 +286,12 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public ItemsNested<A> setNewItemLike(int index,CoreV1Event item) {
-    return new ItemsNested(index, item);
+    return new ItemsNested<>(index, item);
   }
   
   public A setToItems(int index,CoreV1Event item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     CoreV1EventBuilder builder = new CoreV1EventBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -337,7 +340,7 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
       this._visitables.get("items").clear();
     }
     if (items != null) {
-        this.items = new ArrayList();
+        this.items = new ArrayList<>();
         for (CoreV1Event item : items) {
           this.addToItems(item);
         }
@@ -371,18 +374,18 @@ public class CoreV1EventListFluent<A extends io.kubernetes.client.openapi.models
         this.metadata = new V1ListMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   public class ItemsNested<N> extends CoreV1EventFluent<ItemsNested<N>> implements Nested<N>{
   

@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class FlowcontrolV1SubjectFluent<A extends io.kubernetes.client.openapi.models.FlowcontrolV1SubjectFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class FlowcontrolV1SubjectFluent<A extends FlowcontrolV1SubjectFluent<A>> extends BaseFluent<A>{
 
   private V1GroupSubjectBuilder group;
   private String kind;
@@ -107,7 +109,7 @@ public class FlowcontrolV1SubjectFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    FlowcontrolV1SubjectFluent that = (FlowcontrolV1SubjectFluent) o;
+    FlowcontrolV1SubjectFluent<?> that = (FlowcontrolV1SubjectFluent<?>) o;
     if (!(Objects.equals(group, that.group))) {
       return false;
     }
@@ -179,8 +181,8 @@ public class FlowcontrolV1SubjectFluent<A extends io.kubernetes.client.openapi.m
         this.group = new V1GroupSubjectBuilder(group);
         this._visitables.get("group").add(this.group);
     } else {
-        this.group = null;
         this._visitables.get("group").remove(this.group);
+        this.group = null;
     }
     return (A) this;
   }
@@ -191,27 +193,27 @@ public class FlowcontrolV1SubjectFluent<A extends io.kubernetes.client.openapi.m
   }
   
   public GroupNested<A> withNewGroup() {
-    return new GroupNested(null);
+    return new GroupNested<>(null);
   }
   
   public GroupNested<A> withNewGroupLike(V1GroupSubject item) {
-    return new GroupNested(item);
+    return new GroupNested<>(item);
   }
   
   public ServiceAccountNested<A> withNewServiceAccount() {
-    return new ServiceAccountNested(null);
+    return new ServiceAccountNested<>(null);
   }
   
   public ServiceAccountNested<A> withNewServiceAccountLike(V1ServiceAccountSubject item) {
-    return new ServiceAccountNested(item);
+    return new ServiceAccountNested<>(item);
   }
   
   public UserNested<A> withNewUser() {
-    return new UserNested(null);
+    return new UserNested<>(null);
   }
   
   public UserNested<A> withNewUserLike(V1UserSubject item) {
-    return new UserNested(item);
+    return new UserNested<>(item);
   }
   
   public A withServiceAccount(V1ServiceAccountSubject serviceAccount) {
@@ -220,8 +222,8 @@ public class FlowcontrolV1SubjectFluent<A extends io.kubernetes.client.openapi.m
         this.serviceAccount = new V1ServiceAccountSubjectBuilder(serviceAccount);
         this._visitables.get("serviceAccount").add(this.serviceAccount);
     } else {
-        this.serviceAccount = null;
         this._visitables.get("serviceAccount").remove(this.serviceAccount);
+        this.serviceAccount = null;
     }
     return (A) this;
   }
@@ -232,8 +234,8 @@ public class FlowcontrolV1SubjectFluent<A extends io.kubernetes.client.openapi.m
         this.user = new V1UserSubjectBuilder(user);
         this._visitables.get("user").add(this.user);
     } else {
-        this.user = null;
         this._visitables.get("user").remove(this.user);
+        this.user = null;
     }
     return (A) this;
   }

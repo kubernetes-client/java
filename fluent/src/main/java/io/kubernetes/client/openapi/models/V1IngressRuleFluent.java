@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1IngressRuleFluent<A extends io.kubernetes.client.openapi.models.V1IngressRuleFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1IngressRuleFluent<A extends V1IngressRuleFluent<A>> extends BaseFluent<A>{
 
   private String host;
   private V1HTTPIngressRuleValueBuilder http;
@@ -71,7 +73,7 @@ public class V1IngressRuleFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1IngressRuleFluent that = (V1IngressRuleFluent) o;
+    V1IngressRuleFluent<?> that = (V1IngressRuleFluent<?>) o;
     if (!(Objects.equals(host, that.host))) {
       return false;
     }
@@ -124,18 +126,18 @@ public class V1IngressRuleFluent<A extends io.kubernetes.client.openapi.models.V
         this.http = new V1HTTPIngressRuleValueBuilder(http);
         this._visitables.get("http").add(this.http);
     } else {
-        this.http = null;
         this._visitables.get("http").remove(this.http);
+        this.http = null;
     }
     return (A) this;
   }
   
   public HttpNested<A> withNewHttp() {
-    return new HttpNested(null);
+    return new HttpNested<>(null);
   }
   
   public HttpNested<A> withNewHttpLike(V1HTTPIngressRuleValue item) {
-    return new HttpNested(item);
+    return new HttpNested<>(item);
   }
   public class HttpNested<N> extends V1HTTPIngressRuleValueFluent<HttpNested<N>> implements Nested<N>{
   

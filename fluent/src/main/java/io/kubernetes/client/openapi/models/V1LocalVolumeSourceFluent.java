@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1LocalVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1LocalVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1LocalVolumeSourceFluent<A extends V1LocalVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String fsType;
   private String path;
@@ -53,7 +55,7 @@ public class V1LocalVolumeSourceFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1LocalVolumeSourceFluent that = (V1LocalVolumeSourceFluent) o;
+    V1LocalVolumeSourceFluent<?> that = (V1LocalVolumeSourceFluent<?>) o;
     if (!(Objects.equals(fsType, that.fsType))) {
       return false;
     }

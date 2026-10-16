@@ -23,12 +23,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1JobSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>{
 
   private Long activeDeadlineSeconds;
   private Integer backoffLimit;
@@ -41,6 +43,7 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
   private Integer parallelism;
   private V1PodFailurePolicyBuilder podFailurePolicy;
   private String podReplacementPolicy;
+  private V1JobSchedulingConfigurationBuilder scheduling;
   private V1LabelSelectorBuilder selector;
   private V1SuccessPolicyBuilder successPolicy;
   private Boolean suspend;
@@ -56,6 +59,10 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
 
   public V1PodFailurePolicy buildPodFailurePolicy() {
     return this.podFailurePolicy != null ? this.podFailurePolicy.build() : null;
+  }
+  
+  public V1JobSchedulingConfiguration buildScheduling() {
+    return this.scheduling != null ? this.scheduling.build() : null;
   }
   
   public V1LabelSelector buildSelector() {
@@ -84,6 +91,7 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
         this.withParallelism(instance.getParallelism());
         this.withPodFailurePolicy(instance.getPodFailurePolicy());
         this.withPodReplacementPolicy(instance.getPodReplacementPolicy());
+        this.withScheduling(instance.getScheduling());
         this.withSelector(instance.getSelector());
         this.withSuccessPolicy(instance.getSuccessPolicy());
         this.withSuspend(instance.getSuspend());
@@ -98,6 +106,14 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
   
   public PodFailurePolicyNested<A> editOrNewPodFailurePolicyLike(V1PodFailurePolicy item) {
     return this.withNewPodFailurePolicyLike(Optional.ofNullable(this.buildPodFailurePolicy()).orElse(item));
+  }
+  
+  public SchedulingNested<A> editOrNewScheduling() {
+    return this.withNewSchedulingLike(Optional.ofNullable(this.buildScheduling()).orElse(new V1JobSchedulingConfigurationBuilder().build()));
+  }
+  
+  public SchedulingNested<A> editOrNewSchedulingLike(V1JobSchedulingConfiguration item) {
+    return this.withNewSchedulingLike(Optional.ofNullable(this.buildScheduling()).orElse(item));
   }
   
   public SelectorNested<A> editOrNewSelector() {
@@ -128,6 +144,10 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
     return this.withNewPodFailurePolicyLike(Optional.ofNullable(this.buildPodFailurePolicy()).orElse(null));
   }
   
+  public SchedulingNested<A> editScheduling() {
+    return this.withNewSchedulingLike(Optional.ofNullable(this.buildScheduling()).orElse(null));
+  }
+  
   public SelectorNested<A> editSelector() {
     return this.withNewSelectorLike(Optional.ofNullable(this.buildSelector()).orElse(null));
   }
@@ -150,7 +170,7 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
     if (!(super.equals(o))) {
       return false;
     }
-    V1JobSpecFluent that = (V1JobSpecFluent) o;
+    V1JobSpecFluent<?> that = (V1JobSpecFluent<?>) o;
     if (!(Objects.equals(activeDeadlineSeconds, that.activeDeadlineSeconds))) {
       return false;
     }
@@ -182,6 +202,9 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
       return false;
     }
     if (!(Objects.equals(podReplacementPolicy, that.podReplacementPolicy))) {
+      return false;
+    }
+    if (!(Objects.equals(scheduling, that.scheduling))) {
       return false;
     }
     if (!(Objects.equals(selector, that.selector))) {
@@ -294,6 +317,10 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
     return this.podReplacementPolicy != null;
   }
   
+  public boolean hasScheduling() {
+    return this.scheduling != null;
+  }
+  
   public boolean hasSelector() {
     return this.selector != null;
   }
@@ -315,7 +342,7 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
   }
   
   public int hashCode() {
-    return Objects.hash(activeDeadlineSeconds, backoffLimit, backoffLimitPerIndex, completionMode, completions, managedBy, manualSelector, maxFailedIndexes, parallelism, podFailurePolicy, podReplacementPolicy, selector, successPolicy, suspend, template, ttlSecondsAfterFinished);
+    return Objects.hash(activeDeadlineSeconds, backoffLimit, backoffLimitPerIndex, completionMode, completions, managedBy, manualSelector, maxFailedIndexes, parallelism, podFailurePolicy, podReplacementPolicy, scheduling, selector, successPolicy, suspend, template, ttlSecondsAfterFinished);
   }
   
   public String toString() {
@@ -374,6 +401,11 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
     if (!(podReplacementPolicy == null)) {
         sb.append("podReplacementPolicy:");
         sb.append(podReplacementPolicy);
+        sb.append(",");
+    }
+    if (!(scheduling == null)) {
+        sb.append("scheduling:");
+        sb.append(scheduling);
         sb.append(",");
     }
     if (!(selector == null)) {
@@ -449,35 +481,43 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
   }
   
   public PodFailurePolicyNested<A> withNewPodFailurePolicy() {
-    return new PodFailurePolicyNested(null);
+    return new PodFailurePolicyNested<>(null);
   }
   
   public PodFailurePolicyNested<A> withNewPodFailurePolicyLike(V1PodFailurePolicy item) {
-    return new PodFailurePolicyNested(item);
+    return new PodFailurePolicyNested<>(item);
+  }
+  
+  public SchedulingNested<A> withNewScheduling() {
+    return new SchedulingNested<>(null);
+  }
+  
+  public SchedulingNested<A> withNewSchedulingLike(V1JobSchedulingConfiguration item) {
+    return new SchedulingNested<>(item);
   }
   
   public SelectorNested<A> withNewSelector() {
-    return new SelectorNested(null);
+    return new SelectorNested<>(null);
   }
   
   public SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
-    return new SelectorNested(item);
+    return new SelectorNested<>(item);
   }
   
   public SuccessPolicyNested<A> withNewSuccessPolicy() {
-    return new SuccessPolicyNested(null);
+    return new SuccessPolicyNested<>(null);
   }
   
   public SuccessPolicyNested<A> withNewSuccessPolicyLike(V1SuccessPolicy item) {
-    return new SuccessPolicyNested(item);
+    return new SuccessPolicyNested<>(item);
   }
   
   public TemplateNested<A> withNewTemplate() {
-    return new TemplateNested(null);
+    return new TemplateNested<>(null);
   }
   
   public TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
-    return new TemplateNested(item);
+    return new TemplateNested<>(item);
   }
   
   public A withParallelism(Integer parallelism) {
@@ -491,8 +531,8 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
         this.podFailurePolicy = new V1PodFailurePolicyBuilder(podFailurePolicy);
         this._visitables.get("podFailurePolicy").add(this.podFailurePolicy);
     } else {
-        this.podFailurePolicy = null;
         this._visitables.get("podFailurePolicy").remove(this.podFailurePolicy);
+        this.podFailurePolicy = null;
     }
     return (A) this;
   }
@@ -502,14 +542,26 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
     return (A) this;
   }
   
+  public A withScheduling(V1JobSchedulingConfiguration scheduling) {
+    this._visitables.remove("scheduling");
+    if (scheduling != null) {
+        this.scheduling = new V1JobSchedulingConfigurationBuilder(scheduling);
+        this._visitables.get("scheduling").add(this.scheduling);
+    } else {
+        this._visitables.get("scheduling").remove(this.scheduling);
+        this.scheduling = null;
+    }
+    return (A) this;
+  }
+  
   public A withSelector(V1LabelSelector selector) {
     this._visitables.remove("selector");
     if (selector != null) {
         this.selector = new V1LabelSelectorBuilder(selector);
         this._visitables.get("selector").add(this.selector);
     } else {
-        this.selector = null;
         this._visitables.get("selector").remove(this.selector);
+        this.selector = null;
     }
     return (A) this;
   }
@@ -520,8 +572,8 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
         this.successPolicy = new V1SuccessPolicyBuilder(successPolicy);
         this._visitables.get("successPolicy").add(this.successPolicy);
     } else {
-        this.successPolicy = null;
         this._visitables.get("successPolicy").remove(this.successPolicy);
+        this.successPolicy = null;
     }
     return (A) this;
   }
@@ -541,8 +593,8 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
         this.template = new V1PodTemplateSpecBuilder(template);
         this._visitables.get("template").add(this.template);
     } else {
-        this.template = null;
         this._visitables.get("template").remove(this.template);
+        this.template = null;
     }
     return (A) this;
   }
@@ -564,6 +616,23 @@ public class V1JobSpecFluent<A extends io.kubernetes.client.openapi.models.V1Job
     }
     
     public N endPodFailurePolicy() {
+      return and();
+    }
+    
+  }
+  public class SchedulingNested<N> extends V1JobSchedulingConfigurationFluent<SchedulingNested<N>> implements Nested<N>{
+  
+    V1JobSchedulingConfigurationBuilder builder;
+  
+    SchedulingNested(V1JobSchedulingConfiguration item) {
+      this.builder = new V1JobSchedulingConfigurationBuilder(this, item);
+    }
+  
+    public N and() {
+      return (N) V1JobSpecFluent.this.withScheduling(builder.build());
+    }
+    
+    public N endScheduling() {
       return and();
     }
     

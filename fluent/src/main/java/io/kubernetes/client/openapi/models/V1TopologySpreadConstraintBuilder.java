@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1TopologySpreadConstraintBuilder extends V1TopologySpreadConstraintFluent<V1TopologySpreadConstraintBuilder> implements VisitableBuilder<V1TopologySpreadConstraint,V1TopologySpreadConstraintBuilder>{
 
   V1TopologySpreadConstraintFluent<?> fluent;

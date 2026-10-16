@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1DeviceFluent<A extends io.kubernetes.client.openapi.models.V1beta1DeviceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1DeviceFluent<A extends V1beta1DeviceFluent<A>> extends BaseFluent<A>{
 
   private V1beta1BasicDeviceBuilder basic;
   private String name;
@@ -71,7 +73,7 @@ public class V1beta1DeviceFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1DeviceFluent that = (V1beta1DeviceFluent) o;
+    V1beta1DeviceFluent<?> that = (V1beta1DeviceFluent<?>) o;
     if (!(Objects.equals(basic, that.basic))) {
       return false;
     }
@@ -119,8 +121,8 @@ public class V1beta1DeviceFluent<A extends io.kubernetes.client.openapi.models.V
         this.basic = new V1beta1BasicDeviceBuilder(basic);
         this._visitables.get("basic").add(this.basic);
     } else {
-        this.basic = null;
         this._visitables.get("basic").remove(this.basic);
+        this.basic = null;
     }
     return (A) this;
   }
@@ -131,11 +133,11 @@ public class V1beta1DeviceFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public BasicNested<A> withNewBasic() {
-    return new BasicNested(null);
+    return new BasicNested<>(null);
   }
   
   public BasicNested<A> withNewBasicLike(V1beta1BasicDevice item) {
-    return new BasicNested(item);
+    return new BasicNested<>(item);
   }
   public class BasicNested<N> extends V1beta1BasicDeviceFluent<BasicNested<N>> implements Nested<N>{
   

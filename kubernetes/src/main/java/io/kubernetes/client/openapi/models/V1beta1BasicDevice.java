@@ -23,7 +23,7 @@ import io.kubernetes.client.openapi.models.V1beta1DeviceAttribute;
 import io.kubernetes.client.openapi.models.V1beta1DeviceCapacity;
 import io.kubernetes.client.openapi.models.V1beta1DeviceCounterConsumption;
 import io.kubernetes.client.openapi.models.V1beta1DeviceTaint;
-import io.kubernetes.client.openapi.models.V1beta1NodeAllocatableResourceMapping;
+import io.kubernetes.client.openapi.models.V1beta1NodeAllocatableResource;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -60,7 +60,7 @@ import io.kubernetes.client.openapi.JSON;
  * BasicDevice defines one device instance.
  */
 @ApiModel(description = "BasicDevice defines one device instance.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1beta1BasicDevice {
   public static final String SERIALIZED_NAME_ALL_NODES = "allNodes";
   @SerializedName(SERIALIZED_NAME_ALL_NODES)
@@ -102,10 +102,10 @@ public class V1beta1BasicDevice {
   @jakarta.annotation.Nullable
   private List<V1beta1DeviceCounterConsumption> consumesCounters = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_NODE_ALLOCATABLE_RESOURCE_MAPPINGS = "nodeAllocatableResourceMappings";
-  @SerializedName(SERIALIZED_NAME_NODE_ALLOCATABLE_RESOURCE_MAPPINGS)
+  public static final String SERIALIZED_NAME_NODE_ALLOCATABLE_RESOURCES = "nodeAllocatableResources";
+  @SerializedName(SERIALIZED_NAME_NODE_ALLOCATABLE_RESOURCES)
   @jakarta.annotation.Nullable
-  private Map<String, V1beta1NodeAllocatableResourceMapping> nodeAllocatableResourceMappings = new HashMap<>();
+  private Map<String, V1beta1NodeAllocatableResource> nodeAllocatableResources = new HashMap<>();
 
   public static final String SERIALIZED_NAME_NODE_NAME = "nodeName";
   @SerializedName(SERIALIZED_NAME_NODE_NAME)
@@ -325,31 +325,31 @@ public class V1beta1BasicDevice {
   }
 
 
-  public V1beta1BasicDevice nodeAllocatableResourceMappings(@jakarta.annotation.Nullable Map<String, V1beta1NodeAllocatableResourceMapping> nodeAllocatableResourceMappings) {
-    this.nodeAllocatableResourceMappings = nodeAllocatableResourceMappings;
+  public V1beta1BasicDevice nodeAllocatableResources(@jakarta.annotation.Nullable Map<String, V1beta1NodeAllocatableResource> nodeAllocatableResources) {
+    this.nodeAllocatableResources = nodeAllocatableResources;
     return this;
   }
 
-  public V1beta1BasicDevice putNodeAllocatableResourceMappingsItem(String key, V1beta1NodeAllocatableResourceMapping nodeAllocatableResourceMappingsItem) {
-    if (this.nodeAllocatableResourceMappings == null) {
-      this.nodeAllocatableResourceMappings = new HashMap<>();
+  public V1beta1BasicDevice putNodeAllocatableResourcesItem(String key, V1beta1NodeAllocatableResource nodeAllocatableResourcesItem) {
+    if (this.nodeAllocatableResources == null) {
+      this.nodeAllocatableResources = new HashMap<>();
     }
-    this.nodeAllocatableResourceMappings.put(key, nodeAllocatableResourceMappingsItem);
+    this.nodeAllocatableResources.put(key, nodeAllocatableResourcesItem);
     return this;
   }
 
   /**
-   * NodeAllocatableResourceMappings defines the mapping of node resources that are managed by the DRA driver exposing this device. This includes resources currently reported in v1.Node &#x60;status.allocatable&#x60; that are not extended resources (see https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#extended-resources). Examples include \&quot;cpu\&quot;, \&quot;memory\&quot;, \&quot;ephemeral-storage\&quot;, and hugepages. In addition to standard requests made through the Pod &#x60;spec&#x60;, these resources can also be requested through claims and allocated by the DRA driver. For example, a CPU DRA driver might allocate exclusive CPUs or auxiliary node memory dependencies of an accelerator device. The keys of this map are the node-allocatable resource names (e.g., \&quot;cpu\&quot;, \&quot;memory\&quot;). Extended resource names are not permitted as keys.
-   * @return nodeAllocatableResourceMappings
+   * NodeAllocatableResources defines the mapping of node resources that are managed by the DRA driver exposing this device. This includes resources currently reported in v1.Node &#x60;status.allocatable&#x60; that are not extended resources (see https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#extended-resources). Examples include \&quot;cpu\&quot;, \&quot;memory\&quot;, \&quot;ephemeral-storage\&quot;, and hugepages. In addition to standard requests made through the Pod &#x60;spec&#x60;, these resources can also be requested through claims and allocated by the DRA driver. For example, a CPU DRA driver might allocate exclusive CPUs or auxiliary node memory dependencies of an accelerator device. The keys of this map are the node-allocatable resource names (e.g., \&quot;cpu\&quot;, \&quot;memory\&quot;). Extended resource names are not permitted as keys.
+   * @return nodeAllocatableResources
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "NodeAllocatableResourceMappings defines the mapping of node resources that are managed by the DRA driver exposing this device. This includes resources currently reported in v1.Node `status.allocatable` that are not extended resources (see https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#extended-resources). Examples include \"cpu\", \"memory\", \"ephemeral-storage\", and hugepages. In addition to standard requests made through the Pod `spec`, these resources can also be requested through claims and allocated by the DRA driver. For example, a CPU DRA driver might allocate exclusive CPUs or auxiliary node memory dependencies of an accelerator device. The keys of this map are the node-allocatable resource names (e.g., \"cpu\", \"memory\"). Extended resource names are not permitted as keys.")
-  public Map<String, V1beta1NodeAllocatableResourceMapping> getNodeAllocatableResourceMappings() {
-    return nodeAllocatableResourceMappings;
+  @ApiModelProperty(value = "NodeAllocatableResources defines the mapping of node resources that are managed by the DRA driver exposing this device. This includes resources currently reported in v1.Node `status.allocatable` that are not extended resources (see https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#extended-resources). Examples include \"cpu\", \"memory\", \"ephemeral-storage\", and hugepages. In addition to standard requests made through the Pod `spec`, these resources can also be requested through claims and allocated by the DRA driver. For example, a CPU DRA driver might allocate exclusive CPUs or auxiliary node memory dependencies of an accelerator device. The keys of this map are the node-allocatable resource names (e.g., \"cpu\", \"memory\"). Extended resource names are not permitted as keys.")
+  public Map<String, V1beta1NodeAllocatableResource> getNodeAllocatableResources() {
+    return nodeAllocatableResources;
   }
 
-  public void setNodeAllocatableResourceMappings(@jakarta.annotation.Nullable Map<String, V1beta1NodeAllocatableResourceMapping> nodeAllocatableResourceMappings) {
-    this.nodeAllocatableResourceMappings = nodeAllocatableResourceMappings;
+  public void setNodeAllocatableResources(@jakarta.annotation.Nullable Map<String, V1beta1NodeAllocatableResource> nodeAllocatableResources) {
+    this.nodeAllocatableResources = nodeAllocatableResources;
   }
 
 
@@ -439,7 +439,7 @@ public class V1beta1BasicDevice {
         Objects.equals(this.bindsToNode, v1beta1BasicDevice.bindsToNode) &&
         Objects.equals(this.capacity, v1beta1BasicDevice.capacity) &&
         Objects.equals(this.consumesCounters, v1beta1BasicDevice.consumesCounters) &&
-        Objects.equals(this.nodeAllocatableResourceMappings, v1beta1BasicDevice.nodeAllocatableResourceMappings) &&
+        Objects.equals(this.nodeAllocatableResources, v1beta1BasicDevice.nodeAllocatableResources) &&
         Objects.equals(this.nodeName, v1beta1BasicDevice.nodeName) &&
         Objects.equals(this.nodeSelector, v1beta1BasicDevice.nodeSelector) &&
         Objects.equals(this.taints, v1beta1BasicDevice.taints);
@@ -447,7 +447,7 @@ public class V1beta1BasicDevice {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allNodes, allowMultipleAllocations, attributes, bindingConditions, bindingFailureConditions, bindsToNode, capacity, consumesCounters, nodeAllocatableResourceMappings, nodeName, nodeSelector, taints);
+    return Objects.hash(allNodes, allowMultipleAllocations, attributes, bindingConditions, bindingFailureConditions, bindsToNode, capacity, consumesCounters, nodeAllocatableResources, nodeName, nodeSelector, taints);
   }
 
   @Override
@@ -462,7 +462,7 @@ public class V1beta1BasicDevice {
     sb.append("    bindsToNode: ").append(toIndentedString(bindsToNode)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    consumesCounters: ").append(toIndentedString(consumesCounters)).append("\n");
-    sb.append("    nodeAllocatableResourceMappings: ").append(toIndentedString(nodeAllocatableResourceMappings)).append("\n");
+    sb.append("    nodeAllocatableResources: ").append(toIndentedString(nodeAllocatableResources)).append("\n");
     sb.append("    nodeName: ").append(toIndentedString(nodeName)).append("\n");
     sb.append("    nodeSelector: ").append(toIndentedString(nodeSelector)).append("\n");
     sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
@@ -487,7 +487,7 @@ public class V1beta1BasicDevice {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("allNodes", "allowMultipleAllocations", "attributes", "bindingConditions", "bindingFailureConditions", "bindsToNode", "capacity", "consumesCounters", "nodeAllocatableResourceMappings", "nodeName", "nodeSelector", "taints"));
+    openapiFields = new HashSet<String>(Arrays.asList("allNodes", "allowMultipleAllocations", "attributes", "bindingConditions", "bindingFailureConditions", "bindsToNode", "capacity", "consumesCounters", "nodeAllocatableResources", "nodeName", "nodeSelector", "taints"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

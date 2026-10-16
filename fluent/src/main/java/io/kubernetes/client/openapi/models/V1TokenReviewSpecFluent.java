@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1TokenReviewSpecFluent<A extends io.kubernetes.client.openapi.models.V1TokenReviewSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1TokenReviewSpecFluent<A extends V1TokenReviewSpecFluent<A>> extends BaseFluent<A>{
 
   private List<String> audiences;
   private String token;
@@ -41,7 +43,7 @@ public class V1TokenReviewSpecFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToAudiences(Collection<String> items) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     for (String item : items) {
       this.audiences.add(item);
@@ -51,7 +53,7 @@ public class V1TokenReviewSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToAudiences(String... items) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     for (String item : items) {
       this.audiences.add(item);
@@ -61,7 +63,7 @@ public class V1TokenReviewSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToAudiences(int index,String item) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     this.audiences.add(index, item);
     return (A) this;
@@ -85,7 +87,7 @@ public class V1TokenReviewSpecFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1TokenReviewSpecFluent that = (V1TokenReviewSpecFluent) o;
+    V1TokenReviewSpecFluent<?> that = (V1TokenReviewSpecFluent<?>) o;
     if (!(Objects.equals(audiences, that.audiences))) {
       return false;
     }
@@ -167,7 +169,7 @@ public class V1TokenReviewSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToAudiences(int index,String item) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList();
+      this.audiences = new ArrayList<>();
     }
     this.audiences.set(index, item);
     return (A) this;
@@ -191,7 +193,7 @@ public class V1TokenReviewSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A withAudiences(List<String> audiences) {
     if (audiences != null) {
-        this.audiences = new ArrayList();
+        this.audiences = new ArrayList<>();
         for (String item : audiences) {
           this.addToAudiences(item);
         }

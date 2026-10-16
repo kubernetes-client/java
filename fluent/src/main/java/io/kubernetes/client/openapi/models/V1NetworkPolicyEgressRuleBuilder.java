@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1NetworkPolicyEgressRuleBuilder extends V1NetworkPolicyEgressRuleFluent<V1NetworkPolicyEgressRuleBuilder> implements VisitableBuilder<V1NetworkPolicyEgressRule,V1NetworkPolicyEgressRuleBuilder>{
 
   V1NetworkPolicyEgressRuleFluent<?> fluent;

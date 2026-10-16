@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ServiceBackendPortFluent<A extends io.kubernetes.client.openapi.models.V1ServiceBackendPortFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ServiceBackendPortFluent<A extends V1ServiceBackendPortFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private Integer number;
@@ -54,7 +56,7 @@ public class V1ServiceBackendPortFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1ServiceBackendPortFluent that = (V1ServiceBackendPortFluent) o;
+    V1ServiceBackendPortFluent<?> that = (V1ServiceBackendPortFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

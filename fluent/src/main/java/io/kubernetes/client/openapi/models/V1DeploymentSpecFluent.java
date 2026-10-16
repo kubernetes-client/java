@@ -22,12 +22,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DeploymentSpecFluent<A extends io.kubernetes.client.openapi.models.V1DeploymentSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DeploymentSpecFluent<A extends V1DeploymentSpecFluent<A>> extends BaseFluent<A>{
 
   private Integer minReadySeconds;
   private Boolean paused;
@@ -117,7 +119,7 @@ public class V1DeploymentSpecFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1DeploymentSpecFluent that = (V1DeploymentSpecFluent) o;
+    V1DeploymentSpecFluent<?> that = (V1DeploymentSpecFluent<?>) o;
     if (!(Objects.equals(minReadySeconds, that.minReadySeconds))) {
       return false;
     }
@@ -253,27 +255,27 @@ public class V1DeploymentSpecFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public SelectorNested<A> withNewSelector() {
-    return new SelectorNested(null);
+    return new SelectorNested<>(null);
   }
   
   public SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
-    return new SelectorNested(item);
+    return new SelectorNested<>(item);
   }
   
   public StrategyNested<A> withNewStrategy() {
-    return new StrategyNested(null);
+    return new StrategyNested<>(null);
   }
   
   public StrategyNested<A> withNewStrategyLike(V1DeploymentStrategy item) {
-    return new StrategyNested(item);
+    return new StrategyNested<>(item);
   }
   
   public TemplateNested<A> withNewTemplate() {
-    return new TemplateNested(null);
+    return new TemplateNested<>(null);
   }
   
   public TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
-    return new TemplateNested(item);
+    return new TemplateNested<>(item);
   }
   
   public A withPaused() {
@@ -306,8 +308,8 @@ public class V1DeploymentSpecFluent<A extends io.kubernetes.client.openapi.model
         this.selector = new V1LabelSelectorBuilder(selector);
         this._visitables.get("selector").add(this.selector);
     } else {
-        this.selector = null;
         this._visitables.get("selector").remove(this.selector);
+        this.selector = null;
     }
     return (A) this;
   }
@@ -318,8 +320,8 @@ public class V1DeploymentSpecFluent<A extends io.kubernetes.client.openapi.model
         this.strategy = new V1DeploymentStrategyBuilder(strategy);
         this._visitables.get("strategy").add(this.strategy);
     } else {
-        this.strategy = null;
         this._visitables.get("strategy").remove(this.strategy);
+        this.strategy = null;
     }
     return (A) this;
   }
@@ -330,8 +332,8 @@ public class V1DeploymentSpecFluent<A extends io.kubernetes.client.openapi.model
         this.template = new V1PodTemplateSpecBuilder(template);
         this._visitables.get("template").add(this.template);
     } else {
-        this.template = null;
         this._visitables.get("template").remove(this.template);
+        this.template = null;
     }
     return (A) this;
   }

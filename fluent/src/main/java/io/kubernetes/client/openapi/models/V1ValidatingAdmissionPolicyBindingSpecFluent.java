@@ -24,12 +24,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends io.kubernetes.client.openapi.models.V1ValidatingAdmissionPolicyBindingSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends V1ValidatingAdmissionPolicyBindingSpecFluent<A>> extends BaseFluent<A>{
 
   private V1MatchResourcesBuilder matchResources;
   private V1ParamRefBuilder paramRef;
@@ -45,7 +47,7 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends io.kubernete
 
   public A addAllToValidationActions(Collection<String> items) {
     if (this.validationActions == null) {
-      this.validationActions = new ArrayList();
+      this.validationActions = new ArrayList<>();
     }
     for (String item : items) {
       this.validationActions.add(item);
@@ -55,7 +57,7 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends io.kubernete
   
   public A addToValidationActions(String... items) {
     if (this.validationActions == null) {
-      this.validationActions = new ArrayList();
+      this.validationActions = new ArrayList<>();
     }
     for (String item : items) {
       this.validationActions.add(item);
@@ -65,7 +67,7 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends io.kubernete
   
   public A addToValidationActions(int index,String item) {
     if (this.validationActions == null) {
-      this.validationActions = new ArrayList();
+      this.validationActions = new ArrayList<>();
     }
     this.validationActions.add(index, item);
     return (A) this;
@@ -123,7 +125,7 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends io.kubernete
     if (!(super.equals(o))) {
       return false;
     }
-    V1ValidatingAdmissionPolicyBindingSpecFluent that = (V1ValidatingAdmissionPolicyBindingSpecFluent) o;
+    V1ValidatingAdmissionPolicyBindingSpecFluent<?> that = (V1ValidatingAdmissionPolicyBindingSpecFluent<?>) o;
     if (!(Objects.equals(matchResources, that.matchResources))) {
       return false;
     }
@@ -219,7 +221,7 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends io.kubernete
   
   public A setToValidationActions(int index,String item) {
     if (this.validationActions == null) {
-      this.validationActions = new ArrayList();
+      this.validationActions = new ArrayList<>();
     }
     this.validationActions.set(index, item);
     return (A) this;
@@ -257,26 +259,26 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends io.kubernete
         this.matchResources = new V1MatchResourcesBuilder(matchResources);
         this._visitables.get("matchResources").add(this.matchResources);
     } else {
-        this.matchResources = null;
         this._visitables.get("matchResources").remove(this.matchResources);
+        this.matchResources = null;
     }
     return (A) this;
   }
   
   public MatchResourcesNested<A> withNewMatchResources() {
-    return new MatchResourcesNested(null);
+    return new MatchResourcesNested<>(null);
   }
   
   public MatchResourcesNested<A> withNewMatchResourcesLike(V1MatchResources item) {
-    return new MatchResourcesNested(item);
+    return new MatchResourcesNested<>(item);
   }
   
   public ParamRefNested<A> withNewParamRef() {
-    return new ParamRefNested(null);
+    return new ParamRefNested<>(null);
   }
   
   public ParamRefNested<A> withNewParamRefLike(V1ParamRef item) {
-    return new ParamRefNested(item);
+    return new ParamRefNested<>(item);
   }
   
   public A withParamRef(V1ParamRef paramRef) {
@@ -285,8 +287,8 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends io.kubernete
         this.paramRef = new V1ParamRefBuilder(paramRef);
         this._visitables.get("paramRef").add(this.paramRef);
     } else {
-        this.paramRef = null;
         this._visitables.get("paramRef").remove(this.paramRef);
+        this.paramRef = null;
     }
     return (A) this;
   }
@@ -298,7 +300,7 @@ public class V1ValidatingAdmissionPolicyBindingSpecFluent<A extends io.kubernete
   
   public A withValidationActions(List<String> validationActions) {
     if (validationActions != null) {
-        this.validationActions = new ArrayList();
+        this.validationActions = new ArrayList<>();
         for (String item : validationActions) {
           this.addToValidationActions(item);
         }

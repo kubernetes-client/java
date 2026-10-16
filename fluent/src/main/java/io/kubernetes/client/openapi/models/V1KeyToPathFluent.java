@@ -14,21 +14,25 @@ package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Integer;
+import java.lang.Long;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1KeyToPathFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1KeyToPathFluent<A extends V1KeyToPathFluent<A>> extends BaseFluent<A>{
 
   private String key;
   private Integer mode;
   private String path;
+  private Long user;
 
   public V1KeyToPathFluent() {
   }
@@ -43,6 +47,7 @@ public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1K
         this.withKey(instance.getKey());
         this.withMode(instance.getMode());
         this.withPath(instance.getPath());
+        this.withUser(instance.getUser());
     }
   }
   
@@ -56,7 +61,7 @@ public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1K
     if (!(super.equals(o))) {
       return false;
     }
-    V1KeyToPathFluent that = (V1KeyToPathFluent) o;
+    V1KeyToPathFluent<?> that = (V1KeyToPathFluent<?>) o;
     if (!(Objects.equals(key, that.key))) {
       return false;
     }
@@ -64,6 +69,9 @@ public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1K
       return false;
     }
     if (!(Objects.equals(path, that.path))) {
+      return false;
+    }
+    if (!(Objects.equals(user, that.user))) {
       return false;
     }
     return true;
@@ -81,6 +89,10 @@ public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1K
     return this.path;
   }
   
+  public Long getUser() {
+    return this.user;
+  }
+  
   public boolean hasKey() {
     return this.key != null;
   }
@@ -93,8 +105,12 @@ public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1K
     return this.path != null;
   }
   
+  public boolean hasUser() {
+    return this.user != null;
+  }
+  
   public int hashCode() {
-    return Objects.hash(key, mode, path);
+    return Objects.hash(key, mode, path, user);
   }
   
   public String toString() {
@@ -113,6 +129,11 @@ public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1K
     if (!(path == null)) {
         sb.append("path:");
         sb.append(path);
+        sb.append(",");
+    }
+    if (!(user == null)) {
+        sb.append("user:");
+        sb.append(user);
     }
     sb.append("}");
     return sb.toString();
@@ -130,6 +151,11 @@ public class V1KeyToPathFluent<A extends io.kubernetes.client.openapi.models.V1K
   
   public A withPath(String path) {
     this.path = path;
+    return (A) this;
+  }
+  
+  public A withUser(Long user) {
+    this.user = user;
     return (A) this;
   }
   

@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1beta2CapacityRequirements;
+import io.kubernetes.client.openapi.models.V1beta2DeviceDerivedAttribute;
 import io.kubernetes.client.openapi.models.V1beta2DeviceSelector;
 import io.kubernetes.client.openapi.models.V1beta2DeviceToleration;
 import io.swagger.annotations.ApiModel;
@@ -55,7 +56,7 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceSubRequest describes a request for device provided in the claim.spec.devices.requests[].firstAvailable array. Each is typically a request for a single resource like a device, but can also ask for several identical devices.  DeviceSubRequest is similar to ExactDeviceRequest, but doesn&#39;t expose the AdminAccess field as that one is only supported when requesting a specific device.
  */
 @ApiModel(description = "DeviceSubRequest describes a request for device provided in the claim.spec.devices.requests[].firstAvailable array. Each is typically a request for a single resource like a device, but can also ask for several identical devices.  DeviceSubRequest is similar to ExactDeviceRequest, but doesn't expose the AdminAccess field as that one is only supported when requesting a specific device.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1beta2DeviceSubRequest {
   public static final String SERIALIZED_NAME_ALLOCATION_MODE = "allocationMode";
   @SerializedName(SERIALIZED_NAME_ALLOCATION_MODE)
@@ -71,6 +72,11 @@ public class V1beta2DeviceSubRequest {
   @SerializedName(SERIALIZED_NAME_COUNT)
   @jakarta.annotation.Nullable
   private Long count;
+
+  public static final String SERIALIZED_NAME_DERIVED_ATTRIBUTES = "derivedAttributes";
+  @SerializedName(SERIALIZED_NAME_DERIVED_ATTRIBUTES)
+  @jakarta.annotation.Nullable
+  private List<V1beta2DeviceDerivedAttribute> derivedAttributes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEVICE_CLASS_NAME = "deviceClassName";
   @SerializedName(SERIALIZED_NAME_DEVICE_CLASS_NAME)
@@ -152,6 +158,34 @@ public class V1beta2DeviceSubRequest {
 
   public void setCount(@jakarta.annotation.Nullable Long count) {
     this.count = count;
+  }
+
+
+  public V1beta2DeviceSubRequest derivedAttributes(@jakarta.annotation.Nullable List<V1beta2DeviceDerivedAttribute> derivedAttributes) {
+    this.derivedAttributes = derivedAttributes;
+    return this;
+  }
+
+  public V1beta2DeviceSubRequest addDerivedAttributesItem(V1beta2DeviceDerivedAttribute derivedAttributesItem) {
+    if (this.derivedAttributes == null) {
+      this.derivedAttributes = new ArrayList<>();
+    }
+    this.derivedAttributes.add(derivedAttributesItem);
+    return this;
+  }
+
+  /**
+   * DerivedAttributes defines a set of virtual attributes computed via CEL expressions for each candidate device. These virtual attributes can be referenced in &#x60;.devices.constraints&#x60; to align and match different devices (e.g., co-allocating a GPU and a NIC on the same NUMA node) even if their drivers publish different attributes. Derived attributes are not available via &#x60;device.attributes&#x60; in the CEL environment when evaluating selector expressions.  Derived attributes allow you to extract, transform, or normalize topology information (such as extracting a NUMA index from a complex topology string or renaming a vendor-specific attribute) into a common virtual attribute name at scheduling time. The scheduler then evaluates these virtual attributes exactly like static attributes when matching constraints.  Every derived attribute defined in this list must be referenced by at least one MatchAttribute or DistinctAttribute constraint in the &#x60;.devices.constraints&#x60; list.  The maximum number of derived attributes is 32.  This is an alpha field and requires enabling the DRADerivedAttributes feature gate.
+   * @return derivedAttributes
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "DerivedAttributes defines a set of virtual attributes computed via CEL expressions for each candidate device. These virtual attributes can be referenced in `.devices.constraints` to align and match different devices (e.g., co-allocating a GPU and a NIC on the same NUMA node) even if their drivers publish different attributes. Derived attributes are not available via `device.attributes` in the CEL environment when evaluating selector expressions.  Derived attributes allow you to extract, transform, or normalize topology information (such as extracting a NUMA index from a complex topology string or renaming a vendor-specific attribute) into a common virtual attribute name at scheduling time. The scheduler then evaluates these virtual attributes exactly like static attributes when matching constraints.  Every derived attribute defined in this list must be referenced by at least one MatchAttribute or DistinctAttribute constraint in the `.devices.constraints` list.  The maximum number of derived attributes is 32.  This is an alpha field and requires enabling the DRADerivedAttributes feature gate.")
+  public List<V1beta2DeviceDerivedAttribute> getDerivedAttributes() {
+    return derivedAttributes;
+  }
+
+  public void setDerivedAttributes(@jakarta.annotation.Nullable List<V1beta2DeviceDerivedAttribute> derivedAttributes) {
+    this.derivedAttributes = derivedAttributes;
   }
 
 
@@ -264,6 +298,7 @@ public class V1beta2DeviceSubRequest {
     return Objects.equals(this.allocationMode, v1beta2DeviceSubRequest.allocationMode) &&
         Objects.equals(this.capacity, v1beta2DeviceSubRequest.capacity) &&
         Objects.equals(this.count, v1beta2DeviceSubRequest.count) &&
+        Objects.equals(this.derivedAttributes, v1beta2DeviceSubRequest.derivedAttributes) &&
         Objects.equals(this.deviceClassName, v1beta2DeviceSubRequest.deviceClassName) &&
         Objects.equals(this.name, v1beta2DeviceSubRequest.name) &&
         Objects.equals(this.selectors, v1beta2DeviceSubRequest.selectors) &&
@@ -272,7 +307,7 @@ public class V1beta2DeviceSubRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocationMode, capacity, count, deviceClassName, name, selectors, tolerations);
+    return Objects.hash(allocationMode, capacity, count, derivedAttributes, deviceClassName, name, selectors, tolerations);
   }
 
   @Override
@@ -282,6 +317,7 @@ public class V1beta2DeviceSubRequest {
     sb.append("    allocationMode: ").append(toIndentedString(allocationMode)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    derivedAttributes: ").append(toIndentedString(derivedAttributes)).append("\n");
     sb.append("    deviceClassName: ").append(toIndentedString(deviceClassName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    selectors: ").append(toIndentedString(selectors)).append("\n");
@@ -307,7 +343,7 @@ public class V1beta2DeviceSubRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("allocationMode", "capacity", "count", "deviceClassName", "name", "selectors", "tolerations"));
+    openapiFields = new HashSet<String>(Arrays.asList("allocationMode", "capacity", "count", "derivedAttributes", "deviceClassName", "name", "selectors", "tolerations"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("deviceClassName", "name"));
@@ -347,6 +383,20 @@ public class V1beta2DeviceSubRequest {
       // validate the optional field `capacity`
       if (jsonObj.get("capacity") != null && !jsonObj.get("capacity").isJsonNull()) {
         V1beta2CapacityRequirements.validateJsonElement(jsonObj.get("capacity"));
+      }
+      if (jsonObj.get("derivedAttributes") != null && !jsonObj.get("derivedAttributes").isJsonNull()) {
+        JsonArray jsonArrayderivedAttributes = jsonObj.getAsJsonArray("derivedAttributes");
+        if (jsonArrayderivedAttributes != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("derivedAttributes").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `derivedAttributes` to be an array in the JSON string but got `%s`", jsonObj.get("derivedAttributes").toString()));
+          }
+
+          // validate the optional field `derivedAttributes` (array)
+          for (int i = 0; i < jsonArrayderivedAttributes.size(); i++) {
+            V1beta2DeviceDerivedAttribute.validateJsonElement(jsonArrayderivedAttributes.get(i));
+          };
+        }
       }
       if (!jsonObj.get("deviceClassName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `deviceClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deviceClassName").toString()));

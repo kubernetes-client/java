@@ -27,12 +27,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CustomResourceDefinitionSpecFluent<A extends V1CustomResourceDefinitionSpecFluent<A>> extends BaseFluent<A>{
 
   private V1CustomResourceConversionBuilder conversion;
   private String group;
@@ -50,7 +52,7 @@ public class V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.client
 
   public A addAllToVersions(Collection<V1CustomResourceDefinitionVersion> items) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     for (V1CustomResourceDefinitionVersion item : items) {
         V1CustomResourceDefinitionVersionBuilder builder = new V1CustomResourceDefinitionVersionBuilder(item);
@@ -61,16 +63,16 @@ public class V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.client
   }
   
   public VersionsNested<A> addNewVersion() {
-    return new VersionsNested(-1, null);
+    return new VersionsNested<>(-1, null);
   }
   
   public VersionsNested<A> addNewVersionLike(V1CustomResourceDefinitionVersion item) {
-    return new VersionsNested(-1, item);
+    return new VersionsNested<>(-1, item);
   }
   
   public A addToVersions(V1CustomResourceDefinitionVersion... items) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     for (V1CustomResourceDefinitionVersion item : items) {
         V1CustomResourceDefinitionVersionBuilder builder = new V1CustomResourceDefinitionVersionBuilder(item);
@@ -82,7 +84,7 @@ public class V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.client
   
   public A addToVersions(int index,V1CustomResourceDefinitionVersion item) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     V1CustomResourceDefinitionVersionBuilder builder = new V1CustomResourceDefinitionVersionBuilder(item);
     if (index < 0 || index >= this.versions.size()) {
@@ -210,7 +212,7 @@ public class V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.client
     if (!(super.equals(o))) {
       return false;
     }
-    V1CustomResourceDefinitionSpecFluent that = (V1CustomResourceDefinitionSpecFluent) o;
+    V1CustomResourceDefinitionSpecFluent<?> that = (V1CustomResourceDefinitionSpecFluent<?>) o;
     if (!(Objects.equals(conversion, that.conversion))) {
       return false;
     }
@@ -310,6 +312,7 @@ public class V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.client
       return (A) this;
     }
     Iterator<V1CustomResourceDefinitionVersionBuilder> each = versions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("versions");
     while (each.hasNext()) {
         V1CustomResourceDefinitionVersionBuilder builder = each.next();
@@ -322,12 +325,12 @@ public class V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.client
   }
   
   public VersionsNested<A> setNewVersionLike(int index,V1CustomResourceDefinitionVersion item) {
-    return new VersionsNested(index, item);
+    return new VersionsNested<>(index, item);
   }
   
   public A setToVersions(int index,V1CustomResourceDefinitionVersion item) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     V1CustomResourceDefinitionVersionBuilder builder = new V1CustomResourceDefinitionVersionBuilder(item);
     if (index < 0 || index >= this.versions.size()) {
@@ -382,8 +385,8 @@ public class V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.client
         this.conversion = new V1CustomResourceConversionBuilder(conversion);
         this._visitables.get("conversion").add(this.conversion);
     } else {
-        this.conversion = null;
         this._visitables.get("conversion").remove(this.conversion);
+        this.conversion = null;
     }
     return (A) this;
   }
@@ -399,26 +402,26 @@ public class V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.client
         this.names = new V1CustomResourceDefinitionNamesBuilder(names);
         this._visitables.get("names").add(this.names);
     } else {
-        this.names = null;
         this._visitables.get("names").remove(this.names);
+        this.names = null;
     }
     return (A) this;
   }
   
   public ConversionNested<A> withNewConversion() {
-    return new ConversionNested(null);
+    return new ConversionNested<>(null);
   }
   
   public ConversionNested<A> withNewConversionLike(V1CustomResourceConversion item) {
-    return new ConversionNested(item);
+    return new ConversionNested<>(item);
   }
   
   public NamesNested<A> withNewNames() {
-    return new NamesNested(null);
+    return new NamesNested<>(null);
   }
   
   public NamesNested<A> withNewNamesLike(V1CustomResourceDefinitionNames item) {
-    return new NamesNested(item);
+    return new NamesNested<>(item);
   }
   
   public A withPreserveUnknownFields() {
@@ -440,7 +443,7 @@ public class V1CustomResourceDefinitionSpecFluent<A extends io.kubernetes.client
       this._visitables.get("versions").clear();
     }
     if (versions != null) {
-        this.versions = new ArrayList();
+        this.versions = new ArrayList<>();
         for (V1CustomResourceDefinitionVersion item : versions) {
           this.addToVersions(item);
         }

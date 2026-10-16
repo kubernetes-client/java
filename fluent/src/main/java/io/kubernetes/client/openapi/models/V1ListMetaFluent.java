@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1ListMetaFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ListMetaFluent<A extends V1ListMetaFluent<A>> extends BaseFluent<A>{
 
   private String _continue;
   private Long remainingItemCount;
@@ -77,7 +79,7 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
     if (!(super.equals(o))) {
       return false;
     }
-    V1ListMetaFluent that = (V1ListMetaFluent) o;
+    V1ListMetaFluent<?> that = (V1ListMetaFluent<?>) o;
     if (!(Objects.equals(_continue, that._continue))) {
       return false;
     }
@@ -173,11 +175,11 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
   }
   
   public ShardInfoNested<A> withNewShardInfo() {
-    return new ShardInfoNested(null);
+    return new ShardInfoNested<>(null);
   }
   
   public ShardInfoNested<A> withNewShardInfoLike(V1ShardInfo item) {
-    return new ShardInfoNested(item);
+    return new ShardInfoNested<>(item);
   }
   
   public A withRemainingItemCount(Long remainingItemCount) {
@@ -201,8 +203,8 @@ public class V1ListMetaFluent<A extends io.kubernetes.client.openapi.models.V1Li
         this.shardInfo = new V1ShardInfoBuilder(shardInfo);
         this._visitables.get("shardInfo").add(this.shardInfo);
     } else {
-        this.shardInfo = null;
         this._visitables.get("shardInfo").remove(this.shardInfo);
+        this.shardInfo = null;
     }
     return (A) this;
   }

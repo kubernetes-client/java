@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CustomResourceSubresourceScaleFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CustomResourceSubresourceScaleFluent<A extends V1CustomResourceSubresourceScaleFluent<A>> extends BaseFluent<A>{
 
   private String labelSelectorPath;
   private String specReplicasPath;
@@ -55,7 +57,7 @@ public class V1CustomResourceSubresourceScaleFluent<A extends io.kubernetes.clie
     if (!(super.equals(o))) {
       return false;
     }
-    V1CustomResourceSubresourceScaleFluent that = (V1CustomResourceSubresourceScaleFluent) o;
+    V1CustomResourceSubresourceScaleFluent<?> that = (V1CustomResourceSubresourceScaleFluent<?>) o;
     if (!(Objects.equals(labelSelectorPath, that.labelSelectorPath))) {
       return false;
     }

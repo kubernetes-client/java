@@ -27,21 +27,25 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta2ResourceSliceSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta2ResourceSliceSpecFluent<A extends V1beta2ResourceSliceSpecFluent<A>> extends BaseFluent<A>{
 
   private Boolean allNodes;
   private ArrayList<V1beta2DeviceBuilder> devices;
   private String driver;
   private String nodeName;
   private V1NodeSelectorBuilder nodeSelector;
+  private String partitionTypeAttribute;
   private Boolean perDeviceNodeSelection;
   private V1beta2ResourcePoolBuilder pool;
   private ArrayList<V1beta2CounterSetBuilder> sharedCounters;
+  private List<String> skipNodeOperations;
 
   public V1beta2ResourceSliceSpecFluent() {
   }
@@ -52,7 +56,7 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
 
   public A addAllToDevices(Collection<V1beta2Device> items) {
     if (this.devices == null) {
-      this.devices = new ArrayList();
+      this.devices = new ArrayList<>();
     }
     for (V1beta2Device item : items) {
         V1beta2DeviceBuilder builder = new V1beta2DeviceBuilder(item);
@@ -64,7 +68,7 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
   
   public A addAllToSharedCounters(Collection<V1beta2CounterSet> items) {
     if (this.sharedCounters == null) {
-      this.sharedCounters = new ArrayList();
+      this.sharedCounters = new ArrayList<>();
     }
     for (V1beta2CounterSet item : items) {
         V1beta2CounterSetBuilder builder = new V1beta2CounterSetBuilder(item);
@@ -74,25 +78,35 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     return (A) this;
   }
   
+  public A addAllToSkipNodeOperations(Collection<String> items) {
+    if (this.skipNodeOperations == null) {
+      this.skipNodeOperations = new ArrayList<>();
+    }
+    for (String item : items) {
+      this.skipNodeOperations.add(item);
+    }
+    return (A) this;
+  }
+  
   public DevicesNested<A> addNewDevice() {
-    return new DevicesNested(-1, null);
+    return new DevicesNested<>(-1, null);
   }
   
   public DevicesNested<A> addNewDeviceLike(V1beta2Device item) {
-    return new DevicesNested(-1, item);
+    return new DevicesNested<>(-1, item);
   }
   
   public SharedCountersNested<A> addNewSharedCounter() {
-    return new SharedCountersNested(-1, null);
+    return new SharedCountersNested<>(-1, null);
   }
   
   public SharedCountersNested<A> addNewSharedCounterLike(V1beta2CounterSet item) {
-    return new SharedCountersNested(-1, item);
+    return new SharedCountersNested<>(-1, item);
   }
   
   public A addToDevices(V1beta2Device... items) {
     if (this.devices == null) {
-      this.devices = new ArrayList();
+      this.devices = new ArrayList<>();
     }
     for (V1beta2Device item : items) {
         V1beta2DeviceBuilder builder = new V1beta2DeviceBuilder(item);
@@ -104,7 +118,7 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
   
   public A addToDevices(int index,V1beta2Device item) {
     if (this.devices == null) {
-      this.devices = new ArrayList();
+      this.devices = new ArrayList<>();
     }
     V1beta2DeviceBuilder builder = new V1beta2DeviceBuilder(item);
     if (index < 0 || index >= this.devices.size()) {
@@ -119,7 +133,7 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
   
   public A addToSharedCounters(V1beta2CounterSet... items) {
     if (this.sharedCounters == null) {
-      this.sharedCounters = new ArrayList();
+      this.sharedCounters = new ArrayList<>();
     }
     for (V1beta2CounterSet item : items) {
         V1beta2CounterSetBuilder builder = new V1beta2CounterSetBuilder(item);
@@ -131,7 +145,7 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
   
   public A addToSharedCounters(int index,V1beta2CounterSet item) {
     if (this.sharedCounters == null) {
-      this.sharedCounters = new ArrayList();
+      this.sharedCounters = new ArrayList<>();
     }
     V1beta2CounterSetBuilder builder = new V1beta2CounterSetBuilder(item);
     if (index < 0 || index >= this.sharedCounters.size()) {
@@ -141,6 +155,24 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
         this._visitables.get("sharedCounters").add(builder);
         this.sharedCounters.add(index, builder);
     }
+    return (A) this;
+  }
+  
+  public A addToSkipNodeOperations(String... items) {
+    if (this.skipNodeOperations == null) {
+      this.skipNodeOperations = new ArrayList<>();
+    }
+    for (String item : items) {
+      this.skipNodeOperations.add(item);
+    }
+    return (A) this;
+  }
+  
+  public A addToSkipNodeOperations(int index,String item) {
+    if (this.skipNodeOperations == null) {
+      this.skipNodeOperations = new ArrayList<>();
+    }
+    this.skipNodeOperations.add(index, item);
     return (A) this;
   }
   
@@ -210,9 +242,11 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
         this.withDriver(instance.getDriver());
         this.withNodeName(instance.getNodeName());
         this.withNodeSelector(instance.getNodeSelector());
+        this.withPartitionTypeAttribute(instance.getPartitionTypeAttribute());
         this.withPerDeviceNodeSelection(instance.getPerDeviceNodeSelection());
         this.withPool(instance.getPool());
         this.withSharedCounters(instance.getSharedCounters());
+        this.withSkipNodeOperations(instance.getSkipNodeOperations());
     }
   }
   
@@ -322,7 +356,7 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta2ResourceSliceSpecFluent that = (V1beta2ResourceSliceSpecFluent) o;
+    V1beta2ResourceSliceSpecFluent<?> that = (V1beta2ResourceSliceSpecFluent<?>) o;
     if (!(Objects.equals(allNodes, that.allNodes))) {
       return false;
     }
@@ -338,6 +372,9 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     if (!(Objects.equals(nodeSelector, that.nodeSelector))) {
       return false;
     }
+    if (!(Objects.equals(partitionTypeAttribute, that.partitionTypeAttribute))) {
+      return false;
+    }
     if (!(Objects.equals(perDeviceNodeSelection, that.perDeviceNodeSelection))) {
       return false;
     }
@@ -345,6 +382,9 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
       return false;
     }
     if (!(Objects.equals(sharedCounters, that.sharedCounters))) {
+      return false;
+    }
+    if (!(Objects.equals(skipNodeOperations, that.skipNodeOperations))) {
       return false;
     }
     return true;
@@ -358,12 +398,41 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     return this.driver;
   }
   
+  public String getFirstSkipNodeOperation() {
+    return this.skipNodeOperations.get(0);
+  }
+  
+  public String getLastSkipNodeOperation() {
+    return this.skipNodeOperations.get(skipNodeOperations.size() - 1);
+  }
+  
+  public String getMatchingSkipNodeOperation(Predicate<String> predicate) {
+      for (String item : skipNodeOperations) {
+        if (predicate.test(item)) {
+          return item;
+        }
+      }
+      return null;
+  }
+  
   public String getNodeName() {
     return this.nodeName;
   }
   
+  public String getPartitionTypeAttribute() {
+    return this.partitionTypeAttribute;
+  }
+  
   public Boolean getPerDeviceNodeSelection() {
     return this.perDeviceNodeSelection;
+  }
+  
+  public String getSkipNodeOperation(int index) {
+    return this.skipNodeOperations.get(index);
+  }
+  
+  public List<String> getSkipNodeOperations() {
+    return this.skipNodeOperations;
   }
   
   public boolean hasAllNodes() {
@@ -396,12 +465,25 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
       return false;
   }
   
+  public boolean hasMatchingSkipNodeOperation(Predicate<String> predicate) {
+      for (String item : skipNodeOperations) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
+  }
+  
   public boolean hasNodeName() {
     return this.nodeName != null;
   }
   
   public boolean hasNodeSelector() {
     return this.nodeSelector != null;
+  }
+  
+  public boolean hasPartitionTypeAttribute() {
+    return this.partitionTypeAttribute != null;
   }
   
   public boolean hasPerDeviceNodeSelection() {
@@ -416,8 +498,12 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     return this.sharedCounters != null && !(this.sharedCounters.isEmpty());
   }
   
+  public boolean hasSkipNodeOperations() {
+    return this.skipNodeOperations != null && !(this.skipNodeOperations.isEmpty());
+  }
+  
   public int hashCode() {
-    return Objects.hash(allNodes, devices, driver, nodeName, nodeSelector, perDeviceNodeSelection, pool, sharedCounters);
+    return Objects.hash(allNodes, devices, driver, nodeName, nodeSelector, partitionTypeAttribute, perDeviceNodeSelection, pool, sharedCounters, skipNodeOperations);
   }
   
   public A removeAllFromDevices(Collection<V1beta2Device> items) {
@@ -440,6 +526,16 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
         V1beta2CounterSetBuilder builder = new V1beta2CounterSetBuilder(item);
         _visitables.get("sharedCounters").remove(builder);
         this.sharedCounters.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeAllFromSkipNodeOperations(Collection<String> items) {
+    if (this.skipNodeOperations == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.skipNodeOperations.remove(item);
     }
     return (A) this;
   }
@@ -468,11 +564,22 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     return (A) this;
   }
   
+  public A removeFromSkipNodeOperations(String... items) {
+    if (this.skipNodeOperations == null) {
+      return (A) this;
+    }
+    for (String item : items) {
+      this.skipNodeOperations.remove(item);
+    }
+    return (A) this;
+  }
+  
   public A removeMatchingFromDevices(Predicate<V1beta2DeviceBuilder> predicate) {
     if (devices == null) {
       return (A) this;
     }
     Iterator<V1beta2DeviceBuilder> each = devices.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("devices");
     while (each.hasNext()) {
         V1beta2DeviceBuilder builder = each.next();
@@ -489,6 +596,7 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
       return (A) this;
     }
     Iterator<V1beta2CounterSetBuilder> each = sharedCounters.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("sharedCounters");
     while (each.hasNext()) {
         V1beta2CounterSetBuilder builder = each.next();
@@ -501,16 +609,16 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
   }
   
   public DevicesNested<A> setNewDeviceLike(int index,V1beta2Device item) {
-    return new DevicesNested(index, item);
+    return new DevicesNested<>(index, item);
   }
   
   public SharedCountersNested<A> setNewSharedCounterLike(int index,V1beta2CounterSet item) {
-    return new SharedCountersNested(index, item);
+    return new SharedCountersNested<>(index, item);
   }
   
   public A setToDevices(int index,V1beta2Device item) {
     if (this.devices == null) {
-      this.devices = new ArrayList();
+      this.devices = new ArrayList<>();
     }
     V1beta2DeviceBuilder builder = new V1beta2DeviceBuilder(item);
     if (index < 0 || index >= this.devices.size()) {
@@ -525,7 +633,7 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
   
   public A setToSharedCounters(int index,V1beta2CounterSet item) {
     if (this.sharedCounters == null) {
-      this.sharedCounters = new ArrayList();
+      this.sharedCounters = new ArrayList<>();
     }
     V1beta2CounterSetBuilder builder = new V1beta2CounterSetBuilder(item);
     if (index < 0 || index >= this.sharedCounters.size()) {
@@ -535,6 +643,14 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
         this._visitables.get("sharedCounters").add(builder);
         this.sharedCounters.set(index, builder);
     }
+    return (A) this;
+  }
+  
+  public A setToSkipNodeOperations(int index,String item) {
+    if (this.skipNodeOperations == null) {
+      this.skipNodeOperations = new ArrayList<>();
+    }
+    this.skipNodeOperations.set(index, item);
     return (A) this;
   }
   
@@ -566,6 +682,11 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
         sb.append(nodeSelector);
         sb.append(",");
     }
+    if (!(partitionTypeAttribute == null)) {
+        sb.append("partitionTypeAttribute:");
+        sb.append(partitionTypeAttribute);
+        sb.append(",");
+    }
     if (!(perDeviceNodeSelection == null)) {
         sb.append("perDeviceNodeSelection:");
         sb.append(perDeviceNodeSelection);
@@ -579,6 +700,11 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     if (!(sharedCounters == null) && !(sharedCounters.isEmpty())) {
         sb.append("sharedCounters:");
         sb.append(sharedCounters);
+        sb.append(",");
+    }
+    if (!(skipNodeOperations == null) && !(skipNodeOperations.isEmpty())) {
+        sb.append("skipNodeOperations:");
+        sb.append(skipNodeOperations);
     }
     sb.append("}");
     return sb.toString();
@@ -598,7 +724,7 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
       this._visitables.get("devices").clear();
     }
     if (devices != null) {
-        this.devices = new ArrayList();
+        this.devices = new ArrayList<>();
         for (V1beta2Device item : devices) {
           this.addToDevices(item);
         }
@@ -627,19 +753,19 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
   }
   
   public NodeSelectorNested<A> withNewNodeSelector() {
-    return new NodeSelectorNested(null);
+    return new NodeSelectorNested<>(null);
   }
   
   public NodeSelectorNested<A> withNewNodeSelectorLike(V1NodeSelector item) {
-    return new NodeSelectorNested(item);
+    return new NodeSelectorNested<>(item);
   }
   
   public PoolNested<A> withNewPool() {
-    return new PoolNested(null);
+    return new PoolNested<>(null);
   }
   
   public PoolNested<A> withNewPoolLike(V1beta2ResourcePool item) {
-    return new PoolNested(item);
+    return new PoolNested<>(item);
   }
   
   public A withNodeName(String nodeName) {
@@ -653,9 +779,14 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
         this.nodeSelector = new V1NodeSelectorBuilder(nodeSelector);
         this._visitables.get("nodeSelector").add(this.nodeSelector);
     } else {
-        this.nodeSelector = null;
         this._visitables.get("nodeSelector").remove(this.nodeSelector);
+        this.nodeSelector = null;
     }
+    return (A) this;
+  }
+  
+  public A withPartitionTypeAttribute(String partitionTypeAttribute) {
+    this.partitionTypeAttribute = partitionTypeAttribute;
     return (A) this;
   }
   
@@ -674,8 +805,8 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
         this.pool = new V1beta2ResourcePoolBuilder(pool);
         this._visitables.get("pool").add(this.pool);
     } else {
-        this.pool = null;
         this._visitables.get("pool").remove(this.pool);
+        this.pool = null;
     }
     return (A) this;
   }
@@ -685,7 +816,7 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
       this._visitables.get("sharedCounters").clear();
     }
     if (sharedCounters != null) {
-        this.sharedCounters = new ArrayList();
+        this.sharedCounters = new ArrayList<>();
         for (V1beta2CounterSet item : sharedCounters) {
           this.addToSharedCounters(item);
         }
@@ -703,6 +834,31 @@ public class V1beta2ResourceSliceSpecFluent<A extends io.kubernetes.client.opena
     if (sharedCounters != null) {
       for (V1beta2CounterSet item : sharedCounters) {
         this.addToSharedCounters(item);
+      }
+    }
+    return (A) this;
+  }
+  
+  public A withSkipNodeOperations(List<String> skipNodeOperations) {
+    if (skipNodeOperations != null) {
+        this.skipNodeOperations = new ArrayList<>();
+        for (String item : skipNodeOperations) {
+          this.addToSkipNodeOperations(item);
+        }
+    } else {
+      this.skipNodeOperations = null;
+    }
+    return (A) this;
+  }
+  
+  public A withSkipNodeOperations(String... skipNodeOperations) {
+    if (this.skipNodeOperations != null) {
+        this.skipNodeOperations.clear();
+        _visitables.remove("skipNodeOperations");
+    }
+    if (skipNodeOperations != null) {
+      for (String item : skipNodeOperations) {
+        this.addToSkipNodeOperations(item);
       }
     }
     return (A) this;

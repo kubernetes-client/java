@@ -1,0 +1,274 @@
+/*
+Copyright 2026 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
+/**
+ * VolumeHealthCondition represents an adverse health condition reported for a volume.
+ */
+@ApiModel(description = "VolumeHealthCondition represents an adverse health condition reported for a volume.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+public class V1VolumeHealthCondition {
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @jakarta.annotation.Nullable
+  private String message;
+
+  public static final String SERIALIZED_NAME_REASON = "reason";
+  @SerializedName(SERIALIZED_NAME_REASON)
+  @jakarta.annotation.Nonnull
+  private String reason;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @jakarta.annotation.Nonnull
+  private String status;
+
+  public V1VolumeHealthCondition() {
+  }
+
+  public V1VolumeHealthCondition message(@jakarta.annotation.Nullable String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * message is a human-readable description. Maximum permitted length of a message is 1024 bytes.
+   * @return message
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "message is a human-readable description. Maximum permitted length of a message is 1024 bytes.")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(@jakarta.annotation.Nullable String message) {
+    this.message = message;
+  }
+
+
+  public V1VolumeHealthCondition reason(@jakarta.annotation.Nonnull String reason) {
+    this.reason = reason;
+    return this;
+  }
+
+  /**
+   * reason is a brief CamelCase machine-parseable reason. Together with status it forms the unique identity of a condition entry. Maximum permitted length of a reason is 256 bytes.
+   * @return reason
+   */
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "reason is a brief CamelCase machine-parseable reason. Together with status it forms the unique identity of a condition entry. Maximum permitted length of a reason is 256 bytes.")
+  public String getReason() {
+    return reason;
+  }
+
+  public void setReason(@jakarta.annotation.Nonnull String reason) {
+    this.reason = reason;
+  }
+
+
+  public V1VolumeHealthCondition status(@jakarta.annotation.Nonnull String status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * status is the machine-parseable health category. Possible values: - \&quot;Inaccessible\&quot;: the volume cannot be accessed. - \&quot;DataLoss\&quot;: data loss has been detected on the volume. - \&quot;Degraded\&quot;: the volume is functioning with reduced capability.
+   * @return status
+   */
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "status is the machine-parseable health category. Possible values: - \"Inaccessible\": the volume cannot be accessed. - \"DataLoss\": data loss has been detected on the volume. - \"Degraded\": the volume is functioning with reduced capability.")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(@jakarta.annotation.Nonnull String status) {
+    this.status = status;
+  }
+
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    V1VolumeHealthCondition v1VolumeHealthCondition = (V1VolumeHealthCondition) o;
+    return Objects.equals(this.message, v1VolumeHealthCondition.message) &&
+        Objects.equals(this.reason, v1VolumeHealthCondition.reason) &&
+        Objects.equals(this.status, v1VolumeHealthCondition.status);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(message, reason, status);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class V1VolumeHealthCondition {\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>(Arrays.asList("message", "reason", "status"));
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("reason", "status"));
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1VolumeHealthCondition
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1VolumeHealthCondition.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1VolumeHealthCondition is not found in the empty JSON string", V1VolumeHealthCondition.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!V1VolumeHealthCondition.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1VolumeHealthCondition` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1VolumeHealthCondition.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
+      if (!jsonObj.get("reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+      }
+      if (!jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1VolumeHealthCondition.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1VolumeHealthCondition' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1VolumeHealthCondition> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1VolumeHealthCondition.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1VolumeHealthCondition>() {
+           @Override
+           public void write(JsonWriter out, V1VolumeHealthCondition value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1VolumeHealthCondition read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of V1VolumeHealthCondition given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1VolumeHealthCondition
+   * @throws IOException if the JSON string is invalid with respect to V1VolumeHealthCondition
+   */
+  public static V1VolumeHealthCondition fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1VolumeHealthCondition.class);
+  }
+
+  /**
+   * Convert an instance of V1VolumeHealthCondition to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
+}

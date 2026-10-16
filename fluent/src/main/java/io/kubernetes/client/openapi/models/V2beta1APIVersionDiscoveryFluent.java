@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2beta1APIVersionDiscoveryFluent<A extends io.kubernetes.client.openapi.models.V2beta1APIVersionDiscoveryFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2beta1APIVersionDiscoveryFluent<A extends V2beta1APIVersionDiscoveryFluent<A>> extends BaseFluent<A>{
 
   private String freshness;
   private ArrayList<V2beta1APIResourceDiscoveryBuilder> resources;
@@ -45,7 +47,7 @@ public class V2beta1APIVersionDiscoveryFluent<A extends io.kubernetes.client.ope
 
   public A addAllToResources(Collection<V2beta1APIResourceDiscovery> items) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     for (V2beta1APIResourceDiscovery item : items) {
         V2beta1APIResourceDiscoveryBuilder builder = new V2beta1APIResourceDiscoveryBuilder(item);
@@ -56,16 +58,16 @@ public class V2beta1APIVersionDiscoveryFluent<A extends io.kubernetes.client.ope
   }
   
   public ResourcesNested<A> addNewResource() {
-    return new ResourcesNested(-1, null);
+    return new ResourcesNested<>(-1, null);
   }
   
   public ResourcesNested<A> addNewResourceLike(V2beta1APIResourceDiscovery item) {
-    return new ResourcesNested(-1, item);
+    return new ResourcesNested<>(-1, item);
   }
   
   public A addToResources(V2beta1APIResourceDiscovery... items) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     for (V2beta1APIResourceDiscovery item : items) {
         V2beta1APIResourceDiscoveryBuilder builder = new V2beta1APIResourceDiscoveryBuilder(item);
@@ -77,7 +79,7 @@ public class V2beta1APIVersionDiscoveryFluent<A extends io.kubernetes.client.ope
   
   public A addToResources(int index,V2beta1APIResourceDiscovery item) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     V2beta1APIResourceDiscoveryBuilder builder = new V2beta1APIResourceDiscoveryBuilder(item);
     if (index < 0 || index >= this.resources.size()) {
@@ -170,7 +172,7 @@ public class V2beta1APIVersionDiscoveryFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V2beta1APIVersionDiscoveryFluent that = (V2beta1APIVersionDiscoveryFluent) o;
+    V2beta1APIVersionDiscoveryFluent<?> that = (V2beta1APIVersionDiscoveryFluent<?>) o;
     if (!(Objects.equals(version, that.version))) {
       return false;
     }
@@ -245,6 +247,7 @@ public class V2beta1APIVersionDiscoveryFluent<A extends io.kubernetes.client.ope
       return (A) this;
     }
     Iterator<V2beta1APIResourceDiscoveryBuilder> each = resources.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("resources");
     while (each.hasNext()) {
         V2beta1APIResourceDiscoveryBuilder builder = each.next();
@@ -257,12 +260,12 @@ public class V2beta1APIVersionDiscoveryFluent<A extends io.kubernetes.client.ope
   }
   
   public ResourcesNested<A> setNewResourceLike(int index,V2beta1APIResourceDiscovery item) {
-    return new ResourcesNested(index, item);
+    return new ResourcesNested<>(index, item);
   }
   
   public A setToResources(int index,V2beta1APIResourceDiscovery item) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     V2beta1APIResourceDiscoveryBuilder builder = new V2beta1APIResourceDiscoveryBuilder(item);
     if (index < 0 || index >= this.resources.size()) {
@@ -306,7 +309,7 @@ public class V2beta1APIVersionDiscoveryFluent<A extends io.kubernetes.client.ope
       this._visitables.get("resources").clear();
     }
     if (resources != null) {
-        this.resources = new ArrayList();
+        this.resources = new ArrayList<>();
         for (V2beta1APIResourceDiscovery item : resources) {
           this.addToResources(item);
         }

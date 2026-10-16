@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.openapi.models.V1beta1DeviceAllocationResultFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1DeviceAllocationResultFluent<A extends V1beta1DeviceAllocationResultFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1beta1DeviceAllocationConfigurationBuilder> config;
   private ArrayList<V1beta1DeviceRequestAllocationResultBuilder> results;
@@ -44,7 +46,7 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
 
   public A addAllToConfig(Collection<V1beta1DeviceAllocationConfiguration> items) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     for (V1beta1DeviceAllocationConfiguration item : items) {
         V1beta1DeviceAllocationConfigurationBuilder builder = new V1beta1DeviceAllocationConfigurationBuilder(item);
@@ -56,7 +58,7 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
   
   public A addAllToResults(Collection<V1beta1DeviceRequestAllocationResult> items) {
     if (this.results == null) {
-      this.results = new ArrayList();
+      this.results = new ArrayList<>();
     }
     for (V1beta1DeviceRequestAllocationResult item : items) {
         V1beta1DeviceRequestAllocationResultBuilder builder = new V1beta1DeviceRequestAllocationResultBuilder(item);
@@ -67,24 +69,24 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
   }
   
   public ConfigNested<A> addNewConfig() {
-    return new ConfigNested(-1, null);
+    return new ConfigNested<>(-1, null);
   }
   
   public ConfigNested<A> addNewConfigLike(V1beta1DeviceAllocationConfiguration item) {
-    return new ConfigNested(-1, item);
+    return new ConfigNested<>(-1, item);
   }
   
   public ResultsNested<A> addNewResult() {
-    return new ResultsNested(-1, null);
+    return new ResultsNested<>(-1, null);
   }
   
   public ResultsNested<A> addNewResultLike(V1beta1DeviceRequestAllocationResult item) {
-    return new ResultsNested(-1, item);
+    return new ResultsNested<>(-1, item);
   }
   
   public A addToConfig(V1beta1DeviceAllocationConfiguration... items) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     for (V1beta1DeviceAllocationConfiguration item : items) {
         V1beta1DeviceAllocationConfigurationBuilder builder = new V1beta1DeviceAllocationConfigurationBuilder(item);
@@ -96,7 +98,7 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
   
   public A addToConfig(int index,V1beta1DeviceAllocationConfiguration item) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     V1beta1DeviceAllocationConfigurationBuilder builder = new V1beta1DeviceAllocationConfigurationBuilder(item);
     if (index < 0 || index >= this.config.size()) {
@@ -111,7 +113,7 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
   
   public A addToResults(V1beta1DeviceRequestAllocationResult... items) {
     if (this.results == null) {
-      this.results = new ArrayList();
+      this.results = new ArrayList<>();
     }
     for (V1beta1DeviceRequestAllocationResult item : items) {
         V1beta1DeviceRequestAllocationResultBuilder builder = new V1beta1DeviceRequestAllocationResultBuilder(item);
@@ -123,7 +125,7 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
   
   public A addToResults(int index,V1beta1DeviceRequestAllocationResult item) {
     if (this.results == null) {
-      this.results = new ArrayList();
+      this.results = new ArrayList<>();
     }
     V1beta1DeviceRequestAllocationResultBuilder builder = new V1beta1DeviceRequestAllocationResultBuilder(item);
     if (index < 0 || index >= this.results.size()) {
@@ -276,7 +278,7 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1DeviceAllocationResultFluent that = (V1beta1DeviceAllocationResultFluent) o;
+    V1beta1DeviceAllocationResultFluent<?> that = (V1beta1DeviceAllocationResultFluent<?>) o;
     if (!(Objects.equals(config, that.config))) {
       return false;
     }
@@ -369,6 +371,7 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
       return (A) this;
     }
     Iterator<V1beta1DeviceAllocationConfigurationBuilder> each = config.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("config");
     while (each.hasNext()) {
         V1beta1DeviceAllocationConfigurationBuilder builder = each.next();
@@ -385,6 +388,7 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
       return (A) this;
     }
     Iterator<V1beta1DeviceRequestAllocationResultBuilder> each = results.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("results");
     while (each.hasNext()) {
         V1beta1DeviceRequestAllocationResultBuilder builder = each.next();
@@ -397,16 +401,16 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
   }
   
   public ConfigNested<A> setNewConfigLike(int index,V1beta1DeviceAllocationConfiguration item) {
-    return new ConfigNested(index, item);
+    return new ConfigNested<>(index, item);
   }
   
   public ResultsNested<A> setNewResultLike(int index,V1beta1DeviceRequestAllocationResult item) {
-    return new ResultsNested(index, item);
+    return new ResultsNested<>(index, item);
   }
   
   public A setToConfig(int index,V1beta1DeviceAllocationConfiguration item) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     V1beta1DeviceAllocationConfigurationBuilder builder = new V1beta1DeviceAllocationConfigurationBuilder(item);
     if (index < 0 || index >= this.config.size()) {
@@ -421,7 +425,7 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
   
   public A setToResults(int index,V1beta1DeviceRequestAllocationResult item) {
     if (this.results == null) {
-      this.results = new ArrayList();
+      this.results = new ArrayList<>();
     }
     V1beta1DeviceRequestAllocationResultBuilder builder = new V1beta1DeviceRequestAllocationResultBuilder(item);
     if (index < 0 || index >= this.results.size()) {
@@ -455,7 +459,7 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
       this._visitables.get("config").clear();
     }
     if (config != null) {
-        this.config = new ArrayList();
+        this.config = new ArrayList<>();
         for (V1beta1DeviceAllocationConfiguration item : config) {
           this.addToConfig(item);
         }
@@ -483,7 +487,7 @@ public class V1beta1DeviceAllocationResultFluent<A extends io.kubernetes.client.
       this._visitables.get("results").clear();
     }
     if (results != null) {
-        this.results = new ArrayList();
+        this.results = new ArrayList<>();
         for (V1beta1DeviceRequestAllocationResult item : results) {
           this.addToResults(item);
         }

@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1NamespaceBuilder extends V1NamespaceFluent<V1NamespaceBuilder> implements VisitableBuilder<V1Namespace,V1NamespaceBuilder>{
 
   V1NamespaceFluent<?> fluent;

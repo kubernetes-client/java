@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ValidatingWebhookConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWebhookConfigurationFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -47,7 +49,7 @@ public class V1ValidatingWebhookConfigurationFluent<A extends io.kubernetes.clie
 
   public A addAllToWebhooks(Collection<V1ValidatingWebhook> items) {
     if (this.webhooks == null) {
-      this.webhooks = new ArrayList();
+      this.webhooks = new ArrayList<>();
     }
     for (V1ValidatingWebhook item : items) {
         V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
@@ -58,16 +60,16 @@ public class V1ValidatingWebhookConfigurationFluent<A extends io.kubernetes.clie
   }
   
   public WebhooksNested<A> addNewWebhook() {
-    return new WebhooksNested(-1, null);
+    return new WebhooksNested<>(-1, null);
   }
   
   public WebhooksNested<A> addNewWebhookLike(V1ValidatingWebhook item) {
-    return new WebhooksNested(-1, item);
+    return new WebhooksNested<>(-1, item);
   }
   
   public A addToWebhooks(V1ValidatingWebhook... items) {
     if (this.webhooks == null) {
-      this.webhooks = new ArrayList();
+      this.webhooks = new ArrayList<>();
     }
     for (V1ValidatingWebhook item : items) {
         V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
@@ -79,7 +81,7 @@ public class V1ValidatingWebhookConfigurationFluent<A extends io.kubernetes.clie
   
   public A addToWebhooks(int index,V1ValidatingWebhook item) {
     if (this.webhooks == null) {
-      this.webhooks = new ArrayList();
+      this.webhooks = new ArrayList<>();
     }
     V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
     if (index < 0 || index >= this.webhooks.size()) {
@@ -189,7 +191,7 @@ public class V1ValidatingWebhookConfigurationFluent<A extends io.kubernetes.clie
     if (!(super.equals(o))) {
       return false;
     }
-    V1ValidatingWebhookConfigurationFluent that = (V1ValidatingWebhookConfigurationFluent) o;
+    V1ValidatingWebhookConfigurationFluent<?> that = (V1ValidatingWebhookConfigurationFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -271,6 +273,7 @@ public class V1ValidatingWebhookConfigurationFluent<A extends io.kubernetes.clie
       return (A) this;
     }
     Iterator<V1ValidatingWebhookBuilder> each = webhooks.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("webhooks");
     while (each.hasNext()) {
         V1ValidatingWebhookBuilder builder = each.next();
@@ -283,12 +286,12 @@ public class V1ValidatingWebhookConfigurationFluent<A extends io.kubernetes.clie
   }
   
   public WebhooksNested<A> setNewWebhookLike(int index,V1ValidatingWebhook item) {
-    return new WebhooksNested(index, item);
+    return new WebhooksNested<>(index, item);
   }
   
   public A setToWebhooks(int index,V1ValidatingWebhook item) {
     if (this.webhooks == null) {
-      this.webhooks = new ArrayList();
+      this.webhooks = new ArrayList<>();
     }
     V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
     if (index < 0 || index >= this.webhooks.size()) {
@@ -343,18 +346,18 @@ public class V1ValidatingWebhookConfigurationFluent<A extends io.kubernetes.clie
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public A withWebhooks(List<V1ValidatingWebhook> webhooks) {
@@ -362,7 +365,7 @@ public class V1ValidatingWebhookConfigurationFluent<A extends io.kubernetes.clie
       this._visitables.get("webhooks").clear();
     }
     if (webhooks != null) {
-        this.webhooks = new ArrayList();
+        this.webhooks = new ArrayList<>();
         for (V1ValidatingWebhook item : webhooks) {
           this.addToWebhooks(item);
         }

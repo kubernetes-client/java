@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1CustomResourceSubresourceScaleBuilder extends V1CustomResourceSubresourceScaleFluent<V1CustomResourceSubresourceScaleBuilder> implements VisitableBuilder<V1CustomResourceSubresourceScale,V1CustomResourceSubresourceScaleBuilder>{
 
   V1CustomResourceSubresourceScaleFluent<?> fluent;

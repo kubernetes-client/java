@@ -27,12 +27,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> extends BaseFluent<A>{
 
   private Integer minReadySeconds;
   private V1StatefulSetOrdinalsBuilder ordinals;
@@ -55,7 +57,7 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToVolumeClaimTemplates(Collection<V1PersistentVolumeClaim> items) {
     if (this.volumeClaimTemplates == null) {
-      this.volumeClaimTemplates = new ArrayList();
+      this.volumeClaimTemplates = new ArrayList<>();
     }
     for (V1PersistentVolumeClaim item : items) {
         V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
@@ -66,16 +68,16 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public VolumeClaimTemplatesNested<A> addNewVolumeClaimTemplate() {
-    return new VolumeClaimTemplatesNested(-1, null);
+    return new VolumeClaimTemplatesNested<>(-1, null);
   }
   
   public VolumeClaimTemplatesNested<A> addNewVolumeClaimTemplateLike(V1PersistentVolumeClaim item) {
-    return new VolumeClaimTemplatesNested(-1, item);
+    return new VolumeClaimTemplatesNested<>(-1, item);
   }
   
   public A addToVolumeClaimTemplates(V1PersistentVolumeClaim... items) {
     if (this.volumeClaimTemplates == null) {
-      this.volumeClaimTemplates = new ArrayList();
+      this.volumeClaimTemplates = new ArrayList<>();
     }
     for (V1PersistentVolumeClaim item : items) {
         V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
@@ -87,7 +89,7 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToVolumeClaimTemplates(int index,V1PersistentVolumeClaim item) {
     if (this.volumeClaimTemplates == null) {
-      this.volumeClaimTemplates = new ArrayList();
+      this.volumeClaimTemplates = new ArrayList<>();
     }
     V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
     if (index < 0 || index >= this.volumeClaimTemplates.size()) {
@@ -268,7 +270,7 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1StatefulSetSpecFluent that = (V1StatefulSetSpecFluent) o;
+    V1StatefulSetSpecFluent<?> that = (V1StatefulSetSpecFluent<?>) o;
     if (!(Objects.equals(minReadySeconds, that.minReadySeconds))) {
       return false;
     }
@@ -411,6 +413,7 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1PersistentVolumeClaimBuilder> each = volumeClaimTemplates.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("volumeClaimTemplates");
     while (each.hasNext()) {
         V1PersistentVolumeClaimBuilder builder = each.next();
@@ -423,12 +426,12 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public VolumeClaimTemplatesNested<A> setNewVolumeClaimTemplateLike(int index,V1PersistentVolumeClaim item) {
-    return new VolumeClaimTemplatesNested(index, item);
+    return new VolumeClaimTemplatesNested<>(index, item);
   }
   
   public A setToVolumeClaimTemplates(int index,V1PersistentVolumeClaim item) {
     if (this.volumeClaimTemplates == null) {
-      this.volumeClaimTemplates = new ArrayList();
+      this.volumeClaimTemplates = new ArrayList<>();
     }
     V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
     if (index < 0 || index >= this.volumeClaimTemplates.size()) {
@@ -508,43 +511,43 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public OrdinalsNested<A> withNewOrdinals() {
-    return new OrdinalsNested(null);
+    return new OrdinalsNested<>(null);
   }
   
   public OrdinalsNested<A> withNewOrdinalsLike(V1StatefulSetOrdinals item) {
-    return new OrdinalsNested(item);
+    return new OrdinalsNested<>(item);
   }
   
   public PersistentVolumeClaimRetentionPolicyNested<A> withNewPersistentVolumeClaimRetentionPolicy() {
-    return new PersistentVolumeClaimRetentionPolicyNested(null);
+    return new PersistentVolumeClaimRetentionPolicyNested<>(null);
   }
   
   public PersistentVolumeClaimRetentionPolicyNested<A> withNewPersistentVolumeClaimRetentionPolicyLike(V1StatefulSetPersistentVolumeClaimRetentionPolicy item) {
-    return new PersistentVolumeClaimRetentionPolicyNested(item);
+    return new PersistentVolumeClaimRetentionPolicyNested<>(item);
   }
   
   public SelectorNested<A> withNewSelector() {
-    return new SelectorNested(null);
+    return new SelectorNested<>(null);
   }
   
   public SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
-    return new SelectorNested(item);
+    return new SelectorNested<>(item);
   }
   
   public TemplateNested<A> withNewTemplate() {
-    return new TemplateNested(null);
+    return new TemplateNested<>(null);
   }
   
   public TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
-    return new TemplateNested(item);
+    return new TemplateNested<>(item);
   }
   
   public UpdateStrategyNested<A> withNewUpdateStrategy() {
-    return new UpdateStrategyNested(null);
+    return new UpdateStrategyNested<>(null);
   }
   
   public UpdateStrategyNested<A> withNewUpdateStrategyLike(V1StatefulSetUpdateStrategy item) {
-    return new UpdateStrategyNested(item);
+    return new UpdateStrategyNested<>(item);
   }
   
   public A withOrdinals(V1StatefulSetOrdinals ordinals) {
@@ -553,8 +556,8 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
         this.ordinals = new V1StatefulSetOrdinalsBuilder(ordinals);
         this._visitables.get("ordinals").add(this.ordinals);
     } else {
-        this.ordinals = null;
         this._visitables.get("ordinals").remove(this.ordinals);
+        this.ordinals = null;
     }
     return (A) this;
   }
@@ -565,8 +568,8 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
         this.persistentVolumeClaimRetentionPolicy = new V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(persistentVolumeClaimRetentionPolicy);
         this._visitables.get("persistentVolumeClaimRetentionPolicy").add(this.persistentVolumeClaimRetentionPolicy);
     } else {
-        this.persistentVolumeClaimRetentionPolicy = null;
         this._visitables.get("persistentVolumeClaimRetentionPolicy").remove(this.persistentVolumeClaimRetentionPolicy);
+        this.persistentVolumeClaimRetentionPolicy = null;
     }
     return (A) this;
   }
@@ -592,8 +595,8 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
         this.selector = new V1LabelSelectorBuilder(selector);
         this._visitables.get("selector").add(this.selector);
     } else {
-        this.selector = null;
         this._visitables.get("selector").remove(this.selector);
+        this.selector = null;
     }
     return (A) this;
   }
@@ -609,8 +612,8 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
         this.template = new V1PodTemplateSpecBuilder(template);
         this._visitables.get("template").add(this.template);
     } else {
-        this.template = null;
         this._visitables.get("template").remove(this.template);
+        this.template = null;
     }
     return (A) this;
   }
@@ -621,8 +624,8 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
         this.updateStrategy = new V1StatefulSetUpdateStrategyBuilder(updateStrategy);
         this._visitables.get("updateStrategy").add(this.updateStrategy);
     } else {
-        this.updateStrategy = null;
         this._visitables.get("updateStrategy").remove(this.updateStrategy);
+        this.updateStrategy = null;
     }
     return (A) this;
   }
@@ -632,7 +635,7 @@ public class V1StatefulSetSpecFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("volumeClaimTemplates").clear();
     }
     if (volumeClaimTemplates != null) {
-        this.volumeClaimTemplates = new ArrayList();
+        this.volumeClaimTemplates = new ArrayList<>();
         for (V1PersistentVolumeClaim item : volumeClaimTemplates) {
           this.addToVolumeClaimTemplates(item);
         }

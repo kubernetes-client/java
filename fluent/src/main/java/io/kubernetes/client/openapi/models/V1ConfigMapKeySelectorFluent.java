@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ConfigMapKeySelectorFluent<A extends io.kubernetes.client.openapi.models.V1ConfigMapKeySelectorFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ConfigMapKeySelectorFluent<A extends V1ConfigMapKeySelectorFluent<A>> extends BaseFluent<A>{
 
   private String key;
   private String name;
@@ -56,7 +58,7 @@ public class V1ConfigMapKeySelectorFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V1ConfigMapKeySelectorFluent that = (V1ConfigMapKeySelectorFluent) o;
+    V1ConfigMapKeySelectorFluent<?> that = (V1ConfigMapKeySelectorFluent<?>) o;
     if (!(Objects.equals(key, that.key))) {
       return false;
     }

@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1ClusterTrustBundleSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta1ClusterTrustBundleSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1ClusterTrustBundleSpecFluent<A extends V1beta1ClusterTrustBundleSpecFluent<A>> extends BaseFluent<A>{
 
   private String signerName;
   private String trustBundle;
@@ -53,7 +55,7 @@ public class V1beta1ClusterTrustBundleSpecFluent<A extends io.kubernetes.client.
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1ClusterTrustBundleSpecFluent that = (V1beta1ClusterTrustBundleSpecFluent) o;
+    V1beta1ClusterTrustBundleSpecFluent<?> that = (V1beta1ClusterTrustBundleSpecFluent<?>) o;
     if (!(Objects.equals(signerName, that.signerName))) {
       return false;
     }

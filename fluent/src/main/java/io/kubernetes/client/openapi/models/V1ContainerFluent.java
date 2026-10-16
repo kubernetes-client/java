@@ -27,12 +27,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1ContainerFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ContainerFluent<A extends V1ContainerFluent<A>> extends BaseFluent<A>{
 
   private List<String> args;
   private List<String> command;
@@ -69,7 +71,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
 
   public A addAllToArgs(Collection<String> items) {
     if (this.args == null) {
-      this.args = new ArrayList();
+      this.args = new ArrayList<>();
     }
     for (String item : items) {
       this.args.add(item);
@@ -79,7 +81,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addAllToCommand(Collection<String> items) {
     if (this.command == null) {
-      this.command = new ArrayList();
+      this.command = new ArrayList<>();
     }
     for (String item : items) {
       this.command.add(item);
@@ -89,7 +91,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addAllToEnv(Collection<V1EnvVar> items) {
     if (this.env == null) {
-      this.env = new ArrayList();
+      this.env = new ArrayList<>();
     }
     for (V1EnvVar item : items) {
         V1EnvVarBuilder builder = new V1EnvVarBuilder(item);
@@ -101,7 +103,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addAllToEnvFrom(Collection<V1EnvFromSource> items) {
     if (this.envFrom == null) {
-      this.envFrom = new ArrayList();
+      this.envFrom = new ArrayList<>();
     }
     for (V1EnvFromSource item : items) {
         V1EnvFromSourceBuilder builder = new V1EnvFromSourceBuilder(item);
@@ -113,7 +115,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addAllToPorts(Collection<V1ContainerPort> items) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     for (V1ContainerPort item : items) {
         V1ContainerPortBuilder builder = new V1ContainerPortBuilder(item);
@@ -125,7 +127,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addAllToResizePolicy(Collection<V1ContainerResizePolicy> items) {
     if (this.resizePolicy == null) {
-      this.resizePolicy = new ArrayList();
+      this.resizePolicy = new ArrayList<>();
     }
     for (V1ContainerResizePolicy item : items) {
         V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);
@@ -137,7 +139,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addAllToRestartPolicyRules(Collection<V1ContainerRestartRule> items) {
     if (this.restartPolicyRules == null) {
-      this.restartPolicyRules = new ArrayList();
+      this.restartPolicyRules = new ArrayList<>();
     }
     for (V1ContainerRestartRule item : items) {
         V1ContainerRestartRuleBuilder builder = new V1ContainerRestartRuleBuilder(item);
@@ -149,7 +151,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addAllToVolumeDevices(Collection<V1VolumeDevice> items) {
     if (this.volumeDevices == null) {
-      this.volumeDevices = new ArrayList();
+      this.volumeDevices = new ArrayList<>();
     }
     for (V1VolumeDevice item : items) {
         V1VolumeDeviceBuilder builder = new V1VolumeDeviceBuilder(item);
@@ -161,7 +163,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addAllToVolumeMounts(Collection<V1VolumeMount> items) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList();
+      this.volumeMounts = new ArrayList<>();
     }
     for (V1VolumeMount item : items) {
         V1VolumeMountBuilder builder = new V1VolumeMountBuilder(item);
@@ -172,64 +174,64 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   }
   
   public EnvNested<A> addNewEnv() {
-    return new EnvNested(-1, null);
+    return new EnvNested<>(-1, null);
   }
   
   public EnvFromNested<A> addNewEnvFrom() {
-    return new EnvFromNested(-1, null);
+    return new EnvFromNested<>(-1, null);
   }
   
   public EnvFromNested<A> addNewEnvFromLike(V1EnvFromSource item) {
-    return new EnvFromNested(-1, item);
+    return new EnvFromNested<>(-1, item);
   }
   
   public EnvNested<A> addNewEnvLike(V1EnvVar item) {
-    return new EnvNested(-1, item);
+    return new EnvNested<>(-1, item);
   }
   
   public PortsNested<A> addNewPort() {
-    return new PortsNested(-1, null);
+    return new PortsNested<>(-1, null);
   }
   
   public PortsNested<A> addNewPortLike(V1ContainerPort item) {
-    return new PortsNested(-1, item);
+    return new PortsNested<>(-1, item);
   }
   
   public ResizePolicyNested<A> addNewResizePolicy() {
-    return new ResizePolicyNested(-1, null);
+    return new ResizePolicyNested<>(-1, null);
   }
   
   public ResizePolicyNested<A> addNewResizePolicyLike(V1ContainerResizePolicy item) {
-    return new ResizePolicyNested(-1, item);
+    return new ResizePolicyNested<>(-1, item);
   }
   
   public RestartPolicyRulesNested<A> addNewRestartPolicyRule() {
-    return new RestartPolicyRulesNested(-1, null);
+    return new RestartPolicyRulesNested<>(-1, null);
   }
   
   public RestartPolicyRulesNested<A> addNewRestartPolicyRuleLike(V1ContainerRestartRule item) {
-    return new RestartPolicyRulesNested(-1, item);
+    return new RestartPolicyRulesNested<>(-1, item);
   }
   
   public VolumeDevicesNested<A> addNewVolumeDevice() {
-    return new VolumeDevicesNested(-1, null);
+    return new VolumeDevicesNested<>(-1, null);
   }
   
   public VolumeDevicesNested<A> addNewVolumeDeviceLike(V1VolumeDevice item) {
-    return new VolumeDevicesNested(-1, item);
+    return new VolumeDevicesNested<>(-1, item);
   }
   
   public VolumeMountsNested<A> addNewVolumeMount() {
-    return new VolumeMountsNested(-1, null);
+    return new VolumeMountsNested<>(-1, null);
   }
   
   public VolumeMountsNested<A> addNewVolumeMountLike(V1VolumeMount item) {
-    return new VolumeMountsNested(-1, item);
+    return new VolumeMountsNested<>(-1, item);
   }
   
   public A addToArgs(String... items) {
     if (this.args == null) {
-      this.args = new ArrayList();
+      this.args = new ArrayList<>();
     }
     for (String item : items) {
       this.args.add(item);
@@ -239,7 +241,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToArgs(int index,String item) {
     if (this.args == null) {
-      this.args = new ArrayList();
+      this.args = new ArrayList<>();
     }
     this.args.add(index, item);
     return (A) this;
@@ -247,7 +249,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToCommand(String... items) {
     if (this.command == null) {
-      this.command = new ArrayList();
+      this.command = new ArrayList<>();
     }
     for (String item : items) {
       this.command.add(item);
@@ -257,7 +259,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToCommand(int index,String item) {
     if (this.command == null) {
-      this.command = new ArrayList();
+      this.command = new ArrayList<>();
     }
     this.command.add(index, item);
     return (A) this;
@@ -265,7 +267,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToEnv(V1EnvVar... items) {
     if (this.env == null) {
-      this.env = new ArrayList();
+      this.env = new ArrayList<>();
     }
     for (V1EnvVar item : items) {
         V1EnvVarBuilder builder = new V1EnvVarBuilder(item);
@@ -277,7 +279,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToEnv(int index,V1EnvVar item) {
     if (this.env == null) {
-      this.env = new ArrayList();
+      this.env = new ArrayList<>();
     }
     V1EnvVarBuilder builder = new V1EnvVarBuilder(item);
     if (index < 0 || index >= this.env.size()) {
@@ -292,7 +294,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToEnvFrom(V1EnvFromSource... items) {
     if (this.envFrom == null) {
-      this.envFrom = new ArrayList();
+      this.envFrom = new ArrayList<>();
     }
     for (V1EnvFromSource item : items) {
         V1EnvFromSourceBuilder builder = new V1EnvFromSourceBuilder(item);
@@ -304,7 +306,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToEnvFrom(int index,V1EnvFromSource item) {
     if (this.envFrom == null) {
-      this.envFrom = new ArrayList();
+      this.envFrom = new ArrayList<>();
     }
     V1EnvFromSourceBuilder builder = new V1EnvFromSourceBuilder(item);
     if (index < 0 || index >= this.envFrom.size()) {
@@ -319,7 +321,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToPorts(V1ContainerPort... items) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     for (V1ContainerPort item : items) {
         V1ContainerPortBuilder builder = new V1ContainerPortBuilder(item);
@@ -331,7 +333,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToPorts(int index,V1ContainerPort item) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     V1ContainerPortBuilder builder = new V1ContainerPortBuilder(item);
     if (index < 0 || index >= this.ports.size()) {
@@ -346,7 +348,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToResizePolicy(V1ContainerResizePolicy... items) {
     if (this.resizePolicy == null) {
-      this.resizePolicy = new ArrayList();
+      this.resizePolicy = new ArrayList<>();
     }
     for (V1ContainerResizePolicy item : items) {
         V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);
@@ -358,7 +360,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToResizePolicy(int index,V1ContainerResizePolicy item) {
     if (this.resizePolicy == null) {
-      this.resizePolicy = new ArrayList();
+      this.resizePolicy = new ArrayList<>();
     }
     V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);
     if (index < 0 || index >= this.resizePolicy.size()) {
@@ -373,7 +375,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToRestartPolicyRules(V1ContainerRestartRule... items) {
     if (this.restartPolicyRules == null) {
-      this.restartPolicyRules = new ArrayList();
+      this.restartPolicyRules = new ArrayList<>();
     }
     for (V1ContainerRestartRule item : items) {
         V1ContainerRestartRuleBuilder builder = new V1ContainerRestartRuleBuilder(item);
@@ -385,7 +387,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToRestartPolicyRules(int index,V1ContainerRestartRule item) {
     if (this.restartPolicyRules == null) {
-      this.restartPolicyRules = new ArrayList();
+      this.restartPolicyRules = new ArrayList<>();
     }
     V1ContainerRestartRuleBuilder builder = new V1ContainerRestartRuleBuilder(item);
     if (index < 0 || index >= this.restartPolicyRules.size()) {
@@ -400,7 +402,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToVolumeDevices(V1VolumeDevice... items) {
     if (this.volumeDevices == null) {
-      this.volumeDevices = new ArrayList();
+      this.volumeDevices = new ArrayList<>();
     }
     for (V1VolumeDevice item : items) {
         V1VolumeDeviceBuilder builder = new V1VolumeDeviceBuilder(item);
@@ -412,7 +414,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToVolumeDevices(int index,V1VolumeDevice item) {
     if (this.volumeDevices == null) {
-      this.volumeDevices = new ArrayList();
+      this.volumeDevices = new ArrayList<>();
     }
     V1VolumeDeviceBuilder builder = new V1VolumeDeviceBuilder(item);
     if (index < 0 || index >= this.volumeDevices.size()) {
@@ -427,7 +429,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToVolumeMounts(V1VolumeMount... items) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList();
+      this.volumeMounts = new ArrayList<>();
     }
     for (V1VolumeMount item : items) {
         V1VolumeMountBuilder builder = new V1VolumeMountBuilder(item);
@@ -439,7 +441,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToVolumeMounts(int index,V1VolumeMount item) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList();
+      this.volumeMounts = new ArrayList<>();
     }
     V1VolumeMountBuilder builder = new V1VolumeMountBuilder(item);
     if (index < 0 || index >= this.volumeMounts.size()) {
@@ -1016,7 +1018,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
     if (!(super.equals(o))) {
       return false;
     }
-    V1ContainerFluent that = (V1ContainerFluent) o;
+    V1ContainerFluent<?> that = (V1ContainerFluent<?>) o;
     if (!(Objects.equals(args, that.args))) {
       return false;
     }
@@ -1583,6 +1585,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       return (A) this;
     }
     Iterator<V1EnvVarBuilder> each = env.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("env");
     while (each.hasNext()) {
         V1EnvVarBuilder builder = each.next();
@@ -1599,6 +1602,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       return (A) this;
     }
     Iterator<V1EnvFromSourceBuilder> each = envFrom.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("envFrom");
     while (each.hasNext()) {
         V1EnvFromSourceBuilder builder = each.next();
@@ -1615,6 +1619,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       return (A) this;
     }
     Iterator<V1ContainerPortBuilder> each = ports.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("ports");
     while (each.hasNext()) {
         V1ContainerPortBuilder builder = each.next();
@@ -1631,6 +1636,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       return (A) this;
     }
     Iterator<V1ContainerResizePolicyBuilder> each = resizePolicy.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("resizePolicy");
     while (each.hasNext()) {
         V1ContainerResizePolicyBuilder builder = each.next();
@@ -1647,6 +1653,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       return (A) this;
     }
     Iterator<V1ContainerRestartRuleBuilder> each = restartPolicyRules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("restartPolicyRules");
     while (each.hasNext()) {
         V1ContainerRestartRuleBuilder builder = each.next();
@@ -1663,6 +1670,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       return (A) this;
     }
     Iterator<V1VolumeDeviceBuilder> each = volumeDevices.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("volumeDevices");
     while (each.hasNext()) {
         V1VolumeDeviceBuilder builder = each.next();
@@ -1679,6 +1687,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       return (A) this;
     }
     Iterator<V1VolumeMountBuilder> each = volumeMounts.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("volumeMounts");
     while (each.hasNext()) {
         V1VolumeMountBuilder builder = each.next();
@@ -1691,36 +1700,36 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   }
   
   public EnvFromNested<A> setNewEnvFromLike(int index,V1EnvFromSource item) {
-    return new EnvFromNested(index, item);
+    return new EnvFromNested<>(index, item);
   }
   
   public EnvNested<A> setNewEnvLike(int index,V1EnvVar item) {
-    return new EnvNested(index, item);
+    return new EnvNested<>(index, item);
   }
   
   public PortsNested<A> setNewPortLike(int index,V1ContainerPort item) {
-    return new PortsNested(index, item);
+    return new PortsNested<>(index, item);
   }
   
   public ResizePolicyNested<A> setNewResizePolicyLike(int index,V1ContainerResizePolicy item) {
-    return new ResizePolicyNested(index, item);
+    return new ResizePolicyNested<>(index, item);
   }
   
   public RestartPolicyRulesNested<A> setNewRestartPolicyRuleLike(int index,V1ContainerRestartRule item) {
-    return new RestartPolicyRulesNested(index, item);
+    return new RestartPolicyRulesNested<>(index, item);
   }
   
   public VolumeDevicesNested<A> setNewVolumeDeviceLike(int index,V1VolumeDevice item) {
-    return new VolumeDevicesNested(index, item);
+    return new VolumeDevicesNested<>(index, item);
   }
   
   public VolumeMountsNested<A> setNewVolumeMountLike(int index,V1VolumeMount item) {
-    return new VolumeMountsNested(index, item);
+    return new VolumeMountsNested<>(index, item);
   }
   
   public A setToArgs(int index,String item) {
     if (this.args == null) {
-      this.args = new ArrayList();
+      this.args = new ArrayList<>();
     }
     this.args.set(index, item);
     return (A) this;
@@ -1728,7 +1737,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A setToCommand(int index,String item) {
     if (this.command == null) {
-      this.command = new ArrayList();
+      this.command = new ArrayList<>();
     }
     this.command.set(index, item);
     return (A) this;
@@ -1736,7 +1745,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A setToEnv(int index,V1EnvVar item) {
     if (this.env == null) {
-      this.env = new ArrayList();
+      this.env = new ArrayList<>();
     }
     V1EnvVarBuilder builder = new V1EnvVarBuilder(item);
     if (index < 0 || index >= this.env.size()) {
@@ -1751,7 +1760,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A setToEnvFrom(int index,V1EnvFromSource item) {
     if (this.envFrom == null) {
-      this.envFrom = new ArrayList();
+      this.envFrom = new ArrayList<>();
     }
     V1EnvFromSourceBuilder builder = new V1EnvFromSourceBuilder(item);
     if (index < 0 || index >= this.envFrom.size()) {
@@ -1766,7 +1775,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A setToPorts(int index,V1ContainerPort item) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     V1ContainerPortBuilder builder = new V1ContainerPortBuilder(item);
     if (index < 0 || index >= this.ports.size()) {
@@ -1781,7 +1790,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A setToResizePolicy(int index,V1ContainerResizePolicy item) {
     if (this.resizePolicy == null) {
-      this.resizePolicy = new ArrayList();
+      this.resizePolicy = new ArrayList<>();
     }
     V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);
     if (index < 0 || index >= this.resizePolicy.size()) {
@@ -1796,7 +1805,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A setToRestartPolicyRules(int index,V1ContainerRestartRule item) {
     if (this.restartPolicyRules == null) {
-      this.restartPolicyRules = new ArrayList();
+      this.restartPolicyRules = new ArrayList<>();
     }
     V1ContainerRestartRuleBuilder builder = new V1ContainerRestartRuleBuilder(item);
     if (index < 0 || index >= this.restartPolicyRules.size()) {
@@ -1811,7 +1820,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A setToVolumeDevices(int index,V1VolumeDevice item) {
     if (this.volumeDevices == null) {
-      this.volumeDevices = new ArrayList();
+      this.volumeDevices = new ArrayList<>();
     }
     V1VolumeDeviceBuilder builder = new V1VolumeDeviceBuilder(item);
     if (index < 0 || index >= this.volumeDevices.size()) {
@@ -1826,7 +1835,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A setToVolumeMounts(int index,V1VolumeMount item) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList();
+      this.volumeMounts = new ArrayList<>();
     }
     V1VolumeMountBuilder builder = new V1VolumeMountBuilder(item);
     if (index < 0 || index >= this.volumeMounts.size()) {
@@ -1972,7 +1981,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A withArgs(List<String> args) {
     if (args != null) {
-        this.args = new ArrayList();
+        this.args = new ArrayList<>();
         for (String item : args) {
           this.addToArgs(item);
         }
@@ -1997,7 +2006,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A withCommand(List<String> command) {
     if (command != null) {
-        this.command = new ArrayList();
+        this.command = new ArrayList<>();
         for (String item : command) {
           this.addToCommand(item);
         }
@@ -2025,7 +2034,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       this._visitables.get("env").clear();
     }
     if (env != null) {
-        this.env = new ArrayList();
+        this.env = new ArrayList<>();
         for (V1EnvVar item : env) {
           this.addToEnv(item);
         }
@@ -2053,7 +2062,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       this._visitables.get("envFrom").clear();
     }
     if (envFrom != null) {
-        this.envFrom = new ArrayList();
+        this.envFrom = new ArrayList<>();
         for (V1EnvFromSource item : envFrom) {
           this.addToEnvFrom(item);
         }
@@ -2092,8 +2101,8 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
         this.lifecycle = new V1LifecycleBuilder(lifecycle);
         this._visitables.get("lifecycle").add(this.lifecycle);
     } else {
-        this.lifecycle = null;
         this._visitables.get("lifecycle").remove(this.lifecycle);
+        this.lifecycle = null;
     }
     return (A) this;
   }
@@ -2104,8 +2113,8 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
         this.livenessProbe = new V1ProbeBuilder(livenessProbe);
         this._visitables.get("livenessProbe").add(this.livenessProbe);
     } else {
-        this.livenessProbe = null;
         this._visitables.get("livenessProbe").remove(this.livenessProbe);
+        this.livenessProbe = null;
     }
     return (A) this;
   }
@@ -2116,51 +2125,51 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
   }
   
   public LifecycleNested<A> withNewLifecycle() {
-    return new LifecycleNested(null);
+    return new LifecycleNested<>(null);
   }
   
   public LifecycleNested<A> withNewLifecycleLike(V1Lifecycle item) {
-    return new LifecycleNested(item);
+    return new LifecycleNested<>(item);
   }
   
   public LivenessProbeNested<A> withNewLivenessProbe() {
-    return new LivenessProbeNested(null);
+    return new LivenessProbeNested<>(null);
   }
   
   public LivenessProbeNested<A> withNewLivenessProbeLike(V1Probe item) {
-    return new LivenessProbeNested(item);
+    return new LivenessProbeNested<>(item);
   }
   
   public ReadinessProbeNested<A> withNewReadinessProbe() {
-    return new ReadinessProbeNested(null);
+    return new ReadinessProbeNested<>(null);
   }
   
   public ReadinessProbeNested<A> withNewReadinessProbeLike(V1Probe item) {
-    return new ReadinessProbeNested(item);
+    return new ReadinessProbeNested<>(item);
   }
   
   public ResourcesNested<A> withNewResources() {
-    return new ResourcesNested(null);
+    return new ResourcesNested<>(null);
   }
   
   public ResourcesNested<A> withNewResourcesLike(V1ResourceRequirements item) {
-    return new ResourcesNested(item);
+    return new ResourcesNested<>(item);
   }
   
   public SecurityContextNested<A> withNewSecurityContext() {
-    return new SecurityContextNested(null);
+    return new SecurityContextNested<>(null);
   }
   
   public SecurityContextNested<A> withNewSecurityContextLike(V1SecurityContext item) {
-    return new SecurityContextNested(item);
+    return new SecurityContextNested<>(item);
   }
   
   public StartupProbeNested<A> withNewStartupProbe() {
-    return new StartupProbeNested(null);
+    return new StartupProbeNested<>(null);
   }
   
   public StartupProbeNested<A> withNewStartupProbeLike(V1Probe item) {
-    return new StartupProbeNested(item);
+    return new StartupProbeNested<>(item);
   }
   
   public A withPorts(List<V1ContainerPort> ports) {
@@ -2168,7 +2177,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       this._visitables.get("ports").clear();
     }
     if (ports != null) {
-        this.ports = new ArrayList();
+        this.ports = new ArrayList<>();
         for (V1ContainerPort item : ports) {
           this.addToPorts(item);
         }
@@ -2197,8 +2206,8 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
         this.readinessProbe = new V1ProbeBuilder(readinessProbe);
         this._visitables.get("readinessProbe").add(this.readinessProbe);
     } else {
-        this.readinessProbe = null;
         this._visitables.get("readinessProbe").remove(this.readinessProbe);
+        this.readinessProbe = null;
     }
     return (A) this;
   }
@@ -2208,7 +2217,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       this._visitables.get("resizePolicy").clear();
     }
     if (resizePolicy != null) {
-        this.resizePolicy = new ArrayList();
+        this.resizePolicy = new ArrayList<>();
         for (V1ContainerResizePolicy item : resizePolicy) {
           this.addToResizePolicy(item);
         }
@@ -2237,8 +2246,8 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
         this.resources = new V1ResourceRequirementsBuilder(resources);
         this._visitables.get("resources").add(this.resources);
     } else {
-        this.resources = null;
         this._visitables.get("resources").remove(this.resources);
+        this.resources = null;
     }
     return (A) this;
   }
@@ -2253,7 +2262,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       this._visitables.get("restartPolicyRules").clear();
     }
     if (restartPolicyRules != null) {
-        this.restartPolicyRules = new ArrayList();
+        this.restartPolicyRules = new ArrayList<>();
         for (V1ContainerRestartRule item : restartPolicyRules) {
           this.addToRestartPolicyRules(item);
         }
@@ -2282,8 +2291,8 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
         this.securityContext = new V1SecurityContextBuilder(securityContext);
         this._visitables.get("securityContext").add(this.securityContext);
     } else {
-        this.securityContext = null;
         this._visitables.get("securityContext").remove(this.securityContext);
+        this.securityContext = null;
     }
     return (A) this;
   }
@@ -2294,8 +2303,8 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
         this.startupProbe = new V1ProbeBuilder(startupProbe);
         this._visitables.get("startupProbe").add(this.startupProbe);
     } else {
-        this.startupProbe = null;
         this._visitables.get("startupProbe").remove(this.startupProbe);
+        this.startupProbe = null;
     }
     return (A) this;
   }
@@ -2342,7 +2351,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       this._visitables.get("volumeDevices").clear();
     }
     if (volumeDevices != null) {
-        this.volumeDevices = new ArrayList();
+        this.volumeDevices = new ArrayList<>();
         for (V1VolumeDevice item : volumeDevices) {
           this.addToVolumeDevices(item);
         }
@@ -2370,7 +2379,7 @@ public class V1ContainerFluent<A extends io.kubernetes.client.openapi.models.V1C
       this._visitables.get("volumeMounts").clear();
     }
     if (volumeMounts != null) {
-        this.volumeMounts = new ArrayList();
+        this.volumeMounts = new ArrayList<>();
         for (V1VolumeMount item : volumeMounts) {
           this.addToVolumeMounts(item);
         }

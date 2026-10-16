@@ -19,12 +19,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ContainerStateRunningFluent<A extends io.kubernetes.client.openapi.models.V1ContainerStateRunningFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ContainerStateRunningFluent<A extends V1ContainerStateRunningFluent<A>> extends BaseFluent<A>{
 
   private OffsetDateTime startedAt;
 
@@ -52,7 +54,7 @@ public class V1ContainerStateRunningFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1ContainerStateRunningFluent that = (V1ContainerStateRunningFluent) o;
+    V1ContainerStateRunningFluent<?> that = (V1ContainerStateRunningFluent<?>) o;
     if (!(Objects.equals(startedAt, that.startedAt))) {
       return false;
     }

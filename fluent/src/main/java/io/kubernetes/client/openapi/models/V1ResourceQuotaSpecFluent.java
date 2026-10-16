@@ -27,12 +27,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ResourceQuotaSpecFluent<A extends io.kubernetes.client.openapi.models.V1ResourceQuotaSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ResourceQuotaSpecFluent<A extends V1ResourceQuotaSpecFluent<A>> extends BaseFluent<A>{
 
   private Map<String,Quantity> hard;
   private V1ScopeSelectorBuilder scopeSelector;
@@ -47,7 +49,7 @@ public class V1ResourceQuotaSpecFluent<A extends io.kubernetes.client.openapi.mo
 
   public A addAllToScopes(Collection<String> items) {
     if (this.scopes == null) {
-      this.scopes = new ArrayList();
+      this.scopes = new ArrayList<>();
     }
     for (String item : items) {
       this.scopes.add(item);
@@ -57,7 +59,7 @@ public class V1ResourceQuotaSpecFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToHard(Map<String,Quantity> map) {
     if (this.hard == null && map != null) {
-      this.hard = new LinkedHashMap();
+      this.hard = new LinkedHashMap<>();
     }
     if (map != null) {
       this.hard.putAll(map);
@@ -67,7 +69,7 @@ public class V1ResourceQuotaSpecFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToHard(String key,Quantity value) {
     if (this.hard == null && key != null && value != null) {
-      this.hard = new LinkedHashMap();
+      this.hard = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.hard.put(key, value);
@@ -77,7 +79,7 @@ public class V1ResourceQuotaSpecFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToScopes(String... items) {
     if (this.scopes == null) {
-      this.scopes = new ArrayList();
+      this.scopes = new ArrayList<>();
     }
     for (String item : items) {
       this.scopes.add(item);
@@ -87,7 +89,7 @@ public class V1ResourceQuotaSpecFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToScopes(int index,String item) {
     if (this.scopes == null) {
-      this.scopes = new ArrayList();
+      this.scopes = new ArrayList<>();
     }
     this.scopes.add(index, item);
     return (A) this;
@@ -128,7 +130,7 @@ public class V1ResourceQuotaSpecFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1ResourceQuotaSpecFluent that = (V1ResourceQuotaSpecFluent) o;
+    V1ResourceQuotaSpecFluent<?> that = (V1ResourceQuotaSpecFluent<?>) o;
     if (!(Objects.equals(hard, that.hard))) {
       return false;
     }
@@ -241,7 +243,7 @@ public class V1ResourceQuotaSpecFluent<A extends io.kubernetes.client.openapi.mo
   
   public A setToScopes(int index,String item) {
     if (this.scopes == null) {
-      this.scopes = new ArrayList();
+      this.scopes = new ArrayList<>();
     }
     this.scopes.set(index, item);
     return (A) this;
@@ -272,17 +274,17 @@ public class V1ResourceQuotaSpecFluent<A extends io.kubernetes.client.openapi.mo
     if (hard == null) {
       this.hard = null;
     } else {
-      this.hard = new LinkedHashMap(hard);
+      this.hard = new LinkedHashMap<>(hard);
     }
     return (A) this;
   }
   
   public ScopeSelectorNested<A> withNewScopeSelector() {
-    return new ScopeSelectorNested(null);
+    return new ScopeSelectorNested<>(null);
   }
   
   public ScopeSelectorNested<A> withNewScopeSelectorLike(V1ScopeSelector item) {
-    return new ScopeSelectorNested(item);
+    return new ScopeSelectorNested<>(item);
   }
   
   public A withScopeSelector(V1ScopeSelector scopeSelector) {
@@ -291,15 +293,15 @@ public class V1ResourceQuotaSpecFluent<A extends io.kubernetes.client.openapi.mo
         this.scopeSelector = new V1ScopeSelectorBuilder(scopeSelector);
         this._visitables.get("scopeSelector").add(this.scopeSelector);
     } else {
-        this.scopeSelector = null;
         this._visitables.get("scopeSelector").remove(this.scopeSelector);
+        this.scopeSelector = null;
     }
     return (A) this;
   }
   
   public A withScopes(List<String> scopes) {
     if (scopes != null) {
-        this.scopes = new ArrayList();
+        this.scopes = new ArrayList<>();
         for (String item : scopes) {
           this.addToScopes(item);
         }

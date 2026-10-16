@@ -54,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * HTTPGetAction describes an action based on HTTP Get requests.
  */
 @ApiModel(description = "HTTPGetAction describes an action based on HTTP Get requests.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1HTTPGetAction {
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
@@ -75,6 +75,11 @@ public class V1HTTPGetAction {
   @SerializedName(SERIALIZED_NAME_PORT)
   @jakarta.annotation.Nonnull
   private IntOrString port;
+
+  public static final String SERIALIZED_NAME_PROTOCOL = "protocol";
+  @SerializedName(SERIALIZED_NAME_PROTOCOL)
+  @jakarta.annotation.Nullable
+  private String protocol;
 
   public static final String SERIALIZED_NAME_SCHEME = "scheme";
   @SerializedName(SERIALIZED_NAME_SCHEME)
@@ -172,6 +177,26 @@ public class V1HTTPGetAction {
   }
 
 
+  public V1HTTPGetAction protocol(@jakarta.annotation.Nullable String protocol) {
+    this.protocol = protocol;
+    return this;
+  }
+
+  /**
+   * Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.
+   * @return protocol
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Protocol selects the wire protocol for the probe connection. Nil defaults to HTTP/1.1.")
+  public String getProtocol() {
+    return protocol;
+  }
+
+  public void setProtocol(@jakarta.annotation.Nullable String protocol) {
+    this.protocol = protocol;
+  }
+
+
   public V1HTTPGetAction scheme(@jakarta.annotation.Nullable String scheme) {
     this.scheme = scheme;
     return this;
@@ -206,12 +231,13 @@ public class V1HTTPGetAction {
         Objects.equals(this.httpHeaders, v1HTTPGetAction.httpHeaders) &&
         Objects.equals(this.path, v1HTTPGetAction.path) &&
         Objects.equals(this.port, v1HTTPGetAction.port) &&
+        Objects.equals(this.protocol, v1HTTPGetAction.protocol) &&
         Objects.equals(this.scheme, v1HTTPGetAction.scheme);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, httpHeaders, path, port, scheme);
+    return Objects.hash(host, httpHeaders, path, port, protocol, scheme);
   }
 
   @Override
@@ -222,6 +248,7 @@ public class V1HTTPGetAction {
     sb.append("    httpHeaders: ").append(toIndentedString(httpHeaders)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    scheme: ").append(toIndentedString(scheme)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -244,7 +271,7 @@ public class V1HTTPGetAction {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("host", "httpHeaders", "path", "port", "scheme"));
+    openapiFields = new HashSet<String>(Arrays.asList("host", "httpHeaders", "path", "port", "protocol", "scheme"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("port"));
@@ -300,6 +327,9 @@ public class V1HTTPGetAction {
       }
       if (!jsonObj.get("port").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port").toString()));
+      }
+      if ((jsonObj.get("protocol") != null && !jsonObj.get("protocol").isJsonNull()) && !jsonObj.get("protocol").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protocol").toString()));
       }
       if ((jsonObj.get("scheme") != null && !jsonObj.get("scheme").isJsonNull()) && !jsonObj.get("scheme").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scheme` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scheme").toString()));
