@@ -22,6 +22,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Supplier;
+
 import org.apache.commons.lang3.tuple.MutablePair;
 
 public class EventAggregator {
@@ -31,9 +33,18 @@ public class EventAggregator {
       java.time.Duration.ofSeconds(600);
 
   public EventAggregator(
+     int maxLRUCacheEntries,
+     Function<CoreV1Event, MutablePair<String, String>> keyFunc,
+     Function<CoreV1Event, String> messageFunc) {
+      this(maxLRUCacheEntries, keyFunc, messageFunc, OffsetDateTime::now);
+  }
+
+  public EventAggregator(
       int maxLRUCacheEntries,
       Function<CoreV1Event, MutablePair<String, String>> keyFunc,
-      Function<CoreV1Event, String> messageFunc) {
+      Function<CoreV1Event, String> messageFunc,
+      Supplier<OffsetDateTime> now) {
+    this.now = now;
     this.keyFunc = keyFunc;
     this.messageFunc = messageFunc;
     this.maxEvents = DEFAULT_MAX_EVENT_LOCAL_KEYS;
@@ -47,11 +58,12 @@ public class EventAggregator {
   private Cache<String, AggregatedRecord> spammingCache;
   private Function<CoreV1Event, MutablePair<String, String>> keyFunc;
   private Function<CoreV1Event, String> messageFunc;
+  private final Supplier<OffsetDateTime> now;
 
   private final int maxEvents;
 
   public synchronized MutablePair<CoreV1Event, String> aggregate(CoreV1Event event) {
-    OffsetDateTime now = OffsetDateTime.now();
+    OffsetDateTime now = this.now.get();
 
     MutablePair<String, String> aggregatedKeys = keyFunc.apply(event);
     String aggregatedKey = aggregatedKeys.getLeft();
