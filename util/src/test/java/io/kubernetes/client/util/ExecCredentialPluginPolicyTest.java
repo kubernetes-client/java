@@ -317,7 +317,18 @@ class ExecCredentialPluginPolicyTest {
 
   @Test
   void denyAllDoesNotAffectNonExecCredentials() {
-    KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(KubeConfigTest.KUBECONFIG_TOKEN));
+    String tokenConfig =
+        "apiVersion: v1\n"
+            + "current-context: c\n"
+            + "contexts:\n"
+            + "- name: c\n"
+            + "  context:\n"
+            + "    user: u\n"
+            + "users:\n"
+            + "- name: u\n"
+            + "  user:\n"
+            + "    token: foobaz\n";
+    KubeConfig kc = KubeConfig.loadKubeConfig(new StringReader(tokenConfig));
     kc.setExecCredentialPluginPolicy(ExecCredentialPluginPolicy.DENY_ALL);
     assertThat(kc.getCredentials()).containsEntry(KubeConfig.CRED_TOKEN_KEY, "foobaz");
   }
