@@ -14,6 +14,7 @@ package io.kubernetes.client;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.awaitility.Awaitility.await;
 
 import io.kubernetes.client.util.WebSocketStreamHandler;
 import java.io.ByteArrayInputStream;
@@ -22,6 +23,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 import okhttp3.Request;
 import okhttp3.WebSocket;
 import okio.ByteString;
@@ -184,6 +187,53 @@ class WebsocketStreamHandlerTest {
     // After closing, handler should be closed
     assertThat(handler.isClosed()).isTrue();
     assertThat(mockWebSocket.closed).isTrue();
+  }
+
+  @Test
+  void handlerClosedBeforeOpenWithOutputStream() {
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    handler.getOutputStream(0);
+
+    // Simulates a connection failure (e.g. a non-101 upgrade response) before the socket opens.
+    handler.close();
+
+    assertThat(handler.isClosed()).isTrue();
+  }
+
+  @Test
+  void writeFailsWhenHandlerClosedBeforeOpen() throws Exception {
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    OutputStream outputStream = handler.getOutputStream(0);
+    handler.close();
+
+    assertThatThrownBy(() -> outputStream.write(new byte[] {1}))
+        .isInstanceOf(IllegalStateException.class);
+  }
+
+  @Test
+  void blockedWriteIsReleasedWhenHandlerClosedBeforeOpen() throws Exception {
+    WebSocketStreamHandler handler = new WebSocketStreamHandler();
+    OutputStream outputStream = handler.getOutputStream(0);
+
+    AtomicReference<Throwable> writeError = new AtomicReference<>();
+    Thread writer =
+        new Thread(
+            () -> {
+              try {
+                outputStream.write(new byte[] {1});
+              } catch (Throwable t) {
+                writeError.set(t);
+              }
+            });
+    writer.start();
+
+    // Wait until the writer is blocked waiting for the socket to be opened.
+    await().atMost(10, TimeUnit.SECONDS).until(() -> writer.getState() == Thread.State.WAITING);
+    handler.close();
+
+    writer.join(TimeUnit.SECONDS.toMillis(10));
+    assertThat(writer.isAlive()).isFalse();
+    assertThat(writeError.get()).isInstanceOf(IllegalStateException.class);
   }
 
   private static class MockWebSocket implements WebSocket {

@@ -18,13 +18,11 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
+import static org.awaitility.Awaitility.await;
 
-import com.github.tomakehurst.wiremock.core.Admin;
-import com.github.tomakehurst.wiremock.extension.Parameters;
-import com.github.tomakehurst.wiremock.extension.PostServeAction;
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.matching.AnythingPattern;
-import com.github.tomakehurst.wiremock.stubbing.ServeEvent;
+import com.github.tomakehurst.wiremock.matching.RequestPatternBuilder;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
@@ -40,7 +38,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -125,24 +122,58 @@ class CopyTest {
     }
   }
 
-  public static class CountDownLatchAction extends PostServeAction {
-    @Override
-    public String getName() {
-      return "countdown";
-    }
-
-    @Override
-    public void doAction(ServeEvent serveEvent, Admin admin, Parameters parameters) {
-      CountDownLatch latch = (CountDownLatch) parameters.get("latch");
-      latch.countDown();
-    }
-  }
-
   @RegisterExtension
   static WireMockExtension apiServer =
       WireMockExtension.newInstance()
-          .options(wireMockConfig().dynamicPort().extensions(new CountDownLatchAction()))
+          .options(wireMockConfig().dynamicPort())
           .build();
+
+  private RequestPatternBuilder execRequest() {
+    return getRequestedFor(
+        urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"));
+  }
+
+  private void stubExecNotFound() {
+    apiServer.stubFor(
+        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+            .willReturn(
+                aResponse()
+                    .withStatus(404)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody("{}")));
+  }
+
+  /**
+   * Runs the given action on a background thread, waits until WireMock has recorded an exec
+   * request, then stops the thread and waits for it to terminate so it cannot leak into later
+   * tests.
+   */
+  private void runUntilExecRequested(ThrowingRunnable action) throws InterruptedException {
+    Thread t =
+        new Thread(
+            () -> {
+              try {
+                action.run();
+              } catch (Exception ex) {
+                // Expected: the mock server rejects the websocket upgrade.
+              }
+            });
+    t.start();
+    try {
+      await()
+          .atMost(30, TimeUnit.SECONDS)
+          .until(() -> !apiServer.findAll(execRequest()).isEmpty());
+    } finally {
+      t.interrupt();
+      t.join(TimeUnit.SECONDS.toMillis(30));
+    }
+    assertFalse(t.isAlive(), "background copy thread did not terminate");
+  }
+
+  @FunctionalInterface
+  private interface ThrowingRunnable {
+    void run() throws Exception;
+  }
 
   @BeforeEach
   void setup() {
@@ -187,46 +218,19 @@ class CopyTest {
 
   @Test
   void copyFileToPod(@TempDir Path tempDir) throws Exception {
-
     Path testFile = Files.createTempFile(tempDir, "testfile", null);
 
     Copy copy = new Copy(client);
 
-    CountDownLatch latch = new CountDownLatch(1);
-    Parameters params = new Parameters();
-    params.put("latch", latch);
+    stubExecNotFound();
 
-    apiServer.stubFor(
-        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
-            .withPostServeAction("countdown", params)
-            .willReturn(
-                aResponse()
-                    .withStatus(404)
-                    .withHeader("Content-Type", "application/json")
-                    .withBody("{}")));
-
-    // When attempting to write to the process outputstream in copyFileToPod, the
-    // WebSocketStreamHandler is in a wait state because no websocket is created by mock, which
-    // blocks the main thread. So here we execute the method in a thread.
-    Thread t =
-        new Thread(
-            new Runnable() {
-              public void run() {
-                try {
-                  copy.copyFileToPod(
-                      namespace, podName, "", testFile, Paths.get("/copied-testfile"));
-                } catch (IOException | ApiException ex) {
-                  ex.printStackTrace();
-                }
-              }
-            });
-    t.start();
-    assertTrue(latch.await(30, TimeUnit.SECONDS));
-    t.interrupt();
+    // The mock server never upgrades to a websocket, so run the copy in the background and only
+    // wait for the exec request to reach the server.
+    runUntilExecRequested(
+        () -> copy.copyFileToPod(namespace, podName, "", testFile, Paths.get("/copied-testfile")));
 
     apiServer.verify(
-        getRequestedFor(
-                urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+        execRequest()
             .withQueryParam("stdin", equalTo("true"))
             .withQueryParam("stdout", equalTo("true"))
             .withQueryParam("stderr", equalTo("true"))
@@ -238,46 +242,17 @@ class CopyTest {
 
   @Test
   void copyBinaryDataToPod() throws InterruptedException {
-
     byte[] testSrc = new byte[0];
 
     Copy copy = new Copy(client);
 
-    CountDownLatch latch = new CountDownLatch(1);
-    Parameters params = new Parameters();
-    params.put("latch", latch);
+    stubExecNotFound();
 
-    apiServer.stubFor(
-        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
-            .withPostServeAction("countdown", params)
-            .willReturn(
-                aResponse()
-                    .withStatus(404)
-                    .withHeader("Content-Type", "application/json")
-                    .withBody("{}")));
-
-    // When attempting to write to the process outputstream in copyFileToPod, the
-    // WebSocketStreamHandler is in a wait state because no websocket is created by mock, which
-    // blocks the main thread. So here we execute the method in a thread.
-    Thread t =
-        new Thread(
-            new Runnable() {
-              public void run() {
-                try {
-                  copy.copyFileToPod(
-                      namespace, podName, "", testSrc, Paths.get("/copied-binarydata"));
-                } catch (IOException | ApiException ex) {
-                  ex.printStackTrace();
-                }
-              }
-            });
-    t.start();
-    assertTrue(latch.await(30, TimeUnit.SECONDS));
-    t.interrupt();
+    runUntilExecRequested(
+        () -> copy.copyFileToPod(namespace, podName, "", testSrc, Paths.get("/copied-binarydata")));
 
     apiServer.verify(
-        getRequestedFor(
-                urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+        execRequest()
             .withQueryParam("stdin", equalTo("true"))
             .withQueryParam("stdout", equalTo("true"))
             .withQueryParam("stderr", equalTo("true"))
@@ -291,42 +266,15 @@ class CopyTest {
   void testCopyDirectoryFromPod(@TempDir Path tempDir) throws Exception {
     Copy copy = new Copy(client);
 
-    CountDownLatch latch = new CountDownLatch(1);
-    Parameters params = new Parameters();
-    params.put("latch", latch);
+    stubExecNotFound();
 
-    apiServer.stubFor(
-        get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
-            .withPostServeAction("countdown", params)
-            .willReturn(
-                aResponse()
-                    .withStatus(404)
-                    .withHeader("Content-Type", "application/json")
-                    .withBody("{}")));
-
-    Thread t =
-        new Thread(
-            new Runnable() {
-              public void run() {
-                try {
-                  copy.copyDirectoryFromPod(
-                      namespace,
-                      podName,
-                      "",
-                      tempDir.toString(),
-                      Paths.get("/copied-testDir"));
-                } catch (IOException | ApiException | CopyNotSupportedException ex) {
-                  ex.printStackTrace();
-                }
-              }
-            });
-    t.start();
-    assertTrue(latch.await(30, TimeUnit.SECONDS));
-    t.interrupt();
+    runUntilExecRequested(
+        () ->
+            copy.copyDirectoryFromPod(
+                namespace, podName, "", tempDir.toString(), Paths.get("/copied-testDir")));
 
     apiServer.verify(
-        getRequestedFor(
-                urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
+        execRequest()
             .withQueryParam("stdin", equalTo("false"))
             .withQueryParam("stdout", equalTo("true"))
             .withQueryParam("stderr", equalTo("true"))

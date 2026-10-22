@@ -128,7 +128,11 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
 
   @Override
   public synchronized void close() {
-    if (state != State.CLOSED) {
+    if (state == State.CLOSED) {
+      notifyAll();
+      return;
+    }
+    try {
       // Close all output streams.  Caller of getInputStream(int) is responsible
       // for closing returned input streams
       for (PipedOutputStream out : pipedOutput.values()) {
@@ -155,15 +159,20 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
           log.error("Error on close", ex);
         }
       }
-
+    } finally {
+      // Always transition to CLOSED and wake up any writers blocked waiting for the socket
+      // to open, even if closing one of the streams above failed unexpectedly.
       state = State.CLOSED;
-      if (null != socket) {
-        // code 1000 means "Normal Closure"
-        socket.close(1000, "Triggered client-side terminate");
-        log.debug("Successfully closed socket.");
+      try {
+        if (null != socket) {
+          // code 1000 means "Normal Closure"
+          socket.close(1000, "Triggered client-side terminate");
+          log.debug("Successfully closed socket.");
+        }
+      } finally {
+        notifyAll();
       }
     }
-    notifyAll();
   }
 
   /**
@@ -273,8 +282,13 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
       if (state == State.CLOSED) {
         throw new IOException("Socket is closed!");
       }
+      WebSocket ws = WebSocketStreamHandler.this.socket;
+      if (ws == null) {
+        // The socket was never opened, so there is nothing queued to flush.
+        return;
+      }
       int i = 0;
-      while (WebSocketStreamHandler.this.socket.queueSize() > 0) {
+      while (ws.queueSize() > 0) {
         try {
           Thread.sleep(FLUSH_WAIT_MILLIS);
         } catch (InterruptedException ex) {
@@ -300,9 +314,10 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
     public void write(byte[] b, int offset, int length) throws IOException {
       if (WebSocketStreamHandler.this.socket == null) {
         synchronized (WebSocketStreamHandler.this) {
-          if (state == State.CLOSED) throw new IllegalStateException();
-          if (WebSocketStreamHandler.this.socket == null) {
-            // wait for the websocket to be opened
+          // wait for the websocket to be opened, failing fast if the handler is closed
+          // (e.g. because the connection failed) before or while waiting.
+          while (WebSocketStreamHandler.this.socket == null) {
+            if (state == State.CLOSED) throw new IllegalStateException();
             try {
               WebSocketStreamHandler.this.wait();
             } catch (InterruptedException e) {
