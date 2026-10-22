@@ -312,15 +312,17 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
 
     @Override
     public void write(byte[] b, int offset, int length) throws IOException {
-      synchronized (WebSocketStreamHandler.this) {
-        // wait for the websocket to be opened, failing fast if the handler is closed
-        // (e.g. because the connection failed) before or while waiting.
-        while (WebSocketStreamHandler.this.socket == null) {
-          if (state == State.CLOSED) throw new IllegalStateException();
-          try {
-            WebSocketStreamHandler.this.wait();
-          } catch (InterruptedException e) {
-            throw new InterruptedIOException();
+      if (WebSocketStreamHandler.this.socket == null) {
+        synchronized (WebSocketStreamHandler.this) {
+          // wait for the websocket to be opened, failing fast if the handler is closed
+          // (e.g. because the connection failed) before or while waiting.
+          while (WebSocketStreamHandler.this.socket == null) {
+            if (state == State.CLOSED) throw new IllegalStateException();
+            try {
+              WebSocketStreamHandler.this.wait();
+            } catch (InterruptedException e) {
+              throw new InterruptedIOException();
+            }
           }
         }
       }
