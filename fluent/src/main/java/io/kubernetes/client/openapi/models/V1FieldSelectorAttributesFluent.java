@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.openapi.models.V1FieldSelectorAttributesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1FieldSelectorAttributesFluent<A extends V1FieldSelectorAttributesFluent<A>> extends BaseFluent<A>{
 
   private String rawSelector;
   private ArrayList<V1FieldSelectorRequirementBuilder> requirements;
@@ -44,7 +46,7 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
 
   public A addAllToRequirements(Collection<V1FieldSelectorRequirement> items) {
     if (this.requirements == null) {
-      this.requirements = new ArrayList();
+      this.requirements = new ArrayList<>();
     }
     for (V1FieldSelectorRequirement item : items) {
         V1FieldSelectorRequirementBuilder builder = new V1FieldSelectorRequirementBuilder(item);
@@ -55,16 +57,16 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
   }
   
   public RequirementsNested<A> addNewRequirement() {
-    return new RequirementsNested(-1, null);
+    return new RequirementsNested<>(-1, null);
   }
   
   public RequirementsNested<A> addNewRequirementLike(V1FieldSelectorRequirement item) {
-    return new RequirementsNested(-1, item);
+    return new RequirementsNested<>(-1, item);
   }
   
   public A addToRequirements(V1FieldSelectorRequirement... items) {
     if (this.requirements == null) {
-      this.requirements = new ArrayList();
+      this.requirements = new ArrayList<>();
     }
     for (V1FieldSelectorRequirement item : items) {
         V1FieldSelectorRequirementBuilder builder = new V1FieldSelectorRequirementBuilder(item);
@@ -76,7 +78,7 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
   
   public A addToRequirements(int index,V1FieldSelectorRequirement item) {
     if (this.requirements == null) {
-      this.requirements = new ArrayList();
+      this.requirements = new ArrayList<>();
     }
     V1FieldSelectorRequirementBuilder builder = new V1FieldSelectorRequirementBuilder(item);
     if (index < 0 || index >= this.requirements.size()) {
@@ -168,7 +170,7 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1FieldSelectorAttributesFluent that = (V1FieldSelectorAttributesFluent) o;
+    V1FieldSelectorAttributesFluent<?> that = (V1FieldSelectorAttributesFluent<?>) o;
     if (!(Objects.equals(rawSelector, that.rawSelector))) {
       return false;
     }
@@ -232,6 +234,7 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<V1FieldSelectorRequirementBuilder> each = requirements.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("requirements");
     while (each.hasNext()) {
         V1FieldSelectorRequirementBuilder builder = each.next();
@@ -244,12 +247,12 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
   }
   
   public RequirementsNested<A> setNewRequirementLike(int index,V1FieldSelectorRequirement item) {
-    return new RequirementsNested(index, item);
+    return new RequirementsNested<>(index, item);
   }
   
   public A setToRequirements(int index,V1FieldSelectorRequirement item) {
     if (this.requirements == null) {
-      this.requirements = new ArrayList();
+      this.requirements = new ArrayList<>();
     }
     V1FieldSelectorRequirementBuilder builder = new V1FieldSelectorRequirementBuilder(item);
     if (index < 0 || index >= this.requirements.size()) {
@@ -288,7 +291,7 @@ public class V1FieldSelectorAttributesFluent<A extends io.kubernetes.client.open
       this._visitables.get("requirements").clear();
     }
     if (requirements != null) {
-        this.requirements = new ArrayList();
+        this.requirements = new ArrayList<>();
         for (V1FieldSelectorRequirement item : requirements) {
           this.addToRequirements(item);
         }

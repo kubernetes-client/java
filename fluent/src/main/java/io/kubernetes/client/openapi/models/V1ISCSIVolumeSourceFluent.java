@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ISCSIVolumeSourceFluent<A extends V1ISCSIVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private Boolean chapAuthDiscovery;
   private Boolean chapAuthSession;
@@ -54,7 +56,7 @@ public class V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mo
 
   public A addAllToPortals(Collection<String> items) {
     if (this.portals == null) {
-      this.portals = new ArrayList();
+      this.portals = new ArrayList<>();
     }
     for (String item : items) {
       this.portals.add(item);
@@ -64,7 +66,7 @@ public class V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToPortals(String... items) {
     if (this.portals == null) {
-      this.portals = new ArrayList();
+      this.portals = new ArrayList<>();
     }
     for (String item : items) {
       this.portals.add(item);
@@ -74,7 +76,7 @@ public class V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToPortals(int index,String item) {
     if (this.portals == null) {
-      this.portals = new ArrayList();
+      this.portals = new ArrayList<>();
     }
     this.portals.add(index, item);
     return (A) this;
@@ -123,7 +125,7 @@ public class V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1ISCSIVolumeSourceFluent that = (V1ISCSIVolumeSourceFluent) o;
+    V1ISCSIVolumeSourceFluent<?> that = (V1ISCSIVolumeSourceFluent<?>) o;
     if (!(Objects.equals(chapAuthDiscovery, that.chapAuthDiscovery))) {
       return false;
     }
@@ -300,7 +302,7 @@ public class V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mo
   
   public A setToPortals(int index,String item) {
     if (this.portals == null) {
-      this.portals = new ArrayList();
+      this.portals = new ArrayList<>();
     }
     this.portals.set(index, item);
     return (A) this;
@@ -411,16 +413,16 @@ public class V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mo
   }
   
   public SecretRefNested<A> withNewSecretRef() {
-    return new SecretRefNested(null);
+    return new SecretRefNested<>(null);
   }
   
   public SecretRefNested<A> withNewSecretRefLike(V1LocalObjectReference item) {
-    return new SecretRefNested(item);
+    return new SecretRefNested<>(item);
   }
   
   public A withPortals(List<String> portals) {
     if (portals != null) {
-        this.portals = new ArrayList();
+        this.portals = new ArrayList<>();
         for (String item : portals) {
           this.addToPortals(item);
         }
@@ -458,8 +460,8 @@ public class V1ISCSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mo
         this.secretRef = new V1LocalObjectReferenceBuilder(secretRef);
         this._visitables.get("secretRef").add(this.secretRef);
     } else {
-        this.secretRef = null;
         this._visitables.get("secretRef").remove(this.secretRef);
+        this.secretRef = null;
     }
     return (A) this;
   }

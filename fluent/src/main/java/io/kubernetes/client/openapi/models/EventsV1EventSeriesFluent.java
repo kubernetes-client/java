@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class EventsV1EventSeriesFluent<A extends io.kubernetes.client.openapi.models.EventsV1EventSeriesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class EventsV1EventSeriesFluent<A extends EventsV1EventSeriesFluent<A>> extends BaseFluent<A>{
 
   private Integer count;
   private OffsetDateTime lastObservedTime;
@@ -55,7 +57,7 @@ public class EventsV1EventSeriesFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    EventsV1EventSeriesFluent that = (EventsV1EventSeriesFluent) o;
+    EventsV1EventSeriesFluent<?> that = (EventsV1EventSeriesFluent<?>) o;
     if (!(Objects.equals(count, that.count))) {
       return false;
     }

@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1ParamRefBuilder extends V1ParamRefFluent<V1ParamRefBuilder> implements VisitableBuilder<V1ParamRef,V1ParamRefBuilder>{
 
   V1ParamRefFluent<?> fluent;

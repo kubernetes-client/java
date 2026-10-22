@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1PriorityLevelConfigurationStatusBuilder extends V1PriorityLevelConfigurationStatusFluent<V1PriorityLevelConfigurationStatusBuilder> implements VisitableBuilder<V1PriorityLevelConfigurationStatus,V1PriorityLevelConfigurationStatusBuilder>{
 
   V1PriorityLevelConfigurationStatusFluent<?> fluent;

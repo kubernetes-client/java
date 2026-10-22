@@ -19,12 +19,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ReplicationControllerConditionFluent<A extends io.kubernetes.client.openapi.models.V1ReplicationControllerConditionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ReplicationControllerConditionFluent<A extends V1ReplicationControllerConditionFluent<A>> extends BaseFluent<A>{
 
   private OffsetDateTime lastTransitionTime;
   private String message;
@@ -60,7 +62,7 @@ public class V1ReplicationControllerConditionFluent<A extends io.kubernetes.clie
     if (!(super.equals(o))) {
       return false;
     }
-    V1ReplicationControllerConditionFluent that = (V1ReplicationControllerConditionFluent) o;
+    V1ReplicationControllerConditionFluent<?> that = (V1ReplicationControllerConditionFluent<?>) o;
     if (!(Objects.equals(lastTransitionTime, that.lastTransitionTime))) {
       return false;
     }

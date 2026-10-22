@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ScopedResourceSelectorRequirementFluent<A extends io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ScopedResourceSelectorRequirementFluent<A extends V1ScopedResourceSelectorRequirementFluent<A>> extends BaseFluent<A>{
 
   private String operator;
   private String scopeName;
@@ -42,7 +44,7 @@ public class V1ScopedResourceSelectorRequirementFluent<A extends io.kubernetes.c
 
   public A addAllToValues(Collection<String> items) {
     if (this.values == null) {
-      this.values = new ArrayList();
+      this.values = new ArrayList<>();
     }
     for (String item : items) {
       this.values.add(item);
@@ -52,7 +54,7 @@ public class V1ScopedResourceSelectorRequirementFluent<A extends io.kubernetes.c
   
   public A addToValues(String... items) {
     if (this.values == null) {
-      this.values = new ArrayList();
+      this.values = new ArrayList<>();
     }
     for (String item : items) {
       this.values.add(item);
@@ -62,7 +64,7 @@ public class V1ScopedResourceSelectorRequirementFluent<A extends io.kubernetes.c
   
   public A addToValues(int index,String item) {
     if (this.values == null) {
-      this.values = new ArrayList();
+      this.values = new ArrayList<>();
     }
     this.values.add(index, item);
     return (A) this;
@@ -87,7 +89,7 @@ public class V1ScopedResourceSelectorRequirementFluent<A extends io.kubernetes.c
     if (!(super.equals(o))) {
       return false;
     }
-    V1ScopedResourceSelectorRequirementFluent that = (V1ScopedResourceSelectorRequirementFluent) o;
+    V1ScopedResourceSelectorRequirementFluent<?> that = (V1ScopedResourceSelectorRequirementFluent<?>) o;
     if (!(Objects.equals(operator, that.operator))) {
       return false;
     }
@@ -180,7 +182,7 @@ public class V1ScopedResourceSelectorRequirementFluent<A extends io.kubernetes.c
   
   public A setToValues(int index,String item) {
     if (this.values == null) {
-      this.values = new ArrayList();
+      this.values = new ArrayList<>();
     }
     this.values.set(index, item);
     return (A) this;
@@ -219,7 +221,7 @@ public class V1ScopedResourceSelectorRequirementFluent<A extends io.kubernetes.c
   
   public A withValues(List<String> values) {
     if (values != null) {
-        this.values = new ArrayList();
+        this.values = new ArrayList<>();
         for (String item : values) {
           this.addToValues(item);
         }

@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * DeviceClass is a vendor- or admin-provided resource that contains device configuration and selectors. It can be referenced in the device requests of a claim to apply these presets. Cluster scoped.
  */
 @ApiModel(description = "DeviceClass is a vendor- or admin-provided resource that contains device configuration and selectors. It can be referenced in the device requests of a claim to apply these presets. Cluster scoped.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1DeviceClass implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -71,7 +71,7 @@ public class V1DeviceClass implements io.kubernetes.client.common.KubernetesObje
 
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private V1DeviceClassSpec spec;
 
   public V1DeviceClass() {
@@ -137,7 +137,7 @@ public class V1DeviceClass implements io.kubernetes.client.common.KubernetesObje
   }
 
 
-  public V1DeviceClass spec(@jakarta.annotation.Nonnull V1DeviceClassSpec spec) {
+  public V1DeviceClass spec(@jakarta.annotation.Nullable V1DeviceClassSpec spec) {
     this.spec = spec;
     return this;
   }
@@ -146,13 +146,13 @@ public class V1DeviceClass implements io.kubernetes.client.common.KubernetesObje
    * Get spec
    * @return spec
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
   public V1DeviceClassSpec getSpec() {
     return spec;
   }
 
-  public void setSpec(@jakarta.annotation.Nonnull V1DeviceClassSpec spec) {
+  public void setSpec(@jakarta.annotation.Nullable V1DeviceClassSpec spec) {
     this.spec = spec;
   }
 
@@ -210,7 +210,7 @@ public class V1DeviceClass implements io.kubernetes.client.common.KubernetesObje
     openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "kind", "metadata", "spec"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("spec"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -233,13 +233,6 @@ public class V1DeviceClass implements io.kubernetes.client.common.KubernetesObje
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1DeviceClass` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : V1DeviceClass.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
@@ -251,8 +244,10 @@ public class V1DeviceClass implements io.kubernetes.client.common.KubernetesObje
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
         V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
-      // validate the required field `spec`
-      V1DeviceClassSpec.validateJsonElement(jsonObj.get("spec"));
+      // validate the optional field `spec`
+      if (jsonObj.get("spec") != null && !jsonObj.get("spec").isJsonNull()) {
+        V1DeviceClassSpec.validateJsonElement(jsonObj.get("spec"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

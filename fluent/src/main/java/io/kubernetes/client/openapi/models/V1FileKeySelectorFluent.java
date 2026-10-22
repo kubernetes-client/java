@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1FileKeySelectorFluent<A extends io.kubernetes.client.openapi.models.V1FileKeySelectorFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1FileKeySelectorFluent<A extends V1FileKeySelectorFluent<A>> extends BaseFluent<A>{
 
   private String key;
   private Boolean optional;
@@ -58,7 +60,7 @@ public class V1FileKeySelectorFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1FileKeySelectorFluent that = (V1FileKeySelectorFluent) o;
+    V1FileKeySelectorFluent<?> that = (V1FileKeySelectorFluent<?>) o;
     if (!(Objects.equals(key, that.key))) {
       return false;
     }

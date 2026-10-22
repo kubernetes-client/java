@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1QuobyteVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1QuobyteVolumeSourceFluent<A extends V1QuobyteVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String group;
   private Boolean readOnly;
@@ -62,7 +64,7 @@ public class V1QuobyteVolumeSourceFluent<A extends io.kubernetes.client.openapi.
     if (!(super.equals(o))) {
       return false;
     }
-    V1QuobyteVolumeSourceFluent that = (V1QuobyteVolumeSourceFluent) o;
+    V1QuobyteVolumeSourceFluent<?> that = (V1QuobyteVolumeSourceFluent<?>) o;
     if (!(Objects.equals(group, that.group))) {
       return false;
     }

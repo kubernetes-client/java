@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1LifecycleFluent<A extends io.kubernetes.client.openapi.models.V1LifecycleFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1LifecycleFluent<A extends V1LifecycleFluent<A>> extends BaseFluent<A>{
 
   private V1LifecycleHandlerBuilder postStart;
   private V1LifecycleHandlerBuilder preStop;
@@ -89,7 +91,7 @@ public class V1LifecycleFluent<A extends io.kubernetes.client.openapi.models.V1L
     if (!(super.equals(o))) {
       return false;
     }
-    V1LifecycleFluent that = (V1LifecycleFluent) o;
+    V1LifecycleFluent<?> that = (V1LifecycleFluent<?>) o;
     if (!(Objects.equals(postStart, that.postStart))) {
       return false;
     }
@@ -144,19 +146,19 @@ public class V1LifecycleFluent<A extends io.kubernetes.client.openapi.models.V1L
   }
   
   public PostStartNested<A> withNewPostStart() {
-    return new PostStartNested(null);
+    return new PostStartNested<>(null);
   }
   
   public PostStartNested<A> withNewPostStartLike(V1LifecycleHandler item) {
-    return new PostStartNested(item);
+    return new PostStartNested<>(item);
   }
   
   public PreStopNested<A> withNewPreStop() {
-    return new PreStopNested(null);
+    return new PreStopNested<>(null);
   }
   
   public PreStopNested<A> withNewPreStopLike(V1LifecycleHandler item) {
-    return new PreStopNested(item);
+    return new PreStopNested<>(item);
   }
   
   public A withPostStart(V1LifecycleHandler postStart) {
@@ -165,8 +167,8 @@ public class V1LifecycleFluent<A extends io.kubernetes.client.openapi.models.V1L
         this.postStart = new V1LifecycleHandlerBuilder(postStart);
         this._visitables.get("postStart").add(this.postStart);
     } else {
-        this.postStart = null;
         this._visitables.get("postStart").remove(this.postStart);
+        this.postStart = null;
     }
     return (A) this;
   }
@@ -177,8 +179,8 @@ public class V1LifecycleFluent<A extends io.kubernetes.client.openapi.models.V1L
         this.preStop = new V1LifecycleHandlerBuilder(preStop);
         this._visitables.get("preStop").add(this.preStop);
     } else {
-        this.preStop = null;
         this._visitables.get("preStop").remove(this.preStop);
+        this.preStop = null;
     }
     return (A) this;
   }

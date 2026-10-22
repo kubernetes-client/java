@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.openapi.models.V1PolicyRulesWithSubjectsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PolicyRulesWithSubjectsFluent<A extends V1PolicyRulesWithSubjectsFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1NonResourcePolicyRuleBuilder> nonResourceRules;
   private ArrayList<V1ResourcePolicyRuleBuilder> resourceRules;
@@ -45,7 +47,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
 
   public A addAllToNonResourceRules(Collection<V1NonResourcePolicyRule> items) {
     if (this.nonResourceRules == null) {
-      this.nonResourceRules = new ArrayList();
+      this.nonResourceRules = new ArrayList<>();
     }
     for (V1NonResourcePolicyRule item : items) {
         V1NonResourcePolicyRuleBuilder builder = new V1NonResourcePolicyRuleBuilder(item);
@@ -57,7 +59,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
   
   public A addAllToResourceRules(Collection<V1ResourcePolicyRule> items) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     for (V1ResourcePolicyRule item : items) {
         V1ResourcePolicyRuleBuilder builder = new V1ResourcePolicyRuleBuilder(item);
@@ -69,7 +71,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
   
   public A addAllToSubjects(Collection<FlowcontrolV1Subject> items) {
     if (this.subjects == null) {
-      this.subjects = new ArrayList();
+      this.subjects = new ArrayList<>();
     }
     for (FlowcontrolV1Subject item : items) {
         FlowcontrolV1SubjectBuilder builder = new FlowcontrolV1SubjectBuilder(item);
@@ -80,32 +82,32 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
   }
   
   public NonResourceRulesNested<A> addNewNonResourceRule() {
-    return new NonResourceRulesNested(-1, null);
+    return new NonResourceRulesNested<>(-1, null);
   }
   
   public NonResourceRulesNested<A> addNewNonResourceRuleLike(V1NonResourcePolicyRule item) {
-    return new NonResourceRulesNested(-1, item);
+    return new NonResourceRulesNested<>(-1, item);
   }
   
   public ResourceRulesNested<A> addNewResourceRule() {
-    return new ResourceRulesNested(-1, null);
+    return new ResourceRulesNested<>(-1, null);
   }
   
   public ResourceRulesNested<A> addNewResourceRuleLike(V1ResourcePolicyRule item) {
-    return new ResourceRulesNested(-1, item);
+    return new ResourceRulesNested<>(-1, item);
   }
   
   public SubjectsNested<A> addNewSubject() {
-    return new SubjectsNested(-1, null);
+    return new SubjectsNested<>(-1, null);
   }
   
   public SubjectsNested<A> addNewSubjectLike(FlowcontrolV1Subject item) {
-    return new SubjectsNested(-1, item);
+    return new SubjectsNested<>(-1, item);
   }
   
   public A addToNonResourceRules(V1NonResourcePolicyRule... items) {
     if (this.nonResourceRules == null) {
-      this.nonResourceRules = new ArrayList();
+      this.nonResourceRules = new ArrayList<>();
     }
     for (V1NonResourcePolicyRule item : items) {
         V1NonResourcePolicyRuleBuilder builder = new V1NonResourcePolicyRuleBuilder(item);
@@ -117,7 +119,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
   
   public A addToNonResourceRules(int index,V1NonResourcePolicyRule item) {
     if (this.nonResourceRules == null) {
-      this.nonResourceRules = new ArrayList();
+      this.nonResourceRules = new ArrayList<>();
     }
     V1NonResourcePolicyRuleBuilder builder = new V1NonResourcePolicyRuleBuilder(item);
     if (index < 0 || index >= this.nonResourceRules.size()) {
@@ -132,7 +134,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
   
   public A addToResourceRules(V1ResourcePolicyRule... items) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     for (V1ResourcePolicyRule item : items) {
         V1ResourcePolicyRuleBuilder builder = new V1ResourcePolicyRuleBuilder(item);
@@ -144,7 +146,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
   
   public A addToResourceRules(int index,V1ResourcePolicyRule item) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     V1ResourcePolicyRuleBuilder builder = new V1ResourcePolicyRuleBuilder(item);
     if (index < 0 || index >= this.resourceRules.size()) {
@@ -159,7 +161,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
   
   public A addToSubjects(FlowcontrolV1Subject... items) {
     if (this.subjects == null) {
-      this.subjects = new ArrayList();
+      this.subjects = new ArrayList<>();
     }
     for (FlowcontrolV1Subject item : items) {
         FlowcontrolV1SubjectBuilder builder = new FlowcontrolV1SubjectBuilder(item);
@@ -171,7 +173,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
   
   public A addToSubjects(int index,FlowcontrolV1Subject item) {
     if (this.subjects == null) {
-      this.subjects = new ArrayList();
+      this.subjects = new ArrayList<>();
     }
     FlowcontrolV1SubjectBuilder builder = new FlowcontrolV1SubjectBuilder(item);
     if (index < 0 || index >= this.subjects.size()) {
@@ -386,7 +388,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1PolicyRulesWithSubjectsFluent that = (V1PolicyRulesWithSubjectsFluent) o;
+    V1PolicyRulesWithSubjectsFluent<?> that = (V1PolicyRulesWithSubjectsFluent<?>) o;
     if (!(Objects.equals(nonResourceRules, that.nonResourceRules))) {
       return false;
     }
@@ -519,6 +521,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<V1NonResourcePolicyRuleBuilder> each = nonResourceRules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("nonResourceRules");
     while (each.hasNext()) {
         V1NonResourcePolicyRuleBuilder builder = each.next();
@@ -535,6 +538,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<V1ResourcePolicyRuleBuilder> each = resourceRules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("resourceRules");
     while (each.hasNext()) {
         V1ResourcePolicyRuleBuilder builder = each.next();
@@ -551,6 +555,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<FlowcontrolV1SubjectBuilder> each = subjects.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("subjects");
     while (each.hasNext()) {
         FlowcontrolV1SubjectBuilder builder = each.next();
@@ -563,20 +568,20 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
   }
   
   public NonResourceRulesNested<A> setNewNonResourceRuleLike(int index,V1NonResourcePolicyRule item) {
-    return new NonResourceRulesNested(index, item);
+    return new NonResourceRulesNested<>(index, item);
   }
   
   public ResourceRulesNested<A> setNewResourceRuleLike(int index,V1ResourcePolicyRule item) {
-    return new ResourceRulesNested(index, item);
+    return new ResourceRulesNested<>(index, item);
   }
   
   public SubjectsNested<A> setNewSubjectLike(int index,FlowcontrolV1Subject item) {
-    return new SubjectsNested(index, item);
+    return new SubjectsNested<>(index, item);
   }
   
   public A setToNonResourceRules(int index,V1NonResourcePolicyRule item) {
     if (this.nonResourceRules == null) {
-      this.nonResourceRules = new ArrayList();
+      this.nonResourceRules = new ArrayList<>();
     }
     V1NonResourcePolicyRuleBuilder builder = new V1NonResourcePolicyRuleBuilder(item);
     if (index < 0 || index >= this.nonResourceRules.size()) {
@@ -591,7 +596,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
   
   public A setToResourceRules(int index,V1ResourcePolicyRule item) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     V1ResourcePolicyRuleBuilder builder = new V1ResourcePolicyRuleBuilder(item);
     if (index < 0 || index >= this.resourceRules.size()) {
@@ -606,7 +611,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
   
   public A setToSubjects(int index,FlowcontrolV1Subject item) {
     if (this.subjects == null) {
-      this.subjects = new ArrayList();
+      this.subjects = new ArrayList<>();
     }
     FlowcontrolV1SubjectBuilder builder = new FlowcontrolV1SubjectBuilder(item);
     if (index < 0 || index >= this.subjects.size()) {
@@ -645,7 +650,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
       this._visitables.get("nonResourceRules").clear();
     }
     if (nonResourceRules != null) {
-        this.nonResourceRules = new ArrayList();
+        this.nonResourceRules = new ArrayList<>();
         for (V1NonResourcePolicyRule item : nonResourceRules) {
           this.addToNonResourceRules(item);
         }
@@ -673,7 +678,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
       this._visitables.get("resourceRules").clear();
     }
     if (resourceRules != null) {
-        this.resourceRules = new ArrayList();
+        this.resourceRules = new ArrayList<>();
         for (V1ResourcePolicyRule item : resourceRules) {
           this.addToResourceRules(item);
         }
@@ -701,7 +706,7 @@ public class V1PolicyRulesWithSubjectsFluent<A extends io.kubernetes.client.open
       this._visitables.get("subjects").clear();
     }
     if (subjects != null) {
-        this.subjects = new ArrayList();
+        this.subjects = new ArrayList<>();
         for (FlowcontrolV1Subject item : subjects) {
           this.addToSubjects(item);
         }

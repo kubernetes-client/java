@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole
  */
 @ApiModel(description = "AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1AggregationRule {
   public static final String SERIALIZED_NAME_CLUSTER_ROLE_SELECTORS = "clusterRoleSelectors";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ROLE_SELECTORS)
@@ -77,11 +77,11 @@ public class V1AggregationRule {
   }
 
   /**
-   * ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole&#39;s permissions will be added
+   * clusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole&#39;s permissions will be added
    * @return clusterRoleSelectors
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added")
+  @ApiModelProperty(value = "clusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added")
   public List<V1LabelSelector> getClusterRoleSelectors() {
     return clusterRoleSelectors;
   }

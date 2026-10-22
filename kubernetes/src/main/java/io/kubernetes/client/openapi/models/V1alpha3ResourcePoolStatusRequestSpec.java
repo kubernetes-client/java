@@ -50,8 +50,13 @@ import io.kubernetes.client.openapi.JSON;
  * ResourcePoolStatusRequestSpec defines the filters for the pool status request.
  */
 @ApiModel(description = "ResourcePoolStatusRequestSpec defines the filters for the pool status request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha3ResourcePoolStatusRequestSpec {
+  public static final String SERIALIZED_NAME_DEFAULT_PARTITION_TYPE_ATTRIBUTE = "defaultPartitionTypeAttribute";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PARTITION_TYPE_ATTRIBUTE)
+  @jakarta.annotation.Nullable
+  private String defaultPartitionTypeAttribute;
+
   public static final String SERIALIZED_NAME_DRIVER = "driver";
   @SerializedName(SERIALIZED_NAME_DRIVER)
   @jakarta.annotation.Nonnull
@@ -69,6 +74,26 @@ public class V1alpha3ResourcePoolStatusRequestSpec {
 
   public V1alpha3ResourcePoolStatusRequestSpec() {
   }
+
+  public V1alpha3ResourcePoolStatusRequestSpec defaultPartitionTypeAttribute(@jakarta.annotation.Nullable String defaultPartitionTypeAttribute) {
+    this.defaultPartitionTypeAttribute = defaultPartitionTypeAttribute;
+    return this;
+  }
+
+  /**
+   * DefaultPartitionTypeAttribute optionally names a device attribute (by its fully qualified name, e.g. \&quot;gpu.example.com/profile\&quot;) to use as the default grouping attribute for partitionable devices whose slice has not declared one themselves.  A slice&#39;s own PartitionTypeAttribute always takes precedence. This default applies only to devices whose slice does not declare one, so that a request can still get an accurate partitionSummary from a driver that has not been updated to declare it. When neither the slice nor this default names an attribute, a partitionable pool reports no partitionSummary.  Must include the domain qualifier.
+   * @return defaultPartitionTypeAttribute
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "DefaultPartitionTypeAttribute optionally names a device attribute (by its fully qualified name, e.g. \"gpu.example.com/profile\") to use as the default grouping attribute for partitionable devices whose slice has not declared one themselves.  A slice's own PartitionTypeAttribute always takes precedence. This default applies only to devices whose slice does not declare one, so that a request can still get an accurate partitionSummary from a driver that has not been updated to declare it. When neither the slice nor this default names an attribute, a partitionable pool reports no partitionSummary.  Must include the domain qualifier.")
+  public String getDefaultPartitionTypeAttribute() {
+    return defaultPartitionTypeAttribute;
+  }
+
+  public void setDefaultPartitionTypeAttribute(@jakarta.annotation.Nullable String defaultPartitionTypeAttribute) {
+    this.defaultPartitionTypeAttribute = defaultPartitionTypeAttribute;
+  }
+
 
   public V1alpha3ResourcePoolStatusRequestSpec driver(@jakarta.annotation.Nonnull String driver) {
     this.driver = driver;
@@ -140,20 +165,22 @@ public class V1alpha3ResourcePoolStatusRequestSpec {
       return false;
     }
     V1alpha3ResourcePoolStatusRequestSpec v1alpha3ResourcePoolStatusRequestSpec = (V1alpha3ResourcePoolStatusRequestSpec) o;
-    return Objects.equals(this.driver, v1alpha3ResourcePoolStatusRequestSpec.driver) &&
+    return Objects.equals(this.defaultPartitionTypeAttribute, v1alpha3ResourcePoolStatusRequestSpec.defaultPartitionTypeAttribute) &&
+        Objects.equals(this.driver, v1alpha3ResourcePoolStatusRequestSpec.driver) &&
         Objects.equals(this.limit, v1alpha3ResourcePoolStatusRequestSpec.limit) &&
         Objects.equals(this.poolName, v1alpha3ResourcePoolStatusRequestSpec.poolName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(driver, limit, poolName);
+    return Objects.hash(defaultPartitionTypeAttribute, driver, limit, poolName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1alpha3ResourcePoolStatusRequestSpec {\n");
+    sb.append("    defaultPartitionTypeAttribute: ").append(toIndentedString(defaultPartitionTypeAttribute)).append("\n");
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    poolName: ").append(toIndentedString(poolName)).append("\n");
@@ -178,7 +205,7 @@ public class V1alpha3ResourcePoolStatusRequestSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("driver", "limit", "poolName"));
+    openapiFields = new HashSet<String>(Arrays.asList("defaultPartitionTypeAttribute", "driver", "limit", "poolName"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("driver"));
@@ -212,6 +239,9 @@ public class V1alpha3ResourcePoolStatusRequestSpec {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("defaultPartitionTypeAttribute") != null && !jsonObj.get("defaultPartitionTypeAttribute").isJsonNull()) && !jsonObj.get("defaultPartitionTypeAttribute").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `defaultPartitionTypeAttribute` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultPartitionTypeAttribute").toString()));
+      }
       if (!jsonObj.get("driver").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `driver` to be a primitive type in the JSON string but got `%s`", jsonObj.get("driver").toString()));
       }

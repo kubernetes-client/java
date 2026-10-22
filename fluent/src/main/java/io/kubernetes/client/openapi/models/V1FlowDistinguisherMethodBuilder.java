@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1FlowDistinguisherMethodBuilder extends V1FlowDistinguisherMethodFluent<V1FlowDistinguisherMethodBuilder> implements VisitableBuilder<V1FlowDistinguisherMethod,V1FlowDistinguisherMethodBuilder>{
 
   V1FlowDistinguisherMethodFluent<?> fluent;

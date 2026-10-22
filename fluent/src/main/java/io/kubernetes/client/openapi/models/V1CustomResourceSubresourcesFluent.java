@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CustomResourceSubresourcesFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CustomResourceSubresourcesFluent<A extends V1CustomResourceSubresourcesFluent<A>> extends BaseFluent<A>{
 
   private V1CustomResourceSubresourceScaleBuilder scale;
   private Object status;
@@ -71,7 +73,7 @@ public class V1CustomResourceSubresourcesFluent<A extends io.kubernetes.client.o
     if (!(super.equals(o))) {
       return false;
     }
-    V1CustomResourceSubresourcesFluent that = (V1CustomResourceSubresourcesFluent) o;
+    V1CustomResourceSubresourcesFluent<?> that = (V1CustomResourceSubresourcesFluent<?>) o;
     if (!(Objects.equals(scale, that.scale))) {
       return false;
     }
@@ -114,11 +116,11 @@ public class V1CustomResourceSubresourcesFluent<A extends io.kubernetes.client.o
   }
   
   public ScaleNested<A> withNewScale() {
-    return new ScaleNested(null);
+    return new ScaleNested<>(null);
   }
   
   public ScaleNested<A> withNewScaleLike(V1CustomResourceSubresourceScale item) {
-    return new ScaleNested(item);
+    return new ScaleNested<>(item);
   }
   
   public A withScale(V1CustomResourceSubresourceScale scale) {
@@ -127,8 +129,8 @@ public class V1CustomResourceSubresourcesFluent<A extends io.kubernetes.client.o
         this.scale = new V1CustomResourceSubresourceScaleBuilder(scale);
         this._visitables.get("scale").add(this.scale);
     } else {
-        this.scale = null;
         this._visitables.get("scale").remove(this.scale);
+        this.scale = null;
     }
     return (A) this;
   }

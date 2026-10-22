@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NetworkPolicyEgressRuleFluent<A extends V1NetworkPolicyEgressRuleFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1NetworkPolicyPortBuilder> ports;
   private ArrayList<V1NetworkPolicyPeerBuilder> to;
@@ -44,7 +46,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
 
   public A addAllToPorts(Collection<V1NetworkPolicyPort> items) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     for (V1NetworkPolicyPort item : items) {
         V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
@@ -56,7 +58,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
   
   public A addAllToTo(Collection<V1NetworkPolicyPeer> items) {
     if (this.to == null) {
-      this.to = new ArrayList();
+      this.to = new ArrayList<>();
     }
     for (V1NetworkPolicyPeer item : items) {
         V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
@@ -67,24 +69,24 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
   }
   
   public PortsNested<A> addNewPort() {
-    return new PortsNested(-1, null);
+    return new PortsNested<>(-1, null);
   }
   
   public PortsNested<A> addNewPortLike(V1NetworkPolicyPort item) {
-    return new PortsNested(-1, item);
+    return new PortsNested<>(-1, item);
   }
   
   public ToNested<A> addNewTo() {
-    return new ToNested(-1, null);
+    return new ToNested<>(-1, null);
   }
   
   public ToNested<A> addNewToLike(V1NetworkPolicyPeer item) {
-    return new ToNested(-1, item);
+    return new ToNested<>(-1, item);
   }
   
   public A addToPorts(V1NetworkPolicyPort... items) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     for (V1NetworkPolicyPort item : items) {
         V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
@@ -96,7 +98,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
   
   public A addToPorts(int index,V1NetworkPolicyPort item) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
     if (index < 0 || index >= this.ports.size()) {
@@ -111,7 +113,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
   
   public A addToTo(V1NetworkPolicyPeer... items) {
     if (this.to == null) {
-      this.to = new ArrayList();
+      this.to = new ArrayList<>();
     }
     for (V1NetworkPolicyPeer item : items) {
         V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
@@ -123,7 +125,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
   
   public A addToTo(int index,V1NetworkPolicyPeer item) {
     if (this.to == null) {
-      this.to = new ArrayList();
+      this.to = new ArrayList<>();
     }
     V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
     if (index < 0 || index >= this.to.size()) {
@@ -276,7 +278,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1NetworkPolicyEgressRuleFluent that = (V1NetworkPolicyEgressRuleFluent) o;
+    V1NetworkPolicyEgressRuleFluent<?> that = (V1NetworkPolicyEgressRuleFluent<?>) o;
     if (!(Objects.equals(ports, that.ports))) {
       return false;
     }
@@ -369,6 +371,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<V1NetworkPolicyPortBuilder> each = ports.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("ports");
     while (each.hasNext()) {
         V1NetworkPolicyPortBuilder builder = each.next();
@@ -385,6 +388,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<V1NetworkPolicyPeerBuilder> each = to.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("to");
     while (each.hasNext()) {
         V1NetworkPolicyPeerBuilder builder = each.next();
@@ -397,16 +401,16 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
   }
   
   public PortsNested<A> setNewPortLike(int index,V1NetworkPolicyPort item) {
-    return new PortsNested(index, item);
+    return new PortsNested<>(index, item);
   }
   
   public ToNested<A> setNewToLike(int index,V1NetworkPolicyPeer item) {
-    return new ToNested(index, item);
+    return new ToNested<>(index, item);
   }
   
   public A setToPorts(int index,V1NetworkPolicyPort item) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     V1NetworkPolicyPortBuilder builder = new V1NetworkPolicyPortBuilder(item);
     if (index < 0 || index >= this.ports.size()) {
@@ -421,7 +425,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
   
   public A setToTo(int index,V1NetworkPolicyPeer item) {
     if (this.to == null) {
-      this.to = new ArrayList();
+      this.to = new ArrayList<>();
     }
     V1NetworkPolicyPeerBuilder builder = new V1NetworkPolicyPeerBuilder(item);
     if (index < 0 || index >= this.to.size()) {
@@ -455,7 +459,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
       this._visitables.get("ports").clear();
     }
     if (ports != null) {
-        this.ports = new ArrayList();
+        this.ports = new ArrayList<>();
         for (V1NetworkPolicyPort item : ports) {
           this.addToPorts(item);
         }
@@ -483,7 +487,7 @@ public class V1NetworkPolicyEgressRuleFluent<A extends io.kubernetes.client.open
       this._visitables.get("to").clear();
     }
     if (to != null) {
-        this.to = new ArrayList();
+        this.to = new ArrayList<>();
         for (V1NetworkPolicyPeer item : to) {
           this.addToTo(item);
         }

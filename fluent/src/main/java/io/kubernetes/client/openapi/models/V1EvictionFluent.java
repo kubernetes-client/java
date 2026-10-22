@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1EvictionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1EvictionFluent<A extends V1EvictionFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private V1DeleteOptionsBuilder deleteOptions;
@@ -91,7 +93,7 @@ public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1Ev
     if (!(super.equals(o))) {
       return false;
     }
-    V1EvictionFluent that = (V1EvictionFluent) o;
+    V1EvictionFluent<?> that = (V1EvictionFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -172,8 +174,8 @@ public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1Ev
         this.deleteOptions = new V1DeleteOptionsBuilder(deleteOptions);
         this._visitables.get("deleteOptions").add(this.deleteOptions);
     } else {
-        this.deleteOptions = null;
         this._visitables.get("deleteOptions").remove(this.deleteOptions);
+        this.deleteOptions = null;
     }
     return (A) this;
   }
@@ -189,26 +191,26 @@ public class V1EvictionFluent<A extends io.kubernetes.client.openapi.models.V1Ev
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public DeleteOptionsNested<A> withNewDeleteOptions() {
-    return new DeleteOptionsNested(null);
+    return new DeleteOptionsNested<>(null);
   }
   
   public DeleteOptionsNested<A> withNewDeleteOptionsLike(V1DeleteOptions item) {
-    return new DeleteOptionsNested(item);
+    return new DeleteOptionsNested<>(item);
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   public class DeleteOptionsNested<N> extends V1DeleteOptionsFluent<DeleteOptionsNested<N>> implements Nested<N>{
   

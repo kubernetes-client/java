@@ -23,12 +23,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ReplicationControllerSpecFluent<A extends io.kubernetes.client.openapi.models.V1ReplicationControllerSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ReplicationControllerSpecFluent<A extends V1ReplicationControllerSpecFluent<A>> extends BaseFluent<A>{
 
   private Integer minReadySeconds;
   private Integer replicas;
@@ -44,7 +46,7 @@ public class V1ReplicationControllerSpecFluent<A extends io.kubernetes.client.op
 
   public A addToSelector(Map<String,String> map) {
     if (this.selector == null && map != null) {
-      this.selector = new LinkedHashMap();
+      this.selector = new LinkedHashMap<>();
     }
     if (map != null) {
       this.selector.putAll(map);
@@ -54,7 +56,7 @@ public class V1ReplicationControllerSpecFluent<A extends io.kubernetes.client.op
   
   public A addToSelector(String key,String value) {
     if (this.selector == null && key != null && value != null) {
-      this.selector = new LinkedHashMap();
+      this.selector = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.selector.put(key, value);
@@ -98,7 +100,7 @@ public class V1ReplicationControllerSpecFluent<A extends io.kubernetes.client.op
     if (!(super.equals(o))) {
       return false;
     }
-    V1ReplicationControllerSpecFluent that = (V1ReplicationControllerSpecFluent) o;
+    V1ReplicationControllerSpecFluent<?> that = (V1ReplicationControllerSpecFluent<?>) o;
     if (!(Objects.equals(minReadySeconds, that.minReadySeconds))) {
       return false;
     }
@@ -202,11 +204,11 @@ public class V1ReplicationControllerSpecFluent<A extends io.kubernetes.client.op
   }
   
   public TemplateNested<A> withNewTemplate() {
-    return new TemplateNested(null);
+    return new TemplateNested<>(null);
   }
   
   public TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
-    return new TemplateNested(item);
+    return new TemplateNested<>(item);
   }
   
   public A withReplicas(Integer replicas) {
@@ -218,7 +220,7 @@ public class V1ReplicationControllerSpecFluent<A extends io.kubernetes.client.op
     if (selector == null) {
       this.selector = null;
     } else {
-      this.selector = new LinkedHashMap(selector);
+      this.selector = new LinkedHashMap<>(selector);
     }
     return (A) this;
   }
@@ -229,8 +231,8 @@ public class V1ReplicationControllerSpecFluent<A extends io.kubernetes.client.op
         this.template = new V1PodTemplateSpecBuilder(template);
         this._visitables.get("template").add(this.template);
     } else {
-        this.template = null;
         this._visitables.get("template").remove(this.template);
+        this.template = null;
     }
     return (A) this;
   }

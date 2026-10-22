@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1JSONPatchFluent<A extends io.kubernetes.client.openapi.models.V1beta1JSONPatchFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1JSONPatchFluent<A extends V1beta1JSONPatchFluent<A>> extends BaseFluent<A>{
 
   private String expression;
 
@@ -51,7 +53,7 @@ public class V1beta1JSONPatchFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1JSONPatchFluent that = (V1beta1JSONPatchFluent) o;
+    V1beta1JSONPatchFluent<?> that = (V1beta1JSONPatchFluent<?>) o;
     if (!(Objects.equals(expression, that.expression))) {
       return false;
     }

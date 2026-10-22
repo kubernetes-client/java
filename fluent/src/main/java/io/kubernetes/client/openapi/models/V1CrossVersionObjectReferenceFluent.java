@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CrossVersionObjectReferenceFluent<A extends io.kubernetes.client.openapi.models.V1CrossVersionObjectReferenceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CrossVersionObjectReferenceFluent<A extends V1CrossVersionObjectReferenceFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -55,7 +57,7 @@ public class V1CrossVersionObjectReferenceFluent<A extends io.kubernetes.client.
     if (!(super.equals(o))) {
       return false;
     }
-    V1CrossVersionObjectReferenceFluent that = (V1CrossVersionObjectReferenceFluent) o;
+    V1CrossVersionObjectReferenceFluent<?> that = (V1CrossVersionObjectReferenceFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }

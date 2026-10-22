@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1DownwardAPIVolumeSourceBuilder extends V1DownwardAPIVolumeSourceFluent<V1DownwardAPIVolumeSourceBuilder> implements VisitableBuilder<V1DownwardAPIVolumeSource,V1DownwardAPIVolumeSourceBuilder>{
 
   V1DownwardAPIVolumeSourceFluent<?> fluent;
@@ -39,6 +40,7 @@ public class V1DownwardAPIVolumeSourceBuilder extends V1DownwardAPIVolumeSourceF
   public V1DownwardAPIVolumeSource build() {
     V1DownwardAPIVolumeSource buildable = new V1DownwardAPIVolumeSource();
     buildable.setDefaultMode(fluent.getDefaultMode());
+    buildable.setDefaultUser(fluent.getDefaultUser());
     buildable.setItems(fluent.buildItems());
     return buildable;
   }

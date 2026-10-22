@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PhotonPersistentDiskVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PhotonPersistentDiskVolumeSourceFluent<A extends V1PhotonPersistentDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String fsType;
   private String pdID;
@@ -53,7 +55,7 @@ public class V1PhotonPersistentDiskVolumeSourceFluent<A extends io.kubernetes.cl
     if (!(super.equals(o))) {
       return false;
     }
-    V1PhotonPersistentDiskVolumeSourceFluent that = (V1PhotonPersistentDiskVolumeSourceFluent) o;
+    V1PhotonPersistentDiskVolumeSourceFluent<?> that = (V1PhotonPersistentDiskVolumeSourceFluent<?>) o;
     if (!(Objects.equals(fsType, that.fsType))) {
       return false;
     }

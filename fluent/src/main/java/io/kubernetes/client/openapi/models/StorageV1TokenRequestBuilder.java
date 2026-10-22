@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class StorageV1TokenRequestBuilder extends StorageV1TokenRequestFluent<StorageV1TokenRequestBuilder> implements VisitableBuilder<StorageV1TokenRequest,StorageV1TokenRequestBuilder>{
 
   StorageV1TokenRequestFluent<?> fluent;

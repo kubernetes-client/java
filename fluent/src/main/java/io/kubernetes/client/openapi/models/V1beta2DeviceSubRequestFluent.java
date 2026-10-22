@@ -27,16 +27,19 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openapi.models.V1beta2DeviceSubRequestFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta2DeviceSubRequestFluent<A extends V1beta2DeviceSubRequestFluent<A>> extends BaseFluent<A>{
 
   private String allocationMode;
   private V1beta2CapacityRequirementsBuilder capacity;
   private Long count;
+  private ArrayList<V1beta2DeviceDerivedAttributeBuilder> derivedAttributes;
   private String deviceClassName;
   private String name;
   private ArrayList<V1beta2DeviceSelectorBuilder> selectors;
@@ -49,9 +52,21 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
     this.copyInstance(instance);
   }
 
+  public A addAllToDerivedAttributes(Collection<V1beta2DeviceDerivedAttribute> items) {
+    if (this.derivedAttributes == null) {
+      this.derivedAttributes = new ArrayList<>();
+    }
+    for (V1beta2DeviceDerivedAttribute item : items) {
+        V1beta2DeviceDerivedAttributeBuilder builder = new V1beta2DeviceDerivedAttributeBuilder(item);
+        this._visitables.get("derivedAttributes").add(builder);
+        this.derivedAttributes.add(builder);
+    }
+    return (A) this;
+  }
+  
   public A addAllToSelectors(Collection<V1beta2DeviceSelector> items) {
     if (this.selectors == null) {
-      this.selectors = new ArrayList();
+      this.selectors = new ArrayList<>();
     }
     for (V1beta2DeviceSelector item : items) {
         V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);
@@ -63,7 +78,7 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
   
   public A addAllToTolerations(Collection<V1beta2DeviceToleration> items) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList();
+      this.tolerations = new ArrayList<>();
     }
     for (V1beta2DeviceToleration item : items) {
         V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);
@@ -73,25 +88,60 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
     return (A) this;
   }
   
+  public DerivedAttributesNested<A> addNewDerivedAttribute() {
+    return new DerivedAttributesNested<>(-1, null);
+  }
+  
+  public DerivedAttributesNested<A> addNewDerivedAttributeLike(V1beta2DeviceDerivedAttribute item) {
+    return new DerivedAttributesNested<>(-1, item);
+  }
+  
   public SelectorsNested<A> addNewSelector() {
-    return new SelectorsNested(-1, null);
+    return new SelectorsNested<>(-1, null);
   }
   
   public SelectorsNested<A> addNewSelectorLike(V1beta2DeviceSelector item) {
-    return new SelectorsNested(-1, item);
+    return new SelectorsNested<>(-1, item);
   }
   
   public TolerationsNested<A> addNewToleration() {
-    return new TolerationsNested(-1, null);
+    return new TolerationsNested<>(-1, null);
   }
   
   public TolerationsNested<A> addNewTolerationLike(V1beta2DeviceToleration item) {
-    return new TolerationsNested(-1, item);
+    return new TolerationsNested<>(-1, item);
+  }
+  
+  public A addToDerivedAttributes(V1beta2DeviceDerivedAttribute... items) {
+    if (this.derivedAttributes == null) {
+      this.derivedAttributes = new ArrayList<>();
+    }
+    for (V1beta2DeviceDerivedAttribute item : items) {
+        V1beta2DeviceDerivedAttributeBuilder builder = new V1beta2DeviceDerivedAttributeBuilder(item);
+        this._visitables.get("derivedAttributes").add(builder);
+        this.derivedAttributes.add(builder);
+    }
+    return (A) this;
+  }
+  
+  public A addToDerivedAttributes(int index,V1beta2DeviceDerivedAttribute item) {
+    if (this.derivedAttributes == null) {
+      this.derivedAttributes = new ArrayList<>();
+    }
+    V1beta2DeviceDerivedAttributeBuilder builder = new V1beta2DeviceDerivedAttributeBuilder(item);
+    if (index < 0 || index >= this.derivedAttributes.size()) {
+        this._visitables.get("derivedAttributes").add(builder);
+        this.derivedAttributes.add(builder);
+    } else {
+        this._visitables.get("derivedAttributes").add(builder);
+        this.derivedAttributes.add(index, builder);
+    }
+    return (A) this;
   }
   
   public A addToSelectors(V1beta2DeviceSelector... items) {
     if (this.selectors == null) {
-      this.selectors = new ArrayList();
+      this.selectors = new ArrayList<>();
     }
     for (V1beta2DeviceSelector item : items) {
         V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);
@@ -103,7 +153,7 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
   
   public A addToSelectors(int index,V1beta2DeviceSelector item) {
     if (this.selectors == null) {
-      this.selectors = new ArrayList();
+      this.selectors = new ArrayList<>();
     }
     V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);
     if (index < 0 || index >= this.selectors.size()) {
@@ -118,7 +168,7 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
   
   public A addToTolerations(V1beta2DeviceToleration... items) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList();
+      this.tolerations = new ArrayList<>();
     }
     for (V1beta2DeviceToleration item : items) {
         V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);
@@ -130,7 +180,7 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
   
   public A addToTolerations(int index,V1beta2DeviceToleration item) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList();
+      this.tolerations = new ArrayList<>();
     }
     V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);
     if (index < 0 || index >= this.tolerations.size()) {
@@ -147,6 +197,18 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
     return this.capacity != null ? this.capacity.build() : null;
   }
   
+  public V1beta2DeviceDerivedAttribute buildDerivedAttribute(int index) {
+    return this.derivedAttributes.get(index).build();
+  }
+  
+  public List<V1beta2DeviceDerivedAttribute> buildDerivedAttributes() {
+    return this.derivedAttributes != null ? build(derivedAttributes) : null;
+  }
+  
+  public V1beta2DeviceDerivedAttribute buildFirstDerivedAttribute() {
+    return this.derivedAttributes.get(0).build();
+  }
+  
   public V1beta2DeviceSelector buildFirstSelector() {
     return this.selectors.get(0).build();
   }
@@ -155,12 +217,25 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
     return this.tolerations.get(0).build();
   }
   
+  public V1beta2DeviceDerivedAttribute buildLastDerivedAttribute() {
+    return this.derivedAttributes.get(derivedAttributes.size() - 1).build();
+  }
+  
   public V1beta2DeviceSelector buildLastSelector() {
     return this.selectors.get(selectors.size() - 1).build();
   }
   
   public V1beta2DeviceToleration buildLastToleration() {
     return this.tolerations.get(tolerations.size() - 1).build();
+  }
+  
+  public V1beta2DeviceDerivedAttribute buildMatchingDerivedAttribute(Predicate<V1beta2DeviceDerivedAttributeBuilder> predicate) {
+      for (V1beta2DeviceDerivedAttributeBuilder item : derivedAttributes) {
+        if (predicate.test(item)) {
+          return item.build();
+        }
+      }
+      return null;
   }
   
   public V1beta2DeviceSelector buildMatchingSelector(Predicate<V1beta2DeviceSelectorBuilder> predicate) {
@@ -203,6 +278,7 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
         this.withAllocationMode(instance.getAllocationMode());
         this.withCapacity(instance.getCapacity());
         this.withCount(instance.getCount());
+        this.withDerivedAttributes(instance.getDerivedAttributes());
         this.withDeviceClassName(instance.getDeviceClassName());
         this.withName(instance.getName());
         this.withSelectors(instance.getSelectors());
@@ -212,6 +288,20 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
   
   public CapacityNested<A> editCapacity() {
     return this.withNewCapacityLike(Optional.ofNullable(this.buildCapacity()).orElse(null));
+  }
+  
+  public DerivedAttributesNested<A> editDerivedAttribute(int index) {
+    if (derivedAttributes.size() <= index) {
+      throw new RuntimeException(String.format("Can't edit %s. Index exceeds size.", "derivedAttributes"));
+    }
+    return this.setNewDerivedAttributeLike(index, this.buildDerivedAttribute(index));
+  }
+  
+  public DerivedAttributesNested<A> editFirstDerivedAttribute() {
+    if (derivedAttributes.size() == 0) {
+      throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "derivedAttributes"));
+    }
+    return this.setNewDerivedAttributeLike(0, this.buildDerivedAttribute(0));
   }
   
   public SelectorsNested<A> editFirstSelector() {
@@ -228,6 +318,14 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
     return this.setNewTolerationLike(0, this.buildToleration(0));
   }
   
+  public DerivedAttributesNested<A> editLastDerivedAttribute() {
+    int index = derivedAttributes.size() - 1;
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "derivedAttributes"));
+    }
+    return this.setNewDerivedAttributeLike(index, this.buildDerivedAttribute(index));
+  }
+  
   public SelectorsNested<A> editLastSelector() {
     int index = selectors.size() - 1;
     if (index < 0) {
@@ -242,6 +340,20 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
       throw new RuntimeException(String.format("Can't edit last %s. The list is empty.", "tolerations"));
     }
     return this.setNewTolerationLike(index, this.buildToleration(index));
+  }
+  
+  public DerivedAttributesNested<A> editMatchingDerivedAttribute(Predicate<V1beta2DeviceDerivedAttributeBuilder> predicate) {
+    int index = -1;
+    for (int i = 0;i < derivedAttributes.size();i++) {
+      if (predicate.test(derivedAttributes.get(i))) {
+          index = i;
+          break;
+      }
+    }
+    if (index < 0) {
+      throw new RuntimeException(String.format("Can't edit matching %s. No match found.", "derivedAttributes"));
+    }
+    return this.setNewDerivedAttributeLike(index, this.buildDerivedAttribute(index));
   }
   
   public SelectorsNested<A> editMatchingSelector(Predicate<V1beta2DeviceSelectorBuilder> predicate) {
@@ -304,7 +416,7 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta2DeviceSubRequestFluent that = (V1beta2DeviceSubRequestFluent) o;
+    V1beta2DeviceSubRequestFluent<?> that = (V1beta2DeviceSubRequestFluent<?>) o;
     if (!(Objects.equals(allocationMode, that.allocationMode))) {
       return false;
     }
@@ -312,6 +424,9 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
       return false;
     }
     if (!(Objects.equals(count, that.count))) {
+      return false;
+    }
+    if (!(Objects.equals(derivedAttributes, that.derivedAttributes))) {
       return false;
     }
     if (!(Objects.equals(deviceClassName, that.deviceClassName))) {
@@ -357,8 +472,21 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
     return this.count != null;
   }
   
+  public boolean hasDerivedAttributes() {
+    return this.derivedAttributes != null && !(this.derivedAttributes.isEmpty());
+  }
+  
   public boolean hasDeviceClassName() {
     return this.deviceClassName != null;
+  }
+  
+  public boolean hasMatchingDerivedAttribute(Predicate<V1beta2DeviceDerivedAttributeBuilder> predicate) {
+      for (V1beta2DeviceDerivedAttributeBuilder item : derivedAttributes) {
+        if (predicate.test(item)) {
+          return true;
+        }
+      }
+      return false;
   }
   
   public boolean hasMatchingSelector(Predicate<V1beta2DeviceSelectorBuilder> predicate) {
@@ -392,7 +520,19 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
   }
   
   public int hashCode() {
-    return Objects.hash(allocationMode, capacity, count, deviceClassName, name, selectors, tolerations);
+    return Objects.hash(allocationMode, capacity, count, derivedAttributes, deviceClassName, name, selectors, tolerations);
+  }
+  
+  public A removeAllFromDerivedAttributes(Collection<V1beta2DeviceDerivedAttribute> items) {
+    if (this.derivedAttributes == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceDerivedAttribute item : items) {
+        V1beta2DeviceDerivedAttributeBuilder builder = new V1beta2DeviceDerivedAttributeBuilder(item);
+        _visitables.get("derivedAttributes").remove(builder);
+        this.derivedAttributes.remove(builder);
+    }
+    return (A) this;
   }
   
   public A removeAllFromSelectors(Collection<V1beta2DeviceSelector> items) {
@@ -415,6 +555,18 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
         V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);
         _visitables.get("tolerations").remove(builder);
         this.tolerations.remove(builder);
+    }
+    return (A) this;
+  }
+  
+  public A removeFromDerivedAttributes(V1beta2DeviceDerivedAttribute... items) {
+    if (this.derivedAttributes == null) {
+      return (A) this;
+    }
+    for (V1beta2DeviceDerivedAttribute item : items) {
+        V1beta2DeviceDerivedAttributeBuilder builder = new V1beta2DeviceDerivedAttributeBuilder(item);
+        _visitables.get("derivedAttributes").remove(builder);
+        this.derivedAttributes.remove(builder);
     }
     return (A) this;
   }
@@ -443,11 +595,29 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
     return (A) this;
   }
   
+  public A removeMatchingFromDerivedAttributes(Predicate<V1beta2DeviceDerivedAttributeBuilder> predicate) {
+    if (derivedAttributes == null) {
+      return (A) this;
+    }
+    Iterator<V1beta2DeviceDerivedAttributeBuilder> each = derivedAttributes.iterator();
+    @SuppressWarnings({"rawtypes"})
+    List visitables = this._visitables.get("derivedAttributes");
+    while (each.hasNext()) {
+        V1beta2DeviceDerivedAttributeBuilder builder = each.next();
+        if (predicate.test(builder)) {
+            visitables.remove(builder);
+            each.remove();
+        }
+    }
+    return (A) this;
+  }
+  
   public A removeMatchingFromSelectors(Predicate<V1beta2DeviceSelectorBuilder> predicate) {
     if (selectors == null) {
       return (A) this;
     }
     Iterator<V1beta2DeviceSelectorBuilder> each = selectors.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("selectors");
     while (each.hasNext()) {
         V1beta2DeviceSelectorBuilder builder = each.next();
@@ -464,6 +634,7 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
       return (A) this;
     }
     Iterator<V1beta2DeviceTolerationBuilder> each = tolerations.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("tolerations");
     while (each.hasNext()) {
         V1beta2DeviceTolerationBuilder builder = each.next();
@@ -475,17 +646,36 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
     return (A) this;
   }
   
+  public DerivedAttributesNested<A> setNewDerivedAttributeLike(int index,V1beta2DeviceDerivedAttribute item) {
+    return new DerivedAttributesNested<>(index, item);
+  }
+  
   public SelectorsNested<A> setNewSelectorLike(int index,V1beta2DeviceSelector item) {
-    return new SelectorsNested(index, item);
+    return new SelectorsNested<>(index, item);
   }
   
   public TolerationsNested<A> setNewTolerationLike(int index,V1beta2DeviceToleration item) {
-    return new TolerationsNested(index, item);
+    return new TolerationsNested<>(index, item);
+  }
+  
+  public A setToDerivedAttributes(int index,V1beta2DeviceDerivedAttribute item) {
+    if (this.derivedAttributes == null) {
+      this.derivedAttributes = new ArrayList<>();
+    }
+    V1beta2DeviceDerivedAttributeBuilder builder = new V1beta2DeviceDerivedAttributeBuilder(item);
+    if (index < 0 || index >= this.derivedAttributes.size()) {
+        this._visitables.get("derivedAttributes").add(builder);
+        this.derivedAttributes.add(builder);
+    } else {
+        this._visitables.get("derivedAttributes").add(builder);
+        this.derivedAttributes.set(index, builder);
+    }
+    return (A) this;
   }
   
   public A setToSelectors(int index,V1beta2DeviceSelector item) {
     if (this.selectors == null) {
-      this.selectors = new ArrayList();
+      this.selectors = new ArrayList<>();
     }
     V1beta2DeviceSelectorBuilder builder = new V1beta2DeviceSelectorBuilder(item);
     if (index < 0 || index >= this.selectors.size()) {
@@ -500,7 +690,7 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
   
   public A setToTolerations(int index,V1beta2DeviceToleration item) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList();
+      this.tolerations = new ArrayList<>();
     }
     V1beta2DeviceTolerationBuilder builder = new V1beta2DeviceTolerationBuilder(item);
     if (index < 0 || index >= this.tolerations.size()) {
@@ -529,6 +719,11 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
     if (!(count == null)) {
         sb.append("count:");
         sb.append(count);
+        sb.append(",");
+    }
+    if (!(derivedAttributes == null) && !(derivedAttributes.isEmpty())) {
+        sb.append("derivedAttributes:");
+        sb.append(derivedAttributes);
         sb.append(",");
     }
     if (!(deviceClassName == null)) {
@@ -565,14 +760,42 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
         this.capacity = new V1beta2CapacityRequirementsBuilder(capacity);
         this._visitables.get("capacity").add(this.capacity);
     } else {
-        this.capacity = null;
         this._visitables.get("capacity").remove(this.capacity);
+        this.capacity = null;
     }
     return (A) this;
   }
   
   public A withCount(Long count) {
     this.count = count;
+    return (A) this;
+  }
+  
+  public A withDerivedAttributes(List<V1beta2DeviceDerivedAttribute> derivedAttributes) {
+    if (this.derivedAttributes != null) {
+      this._visitables.get("derivedAttributes").clear();
+    }
+    if (derivedAttributes != null) {
+        this.derivedAttributes = new ArrayList<>();
+        for (V1beta2DeviceDerivedAttribute item : derivedAttributes) {
+          this.addToDerivedAttributes(item);
+        }
+    } else {
+      this.derivedAttributes = null;
+    }
+    return (A) this;
+  }
+  
+  public A withDerivedAttributes(V1beta2DeviceDerivedAttribute... derivedAttributes) {
+    if (this.derivedAttributes != null) {
+        this.derivedAttributes.clear();
+        _visitables.remove("derivedAttributes");
+    }
+    if (derivedAttributes != null) {
+      for (V1beta2DeviceDerivedAttribute item : derivedAttributes) {
+        this.addToDerivedAttributes(item);
+      }
+    }
     return (A) this;
   }
   
@@ -587,11 +810,11 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
   }
   
   public CapacityNested<A> withNewCapacity() {
-    return new CapacityNested(null);
+    return new CapacityNested<>(null);
   }
   
   public CapacityNested<A> withNewCapacityLike(V1beta2CapacityRequirements item) {
-    return new CapacityNested(item);
+    return new CapacityNested<>(item);
   }
   
   public A withSelectors(List<V1beta2DeviceSelector> selectors) {
@@ -599,7 +822,7 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
       this._visitables.get("selectors").clear();
     }
     if (selectors != null) {
-        this.selectors = new ArrayList();
+        this.selectors = new ArrayList<>();
         for (V1beta2DeviceSelector item : selectors) {
           this.addToSelectors(item);
         }
@@ -627,7 +850,7 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
       this._visitables.get("tolerations").clear();
     }
     if (tolerations != null) {
-        this.tolerations = new ArrayList();
+        this.tolerations = new ArrayList<>();
         for (V1beta2DeviceToleration item : tolerations) {
           this.addToTolerations(item);
         }
@@ -662,6 +885,25 @@ public class V1beta2DeviceSubRequestFluent<A extends io.kubernetes.client.openap
     }
     
     public N endCapacity() {
+      return and();
+    }
+    
+  }
+  public class DerivedAttributesNested<N> extends V1beta2DeviceDerivedAttributeFluent<DerivedAttributesNested<N>> implements Nested<N>{
+  
+    V1beta2DeviceDerivedAttributeBuilder builder;
+    int index;
+  
+    DerivedAttributesNested(int index,V1beta2DeviceDerivedAttribute item) {
+      this.index = index;
+      this.builder = new V1beta2DeviceDerivedAttributeBuilder(this, item);
+    }
+  
+    public N and() {
+      return (N) V1beta2DeviceSubRequestFluent.this.setToDerivedAttributes(index, builder.build());
+    }
+    
+    public N endDerivedAttribute() {
       return and();
     }
     

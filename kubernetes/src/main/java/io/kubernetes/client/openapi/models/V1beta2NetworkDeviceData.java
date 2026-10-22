@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * NetworkDeviceData provides network-related details for the allocated device. This information may be filled by drivers or other components to configure or identify the device within a network context.
  */
 @ApiModel(description = "NetworkDeviceData provides network-related details for the allocated device. This information may be filled by drivers or other components to configure or identify the device within a network context.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1beta2NetworkDeviceData {
   public static final String SERIALIZED_NAME_HARDWARE_ADDRESS = "hardwareAddress";
   @SerializedName(SERIALIZED_NAME_HARDWARE_ADDRESS)

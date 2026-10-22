@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1beta2CounterBuilder extends V1beta2CounterFluent<V1beta2CounterBuilder> implements VisitableBuilder<V1beta2Counter,V1beta2CounterBuilder>{
 
   V1beta2CounterFluent<?> fluent;

@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2ContainerResourceMetricSourceFluent<A extends io.kubernetes.client.openapi.models.V2ContainerResourceMetricSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2ContainerResourceMetricSourceFluent<A extends V2ContainerResourceMetricSourceFluent<A>> extends BaseFluent<A>{
 
   private String container;
   private String name;
@@ -73,7 +75,7 @@ public class V2ContainerResourceMetricSourceFluent<A extends io.kubernetes.clien
     if (!(super.equals(o))) {
       return false;
     }
-    V2ContainerResourceMetricSourceFluent that = (V2ContainerResourceMetricSourceFluent) o;
+    V2ContainerResourceMetricSourceFluent<?> that = (V2ContainerResourceMetricSourceFluent<?>) o;
     if (!(Objects.equals(container, that.container))) {
       return false;
     }
@@ -142,11 +144,11 @@ public class V2ContainerResourceMetricSourceFluent<A extends io.kubernetes.clien
   }
   
   public TargetNested<A> withNewTarget() {
-    return new TargetNested(null);
+    return new TargetNested<>(null);
   }
   
   public TargetNested<A> withNewTargetLike(V2MetricTarget item) {
-    return new TargetNested(item);
+    return new TargetNested<>(item);
   }
   
   public A withTarget(V2MetricTarget target) {
@@ -155,8 +157,8 @@ public class V2ContainerResourceMetricSourceFluent<A extends io.kubernetes.clien
         this.target = new V2MetricTargetBuilder(target);
         this._visitables.get("target").add(this.target);
     } else {
-        this.target = null;
         this._visitables.get("target").remove(this.target);
+        this.target = null;
     }
     return (A) this;
   }

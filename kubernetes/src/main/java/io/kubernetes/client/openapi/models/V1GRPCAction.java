@@ -50,8 +50,13 @@ import io.kubernetes.client.openapi.JSON;
  * GRPCAction specifies an action involving a GRPC service.
  */
 @ApiModel(description = "GRPCAction specifies an action involving a GRPC service.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1GRPCAction {
+  public static final String SERIALIZED_NAME_MODE = "mode";
+  @SerializedName(SERIALIZED_NAME_MODE)
+  @jakarta.annotation.Nullable
+  private String mode;
+
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
   @jakarta.annotation.Nonnull
@@ -64,6 +69,26 @@ public class V1GRPCAction {
 
   public V1GRPCAction() {
   }
+
+  public V1GRPCAction mode(@jakarta.annotation.Nullable String mode) {
+    this.mode = mode;
+    return this;
+  }
+
+  /**
+   * mode specifies the connection mode for the gRPC health probe. Set to \&quot;TLS\&quot; to use TLS without certificate verification. Set to \&quot;Plaintext\&quot; to use a plaintext (insecure) connection explicitly. If not specified, the probe uses a plaintext (insecure) connection.
+   * @return mode
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "mode specifies the connection mode for the gRPC health probe. Set to \"TLS\" to use TLS without certificate verification. Set to \"Plaintext\" to use a plaintext (insecure) connection explicitly. If not specified, the probe uses a plaintext (insecure) connection.")
+  public String getMode() {
+    return mode;
+  }
+
+  public void setMode(@jakarta.annotation.Nullable String mode) {
+    this.mode = mode;
+  }
+
 
   public V1GRPCAction port(@jakarta.annotation.Nonnull Integer port) {
     this.port = port;
@@ -115,19 +140,21 @@ public class V1GRPCAction {
       return false;
     }
     V1GRPCAction v1GRPCAction = (V1GRPCAction) o;
-    return Objects.equals(this.port, v1GRPCAction.port) &&
+    return Objects.equals(this.mode, v1GRPCAction.mode) &&
+        Objects.equals(this.port, v1GRPCAction.port) &&
         Objects.equals(this.service, v1GRPCAction.service);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(port, service);
+    return Objects.hash(mode, port, service);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1GRPCAction {\n");
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("}");
@@ -151,7 +178,7 @@ public class V1GRPCAction {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("port", "service"));
+    openapiFields = new HashSet<String>(Arrays.asList("mode", "port", "service"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("port"));
@@ -185,6 +212,9 @@ public class V1GRPCAction {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) && !jsonObj.get("mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mode").toString()));
+      }
       if ((jsonObj.get("service") != null && !jsonObj.get("service").isJsonNull()) && !jsonObj.get("service").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `service` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service").toString()));
       }

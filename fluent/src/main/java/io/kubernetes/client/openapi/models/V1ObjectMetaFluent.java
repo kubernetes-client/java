@@ -29,12 +29,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1ObjectMetaFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends BaseFluent<A>{
 
   private Map<String,String> annotations;
   private OffsetDateTime creationTimestamp;
@@ -61,7 +63,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
 
   public A addAllToFinalizers(Collection<String> items) {
     if (this.finalizers == null) {
-      this.finalizers = new ArrayList();
+      this.finalizers = new ArrayList<>();
     }
     for (String item : items) {
       this.finalizers.add(item);
@@ -71,7 +73,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addAllToManagedFields(Collection<V1ManagedFieldsEntry> items) {
     if (this.managedFields == null) {
-      this.managedFields = new ArrayList();
+      this.managedFields = new ArrayList<>();
     }
     for (V1ManagedFieldsEntry item : items) {
         V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
@@ -83,7 +85,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addAllToOwnerReferences(Collection<V1OwnerReference> items) {
     if (this.ownerReferences == null) {
-      this.ownerReferences = new ArrayList();
+      this.ownerReferences = new ArrayList<>();
     }
     for (V1OwnerReference item : items) {
         V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
@@ -94,24 +96,24 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   }
   
   public ManagedFieldsNested<A> addNewManagedField() {
-    return new ManagedFieldsNested(-1, null);
+    return new ManagedFieldsNested<>(-1, null);
   }
   
   public ManagedFieldsNested<A> addNewManagedFieldLike(V1ManagedFieldsEntry item) {
-    return new ManagedFieldsNested(-1, item);
+    return new ManagedFieldsNested<>(-1, item);
   }
   
   public OwnerReferencesNested<A> addNewOwnerReference() {
-    return new OwnerReferencesNested(-1, null);
+    return new OwnerReferencesNested<>(-1, null);
   }
   
   public OwnerReferencesNested<A> addNewOwnerReferenceLike(V1OwnerReference item) {
-    return new OwnerReferencesNested(-1, item);
+    return new OwnerReferencesNested<>(-1, item);
   }
   
   public A addToAnnotations(Map<String,String> map) {
     if (this.annotations == null && map != null) {
-      this.annotations = new LinkedHashMap();
+      this.annotations = new LinkedHashMap<>();
     }
     if (map != null) {
       this.annotations.putAll(map);
@@ -121,7 +123,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToAnnotations(String key,String value) {
     if (this.annotations == null && key != null && value != null) {
-      this.annotations = new LinkedHashMap();
+      this.annotations = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.annotations.put(key, value);
@@ -131,7 +133,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToFinalizers(String... items) {
     if (this.finalizers == null) {
-      this.finalizers = new ArrayList();
+      this.finalizers = new ArrayList<>();
     }
     for (String item : items) {
       this.finalizers.add(item);
@@ -141,7 +143,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToFinalizers(int index,String item) {
     if (this.finalizers == null) {
-      this.finalizers = new ArrayList();
+      this.finalizers = new ArrayList<>();
     }
     this.finalizers.add(index, item);
     return (A) this;
@@ -149,7 +151,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToLabels(Map<String,String> map) {
     if (this.labels == null && map != null) {
-      this.labels = new LinkedHashMap();
+      this.labels = new LinkedHashMap<>();
     }
     if (map != null) {
       this.labels.putAll(map);
@@ -159,7 +161,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToLabels(String key,String value) {
     if (this.labels == null && key != null && value != null) {
-      this.labels = new LinkedHashMap();
+      this.labels = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.labels.put(key, value);
@@ -169,7 +171,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToManagedFields(V1ManagedFieldsEntry... items) {
     if (this.managedFields == null) {
-      this.managedFields = new ArrayList();
+      this.managedFields = new ArrayList<>();
     }
     for (V1ManagedFieldsEntry item : items) {
         V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
@@ -181,7 +183,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToManagedFields(int index,V1ManagedFieldsEntry item) {
     if (this.managedFields == null) {
-      this.managedFields = new ArrayList();
+      this.managedFields = new ArrayList<>();
     }
     V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
     if (index < 0 || index >= this.managedFields.size()) {
@@ -196,7 +198,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToOwnerReferences(V1OwnerReference... items) {
     if (this.ownerReferences == null) {
-      this.ownerReferences = new ArrayList();
+      this.ownerReferences = new ArrayList<>();
     }
     for (V1OwnerReference item : items) {
         V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
@@ -208,7 +210,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToOwnerReferences(int index,V1OwnerReference item) {
     if (this.ownerReferences == null) {
-      this.ownerReferences = new ArrayList();
+      this.ownerReferences = new ArrayList<>();
     }
     V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
     if (index < 0 || index >= this.ownerReferences.size()) {
@@ -374,7 +376,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
     if (!(super.equals(o))) {
       return false;
     }
-    V1ObjectMetaFluent that = (V1ObjectMetaFluent) o;
+    V1ObjectMetaFluent<?> that = (V1ObjectMetaFluent<?>) o;
     if (!(Objects.equals(annotations, that.annotations))) {
       return false;
     }
@@ -708,6 +710,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1ManagedFieldsEntryBuilder> each = managedFields.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("managedFields");
     while (each.hasNext()) {
         V1ManagedFieldsEntryBuilder builder = each.next();
@@ -724,6 +727,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1OwnerReferenceBuilder> each = ownerReferences.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("ownerReferences");
     while (each.hasNext()) {
         V1OwnerReferenceBuilder builder = each.next();
@@ -736,16 +740,16 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   }
   
   public ManagedFieldsNested<A> setNewManagedFieldLike(int index,V1ManagedFieldsEntry item) {
-    return new ManagedFieldsNested(index, item);
+    return new ManagedFieldsNested<>(index, item);
   }
   
   public OwnerReferencesNested<A> setNewOwnerReferenceLike(int index,V1OwnerReference item) {
-    return new OwnerReferencesNested(index, item);
+    return new OwnerReferencesNested<>(index, item);
   }
   
   public A setToFinalizers(int index,String item) {
     if (this.finalizers == null) {
-      this.finalizers = new ArrayList();
+      this.finalizers = new ArrayList<>();
     }
     this.finalizers.set(index, item);
     return (A) this;
@@ -753,7 +757,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A setToManagedFields(int index,V1ManagedFieldsEntry item) {
     if (this.managedFields == null) {
-      this.managedFields = new ArrayList();
+      this.managedFields = new ArrayList<>();
     }
     V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
     if (index < 0 || index >= this.managedFields.size()) {
@@ -768,7 +772,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A setToOwnerReferences(int index,V1OwnerReference item) {
     if (this.ownerReferences == null) {
-      this.ownerReferences = new ArrayList();
+      this.ownerReferences = new ArrayList<>();
     }
     V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
     if (index < 0 || index >= this.ownerReferences.size()) {
@@ -866,7 +870,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
     if (annotations == null) {
       this.annotations = null;
     } else {
-      this.annotations = new LinkedHashMap(annotations);
+      this.annotations = new LinkedHashMap<>(annotations);
     }
     return (A) this;
   }
@@ -888,7 +892,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A withFinalizers(List<String> finalizers) {
     if (finalizers != null) {
-        this.finalizers = new ArrayList();
+        this.finalizers = new ArrayList<>();
         for (String item : finalizers) {
           this.addToFinalizers(item);
         }
@@ -925,7 +929,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
     if (labels == null) {
       this.labels = null;
     } else {
-      this.labels = new LinkedHashMap(labels);
+      this.labels = new LinkedHashMap<>(labels);
     }
     return (A) this;
   }
@@ -935,7 +939,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
       this._visitables.get("managedFields").clear();
     }
     if (managedFields != null) {
-        this.managedFields = new ArrayList();
+        this.managedFields = new ArrayList<>();
         for (V1ManagedFieldsEntry item : managedFields) {
           this.addToManagedFields(item);
         }
@@ -973,7 +977,7 @@ public class V1ObjectMetaFluent<A extends io.kubernetes.client.openapi.models.V1
       this._visitables.get("ownerReferences").clear();
     }
     if (ownerReferences != null) {
-        this.ownerReferences = new ArrayList();
+        this.ownerReferences = new ArrayList<>();
         for (V1OwnerReference item : ownerReferences) {
           this.addToOwnerReferences(item);
         }

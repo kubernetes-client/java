@@ -19,13 +19,16 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1GRPCActionFluent<A extends io.kubernetes.client.openapi.models.V1GRPCActionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1GRPCActionFluent<A extends V1GRPCActionFluent<A>> extends BaseFluent<A>{
 
+  private String mode;
   private Integer port;
   private String service;
 
@@ -39,6 +42,7 @@ public class V1GRPCActionFluent<A extends io.kubernetes.client.openapi.models.V1
   protected void copyInstance(V1GRPCAction instance) {
     instance = instance != null ? instance : new V1GRPCAction();
     if (instance != null) {
+        this.withMode(instance.getMode());
         this.withPort(instance.getPort());
         this.withService(instance.getService());
     }
@@ -54,7 +58,10 @@ public class V1GRPCActionFluent<A extends io.kubernetes.client.openapi.models.V1
     if (!(super.equals(o))) {
       return false;
     }
-    V1GRPCActionFluent that = (V1GRPCActionFluent) o;
+    V1GRPCActionFluent<?> that = (V1GRPCActionFluent<?>) o;
+    if (!(Objects.equals(mode, that.mode))) {
+      return false;
+    }
     if (!(Objects.equals(port, that.port))) {
       return false;
     }
@@ -64,12 +71,20 @@ public class V1GRPCActionFluent<A extends io.kubernetes.client.openapi.models.V1
     return true;
   }
   
+  public String getMode() {
+    return this.mode;
+  }
+  
   public Integer getPort() {
     return this.port;
   }
   
   public String getService() {
     return this.service;
+  }
+  
+  public boolean hasMode() {
+    return this.mode != null;
   }
   
   public boolean hasPort() {
@@ -81,12 +96,17 @@ public class V1GRPCActionFluent<A extends io.kubernetes.client.openapi.models.V1
   }
   
   public int hashCode() {
-    return Objects.hash(port, service);
+    return Objects.hash(mode, port, service);
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
+    if (!(mode == null)) {
+        sb.append("mode:");
+        sb.append(mode);
+        sb.append(",");
+    }
     if (!(port == null)) {
         sb.append("port:");
         sb.append(port);
@@ -98,6 +118,11 @@ public class V1GRPCActionFluent<A extends io.kubernetes.client.openapi.models.V1
     }
     sb.append("}");
     return sb.toString();
+  }
+  
+  public A withMode(String mode) {
+    this.mode = mode;
+    return (A) this;
   }
   
   public A withPort(Integer port) {

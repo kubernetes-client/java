@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta2DeviceConstraintFluent<A extends io.kubernetes.client.openapi.models.V1beta2DeviceConstraintFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta2DeviceConstraintFluent<A extends V1beta2DeviceConstraintFluent<A>> extends BaseFluent<A>{
 
   private String distinctAttribute;
   private String matchAttribute;
@@ -42,7 +44,7 @@ public class V1beta2DeviceConstraintFluent<A extends io.kubernetes.client.openap
 
   public A addAllToRequests(Collection<String> items) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     for (String item : items) {
       this.requests.add(item);
@@ -52,7 +54,7 @@ public class V1beta2DeviceConstraintFluent<A extends io.kubernetes.client.openap
   
   public A addToRequests(String... items) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     for (String item : items) {
       this.requests.add(item);
@@ -62,7 +64,7 @@ public class V1beta2DeviceConstraintFluent<A extends io.kubernetes.client.openap
   
   public A addToRequests(int index,String item) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     this.requests.add(index, item);
     return (A) this;
@@ -87,7 +89,7 @@ public class V1beta2DeviceConstraintFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta2DeviceConstraintFluent that = (V1beta2DeviceConstraintFluent) o;
+    V1beta2DeviceConstraintFluent<?> that = (V1beta2DeviceConstraintFluent<?>) o;
     if (!(Objects.equals(distinctAttribute, that.distinctAttribute))) {
       return false;
     }
@@ -180,7 +182,7 @@ public class V1beta2DeviceConstraintFluent<A extends io.kubernetes.client.openap
   
   public A setToRequests(int index,String item) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     this.requests.set(index, item);
     return (A) this;
@@ -219,7 +221,7 @@ public class V1beta2DeviceConstraintFluent<A extends io.kubernetes.client.openap
   
   public A withRequests(List<String> requests) {
     if (requests != null) {
-        this.requests = new ArrayList();
+        this.requests = new ArrayList<>();
         for (String item : requests) {
           this.addToRequests(item);
         }

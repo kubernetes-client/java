@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1ExecActionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ExecActionFluent<A extends V1ExecActionFluent<A>> extends BaseFluent<A>{
 
   private List<String> command;
 
@@ -40,7 +42,7 @@ public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1
 
   public A addAllToCommand(Collection<String> items) {
     if (this.command == null) {
-      this.command = new ArrayList();
+      this.command = new ArrayList<>();
     }
     for (String item : items) {
       this.command.add(item);
@@ -50,7 +52,7 @@ public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToCommand(String... items) {
     if (this.command == null) {
-      this.command = new ArrayList();
+      this.command = new ArrayList<>();
     }
     for (String item : items) {
       this.command.add(item);
@@ -60,7 +62,7 @@ public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToCommand(int index,String item) {
     if (this.command == null) {
-      this.command = new ArrayList();
+      this.command = new ArrayList<>();
     }
     this.command.add(index, item);
     return (A) this;
@@ -83,7 +85,7 @@ public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1
     if (!(super.equals(o))) {
       return false;
     }
-    V1ExecActionFluent that = (V1ExecActionFluent) o;
+    V1ExecActionFluent<?> that = (V1ExecActionFluent<?>) o;
     if (!(Objects.equals(command, that.command))) {
       return false;
     }
@@ -154,7 +156,7 @@ public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A setToCommand(int index,String item) {
     if (this.command == null) {
-      this.command = new ArrayList();
+      this.command = new ArrayList<>();
     }
     this.command.set(index, item);
     return (A) this;
@@ -173,7 +175,7 @@ public class V1ExecActionFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A withCommand(List<String> command) {
     if (command != null) {
-        this.command = new ArrayList();
+        this.command = new ArrayList<>();
         for (String item : command) {
           this.addToCommand(item);
         }

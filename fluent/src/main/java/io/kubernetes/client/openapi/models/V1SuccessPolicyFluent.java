@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models.V1SuccessPolicyFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SuccessPolicyFluent<A extends V1SuccessPolicyFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1SuccessPolicyRuleBuilder> rules;
 
@@ -43,7 +45,7 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToRules(Collection<V1SuccessPolicyRule> items) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     for (V1SuccessPolicyRule item : items) {
         V1SuccessPolicyRuleBuilder builder = new V1SuccessPolicyRuleBuilder(item);
@@ -54,16 +56,16 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public RulesNested<A> addNewRule() {
-    return new RulesNested(-1, null);
+    return new RulesNested<>(-1, null);
   }
   
   public RulesNested<A> addNewRuleLike(V1SuccessPolicyRule item) {
-    return new RulesNested(-1, item);
+    return new RulesNested<>(-1, item);
   }
   
   public A addToRules(V1SuccessPolicyRule... items) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     for (V1SuccessPolicyRule item : items) {
         V1SuccessPolicyRuleBuilder builder = new V1SuccessPolicyRuleBuilder(item);
@@ -75,7 +77,7 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToRules(int index,V1SuccessPolicyRule item) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     V1SuccessPolicyRuleBuilder builder = new V1SuccessPolicyRuleBuilder(item);
     if (index < 0 || index >= this.rules.size()) {
@@ -166,7 +168,7 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1SuccessPolicyFluent that = (V1SuccessPolicyFluent) o;
+    V1SuccessPolicyFluent<?> that = (V1SuccessPolicyFluent<?>) o;
     if (!(Objects.equals(rules, that.rules))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1SuccessPolicyRuleBuilder> each = rules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("rules");
     while (each.hasNext()) {
         V1SuccessPolicyRuleBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public RulesNested<A> setNewRuleLike(int index,V1SuccessPolicyRule item) {
-    return new RulesNested(index, item);
+    return new RulesNested<>(index, item);
   }
   
   public A setToRules(int index,V1SuccessPolicyRule item) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     V1SuccessPolicyRuleBuilder builder = new V1SuccessPolicyRuleBuilder(item);
     if (index < 0 || index >= this.rules.size()) {
@@ -265,7 +268,7 @@ public class V1SuccessPolicyFluent<A extends io.kubernetes.client.openapi.models
       this._visitables.get("rules").clear();
     }
     if (rules != null) {
-        this.rules = new ArrayList();
+        this.rules = new ArrayList<>();
         for (V1SuccessPolicyRule item : rules) {
           this.addToRules(item);
         }

@@ -27,12 +27,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CustomResourceDefinitionVersionFluent<A extends V1CustomResourceDefinitionVersionFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1CustomResourceColumnDefinitionBuilder> additionalPrinterColumns;
   private Boolean deprecated;
@@ -53,7 +55,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
 
   public A addAllToAdditionalPrinterColumns(Collection<V1CustomResourceColumnDefinition> items) {
     if (this.additionalPrinterColumns == null) {
-      this.additionalPrinterColumns = new ArrayList();
+      this.additionalPrinterColumns = new ArrayList<>();
     }
     for (V1CustomResourceColumnDefinition item : items) {
         V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
@@ -65,7 +67,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
   
   public A addAllToSelectableFields(Collection<V1SelectableField> items) {
     if (this.selectableFields == null) {
-      this.selectableFields = new ArrayList();
+      this.selectableFields = new ArrayList<>();
     }
     for (V1SelectableField item : items) {
         V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
@@ -76,24 +78,24 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
   }
   
   public AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumn() {
-    return new AdditionalPrinterColumnsNested(-1, null);
+    return new AdditionalPrinterColumnsNested<>(-1, null);
   }
   
   public AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumnLike(V1CustomResourceColumnDefinition item) {
-    return new AdditionalPrinterColumnsNested(-1, item);
+    return new AdditionalPrinterColumnsNested<>(-1, item);
   }
   
   public SelectableFieldsNested<A> addNewSelectableField() {
-    return new SelectableFieldsNested(-1, null);
+    return new SelectableFieldsNested<>(-1, null);
   }
   
   public SelectableFieldsNested<A> addNewSelectableFieldLike(V1SelectableField item) {
-    return new SelectableFieldsNested(-1, item);
+    return new SelectableFieldsNested<>(-1, item);
   }
   
   public A addToAdditionalPrinterColumns(V1CustomResourceColumnDefinition... items) {
     if (this.additionalPrinterColumns == null) {
-      this.additionalPrinterColumns = new ArrayList();
+      this.additionalPrinterColumns = new ArrayList<>();
     }
     for (V1CustomResourceColumnDefinition item : items) {
         V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
@@ -105,7 +107,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
   
   public A addToAdditionalPrinterColumns(int index,V1CustomResourceColumnDefinition item) {
     if (this.additionalPrinterColumns == null) {
-      this.additionalPrinterColumns = new ArrayList();
+      this.additionalPrinterColumns = new ArrayList<>();
     }
     V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
     if (index < 0 || index >= this.additionalPrinterColumns.size()) {
@@ -120,7 +122,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
   
   public A addToSelectableFields(V1SelectableField... items) {
     if (this.selectableFields == null) {
-      this.selectableFields = new ArrayList();
+      this.selectableFields = new ArrayList<>();
     }
     for (V1SelectableField item : items) {
         V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
@@ -132,7 +134,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
   
   public A addToSelectableFields(int index,V1SelectableField item) {
     if (this.selectableFields == null) {
-      this.selectableFields = new ArrayList();
+      this.selectableFields = new ArrayList<>();
     }
     V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
     if (index < 0 || index >= this.selectableFields.size()) {
@@ -324,7 +326,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
     if (!(super.equals(o))) {
       return false;
     }
-    V1CustomResourceDefinitionVersionFluent that = (V1CustomResourceDefinitionVersionFluent) o;
+    V1CustomResourceDefinitionVersionFluent<?> that = (V1CustomResourceDefinitionVersionFluent<?>) o;
     if (!(Objects.equals(additionalPrinterColumns, that.additionalPrinterColumns))) {
       return false;
     }
@@ -486,6 +488,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       return (A) this;
     }
     Iterator<V1CustomResourceColumnDefinitionBuilder> each = additionalPrinterColumns.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("additionalPrinterColumns");
     while (each.hasNext()) {
         V1CustomResourceColumnDefinitionBuilder builder = each.next();
@@ -502,6 +505,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       return (A) this;
     }
     Iterator<V1SelectableFieldBuilder> each = selectableFields.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("selectableFields");
     while (each.hasNext()) {
         V1SelectableFieldBuilder builder = each.next();
@@ -514,16 +518,16 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
   }
   
   public AdditionalPrinterColumnsNested<A> setNewAdditionalPrinterColumnLike(int index,V1CustomResourceColumnDefinition item) {
-    return new AdditionalPrinterColumnsNested(index, item);
+    return new AdditionalPrinterColumnsNested<>(index, item);
   }
   
   public SelectableFieldsNested<A> setNewSelectableFieldLike(int index,V1SelectableField item) {
-    return new SelectableFieldsNested(index, item);
+    return new SelectableFieldsNested<>(index, item);
   }
   
   public A setToAdditionalPrinterColumns(int index,V1CustomResourceColumnDefinition item) {
     if (this.additionalPrinterColumns == null) {
-      this.additionalPrinterColumns = new ArrayList();
+      this.additionalPrinterColumns = new ArrayList<>();
     }
     V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
     if (index < 0 || index >= this.additionalPrinterColumns.size()) {
@@ -538,7 +542,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
   
   public A setToSelectableFields(int index,V1SelectableField item) {
     if (this.selectableFields == null) {
-      this.selectableFields = new ArrayList();
+      this.selectableFields = new ArrayList<>();
     }
     V1SelectableFieldBuilder builder = new V1SelectableFieldBuilder(item);
     if (index < 0 || index >= this.selectableFields.size()) {
@@ -607,7 +611,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       this._visitables.get("additionalPrinterColumns").clear();
     }
     if (additionalPrinterColumns != null) {
-        this.additionalPrinterColumns = new ArrayList();
+        this.additionalPrinterColumns = new ArrayList<>();
         for (V1CustomResourceColumnDefinition item : additionalPrinterColumns) {
           this.addToAdditionalPrinterColumns(item);
         }
@@ -650,19 +654,19 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
   }
   
   public SchemaNested<A> withNewSchema() {
-    return new SchemaNested(null);
+    return new SchemaNested<>(null);
   }
   
   public SchemaNested<A> withNewSchemaLike(V1CustomResourceValidation item) {
-    return new SchemaNested(item);
+    return new SchemaNested<>(item);
   }
   
   public SubresourcesNested<A> withNewSubresources() {
-    return new SubresourcesNested(null);
+    return new SubresourcesNested<>(null);
   }
   
   public SubresourcesNested<A> withNewSubresourcesLike(V1CustomResourceSubresources item) {
-    return new SubresourcesNested(item);
+    return new SubresourcesNested<>(item);
   }
   
   public A withSchema(V1CustomResourceValidation schema) {
@@ -671,8 +675,8 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
         this.schema = new V1CustomResourceValidationBuilder(schema);
         this._visitables.get("schema").add(this.schema);
     } else {
-        this.schema = null;
         this._visitables.get("schema").remove(this.schema);
+        this.schema = null;
     }
     return (A) this;
   }
@@ -682,7 +686,7 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
       this._visitables.get("selectableFields").clear();
     }
     if (selectableFields != null) {
-        this.selectableFields = new ArrayList();
+        this.selectableFields = new ArrayList<>();
         for (V1SelectableField item : selectableFields) {
           this.addToSelectableFields(item);
         }
@@ -729,8 +733,8 @@ public class V1CustomResourceDefinitionVersionFluent<A extends io.kubernetes.cli
         this.subresources = new V1CustomResourceSubresourcesBuilder(subresources);
         this._visitables.get("subresources").add(this.subresources);
     } else {
-        this.subresources = null;
         this._visitables.get("subresources").remove(this.subresources);
+        this.subresources = null;
     }
     return (A) this;
   }

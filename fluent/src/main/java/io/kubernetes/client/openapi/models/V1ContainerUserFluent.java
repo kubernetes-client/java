@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ContainerUserFluent<A extends io.kubernetes.client.openapi.models.V1ContainerUserFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ContainerUserFluent<A extends V1ContainerUserFluent<A>> extends BaseFluent<A>{
 
   private V1LinuxContainerUserBuilder linux;
 
@@ -69,7 +71,7 @@ public class V1ContainerUserFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1ContainerUserFluent that = (V1ContainerUserFluent) o;
+    V1ContainerUserFluent<?> that = (V1ContainerUserFluent<?>) o;
     if (!(Objects.equals(linux, that.linux))) {
       return false;
     }
@@ -101,18 +103,18 @@ public class V1ContainerUserFluent<A extends io.kubernetes.client.openapi.models
         this.linux = new V1LinuxContainerUserBuilder(linux);
         this._visitables.get("linux").add(this.linux);
     } else {
-        this.linux = null;
         this._visitables.get("linux").remove(this.linux);
+        this.linux = null;
     }
     return (A) this;
   }
   
   public LinuxNested<A> withNewLinux() {
-    return new LinuxNested(null);
+    return new LinuxNested<>(null);
   }
   
   public LinuxNested<A> withNewLinuxLike(V1LinuxContainerUser item) {
-    return new LinuxNested(item);
+    return new LinuxNested<>(item);
   }
   public class LinuxNested<N> extends V1LinuxContainerUserFluent<LinuxNested<N>> implements Nested<N>{
   

@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.
  */
 @ApiModel(description = "ServiceCIDRSpec define the CIDRs the user wants to use for allocating ClusterIPs for Services.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ServiceCIDRSpec {
   public static final String SERIALIZED_NAME_CIDRS = "cidrs";
   @SerializedName(SERIALIZED_NAME_CIDRS)
@@ -76,11 +76,11 @@ public class V1ServiceCIDRSpec {
   }
 
   /**
-   * CIDRs defines the IP blocks in CIDR notation (e.g. \&quot;192.168.0.0/24\&quot; or \&quot;2001:db8::/64\&quot;) from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. This field is immutable.
+   * cidrs defines the IP blocks in CIDR notation (e.g. \&quot;192.168.0.0/24\&quot; or \&quot;2001:db8::/64\&quot;) from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. This field is immutable.
    * @return cidrs
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "CIDRs defines the IP blocks in CIDR notation (e.g. \"192.168.0.0/24\" or \"2001:db8::/64\") from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. This field is immutable.")
+  @ApiModelProperty(value = "cidrs defines the IP blocks in CIDR notation (e.g. \"192.168.0.0/24\" or \"2001:db8::/64\") from which to assign service cluster IPs. Max of two CIDRs is allowed, one of each IP family. This field is immutable.")
   public List<String> getCidrs() {
     return cidrs;
   }

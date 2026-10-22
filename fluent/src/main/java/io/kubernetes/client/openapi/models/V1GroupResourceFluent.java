@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1GroupResourceFluent<A extends io.kubernetes.client.openapi.models.V1GroupResourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1GroupResourceFluent<A extends V1GroupResourceFluent<A>> extends BaseFluent<A>{
 
   private String group;
   private String resource;
@@ -53,7 +55,7 @@ public class V1GroupResourceFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1GroupResourceFluent that = (V1GroupResourceFluent) o;
+    V1GroupResourceFluent<?> that = (V1GroupResourceFluent<?>) o;
     if (!(Objects.equals(group, that.group))) {
       return false;
     }

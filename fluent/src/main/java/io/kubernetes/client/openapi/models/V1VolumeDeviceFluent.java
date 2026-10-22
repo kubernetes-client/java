@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VolumeDeviceFluent<A extends io.kubernetes.client.openapi.models.V1VolumeDeviceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VolumeDeviceFluent<A extends V1VolumeDeviceFluent<A>> extends BaseFluent<A>{
 
   private String devicePath;
   private String name;
@@ -53,7 +55,7 @@ public class V1VolumeDeviceFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1VolumeDeviceFluent that = (V1VolumeDeviceFluent) o;
+    V1VolumeDeviceFluent<?> that = (V1VolumeDeviceFluent<?>) o;
     if (!(Objects.equals(devicePath, that.devicePath))) {
       return false;
     }

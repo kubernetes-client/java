@@ -26,12 +26,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernetes.client.openapi.models.V1alpha3ResourcePoolStatusRequestStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends V1alpha3ResourcePoolStatusRequestStatusFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1ConditionBuilder> conditions;
   private Integer poolCount;
@@ -46,7 +48,7 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
 
   public A addAllToConditions(Collection<V1Condition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1Condition item : items) {
         V1ConditionBuilder builder = new V1ConditionBuilder(item);
@@ -58,7 +60,7 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
   
   public A addAllToPools(Collection<V1alpha3PoolStatus> items) {
     if (this.pools == null) {
-      this.pools = new ArrayList();
+      this.pools = new ArrayList<>();
     }
     for (V1alpha3PoolStatus item : items) {
         V1alpha3PoolStatusBuilder builder = new V1alpha3PoolStatusBuilder(item);
@@ -69,24 +71,24 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1Condition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public PoolsNested<A> addNewPool() {
-    return new PoolsNested(-1, null);
+    return new PoolsNested<>(-1, null);
   }
   
   public PoolsNested<A> addNewPoolLike(V1alpha3PoolStatus item) {
-    return new PoolsNested(-1, item);
+    return new PoolsNested<>(-1, item);
   }
   
   public A addToConditions(V1Condition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1Condition item : items) {
         V1ConditionBuilder builder = new V1ConditionBuilder(item);
@@ -98,7 +100,7 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
   
   public A addToConditions(int index,V1Condition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1ConditionBuilder builder = new V1ConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -113,7 +115,7 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
   
   public A addToPools(V1alpha3PoolStatus... items) {
     if (this.pools == null) {
-      this.pools = new ArrayList();
+      this.pools = new ArrayList<>();
     }
     for (V1alpha3PoolStatus item : items) {
         V1alpha3PoolStatusBuilder builder = new V1alpha3PoolStatusBuilder(item);
@@ -125,7 +127,7 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
   
   public A addToPools(int index,V1alpha3PoolStatus item) {
     if (this.pools == null) {
-      this.pools = new ArrayList();
+      this.pools = new ArrayList<>();
     }
     V1alpha3PoolStatusBuilder builder = new V1alpha3PoolStatusBuilder(item);
     if (index < 0 || index >= this.pools.size()) {
@@ -279,7 +281,7 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
     if (!(super.equals(o))) {
       return false;
     }
-    V1alpha3ResourcePoolStatusRequestStatusFluent that = (V1alpha3ResourcePoolStatusRequestStatusFluent) o;
+    V1alpha3ResourcePoolStatusRequestStatusFluent<?> that = (V1alpha3ResourcePoolStatusRequestStatusFluent<?>) o;
     if (!(Objects.equals(conditions, that.conditions))) {
       return false;
     }
@@ -383,6 +385,7 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
       return (A) this;
     }
     Iterator<V1ConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1ConditionBuilder builder = each.next();
@@ -399,6 +402,7 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
       return (A) this;
     }
     Iterator<V1alpha3PoolStatusBuilder> each = pools.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("pools");
     while (each.hasNext()) {
         V1alpha3PoolStatusBuilder builder = each.next();
@@ -411,16 +415,16 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1Condition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public PoolsNested<A> setNewPoolLike(int index,V1alpha3PoolStatus item) {
-    return new PoolsNested(index, item);
+    return new PoolsNested<>(index, item);
   }
   
   public A setToConditions(int index,V1Condition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1ConditionBuilder builder = new V1ConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -435,7 +439,7 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
   
   public A setToPools(int index,V1alpha3PoolStatus item) {
     if (this.pools == null) {
-      this.pools = new ArrayList();
+      this.pools = new ArrayList<>();
     }
     V1alpha3PoolStatusBuilder builder = new V1alpha3PoolStatusBuilder(item);
     if (index < 0 || index >= this.pools.size()) {
@@ -474,7 +478,7 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1Condition item : conditions) {
           this.addToConditions(item);
         }
@@ -507,7 +511,7 @@ public class V1alpha3ResourcePoolStatusRequestStatusFluent<A extends io.kubernet
       this._visitables.get("pools").clear();
     }
     if (pools != null) {
-        this.pools = new ArrayList();
+        this.pools = new ArrayList<>();
         for (V1alpha3PoolStatus item : pools) {
           this.addToPools(item);
         }

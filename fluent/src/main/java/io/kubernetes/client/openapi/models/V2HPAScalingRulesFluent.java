@@ -27,12 +27,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V2HPAScalingPolicyBuilder> policies;
   private String selectPolicy;
@@ -48,7 +50,7 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToPolicies(Collection<V2HPAScalingPolicy> items) {
     if (this.policies == null) {
-      this.policies = new ArrayList();
+      this.policies = new ArrayList<>();
     }
     for (V2HPAScalingPolicy item : items) {
         V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
@@ -59,16 +61,16 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public PoliciesNested<A> addNewPolicy() {
-    return new PoliciesNested(-1, null);
+    return new PoliciesNested<>(-1, null);
   }
   
   public PoliciesNested<A> addNewPolicyLike(V2HPAScalingPolicy item) {
-    return new PoliciesNested(-1, item);
+    return new PoliciesNested<>(-1, item);
   }
   
   public A addToPolicies(V2HPAScalingPolicy... items) {
     if (this.policies == null) {
-      this.policies = new ArrayList();
+      this.policies = new ArrayList<>();
     }
     for (V2HPAScalingPolicy item : items) {
         V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
@@ -80,7 +82,7 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToPolicies(int index,V2HPAScalingPolicy item) {
     if (this.policies == null) {
-      this.policies = new ArrayList();
+      this.policies = new ArrayList<>();
     }
     V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
     if (index < 0 || index >= this.policies.size()) {
@@ -174,7 +176,7 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V2HPAScalingRulesFluent that = (V2HPAScalingRulesFluent) o;
+    V2HPAScalingRulesFluent<?> that = (V2HPAScalingRulesFluent<?>) o;
     if (!(Objects.equals(policies, that.policies))) {
       return false;
     }
@@ -260,6 +262,7 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V2HPAScalingPolicyBuilder> each = policies.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("policies");
     while (each.hasNext()) {
         V2HPAScalingPolicyBuilder builder = each.next();
@@ -272,12 +275,12 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public PoliciesNested<A> setNewPolicyLike(int index,V2HPAScalingPolicy item) {
-    return new PoliciesNested(index, item);
+    return new PoliciesNested<>(index, item);
   }
   
   public A setToPolicies(int index,V2HPAScalingPolicy item) {
     if (this.policies == null) {
-      this.policies = new ArrayList();
+      this.policies = new ArrayList<>();
     }
     V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
     if (index < 0 || index >= this.policies.size()) {
@@ -325,7 +328,7 @@ public class V2HPAScalingRulesFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("policies").clear();
     }
     if (policies != null) {
-        this.policies = new ArrayList();
+        this.policies = new ArrayList<>();
         for (V2HPAScalingPolicy item : policies) {
           this.addToPolicies(item);
         }

@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1HorizontalPodAutoscalerSpecFluent<A extends V1HorizontalPodAutoscalerSpecFluent<A>> extends BaseFluent<A>{
 
   private Integer maxReplicas;
   private Integer minReplicas;
@@ -76,7 +78,7 @@ public class V1HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
     if (!(super.equals(o))) {
       return false;
     }
-    V1HorizontalPodAutoscalerSpecFluent that = (V1HorizontalPodAutoscalerSpecFluent) o;
+    V1HorizontalPodAutoscalerSpecFluent<?> that = (V1HorizontalPodAutoscalerSpecFluent<?>) o;
     if (!(Objects.equals(maxReplicas, that.maxReplicas))) {
       return false;
     }
@@ -161,11 +163,11 @@ public class V1HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
   }
   
   public ScaleTargetRefNested<A> withNewScaleTargetRef() {
-    return new ScaleTargetRefNested(null);
+    return new ScaleTargetRefNested<>(null);
   }
   
   public ScaleTargetRefNested<A> withNewScaleTargetRefLike(V1CrossVersionObjectReference item) {
-    return new ScaleTargetRefNested(item);
+    return new ScaleTargetRefNested<>(item);
   }
   
   public A withScaleTargetRef(V1CrossVersionObjectReference scaleTargetRef) {
@@ -174,8 +176,8 @@ public class V1HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
         this.scaleTargetRef = new V1CrossVersionObjectReferenceBuilder(scaleTargetRef);
         this._visitables.get("scaleTargetRef").add(this.scaleTargetRef);
     } else {
-        this.scaleTargetRef = null;
         this._visitables.get("scaleTargetRef").remove(this.scaleTargetRef);
+        this.scaleTargetRef = null;
     }
     return (A) this;
   }

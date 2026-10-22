@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeFeaturesFluent<A extends io.kubernetes.client.openapi.models.V1NodeFeaturesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeFeaturesFluent<A extends V1NodeFeaturesFluent<A>> extends BaseFluent<A>{
 
   private Boolean supplementalGroupsPolicy;
 
@@ -52,7 +54,7 @@ public class V1NodeFeaturesFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeFeaturesFluent that = (V1NodeFeaturesFluent) o;
+    V1NodeFeaturesFluent<?> that = (V1NodeFeaturesFluent<?>) o;
     if (!(Objects.equals(supplementalGroupsPolicy, that.supplementalGroupsPolicy))) {
       return false;
     }

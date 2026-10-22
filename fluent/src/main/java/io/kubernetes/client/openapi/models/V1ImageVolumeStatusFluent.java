@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ImageVolumeStatusFluent<A extends io.kubernetes.client.openapi.models.V1ImageVolumeStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ImageVolumeStatusFluent<A extends V1ImageVolumeStatusFluent<A>> extends BaseFluent<A>{
 
   private String imageRef;
 
@@ -51,7 +53,7 @@ public class V1ImageVolumeStatusFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1ImageVolumeStatusFluent that = (V1ImageVolumeStatusFluent) o;
+    V1ImageVolumeStatusFluent<?> that = (V1ImageVolumeStatusFluent<?>) o;
     if (!(Objects.equals(imageRef, that.imageRef))) {
       return false;
     }

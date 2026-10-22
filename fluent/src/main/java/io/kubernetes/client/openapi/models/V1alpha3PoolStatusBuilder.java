@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1alpha3PoolStatusBuilder extends V1alpha3PoolStatusFluent<V1alpha3PoolStatusBuilder> implements VisitableBuilder<V1alpha3PoolStatus,V1alpha3PoolStatusBuilder>{
 
   V1alpha3PoolStatusFluent<?> fluent;
@@ -43,8 +44,10 @@ public class V1alpha3PoolStatusBuilder extends V1alpha3PoolStatusFluent<V1alpha3
     buildable.setDriver(fluent.getDriver());
     buildable.setGeneration(fluent.getGeneration());
     buildable.setNodeName(fluent.getNodeName());
+    buildable.setPartitionSummary(fluent.buildPartitionSummary());
     buildable.setPoolName(fluent.getPoolName());
     buildable.setResourceSliceCount(fluent.getResourceSliceCount());
+    buildable.setShareableSummary(fluent.buildShareableSummary());
     buildable.setTotalDevices(fluent.getTotalDevices());
     buildable.setUnavailableDevices(fluent.getUnavailableDevices());
     buildable.setValidationError(fluent.getValidationError());

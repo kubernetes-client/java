@@ -26,12 +26,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CertificateSigningRequestStatusFluent<A extends io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CertificateSigningRequestStatusFluent<A extends V1CertificateSigningRequestStatusFluent<A>> extends BaseFluent<A>{
 
   private List<Byte> certificate;
   private ArrayList<V1CertificateSigningRequestConditionBuilder> conditions;
@@ -55,7 +57,7 @@ public class V1CertificateSigningRequestStatusFluent<A extends io.kubernetes.cli
   
   public A addAllToConditions(Collection<V1CertificateSigningRequestCondition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1CertificateSigningRequestCondition item : items) {
         V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
@@ -66,11 +68,11 @@ public class V1CertificateSigningRequestStatusFluent<A extends io.kubernetes.cli
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1CertificateSigningRequestCondition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public A addToCertificate(Byte... items) {
@@ -93,7 +95,7 @@ public class V1CertificateSigningRequestStatusFluent<A extends io.kubernetes.cli
   
   public A addToConditions(V1CertificateSigningRequestCondition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1CertificateSigningRequestCondition item : items) {
         V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
@@ -105,7 +107,7 @@ public class V1CertificateSigningRequestStatusFluent<A extends io.kubernetes.cli
   
   public A addToConditions(int index,V1CertificateSigningRequestCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -197,7 +199,7 @@ public class V1CertificateSigningRequestStatusFluent<A extends io.kubernetes.cli
     if (!(super.equals(o))) {
       return false;
     }
-    V1CertificateSigningRequestStatusFluent that = (V1CertificateSigningRequestStatusFluent) o;
+    V1CertificateSigningRequestStatusFluent<?> that = (V1CertificateSigningRequestStatusFluent<?>) o;
     if (!(Objects.equals(certificate, that.certificate))) {
       return false;
     }
@@ -290,6 +292,7 @@ public class V1CertificateSigningRequestStatusFluent<A extends io.kubernetes.cli
       return (A) this;
     }
     Iterator<V1CertificateSigningRequestConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1CertificateSigningRequestConditionBuilder builder = each.next();
@@ -302,7 +305,7 @@ public class V1CertificateSigningRequestStatusFluent<A extends io.kubernetes.cli
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1CertificateSigningRequestCondition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public A setToCertificate(int index,Byte item) {
@@ -315,7 +318,7 @@ public class V1CertificateSigningRequestStatusFluent<A extends io.kubernetes.cli
   
   public A setToConditions(int index,V1CertificateSigningRequestCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1CertificateSigningRequestConditionBuilder builder = new V1CertificateSigningRequestConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -362,7 +365,7 @@ public class V1CertificateSigningRequestStatusFluent<A extends io.kubernetes.cli
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1CertificateSigningRequestCondition item : conditions) {
           this.addToConditions(item);
         }

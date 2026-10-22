@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1LabelSelectorRequirementBuilder extends V1LabelSelectorRequirementFluent<V1LabelSelectorRequirementBuilder> implements VisitableBuilder<V1LabelSelectorRequirement,V1LabelSelectorRequirementBuilder>{
 
   V1LabelSelectorRequirementFluent<?> fluent;

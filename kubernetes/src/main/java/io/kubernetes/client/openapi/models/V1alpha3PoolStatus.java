@@ -18,10 +18,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1alpha3PartitionTypeStatus;
+import io.kubernetes.client.openapi.models.V1alpha3ShareableSummaryStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,7 +54,7 @@ import io.kubernetes.client.openapi.JSON;
  * PoolStatus contains status information for a single resource pool.
  */
 @ApiModel(description = "PoolStatus contains status information for a single resource pool.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha3PoolStatus {
   public static final String SERIALIZED_NAME_ALLOCATED_DEVICES = "allocatedDevices";
   @SerializedName(SERIALIZED_NAME_ALLOCATED_DEVICES)
@@ -77,6 +81,11 @@ public class V1alpha3PoolStatus {
   @jakarta.annotation.Nullable
   private String nodeName;
 
+  public static final String SERIALIZED_NAME_PARTITION_SUMMARY = "partitionSummary";
+  @SerializedName(SERIALIZED_NAME_PARTITION_SUMMARY)
+  @jakarta.annotation.Nullable
+  private List<V1alpha3PartitionTypeStatus> partitionSummary = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_POOL_NAME = "poolName";
   @SerializedName(SERIALIZED_NAME_POOL_NAME)
   @jakarta.annotation.Nonnull
@@ -86,6 +95,11 @@ public class V1alpha3PoolStatus {
   @SerializedName(SERIALIZED_NAME_RESOURCE_SLICE_COUNT)
   @jakarta.annotation.Nullable
   private Integer resourceSliceCount;
+
+  public static final String SERIALIZED_NAME_SHAREABLE_SUMMARY = "shareableSummary";
+  @SerializedName(SERIALIZED_NAME_SHAREABLE_SUMMARY)
+  @jakarta.annotation.Nullable
+  private V1alpha3ShareableSummaryStatus shareableSummary;
 
   public static final String SERIALIZED_NAME_TOTAL_DEVICES = "totalDevices";
   @SerializedName(SERIALIZED_NAME_TOTAL_DEVICES)
@@ -205,6 +219,34 @@ public class V1alpha3PoolStatus {
   }
 
 
+  public V1alpha3PoolStatus partitionSummary(@jakarta.annotation.Nullable List<V1alpha3PartitionTypeStatus> partitionSummary) {
+    this.partitionSummary = partitionSummary;
+    return this;
+  }
+
+  public V1alpha3PoolStatus addPartitionSummaryItem(V1alpha3PartitionTypeStatus partitionSummaryItem) {
+    if (this.partitionSummary == null) {
+      this.partitionSummary = new ArrayList<>();
+    }
+    this.partitionSummary.add(partitionSummaryItem);
+    return this;
+  }
+
+  /**
+   * PartitionSummary reports allocatability per (attribute, partition type) for a partitionable pool that publishes SharedCounters. Each entry names the grouping attribute it was resolved from: the PartitionTypeAttribute declared by a device&#39;s own slice, or for devices whose slice declares none, the default named in the request. A pool that mixes partitions declared under different attributes reports each independently. When no slice declares an attribute and the request names no default, the pool reports no partition summary.
+   * @return partitionSummary
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "PartitionSummary reports allocatability per (attribute, partition type) for a partitionable pool that publishes SharedCounters. Each entry names the grouping attribute it was resolved from: the PartitionTypeAttribute declared by a device's own slice, or for devices whose slice declares none, the default named in the request. A pool that mixes partitions declared under different attributes reports each independently. When no slice declares an attribute and the request names no default, the pool reports no partition summary.")
+  public List<V1alpha3PartitionTypeStatus> getPartitionSummary() {
+    return partitionSummary;
+  }
+
+  public void setPartitionSummary(@jakarta.annotation.Nullable List<V1alpha3PartitionTypeStatus> partitionSummary) {
+    this.partitionSummary = partitionSummary;
+  }
+
+
   public V1alpha3PoolStatus poolName(@jakarta.annotation.Nonnull String poolName) {
     this.poolName = poolName;
     return this;
@@ -242,6 +284,26 @@ public class V1alpha3PoolStatus {
 
   public void setResourceSliceCount(@jakarta.annotation.Nullable Integer resourceSliceCount) {
     this.resourceSliceCount = resourceSliceCount;
+  }
+
+
+  public V1alpha3PoolStatus shareableSummary(@jakarta.annotation.Nullable V1alpha3ShareableSummaryStatus shareableSummary) {
+    this.shareableSummary = shareableSummary;
+    return this;
+  }
+
+  /**
+   * Get shareableSummary
+   * @return shareableSummary
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1alpha3ShareableSummaryStatus getShareableSummary() {
+    return shareableSummary;
+  }
+
+  public void setShareableSummary(@jakarta.annotation.Nullable V1alpha3ShareableSummaryStatus shareableSummary) {
+    this.shareableSummary = shareableSummary;
   }
 
 
@@ -320,8 +382,10 @@ public class V1alpha3PoolStatus {
         Objects.equals(this.driver, v1alpha3PoolStatus.driver) &&
         Objects.equals(this.generation, v1alpha3PoolStatus.generation) &&
         Objects.equals(this.nodeName, v1alpha3PoolStatus.nodeName) &&
+        Objects.equals(this.partitionSummary, v1alpha3PoolStatus.partitionSummary) &&
         Objects.equals(this.poolName, v1alpha3PoolStatus.poolName) &&
         Objects.equals(this.resourceSliceCount, v1alpha3PoolStatus.resourceSliceCount) &&
+        Objects.equals(this.shareableSummary, v1alpha3PoolStatus.shareableSummary) &&
         Objects.equals(this.totalDevices, v1alpha3PoolStatus.totalDevices) &&
         Objects.equals(this.unavailableDevices, v1alpha3PoolStatus.unavailableDevices) &&
         Objects.equals(this.validationError, v1alpha3PoolStatus.validationError);
@@ -329,7 +393,7 @@ public class V1alpha3PoolStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocatedDevices, availableDevices, driver, generation, nodeName, poolName, resourceSliceCount, totalDevices, unavailableDevices, validationError);
+    return Objects.hash(allocatedDevices, availableDevices, driver, generation, nodeName, partitionSummary, poolName, resourceSliceCount, shareableSummary, totalDevices, unavailableDevices, validationError);
   }
 
   @Override
@@ -341,8 +405,10 @@ public class V1alpha3PoolStatus {
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
     sb.append("    generation: ").append(toIndentedString(generation)).append("\n");
     sb.append("    nodeName: ").append(toIndentedString(nodeName)).append("\n");
+    sb.append("    partitionSummary: ").append(toIndentedString(partitionSummary)).append("\n");
     sb.append("    poolName: ").append(toIndentedString(poolName)).append("\n");
     sb.append("    resourceSliceCount: ").append(toIndentedString(resourceSliceCount)).append("\n");
+    sb.append("    shareableSummary: ").append(toIndentedString(shareableSummary)).append("\n");
     sb.append("    totalDevices: ").append(toIndentedString(totalDevices)).append("\n");
     sb.append("    unavailableDevices: ").append(toIndentedString(unavailableDevices)).append("\n");
     sb.append("    validationError: ").append(toIndentedString(validationError)).append("\n");
@@ -367,7 +433,7 @@ public class V1alpha3PoolStatus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("allocatedDevices", "availableDevices", "driver", "generation", "nodeName", "poolName", "resourceSliceCount", "totalDevices", "unavailableDevices", "validationError"));
+    openapiFields = new HashSet<String>(Arrays.asList("allocatedDevices", "availableDevices", "driver", "generation", "nodeName", "partitionSummary", "poolName", "resourceSliceCount", "shareableSummary", "totalDevices", "unavailableDevices", "validationError"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("driver", "generation", "poolName"));
@@ -407,8 +473,26 @@ public class V1alpha3PoolStatus {
       if ((jsonObj.get("nodeName") != null && !jsonObj.get("nodeName").isJsonNull()) && !jsonObj.get("nodeName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `nodeName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nodeName").toString()));
       }
+      if (jsonObj.get("partitionSummary") != null && !jsonObj.get("partitionSummary").isJsonNull()) {
+        JsonArray jsonArraypartitionSummary = jsonObj.getAsJsonArray("partitionSummary");
+        if (jsonArraypartitionSummary != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("partitionSummary").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `partitionSummary` to be an array in the JSON string but got `%s`", jsonObj.get("partitionSummary").toString()));
+          }
+
+          // validate the optional field `partitionSummary` (array)
+          for (int i = 0; i < jsonArraypartitionSummary.size(); i++) {
+            V1alpha3PartitionTypeStatus.validateJsonElement(jsonArraypartitionSummary.get(i));
+          };
+        }
+      }
       if (!jsonObj.get("poolName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `poolName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("poolName").toString()));
+      }
+      // validate the optional field `shareableSummary`
+      if (jsonObj.get("shareableSummary") != null && !jsonObj.get("shareableSummary").isJsonNull()) {
+        V1alpha3ShareableSummaryStatus.validateJsonElement(jsonObj.get("shareableSummary"));
       }
       if ((jsonObj.get("validationError") != null && !jsonObj.get("validationError").isJsonNull()) && !jsonObj.get("validationError").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `validationError` to be a primitive type in the JSON string but got `%s`", jsonObj.get("validationError").toString()));

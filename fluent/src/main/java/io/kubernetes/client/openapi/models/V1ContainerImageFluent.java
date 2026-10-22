@@ -23,12 +23,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ContainerImageFluent<A extends io.kubernetes.client.openapi.models.V1ContainerImageFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ContainerImageFluent<A extends V1ContainerImageFluent<A>> extends BaseFluent<A>{
 
   private List<String> names;
   private Long sizeBytes;
@@ -42,7 +44,7 @@ public class V1ContainerImageFluent<A extends io.kubernetes.client.openapi.model
 
   public A addAllToNames(Collection<String> items) {
     if (this.names == null) {
-      this.names = new ArrayList();
+      this.names = new ArrayList<>();
     }
     for (String item : items) {
       this.names.add(item);
@@ -52,7 +54,7 @@ public class V1ContainerImageFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToNames(String... items) {
     if (this.names == null) {
-      this.names = new ArrayList();
+      this.names = new ArrayList<>();
     }
     for (String item : items) {
       this.names.add(item);
@@ -62,7 +64,7 @@ public class V1ContainerImageFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToNames(int index,String item) {
     if (this.names == null) {
-      this.names = new ArrayList();
+      this.names = new ArrayList<>();
     }
     this.names.add(index, item);
     return (A) this;
@@ -86,7 +88,7 @@ public class V1ContainerImageFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1ContainerImageFluent that = (V1ContainerImageFluent) o;
+    V1ContainerImageFluent<?> that = (V1ContainerImageFluent<?>) o;
     if (!(Objects.equals(names, that.names))) {
       return false;
     }
@@ -168,7 +170,7 @@ public class V1ContainerImageFluent<A extends io.kubernetes.client.openapi.model
   
   public A setToNames(int index,String item) {
     if (this.names == null) {
-      this.names = new ArrayList();
+      this.names = new ArrayList<>();
     }
     this.names.set(index, item);
     return (A) this;
@@ -192,7 +194,7 @@ public class V1ContainerImageFluent<A extends io.kubernetes.client.openapi.model
   
   public A withNames(List<String> names) {
     if (names != null) {
-        this.names = new ArrayList();
+        this.names = new ArrayList<>();
         for (String item : names) {
           this.addToNames(item);
         }
