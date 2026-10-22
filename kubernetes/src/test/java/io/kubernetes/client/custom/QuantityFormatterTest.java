@@ -156,6 +156,22 @@ class QuantityFormatterTest {
   }
 
   @Test
+  void formatNegativeDecimalSi() {
+    final String formattedString =
+        new QuantityFormatter()
+            .format(new Quantity(new BigDecimal("-100000"), Quantity.Format.DECIMAL_SI));
+    assertThat(formattedString).isEqualTo("-100k");
+  }
+
+  @Test
+  void formatNegativeBinarySi() {
+    final String formattedString =
+        new QuantityFormatter()
+            .format(new Quantity(new BigDecimal(2).pow(20).negate(), Quantity.Format.BINARY_SI));
+    assertThat(formattedString).isEqualTo("-1Mi");
+  }
+
+  @Test
   void formatDecimalExponent() {
     final String formattedString =
         new QuantityFormatter()
