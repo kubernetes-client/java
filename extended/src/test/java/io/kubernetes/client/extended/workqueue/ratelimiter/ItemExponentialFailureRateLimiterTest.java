@@ -94,4 +94,23 @@ class ItemExponentialFailureRateLimiterTest {
     assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofSeconds(-1000));
     assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofSeconds(-1000));
   }
+
+  @Test
+  void highFailureCountStaysPositive() {
+    // maxDelay is large enough that the baseDelay*2^exp branch is still selected at exp == 31.
+    // The multiplier must be computed in long arithmetic; an int shift (1 << 31) overflows to
+    // Integer.MIN_VALUE and yields a negative backoff, which is never a valid delay.
+    Duration baseDelay = Duration.ofMillis(1);
+    Duration maxDelay = Duration.ofMillis(1L << 40);
+    RateLimiter<String> rateLimiter = new ItemExponentialFailureRateLimiter<>(baseDelay, maxDelay);
+
+    // Advance to exp == 31 (the 32nd call returns the delay computed with exp == 31).
+    for (int i = 0; i < 31; i++) {
+      rateLimiter.when("item");
+    }
+
+    Duration backoff = rateLimiter.when("item");
+    assertThat(backoff).isPositive();
+    assertThat(backoff).isEqualTo(baseDelay.multipliedBy(1L << 31));
+  }
 }
