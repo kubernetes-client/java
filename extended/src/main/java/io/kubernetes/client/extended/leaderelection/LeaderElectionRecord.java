@@ -139,7 +139,7 @@ public class LeaderElectionRecord {
       if (!acquireTime.equals(that.acquireTime)) return false;
     }
     if (renewTime == null) {
-      return that.holderIdentity == null;
+      return that.renewTime == null;
     }
     return renewTime.equals(that.renewTime);
   }
