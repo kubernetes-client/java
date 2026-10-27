@@ -56,11 +56,11 @@
     <junit-jupiter-params.version>${junit-jupiter.version}</junit-jupiter-params.version>
     <bucket4j.version>8.10.1</bucket4j.version>
     <bouncycastle.version>1.86</bouncycastle.version>
-    <gson.version>2.14.0</gson.version>
+    <gson.version>2.15.0</gson.version>
     <jackson.version>2.22.4</jackson.version>
     <jackson.annotations.version>2.22</jackson.annotations.version>
     <jsr305.version>3.0.2</jsr305.version>
-    <okhttp3.version>5.5.0</okhttp3.version>
+    <okhttp3.version>5.5.1</okhttp3.version>
     <swagger-core.version>1.6.16</swagger-core.version>
     <sundrio.version>0.400.1</sundrio.version>
     <gsonfire.version>1.9.0</gsonfire.version>
@@ -69,11 +69,11 @@
     <apache.commons.compress>1.28.0</apache.commons.compress>
     <apache.commons.io>2.22.0</apache.commons.io>
     <common.codec.version>1.23.0</common.codec.version>
-    <spring.boot.version>4.1.1</spring.boot.version>
-    <spring.version>7.0.9</spring.version>
+    <spring.boot.version>4.1.2</spring.boot.version>
+    <spring.version>7.0.10</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
-    <aws.sdk.version>2.57.0</aws.sdk.version>
+    <aws.sdk.version>2.57.3</aws.sdk.version>
     <google.auth.version>1.54.0</google.auth.version>
     <jose4j.version>0.9.7</jose4j.version>
     <jetbrains.annotations.version>26.1.0</jetbrains.annotations.version>
@@ -564,7 +564,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.6.0</version>
+          <version>3.6.1</version>
           <configuration>
             <trimStackTrace>false</trimStackTrace> <!-- SUREFIRE-1226 workaround -->
           </configuration>
