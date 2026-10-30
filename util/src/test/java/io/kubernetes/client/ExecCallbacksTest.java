@@ -25,6 +25,7 @@ import java.io.PipedOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -37,18 +38,23 @@ class ExecCallbacksTest {
 
   @Test
   void maxTimeout() throws Exception {
-    Exec exec = getExec((future, io) -> Thread.sleep(30_000L));
+    CountDownLatch release = new CountDownLatch(1);
+    try {
+      Exec exec = getExec((future, io) -> release.await());
 
-    long startTime = System.currentTimeMillis();
-    Future<Integer> promise =
+      long startTime = System.currentTimeMillis();
+      Future<Integer> promise =
         exec.exec("ns-1", "pod1", null, null, null, 1_000L, true, "random-command");
-    int exitCode = promise.get(10_000, TimeUnit.MILLISECONDS);
-    long delta = System.currentTimeMillis() - startTime;
+      int exitCode = promise.get(10_000, TimeUnit.MILLISECONDS);
+      long delta = System.currentTimeMillis() - startTime;
 
-    assertThat(delta)
+      assertThat(delta)
         .isGreaterThanOrEqualTo(1_000L)
         .isLessThanOrEqualTo(10_000L);
-    assertThat(exitCode).isEqualTo(Integer.MAX_VALUE);
+      assertThat(exitCode).isEqualTo(Integer.MAX_VALUE);
+    } finally {
+       release.countDown();
+    }
   }
 
   @Test
