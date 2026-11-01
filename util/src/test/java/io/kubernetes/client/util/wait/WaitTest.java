@@ -46,10 +46,7 @@ class WaitTest {
 
     // After poll returns the executor must have been shut down, so its worker thread terminates.
     // Allow a short grace period for the interrupt/shutdown to take effect.
-    long deadline = System.currentTimeMillis() + 2000;
-    while (worker.isAlive() && System.currentTimeMillis() < deadline) {
-      Thread.sleep(10);
-    }
+    worker.join(2000);
 
     assertThat(worker.isAlive())
         .as("Wait.poll must shut down its executor so the worker thread is not leaked")
