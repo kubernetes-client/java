@@ -73,8 +73,8 @@
     <spring.version>7.0.10</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
-    <aws.sdk.version>2.57.3</aws.sdk.version>
-    <google.auth.version>1.54.0</google.auth.version>
+    <aws.sdk.version>2.57.7</aws.sdk.version>
+    <google.auth.version>1.55.0</google.auth.version>
     <jose4j.version>0.9.7</jose4j.version>
     <jetbrains.annotations.version>26.1.0</jetbrains.annotations.version>
     <logback.version>1.6.6</logback.version>
@@ -577,12 +577,12 @@
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.8.15</version>
+          <version>0.8.16</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>3.6.3</version>
+          <version>3.7.0</version>
         </plugin>
         <plugin>
           <groupId>org.sonatype.central</groupId>
