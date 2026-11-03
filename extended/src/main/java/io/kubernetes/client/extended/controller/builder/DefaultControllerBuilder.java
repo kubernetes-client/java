@@ -46,7 +46,7 @@ public class DefaultControllerBuilder {
   DefaultControllerBuilder() {
     this.workerCount = Constants.DEFAULT_WORKER_COUNT;
     this.controllerName = "default-controller";
-    this.workQueue = new DefaultRateLimitingQueue<>(Executors.newSingleThreadExecutor());
+    this.workQueue = new DefaultRateLimitingQueue<>();
     this.readyFuncs = new ArrayList<>();
   }
 

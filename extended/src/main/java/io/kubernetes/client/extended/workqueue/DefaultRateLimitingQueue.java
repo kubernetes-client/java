@@ -15,7 +15,6 @@ package io.kubernetes.client.extended.workqueue;
 import io.kubernetes.client.extended.workqueue.ratelimiter.DefaultControllerRateLimiter;
 import io.kubernetes.client.extended.workqueue.ratelimiter.RateLimiter;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /** The default rate limiting queue implementation. */
 public class DefaultRateLimitingQueue<T> extends DefaultDelayingQueue<T>
@@ -23,14 +22,18 @@ public class DefaultRateLimitingQueue<T> extends DefaultDelayingQueue<T>
 
   private RateLimiter<T> rateLimiter;
 
+  /** Creates a queue that shuts down its internally owned executor on shutdown. */
   public DefaultRateLimitingQueue() {
-    this(Executors.newSingleThreadExecutor());
+    super();
+    this.rateLimiter = new DefaultControllerRateLimiter<>();
   }
 
+  /** Creates a queue using a caller-owned executor that is not shut down by this queue. */
   public DefaultRateLimitingQueue(ExecutorService waitingWorker) {
     this(waitingWorker, new DefaultControllerRateLimiter<>());
   }
 
+  /** Creates a queue using a caller-owned executor that is not shut down by this queue. */
   public DefaultRateLimitingQueue(ExecutorService waitingWorker, RateLimiter<T> rateLimiter) {
     super(waitingWorker);
     this.rateLimiter = rateLimiter;
