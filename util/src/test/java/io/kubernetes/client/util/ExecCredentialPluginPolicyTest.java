@@ -147,7 +147,7 @@ class ExecCredentialPluginPolicyTest {
   }
 
   @Test
-  void kubeRcPolicies() {
+  void kubeRcPolicies(@TempDir Path tempDir) {
     String header = "apiVersion: kubectl.config.k8s.io/v1beta1\nkind: Preference\n";
     assertThat(ExecCredentialPluginPolicy.fromKubeRc(new StringReader(header)))
         .isSameAs(ExecCredentialPluginPolicy.ALLOW_ALL);
@@ -164,6 +164,7 @@ class ExecCredentialPluginPolicyTest {
                 new StringReader(header + "credentialPluginPolicy: DenyAll\n")))
         .isSameAs(ExecCredentialPluginPolicy.DENY_ALL);
 
+    String trustedBinary = tempDir.resolve("my-other-trusted-binary").toString();
     ExecCredentialPluginPolicy allowlist =
         ExecCredentialPluginPolicy.fromKubeRc(
             new StringReader(
@@ -171,10 +172,12 @@ class ExecCredentialPluginPolicyTest {
                     + "credentialPluginPolicy: Allowlist\n"
                     + "credentialPluginAllowlist:\n"
                     + "  - command: my-trusted-binary\n"
-                    + "  - name: /usr/local/bin/my-other-trusted-binary\n"));
+                    + "  - name: "
+                    + trustedBinary
+                    + "\n"));
     assertThat(allowlist.getType()).isEqualTo(ExecCredentialPluginPolicy.PolicyType.ALLOWLIST);
     assertThat(allowlist.getAllowlist())
-        .containsExactly("my-trusted-binary", "/usr/local/bin/my-other-trusted-binary");
+        .containsExactly("my-trusted-binary", trustedBinary);
   }
 
   @Test
