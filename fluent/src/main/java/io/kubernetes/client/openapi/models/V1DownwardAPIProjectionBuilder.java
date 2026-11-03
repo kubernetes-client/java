@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1DownwardAPIProjectionBuilder extends V1DownwardAPIProjectionFluent<V1DownwardAPIProjectionBuilder> implements VisitableBuilder<V1DownwardAPIProjection,V1DownwardAPIProjectionBuilder>{
 
   V1DownwardAPIProjectionFluent<?> fluent;

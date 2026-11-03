@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.models.V1AggregationRuleFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1AggregationRuleFluent<A extends V1AggregationRuleFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1LabelSelectorBuilder> clusterRoleSelectors;
 
@@ -43,7 +45,7 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToClusterRoleSelectors(Collection<V1LabelSelector> items) {
     if (this.clusterRoleSelectors == null) {
-      this.clusterRoleSelectors = new ArrayList();
+      this.clusterRoleSelectors = new ArrayList<>();
     }
     for (V1LabelSelector item : items) {
         V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
@@ -54,16 +56,16 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public ClusterRoleSelectorsNested<A> addNewClusterRoleSelector() {
-    return new ClusterRoleSelectorsNested(-1, null);
+    return new ClusterRoleSelectorsNested<>(-1, null);
   }
   
   public ClusterRoleSelectorsNested<A> addNewClusterRoleSelectorLike(V1LabelSelector item) {
-    return new ClusterRoleSelectorsNested(-1, item);
+    return new ClusterRoleSelectorsNested<>(-1, item);
   }
   
   public A addToClusterRoleSelectors(V1LabelSelector... items) {
     if (this.clusterRoleSelectors == null) {
-      this.clusterRoleSelectors = new ArrayList();
+      this.clusterRoleSelectors = new ArrayList<>();
     }
     for (V1LabelSelector item : items) {
         V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
@@ -75,7 +77,7 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToClusterRoleSelectors(int index,V1LabelSelector item) {
     if (this.clusterRoleSelectors == null) {
-      this.clusterRoleSelectors = new ArrayList();
+      this.clusterRoleSelectors = new ArrayList<>();
     }
     V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
     if (index < 0 || index >= this.clusterRoleSelectors.size()) {
@@ -166,7 +168,7 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1AggregationRuleFluent that = (V1AggregationRuleFluent) o;
+    V1AggregationRuleFluent<?> that = (V1AggregationRuleFluent<?>) o;
     if (!(Objects.equals(clusterRoleSelectors, that.clusterRoleSelectors))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1LabelSelectorBuilder> each = clusterRoleSelectors.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("clusterRoleSelectors");
     while (each.hasNext()) {
         V1LabelSelectorBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public ClusterRoleSelectorsNested<A> setNewClusterRoleSelectorLike(int index,V1LabelSelector item) {
-    return new ClusterRoleSelectorsNested(index, item);
+    return new ClusterRoleSelectorsNested<>(index, item);
   }
   
   public A setToClusterRoleSelectors(int index,V1LabelSelector item) {
     if (this.clusterRoleSelectors == null) {
-      this.clusterRoleSelectors = new ArrayList();
+      this.clusterRoleSelectors = new ArrayList<>();
     }
     V1LabelSelectorBuilder builder = new V1LabelSelectorBuilder(item);
     if (index < 0 || index >= this.clusterRoleSelectors.size()) {
@@ -265,7 +268,7 @@ public class V1AggregationRuleFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("clusterRoleSelectors").clear();
     }
     if (clusterRoleSelectors != null) {
-        this.clusterRoleSelectors = new ArrayList();
+        this.clusterRoleSelectors = new ArrayList<>();
         for (V1LabelSelector item : clusterRoleSelectors) {
           this.addToClusterRoleSelectors(item);
         }

@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1SecurityContextBuilder extends V1SecurityContextFluent<V1SecurityContextBuilder> implements VisitableBuilder<V1SecurityContext,V1SecurityContextBuilder>{
 
   V1SecurityContextFluent<?> fluent;

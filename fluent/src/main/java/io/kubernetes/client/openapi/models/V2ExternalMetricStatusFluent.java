@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2ExternalMetricStatusFluent<A extends io.kubernetes.client.openapi.models.V2ExternalMetricStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2ExternalMetricStatusFluent<A extends V2ExternalMetricStatusFluent<A>> extends BaseFluent<A>{
 
   private V2MetricValueStatusBuilder current;
   private V2MetricIdentifierBuilder metric;
@@ -87,7 +89,7 @@ public class V2ExternalMetricStatusFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V2ExternalMetricStatusFluent that = (V2ExternalMetricStatusFluent) o;
+    V2ExternalMetricStatusFluent<?> that = (V2ExternalMetricStatusFluent<?>) o;
     if (!(Objects.equals(current, that.current))) {
       return false;
     }
@@ -131,8 +133,8 @@ public class V2ExternalMetricStatusFluent<A extends io.kubernetes.client.openapi
         this.current = new V2MetricValueStatusBuilder(current);
         this._visitables.get("current").add(this.current);
     } else {
-        this.current = null;
         this._visitables.get("current").remove(this.current);
+        this.current = null;
     }
     return (A) this;
   }
@@ -143,26 +145,26 @@ public class V2ExternalMetricStatusFluent<A extends io.kubernetes.client.openapi
         this.metric = new V2MetricIdentifierBuilder(metric);
         this._visitables.get("metric").add(this.metric);
     } else {
-        this.metric = null;
         this._visitables.get("metric").remove(this.metric);
+        this.metric = null;
     }
     return (A) this;
   }
   
   public CurrentNested<A> withNewCurrent() {
-    return new CurrentNested(null);
+    return new CurrentNested<>(null);
   }
   
   public CurrentNested<A> withNewCurrentLike(V2MetricValueStatus item) {
-    return new CurrentNested(item);
+    return new CurrentNested<>(item);
   }
   
   public MetricNested<A> withNewMetric() {
-    return new MetricNested(null);
+    return new MetricNested<>(null);
   }
   
   public MetricNested<A> withNewMetricLike(V2MetricIdentifier item) {
-    return new MetricNested(item);
+    return new MetricNested<>(item);
   }
   public class CurrentNested<N> extends V2MetricValueStatusFluent<CurrentNested<N>> implements Nested<N>{
   

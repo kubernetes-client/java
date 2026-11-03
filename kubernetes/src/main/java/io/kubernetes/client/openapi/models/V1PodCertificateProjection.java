@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodCertificateProjection provides a private key and X.509 certificate in the pod filesystem.
  */
 @ApiModel(description = "PodCertificateProjection provides a private key and X.509 certificate in the pod filesystem.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PodCertificateProjection {
   public static final String SERIALIZED_NAME_CERTIFICATE_CHAIN_PATH = "certificateChainPath";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_CHAIN_PATH)
@@ -83,6 +83,11 @@ public class V1PodCertificateProjection {
   @SerializedName(SERIALIZED_NAME_SIGNER_NAME)
   @jakarta.annotation.Nonnull
   private String signerName;
+
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  @jakarta.annotation.Nullable
+  private Long user;
 
   public static final String SERIALIZED_NAME_USER_ANNOTATIONS = "userAnnotations";
   @SerializedName(SERIALIZED_NAME_USER_ANNOTATIONS)
@@ -212,6 +217,26 @@ public class V1PodCertificateProjection {
   }
 
 
+  public V1PodCertificateProjection user(@jakarta.annotation.Nullable Long user) {
+    this.user = user;
+    return this;
+  }
+
+  /**
+   * user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.
+   * @return user
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.")
+  public Long getUser() {
+    return user;
+  }
+
+  public void setUser(@jakarta.annotation.Nullable Long user) {
+    this.user = user;
+  }
+
+
   public V1PodCertificateProjection userAnnotations(@jakarta.annotation.Nullable Map<String, String> userAnnotations) {
     this.userAnnotations = userAnnotations;
     return this;
@@ -256,12 +281,13 @@ public class V1PodCertificateProjection {
         Objects.equals(this.keyType, v1PodCertificateProjection.keyType) &&
         Objects.equals(this.maxExpirationSeconds, v1PodCertificateProjection.maxExpirationSeconds) &&
         Objects.equals(this.signerName, v1PodCertificateProjection.signerName) &&
+        Objects.equals(this.user, v1PodCertificateProjection.user) &&
         Objects.equals(this.userAnnotations, v1PodCertificateProjection.userAnnotations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateChainPath, credentialBundlePath, keyPath, keyType, maxExpirationSeconds, signerName, userAnnotations);
+    return Objects.hash(certificateChainPath, credentialBundlePath, keyPath, keyType, maxExpirationSeconds, signerName, user, userAnnotations);
   }
 
   @Override
@@ -274,6 +300,7 @@ public class V1PodCertificateProjection {
     sb.append("    keyType: ").append(toIndentedString(keyType)).append("\n");
     sb.append("    maxExpirationSeconds: ").append(toIndentedString(maxExpirationSeconds)).append("\n");
     sb.append("    signerName: ").append(toIndentedString(signerName)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    userAnnotations: ").append(toIndentedString(userAnnotations)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -296,7 +323,7 @@ public class V1PodCertificateProjection {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("certificateChainPath", "credentialBundlePath", "keyPath", "keyType", "maxExpirationSeconds", "signerName", "userAnnotations"));
+    openapiFields = new HashSet<String>(Arrays.asList("certificateChainPath", "credentialBundlePath", "keyPath", "keyType", "maxExpirationSeconds", "signerName", "user", "userAnnotations"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("keyType", "signerName"));

@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1GlusterfsPersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1GlusterfsPersistentVolumeSourceFluent<A extends V1GlusterfsPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String endpoints;
   private String endpointsNamespace;
@@ -58,7 +60,7 @@ public class V1GlusterfsPersistentVolumeSourceFluent<A extends io.kubernetes.cli
     if (!(super.equals(o))) {
       return false;
     }
-    V1GlusterfsPersistentVolumeSourceFluent that = (V1GlusterfsPersistentVolumeSourceFluent) o;
+    V1GlusterfsPersistentVolumeSourceFluent<?> that = (V1GlusterfsPersistentVolumeSourceFluent<?>) o;
     if (!(Objects.equals(endpoints, that.endpoints))) {
       return false;
     }

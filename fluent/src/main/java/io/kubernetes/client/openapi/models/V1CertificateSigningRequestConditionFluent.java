@@ -19,12 +19,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CertificateSigningRequestConditionFluent<A extends io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CertificateSigningRequestConditionFluent<A extends V1CertificateSigningRequestConditionFluent<A>> extends BaseFluent<A>{
 
   private OffsetDateTime lastTransitionTime;
   private OffsetDateTime lastUpdateTime;
@@ -62,7 +64,7 @@ public class V1CertificateSigningRequestConditionFluent<A extends io.kubernetes.
     if (!(super.equals(o))) {
       return false;
     }
-    V1CertificateSigningRequestConditionFluent that = (V1CertificateSigningRequestConditionFluent) o;
+    V1CertificateSigningRequestConditionFluent<?> that = (V1CertificateSigningRequestConditionFluent<?>) o;
     if (!(Objects.equals(lastTransitionTime, that.lastTransitionTime))) {
       return false;
     }

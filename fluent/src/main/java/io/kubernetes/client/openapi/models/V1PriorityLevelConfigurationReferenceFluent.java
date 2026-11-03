@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PriorityLevelConfigurationReferenceFluent<A extends io.kubernetes.client.openapi.models.V1PriorityLevelConfigurationReferenceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PriorityLevelConfigurationReferenceFluent<A extends V1PriorityLevelConfigurationReferenceFluent<A>> extends BaseFluent<A>{
 
   private String name;
 
@@ -51,7 +53,7 @@ public class V1PriorityLevelConfigurationReferenceFluent<A extends io.kubernetes
     if (!(super.equals(o))) {
       return false;
     }
-    V1PriorityLevelConfigurationReferenceFluent that = (V1PriorityLevelConfigurationReferenceFluent) o;
+    V1PriorityLevelConfigurationReferenceFluent<?> that = (V1PriorityLevelConfigurationReferenceFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

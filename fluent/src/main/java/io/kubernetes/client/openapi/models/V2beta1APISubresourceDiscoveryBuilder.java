@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V2beta1APISubresourceDiscoveryBuilder extends V2beta1APISubresourceDiscoveryFluent<V2beta1APISubresourceDiscoveryBuilder> implements VisitableBuilder<V2beta1APISubresourceDiscovery,V2beta1APISubresourceDiscoveryBuilder>{
 
   V2beta1APISubresourceDiscoveryFluent<?> fluent;

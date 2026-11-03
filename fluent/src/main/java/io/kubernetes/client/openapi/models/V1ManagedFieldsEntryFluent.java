@@ -19,12 +19,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ManagedFieldsEntryFluent<A extends io.kubernetes.client.openapi.models.V1ManagedFieldsEntryFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ManagedFieldsEntryFluent<A extends V1ManagedFieldsEntryFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String fieldsType;
@@ -64,7 +66,7 @@ public class V1ManagedFieldsEntryFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1ManagedFieldsEntryFluent that = (V1ManagedFieldsEntryFluent) o;
+    V1ManagedFieldsEntryFluent<?> that = (V1ManagedFieldsEntryFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }

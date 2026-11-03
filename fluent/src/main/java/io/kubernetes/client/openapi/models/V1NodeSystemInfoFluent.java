@@ -14,18 +14,21 @@ package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
+import java.lang.Boolean;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.models.V1NodeSystemInfoFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeSystemInfoFluent<A extends V1NodeSystemInfoFluent<A>> extends BaseFluent<A>{
 
   private String architecture;
   private String bootID;
@@ -36,6 +39,7 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
   private String machineID;
   private String operatingSystem;
   private String osImage;
+  private Boolean runningInUserNamespace;
   private V1NodeSwapStatusBuilder swap;
   private String systemUUID;
 
@@ -62,6 +66,7 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
         this.withMachineID(instance.getMachineID());
         this.withOperatingSystem(instance.getOperatingSystem());
         this.withOsImage(instance.getOsImage());
+        this.withRunningInUserNamespace(instance.getRunningInUserNamespace());
         this.withSwap(instance.getSwap());
         this.withSystemUUID(instance.getSystemUUID());
     }
@@ -89,7 +94,7 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeSystemInfoFluent that = (V1NodeSystemInfoFluent) o;
+    V1NodeSystemInfoFluent<?> that = (V1NodeSystemInfoFluent<?>) o;
     if (!(Objects.equals(architecture, that.architecture))) {
       return false;
     }
@@ -115,6 +120,9 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
       return false;
     }
     if (!(Objects.equals(osImage, that.osImage))) {
+      return false;
+    }
+    if (!(Objects.equals(runningInUserNamespace, that.runningInUserNamespace))) {
       return false;
     }
     if (!(Objects.equals(swap, that.swap))) {
@@ -162,6 +170,10 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
     return this.osImage;
   }
   
+  public Boolean getRunningInUserNamespace() {
+    return this.runningInUserNamespace;
+  }
+  
   public String getSystemUUID() {
     return this.systemUUID;
   }
@@ -202,6 +214,10 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
     return this.osImage != null;
   }
   
+  public boolean hasRunningInUserNamespace() {
+    return this.runningInUserNamespace != null;
+  }
+  
   public boolean hasSwap() {
     return this.swap != null;
   }
@@ -211,7 +227,7 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public int hashCode() {
-    return Objects.hash(architecture, bootID, containerRuntimeVersion, kernelVersion, kubeProxyVersion, kubeletVersion, machineID, operatingSystem, osImage, swap, systemUUID);
+    return Objects.hash(architecture, bootID, containerRuntimeVersion, kernelVersion, kubeProxyVersion, kubeletVersion, machineID, operatingSystem, osImage, runningInUserNamespace, swap, systemUUID);
   }
   
   public String toString() {
@@ -260,6 +276,11 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
     if (!(osImage == null)) {
         sb.append("osImage:");
         sb.append(osImage);
+        sb.append(",");
+    }
+    if (!(runningInUserNamespace == null)) {
+        sb.append("runningInUserNamespace:");
+        sb.append(runningInUserNamespace);
         sb.append(",");
     }
     if (!(swap == null)) {
@@ -311,11 +332,11 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public SwapNested<A> withNewSwap() {
-    return new SwapNested(null);
+    return new SwapNested<>(null);
   }
   
   public SwapNested<A> withNewSwapLike(V1NodeSwapStatus item) {
-    return new SwapNested(item);
+    return new SwapNested<>(item);
   }
   
   public A withOperatingSystem(String operatingSystem) {
@@ -328,14 +349,23 @@ public class V1NodeSystemInfoFluent<A extends io.kubernetes.client.openapi.model
     return (A) this;
   }
   
+  public A withRunningInUserNamespace() {
+    return withRunningInUserNamespace(true);
+  }
+  
+  public A withRunningInUserNamespace(Boolean runningInUserNamespace) {
+    this.runningInUserNamespace = runningInUserNamespace;
+    return (A) this;
+  }
+  
   public A withSwap(V1NodeSwapStatus swap) {
     this._visitables.remove("swap");
     if (swap != null) {
         this.swap = new V1NodeSwapStatusBuilder(swap);
         this._visitables.get("swap").add(this.swap);
     } else {
-        this.swap = null;
         this._visitables.get("swap").remove(this.swap);
+        this.swap = null;
     }
     return (A) this;
   }

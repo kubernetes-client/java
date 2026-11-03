@@ -25,12 +25,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CephFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1CephFSVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CephFSVolumeSourceFluent<A extends V1CephFSVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private List<String> monitors;
   private String path;
@@ -48,7 +50,7 @@ public class V1CephFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
 
   public A addAllToMonitors(Collection<String> items) {
     if (this.monitors == null) {
-      this.monitors = new ArrayList();
+      this.monitors = new ArrayList<>();
     }
     for (String item : items) {
       this.monitors.add(item);
@@ -58,7 +60,7 @@ public class V1CephFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToMonitors(String... items) {
     if (this.monitors == null) {
-      this.monitors = new ArrayList();
+      this.monitors = new ArrayList<>();
     }
     for (String item : items) {
       this.monitors.add(item);
@@ -68,7 +70,7 @@ public class V1CephFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToMonitors(int index,String item) {
     if (this.monitors == null) {
-      this.monitors = new ArrayList();
+      this.monitors = new ArrayList<>();
     }
     this.monitors.add(index, item);
     return (A) this;
@@ -112,7 +114,7 @@ public class V1CephFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1CephFSVolumeSourceFluent that = (V1CephFSVolumeSourceFluent) o;
+    V1CephFSVolumeSourceFluent<?> that = (V1CephFSVolumeSourceFluent<?>) o;
     if (!(Objects.equals(monitors, that.monitors))) {
       return false;
     }
@@ -234,7 +236,7 @@ public class V1CephFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   
   public A setToMonitors(int index,String item) {
     if (this.monitors == null) {
-      this.monitors = new ArrayList();
+      this.monitors = new ArrayList<>();
     }
     this.monitors.set(index, item);
     return (A) this;
@@ -278,7 +280,7 @@ public class V1CephFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   
   public A withMonitors(List<String> monitors) {
     if (monitors != null) {
-        this.monitors = new ArrayList();
+        this.monitors = new ArrayList<>();
         for (String item : monitors) {
           this.addToMonitors(item);
         }
@@ -302,11 +304,11 @@ public class V1CephFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   }
   
   public SecretRefNested<A> withNewSecretRef() {
-    return new SecretRefNested(null);
+    return new SecretRefNested<>(null);
   }
   
   public SecretRefNested<A> withNewSecretRefLike(V1LocalObjectReference item) {
-    return new SecretRefNested(item);
+    return new SecretRefNested<>(item);
   }
   
   public A withPath(String path) {
@@ -334,8 +336,8 @@ public class V1CephFSVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
         this.secretRef = new V1LocalObjectReferenceBuilder(secretRef);
         this._visitables.get("secretRef").add(this.secretRef);
     } else {
-        this.secretRef = null;
         this._visitables.get("secretRef").remove(this.secretRef);
+        this.secretRef = null;
     }
     return (A) this;
   }

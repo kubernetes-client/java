@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.models.V1IngressBackendFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1IngressBackendFluent<A extends V1IngressBackendFluent<A>> extends BaseFluent<A>{
 
   private V1TypedLocalObjectReferenceBuilder resource;
   private V1IngressServiceBackendBuilder service;
@@ -87,7 +89,7 @@ public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1IngressBackendFluent that = (V1IngressBackendFluent) o;
+    V1IngressBackendFluent<?> that = (V1IngressBackendFluent<?>) o;
     if (!(Objects.equals(resource, that.resource))) {
       return false;
     }
@@ -126,19 +128,19 @@ public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public ResourceNested<A> withNewResource() {
-    return new ResourceNested(null);
+    return new ResourceNested<>(null);
   }
   
   public ResourceNested<A> withNewResourceLike(V1TypedLocalObjectReference item) {
-    return new ResourceNested(item);
+    return new ResourceNested<>(item);
   }
   
   public ServiceNested<A> withNewService() {
-    return new ServiceNested(null);
+    return new ServiceNested<>(null);
   }
   
   public ServiceNested<A> withNewServiceLike(V1IngressServiceBackend item) {
-    return new ServiceNested(item);
+    return new ServiceNested<>(item);
   }
   
   public A withResource(V1TypedLocalObjectReference resource) {
@@ -147,8 +149,8 @@ public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.model
         this.resource = new V1TypedLocalObjectReferenceBuilder(resource);
         this._visitables.get("resource").add(this.resource);
     } else {
-        this.resource = null;
         this._visitables.get("resource").remove(this.resource);
+        this.resource = null;
     }
     return (A) this;
   }
@@ -159,8 +161,8 @@ public class V1IngressBackendFluent<A extends io.kubernetes.client.openapi.model
         this.service = new V1IngressServiceBackendBuilder(service);
         this._visitables.get("service").add(this.service);
     } else {
-        this.service = null;
         this._visitables.get("service").remove(this.service);
+        this.service = null;
     }
     return (A) this;
   }

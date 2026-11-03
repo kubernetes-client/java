@@ -24,12 +24,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1WebhookConversionFluent<A extends io.kubernetes.client.openapi.models.V1WebhookConversionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1WebhookConversionFluent<A extends V1WebhookConversionFluent<A>> extends BaseFluent<A>{
 
   private ApiextensionsV1WebhookClientConfigBuilder clientConfig;
   private List<String> conversionReviewVersions;
@@ -43,7 +45,7 @@ public class V1WebhookConversionFluent<A extends io.kubernetes.client.openapi.mo
 
   public A addAllToConversionReviewVersions(Collection<String> items) {
     if (this.conversionReviewVersions == null) {
-      this.conversionReviewVersions = new ArrayList();
+      this.conversionReviewVersions = new ArrayList<>();
     }
     for (String item : items) {
       this.conversionReviewVersions.add(item);
@@ -53,7 +55,7 @@ public class V1WebhookConversionFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToConversionReviewVersions(String... items) {
     if (this.conversionReviewVersions == null) {
-      this.conversionReviewVersions = new ArrayList();
+      this.conversionReviewVersions = new ArrayList<>();
     }
     for (String item : items) {
       this.conversionReviewVersions.add(item);
@@ -63,7 +65,7 @@ public class V1WebhookConversionFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToConversionReviewVersions(int index,String item) {
     if (this.conversionReviewVersions == null) {
-      this.conversionReviewVersions = new ArrayList();
+      this.conversionReviewVersions = new ArrayList<>();
     }
     this.conversionReviewVersions.add(index, item);
     return (A) this;
@@ -103,7 +105,7 @@ public class V1WebhookConversionFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1WebhookConversionFluent that = (V1WebhookConversionFluent) o;
+    V1WebhookConversionFluent<?> that = (V1WebhookConversionFluent<?>) o;
     if (!(Objects.equals(clientConfig, that.clientConfig))) {
       return false;
     }
@@ -181,7 +183,7 @@ public class V1WebhookConversionFluent<A extends io.kubernetes.client.openapi.mo
   
   public A setToConversionReviewVersions(int index,String item) {
     if (this.conversionReviewVersions == null) {
-      this.conversionReviewVersions = new ArrayList();
+      this.conversionReviewVersions = new ArrayList<>();
     }
     this.conversionReviewVersions.set(index, item);
     return (A) this;
@@ -209,15 +211,15 @@ public class V1WebhookConversionFluent<A extends io.kubernetes.client.openapi.mo
         this.clientConfig = new ApiextensionsV1WebhookClientConfigBuilder(clientConfig);
         this._visitables.get("clientConfig").add(this.clientConfig);
     } else {
-        this.clientConfig = null;
         this._visitables.get("clientConfig").remove(this.clientConfig);
+        this.clientConfig = null;
     }
     return (A) this;
   }
   
   public A withConversionReviewVersions(List<String> conversionReviewVersions) {
     if (conversionReviewVersions != null) {
-        this.conversionReviewVersions = new ArrayList();
+        this.conversionReviewVersions = new ArrayList<>();
         for (String item : conversionReviewVersions) {
           this.addToConversionReviewVersions(item);
         }
@@ -241,11 +243,11 @@ public class V1WebhookConversionFluent<A extends io.kubernetes.client.openapi.mo
   }
   
   public ClientConfigNested<A> withNewClientConfig() {
-    return new ClientConfigNested(null);
+    return new ClientConfigNested<>(null);
   }
   
   public ClientConfigNested<A> withNewClientConfigLike(ApiextensionsV1WebhookClientConfig item) {
-    return new ClientConfigNested(item);
+    return new ClientConfigNested<>(item);
   }
   public class ClientConfigNested<N> extends ApiextensionsV1WebhookClientConfigFluent<ClientConfigNested<N>> implements Nested<N>{
   

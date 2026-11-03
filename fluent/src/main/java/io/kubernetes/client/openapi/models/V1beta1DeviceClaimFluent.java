@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.models.V1beta1DeviceClaimFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1DeviceClaimFluent<A extends V1beta1DeviceClaimFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1beta1DeviceClaimConfigurationBuilder> config;
   private ArrayList<V1beta1DeviceConstraintBuilder> constraints;
@@ -45,7 +47,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
 
   public A addAllToConfig(Collection<V1beta1DeviceClaimConfiguration> items) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     for (V1beta1DeviceClaimConfiguration item : items) {
         V1beta1DeviceClaimConfigurationBuilder builder = new V1beta1DeviceClaimConfigurationBuilder(item);
@@ -57,7 +59,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addAllToConstraints(Collection<V1beta1DeviceConstraint> items) {
     if (this.constraints == null) {
-      this.constraints = new ArrayList();
+      this.constraints = new ArrayList<>();
     }
     for (V1beta1DeviceConstraint item : items) {
         V1beta1DeviceConstraintBuilder builder = new V1beta1DeviceConstraintBuilder(item);
@@ -69,7 +71,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addAllToRequests(Collection<V1beta1DeviceRequest> items) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     for (V1beta1DeviceRequest item : items) {
         V1beta1DeviceRequestBuilder builder = new V1beta1DeviceRequestBuilder(item);
@@ -80,32 +82,32 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public ConfigNested<A> addNewConfig() {
-    return new ConfigNested(-1, null);
+    return new ConfigNested<>(-1, null);
   }
   
   public ConfigNested<A> addNewConfigLike(V1beta1DeviceClaimConfiguration item) {
-    return new ConfigNested(-1, item);
+    return new ConfigNested<>(-1, item);
   }
   
   public ConstraintsNested<A> addNewConstraint() {
-    return new ConstraintsNested(-1, null);
+    return new ConstraintsNested<>(-1, null);
   }
   
   public ConstraintsNested<A> addNewConstraintLike(V1beta1DeviceConstraint item) {
-    return new ConstraintsNested(-1, item);
+    return new ConstraintsNested<>(-1, item);
   }
   
   public RequestsNested<A> addNewRequest() {
-    return new RequestsNested(-1, null);
+    return new RequestsNested<>(-1, null);
   }
   
   public RequestsNested<A> addNewRequestLike(V1beta1DeviceRequest item) {
-    return new RequestsNested(-1, item);
+    return new RequestsNested<>(-1, item);
   }
   
   public A addToConfig(V1beta1DeviceClaimConfiguration... items) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     for (V1beta1DeviceClaimConfiguration item : items) {
         V1beta1DeviceClaimConfigurationBuilder builder = new V1beta1DeviceClaimConfigurationBuilder(item);
@@ -117,7 +119,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToConfig(int index,V1beta1DeviceClaimConfiguration item) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     V1beta1DeviceClaimConfigurationBuilder builder = new V1beta1DeviceClaimConfigurationBuilder(item);
     if (index < 0 || index >= this.config.size()) {
@@ -132,7 +134,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToConstraints(V1beta1DeviceConstraint... items) {
     if (this.constraints == null) {
-      this.constraints = new ArrayList();
+      this.constraints = new ArrayList<>();
     }
     for (V1beta1DeviceConstraint item : items) {
         V1beta1DeviceConstraintBuilder builder = new V1beta1DeviceConstraintBuilder(item);
@@ -144,7 +146,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToConstraints(int index,V1beta1DeviceConstraint item) {
     if (this.constraints == null) {
-      this.constraints = new ArrayList();
+      this.constraints = new ArrayList<>();
     }
     V1beta1DeviceConstraintBuilder builder = new V1beta1DeviceConstraintBuilder(item);
     if (index < 0 || index >= this.constraints.size()) {
@@ -159,7 +161,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToRequests(V1beta1DeviceRequest... items) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     for (V1beta1DeviceRequest item : items) {
         V1beta1DeviceRequestBuilder builder = new V1beta1DeviceRequestBuilder(item);
@@ -171,7 +173,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToRequests(int index,V1beta1DeviceRequest item) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     V1beta1DeviceRequestBuilder builder = new V1beta1DeviceRequestBuilder(item);
     if (index < 0 || index >= this.requests.size()) {
@@ -386,7 +388,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1DeviceClaimFluent that = (V1beta1DeviceClaimFluent) o;
+    V1beta1DeviceClaimFluent<?> that = (V1beta1DeviceClaimFluent<?>) o;
     if (!(Objects.equals(config, that.config))) {
       return false;
     }
@@ -519,6 +521,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1beta1DeviceClaimConfigurationBuilder> each = config.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("config");
     while (each.hasNext()) {
         V1beta1DeviceClaimConfigurationBuilder builder = each.next();
@@ -535,6 +538,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1beta1DeviceConstraintBuilder> each = constraints.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("constraints");
     while (each.hasNext()) {
         V1beta1DeviceConstraintBuilder builder = each.next();
@@ -551,6 +555,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1beta1DeviceRequestBuilder> each = requests.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("requests");
     while (each.hasNext()) {
         V1beta1DeviceRequestBuilder builder = each.next();
@@ -563,20 +568,20 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public ConfigNested<A> setNewConfigLike(int index,V1beta1DeviceClaimConfiguration item) {
-    return new ConfigNested(index, item);
+    return new ConfigNested<>(index, item);
   }
   
   public ConstraintsNested<A> setNewConstraintLike(int index,V1beta1DeviceConstraint item) {
-    return new ConstraintsNested(index, item);
+    return new ConstraintsNested<>(index, item);
   }
   
   public RequestsNested<A> setNewRequestLike(int index,V1beta1DeviceRequest item) {
-    return new RequestsNested(index, item);
+    return new RequestsNested<>(index, item);
   }
   
   public A setToConfig(int index,V1beta1DeviceClaimConfiguration item) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     V1beta1DeviceClaimConfigurationBuilder builder = new V1beta1DeviceClaimConfigurationBuilder(item);
     if (index < 0 || index >= this.config.size()) {
@@ -591,7 +596,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
   
   public A setToConstraints(int index,V1beta1DeviceConstraint item) {
     if (this.constraints == null) {
-      this.constraints = new ArrayList();
+      this.constraints = new ArrayList<>();
     }
     V1beta1DeviceConstraintBuilder builder = new V1beta1DeviceConstraintBuilder(item);
     if (index < 0 || index >= this.constraints.size()) {
@@ -606,7 +611,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
   
   public A setToRequests(int index,V1beta1DeviceRequest item) {
     if (this.requests == null) {
-      this.requests = new ArrayList();
+      this.requests = new ArrayList<>();
     }
     V1beta1DeviceRequestBuilder builder = new V1beta1DeviceRequestBuilder(item);
     if (index < 0 || index >= this.requests.size()) {
@@ -645,7 +650,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
       this._visitables.get("config").clear();
     }
     if (config != null) {
-        this.config = new ArrayList();
+        this.config = new ArrayList<>();
         for (V1beta1DeviceClaimConfiguration item : config) {
           this.addToConfig(item);
         }
@@ -673,7 +678,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
       this._visitables.get("constraints").clear();
     }
     if (constraints != null) {
-        this.constraints = new ArrayList();
+        this.constraints = new ArrayList<>();
         for (V1beta1DeviceConstraint item : constraints) {
           this.addToConstraints(item);
         }
@@ -701,7 +706,7 @@ public class V1beta1DeviceClaimFluent<A extends io.kubernetes.client.openapi.mod
       this._visitables.get("requests").clear();
     }
     if (requests != null) {
-        this.requests = new ArrayList();
+        this.requests = new ArrayList<>();
         for (V1beta1DeviceRequest item : requests) {
           this.addToRequests(item);
         }

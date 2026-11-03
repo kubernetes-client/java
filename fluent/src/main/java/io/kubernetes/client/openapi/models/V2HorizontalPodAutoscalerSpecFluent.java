@@ -27,12 +27,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAutoscalerSpecFluent<A>> extends BaseFluent<A>{
 
   private V2HorizontalPodAutoscalerBehaviorBuilder behavior;
   private Integer maxReplicas;
@@ -49,7 +51,7 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
 
   public A addAllToMetrics(Collection<V2MetricSpec> items) {
     if (this.metrics == null) {
-      this.metrics = new ArrayList();
+      this.metrics = new ArrayList<>();
     }
     for (V2MetricSpec item : items) {
         V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
@@ -60,16 +62,16 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
   }
   
   public MetricsNested<A> addNewMetric() {
-    return new MetricsNested(-1, null);
+    return new MetricsNested<>(-1, null);
   }
   
   public MetricsNested<A> addNewMetricLike(V2MetricSpec item) {
-    return new MetricsNested(-1, item);
+    return new MetricsNested<>(-1, item);
   }
   
   public A addToMetrics(V2MetricSpec... items) {
     if (this.metrics == null) {
-      this.metrics = new ArrayList();
+      this.metrics = new ArrayList<>();
     }
     for (V2MetricSpec item : items) {
         V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
@@ -81,7 +83,7 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
   
   public A addToMetrics(int index,V2MetricSpec item) {
     if (this.metrics == null) {
-      this.metrics = new ArrayList();
+      this.metrics = new ArrayList<>();
     }
     V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
     if (index < 0 || index >= this.metrics.size()) {
@@ -208,7 +210,7 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
     if (!(super.equals(o))) {
       return false;
     }
-    V2HorizontalPodAutoscalerSpecFluent that = (V2HorizontalPodAutoscalerSpecFluent) o;
+    V2HorizontalPodAutoscalerSpecFluent<?> that = (V2HorizontalPodAutoscalerSpecFluent<?>) o;
     if (!(Objects.equals(behavior, that.behavior))) {
       return false;
     }
@@ -297,6 +299,7 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
       return (A) this;
     }
     Iterator<V2MetricSpecBuilder> each = metrics.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("metrics");
     while (each.hasNext()) {
         V2MetricSpecBuilder builder = each.next();
@@ -309,12 +312,12 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
   }
   
   public MetricsNested<A> setNewMetricLike(int index,V2MetricSpec item) {
-    return new MetricsNested(index, item);
+    return new MetricsNested<>(index, item);
   }
   
   public A setToMetrics(int index,V2MetricSpec item) {
     if (this.metrics == null) {
-      this.metrics = new ArrayList();
+      this.metrics = new ArrayList<>();
     }
     V2MetricSpecBuilder builder = new V2MetricSpecBuilder(item);
     if (index < 0 || index >= this.metrics.size()) {
@@ -364,8 +367,8 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
         this.behavior = new V2HorizontalPodAutoscalerBehaviorBuilder(behavior);
         this._visitables.get("behavior").add(this.behavior);
     } else {
-        this.behavior = null;
         this._visitables.get("behavior").remove(this.behavior);
+        this.behavior = null;
     }
     return (A) this;
   }
@@ -380,7 +383,7 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
       this._visitables.get("metrics").clear();
     }
     if (metrics != null) {
-        this.metrics = new ArrayList();
+        this.metrics = new ArrayList<>();
         for (V2MetricSpec item : metrics) {
           this.addToMetrics(item);
         }
@@ -409,19 +412,19 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
   }
   
   public BehaviorNested<A> withNewBehavior() {
-    return new BehaviorNested(null);
+    return new BehaviorNested<>(null);
   }
   
   public BehaviorNested<A> withNewBehaviorLike(V2HorizontalPodAutoscalerBehavior item) {
-    return new BehaviorNested(item);
+    return new BehaviorNested<>(item);
   }
   
   public ScaleTargetRefNested<A> withNewScaleTargetRef() {
-    return new ScaleTargetRefNested(null);
+    return new ScaleTargetRefNested<>(null);
   }
   
   public ScaleTargetRefNested<A> withNewScaleTargetRefLike(V2CrossVersionObjectReference item) {
-    return new ScaleTargetRefNested(item);
+    return new ScaleTargetRefNested<>(item);
   }
   
   public A withScaleTargetRef(V2CrossVersionObjectReference scaleTargetRef) {
@@ -430,8 +433,8 @@ public class V2HorizontalPodAutoscalerSpecFluent<A extends io.kubernetes.client.
         this.scaleTargetRef = new V2CrossVersionObjectReferenceBuilder(scaleTargetRef);
         this._visitables.get("scaleTargetRef").add(this.scaleTargetRef);
     } else {
-        this.scaleTargetRef = null;
         this._visitables.get("scaleTargetRef").remove(this.scaleTargetRef);
+        this.scaleTargetRef = null;
     }
     return (A) this;
   }

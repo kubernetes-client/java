@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ObjectReferenceFluent<A extends io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ObjectReferenceFluent<A extends V1ObjectReferenceFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String fieldPath;
@@ -63,7 +65,7 @@ public class V1ObjectReferenceFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1ObjectReferenceFluent that = (V1ObjectReferenceFluent) o;
+    V1ObjectReferenceFluent<?> that = (V1ObjectReferenceFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }

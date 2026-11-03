@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1VolumeFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VolumeFluent<A extends V1VolumeFluent<A>> extends BaseFluent<A>{
 
   private V1AWSElasticBlockStoreVolumeSourceBuilder awsElasticBlockStore;
   private V1AzureDiskVolumeSourceBuilder azureDisk;
@@ -593,7 +595,7 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
     if (!(super.equals(o))) {
       return false;
     }
-    V1VolumeFluent that = (V1VolumeFluent) o;
+    V1VolumeFluent<?> that = (V1VolumeFluent<?>) o;
     if (!(Objects.equals(awsElasticBlockStore, that.awsElasticBlockStore))) {
       return false;
     }
@@ -989,8 +991,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.awsElasticBlockStore = new V1AWSElasticBlockStoreVolumeSourceBuilder(awsElasticBlockStore);
         this._visitables.get("awsElasticBlockStore").add(this.awsElasticBlockStore);
     } else {
-        this.awsElasticBlockStore = null;
         this._visitables.get("awsElasticBlockStore").remove(this.awsElasticBlockStore);
+        this.awsElasticBlockStore = null;
     }
     return (A) this;
   }
@@ -1001,8 +1003,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.azureDisk = new V1AzureDiskVolumeSourceBuilder(azureDisk);
         this._visitables.get("azureDisk").add(this.azureDisk);
     } else {
-        this.azureDisk = null;
         this._visitables.get("azureDisk").remove(this.azureDisk);
+        this.azureDisk = null;
     }
     return (A) this;
   }
@@ -1013,8 +1015,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.azureFile = new V1AzureFileVolumeSourceBuilder(azureFile);
         this._visitables.get("azureFile").add(this.azureFile);
     } else {
-        this.azureFile = null;
         this._visitables.get("azureFile").remove(this.azureFile);
+        this.azureFile = null;
     }
     return (A) this;
   }
@@ -1025,8 +1027,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.cephfs = new V1CephFSVolumeSourceBuilder(cephfs);
         this._visitables.get("cephfs").add(this.cephfs);
     } else {
-        this.cephfs = null;
         this._visitables.get("cephfs").remove(this.cephfs);
+        this.cephfs = null;
     }
     return (A) this;
   }
@@ -1037,8 +1039,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.cinder = new V1CinderVolumeSourceBuilder(cinder);
         this._visitables.get("cinder").add(this.cinder);
     } else {
-        this.cinder = null;
         this._visitables.get("cinder").remove(this.cinder);
+        this.cinder = null;
     }
     return (A) this;
   }
@@ -1049,8 +1051,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.configMap = new V1ConfigMapVolumeSourceBuilder(configMap);
         this._visitables.get("configMap").add(this.configMap);
     } else {
-        this.configMap = null;
         this._visitables.get("configMap").remove(this.configMap);
+        this.configMap = null;
     }
     return (A) this;
   }
@@ -1061,8 +1063,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.csi = new V1CSIVolumeSourceBuilder(csi);
         this._visitables.get("csi").add(this.csi);
     } else {
-        this.csi = null;
         this._visitables.get("csi").remove(this.csi);
+        this.csi = null;
     }
     return (A) this;
   }
@@ -1073,8 +1075,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.downwardAPI = new V1DownwardAPIVolumeSourceBuilder(downwardAPI);
         this._visitables.get("downwardAPI").add(this.downwardAPI);
     } else {
-        this.downwardAPI = null;
         this._visitables.get("downwardAPI").remove(this.downwardAPI);
+        this.downwardAPI = null;
     }
     return (A) this;
   }
@@ -1085,8 +1087,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.emptyDir = new V1EmptyDirVolumeSourceBuilder(emptyDir);
         this._visitables.get("emptyDir").add(this.emptyDir);
     } else {
-        this.emptyDir = null;
         this._visitables.get("emptyDir").remove(this.emptyDir);
+        this.emptyDir = null;
     }
     return (A) this;
   }
@@ -1097,8 +1099,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.ephemeral = new V1EphemeralVolumeSourceBuilder(ephemeral);
         this._visitables.get("ephemeral").add(this.ephemeral);
     } else {
-        this.ephemeral = null;
         this._visitables.get("ephemeral").remove(this.ephemeral);
+        this.ephemeral = null;
     }
     return (A) this;
   }
@@ -1109,8 +1111,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.fc = new V1FCVolumeSourceBuilder(fc);
         this._visitables.get("fc").add(this.fc);
     } else {
-        this.fc = null;
         this._visitables.get("fc").remove(this.fc);
+        this.fc = null;
     }
     return (A) this;
   }
@@ -1121,8 +1123,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.flexVolume = new V1FlexVolumeSourceBuilder(flexVolume);
         this._visitables.get("flexVolume").add(this.flexVolume);
     } else {
-        this.flexVolume = null;
         this._visitables.get("flexVolume").remove(this.flexVolume);
+        this.flexVolume = null;
     }
     return (A) this;
   }
@@ -1133,8 +1135,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.flocker = new V1FlockerVolumeSourceBuilder(flocker);
         this._visitables.get("flocker").add(this.flocker);
     } else {
-        this.flocker = null;
         this._visitables.get("flocker").remove(this.flocker);
+        this.flocker = null;
     }
     return (A) this;
   }
@@ -1145,8 +1147,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.gcePersistentDisk = new V1GCEPersistentDiskVolumeSourceBuilder(gcePersistentDisk);
         this._visitables.get("gcePersistentDisk").add(this.gcePersistentDisk);
     } else {
-        this.gcePersistentDisk = null;
         this._visitables.get("gcePersistentDisk").remove(this.gcePersistentDisk);
+        this.gcePersistentDisk = null;
     }
     return (A) this;
   }
@@ -1157,8 +1159,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.gitRepo = new V1GitRepoVolumeSourceBuilder(gitRepo);
         this._visitables.get("gitRepo").add(this.gitRepo);
     } else {
-        this.gitRepo = null;
         this._visitables.get("gitRepo").remove(this.gitRepo);
+        this.gitRepo = null;
     }
     return (A) this;
   }
@@ -1169,8 +1171,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.glusterfs = new V1GlusterfsVolumeSourceBuilder(glusterfs);
         this._visitables.get("glusterfs").add(this.glusterfs);
     } else {
-        this.glusterfs = null;
         this._visitables.get("glusterfs").remove(this.glusterfs);
+        this.glusterfs = null;
     }
     return (A) this;
   }
@@ -1181,8 +1183,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.hostPath = new V1HostPathVolumeSourceBuilder(hostPath);
         this._visitables.get("hostPath").add(this.hostPath);
     } else {
-        this.hostPath = null;
         this._visitables.get("hostPath").remove(this.hostPath);
+        this.hostPath = null;
     }
     return (A) this;
   }
@@ -1193,8 +1195,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.image = new V1ImageVolumeSourceBuilder(image);
         this._visitables.get("image").add(this.image);
     } else {
-        this.image = null;
         this._visitables.get("image").remove(this.image);
+        this.image = null;
     }
     return (A) this;
   }
@@ -1205,8 +1207,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.iscsi = new V1ISCSIVolumeSourceBuilder(iscsi);
         this._visitables.get("iscsi").add(this.iscsi);
     } else {
-        this.iscsi = null;
         this._visitables.get("iscsi").remove(this.iscsi);
+        this.iscsi = null;
     }
     return (A) this;
   }
@@ -1217,243 +1219,243 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
   }
   
   public AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStore() {
-    return new AwsElasticBlockStoreNested(null);
+    return new AwsElasticBlockStoreNested<>(null);
   }
   
   public AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStoreLike(V1AWSElasticBlockStoreVolumeSource item) {
-    return new AwsElasticBlockStoreNested(item);
+    return new AwsElasticBlockStoreNested<>(item);
   }
   
   public AzureDiskNested<A> withNewAzureDisk() {
-    return new AzureDiskNested(null);
+    return new AzureDiskNested<>(null);
   }
   
   public AzureDiskNested<A> withNewAzureDiskLike(V1AzureDiskVolumeSource item) {
-    return new AzureDiskNested(item);
+    return new AzureDiskNested<>(item);
   }
   
   public AzureFileNested<A> withNewAzureFile() {
-    return new AzureFileNested(null);
+    return new AzureFileNested<>(null);
   }
   
   public AzureFileNested<A> withNewAzureFileLike(V1AzureFileVolumeSource item) {
-    return new AzureFileNested(item);
+    return new AzureFileNested<>(item);
   }
   
   public CephfsNested<A> withNewCephfs() {
-    return new CephfsNested(null);
+    return new CephfsNested<>(null);
   }
   
   public CephfsNested<A> withNewCephfsLike(V1CephFSVolumeSource item) {
-    return new CephfsNested(item);
+    return new CephfsNested<>(item);
   }
   
   public CinderNested<A> withNewCinder() {
-    return new CinderNested(null);
+    return new CinderNested<>(null);
   }
   
   public CinderNested<A> withNewCinderLike(V1CinderVolumeSource item) {
-    return new CinderNested(item);
+    return new CinderNested<>(item);
   }
   
   public ConfigMapNested<A> withNewConfigMap() {
-    return new ConfigMapNested(null);
+    return new ConfigMapNested<>(null);
   }
   
   public ConfigMapNested<A> withNewConfigMapLike(V1ConfigMapVolumeSource item) {
-    return new ConfigMapNested(item);
+    return new ConfigMapNested<>(item);
   }
   
   public CsiNested<A> withNewCsi() {
-    return new CsiNested(null);
+    return new CsiNested<>(null);
   }
   
   public CsiNested<A> withNewCsiLike(V1CSIVolumeSource item) {
-    return new CsiNested(item);
+    return new CsiNested<>(item);
   }
   
   public DownwardAPINested<A> withNewDownwardAPI() {
-    return new DownwardAPINested(null);
+    return new DownwardAPINested<>(null);
   }
   
   public DownwardAPINested<A> withNewDownwardAPILike(V1DownwardAPIVolumeSource item) {
-    return new DownwardAPINested(item);
+    return new DownwardAPINested<>(item);
   }
   
   public EmptyDirNested<A> withNewEmptyDir() {
-    return new EmptyDirNested(null);
+    return new EmptyDirNested<>(null);
   }
   
   public EmptyDirNested<A> withNewEmptyDirLike(V1EmptyDirVolumeSource item) {
-    return new EmptyDirNested(item);
+    return new EmptyDirNested<>(item);
   }
   
   public EphemeralNested<A> withNewEphemeral() {
-    return new EphemeralNested(null);
+    return new EphemeralNested<>(null);
   }
   
   public EphemeralNested<A> withNewEphemeralLike(V1EphemeralVolumeSource item) {
-    return new EphemeralNested(item);
+    return new EphemeralNested<>(item);
   }
   
   public FcNested<A> withNewFc() {
-    return new FcNested(null);
+    return new FcNested<>(null);
   }
   
   public FcNested<A> withNewFcLike(V1FCVolumeSource item) {
-    return new FcNested(item);
+    return new FcNested<>(item);
   }
   
   public FlexVolumeNested<A> withNewFlexVolume() {
-    return new FlexVolumeNested(null);
+    return new FlexVolumeNested<>(null);
   }
   
   public FlexVolumeNested<A> withNewFlexVolumeLike(V1FlexVolumeSource item) {
-    return new FlexVolumeNested(item);
+    return new FlexVolumeNested<>(item);
   }
   
   public FlockerNested<A> withNewFlocker() {
-    return new FlockerNested(null);
+    return new FlockerNested<>(null);
   }
   
   public FlockerNested<A> withNewFlockerLike(V1FlockerVolumeSource item) {
-    return new FlockerNested(item);
+    return new FlockerNested<>(item);
   }
   
   public GcePersistentDiskNested<A> withNewGcePersistentDisk() {
-    return new GcePersistentDiskNested(null);
+    return new GcePersistentDiskNested<>(null);
   }
   
   public GcePersistentDiskNested<A> withNewGcePersistentDiskLike(V1GCEPersistentDiskVolumeSource item) {
-    return new GcePersistentDiskNested(item);
+    return new GcePersistentDiskNested<>(item);
   }
   
   public GitRepoNested<A> withNewGitRepo() {
-    return new GitRepoNested(null);
+    return new GitRepoNested<>(null);
   }
   
   public GitRepoNested<A> withNewGitRepoLike(V1GitRepoVolumeSource item) {
-    return new GitRepoNested(item);
+    return new GitRepoNested<>(item);
   }
   
   public GlusterfsNested<A> withNewGlusterfs() {
-    return new GlusterfsNested(null);
+    return new GlusterfsNested<>(null);
   }
   
   public GlusterfsNested<A> withNewGlusterfsLike(V1GlusterfsVolumeSource item) {
-    return new GlusterfsNested(item);
+    return new GlusterfsNested<>(item);
   }
   
   public HostPathNested<A> withNewHostPath() {
-    return new HostPathNested(null);
+    return new HostPathNested<>(null);
   }
   
   public HostPathNested<A> withNewHostPathLike(V1HostPathVolumeSource item) {
-    return new HostPathNested(item);
+    return new HostPathNested<>(item);
   }
   
   public ImageNested<A> withNewImage() {
-    return new ImageNested(null);
+    return new ImageNested<>(null);
   }
   
   public ImageNested<A> withNewImageLike(V1ImageVolumeSource item) {
-    return new ImageNested(item);
+    return new ImageNested<>(item);
   }
   
   public IscsiNested<A> withNewIscsi() {
-    return new IscsiNested(null);
+    return new IscsiNested<>(null);
   }
   
   public IscsiNested<A> withNewIscsiLike(V1ISCSIVolumeSource item) {
-    return new IscsiNested(item);
+    return new IscsiNested<>(item);
   }
   
   public NfsNested<A> withNewNfs() {
-    return new NfsNested(null);
+    return new NfsNested<>(null);
   }
   
   public NfsNested<A> withNewNfsLike(V1NFSVolumeSource item) {
-    return new NfsNested(item);
+    return new NfsNested<>(item);
   }
   
   public PersistentVolumeClaimNested<A> withNewPersistentVolumeClaim() {
-    return new PersistentVolumeClaimNested(null);
+    return new PersistentVolumeClaimNested<>(null);
   }
   
   public PersistentVolumeClaimNested<A> withNewPersistentVolumeClaimLike(V1PersistentVolumeClaimVolumeSource item) {
-    return new PersistentVolumeClaimNested(item);
+    return new PersistentVolumeClaimNested<>(item);
   }
   
   public PhotonPersistentDiskNested<A> withNewPhotonPersistentDisk() {
-    return new PhotonPersistentDiskNested(null);
+    return new PhotonPersistentDiskNested<>(null);
   }
   
   public PhotonPersistentDiskNested<A> withNewPhotonPersistentDiskLike(V1PhotonPersistentDiskVolumeSource item) {
-    return new PhotonPersistentDiskNested(item);
+    return new PhotonPersistentDiskNested<>(item);
   }
   
   public PortworxVolumeNested<A> withNewPortworxVolume() {
-    return new PortworxVolumeNested(null);
+    return new PortworxVolumeNested<>(null);
   }
   
   public PortworxVolumeNested<A> withNewPortworxVolumeLike(V1PortworxVolumeSource item) {
-    return new PortworxVolumeNested(item);
+    return new PortworxVolumeNested<>(item);
   }
   
   public ProjectedNested<A> withNewProjected() {
-    return new ProjectedNested(null);
+    return new ProjectedNested<>(null);
   }
   
   public ProjectedNested<A> withNewProjectedLike(V1ProjectedVolumeSource item) {
-    return new ProjectedNested(item);
+    return new ProjectedNested<>(item);
   }
   
   public QuobyteNested<A> withNewQuobyte() {
-    return new QuobyteNested(null);
+    return new QuobyteNested<>(null);
   }
   
   public QuobyteNested<A> withNewQuobyteLike(V1QuobyteVolumeSource item) {
-    return new QuobyteNested(item);
+    return new QuobyteNested<>(item);
   }
   
   public RbdNested<A> withNewRbd() {
-    return new RbdNested(null);
+    return new RbdNested<>(null);
   }
   
   public RbdNested<A> withNewRbdLike(V1RBDVolumeSource item) {
-    return new RbdNested(item);
+    return new RbdNested<>(item);
   }
   
   public ScaleIONested<A> withNewScaleIO() {
-    return new ScaleIONested(null);
+    return new ScaleIONested<>(null);
   }
   
   public ScaleIONested<A> withNewScaleIOLike(V1ScaleIOVolumeSource item) {
-    return new ScaleIONested(item);
+    return new ScaleIONested<>(item);
   }
   
   public SecretNested<A> withNewSecret() {
-    return new SecretNested(null);
+    return new SecretNested<>(null);
   }
   
   public SecretNested<A> withNewSecretLike(V1SecretVolumeSource item) {
-    return new SecretNested(item);
+    return new SecretNested<>(item);
   }
   
   public StorageosNested<A> withNewStorageos() {
-    return new StorageosNested(null);
+    return new StorageosNested<>(null);
   }
   
   public StorageosNested<A> withNewStorageosLike(V1StorageOSVolumeSource item) {
-    return new StorageosNested(item);
+    return new StorageosNested<>(item);
   }
   
   public VsphereVolumeNested<A> withNewVsphereVolume() {
-    return new VsphereVolumeNested(null);
+    return new VsphereVolumeNested<>(null);
   }
   
   public VsphereVolumeNested<A> withNewVsphereVolumeLike(V1VsphereVirtualDiskVolumeSource item) {
-    return new VsphereVolumeNested(item);
+    return new VsphereVolumeNested<>(item);
   }
   
   public A withNfs(V1NFSVolumeSource nfs) {
@@ -1462,8 +1464,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.nfs = new V1NFSVolumeSourceBuilder(nfs);
         this._visitables.get("nfs").add(this.nfs);
     } else {
-        this.nfs = null;
         this._visitables.get("nfs").remove(this.nfs);
+        this.nfs = null;
     }
     return (A) this;
   }
@@ -1474,8 +1476,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.persistentVolumeClaim = new V1PersistentVolumeClaimVolumeSourceBuilder(persistentVolumeClaim);
         this._visitables.get("persistentVolumeClaim").add(this.persistentVolumeClaim);
     } else {
-        this.persistentVolumeClaim = null;
         this._visitables.get("persistentVolumeClaim").remove(this.persistentVolumeClaim);
+        this.persistentVolumeClaim = null;
     }
     return (A) this;
   }
@@ -1486,8 +1488,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.photonPersistentDisk = new V1PhotonPersistentDiskVolumeSourceBuilder(photonPersistentDisk);
         this._visitables.get("photonPersistentDisk").add(this.photonPersistentDisk);
     } else {
-        this.photonPersistentDisk = null;
         this._visitables.get("photonPersistentDisk").remove(this.photonPersistentDisk);
+        this.photonPersistentDisk = null;
     }
     return (A) this;
   }
@@ -1498,8 +1500,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.portworxVolume = new V1PortworxVolumeSourceBuilder(portworxVolume);
         this._visitables.get("portworxVolume").add(this.portworxVolume);
     } else {
-        this.portworxVolume = null;
         this._visitables.get("portworxVolume").remove(this.portworxVolume);
+        this.portworxVolume = null;
     }
     return (A) this;
   }
@@ -1510,8 +1512,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.projected = new V1ProjectedVolumeSourceBuilder(projected);
         this._visitables.get("projected").add(this.projected);
     } else {
-        this.projected = null;
         this._visitables.get("projected").remove(this.projected);
+        this.projected = null;
     }
     return (A) this;
   }
@@ -1522,8 +1524,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.quobyte = new V1QuobyteVolumeSourceBuilder(quobyte);
         this._visitables.get("quobyte").add(this.quobyte);
     } else {
-        this.quobyte = null;
         this._visitables.get("quobyte").remove(this.quobyte);
+        this.quobyte = null;
     }
     return (A) this;
   }
@@ -1534,8 +1536,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.rbd = new V1RBDVolumeSourceBuilder(rbd);
         this._visitables.get("rbd").add(this.rbd);
     } else {
-        this.rbd = null;
         this._visitables.get("rbd").remove(this.rbd);
+        this.rbd = null;
     }
     return (A) this;
   }
@@ -1546,8 +1548,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.scaleIO = new V1ScaleIOVolumeSourceBuilder(scaleIO);
         this._visitables.get("scaleIO").add(this.scaleIO);
     } else {
-        this.scaleIO = null;
         this._visitables.get("scaleIO").remove(this.scaleIO);
+        this.scaleIO = null;
     }
     return (A) this;
   }
@@ -1558,8 +1560,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.secret = new V1SecretVolumeSourceBuilder(secret);
         this._visitables.get("secret").add(this.secret);
     } else {
-        this.secret = null;
         this._visitables.get("secret").remove(this.secret);
+        this.secret = null;
     }
     return (A) this;
   }
@@ -1570,8 +1572,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.storageos = new V1StorageOSVolumeSourceBuilder(storageos);
         this._visitables.get("storageos").add(this.storageos);
     } else {
-        this.storageos = null;
         this._visitables.get("storageos").remove(this.storageos);
+        this.storageos = null;
     }
     return (A) this;
   }
@@ -1582,8 +1584,8 @@ public class V1VolumeFluent<A extends io.kubernetes.client.openapi.models.V1Volu
         this.vsphereVolume = new V1VsphereVirtualDiskVolumeSourceBuilder(vsphereVolume);
         this._visitables.get("vsphereVolume").add(this.vsphereVolume);
     } else {
-        this.vsphereVolume = null;
         this._visitables.get("vsphereVolume").remove(this.vsphereVolume);
+        this.vsphereVolume = null;
     }
     return (A) this;
   }

@@ -31,12 +31,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> extends BaseFluent<A>{
 
   private String $ref;
   private String $schema;
@@ -85,7 +87,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToAllOf(Collection<V1JSONSchemaProps> items) {
     if (this.allOf == null) {
-      this.allOf = new ArrayList();
+      this.allOf = new ArrayList<>();
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
@@ -97,7 +99,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToAnyOf(Collection<V1JSONSchemaProps> items) {
     if (this.anyOf == null) {
-      this.anyOf = new ArrayList();
+      this.anyOf = new ArrayList<>();
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
@@ -109,7 +111,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToEnum(Collection<Object> items) {
     if (this._enum == null) {
-      this._enum = new ArrayList();
+      this._enum = new ArrayList<>();
     }
     for (Object item : items) {
       this._enum.add(item);
@@ -119,7 +121,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToOneOf(Collection<V1JSONSchemaProps> items) {
     if (this.oneOf == null) {
-      this.oneOf = new ArrayList();
+      this.oneOf = new ArrayList<>();
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
@@ -131,7 +133,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToRequired(Collection<String> items) {
     if (this.required == null) {
-      this.required = new ArrayList();
+      this.required = new ArrayList<>();
     }
     for (String item : items) {
       this.required.add(item);
@@ -140,32 +142,32 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public AllOfNested<A> addNewAllOf() {
-    return new AllOfNested(-1, null);
+    return new AllOfNested<>(-1, null);
   }
   
   public AllOfNested<A> addNewAllOfLike(V1JSONSchemaProps item) {
-    return new AllOfNested(-1, item);
+    return new AllOfNested<>(-1, item);
   }
   
   public AnyOfNested<A> addNewAnyOf() {
-    return new AnyOfNested(-1, null);
+    return new AnyOfNested<>(-1, null);
   }
   
   public AnyOfNested<A> addNewAnyOfLike(V1JSONSchemaProps item) {
-    return new AnyOfNested(-1, item);
+    return new AnyOfNested<>(-1, item);
   }
   
   public OneOfNested<A> addNewOneOf() {
-    return new OneOfNested(-1, null);
+    return new OneOfNested<>(-1, null);
   }
   
   public OneOfNested<A> addNewOneOfLike(V1JSONSchemaProps item) {
-    return new OneOfNested(-1, item);
+    return new OneOfNested<>(-1, item);
   }
   
   public A addToAllOf(V1JSONSchemaProps... items) {
     if (this.allOf == null) {
-      this.allOf = new ArrayList();
+      this.allOf = new ArrayList<>();
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
@@ -177,7 +179,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToAllOf(int index,V1JSONSchemaProps item) {
     if (this.allOf == null) {
-      this.allOf = new ArrayList();
+      this.allOf = new ArrayList<>();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= this.allOf.size()) {
@@ -192,7 +194,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToAnyOf(V1JSONSchemaProps... items) {
     if (this.anyOf == null) {
-      this.anyOf = new ArrayList();
+      this.anyOf = new ArrayList<>();
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
@@ -204,7 +206,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToAnyOf(int index,V1JSONSchemaProps item) {
     if (this.anyOf == null) {
-      this.anyOf = new ArrayList();
+      this.anyOf = new ArrayList<>();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= this.anyOf.size()) {
@@ -219,7 +221,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToDefinitions(Map<String,V1JSONSchemaProps> map) {
     if (this.definitions == null && map != null) {
-      this.definitions = new LinkedHashMap();
+      this.definitions = new LinkedHashMap<>();
     }
     if (map != null) {
       this.definitions.putAll(map);
@@ -229,7 +231,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToDefinitions(String key,V1JSONSchemaProps value) {
     if (this.definitions == null && key != null && value != null) {
-      this.definitions = new LinkedHashMap();
+      this.definitions = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.definitions.put(key, value);
@@ -239,7 +241,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToDependencies(Map<String,Object> map) {
     if (this.dependencies == null && map != null) {
-      this.dependencies = new LinkedHashMap();
+      this.dependencies = new LinkedHashMap<>();
     }
     if (map != null) {
       this.dependencies.putAll(map);
@@ -249,7 +251,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToDependencies(String key,Object value) {
     if (this.dependencies == null && key != null && value != null) {
-      this.dependencies = new LinkedHashMap();
+      this.dependencies = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.dependencies.put(key, value);
@@ -259,7 +261,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToEnum(Object... items) {
     if (this._enum == null) {
-      this._enum = new ArrayList();
+      this._enum = new ArrayList<>();
     }
     for (Object item : items) {
       this._enum.add(item);
@@ -269,7 +271,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToEnum(int index,Object item) {
     if (this._enum == null) {
-      this._enum = new ArrayList();
+      this._enum = new ArrayList<>();
     }
     this._enum.add(index, item);
     return (A) this;
@@ -277,7 +279,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToOneOf(V1JSONSchemaProps... items) {
     if (this.oneOf == null) {
-      this.oneOf = new ArrayList();
+      this.oneOf = new ArrayList<>();
     }
     for (V1JSONSchemaProps item : items) {
         V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
@@ -289,7 +291,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToOneOf(int index,V1JSONSchemaProps item) {
     if (this.oneOf == null) {
-      this.oneOf = new ArrayList();
+      this.oneOf = new ArrayList<>();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= this.oneOf.size()) {
@@ -304,7 +306,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToPatternProperties(Map<String,V1JSONSchemaProps> map) {
     if (this.patternProperties == null && map != null) {
-      this.patternProperties = new LinkedHashMap();
+      this.patternProperties = new LinkedHashMap<>();
     }
     if (map != null) {
       this.patternProperties.putAll(map);
@@ -314,7 +316,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToPatternProperties(String key,V1JSONSchemaProps value) {
     if (this.patternProperties == null && key != null && value != null) {
-      this.patternProperties = new LinkedHashMap();
+      this.patternProperties = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.patternProperties.put(key, value);
@@ -324,7 +326,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToProperties(Map<String,V1JSONSchemaProps> map) {
     if (this.properties == null && map != null) {
-      this.properties = new LinkedHashMap();
+      this.properties = new LinkedHashMap<>();
     }
     if (map != null) {
       this.properties.putAll(map);
@@ -334,7 +336,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToProperties(String key,V1JSONSchemaProps value) {
     if (this.properties == null && key != null && value != null) {
-      this.properties = new LinkedHashMap();
+      this.properties = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.properties.put(key, value);
@@ -344,7 +346,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToRequired(String... items) {
     if (this.required == null) {
-      this.required = new ArrayList();
+      this.required = new ArrayList<>();
     }
     for (String item : items) {
       this.required.add(item);
@@ -354,7 +356,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToRequired(int index,String item) {
     if (this.required == null) {
-      this.required = new ArrayList();
+      this.required = new ArrayList<>();
     }
     this.required.add(index, item);
     return (A) this;
@@ -626,7 +628,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1JSONSchemaPropsFluent that = (V1JSONSchemaPropsFluent) o;
+    V1JSONSchemaPropsFluent<?> that = (V1JSONSchemaPropsFluent<?>) o;
     if (!(Objects.equals($ref, that.$ref))) {
       return false;
     }
@@ -1321,6 +1323,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1JSONSchemaPropsBuilder> each = allOf.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("allOf");
     while (each.hasNext()) {
         V1JSONSchemaPropsBuilder builder = each.next();
@@ -1337,6 +1340,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1JSONSchemaPropsBuilder> each = anyOf.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("anyOf");
     while (each.hasNext()) {
         V1JSONSchemaPropsBuilder builder = each.next();
@@ -1353,6 +1357,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1JSONSchemaPropsBuilder> each = oneOf.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("oneOf");
     while (each.hasNext()) {
         V1JSONSchemaPropsBuilder builder = each.next();
@@ -1365,20 +1370,20 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public AllOfNested<A> setNewAllOfLike(int index,V1JSONSchemaProps item) {
-    return new AllOfNested(index, item);
+    return new AllOfNested<>(index, item);
   }
   
   public AnyOfNested<A> setNewAnyOfLike(int index,V1JSONSchemaProps item) {
-    return new AnyOfNested(index, item);
+    return new AnyOfNested<>(index, item);
   }
   
   public OneOfNested<A> setNewOneOfLike(int index,V1JSONSchemaProps item) {
-    return new OneOfNested(index, item);
+    return new OneOfNested<>(index, item);
   }
   
   public A setToAllOf(int index,V1JSONSchemaProps item) {
     if (this.allOf == null) {
-      this.allOf = new ArrayList();
+      this.allOf = new ArrayList<>();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= this.allOf.size()) {
@@ -1393,7 +1398,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToAnyOf(int index,V1JSONSchemaProps item) {
     if (this.anyOf == null) {
-      this.anyOf = new ArrayList();
+      this.anyOf = new ArrayList<>();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= this.anyOf.size()) {
@@ -1408,7 +1413,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToEnum(int index,Object item) {
     if (this._enum == null) {
-      this._enum = new ArrayList();
+      this._enum = new ArrayList<>();
     }
     this._enum.set(index, item);
     return (A) this;
@@ -1416,7 +1421,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToOneOf(int index,V1JSONSchemaProps item) {
     if (this.oneOf == null) {
-      this.oneOf = new ArrayList();
+      this.oneOf = new ArrayList<>();
     }
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= this.oneOf.size()) {
@@ -1431,7 +1436,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToRequired(int index,String item) {
     if (this.required == null) {
-      this.required = new ArrayList();
+      this.required = new ArrayList<>();
     }
     this.required.set(index, item);
     return (A) this;
@@ -1643,7 +1648,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("allOf").clear();
     }
     if (allOf != null) {
-        this.allOf = new ArrayList();
+        this.allOf = new ArrayList<>();
         for (V1JSONSchemaProps item : allOf) {
           this.addToAllOf(item);
         }
@@ -1671,7 +1676,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("anyOf").clear();
     }
     if (anyOf != null) {
-        this.anyOf = new ArrayList();
+        this.anyOf = new ArrayList<>();
         for (V1JSONSchemaProps item : anyOf) {
           this.addToAnyOf(item);
         }
@@ -1703,7 +1708,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
     if (definitions == null) {
       this.definitions = null;
     } else {
-      this.definitions = new LinkedHashMap(definitions);
+      this.definitions = new LinkedHashMap<>(definitions);
     }
     return (A) this;
   }
@@ -1712,7 +1717,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
     if (dependencies == null) {
       this.dependencies = null;
     } else {
-      this.dependencies = new LinkedHashMap(dependencies);
+      this.dependencies = new LinkedHashMap<>(dependencies);
     }
     return (A) this;
   }
@@ -1724,7 +1729,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A withEnum(List<Object> _enum) {
     if (_enum != null) {
-        this._enum = new ArrayList();
+        this._enum = new ArrayList<>();
         for (Object item : _enum) {
           this.addToEnum(item);
         }
@@ -1776,8 +1781,8 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
         this.externalDocs = new V1ExternalDocumentationBuilder(externalDocs);
         this._visitables.get("externalDocs").add(this.externalDocs);
     } else {
-        this.externalDocs = null;
         this._visitables.get("externalDocs").remove(this.externalDocs);
+        this.externalDocs = null;
     }
     return (A) this;
   }
@@ -1843,19 +1848,19 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public ExternalDocsNested<A> withNewExternalDocs() {
-    return new ExternalDocsNested(null);
+    return new ExternalDocsNested<>(null);
   }
   
   public ExternalDocsNested<A> withNewExternalDocsLike(V1ExternalDocumentation item) {
-    return new ExternalDocsNested(item);
+    return new ExternalDocsNested<>(item);
   }
   
   public NotNested<A> withNewNot() {
-    return new NotNested(null);
+    return new NotNested<>(null);
   }
   
   public NotNested<A> withNewNotLike(V1JSONSchemaProps item) {
-    return new NotNested(item);
+    return new NotNested<>(item);
   }
   
   public A withNot(V1JSONSchemaProps not) {
@@ -1864,8 +1869,8 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
         this.not = new V1JSONSchemaPropsBuilder(not);
         this._visitables.get("not").add(this.not);
     } else {
-        this.not = null;
         this._visitables.get("not").remove(this.not);
+        this.not = null;
     }
     return (A) this;
   }
@@ -1884,7 +1889,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("oneOf").clear();
     }
     if (oneOf != null) {
-        this.oneOf = new ArrayList();
+        this.oneOf = new ArrayList<>();
         for (V1JSONSchemaProps item : oneOf) {
           this.addToOneOf(item);
         }
@@ -1916,7 +1921,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
     if (patternProperties == null) {
       this.patternProperties = null;
     } else {
-      this.patternProperties = new LinkedHashMap(patternProperties);
+      this.patternProperties = new LinkedHashMap<>(patternProperties);
     }
     return (A) this;
   }
@@ -1925,7 +1930,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
     if (properties == null) {
       this.properties = null;
     } else {
-      this.properties = new LinkedHashMap(properties);
+      this.properties = new LinkedHashMap<>(properties);
     }
     return (A) this;
   }
@@ -1937,7 +1942,7 @@ public class V1JSONSchemaPropsFluent<A extends io.kubernetes.client.openapi.mode
   
   public A withRequired(List<String> required) {
     if (required != null) {
-        this.required = new ArrayList();
+        this.required = new ArrayList<>();
         for (String item : required) {
           this.addToRequired(item);
         }

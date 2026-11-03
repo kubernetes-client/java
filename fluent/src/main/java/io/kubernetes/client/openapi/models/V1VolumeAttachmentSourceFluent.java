@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VolumeAttachmentSourceFluent<A extends io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VolumeAttachmentSourceFluent<A extends V1VolumeAttachmentSourceFluent<A>> extends BaseFluent<A>{
 
   private V1PersistentVolumeSpecBuilder inlineVolumeSpec;
   private String persistentVolumeName;
@@ -71,7 +73,7 @@ public class V1VolumeAttachmentSourceFluent<A extends io.kubernetes.client.opena
     if (!(super.equals(o))) {
       return false;
     }
-    V1VolumeAttachmentSourceFluent that = (V1VolumeAttachmentSourceFluent) o;
+    V1VolumeAttachmentSourceFluent<?> that = (V1VolumeAttachmentSourceFluent<?>) o;
     if (!(Objects.equals(inlineVolumeSpec, that.inlineVolumeSpec))) {
       return false;
     }
@@ -119,18 +121,18 @@ public class V1VolumeAttachmentSourceFluent<A extends io.kubernetes.client.opena
         this.inlineVolumeSpec = new V1PersistentVolumeSpecBuilder(inlineVolumeSpec);
         this._visitables.get("inlineVolumeSpec").add(this.inlineVolumeSpec);
     } else {
-        this.inlineVolumeSpec = null;
         this._visitables.get("inlineVolumeSpec").remove(this.inlineVolumeSpec);
+        this.inlineVolumeSpec = null;
     }
     return (A) this;
   }
   
   public InlineVolumeSpecNested<A> withNewInlineVolumeSpec() {
-    return new InlineVolumeSpecNested(null);
+    return new InlineVolumeSpecNested<>(null);
   }
   
   public InlineVolumeSpecNested<A> withNewInlineVolumeSpecLike(V1PersistentVolumeSpec item) {
-    return new InlineVolumeSpecNested(item);
+    return new InlineVolumeSpecNested<>(item);
   }
   
   public A withPersistentVolumeName(String persistentVolumeName) {

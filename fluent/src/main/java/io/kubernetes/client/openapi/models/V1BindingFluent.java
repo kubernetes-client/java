@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1BindingFluent<A extends io.kubernetes.client.openapi.models.V1BindingFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1BindingFluent<A extends V1BindingFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -91,7 +93,7 @@ public class V1BindingFluent<A extends io.kubernetes.client.openapi.models.V1Bin
     if (!(super.equals(o))) {
       return false;
     }
-    V1BindingFluent that = (V1BindingFluent) o;
+    V1BindingFluent<?> that = (V1BindingFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -177,26 +179,26 @@ public class V1BindingFluent<A extends io.kubernetes.client.openapi.models.V1Bin
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public TargetNested<A> withNewTarget() {
-    return new TargetNested(null);
+    return new TargetNested<>(null);
   }
   
   public TargetNested<A> withNewTargetLike(V1ObjectReference item) {
-    return new TargetNested(item);
+    return new TargetNested<>(item);
   }
   
   public A withTarget(V1ObjectReference target) {
@@ -205,8 +207,8 @@ public class V1BindingFluent<A extends io.kubernetes.client.openapi.models.V1Bin
         this.target = new V1ObjectReferenceBuilder(target);
         this._visitables.get("target").add(this.target);
     } else {
-        this.target = null;
         this._visitables.get("target").remove(this.target);
+        this.target = null;
     }
     return (A) this;
   }

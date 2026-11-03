@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1AWSElasticBlockStoreVolumeSourceBuilder extends V1AWSElasticBlockStoreVolumeSourceFluent<V1AWSElasticBlockStoreVolumeSourceBuilder> implements VisitableBuilder<V1AWSElasticBlockStoreVolumeSource,V1AWSElasticBlockStoreVolumeSourceBuilder>{
 
   V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent;

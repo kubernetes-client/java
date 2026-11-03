@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.models.V1RuleWithOperationsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1RuleWithOperationsFluent<A extends V1RuleWithOperationsFluent<A>> extends BaseFluent<A>{
 
   private List<String> apiGroups;
   private List<String> apiVersions;
@@ -44,7 +46,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
 
   public A addAllToApiGroups(Collection<String> items) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList();
+      this.apiGroups = new ArrayList<>();
     }
     for (String item : items) {
       this.apiGroups.add(item);
@@ -54,7 +56,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A addAllToApiVersions(Collection<String> items) {
     if (this.apiVersions == null) {
-      this.apiVersions = new ArrayList();
+      this.apiVersions = new ArrayList<>();
     }
     for (String item : items) {
       this.apiVersions.add(item);
@@ -64,7 +66,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A addAllToOperations(Collection<String> items) {
     if (this.operations == null) {
-      this.operations = new ArrayList();
+      this.operations = new ArrayList<>();
     }
     for (String item : items) {
       this.operations.add(item);
@@ -74,7 +76,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A addAllToResources(Collection<String> items) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     for (String item : items) {
       this.resources.add(item);
@@ -84,7 +86,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToApiGroups(String... items) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList();
+      this.apiGroups = new ArrayList<>();
     }
     for (String item : items) {
       this.apiGroups.add(item);
@@ -94,7 +96,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToApiGroups(int index,String item) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList();
+      this.apiGroups = new ArrayList<>();
     }
     this.apiGroups.add(index, item);
     return (A) this;
@@ -102,7 +104,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToApiVersions(String... items) {
     if (this.apiVersions == null) {
-      this.apiVersions = new ArrayList();
+      this.apiVersions = new ArrayList<>();
     }
     for (String item : items) {
       this.apiVersions.add(item);
@@ -112,7 +114,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToApiVersions(int index,String item) {
     if (this.apiVersions == null) {
-      this.apiVersions = new ArrayList();
+      this.apiVersions = new ArrayList<>();
     }
     this.apiVersions.add(index, item);
     return (A) this;
@@ -120,7 +122,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToOperations(String... items) {
     if (this.operations == null) {
-      this.operations = new ArrayList();
+      this.operations = new ArrayList<>();
     }
     for (String item : items) {
       this.operations.add(item);
@@ -130,7 +132,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToOperations(int index,String item) {
     if (this.operations == null) {
-      this.operations = new ArrayList();
+      this.operations = new ArrayList<>();
     }
     this.operations.add(index, item);
     return (A) this;
@@ -138,7 +140,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToResources(String... items) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     for (String item : items) {
       this.resources.add(item);
@@ -148,7 +150,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToResources(int index,String item) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     this.resources.add(index, item);
     return (A) this;
@@ -175,7 +177,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1RuleWithOperationsFluent that = (V1RuleWithOperationsFluent) o;
+    V1RuleWithOperationsFluent<?> that = (V1RuleWithOperationsFluent<?>) o;
     if (!(Objects.equals(apiGroups, that.apiGroups))) {
       return false;
     }
@@ -440,7 +442,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A setToApiGroups(int index,String item) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList();
+      this.apiGroups = new ArrayList<>();
     }
     this.apiGroups.set(index, item);
     return (A) this;
@@ -448,7 +450,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A setToApiVersions(int index,String item) {
     if (this.apiVersions == null) {
-      this.apiVersions = new ArrayList();
+      this.apiVersions = new ArrayList<>();
     }
     this.apiVersions.set(index, item);
     return (A) this;
@@ -456,7 +458,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A setToOperations(int index,String item) {
     if (this.operations == null) {
-      this.operations = new ArrayList();
+      this.operations = new ArrayList<>();
     }
     this.operations.set(index, item);
     return (A) this;
@@ -464,7 +466,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A setToResources(int index,String item) {
     if (this.resources == null) {
-      this.resources = new ArrayList();
+      this.resources = new ArrayList<>();
     }
     this.resources.set(index, item);
     return (A) this;
@@ -503,7 +505,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A withApiGroups(List<String> apiGroups) {
     if (apiGroups != null) {
-        this.apiGroups = new ArrayList();
+        this.apiGroups = new ArrayList<>();
         for (String item : apiGroups) {
           this.addToApiGroups(item);
         }
@@ -528,7 +530,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A withApiVersions(List<String> apiVersions) {
     if (apiVersions != null) {
-        this.apiVersions = new ArrayList();
+        this.apiVersions = new ArrayList<>();
         for (String item : apiVersions) {
           this.addToApiVersions(item);
         }
@@ -553,7 +555,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A withOperations(List<String> operations) {
     if (operations != null) {
-        this.operations = new ArrayList();
+        this.operations = new ArrayList<>();
         for (String item : operations) {
           this.addToOperations(item);
         }
@@ -578,7 +580,7 @@ public class V1RuleWithOperationsFluent<A extends io.kubernetes.client.openapi.m
   
   public A withResources(List<String> resources) {
     if (resources != null) {
-        this.resources = new ArrayList();
+        this.resources = new ArrayList<>();
         for (String item : resources) {
           this.addToResources(item);
         }

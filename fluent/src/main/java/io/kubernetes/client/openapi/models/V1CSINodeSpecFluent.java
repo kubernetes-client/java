@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V1CSINodeSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CSINodeSpecFluent<A extends V1CSINodeSpecFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1CSINodeDriverBuilder> drivers;
 
@@ -43,7 +45,7 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
 
   public A addAllToDrivers(Collection<V1CSINodeDriver> items) {
     if (this.drivers == null) {
-      this.drivers = new ArrayList();
+      this.drivers = new ArrayList<>();
     }
     for (V1CSINodeDriver item : items) {
         V1CSINodeDriverBuilder builder = new V1CSINodeDriverBuilder(item);
@@ -54,16 +56,16 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public DriversNested<A> addNewDriver() {
-    return new DriversNested(-1, null);
+    return new DriversNested<>(-1, null);
   }
   
   public DriversNested<A> addNewDriverLike(V1CSINodeDriver item) {
-    return new DriversNested(-1, item);
+    return new DriversNested<>(-1, item);
   }
   
   public A addToDrivers(V1CSINodeDriver... items) {
     if (this.drivers == null) {
-      this.drivers = new ArrayList();
+      this.drivers = new ArrayList<>();
     }
     for (V1CSINodeDriver item : items) {
         V1CSINodeDriverBuilder builder = new V1CSINodeDriverBuilder(item);
@@ -75,7 +77,7 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToDrivers(int index,V1CSINodeDriver item) {
     if (this.drivers == null) {
-      this.drivers = new ArrayList();
+      this.drivers = new ArrayList<>();
     }
     V1CSINodeDriverBuilder builder = new V1CSINodeDriverBuilder(item);
     if (index < 0 || index >= this.drivers.size()) {
@@ -166,7 +168,7 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1CSINodeSpecFluent that = (V1CSINodeSpecFluent) o;
+    V1CSINodeSpecFluent<?> that = (V1CSINodeSpecFluent<?>) o;
     if (!(Objects.equals(drivers, that.drivers))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<V1CSINodeDriverBuilder> each = drivers.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("drivers");
     while (each.hasNext()) {
         V1CSINodeDriverBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public DriversNested<A> setNewDriverLike(int index,V1CSINodeDriver item) {
-    return new DriversNested(index, item);
+    return new DriversNested<>(index, item);
   }
   
   public A setToDrivers(int index,V1CSINodeDriver item) {
     if (this.drivers == null) {
-      this.drivers = new ArrayList();
+      this.drivers = new ArrayList<>();
     }
     V1CSINodeDriverBuilder builder = new V1CSINodeDriverBuilder(item);
     if (index < 0 || index >= this.drivers.size()) {
@@ -265,7 +268,7 @@ public class V1CSINodeSpecFluent<A extends io.kubernetes.client.openapi.models.V
       this._visitables.get("drivers").clear();
     }
     if (drivers != null) {
-        this.drivers = new ArrayList();
+        this.drivers = new ArrayList<>();
         for (V1CSINodeDriver item : drivers) {
           this.addToDrivers(item);
         }

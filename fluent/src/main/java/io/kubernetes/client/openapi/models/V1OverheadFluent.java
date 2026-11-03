@@ -21,12 +21,14 @@ import java.lang.SuppressWarnings;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1OverheadFluent<A extends io.kubernetes.client.openapi.models.V1OverheadFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1OverheadFluent<A extends V1OverheadFluent<A>> extends BaseFluent<A>{
 
   private Map<String,Quantity> podFixed;
 
@@ -39,7 +41,7 @@ public class V1OverheadFluent<A extends io.kubernetes.client.openapi.models.V1Ov
 
   public A addToPodFixed(Map<String,Quantity> map) {
     if (this.podFixed == null && map != null) {
-      this.podFixed = new LinkedHashMap();
+      this.podFixed = new LinkedHashMap<>();
     }
     if (map != null) {
       this.podFixed.putAll(map);
@@ -49,7 +51,7 @@ public class V1OverheadFluent<A extends io.kubernetes.client.openapi.models.V1Ov
   
   public A addToPodFixed(String key,Quantity value) {
     if (this.podFixed == null && key != null && value != null) {
-      this.podFixed = new LinkedHashMap();
+      this.podFixed = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.podFixed.put(key, value);
@@ -74,7 +76,7 @@ public class V1OverheadFluent<A extends io.kubernetes.client.openapi.models.V1Ov
     if (!(super.equals(o))) {
       return false;
     }
-    V1OverheadFluent that = (V1OverheadFluent) o;
+    V1OverheadFluent<?> that = (V1OverheadFluent<?>) o;
     if (!(Objects.equals(podFixed, that.podFixed))) {
       return false;
     }
@@ -132,7 +134,7 @@ public class V1OverheadFluent<A extends io.kubernetes.client.openapi.models.V1Ov
     if (podFixed == null) {
       this.podFixed = null;
     } else {
-      this.podFixed = new LinkedHashMap(podFixed);
+      this.podFixed = new LinkedHashMap<>(podFixed);
     }
     return (A) this;
   }

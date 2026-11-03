@@ -65,4 +65,12 @@ class TaintsTest {
     assertThat(Taints.findTaint(node, "key1", Taints.Effect.NO_EXECUTE).getEffect())
         .isEqualTo(effect);
   }
+
+  @Test
+  void findTaintWithoutSpecReturnsNull() {
+    // A node without a spec (or without a taints list) must not NPE; it simply has no taints,
+    // consistent with the null-spec handling in removeTaint.
+    V1Node node = new V1Node();
+    assertThat(Taints.findTaint(node, "key1", Taints.Effect.NO_SCHEDULE)).isNull();
+  }
 }

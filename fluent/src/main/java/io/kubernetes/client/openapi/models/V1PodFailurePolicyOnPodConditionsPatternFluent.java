@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodFailurePolicyOnPodConditionsPatternFluent<A extends io.kubernetes.client.openapi.models.V1PodFailurePolicyOnPodConditionsPatternFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodFailurePolicyOnPodConditionsPatternFluent<A extends V1PodFailurePolicyOnPodConditionsPatternFluent<A>> extends BaseFluent<A>{
 
   private String status;
   private String type;
@@ -53,7 +55,7 @@ public class V1PodFailurePolicyOnPodConditionsPatternFluent<A extends io.kuberne
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodFailurePolicyOnPodConditionsPatternFluent that = (V1PodFailurePolicyOnPodConditionsPatternFluent) o;
+    V1PodFailurePolicyOnPodConditionsPatternFluent<?> that = (V1PodFailurePolicyOnPodConditionsPatternFluent<?>) o;
     if (!(Objects.equals(status, that.status))) {
       return false;
     }

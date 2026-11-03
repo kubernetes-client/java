@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1AllocatedDeviceStatusFluent<A extends io.kubernetes.client.openapi.models.V1beta1AllocatedDeviceStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1AllocatedDeviceStatusFluent<A extends V1beta1AllocatedDeviceStatusFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1ConditionBuilder> conditions;
   private Object data;
@@ -50,7 +52,7 @@ public class V1beta1AllocatedDeviceStatusFluent<A extends io.kubernetes.client.o
 
   public A addAllToConditions(Collection<V1Condition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1Condition item : items) {
         V1ConditionBuilder builder = new V1ConditionBuilder(item);
@@ -61,16 +63,16 @@ public class V1beta1AllocatedDeviceStatusFluent<A extends io.kubernetes.client.o
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1Condition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public A addToConditions(V1Condition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1Condition item : items) {
         V1ConditionBuilder builder = new V1ConditionBuilder(item);
@@ -82,7 +84,7 @@ public class V1beta1AllocatedDeviceStatusFluent<A extends io.kubernetes.client.o
   
   public A addToConditions(int index,V1Condition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1ConditionBuilder builder = new V1ConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -195,7 +197,7 @@ public class V1beta1AllocatedDeviceStatusFluent<A extends io.kubernetes.client.o
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1AllocatedDeviceStatusFluent that = (V1beta1AllocatedDeviceStatusFluent) o;
+    V1beta1AllocatedDeviceStatusFluent<?> that = (V1beta1AllocatedDeviceStatusFluent<?>) o;
     if (!(Objects.equals(conditions, that.conditions))) {
       return false;
     }
@@ -310,6 +312,7 @@ public class V1beta1AllocatedDeviceStatusFluent<A extends io.kubernetes.client.o
       return (A) this;
     }
     Iterator<V1ConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1ConditionBuilder builder = each.next();
@@ -322,12 +325,12 @@ public class V1beta1AllocatedDeviceStatusFluent<A extends io.kubernetes.client.o
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1Condition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public A setToConditions(int index,V1Condition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1ConditionBuilder builder = new V1ConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -386,7 +389,7 @@ public class V1beta1AllocatedDeviceStatusFluent<A extends io.kubernetes.client.o
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1Condition item : conditions) {
           this.addToConditions(item);
         }
@@ -430,18 +433,18 @@ public class V1beta1AllocatedDeviceStatusFluent<A extends io.kubernetes.client.o
         this.networkData = new V1beta1NetworkDeviceDataBuilder(networkData);
         this._visitables.get("networkData").add(this.networkData);
     } else {
-        this.networkData = null;
         this._visitables.get("networkData").remove(this.networkData);
+        this.networkData = null;
     }
     return (A) this;
   }
   
   public NetworkDataNested<A> withNewNetworkData() {
-    return new NetworkDataNested(null);
+    return new NetworkDataNested<>(null);
   }
   
   public NetworkDataNested<A> withNewNetworkDataLike(V1beta1NetworkDeviceData item) {
-    return new NetworkDataNested(item);
+    return new NetworkDataNested<>(item);
   }
   
   public A withPool(String pool) {

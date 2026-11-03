@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SessionAffinityConfigFluent<A extends io.kubernetes.client.openapi.models.V1SessionAffinityConfigFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SessionAffinityConfigFluent<A extends V1SessionAffinityConfigFluent<A>> extends BaseFluent<A>{
 
   private V1ClientIPConfigBuilder clientIP;
 
@@ -69,7 +71,7 @@ public class V1SessionAffinityConfigFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1SessionAffinityConfigFluent that = (V1SessionAffinityConfigFluent) o;
+    V1SessionAffinityConfigFluent<?> that = (V1SessionAffinityConfigFluent<?>) o;
     if (!(Objects.equals(clientIP, that.clientIP))) {
       return false;
     }
@@ -101,18 +103,18 @@ public class V1SessionAffinityConfigFluent<A extends io.kubernetes.client.openap
         this.clientIP = new V1ClientIPConfigBuilder(clientIP);
         this._visitables.get("clientIP").add(this.clientIP);
     } else {
-        this.clientIP = null;
         this._visitables.get("clientIP").remove(this.clientIP);
+        this.clientIP = null;
     }
     return (A) this;
   }
   
   public ClientIPNested<A> withNewClientIP() {
-    return new ClientIPNested(null);
+    return new ClientIPNested<>(null);
   }
   
   public ClientIPNested<A> withNewClientIPLike(V1ClientIPConfig item) {
-    return new ClientIPNested(item);
+    return new ClientIPNested<>(item);
   }
   public class ClientIPNested<N> extends V1ClientIPConfigFluent<ClientIPNested<N>> implements Nested<N>{
   

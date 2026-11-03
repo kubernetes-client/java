@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1StatefulSetOrdinalsFluent<A extends io.kubernetes.client.openapi.models.V1StatefulSetOrdinalsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1StatefulSetOrdinalsFluent<A extends V1StatefulSetOrdinalsFluent<A>> extends BaseFluent<A>{
 
   private Integer start;
 
@@ -52,7 +54,7 @@ public class V1StatefulSetOrdinalsFluent<A extends io.kubernetes.client.openapi.
     if (!(super.equals(o))) {
       return false;
     }
-    V1StatefulSetOrdinalsFluent that = (V1StatefulSetOrdinalsFluent) o;
+    V1StatefulSetOrdinalsFluent<?> that = (V1StatefulSetOrdinalsFluent<?>) o;
     if (!(Objects.equals(start, that.start))) {
       return false;
     }

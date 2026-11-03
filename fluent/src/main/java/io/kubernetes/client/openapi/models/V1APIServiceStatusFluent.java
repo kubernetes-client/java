@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1APIServiceStatusFluent<A extends io.kubernetes.client.openapi.models.V1APIServiceStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1APIServiceStatusFluent<A extends V1APIServiceStatusFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1APIServiceConditionBuilder> conditions;
 
@@ -43,7 +45,7 @@ public class V1APIServiceStatusFluent<A extends io.kubernetes.client.openapi.mod
 
   public A addAllToConditions(Collection<V1APIServiceCondition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1APIServiceCondition item : items) {
         V1APIServiceConditionBuilder builder = new V1APIServiceConditionBuilder(item);
@@ -54,16 +56,16 @@ public class V1APIServiceStatusFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1APIServiceCondition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public A addToConditions(V1APIServiceCondition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1APIServiceCondition item : items) {
         V1APIServiceConditionBuilder builder = new V1APIServiceConditionBuilder(item);
@@ -75,7 +77,7 @@ public class V1APIServiceStatusFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToConditions(int index,V1APIServiceCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1APIServiceConditionBuilder builder = new V1APIServiceConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -166,7 +168,7 @@ public class V1APIServiceStatusFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1APIServiceStatusFluent that = (V1APIServiceStatusFluent) o;
+    V1APIServiceStatusFluent<?> that = (V1APIServiceStatusFluent<?>) o;
     if (!(Objects.equals(conditions, that.conditions))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1APIServiceStatusFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1APIServiceConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1APIServiceConditionBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1APIServiceStatusFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1APIServiceCondition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public A setToConditions(int index,V1APIServiceCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1APIServiceConditionBuilder builder = new V1APIServiceConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -265,7 +268,7 @@ public class V1APIServiceStatusFluent<A extends io.kubernetes.client.openapi.mod
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1APIServiceCondition item : conditions) {
           this.addToConditions(item);
         }

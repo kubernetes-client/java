@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1ParamRefFluent<A extends io.kubernetes.client.openapi.models.V1beta1ParamRefFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1ParamRefFluent<A extends V1beta1ParamRefFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private String namespace;
@@ -75,7 +77,7 @@ public class V1beta1ParamRefFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1ParamRefFluent that = (V1beta1ParamRefFluent) o;
+    V1beta1ParamRefFluent<?> that = (V1beta1ParamRefFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }
@@ -160,11 +162,11 @@ public class V1beta1ParamRefFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public SelectorNested<A> withNewSelector() {
-    return new SelectorNested(null);
+    return new SelectorNested<>(null);
   }
   
   public SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
-    return new SelectorNested(item);
+    return new SelectorNested<>(item);
   }
   
   public A withParameterNotFoundAction(String parameterNotFoundAction) {
@@ -178,8 +180,8 @@ public class V1beta1ParamRefFluent<A extends io.kubernetes.client.openapi.models
         this.selector = new V1LabelSelectorBuilder(selector);
         this._visitables.get("selector").add(this.selector);
     } else {
-        this.selector = null;
         this._visitables.get("selector").remove(this.selector);
+        this.selector = null;
     }
     return (A) this;
   }

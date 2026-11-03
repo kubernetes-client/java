@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1ClusterRoleBindingListBuilder extends V1ClusterRoleBindingListFluent<V1ClusterRoleBindingListBuilder> implements VisitableBuilder<V1ClusterRoleBindingList,V1ClusterRoleBindingListBuilder>{
 
   V1ClusterRoleBindingListFluent<?> fluent;

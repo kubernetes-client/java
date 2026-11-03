@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * LeaseCandidateSpec is a specification of a Lease.
  */
 @ApiModel(description = "LeaseCandidateSpec is a specification of a Lease.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1alpha2LeaseCandidateSpec {
   public static final String SERIALIZED_NAME_BINARY_VERSION = "binaryVersion";
   @SerializedName(SERIALIZED_NAME_BINARY_VERSION)
@@ -92,11 +92,11 @@ public class V1alpha2LeaseCandidateSpec {
   }
 
   /**
-   * BinaryVersion is the binary version. It must be in a semver format without leading &#x60;v&#x60;. This field is required.
+   * binaryVersion is the binary version. It must be in a semver format without leading &#x60;v&#x60;. This field is required.
    * @return binaryVersion
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "BinaryVersion is the binary version. It must be in a semver format without leading `v`. This field is required.")
+  @ApiModelProperty(required = true, value = "binaryVersion is the binary version. It must be in a semver format without leading `v`. This field is required.")
   public String getBinaryVersion() {
     return binaryVersion;
   }
@@ -112,11 +112,11 @@ public class V1alpha2LeaseCandidateSpec {
   }
 
   /**
-   * EmulationVersion is the emulation version. It must be in a semver format without leading &#x60;v&#x60;. EmulationVersion must be less than or equal to BinaryVersion. This field is required when strategy is \&quot;OldestEmulationVersion\&quot;
+   * emulationVersion is the emulation version. It must be in a semver format without leading &#x60;v&#x60;. EmulationVersion must be less than or equal to BinaryVersion. This field is required when strategy is \&quot;OldestEmulationVersion\&quot;
    * @return emulationVersion
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "EmulationVersion is the emulation version. It must be in a semver format without leading `v`. EmulationVersion must be less than or equal to BinaryVersion. This field is required when strategy is \"OldestEmulationVersion\"")
+  @ApiModelProperty(value = "emulationVersion is the emulation version. It must be in a semver format without leading `v`. EmulationVersion must be less than or equal to BinaryVersion. This field is required when strategy is \"OldestEmulationVersion\"")
   public String getEmulationVersion() {
     return emulationVersion;
   }
@@ -132,11 +132,11 @@ public class V1alpha2LeaseCandidateSpec {
   }
 
   /**
-   * LeaseName is the name of the lease for which this candidate is contending. This field is immutable.
+   * leaseName is the name of the lease for which this candidate is contending. This field is immutable.
    * @return leaseName
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "LeaseName is the name of the lease for which this candidate is contending. This field is immutable.")
+  @ApiModelProperty(required = true, value = "leaseName is the name of the lease for which this candidate is contending. This field is immutable.")
   public String getLeaseName() {
     return leaseName;
   }
@@ -152,11 +152,11 @@ public class V1alpha2LeaseCandidateSpec {
   }
 
   /**
-   * PingTime is the last time that the server has requested the LeaseCandidate to renew. It is only done during leader election to check if any LeaseCandidates have become ineligible. When PingTime is updated, the LeaseCandidate will respond by updating RenewTime.
+   * pingTime is the last time that the server has requested the LeaseCandidate to renew. It is only done during leader election to check if any LeaseCandidates have become ineligible. When PingTime is updated, the LeaseCandidate will respond by updating RenewTime.
    * @return pingTime
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "PingTime is the last time that the server has requested the LeaseCandidate to renew. It is only done during leader election to check if any LeaseCandidates have become ineligible. When PingTime is updated, the LeaseCandidate will respond by updating RenewTime.")
+  @ApiModelProperty(value = "pingTime is the last time that the server has requested the LeaseCandidate to renew. It is only done during leader election to check if any LeaseCandidates have become ineligible. When PingTime is updated, the LeaseCandidate will respond by updating RenewTime.")
   public OffsetDateTime getPingTime() {
     return pingTime;
   }
@@ -172,11 +172,11 @@ public class V1alpha2LeaseCandidateSpec {
   }
 
   /**
-   * RenewTime is the time that the LeaseCandidate was last updated. Any time a Lease needs to do leader election, the PingTime field is updated to signal to the LeaseCandidate that they should update the RenewTime. Old LeaseCandidate objects are also garbage collected if it has been hours since the last renew. The PingTime field is updated regularly to prevent garbage collection for still active LeaseCandidates.
+   * renewTime is the time that the LeaseCandidate was last updated. Any time a Lease needs to do leader election, the PingTime field is updated to signal to the LeaseCandidate that they should update the RenewTime. Old LeaseCandidate objects are also garbage collected if it has been hours since the last renew. The PingTime field is updated regularly to prevent garbage collection for still active LeaseCandidates.
    * @return renewTime
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "RenewTime is the time that the LeaseCandidate was last updated. Any time a Lease needs to do leader election, the PingTime field is updated to signal to the LeaseCandidate that they should update the RenewTime. Old LeaseCandidate objects are also garbage collected if it has been hours since the last renew. The PingTime field is updated regularly to prevent garbage collection for still active LeaseCandidates.")
+  @ApiModelProperty(value = "renewTime is the time that the LeaseCandidate was last updated. Any time a Lease needs to do leader election, the PingTime field is updated to signal to the LeaseCandidate that they should update the RenewTime. Old LeaseCandidate objects are also garbage collected if it has been hours since the last renew. The PingTime field is updated regularly to prevent garbage collection for still active LeaseCandidates.")
   public OffsetDateTime getRenewTime() {
     return renewTime;
   }
@@ -192,11 +192,11 @@ public class V1alpha2LeaseCandidateSpec {
   }
 
   /**
-   * Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.
+   * strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.
    * @return strategy
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.")
+  @ApiModelProperty(required = true, value = "strategy is the strategy that coordinated leader election will use for picking the leader. If multiple candidates for the same Lease return different strategies, the strategy provided by the candidate with the latest BinaryVersion will be used. If there is still conflict, this is a user error and coordinated leader election will not operate the Lease until resolved.")
   public String getStrategy() {
     return strategy;
   }

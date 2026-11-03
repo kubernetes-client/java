@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1PodCertificateRequestFluent<A extends io.kubernetes.client.openapi.models.V1beta1PodCertificateRequestFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1PodCertificateRequestFluent<A extends V1beta1PodCertificateRequestFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -109,7 +111,7 @@ public class V1beta1PodCertificateRequestFluent<A extends io.kubernetes.client.o
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1PodCertificateRequestFluent that = (V1beta1PodCertificateRequestFluent) o;
+    V1beta1PodCertificateRequestFluent<?> that = (V1beta1PodCertificateRequestFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -207,34 +209,34 @@ public class V1beta1PodCertificateRequestFluent<A extends io.kubernetes.client.o
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public SpecNested<A> withNewSpec() {
-    return new SpecNested(null);
+    return new SpecNested<>(null);
   }
   
   public SpecNested<A> withNewSpecLike(V1beta1PodCertificateRequestSpec item) {
-    return new SpecNested(item);
+    return new SpecNested<>(item);
   }
   
   public StatusNested<A> withNewStatus() {
-    return new StatusNested(null);
+    return new StatusNested<>(null);
   }
   
   public StatusNested<A> withNewStatusLike(V1beta1PodCertificateRequestStatus item) {
-    return new StatusNested(item);
+    return new StatusNested<>(item);
   }
   
   public A withSpec(V1beta1PodCertificateRequestSpec spec) {
@@ -243,8 +245,8 @@ public class V1beta1PodCertificateRequestFluent<A extends io.kubernetes.client.o
         this.spec = new V1beta1PodCertificateRequestSpecBuilder(spec);
         this._visitables.get("spec").add(this.spec);
     } else {
-        this.spec = null;
         this._visitables.get("spec").remove(this.spec);
+        this.spec = null;
     }
     return (A) this;
   }
@@ -255,8 +257,8 @@ public class V1beta1PodCertificateRequestFluent<A extends io.kubernetes.client.o
         this.status = new V1beta1PodCertificateRequestStatusBuilder(status);
         this._visitables.get("status").add(this.status);
     } else {
-        this.status = null;
         this._visitables.get("status").remove(this.status);
+        this.status = null;
     }
     return (A) this;
   }

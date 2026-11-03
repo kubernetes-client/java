@@ -99,7 +99,7 @@ public class QuantityFormatter {
   private Pair<BigInteger, Integer> removeFactorsForBase(final BigInteger value, final BigInteger base) {
     int times = 0;
     BigInteger result = value;
-    while (result.compareTo(base) >= 0 && result.mod(base).equals(BigInteger.ZERO)) {
+    while (result.abs().compareTo(base) >= 0 && result.mod(base).equals(BigInteger.ZERO)) {
       times++;
       result = result.divide(base);
     }

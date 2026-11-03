@@ -26,12 +26,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models.V1CronJobStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CronJobStatusFluent<A extends V1CronJobStatusFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1ObjectReferenceBuilder> active;
   private OffsetDateTime lastScheduleTime;
@@ -46,7 +48,7 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToActive(Collection<V1ObjectReference> items) {
     if (this.active == null) {
-      this.active = new ArrayList();
+      this.active = new ArrayList<>();
     }
     for (V1ObjectReference item : items) {
         V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
@@ -57,16 +59,16 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public ActiveNested<A> addNewActive() {
-    return new ActiveNested(-1, null);
+    return new ActiveNested<>(-1, null);
   }
   
   public ActiveNested<A> addNewActiveLike(V1ObjectReference item) {
-    return new ActiveNested(-1, item);
+    return new ActiveNested<>(-1, item);
   }
   
   public A addToActive(V1ObjectReference... items) {
     if (this.active == null) {
-      this.active = new ArrayList();
+      this.active = new ArrayList<>();
     }
     for (V1ObjectReference item : items) {
         V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
@@ -78,7 +80,7 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToActive(int index,V1ObjectReference item) {
     if (this.active == null) {
-      this.active = new ArrayList();
+      this.active = new ArrayList<>();
     }
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
     if (index < 0 || index >= this.active.size()) {
@@ -171,7 +173,7 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1CronJobStatusFluent that = (V1CronJobStatusFluent) o;
+    V1CronJobStatusFluent<?> that = (V1CronJobStatusFluent<?>) o;
     if (!(Objects.equals(active, that.active))) {
       return false;
     }
@@ -246,6 +248,7 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1ObjectReferenceBuilder> each = active.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("active");
     while (each.hasNext()) {
         V1ObjectReferenceBuilder builder = each.next();
@@ -258,12 +261,12 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public ActiveNested<A> setNewActiveLike(int index,V1ObjectReference item) {
-    return new ActiveNested(index, item);
+    return new ActiveNested<>(index, item);
   }
   
   public A setToActive(int index,V1ObjectReference item) {
     if (this.active == null) {
-      this.active = new ArrayList();
+      this.active = new ArrayList<>();
     }
     V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
     if (index < 0 || index >= this.active.size()) {
@@ -302,7 +305,7 @@ public class V1CronJobStatusFluent<A extends io.kubernetes.client.openapi.models
       this._visitables.get("active").clear();
     }
     if (active != null) {
-        this.active = new ArrayList();
+        this.active = new ArrayList<>();
         for (V1ObjectReference item : active) {
           this.addToActive(item);
         }

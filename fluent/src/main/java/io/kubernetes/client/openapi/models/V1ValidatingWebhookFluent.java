@@ -27,12 +27,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ValidatingWebhookFluent<A extends V1ValidatingWebhookFluent<A>> extends BaseFluent<A>{
 
   private List<String> admissionReviewVersions;
   private AdmissionregistrationV1WebhookClientConfigBuilder clientConfig;
@@ -55,7 +57,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
 
   public A addAllToAdmissionReviewVersions(Collection<String> items) {
     if (this.admissionReviewVersions == null) {
-      this.admissionReviewVersions = new ArrayList();
+      this.admissionReviewVersions = new ArrayList<>();
     }
     for (String item : items) {
       this.admissionReviewVersions.add(item);
@@ -65,7 +67,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addAllToMatchConditions(Collection<V1MatchCondition> items) {
     if (this.matchConditions == null) {
-      this.matchConditions = new ArrayList();
+      this.matchConditions = new ArrayList<>();
     }
     for (V1MatchCondition item : items) {
         V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
@@ -77,7 +79,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addAllToRules(Collection<V1RuleWithOperations> items) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     for (V1RuleWithOperations item : items) {
         V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
@@ -88,24 +90,24 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   }
   
   public MatchConditionsNested<A> addNewMatchCondition() {
-    return new MatchConditionsNested(-1, null);
+    return new MatchConditionsNested<>(-1, null);
   }
   
   public MatchConditionsNested<A> addNewMatchConditionLike(V1MatchCondition item) {
-    return new MatchConditionsNested(-1, item);
+    return new MatchConditionsNested<>(-1, item);
   }
   
   public RulesNested<A> addNewRule() {
-    return new RulesNested(-1, null);
+    return new RulesNested<>(-1, null);
   }
   
   public RulesNested<A> addNewRuleLike(V1RuleWithOperations item) {
-    return new RulesNested(-1, item);
+    return new RulesNested<>(-1, item);
   }
   
   public A addToAdmissionReviewVersions(String... items) {
     if (this.admissionReviewVersions == null) {
-      this.admissionReviewVersions = new ArrayList();
+      this.admissionReviewVersions = new ArrayList<>();
     }
     for (String item : items) {
       this.admissionReviewVersions.add(item);
@@ -115,7 +117,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToAdmissionReviewVersions(int index,String item) {
     if (this.admissionReviewVersions == null) {
-      this.admissionReviewVersions = new ArrayList();
+      this.admissionReviewVersions = new ArrayList<>();
     }
     this.admissionReviewVersions.add(index, item);
     return (A) this;
@@ -123,7 +125,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToMatchConditions(V1MatchCondition... items) {
     if (this.matchConditions == null) {
-      this.matchConditions = new ArrayList();
+      this.matchConditions = new ArrayList<>();
     }
     for (V1MatchCondition item : items) {
         V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
@@ -135,7 +137,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToMatchConditions(int index,V1MatchCondition item) {
     if (this.matchConditions == null) {
-      this.matchConditions = new ArrayList();
+      this.matchConditions = new ArrayList<>();
     }
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
     if (index < 0 || index >= this.matchConditions.size()) {
@@ -150,7 +152,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToRules(V1RuleWithOperations... items) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     for (V1RuleWithOperations item : items) {
         V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
@@ -162,7 +164,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToRules(int index,V1RuleWithOperations item) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
     if (index < 0 || index >= this.rules.size()) {
@@ -372,7 +374,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1ValidatingWebhookFluent that = (V1ValidatingWebhookFluent) o;
+    V1ValidatingWebhookFluent<?> that = (V1ValidatingWebhookFluent<?>) o;
     if (!(Objects.equals(admissionReviewVersions, that.admissionReviewVersions))) {
       return false;
     }
@@ -602,6 +604,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
       return (A) this;
     }
     Iterator<V1MatchConditionBuilder> each = matchConditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("matchConditions");
     while (each.hasNext()) {
         V1MatchConditionBuilder builder = each.next();
@@ -618,6 +621,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
       return (A) this;
     }
     Iterator<V1RuleWithOperationsBuilder> each = rules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("rules");
     while (each.hasNext()) {
         V1RuleWithOperationsBuilder builder = each.next();
@@ -630,16 +634,16 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   }
   
   public MatchConditionsNested<A> setNewMatchConditionLike(int index,V1MatchCondition item) {
-    return new MatchConditionsNested(index, item);
+    return new MatchConditionsNested<>(index, item);
   }
   
   public RulesNested<A> setNewRuleLike(int index,V1RuleWithOperations item) {
-    return new RulesNested(index, item);
+    return new RulesNested<>(index, item);
   }
   
   public A setToAdmissionReviewVersions(int index,String item) {
     if (this.admissionReviewVersions == null) {
-      this.admissionReviewVersions = new ArrayList();
+      this.admissionReviewVersions = new ArrayList<>();
     }
     this.admissionReviewVersions.set(index, item);
     return (A) this;
@@ -647,7 +651,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   
   public A setToMatchConditions(int index,V1MatchCondition item) {
     if (this.matchConditions == null) {
-      this.matchConditions = new ArrayList();
+      this.matchConditions = new ArrayList<>();
     }
     V1MatchConditionBuilder builder = new V1MatchConditionBuilder(item);
     if (index < 0 || index >= this.matchConditions.size()) {
@@ -662,7 +666,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   
   public A setToRules(int index,V1RuleWithOperations item) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
     if (index < 0 || index >= this.rules.size()) {
@@ -738,7 +742,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
   
   public A withAdmissionReviewVersions(List<String> admissionReviewVersions) {
     if (admissionReviewVersions != null) {
-        this.admissionReviewVersions = new ArrayList();
+        this.admissionReviewVersions = new ArrayList<>();
         for (String item : admissionReviewVersions) {
           this.addToAdmissionReviewVersions(item);
         }
@@ -767,8 +771,8 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
         this.clientConfig = new AdmissionregistrationV1WebhookClientConfigBuilder(clientConfig);
         this._visitables.get("clientConfig").add(this.clientConfig);
     } else {
-        this.clientConfig = null;
         this._visitables.get("clientConfig").remove(this.clientConfig);
+        this.clientConfig = null;
     }
     return (A) this;
   }
@@ -783,7 +787,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
       this._visitables.get("matchConditions").clear();
     }
     if (matchConditions != null) {
-        this.matchConditions = new ArrayList();
+        this.matchConditions = new ArrayList<>();
         for (V1MatchCondition item : matchConditions) {
           this.addToMatchConditions(item);
         }
@@ -822,34 +826,34 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
         this.namespaceSelector = new V1LabelSelectorBuilder(namespaceSelector);
         this._visitables.get("namespaceSelector").add(this.namespaceSelector);
     } else {
-        this.namespaceSelector = null;
         this._visitables.get("namespaceSelector").remove(this.namespaceSelector);
+        this.namespaceSelector = null;
     }
     return (A) this;
   }
   
   public ClientConfigNested<A> withNewClientConfig() {
-    return new ClientConfigNested(null);
+    return new ClientConfigNested<>(null);
   }
   
   public ClientConfigNested<A> withNewClientConfigLike(AdmissionregistrationV1WebhookClientConfig item) {
-    return new ClientConfigNested(item);
+    return new ClientConfigNested<>(item);
   }
   
   public NamespaceSelectorNested<A> withNewNamespaceSelector() {
-    return new NamespaceSelectorNested(null);
+    return new NamespaceSelectorNested<>(null);
   }
   
   public NamespaceSelectorNested<A> withNewNamespaceSelectorLike(V1LabelSelector item) {
-    return new NamespaceSelectorNested(item);
+    return new NamespaceSelectorNested<>(item);
   }
   
   public ObjectSelectorNested<A> withNewObjectSelector() {
-    return new ObjectSelectorNested(null);
+    return new ObjectSelectorNested<>(null);
   }
   
   public ObjectSelectorNested<A> withNewObjectSelectorLike(V1LabelSelector item) {
-    return new ObjectSelectorNested(item);
+    return new ObjectSelectorNested<>(item);
   }
   
   public A withObjectSelector(V1LabelSelector objectSelector) {
@@ -858,8 +862,8 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
         this.objectSelector = new V1LabelSelectorBuilder(objectSelector);
         this._visitables.get("objectSelector").add(this.objectSelector);
     } else {
-        this.objectSelector = null;
         this._visitables.get("objectSelector").remove(this.objectSelector);
+        this.objectSelector = null;
     }
     return (A) this;
   }
@@ -869,7 +873,7 @@ public class V1ValidatingWebhookFluent<A extends io.kubernetes.client.openapi.mo
       this._visitables.get("rules").clear();
     }
     if (rules != null) {
-        this.rules = new ArrayList();
+        this.rules = new ArrayList<>();
         for (V1RuleWithOperations item : rules) {
           this.addToRules(item);
         }

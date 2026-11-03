@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1TopologySelectorTermFluent<A extends V1TopologySelectorTermFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1TopologySelectorLabelRequirementBuilder> matchLabelExpressions;
 
@@ -43,7 +45,7 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
 
   public A addAllToMatchLabelExpressions(Collection<V1TopologySelectorLabelRequirement> items) {
     if (this.matchLabelExpressions == null) {
-      this.matchLabelExpressions = new ArrayList();
+      this.matchLabelExpressions = new ArrayList<>();
     }
     for (V1TopologySelectorLabelRequirement item : items) {
         V1TopologySelectorLabelRequirementBuilder builder = new V1TopologySelectorLabelRequirementBuilder(item);
@@ -54,16 +56,16 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
   }
   
   public MatchLabelExpressionsNested<A> addNewMatchLabelExpression() {
-    return new MatchLabelExpressionsNested(-1, null);
+    return new MatchLabelExpressionsNested<>(-1, null);
   }
   
   public MatchLabelExpressionsNested<A> addNewMatchLabelExpressionLike(V1TopologySelectorLabelRequirement item) {
-    return new MatchLabelExpressionsNested(-1, item);
+    return new MatchLabelExpressionsNested<>(-1, item);
   }
   
   public A addToMatchLabelExpressions(V1TopologySelectorLabelRequirement... items) {
     if (this.matchLabelExpressions == null) {
-      this.matchLabelExpressions = new ArrayList();
+      this.matchLabelExpressions = new ArrayList<>();
     }
     for (V1TopologySelectorLabelRequirement item : items) {
         V1TopologySelectorLabelRequirementBuilder builder = new V1TopologySelectorLabelRequirementBuilder(item);
@@ -75,7 +77,7 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
   
   public A addToMatchLabelExpressions(int index,V1TopologySelectorLabelRequirement item) {
     if (this.matchLabelExpressions == null) {
-      this.matchLabelExpressions = new ArrayList();
+      this.matchLabelExpressions = new ArrayList<>();
     }
     V1TopologySelectorLabelRequirementBuilder builder = new V1TopologySelectorLabelRequirementBuilder(item);
     if (index < 0 || index >= this.matchLabelExpressions.size()) {
@@ -166,7 +168,7 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V1TopologySelectorTermFluent that = (V1TopologySelectorTermFluent) o;
+    V1TopologySelectorTermFluent<?> that = (V1TopologySelectorTermFluent<?>) o;
     if (!(Objects.equals(matchLabelExpressions, that.matchLabelExpressions))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
       return (A) this;
     }
     Iterator<V1TopologySelectorLabelRequirementBuilder> each = matchLabelExpressions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("matchLabelExpressions");
     while (each.hasNext()) {
         V1TopologySelectorLabelRequirementBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
   }
   
   public MatchLabelExpressionsNested<A> setNewMatchLabelExpressionLike(int index,V1TopologySelectorLabelRequirement item) {
-    return new MatchLabelExpressionsNested(index, item);
+    return new MatchLabelExpressionsNested<>(index, item);
   }
   
   public A setToMatchLabelExpressions(int index,V1TopologySelectorLabelRequirement item) {
     if (this.matchLabelExpressions == null) {
-      this.matchLabelExpressions = new ArrayList();
+      this.matchLabelExpressions = new ArrayList<>();
     }
     V1TopologySelectorLabelRequirementBuilder builder = new V1TopologySelectorLabelRequirementBuilder(item);
     if (index < 0 || index >= this.matchLabelExpressions.size()) {
@@ -265,7 +268,7 @@ public class V1TopologySelectorTermFluent<A extends io.kubernetes.client.openapi
       this._visitables.get("matchLabelExpressions").clear();
     }
     if (matchLabelExpressions != null) {
-        this.matchLabelExpressions = new ArrayList();
+        this.matchLabelExpressions = new ArrayList<>();
         for (V1TopologySelectorLabelRequirement item : matchLabelExpressions) {
           this.addToMatchLabelExpressions(item);
         }

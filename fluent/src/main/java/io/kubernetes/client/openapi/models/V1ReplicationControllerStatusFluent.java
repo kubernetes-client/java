@@ -27,12 +27,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ReplicationControllerStatusFluent<A extends io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ReplicationControllerStatusFluent<A extends V1ReplicationControllerStatusFluent<A>> extends BaseFluent<A>{
 
   private Integer availableReplicas;
   private ArrayList<V1ReplicationControllerConditionBuilder> conditions;
@@ -50,7 +52,7 @@ public class V1ReplicationControllerStatusFluent<A extends io.kubernetes.client.
 
   public A addAllToConditions(Collection<V1ReplicationControllerCondition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1ReplicationControllerCondition item : items) {
         V1ReplicationControllerConditionBuilder builder = new V1ReplicationControllerConditionBuilder(item);
@@ -61,16 +63,16 @@ public class V1ReplicationControllerStatusFluent<A extends io.kubernetes.client.
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1ReplicationControllerCondition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public A addToConditions(V1ReplicationControllerCondition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1ReplicationControllerCondition item : items) {
         V1ReplicationControllerConditionBuilder builder = new V1ReplicationControllerConditionBuilder(item);
@@ -82,7 +84,7 @@ public class V1ReplicationControllerStatusFluent<A extends io.kubernetes.client.
   
   public A addToConditions(int index,V1ReplicationControllerCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1ReplicationControllerConditionBuilder builder = new V1ReplicationControllerConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -178,7 +180,7 @@ public class V1ReplicationControllerStatusFluent<A extends io.kubernetes.client.
     if (!(super.equals(o))) {
       return false;
     }
-    V1ReplicationControllerStatusFluent that = (V1ReplicationControllerStatusFluent) o;
+    V1ReplicationControllerStatusFluent<?> that = (V1ReplicationControllerStatusFluent<?>) o;
     if (!(Objects.equals(availableReplicas, that.availableReplicas))) {
       return false;
     }
@@ -286,6 +288,7 @@ public class V1ReplicationControllerStatusFluent<A extends io.kubernetes.client.
       return (A) this;
     }
     Iterator<V1ReplicationControllerConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1ReplicationControllerConditionBuilder builder = each.next();
@@ -298,12 +301,12 @@ public class V1ReplicationControllerStatusFluent<A extends io.kubernetes.client.
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1ReplicationControllerCondition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public A setToConditions(int index,V1ReplicationControllerCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1ReplicationControllerConditionBuilder builder = new V1ReplicationControllerConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -362,7 +365,7 @@ public class V1ReplicationControllerStatusFluent<A extends io.kubernetes.client.
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1ReplicationControllerCondition item : conditions) {
           this.addToConditions(item);
         }

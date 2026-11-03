@@ -26,12 +26,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SecretProjectionFluent<A extends io.kubernetes.client.openapi.models.V1SecretProjectionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SecretProjectionFluent<A extends V1SecretProjectionFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1KeyToPathBuilder> items;
   private String name;
@@ -46,7 +48,7 @@ public class V1SecretProjectionFluent<A extends io.kubernetes.client.openapi.mod
 
   public A addAllToItems(Collection<V1KeyToPath> items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1KeyToPath item : items) {
         V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
@@ -57,16 +59,16 @@ public class V1SecretProjectionFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
+    return new ItemsNested<>(-1, null);
   }
   
   public ItemsNested<A> addNewItemLike(V1KeyToPath item) {
-    return new ItemsNested(-1, item);
+    return new ItemsNested<>(-1, item);
   }
   
   public A addToItems(V1KeyToPath... items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1KeyToPath item : items) {
         V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
@@ -78,7 +80,7 @@ public class V1SecretProjectionFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToItems(int index,V1KeyToPath item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -171,7 +173,7 @@ public class V1SecretProjectionFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1SecretProjectionFluent that = (V1SecretProjectionFluent) o;
+    V1SecretProjectionFluent<?> that = (V1SecretProjectionFluent<?>) o;
     if (!(Objects.equals(items, that.items))) {
       return false;
     }
@@ -246,6 +248,7 @@ public class V1SecretProjectionFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1KeyToPathBuilder> each = items.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("items");
     while (each.hasNext()) {
         V1KeyToPathBuilder builder = each.next();
@@ -258,12 +261,12 @@ public class V1SecretProjectionFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public ItemsNested<A> setNewItemLike(int index,V1KeyToPath item) {
-    return new ItemsNested(index, item);
+    return new ItemsNested<>(index, item);
   }
   
   public A setToItems(int index,V1KeyToPath item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -302,7 +305,7 @@ public class V1SecretProjectionFluent<A extends io.kubernetes.client.openapi.mod
       this._visitables.get("items").clear();
     }
     if (items != null) {
-        this.items = new ArrayList();
+        this.items = new ArrayList<>();
         for (V1KeyToPath item : items) {
           this.addToItems(item);
         }

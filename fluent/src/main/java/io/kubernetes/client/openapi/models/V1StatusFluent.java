@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1StatusFluent<A extends io.kubernetes.client.openapi.models.V1StatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1StatusFluent<A extends V1StatusFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private Integer code;
@@ -100,7 +102,7 @@ public class V1StatusFluent<A extends io.kubernetes.client.openapi.models.V1Stat
     if (!(super.equals(o))) {
       return false;
     }
-    V1StatusFluent that = (V1StatusFluent) o;
+    V1StatusFluent<?> that = (V1StatusFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -250,8 +252,8 @@ public class V1StatusFluent<A extends io.kubernetes.client.openapi.models.V1Stat
         this.details = new V1StatusDetailsBuilder(details);
         this._visitables.get("details").add(this.details);
     } else {
-        this.details = null;
         this._visitables.get("details").remove(this.details);
+        this.details = null;
     }
     return (A) this;
   }
@@ -272,26 +274,26 @@ public class V1StatusFluent<A extends io.kubernetes.client.openapi.models.V1Stat
         this.metadata = new V1ListMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public DetailsNested<A> withNewDetails() {
-    return new DetailsNested(null);
+    return new DetailsNested<>(null);
   }
   
   public DetailsNested<A> withNewDetailsLike(V1StatusDetails item) {
-    return new DetailsNested(item);
+    return new DetailsNested<>(item);
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public A withReason(String reason) {

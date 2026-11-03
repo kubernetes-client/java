@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VolumeNodeAffinityFluent<A extends io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VolumeNodeAffinityFluent<A extends V1VolumeNodeAffinityFluent<A>> extends BaseFluent<A>{
 
   private V1NodeSelectorBuilder required;
 
@@ -69,7 +71,7 @@ public class V1VolumeNodeAffinityFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1VolumeNodeAffinityFluent that = (V1VolumeNodeAffinityFluent) o;
+    V1VolumeNodeAffinityFluent<?> that = (V1VolumeNodeAffinityFluent<?>) o;
     if (!(Objects.equals(required, that.required))) {
       return false;
     }
@@ -96,11 +98,11 @@ public class V1VolumeNodeAffinityFluent<A extends io.kubernetes.client.openapi.m
   }
   
   public RequiredNested<A> withNewRequired() {
-    return new RequiredNested(null);
+    return new RequiredNested<>(null);
   }
   
   public RequiredNested<A> withNewRequiredLike(V1NodeSelector item) {
-    return new RequiredNested(item);
+    return new RequiredNested<>(item);
   }
   
   public A withRequired(V1NodeSelector required) {
@@ -109,8 +111,8 @@ public class V1VolumeNodeAffinityFluent<A extends io.kubernetes.client.openapi.m
         this.required = new V1NodeSelectorBuilder(required);
         this._visitables.get("required").add(this.required);
     } else {
-        this.required = null;
         this._visitables.get("required").remove(this.required);
+        this.required = null;
     }
     return (A) this;
   }

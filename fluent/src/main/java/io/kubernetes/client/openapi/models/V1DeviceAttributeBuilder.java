@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1DeviceAttributeBuilder extends V1DeviceAttributeFluent<V1DeviceAttributeBuilder> implements VisitableBuilder<V1DeviceAttribute,V1DeviceAttributeBuilder>{
 
   V1DeviceAttributeFluent<?> fluent;

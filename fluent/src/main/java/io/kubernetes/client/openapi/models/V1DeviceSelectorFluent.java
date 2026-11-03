@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DeviceSelectorFluent<A extends io.kubernetes.client.openapi.models.V1DeviceSelectorFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DeviceSelectorFluent<A extends V1DeviceSelectorFluent<A>> extends BaseFluent<A>{
 
   private V1CELDeviceSelectorBuilder cel;
 
@@ -69,7 +71,7 @@ public class V1DeviceSelectorFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1DeviceSelectorFluent that = (V1DeviceSelectorFluent) o;
+    V1DeviceSelectorFluent<?> that = (V1DeviceSelectorFluent<?>) o;
     if (!(Objects.equals(cel, that.cel))) {
       return false;
     }
@@ -101,18 +103,18 @@ public class V1DeviceSelectorFluent<A extends io.kubernetes.client.openapi.model
         this.cel = new V1CELDeviceSelectorBuilder(cel);
         this._visitables.get("cel").add(this.cel);
     } else {
-        this.cel = null;
         this._visitables.get("cel").remove(this.cel);
+        this.cel = null;
     }
     return (A) this;
   }
   
   public CelNested<A> withNewCel() {
-    return new CelNested(null);
+    return new CelNested<>(null);
   }
   
   public CelNested<A> withNewCelLike(V1CELDeviceSelector item) {
-    return new CelNested(item);
+    return new CelNested<>(item);
   }
   public class CelNested<N> extends V1CELDeviceSelectorFluent<CelNested<N>> implements Nested<N>{
   

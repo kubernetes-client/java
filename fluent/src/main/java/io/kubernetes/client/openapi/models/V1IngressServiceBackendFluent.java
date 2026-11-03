@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1IngressServiceBackendFluent<A extends io.kubernetes.client.openapi.models.V1IngressServiceBackendFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1IngressServiceBackendFluent<A extends V1IngressServiceBackendFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private V1ServiceBackendPortBuilder port;
@@ -71,7 +73,7 @@ public class V1IngressServiceBackendFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1IngressServiceBackendFluent that = (V1IngressServiceBackendFluent) o;
+    V1IngressServiceBackendFluent<?> that = (V1IngressServiceBackendFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }
@@ -119,11 +121,11 @@ public class V1IngressServiceBackendFluent<A extends io.kubernetes.client.openap
   }
   
   public PortNested<A> withNewPort() {
-    return new PortNested(null);
+    return new PortNested<>(null);
   }
   
   public PortNested<A> withNewPortLike(V1ServiceBackendPort item) {
-    return new PortNested(item);
+    return new PortNested<>(item);
   }
   
   public A withPort(V1ServiceBackendPort port) {
@@ -132,8 +134,8 @@ public class V1IngressServiceBackendFluent<A extends io.kubernetes.client.openap
         this.port = new V1ServiceBackendPortBuilder(port);
         this._visitables.get("port").add(this.port);
     } else {
-        this.port = null;
         this._visitables.get("port").remove(this.port);
+        this.port = null;
     }
     return (A) this;
   }

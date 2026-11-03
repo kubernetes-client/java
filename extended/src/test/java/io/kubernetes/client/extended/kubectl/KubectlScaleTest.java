@@ -56,7 +56,11 @@ class KubectlScaleTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
+                    .withBody(
+                        "{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"},"
+                            + "\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"foo\"}},"
+                            + "\"template\":{\"metadata\":{\"labels\":{\"app\":\"foo\"}},"
+                            + "\"spec\":{\"containers\":[{\"name\":\"foo\",\"image\":\"foo\"}]}}}}")));
     V1Deployment scaled =
         Kubectl.scale(V1Deployment.class)
             .apiClient(apiClient)
@@ -79,7 +83,11 @@ class KubectlScaleTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
+                    .withBody(
+                        "{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"},"
+                            + "\"spec\":{\"selector\":{\"matchLabels\":{\"app\":\"foo\"}},"
+                            + "\"template\":{\"metadata\":{\"labels\":{\"app\":\"foo\"}},"
+                            + "\"spec\":{\"containers\":[{\"name\":\"foo\",\"image\":\"foo\"}]}}}}")));
     V1ReplicaSet scaled =
         Kubectl.scale(V1ReplicaSet.class)
             .apiClient(apiClient)
@@ -102,7 +110,12 @@ class KubectlScaleTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
+                    .withBody(
+                        "{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"},"
+                            + "\"spec\":{\"serviceName\":\"foo\","
+                            + "\"selector\":{\"matchLabels\":{\"app\":\"foo\"}},"
+                            + "\"template\":{\"metadata\":{\"labels\":{\"app\":\"foo\"}},"
+                            + "\"spec\":{\"containers\":[{\"name\":\"foo\",\"image\":\"foo\"}]}}}}")));
     V1StatefulSet scaled =
         Kubectl.scale(V1StatefulSet.class)
             .apiClient(apiClient)

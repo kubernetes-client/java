@@ -19,12 +19,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1LeaseCandidateSpecFluent<A extends io.kubernetes.client.openapi.models.V1beta1LeaseCandidateSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1LeaseCandidateSpecFluent<A extends V1beta1LeaseCandidateSpecFluent<A>> extends BaseFluent<A>{
 
   private String binaryVersion;
   private String emulationVersion;
@@ -62,7 +64,7 @@ public class V1beta1LeaseCandidateSpecFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1LeaseCandidateSpecFluent that = (V1beta1LeaseCandidateSpecFluent) o;
+    V1beta1LeaseCandidateSpecFluent<?> that = (V1beta1LeaseCandidateSpecFluent<?>) o;
     if (!(Objects.equals(binaryVersion, that.binaryVersion))) {
       return false;
     }

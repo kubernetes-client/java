@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PortStatusFluent<A extends io.kubernetes.client.openapi.models.V1PortStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PortStatusFluent<A extends V1PortStatusFluent<A>> extends BaseFluent<A>{
 
   private String error;
   private Integer port;
@@ -56,7 +58,7 @@ public class V1PortStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     if (!(super.equals(o))) {
       return false;
     }
-    V1PortStatusFluent that = (V1PortStatusFluent) o;
+    V1PortStatusFluent<?> that = (V1PortStatusFluent<?>) o;
     if (!(Objects.equals(error, that.error))) {
       return false;
     }

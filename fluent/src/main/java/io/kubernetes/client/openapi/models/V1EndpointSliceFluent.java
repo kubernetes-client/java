@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models.V1EndpointSliceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> extends BaseFluent<A>{
 
   private String addressType;
   private String apiVersion;
@@ -49,7 +51,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToEndpoints(Collection<V1Endpoint> items) {
     if (this.endpoints == null) {
-      this.endpoints = new ArrayList();
+      this.endpoints = new ArrayList<>();
     }
     for (V1Endpoint item : items) {
         V1EndpointBuilder builder = new V1EndpointBuilder(item);
@@ -61,7 +63,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
   
   public A addAllToPorts(Collection<DiscoveryV1EndpointPort> items) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     for (DiscoveryV1EndpointPort item : items) {
         DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
@@ -72,24 +74,24 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public EndpointsNested<A> addNewEndpoint() {
-    return new EndpointsNested(-1, null);
+    return new EndpointsNested<>(-1, null);
   }
   
   public EndpointsNested<A> addNewEndpointLike(V1Endpoint item) {
-    return new EndpointsNested(-1, item);
+    return new EndpointsNested<>(-1, item);
   }
   
   public PortsNested<A> addNewPort() {
-    return new PortsNested(-1, null);
+    return new PortsNested<>(-1, null);
   }
   
   public PortsNested<A> addNewPortLike(DiscoveryV1EndpointPort item) {
-    return new PortsNested(-1, item);
+    return new PortsNested<>(-1, item);
   }
   
   public A addToEndpoints(V1Endpoint... items) {
     if (this.endpoints == null) {
-      this.endpoints = new ArrayList();
+      this.endpoints = new ArrayList<>();
     }
     for (V1Endpoint item : items) {
         V1EndpointBuilder builder = new V1EndpointBuilder(item);
@@ -101,7 +103,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToEndpoints(int index,V1Endpoint item) {
     if (this.endpoints == null) {
-      this.endpoints = new ArrayList();
+      this.endpoints = new ArrayList<>();
     }
     V1EndpointBuilder builder = new V1EndpointBuilder(item);
     if (index < 0 || index >= this.endpoints.size()) {
@@ -116,7 +118,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToPorts(DiscoveryV1EndpointPort... items) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     for (DiscoveryV1EndpointPort item : items) {
         DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
@@ -128,7 +130,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToPorts(int index,DiscoveryV1EndpointPort item) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
     if (index < 0 || index >= this.ports.size()) {
@@ -301,7 +303,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1EndpointSliceFluent that = (V1EndpointSliceFluent) o;
+    V1EndpointSliceFluent<?> that = (V1EndpointSliceFluent<?>) o;
     if (!(Objects.equals(addressType, that.addressType))) {
       return false;
     }
@@ -434,6 +436,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1EndpointBuilder> each = endpoints.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("endpoints");
     while (each.hasNext()) {
         V1EndpointBuilder builder = each.next();
@@ -450,6 +453,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<DiscoveryV1EndpointPortBuilder> each = ports.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("ports");
     while (each.hasNext()) {
         DiscoveryV1EndpointPortBuilder builder = each.next();
@@ -462,16 +466,16 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public EndpointsNested<A> setNewEndpointLike(int index,V1Endpoint item) {
-    return new EndpointsNested(index, item);
+    return new EndpointsNested<>(index, item);
   }
   
   public PortsNested<A> setNewPortLike(int index,DiscoveryV1EndpointPort item) {
-    return new PortsNested(index, item);
+    return new PortsNested<>(index, item);
   }
   
   public A setToEndpoints(int index,V1Endpoint item) {
     if (this.endpoints == null) {
-      this.endpoints = new ArrayList();
+      this.endpoints = new ArrayList<>();
     }
     V1EndpointBuilder builder = new V1EndpointBuilder(item);
     if (index < 0 || index >= this.endpoints.size()) {
@@ -486,7 +490,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
   
   public A setToPorts(int index,DiscoveryV1EndpointPort item) {
     if (this.ports == null) {
-      this.ports = new ArrayList();
+      this.ports = new ArrayList<>();
     }
     DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
     if (index < 0 || index >= this.ports.size()) {
@@ -550,7 +554,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
       this._visitables.get("endpoints").clear();
     }
     if (endpoints != null) {
-        this.endpoints = new ArrayList();
+        this.endpoints = new ArrayList<>();
         for (V1Endpoint item : endpoints) {
           this.addToEndpoints(item);
         }
@@ -584,18 +588,18 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public A withPorts(List<DiscoveryV1EndpointPort> ports) {
@@ -603,7 +607,7 @@ public class V1EndpointSliceFluent<A extends io.kubernetes.client.openapi.models
       this._visitables.get("ports").clear();
     }
     if (ports != null) {
-        this.ports = new ArrayList();
+        this.ports = new ArrayList<>();
         for (DiscoveryV1EndpointPort item : ports) {
           this.addToPorts(item);
         }

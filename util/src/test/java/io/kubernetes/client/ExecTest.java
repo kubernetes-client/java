@@ -204,6 +204,29 @@ class ExecTest {
     assertThat(process.exitValue()).isEqualTo(EXPECTED_ERROR_EXIT_CODE);
   }
 
+  @ParameterizedTest
+  @MethodSource("exitStatusBeforeFailureData")
+  void unhandledErrorAfterExitStatusKeepsExitCode(String status, int expectedExitCode)
+      throws IOException, InterruptedException {
+    final Consumer<Throwable> consumer = mock(Consumer.class);
+    final Throwable throwable = mock(Throwable.class);
+    final ExecProcess process = new ExecProcess(client, consumer);
+    process.getHandler().open("wss", null);
+
+    process.getHandler().bytesMessage(makeStream(3, status.getBytes(StandardCharsets.UTF_8)));
+    // e.g. sending the close frame fails because the server already closed the connection
+    process.getHandler().failure(throwable);
+    process.waitFor();
+
+    verify(consumer, times(1)).accept(throwable);
+    assertThat(process.isAlive()).isFalse();
+    assertThat(process.exitValue()).isEqualTo(expectedExitCode);
+  }
+
+  private static Stream<Arguments> exitStatusBeforeFailureData() {
+    return Stream.of(arguments(OUTPUT_EXIT0, 0), arguments(OUTPUT_EXIT126, 126));
+  }
+
   @Test
   void url() throws IOException, ApiException, InterruptedException {
     final Consumer<Throwable> consumer = mock(Consumer.class);

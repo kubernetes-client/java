@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1UncountedTerminatedPodsFluent<A extends V1UncountedTerminatedPodsFluent<A>> extends BaseFluent<A>{
 
   private List<String> failed;
   private List<String> succeeded;
@@ -41,7 +43,7 @@ public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.open
 
   public A addAllToFailed(Collection<String> items) {
     if (this.failed == null) {
-      this.failed = new ArrayList();
+      this.failed = new ArrayList<>();
     }
     for (String item : items) {
       this.failed.add(item);
@@ -51,7 +53,7 @@ public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.open
   
   public A addAllToSucceeded(Collection<String> items) {
     if (this.succeeded == null) {
-      this.succeeded = new ArrayList();
+      this.succeeded = new ArrayList<>();
     }
     for (String item : items) {
       this.succeeded.add(item);
@@ -61,7 +63,7 @@ public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.open
   
   public A addToFailed(String... items) {
     if (this.failed == null) {
-      this.failed = new ArrayList();
+      this.failed = new ArrayList<>();
     }
     for (String item : items) {
       this.failed.add(item);
@@ -71,7 +73,7 @@ public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.open
   
   public A addToFailed(int index,String item) {
     if (this.failed == null) {
-      this.failed = new ArrayList();
+      this.failed = new ArrayList<>();
     }
     this.failed.add(index, item);
     return (A) this;
@@ -79,7 +81,7 @@ public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.open
   
   public A addToSucceeded(String... items) {
     if (this.succeeded == null) {
-      this.succeeded = new ArrayList();
+      this.succeeded = new ArrayList<>();
     }
     for (String item : items) {
       this.succeeded.add(item);
@@ -89,7 +91,7 @@ public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.open
   
   public A addToSucceeded(int index,String item) {
     if (this.succeeded == null) {
-      this.succeeded = new ArrayList();
+      this.succeeded = new ArrayList<>();
     }
     this.succeeded.add(index, item);
     return (A) this;
@@ -113,7 +115,7 @@ public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1UncountedTerminatedPodsFluent that = (V1UncountedTerminatedPodsFluent) o;
+    V1UncountedTerminatedPodsFluent<?> that = (V1UncountedTerminatedPodsFluent<?>) o;
     if (!(Objects.equals(failed, that.failed))) {
       return false;
     }
@@ -245,7 +247,7 @@ public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.open
   
   public A setToFailed(int index,String item) {
     if (this.failed == null) {
-      this.failed = new ArrayList();
+      this.failed = new ArrayList<>();
     }
     this.failed.set(index, item);
     return (A) this;
@@ -253,7 +255,7 @@ public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.open
   
   public A setToSucceeded(int index,String item) {
     if (this.succeeded == null) {
-      this.succeeded = new ArrayList();
+      this.succeeded = new ArrayList<>();
     }
     this.succeeded.set(index, item);
     return (A) this;
@@ -277,7 +279,7 @@ public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.open
   
   public A withFailed(List<String> failed) {
     if (failed != null) {
-        this.failed = new ArrayList();
+        this.failed = new ArrayList<>();
         for (String item : failed) {
           this.addToFailed(item);
         }
@@ -302,7 +304,7 @@ public class V1UncountedTerminatedPodsFluent<A extends io.kubernetes.client.open
   
   public A withSucceeded(List<String> succeeded) {
     if (succeeded != null) {
-        this.succeeded = new ArrayList();
+        this.succeeded = new ArrayList<>();
         for (String item : succeeded) {
           this.addToSucceeded(item);
         }

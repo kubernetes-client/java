@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeAffinityFluent<A extends io.kubernetes.client.openapi.models.V1NodeAffinityFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeAffinityFluent<A extends V1NodeAffinityFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1PreferredSchedulingTermBuilder> preferredDuringSchedulingIgnoredDuringExecution;
   private V1NodeSelectorBuilder requiredDuringSchedulingIgnoredDuringExecution;
@@ -45,7 +47,7 @@ public class V1NodeAffinityFluent<A extends io.kubernetes.client.openapi.models.
 
   public A addAllToPreferredDuringSchedulingIgnoredDuringExecution(Collection<V1PreferredSchedulingTerm> items) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
-      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<>();
     }
     for (V1PreferredSchedulingTerm item : items) {
         V1PreferredSchedulingTermBuilder builder = new V1PreferredSchedulingTermBuilder(item);
@@ -56,16 +58,16 @@ public class V1NodeAffinityFluent<A extends io.kubernetes.client.openapi.models.
   }
   
   public PreferredDuringSchedulingIgnoredDuringExecutionNested<A> addNewPreferredDuringSchedulingIgnoredDuringExecution() {
-    return new PreferredDuringSchedulingIgnoredDuringExecutionNested(-1, null);
+    return new PreferredDuringSchedulingIgnoredDuringExecutionNested<>(-1, null);
   }
   
   public PreferredDuringSchedulingIgnoredDuringExecutionNested<A> addNewPreferredDuringSchedulingIgnoredDuringExecutionLike(V1PreferredSchedulingTerm item) {
-    return new PreferredDuringSchedulingIgnoredDuringExecutionNested(-1, item);
+    return new PreferredDuringSchedulingIgnoredDuringExecutionNested<>(-1, item);
   }
   
   public A addToPreferredDuringSchedulingIgnoredDuringExecution(V1PreferredSchedulingTerm... items) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
-      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<>();
     }
     for (V1PreferredSchedulingTerm item : items) {
         V1PreferredSchedulingTermBuilder builder = new V1PreferredSchedulingTermBuilder(item);
@@ -77,7 +79,7 @@ public class V1NodeAffinityFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToPreferredDuringSchedulingIgnoredDuringExecution(int index,V1PreferredSchedulingTerm item) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
-      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<>();
     }
     V1PreferredSchedulingTermBuilder builder = new V1PreferredSchedulingTermBuilder(item);
     if (index < 0 || index >= this.preferredDuringSchedulingIgnoredDuringExecution.size()) {
@@ -185,7 +187,7 @@ public class V1NodeAffinityFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeAffinityFluent that = (V1NodeAffinityFluent) o;
+    V1NodeAffinityFluent<?> that = (V1NodeAffinityFluent<?>) o;
     if (!(Objects.equals(preferredDuringSchedulingIgnoredDuringExecution, that.preferredDuringSchedulingIgnoredDuringExecution))) {
       return false;
     }
@@ -245,6 +247,7 @@ public class V1NodeAffinityFluent<A extends io.kubernetes.client.openapi.models.
       return (A) this;
     }
     Iterator<V1PreferredSchedulingTermBuilder> each = preferredDuringSchedulingIgnoredDuringExecution.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("preferredDuringSchedulingIgnoredDuringExecution");
     while (each.hasNext()) {
         V1PreferredSchedulingTermBuilder builder = each.next();
@@ -257,12 +260,12 @@ public class V1NodeAffinityFluent<A extends io.kubernetes.client.openapi.models.
   }
   
   public PreferredDuringSchedulingIgnoredDuringExecutionNested<A> setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(int index,V1PreferredSchedulingTerm item) {
-    return new PreferredDuringSchedulingIgnoredDuringExecutionNested(index, item);
+    return new PreferredDuringSchedulingIgnoredDuringExecutionNested<>(index, item);
   }
   
   public A setToPreferredDuringSchedulingIgnoredDuringExecution(int index,V1PreferredSchedulingTerm item) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
-      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<>();
     }
     V1PreferredSchedulingTermBuilder builder = new V1PreferredSchedulingTermBuilder(item);
     if (index < 0 || index >= this.preferredDuringSchedulingIgnoredDuringExecution.size()) {
@@ -292,11 +295,11 @@ public class V1NodeAffinityFluent<A extends io.kubernetes.client.openapi.models.
   }
   
   public RequiredDuringSchedulingIgnoredDuringExecutionNested<A> withNewRequiredDuringSchedulingIgnoredDuringExecution() {
-    return new RequiredDuringSchedulingIgnoredDuringExecutionNested(null);
+    return new RequiredDuringSchedulingIgnoredDuringExecutionNested<>(null);
   }
   
   public RequiredDuringSchedulingIgnoredDuringExecutionNested<A> withNewRequiredDuringSchedulingIgnoredDuringExecutionLike(V1NodeSelector item) {
-    return new RequiredDuringSchedulingIgnoredDuringExecutionNested(item);
+    return new RequiredDuringSchedulingIgnoredDuringExecutionNested<>(item);
   }
   
   public A withPreferredDuringSchedulingIgnoredDuringExecution(List<V1PreferredSchedulingTerm> preferredDuringSchedulingIgnoredDuringExecution) {
@@ -304,7 +307,7 @@ public class V1NodeAffinityFluent<A extends io.kubernetes.client.openapi.models.
       this._visitables.get("preferredDuringSchedulingIgnoredDuringExecution").clear();
     }
     if (preferredDuringSchedulingIgnoredDuringExecution != null) {
-        this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+        this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList<>();
         for (V1PreferredSchedulingTerm item : preferredDuringSchedulingIgnoredDuringExecution) {
           this.addToPreferredDuringSchedulingIgnoredDuringExecution(item);
         }
@@ -333,8 +336,8 @@ public class V1NodeAffinityFluent<A extends io.kubernetes.client.openapi.models.
         this.requiredDuringSchedulingIgnoredDuringExecution = new V1NodeSelectorBuilder(requiredDuringSchedulingIgnoredDuringExecution);
         this._visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(this.requiredDuringSchedulingIgnoredDuringExecution);
     } else {
-        this.requiredDuringSchedulingIgnoredDuringExecution = null;
         this._visitables.get("requiredDuringSchedulingIgnoredDuringExecution").remove(this.requiredDuringSchedulingIgnoredDuringExecution);
+        this.requiredDuringSchedulingIgnoredDuringExecution = null;
     }
     return (A) this;
   }

@@ -8,10 +8,10 @@ ParentReference describes a reference to a parent object.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**group** | **String** | Group is the group of the object being referenced. |  [optional] |
-|**name** | **String** | Name is the name of the object being referenced. |  |
-|**namespace** | **String** | Namespace is the namespace of the object being referenced. |  [optional] |
-|**resource** | **String** | Resource is the resource of the object being referenced. |  |
+|**group** | **String** | group is the group of the object being referenced. |  [optional] |
+|**name** | **String** | name is the name of the object being referenced. |  |
+|**namespace** | **String** | namespace is the namespace of the object being referenced. |  [optional] |
+|**resource** | **String** | resource is the resource of the object being referenced. |  |
 
 
 

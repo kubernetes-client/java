@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.V1APIGroupListFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1APIGroupListFluent<A extends V1APIGroupListFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private ArrayList<V1APIGroupBuilder> groups;
@@ -45,7 +47,7 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
 
   public A addAllToGroups(Collection<V1APIGroup> items) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     for (V1APIGroup item : items) {
         V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
@@ -56,16 +58,16 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
   }
   
   public GroupsNested<A> addNewGroup() {
-    return new GroupsNested(-1, null);
+    return new GroupsNested<>(-1, null);
   }
   
   public GroupsNested<A> addNewGroupLike(V1APIGroup item) {
-    return new GroupsNested(-1, item);
+    return new GroupsNested<>(-1, item);
   }
   
   public A addToGroups(V1APIGroup... items) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     for (V1APIGroup item : items) {
         V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
@@ -77,7 +79,7 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToGroups(int index,V1APIGroup item) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
     if (index < 0 || index >= this.groups.size()) {
@@ -170,7 +172,7 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1APIGroupListFluent that = (V1APIGroupListFluent) o;
+    V1APIGroupListFluent<?> that = (V1APIGroupListFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -245,6 +247,7 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
       return (A) this;
     }
     Iterator<V1APIGroupBuilder> each = groups.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("groups");
     while (each.hasNext()) {
         V1APIGroupBuilder builder = each.next();
@@ -257,12 +260,12 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
   }
   
   public GroupsNested<A> setNewGroupLike(int index,V1APIGroup item) {
-    return new GroupsNested(index, item);
+    return new GroupsNested<>(index, item);
   }
   
   public A setToGroups(int index,V1APIGroup item) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
     if (index < 0 || index >= this.groups.size()) {
@@ -306,7 +309,7 @@ public class V1APIGroupListFluent<A extends io.kubernetes.client.openapi.models.
       this._visitables.get("groups").clear();
     }
     if (groups != null) {
-        this.groups = new ArrayList();
+        this.groups = new ArrayList<>();
         for (V1APIGroup item : groups) {
           this.addToGroups(item);
         }

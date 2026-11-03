@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi.models.V1PodFailurePolicyRuleFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodFailurePolicyRuleFluent<A extends V1PodFailurePolicyRuleFluent<A>> extends BaseFluent<A>{
 
   private String action;
   private V1PodFailurePolicyOnExitCodesRequirementBuilder onExitCodes;
@@ -46,7 +48,7 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
 
   public A addAllToOnPodConditions(Collection<V1PodFailurePolicyOnPodConditionsPattern> items) {
     if (this.onPodConditions == null) {
-      this.onPodConditions = new ArrayList();
+      this.onPodConditions = new ArrayList<>();
     }
     for (V1PodFailurePolicyOnPodConditionsPattern item : items) {
         V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
@@ -57,16 +59,16 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
   }
   
   public OnPodConditionsNested<A> addNewOnPodCondition() {
-    return new OnPodConditionsNested(-1, null);
+    return new OnPodConditionsNested<>(-1, null);
   }
   
   public OnPodConditionsNested<A> addNewOnPodConditionLike(V1PodFailurePolicyOnPodConditionsPattern item) {
-    return new OnPodConditionsNested(-1, item);
+    return new OnPodConditionsNested<>(-1, item);
   }
   
   public A addToOnPodConditions(V1PodFailurePolicyOnPodConditionsPattern... items) {
     if (this.onPodConditions == null) {
-      this.onPodConditions = new ArrayList();
+      this.onPodConditions = new ArrayList<>();
     }
     for (V1PodFailurePolicyOnPodConditionsPattern item : items) {
         V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
@@ -78,7 +80,7 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
   
   public A addToOnPodConditions(int index,V1PodFailurePolicyOnPodConditionsPattern item) {
     if (this.onPodConditions == null) {
-      this.onPodConditions = new ArrayList();
+      this.onPodConditions = new ArrayList<>();
     }
     V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
     if (index < 0 || index >= this.onPodConditions.size()) {
@@ -187,7 +189,7 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodFailurePolicyRuleFluent that = (V1PodFailurePolicyRuleFluent) o;
+    V1PodFailurePolicyRuleFluent<?> that = (V1PodFailurePolicyRuleFluent<?>) o;
     if (!(Objects.equals(action, that.action))) {
       return false;
     }
@@ -258,6 +260,7 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
       return (A) this;
     }
     Iterator<V1PodFailurePolicyOnPodConditionsPatternBuilder> each = onPodConditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("onPodConditions");
     while (each.hasNext()) {
         V1PodFailurePolicyOnPodConditionsPatternBuilder builder = each.next();
@@ -270,12 +273,12 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
   }
   
   public OnPodConditionsNested<A> setNewOnPodConditionLike(int index,V1PodFailurePolicyOnPodConditionsPattern item) {
-    return new OnPodConditionsNested(index, item);
+    return new OnPodConditionsNested<>(index, item);
   }
   
   public A setToOnPodConditions(int index,V1PodFailurePolicyOnPodConditionsPattern item) {
     if (this.onPodConditions == null) {
-      this.onPodConditions = new ArrayList();
+      this.onPodConditions = new ArrayList<>();
     }
     V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
     if (index < 0 || index >= this.onPodConditions.size()) {
@@ -315,11 +318,11 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
   }
   
   public OnExitCodesNested<A> withNewOnExitCodes() {
-    return new OnExitCodesNested(null);
+    return new OnExitCodesNested<>(null);
   }
   
   public OnExitCodesNested<A> withNewOnExitCodesLike(V1PodFailurePolicyOnExitCodesRequirement item) {
-    return new OnExitCodesNested(item);
+    return new OnExitCodesNested<>(item);
   }
   
   public A withOnExitCodes(V1PodFailurePolicyOnExitCodesRequirement onExitCodes) {
@@ -328,8 +331,8 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
         this.onExitCodes = new V1PodFailurePolicyOnExitCodesRequirementBuilder(onExitCodes);
         this._visitables.get("onExitCodes").add(this.onExitCodes);
     } else {
-        this.onExitCodes = null;
         this._visitables.get("onExitCodes").remove(this.onExitCodes);
+        this.onExitCodes = null;
     }
     return (A) this;
   }
@@ -339,7 +342,7 @@ public class V1PodFailurePolicyRuleFluent<A extends io.kubernetes.client.openapi
       this._visitables.get("onPodConditions").clear();
     }
     if (onPodConditions != null) {
-        this.onPodConditions = new ArrayList();
+        this.onPodConditions = new ArrayList<>();
         for (V1PodFailurePolicyOnPodConditionsPattern item : onPodConditions) {
           this.addToOnPodConditions(item);
         }

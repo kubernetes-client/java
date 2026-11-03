@@ -14,6 +14,7 @@ package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Integer;
+import java.lang.Long;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.StringBuilder;
@@ -21,12 +22,14 @@ import java.lang.SuppressWarnings;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodCertificateProjectionFluent<A extends io.kubernetes.client.openapi.models.V1PodCertificateProjectionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodCertificateProjectionFluent<A extends V1PodCertificateProjectionFluent<A>> extends BaseFluent<A>{
 
   private String certificateChainPath;
   private String credentialBundlePath;
@@ -34,6 +37,7 @@ public class V1PodCertificateProjectionFluent<A extends io.kubernetes.client.ope
   private String keyType;
   private Integer maxExpirationSeconds;
   private String signerName;
+  private Long user;
   private Map<String,String> userAnnotations;
 
   public V1PodCertificateProjectionFluent() {
@@ -45,7 +49,7 @@ public class V1PodCertificateProjectionFluent<A extends io.kubernetes.client.ope
 
   public A addToUserAnnotations(Map<String,String> map) {
     if (this.userAnnotations == null && map != null) {
-      this.userAnnotations = new LinkedHashMap();
+      this.userAnnotations = new LinkedHashMap<>();
     }
     if (map != null) {
       this.userAnnotations.putAll(map);
@@ -55,7 +59,7 @@ public class V1PodCertificateProjectionFluent<A extends io.kubernetes.client.ope
   
   public A addToUserAnnotations(String key,String value) {
     if (this.userAnnotations == null && key != null && value != null) {
-      this.userAnnotations = new LinkedHashMap();
+      this.userAnnotations = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.userAnnotations.put(key, value);
@@ -72,6 +76,7 @@ public class V1PodCertificateProjectionFluent<A extends io.kubernetes.client.ope
         this.withKeyType(instance.getKeyType());
         this.withMaxExpirationSeconds(instance.getMaxExpirationSeconds());
         this.withSignerName(instance.getSignerName());
+        this.withUser(instance.getUser());
         this.withUserAnnotations(instance.getUserAnnotations());
     }
   }
@@ -86,7 +91,7 @@ public class V1PodCertificateProjectionFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodCertificateProjectionFluent that = (V1PodCertificateProjectionFluent) o;
+    V1PodCertificateProjectionFluent<?> that = (V1PodCertificateProjectionFluent<?>) o;
     if (!(Objects.equals(certificateChainPath, that.certificateChainPath))) {
       return false;
     }
@@ -103,6 +108,9 @@ public class V1PodCertificateProjectionFluent<A extends io.kubernetes.client.ope
       return false;
     }
     if (!(Objects.equals(signerName, that.signerName))) {
+      return false;
+    }
+    if (!(Objects.equals(user, that.user))) {
       return false;
     }
     if (!(Objects.equals(userAnnotations, that.userAnnotations))) {
@@ -135,6 +143,10 @@ public class V1PodCertificateProjectionFluent<A extends io.kubernetes.client.ope
     return this.signerName;
   }
   
+  public Long getUser() {
+    return this.user;
+  }
+  
   public Map<String,String> getUserAnnotations() {
     return this.userAnnotations;
   }
@@ -163,12 +175,16 @@ public class V1PodCertificateProjectionFluent<A extends io.kubernetes.client.ope
     return this.signerName != null;
   }
   
+  public boolean hasUser() {
+    return this.user != null;
+  }
+  
   public boolean hasUserAnnotations() {
     return this.userAnnotations != null;
   }
   
   public int hashCode() {
-    return Objects.hash(certificateChainPath, credentialBundlePath, keyPath, keyType, maxExpirationSeconds, signerName, userAnnotations);
+    return Objects.hash(certificateChainPath, credentialBundlePath, keyPath, keyType, maxExpirationSeconds, signerName, user, userAnnotations);
   }
   
   public A removeFromUserAnnotations(String key) {
@@ -228,6 +244,11 @@ public class V1PodCertificateProjectionFluent<A extends io.kubernetes.client.ope
         sb.append(signerName);
         sb.append(",");
     }
+    if (!(user == null)) {
+        sb.append("user:");
+        sb.append(user);
+        sb.append(",");
+    }
     if (!(userAnnotations == null) && !(userAnnotations.isEmpty())) {
         sb.append("userAnnotations:");
         sb.append(userAnnotations);
@@ -266,11 +287,16 @@ public class V1PodCertificateProjectionFluent<A extends io.kubernetes.client.ope
     return (A) this;
   }
   
+  public A withUser(Long user) {
+    this.user = user;
+    return (A) this;
+  }
+  
   public <K,V>A withUserAnnotations(Map<String,String> userAnnotations) {
     if (userAnnotations == null) {
       this.userAnnotations = null;
     } else {
-      this.userAnnotations = new LinkedHashMap(userAnnotations);
+      this.userAnnotations = new LinkedHashMap<>(userAnnotations);
     }
     return (A) this;
   }

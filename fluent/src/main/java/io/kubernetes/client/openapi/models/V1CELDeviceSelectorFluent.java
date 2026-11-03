@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CELDeviceSelectorFluent<A extends io.kubernetes.client.openapi.models.V1CELDeviceSelectorFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CELDeviceSelectorFluent<A extends V1CELDeviceSelectorFluent<A>> extends BaseFluent<A>{
 
   private String expression;
 
@@ -51,7 +53,7 @@ public class V1CELDeviceSelectorFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1CELDeviceSelectorFluent that = (V1CELDeviceSelectorFluent) o;
+    V1CELDeviceSelectorFluent<?> that = (V1CELDeviceSelectorFluent<?>) o;
     if (!(Objects.equals(expression, that.expression))) {
       return false;
     }

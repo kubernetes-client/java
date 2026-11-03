@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VolumeAttachmentSpecFluent<A extends io.kubernetes.client.openapi.models.V1VolumeAttachmentSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VolumeAttachmentSpecFluent<A extends V1VolumeAttachmentSpecFluent<A>> extends BaseFluent<A>{
 
   private String attacher;
   private String nodeName;
@@ -73,7 +75,7 @@ public class V1VolumeAttachmentSpecFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V1VolumeAttachmentSpecFluent that = (V1VolumeAttachmentSpecFluent) o;
+    V1VolumeAttachmentSpecFluent<?> that = (V1VolumeAttachmentSpecFluent<?>) o;
     if (!(Objects.equals(attacher, that.attacher))) {
       return false;
     }
@@ -137,11 +139,11 @@ public class V1VolumeAttachmentSpecFluent<A extends io.kubernetes.client.openapi
   }
   
   public SourceNested<A> withNewSource() {
-    return new SourceNested(null);
+    return new SourceNested<>(null);
   }
   
   public SourceNested<A> withNewSourceLike(V1VolumeAttachmentSource item) {
-    return new SourceNested(item);
+    return new SourceNested<>(item);
   }
   
   public A withNodeName(String nodeName) {
@@ -155,8 +157,8 @@ public class V1VolumeAttachmentSpecFluent<A extends io.kubernetes.client.openapi
         this.source = new V1VolumeAttachmentSourceBuilder(source);
         this._visitables.get("source").add(this.source);
     } else {
-        this.source = null;
         this._visitables.get("source").remove(this.source);
+        this.source = null;
     }
     return (A) this;
   }

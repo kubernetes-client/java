@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1TypedLocalObjectReferenceFluent<A extends io.kubernetes.client.openapi.models.V1TypedLocalObjectReferenceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1TypedLocalObjectReferenceFluent<A extends V1TypedLocalObjectReferenceFluent<A>> extends BaseFluent<A>{
 
   private String apiGroup;
   private String kind;
@@ -55,7 +57,7 @@ public class V1TypedLocalObjectReferenceFluent<A extends io.kubernetes.client.op
     if (!(super.equals(o))) {
       return false;
     }
-    V1TypedLocalObjectReferenceFluent that = (V1TypedLocalObjectReferenceFluent) o;
+    V1TypedLocalObjectReferenceFluent<?> that = (V1TypedLocalObjectReferenceFluent<?>) o;
     if (!(Objects.equals(apiGroup, that.apiGroup))) {
       return false;
     }

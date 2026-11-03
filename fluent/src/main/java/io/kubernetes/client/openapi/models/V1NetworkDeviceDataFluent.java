@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NetworkDeviceDataFluent<A extends io.kubernetes.client.openapi.models.V1NetworkDeviceDataFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NetworkDeviceDataFluent<A extends V1NetworkDeviceDataFluent<A>> extends BaseFluent<A>{
 
   private String hardwareAddress;
   private String interfaceName;
@@ -42,7 +44,7 @@ public class V1NetworkDeviceDataFluent<A extends io.kubernetes.client.openapi.mo
 
   public A addAllToIps(Collection<String> items) {
     if (this.ips == null) {
-      this.ips = new ArrayList();
+      this.ips = new ArrayList<>();
     }
     for (String item : items) {
       this.ips.add(item);
@@ -52,7 +54,7 @@ public class V1NetworkDeviceDataFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToIps(String... items) {
     if (this.ips == null) {
-      this.ips = new ArrayList();
+      this.ips = new ArrayList<>();
     }
     for (String item : items) {
       this.ips.add(item);
@@ -62,7 +64,7 @@ public class V1NetworkDeviceDataFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToIps(int index,String item) {
     if (this.ips == null) {
-      this.ips = new ArrayList();
+      this.ips = new ArrayList<>();
     }
     this.ips.add(index, item);
     return (A) this;
@@ -87,7 +89,7 @@ public class V1NetworkDeviceDataFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1NetworkDeviceDataFluent that = (V1NetworkDeviceDataFluent) o;
+    V1NetworkDeviceDataFluent<?> that = (V1NetworkDeviceDataFluent<?>) o;
     if (!(Objects.equals(hardwareAddress, that.hardwareAddress))) {
       return false;
     }
@@ -180,7 +182,7 @@ public class V1NetworkDeviceDataFluent<A extends io.kubernetes.client.openapi.mo
   
   public A setToIps(int index,String item) {
     if (this.ips == null) {
-      this.ips = new ArrayList();
+      this.ips = new ArrayList<>();
     }
     this.ips.set(index, item);
     return (A) this;
@@ -219,7 +221,7 @@ public class V1NetworkDeviceDataFluent<A extends io.kubernetes.client.openapi.mo
   
   public A withIps(List<String> ips) {
     if (ips != null) {
-        this.ips = new ArrayList();
+        this.ips = new ArrayList<>();
         for (String item : ips) {
           this.addToIps(item);
         }

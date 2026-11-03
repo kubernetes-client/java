@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi.models.V2APIResourceDiscoveryFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2APIResourceDiscoveryFluent<A extends V2APIResourceDiscoveryFluent<A>> extends BaseFluent<A>{
 
   private List<String> categories;
   private String resource;
@@ -51,7 +53,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
 
   public A addAllToCategories(Collection<String> items) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     for (String item : items) {
       this.categories.add(item);
@@ -61,7 +63,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A addAllToShortNames(Collection<String> items) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     for (String item : items) {
       this.shortNames.add(item);
@@ -71,7 +73,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A addAllToSubresources(Collection<V2APISubresourceDiscovery> items) {
     if (this.subresources == null) {
-      this.subresources = new ArrayList();
+      this.subresources = new ArrayList<>();
     }
     for (V2APISubresourceDiscovery item : items) {
         V2APISubresourceDiscoveryBuilder builder = new V2APISubresourceDiscoveryBuilder(item);
@@ -83,7 +85,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A addAllToVerbs(Collection<String> items) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     for (String item : items) {
       this.verbs.add(item);
@@ -92,16 +94,16 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   }
   
   public SubresourcesNested<A> addNewSubresource() {
-    return new SubresourcesNested(-1, null);
+    return new SubresourcesNested<>(-1, null);
   }
   
   public SubresourcesNested<A> addNewSubresourceLike(V2APISubresourceDiscovery item) {
-    return new SubresourcesNested(-1, item);
+    return new SubresourcesNested<>(-1, item);
   }
   
   public A addToCategories(String... items) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     for (String item : items) {
       this.categories.add(item);
@@ -111,7 +113,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A addToCategories(int index,String item) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     this.categories.add(index, item);
     return (A) this;
@@ -119,7 +121,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A addToShortNames(String... items) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     for (String item : items) {
       this.shortNames.add(item);
@@ -129,7 +131,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A addToShortNames(int index,String item) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     this.shortNames.add(index, item);
     return (A) this;
@@ -137,7 +139,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A addToSubresources(V2APISubresourceDiscovery... items) {
     if (this.subresources == null) {
-      this.subresources = new ArrayList();
+      this.subresources = new ArrayList<>();
     }
     for (V2APISubresourceDiscovery item : items) {
         V2APISubresourceDiscoveryBuilder builder = new V2APISubresourceDiscoveryBuilder(item);
@@ -149,7 +151,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A addToSubresources(int index,V2APISubresourceDiscovery item) {
     if (this.subresources == null) {
-      this.subresources = new ArrayList();
+      this.subresources = new ArrayList<>();
     }
     V2APISubresourceDiscoveryBuilder builder = new V2APISubresourceDiscoveryBuilder(item);
     if (index < 0 || index >= this.subresources.size()) {
@@ -164,7 +166,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A addToVerbs(String... items) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     for (String item : items) {
       this.verbs.add(item);
@@ -174,7 +176,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A addToVerbs(int index,String item) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     this.verbs.add(index, item);
     return (A) this;
@@ -281,7 +283,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V2APIResourceDiscoveryFluent that = (V2APIResourceDiscoveryFluent) o;
+    V2APIResourceDiscoveryFluent<?> that = (V2APIResourceDiscoveryFluent<?>) o;
     if (!(Objects.equals(resource, that.resource))) {
       return false;
     }
@@ -557,6 +559,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
       return (A) this;
     }
     Iterator<V2APISubresourceDiscoveryBuilder> each = subresources.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("subresources");
     while (each.hasNext()) {
         V2APISubresourceDiscoveryBuilder builder = each.next();
@@ -569,12 +572,12 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   }
   
   public SubresourcesNested<A> setNewSubresourceLike(int index,V2APISubresourceDiscovery item) {
-    return new SubresourcesNested(index, item);
+    return new SubresourcesNested<>(index, item);
   }
   
   public A setToCategories(int index,String item) {
     if (this.categories == null) {
-      this.categories = new ArrayList();
+      this.categories = new ArrayList<>();
     }
     this.categories.set(index, item);
     return (A) this;
@@ -582,7 +585,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A setToShortNames(int index,String item) {
     if (this.shortNames == null) {
-      this.shortNames = new ArrayList();
+      this.shortNames = new ArrayList<>();
     }
     this.shortNames.set(index, item);
     return (A) this;
@@ -590,7 +593,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A setToSubresources(int index,V2APISubresourceDiscovery item) {
     if (this.subresources == null) {
-      this.subresources = new ArrayList();
+      this.subresources = new ArrayList<>();
     }
     V2APISubresourceDiscoveryBuilder builder = new V2APISubresourceDiscoveryBuilder(item);
     if (index < 0 || index >= this.subresources.size()) {
@@ -605,7 +608,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A setToVerbs(int index,String item) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     this.verbs.set(index, item);
     return (A) this;
@@ -659,7 +662,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A withCategories(List<String> categories) {
     if (categories != null) {
-        this.categories = new ArrayList();
+        this.categories = new ArrayList<>();
         for (String item : categories) {
           this.addToCategories(item);
         }
@@ -683,11 +686,11 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   }
   
   public ResponseKindNested<A> withNewResponseKind() {
-    return new ResponseKindNested(null);
+    return new ResponseKindNested<>(null);
   }
   
   public ResponseKindNested<A> withNewResponseKindLike(V1GroupVersionKind item) {
-    return new ResponseKindNested(item);
+    return new ResponseKindNested<>(item);
   }
   
   public A withResource(String resource) {
@@ -701,8 +704,8 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
         this.responseKind = new V1GroupVersionKindBuilder(responseKind);
         this._visitables.get("responseKind").add(this.responseKind);
     } else {
-        this.responseKind = null;
         this._visitables.get("responseKind").remove(this.responseKind);
+        this.responseKind = null;
     }
     return (A) this;
   }
@@ -714,7 +717,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A withShortNames(List<String> shortNames) {
     if (shortNames != null) {
-        this.shortNames = new ArrayList();
+        this.shortNames = new ArrayList<>();
         for (String item : shortNames) {
           this.addToShortNames(item);
         }
@@ -747,7 +750,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
       this._visitables.get("subresources").clear();
     }
     if (subresources != null) {
-        this.subresources = new ArrayList();
+        this.subresources = new ArrayList<>();
         for (V2APISubresourceDiscovery item : subresources) {
           this.addToSubresources(item);
         }
@@ -772,7 +775,7 @@ public class V2APIResourceDiscoveryFluent<A extends io.kubernetes.client.openapi
   
   public A withVerbs(List<String> verbs) {
     if (verbs != null) {
-        this.verbs = new ArrayList();
+        this.verbs = new ArrayList<>();
         for (String item : verbs) {
           this.addToVerbs(item);
         }

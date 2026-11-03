@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1alpha1MutatingAdmissionPolicyBindingBuilder extends V1alpha1MutatingAdmissionPolicyBindingFluent<V1alpha1MutatingAdmissionPolicyBindingBuilder> implements VisitableBuilder<V1alpha1MutatingAdmissionPolicyBinding,V1alpha1MutatingAdmissionPolicyBindingBuilder>{
 
   V1alpha1MutatingAdmissionPolicyBindingFluent<?> fluent;

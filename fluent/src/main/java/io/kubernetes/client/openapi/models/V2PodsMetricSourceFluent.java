@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2PodsMetricSourceFluent<A extends io.kubernetes.client.openapi.models.V2PodsMetricSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2PodsMetricSourceFluent<A extends V2PodsMetricSourceFluent<A>> extends BaseFluent<A>{
 
   private V2MetricIdentifierBuilder metric;
   private V2MetricTargetBuilder target;
@@ -87,7 +89,7 @@ public class V2PodsMetricSourceFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V2PodsMetricSourceFluent that = (V2PodsMetricSourceFluent) o;
+    V2PodsMetricSourceFluent<?> that = (V2PodsMetricSourceFluent<?>) o;
     if (!(Objects.equals(metric, that.metric))) {
       return false;
     }
@@ -131,26 +133,26 @@ public class V2PodsMetricSourceFluent<A extends io.kubernetes.client.openapi.mod
         this.metric = new V2MetricIdentifierBuilder(metric);
         this._visitables.get("metric").add(this.metric);
     } else {
-        this.metric = null;
         this._visitables.get("metric").remove(this.metric);
+        this.metric = null;
     }
     return (A) this;
   }
   
   public MetricNested<A> withNewMetric() {
-    return new MetricNested(null);
+    return new MetricNested<>(null);
   }
   
   public MetricNested<A> withNewMetricLike(V2MetricIdentifier item) {
-    return new MetricNested(item);
+    return new MetricNested<>(item);
   }
   
   public TargetNested<A> withNewTarget() {
-    return new TargetNested(null);
+    return new TargetNested<>(null);
   }
   
   public TargetNested<A> withNewTargetLike(V2MetricTarget item) {
-    return new TargetNested(item);
+    return new TargetNested<>(item);
   }
   
   public A withTarget(V2MetricTarget target) {
@@ -159,8 +161,8 @@ public class V2PodsMetricSourceFluent<A extends io.kubernetes.client.openapi.mod
         this.target = new V2MetricTargetBuilder(target);
         this._visitables.get("target").add(this.target);
     } else {
-        this.target = null;
         this._visitables.get("target").remove(this.target);
+        this.target = null;
     }
     return (A) this;
   }

@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1EnvVarFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1EnvVarFluent<A extends V1EnvVarFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private String value;
@@ -73,7 +75,7 @@ public class V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1EnvV
     if (!(super.equals(o))) {
       return false;
     }
-    V1EnvVarFluent that = (V1EnvVarFluent) o;
+    V1EnvVarFluent<?> that = (V1EnvVarFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }
@@ -137,11 +139,11 @@ public class V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1EnvV
   }
   
   public ValueFromNested<A> withNewValueFrom() {
-    return new ValueFromNested(null);
+    return new ValueFromNested<>(null);
   }
   
   public ValueFromNested<A> withNewValueFromLike(V1EnvVarSource item) {
-    return new ValueFromNested(item);
+    return new ValueFromNested<>(item);
   }
   
   public A withValue(String value) {
@@ -155,8 +157,8 @@ public class V1EnvVarFluent<A extends io.kubernetes.client.openapi.models.V1EnvV
         this.valueFrom = new V1EnvVarSourceBuilder(valueFrom);
         this._visitables.get("valueFrom").add(this.valueFrom);
     } else {
-        this.valueFrom = null;
         this._visitables.get("valueFrom").remove(this.valueFrom);
+        this.valueFrom = null;
     }
     return (A) this;
   }

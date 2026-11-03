@@ -29,12 +29,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeClaimStatusFluent<A>> extends BaseFluent<A>{
 
   private List<String> accessModes;
   private Map<String,String> allocatedResourceStatuses;
@@ -42,6 +44,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   private Map<String,Quantity> capacity;
   private ArrayList<V1PersistentVolumeClaimConditionBuilder> conditions;
   private String currentVolumeAttributesClassName;
+  private V1VolumeHealthStatusBuilder healthStatus;
   private V1ModifyVolumeStatusBuilder modifyVolumeStatus;
   private String phase;
 
@@ -54,7 +57,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
 
   public A addAllToAccessModes(Collection<String> items) {
     if (this.accessModes == null) {
-      this.accessModes = new ArrayList();
+      this.accessModes = new ArrayList<>();
     }
     for (String item : items) {
       this.accessModes.add(item);
@@ -64,7 +67,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A addAllToConditions(Collection<V1PersistentVolumeClaimCondition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1PersistentVolumeClaimCondition item : items) {
         V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
@@ -75,16 +78,16 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1PersistentVolumeClaimCondition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public A addToAccessModes(String... items) {
     if (this.accessModes == null) {
-      this.accessModes = new ArrayList();
+      this.accessModes = new ArrayList<>();
     }
     for (String item : items) {
       this.accessModes.add(item);
@@ -94,7 +97,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A addToAccessModes(int index,String item) {
     if (this.accessModes == null) {
-      this.accessModes = new ArrayList();
+      this.accessModes = new ArrayList<>();
     }
     this.accessModes.add(index, item);
     return (A) this;
@@ -102,7 +105,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A addToAllocatedResourceStatuses(Map<String,String> map) {
     if (this.allocatedResourceStatuses == null && map != null) {
-      this.allocatedResourceStatuses = new LinkedHashMap();
+      this.allocatedResourceStatuses = new LinkedHashMap<>();
     }
     if (map != null) {
       this.allocatedResourceStatuses.putAll(map);
@@ -112,7 +115,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A addToAllocatedResourceStatuses(String key,String value) {
     if (this.allocatedResourceStatuses == null && key != null && value != null) {
-      this.allocatedResourceStatuses = new LinkedHashMap();
+      this.allocatedResourceStatuses = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.allocatedResourceStatuses.put(key, value);
@@ -122,7 +125,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A addToAllocatedResources(Map<String,Quantity> map) {
     if (this.allocatedResources == null && map != null) {
-      this.allocatedResources = new LinkedHashMap();
+      this.allocatedResources = new LinkedHashMap<>();
     }
     if (map != null) {
       this.allocatedResources.putAll(map);
@@ -132,7 +135,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A addToAllocatedResources(String key,Quantity value) {
     if (this.allocatedResources == null && key != null && value != null) {
-      this.allocatedResources = new LinkedHashMap();
+      this.allocatedResources = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.allocatedResources.put(key, value);
@@ -142,7 +145,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A addToCapacity(Map<String,Quantity> map) {
     if (this.capacity == null && map != null) {
-      this.capacity = new LinkedHashMap();
+      this.capacity = new LinkedHashMap<>();
     }
     if (map != null) {
       this.capacity.putAll(map);
@@ -152,7 +155,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A addToCapacity(String key,Quantity value) {
     if (this.capacity == null && key != null && value != null) {
-      this.capacity = new LinkedHashMap();
+      this.capacity = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.capacity.put(key, value);
@@ -162,7 +165,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A addToConditions(V1PersistentVolumeClaimCondition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1PersistentVolumeClaimCondition item : items) {
         V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
@@ -174,7 +177,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A addToConditions(int index,V1PersistentVolumeClaimCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -197,6 +200,10 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public V1PersistentVolumeClaimCondition buildFirstCondition() {
     return this.conditions.get(0).build();
+  }
+  
+  public V1VolumeHealthStatus buildHealthStatus() {
+    return this.healthStatus != null ? this.healthStatus.build() : null;
   }
   
   public V1PersistentVolumeClaimCondition buildLastCondition() {
@@ -225,6 +232,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
         this.withCapacity(instance.getCapacity());
         this.withConditions(instance.getConditions());
         this.withCurrentVolumeAttributesClassName(instance.getCurrentVolumeAttributesClassName());
+        this.withHealthStatus(instance.getHealthStatus());
         this.withModifyVolumeStatus(instance.getModifyVolumeStatus());
         this.withPhase(instance.getPhase());
     }
@@ -242,6 +250,10 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
       throw new RuntimeException(String.format("Can't edit first %s. The list is empty.", "conditions"));
     }
     return this.setNewConditionLike(0, this.buildCondition(0));
+  }
+  
+  public HealthStatusNested<A> editHealthStatus() {
+    return this.withNewHealthStatusLike(Optional.ofNullable(this.buildHealthStatus()).orElse(null));
   }
   
   public ConditionsNested<A> editLastCondition() {
@@ -270,6 +282,14 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
     return this.withNewModifyVolumeStatusLike(Optional.ofNullable(this.buildModifyVolumeStatus()).orElse(null));
   }
   
+  public HealthStatusNested<A> editOrNewHealthStatus() {
+    return this.withNewHealthStatusLike(Optional.ofNullable(this.buildHealthStatus()).orElse(new V1VolumeHealthStatusBuilder().build()));
+  }
+  
+  public HealthStatusNested<A> editOrNewHealthStatusLike(V1VolumeHealthStatus item) {
+    return this.withNewHealthStatusLike(Optional.ofNullable(this.buildHealthStatus()).orElse(item));
+  }
+  
   public ModifyVolumeStatusNested<A> editOrNewModifyVolumeStatus() {
     return this.withNewModifyVolumeStatusLike(Optional.ofNullable(this.buildModifyVolumeStatus()).orElse(new V1ModifyVolumeStatusBuilder().build()));
   }
@@ -288,7 +308,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
     if (!(super.equals(o))) {
       return false;
     }
-    V1PersistentVolumeClaimStatusFluent that = (V1PersistentVolumeClaimStatusFluent) o;
+    V1PersistentVolumeClaimStatusFluent<?> that = (V1PersistentVolumeClaimStatusFluent<?>) o;
     if (!(Objects.equals(accessModes, that.accessModes))) {
       return false;
     }
@@ -305,6 +325,9 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
       return false;
     }
     if (!(Objects.equals(currentVolumeAttributesClassName, that.currentVolumeAttributesClassName))) {
+      return false;
+    }
+    if (!(Objects.equals(healthStatus, that.healthStatus))) {
       return false;
     }
     if (!(Objects.equals(modifyVolumeStatus, that.modifyVolumeStatus))) {
@@ -385,6 +408,10 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
     return this.currentVolumeAttributesClassName != null;
   }
   
+  public boolean hasHealthStatus() {
+    return this.healthStatus != null;
+  }
+  
   public boolean hasMatchingAccessMode(Predicate<String> predicate) {
       for (String item : accessModes) {
         if (predicate.test(item)) {
@@ -412,7 +439,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   }
   
   public int hashCode() {
-    return Objects.hash(accessModes, allocatedResourceStatuses, allocatedResources, capacity, conditions, currentVolumeAttributesClassName, modifyVolumeStatus, phase);
+    return Objects.hash(accessModes, allocatedResourceStatuses, allocatedResources, capacity, conditions, currentVolumeAttributesClassName, healthStatus, modifyVolumeStatus, phase);
   }
   
   public A removeAllFromAccessModes(Collection<String> items) {
@@ -536,6 +563,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
       return (A) this;
     }
     Iterator<V1PersistentVolumeClaimConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1PersistentVolumeClaimConditionBuilder builder = each.next();
@@ -548,12 +576,12 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1PersistentVolumeClaimCondition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public A setToAccessModes(int index,String item) {
     if (this.accessModes == null) {
-      this.accessModes = new ArrayList();
+      this.accessModes = new ArrayList<>();
     }
     this.accessModes.set(index, item);
     return (A) this;
@@ -561,7 +589,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A setToConditions(int index,V1PersistentVolumeClaimCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -607,6 +635,11 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
         sb.append(currentVolumeAttributesClassName);
         sb.append(",");
     }
+    if (!(healthStatus == null)) {
+        sb.append("healthStatus:");
+        sb.append(healthStatus);
+        sb.append(",");
+    }
     if (!(modifyVolumeStatus == null)) {
         sb.append("modifyVolumeStatus:");
         sb.append(modifyVolumeStatus);
@@ -622,7 +655,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
   
   public A withAccessModes(List<String> accessModes) {
     if (accessModes != null) {
-        this.accessModes = new ArrayList();
+        this.accessModes = new ArrayList<>();
         for (String item : accessModes) {
           this.addToAccessModes(item);
         }
@@ -649,7 +682,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
     if (allocatedResourceStatuses == null) {
       this.allocatedResourceStatuses = null;
     } else {
-      this.allocatedResourceStatuses = new LinkedHashMap(allocatedResourceStatuses);
+      this.allocatedResourceStatuses = new LinkedHashMap<>(allocatedResourceStatuses);
     }
     return (A) this;
   }
@@ -658,7 +691,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
     if (allocatedResources == null) {
       this.allocatedResources = null;
     } else {
-      this.allocatedResources = new LinkedHashMap(allocatedResources);
+      this.allocatedResources = new LinkedHashMap<>(allocatedResources);
     }
     return (A) this;
   }
@@ -667,7 +700,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
     if (capacity == null) {
       this.capacity = null;
     } else {
-      this.capacity = new LinkedHashMap(capacity);
+      this.capacity = new LinkedHashMap<>(capacity);
     }
     return (A) this;
   }
@@ -677,7 +710,7 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1PersistentVolumeClaimCondition item : conditions) {
           this.addToConditions(item);
         }
@@ -705,24 +738,44 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
     return (A) this;
   }
   
+  public A withHealthStatus(V1VolumeHealthStatus healthStatus) {
+    this._visitables.remove("healthStatus");
+    if (healthStatus != null) {
+        this.healthStatus = new V1VolumeHealthStatusBuilder(healthStatus);
+        this._visitables.get("healthStatus").add(this.healthStatus);
+    } else {
+        this._visitables.get("healthStatus").remove(this.healthStatus);
+        this.healthStatus = null;
+    }
+    return (A) this;
+  }
+  
   public A withModifyVolumeStatus(V1ModifyVolumeStatus modifyVolumeStatus) {
     this._visitables.remove("modifyVolumeStatus");
     if (modifyVolumeStatus != null) {
         this.modifyVolumeStatus = new V1ModifyVolumeStatusBuilder(modifyVolumeStatus);
         this._visitables.get("modifyVolumeStatus").add(this.modifyVolumeStatus);
     } else {
-        this.modifyVolumeStatus = null;
         this._visitables.get("modifyVolumeStatus").remove(this.modifyVolumeStatus);
+        this.modifyVolumeStatus = null;
     }
     return (A) this;
   }
   
+  public HealthStatusNested<A> withNewHealthStatus() {
+    return new HealthStatusNested<>(null);
+  }
+  
+  public HealthStatusNested<A> withNewHealthStatusLike(V1VolumeHealthStatus item) {
+    return new HealthStatusNested<>(item);
+  }
+  
   public ModifyVolumeStatusNested<A> withNewModifyVolumeStatus() {
-    return new ModifyVolumeStatusNested(null);
+    return new ModifyVolumeStatusNested<>(null);
   }
   
   public ModifyVolumeStatusNested<A> withNewModifyVolumeStatusLike(V1ModifyVolumeStatus item) {
-    return new ModifyVolumeStatusNested(item);
+    return new ModifyVolumeStatusNested<>(item);
   }
   
   public A withPhase(String phase) {
@@ -744,6 +797,23 @@ public class V1PersistentVolumeClaimStatusFluent<A extends io.kubernetes.client.
     }
     
     public N endCondition() {
+      return and();
+    }
+    
+  }
+  public class HealthStatusNested<N> extends V1VolumeHealthStatusFluent<HealthStatusNested<N>> implements Nested<N>{
+  
+    V1VolumeHealthStatusBuilder builder;
+  
+    HealthStatusNested(V1VolumeHealthStatus item) {
+      this.builder = new V1VolumeHealthStatusBuilder(this, item);
+    }
+  
+    public N and() {
+      return (N) V1PersistentVolumeClaimStatusFluent.this.withHealthStatus(builder.build());
+    }
+    
+    public N endHealthStatus() {
       return and();
     }
     

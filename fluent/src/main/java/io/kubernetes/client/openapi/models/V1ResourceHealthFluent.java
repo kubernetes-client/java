@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ResourceHealthFluent<A extends io.kubernetes.client.openapi.models.V1ResourceHealthFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ResourceHealthFluent<A extends V1ResourceHealthFluent<A>> extends BaseFluent<A>{
 
   private String health;
   private String message;
@@ -55,7 +57,7 @@ public class V1ResourceHealthFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1ResourceHealthFluent that = (V1ResourceHealthFluent) o;
+    V1ResourceHealthFluent<?> that = (V1ResourceHealthFluent<?>) o;
     if (!(Objects.equals(health, that.health))) {
       return false;
     }

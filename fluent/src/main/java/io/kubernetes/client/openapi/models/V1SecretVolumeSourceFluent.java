@@ -16,6 +16,7 @@ import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.Boolean;
 import java.lang.Integer;
+import java.lang.Long;
 import java.lang.Object;
 import java.lang.RuntimeException;
 import java.lang.String;
@@ -27,14 +28,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1SecretVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SecretVolumeSourceFluent<A extends V1SecretVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private Integer defaultMode;
+  private Long defaultUser;
   private ArrayList<V1KeyToPathBuilder> items;
   private Boolean optional;
   private String secretName;
@@ -48,7 +52,7 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
 
   public A addAllToItems(Collection<V1KeyToPath> items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1KeyToPath item : items) {
         V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
@@ -59,16 +63,16 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   }
   
   public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
+    return new ItemsNested<>(-1, null);
   }
   
   public ItemsNested<A> addNewItemLike(V1KeyToPath item) {
-    return new ItemsNested(-1, item);
+    return new ItemsNested<>(-1, item);
   }
   
   public A addToItems(V1KeyToPath... items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1KeyToPath item : items) {
         V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
@@ -80,7 +84,7 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   
   public A addToItems(int index,V1KeyToPath item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -122,6 +126,7 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
     instance = instance != null ? instance : new V1SecretVolumeSource();
     if (instance != null) {
         this.withDefaultMode(instance.getDefaultMode());
+        this.withDefaultUser(instance.getDefaultUser());
         this.withItems(instance.getItems());
         this.withOptional(instance.getOptional());
         this.withSecretName(instance.getSecretName());
@@ -174,8 +179,11 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1SecretVolumeSourceFluent that = (V1SecretVolumeSourceFluent) o;
+    V1SecretVolumeSourceFluent<?> that = (V1SecretVolumeSourceFluent<?>) o;
     if (!(Objects.equals(defaultMode, that.defaultMode))) {
+      return false;
+    }
+    if (!(Objects.equals(defaultUser, that.defaultUser))) {
       return false;
     }
     if (!(Objects.equals(items, that.items))) {
@@ -194,6 +202,10 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
     return this.defaultMode;
   }
   
+  public Long getDefaultUser() {
+    return this.defaultUser;
+  }
+  
   public Boolean getOptional() {
     return this.optional;
   }
@@ -204,6 +216,10 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   
   public boolean hasDefaultMode() {
     return this.defaultMode != null;
+  }
+  
+  public boolean hasDefaultUser() {
+    return this.defaultUser != null;
   }
   
   public boolean hasItems() {
@@ -228,7 +244,7 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   }
   
   public int hashCode() {
-    return Objects.hash(defaultMode, items, optional, secretName);
+    return Objects.hash(defaultMode, defaultUser, items, optional, secretName);
   }
   
   public A removeAllFromItems(Collection<V1KeyToPath> items) {
@@ -260,6 +276,7 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
       return (A) this;
     }
     Iterator<V1KeyToPathBuilder> each = items.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("items");
     while (each.hasNext()) {
         V1KeyToPathBuilder builder = each.next();
@@ -272,12 +289,12 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
   }
   
   public ItemsNested<A> setNewItemLike(int index,V1KeyToPath item) {
-    return new ItemsNested(index, item);
+    return new ItemsNested<>(index, item);
   }
   
   public A setToItems(int index,V1KeyToPath item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -296,6 +313,11 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
     if (!(defaultMode == null)) {
         sb.append("defaultMode:");
         sb.append(defaultMode);
+        sb.append(",");
+    }
+    if (!(defaultUser == null)) {
+        sb.append("defaultUser:");
+        sb.append(defaultUser);
         sb.append(",");
     }
     if (!(items == null) && !(items.isEmpty())) {
@@ -321,12 +343,17 @@ public class V1SecretVolumeSourceFluent<A extends io.kubernetes.client.openapi.m
     return (A) this;
   }
   
+  public A withDefaultUser(Long defaultUser) {
+    this.defaultUser = defaultUser;
+    return (A) this;
+  }
+  
   public A withItems(List<V1KeyToPath> items) {
     if (this.items != null) {
       this._visitables.get("items").clear();
     }
     if (items != null) {
-        this.items = new ArrayList();
+        this.items = new ArrayList<>();
         for (V1KeyToPath item : items) {
           this.addToItems(item);
         }

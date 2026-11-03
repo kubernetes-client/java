@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1TokenRequestSpecBuilder extends V1TokenRequestSpecFluent<V1TokenRequestSpecBuilder> implements VisitableBuilder<V1TokenRequestSpec,V1TokenRequestSpecBuilder>{
 
   V1TokenRequestSpecFluent<?> fluent;
@@ -38,6 +39,7 @@ public class V1TokenRequestSpecBuilder extends V1TokenRequestSpecFluent<V1TokenR
 
   public V1TokenRequestSpec build() {
     V1TokenRequestSpec buildable = new V1TokenRequestSpec();
+    buildable.setAttestations(fluent.getAttestations());
     buildable.setAudiences(fluent.getAudiences());
     buildable.setBoundObjectRef(fluent.buildBoundObjectRef());
     buildable.setExpirationSeconds(fluent.getExpirationSeconds());

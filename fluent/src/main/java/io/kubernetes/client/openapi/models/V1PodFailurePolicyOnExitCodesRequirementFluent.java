@@ -23,12 +23,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends io.kubernetes.client.openapi.models.V1PodFailurePolicyOnExitCodesRequirementFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends V1PodFailurePolicyOnExitCodesRequirementFluent<A>> extends BaseFluent<A>{
 
   private String containerName;
   private String operator;
@@ -43,7 +45,7 @@ public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends io.kuberne
 
   public A addAllToValues(Collection<Integer> items) {
     if (this.values == null) {
-      this.values = new ArrayList();
+      this.values = new ArrayList<>();
     }
     for (Integer item : items) {
       this.values.add(item);
@@ -53,7 +55,7 @@ public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends io.kuberne
   
   public A addToValues(Integer... items) {
     if (this.values == null) {
-      this.values = new ArrayList();
+      this.values = new ArrayList<>();
     }
     for (Integer item : items) {
       this.values.add(item);
@@ -63,7 +65,7 @@ public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends io.kuberne
   
   public A addToValues(int index,Integer item) {
     if (this.values == null) {
-      this.values = new ArrayList();
+      this.values = new ArrayList<>();
     }
     this.values.add(index, item);
     return (A) this;
@@ -88,7 +90,7 @@ public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends io.kuberne
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodFailurePolicyOnExitCodesRequirementFluent that = (V1PodFailurePolicyOnExitCodesRequirementFluent) o;
+    V1PodFailurePolicyOnExitCodesRequirementFluent<?> that = (V1PodFailurePolicyOnExitCodesRequirementFluent<?>) o;
     if (!(Objects.equals(containerName, that.containerName))) {
       return false;
     }
@@ -181,7 +183,7 @@ public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends io.kuberne
   
   public A setToValues(int index,Integer item) {
     if (this.values == null) {
-      this.values = new ArrayList();
+      this.values = new ArrayList<>();
     }
     this.values.set(index, item);
     return (A) this;
@@ -220,7 +222,7 @@ public class V1PodFailurePolicyOnExitCodesRequirementFluent<A extends io.kuberne
   
   public A withValues(List<Integer> values) {
     if (values != null) {
-        this.values = new ArrayList();
+        this.values = new ArrayList<>();
         for (Integer item : values) {
           this.addToValues(item);
         }

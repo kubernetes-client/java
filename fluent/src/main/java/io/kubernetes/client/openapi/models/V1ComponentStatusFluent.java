@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ComponentStatusFluent<A extends io.kubernetes.client.openapi.models.V1ComponentStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private ArrayList<V1ComponentConditionBuilder> conditions;
@@ -47,7 +49,7 @@ public class V1ComponentStatusFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToConditions(Collection<V1ComponentCondition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1ComponentCondition item : items) {
         V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);
@@ -58,16 +60,16 @@ public class V1ComponentStatusFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1ComponentCondition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public A addToConditions(V1ComponentCondition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1ComponentCondition item : items) {
         V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);
@@ -79,7 +81,7 @@ public class V1ComponentStatusFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToConditions(int index,V1ComponentCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -189,7 +191,7 @@ public class V1ComponentStatusFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1ComponentStatusFluent that = (V1ComponentStatusFluent) o;
+    V1ComponentStatusFluent<?> that = (V1ComponentStatusFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -271,6 +273,7 @@ public class V1ComponentStatusFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1ComponentConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1ComponentConditionBuilder builder = each.next();
@@ -283,12 +286,12 @@ public class V1ComponentStatusFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1ComponentCondition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public A setToConditions(int index,V1ComponentCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1ComponentConditionBuilder builder = new V1ComponentConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -337,7 +340,7 @@ public class V1ComponentStatusFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1ComponentCondition item : conditions) {
           this.addToConditions(item);
         }
@@ -371,18 +374,18 @@ public class V1ComponentStatusFluent<A extends io.kubernetes.client.openapi.mode
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   public class ConditionsNested<N> extends V1ComponentConditionFluent<ConditionsNested<N>> implements Nested<N>{
   

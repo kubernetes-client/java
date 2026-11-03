@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1EndpointConditionsFluent<A extends io.kubernetes.client.openapi.models.V1EndpointConditionsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1EndpointConditionsFluent<A extends V1EndpointConditionsFluent<A>> extends BaseFluent<A>{
 
   private Boolean ready;
   private Boolean serving;
@@ -56,7 +58,7 @@ public class V1EndpointConditionsFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1EndpointConditionsFluent that = (V1EndpointConditionsFluent) o;
+    V1EndpointConditionsFluent<?> that = (V1EndpointConditionsFluent<?>) o;
     if (!(Objects.equals(ready, that.ready))) {
       return false;
     }

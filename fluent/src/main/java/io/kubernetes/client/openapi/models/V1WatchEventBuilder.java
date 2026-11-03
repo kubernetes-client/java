@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1WatchEventBuilder extends V1WatchEventFluent<V1WatchEventBuilder> implements VisitableBuilder<V1WatchEvent,V1WatchEventBuilder>{
 
   V1WatchEventFluent<?> fluent;

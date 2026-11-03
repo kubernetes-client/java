@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodOSFluent<A extends io.kubernetes.client.openapi.models.V1PodOSFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodOSFluent<A extends V1PodOSFluent<A>> extends BaseFluent<A>{
 
   private String name;
 
@@ -51,7 +53,7 @@ public class V1PodOSFluent<A extends io.kubernetes.client.openapi.models.V1PodOS
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodOSFluent that = (V1PodOSFluent) o;
+    V1PodOSFluent<?> that = (V1PodOSFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

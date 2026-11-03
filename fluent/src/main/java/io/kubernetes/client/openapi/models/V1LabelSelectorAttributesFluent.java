@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1LabelSelectorAttributesFluent<A extends io.kubernetes.client.openapi.models.V1LabelSelectorAttributesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1LabelSelectorAttributesFluent<A extends V1LabelSelectorAttributesFluent<A>> extends BaseFluent<A>{
 
   private String rawSelector;
   private ArrayList<V1LabelSelectorRequirementBuilder> requirements;
@@ -44,7 +46,7 @@ public class V1LabelSelectorAttributesFluent<A extends io.kubernetes.client.open
 
   public A addAllToRequirements(Collection<V1LabelSelectorRequirement> items) {
     if (this.requirements == null) {
-      this.requirements = new ArrayList();
+      this.requirements = new ArrayList<>();
     }
     for (V1LabelSelectorRequirement item : items) {
         V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
@@ -55,16 +57,16 @@ public class V1LabelSelectorAttributesFluent<A extends io.kubernetes.client.open
   }
   
   public RequirementsNested<A> addNewRequirement() {
-    return new RequirementsNested(-1, null);
+    return new RequirementsNested<>(-1, null);
   }
   
   public RequirementsNested<A> addNewRequirementLike(V1LabelSelectorRequirement item) {
-    return new RequirementsNested(-1, item);
+    return new RequirementsNested<>(-1, item);
   }
   
   public A addToRequirements(V1LabelSelectorRequirement... items) {
     if (this.requirements == null) {
-      this.requirements = new ArrayList();
+      this.requirements = new ArrayList<>();
     }
     for (V1LabelSelectorRequirement item : items) {
         V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
@@ -76,7 +78,7 @@ public class V1LabelSelectorAttributesFluent<A extends io.kubernetes.client.open
   
   public A addToRequirements(int index,V1LabelSelectorRequirement item) {
     if (this.requirements == null) {
-      this.requirements = new ArrayList();
+      this.requirements = new ArrayList<>();
     }
     V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
     if (index < 0 || index >= this.requirements.size()) {
@@ -168,7 +170,7 @@ public class V1LabelSelectorAttributesFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1LabelSelectorAttributesFluent that = (V1LabelSelectorAttributesFluent) o;
+    V1LabelSelectorAttributesFluent<?> that = (V1LabelSelectorAttributesFluent<?>) o;
     if (!(Objects.equals(rawSelector, that.rawSelector))) {
       return false;
     }
@@ -232,6 +234,7 @@ public class V1LabelSelectorAttributesFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<V1LabelSelectorRequirementBuilder> each = requirements.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("requirements");
     while (each.hasNext()) {
         V1LabelSelectorRequirementBuilder builder = each.next();
@@ -244,12 +247,12 @@ public class V1LabelSelectorAttributesFluent<A extends io.kubernetes.client.open
   }
   
   public RequirementsNested<A> setNewRequirementLike(int index,V1LabelSelectorRequirement item) {
-    return new RequirementsNested(index, item);
+    return new RequirementsNested<>(index, item);
   }
   
   public A setToRequirements(int index,V1LabelSelectorRequirement item) {
     if (this.requirements == null) {
-      this.requirements = new ArrayList();
+      this.requirements = new ArrayList<>();
     }
     V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
     if (index < 0 || index >= this.requirements.size()) {
@@ -288,7 +291,7 @@ public class V1LabelSelectorAttributesFluent<A extends io.kubernetes.client.open
       this._visitables.get("requirements").clear();
     }
     if (requirements != null) {
-        this.requirements = new ArrayList();
+        this.requirements = new ArrayList<>();
         for (V1LabelSelectorRequirement item : requirements) {
           this.addToRequirements(item);
         }

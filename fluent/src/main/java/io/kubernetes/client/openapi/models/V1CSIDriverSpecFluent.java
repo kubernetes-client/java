@@ -27,12 +27,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CSIDriverSpecFluent<A extends V1CSIDriverSpecFluent<A>> extends BaseFluent<A>{
 
   private Boolean attachRequired;
   private String fsGroupPolicy;
@@ -55,7 +57,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToTokenRequests(Collection<StorageV1TokenRequest> items) {
     if (this.tokenRequests == null) {
-      this.tokenRequests = new ArrayList();
+      this.tokenRequests = new ArrayList<>();
     }
     for (StorageV1TokenRequest item : items) {
         StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
@@ -67,7 +69,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public A addAllToVolumeLifecycleModes(Collection<String> items) {
     if (this.volumeLifecycleModes == null) {
-      this.volumeLifecycleModes = new ArrayList();
+      this.volumeLifecycleModes = new ArrayList<>();
     }
     for (String item : items) {
       this.volumeLifecycleModes.add(item);
@@ -76,16 +78,16 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public TokenRequestsNested<A> addNewTokenRequest() {
-    return new TokenRequestsNested(-1, null);
+    return new TokenRequestsNested<>(-1, null);
   }
   
   public TokenRequestsNested<A> addNewTokenRequestLike(StorageV1TokenRequest item) {
-    return new TokenRequestsNested(-1, item);
+    return new TokenRequestsNested<>(-1, item);
   }
   
   public A addToTokenRequests(StorageV1TokenRequest... items) {
     if (this.tokenRequests == null) {
-      this.tokenRequests = new ArrayList();
+      this.tokenRequests = new ArrayList<>();
     }
     for (StorageV1TokenRequest item : items) {
         StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
@@ -97,7 +99,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToTokenRequests(int index,StorageV1TokenRequest item) {
     if (this.tokenRequests == null) {
-      this.tokenRequests = new ArrayList();
+      this.tokenRequests = new ArrayList<>();
     }
     StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
     if (index < 0 || index >= this.tokenRequests.size()) {
@@ -112,7 +114,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToVolumeLifecycleModes(String... items) {
     if (this.volumeLifecycleModes == null) {
-      this.volumeLifecycleModes = new ArrayList();
+      this.volumeLifecycleModes = new ArrayList<>();
     }
     for (String item : items) {
       this.volumeLifecycleModes.add(item);
@@ -122,7 +124,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToVolumeLifecycleModes(int index,String item) {
     if (this.volumeLifecycleModes == null) {
-      this.volumeLifecycleModes = new ArrayList();
+      this.volumeLifecycleModes = new ArrayList<>();
     }
     this.volumeLifecycleModes.add(index, item);
     return (A) this;
@@ -216,7 +218,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1CSIDriverSpecFluent that = (V1CSIDriverSpecFluent) o;
+    V1CSIDriverSpecFluent<?> that = (V1CSIDriverSpecFluent<?>) o;
     if (!(Objects.equals(attachRequired, that.attachRequired))) {
       return false;
     }
@@ -429,6 +431,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<StorageV1TokenRequestBuilder> each = tokenRequests.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("tokenRequests");
     while (each.hasNext()) {
         StorageV1TokenRequestBuilder builder = each.next();
@@ -441,12 +444,12 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public TokenRequestsNested<A> setNewTokenRequestLike(int index,StorageV1TokenRequest item) {
-    return new TokenRequestsNested(index, item);
+    return new TokenRequestsNested<>(index, item);
   }
   
   public A setToTokenRequests(int index,StorageV1TokenRequest item) {
     if (this.tokenRequests == null) {
-      this.tokenRequests = new ArrayList();
+      this.tokenRequests = new ArrayList<>();
     }
     StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
     if (index < 0 || index >= this.tokenRequests.size()) {
@@ -461,7 +464,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public A setToVolumeLifecycleModes(int index,String item) {
     if (this.volumeLifecycleModes == null) {
-      this.volumeLifecycleModes = new ArrayList();
+      this.volumeLifecycleModes = new ArrayList<>();
     }
     this.volumeLifecycleModes.set(index, item);
     return (A) this;
@@ -606,7 +609,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
       this._visitables.get("tokenRequests").clear();
     }
     if (tokenRequests != null) {
-        this.tokenRequests = new ArrayList();
+        this.tokenRequests = new ArrayList<>();
         for (StorageV1TokenRequest item : tokenRequests) {
           this.addToTokenRequests(item);
         }
@@ -631,7 +634,7 @@ public class V1CSIDriverSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public A withVolumeLifecycleModes(List<String> volumeLifecycleModes) {
     if (volumeLifecycleModes != null) {
-        this.volumeLifecycleModes = new ArrayList();
+        this.volumeLifecycleModes = new ArrayList<>();
         for (String item : volumeLifecycleModes) {
           this.addToVolumeLifecycleModes(item);
         }

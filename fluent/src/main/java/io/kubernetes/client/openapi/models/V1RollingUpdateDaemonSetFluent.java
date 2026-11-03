@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1RollingUpdateDaemonSetFluent<A extends io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1RollingUpdateDaemonSetFluent<A extends V1RollingUpdateDaemonSetFluent<A>> extends BaseFluent<A>{
 
   private IntOrString maxSurge;
   private IntOrString maxUnavailable;
@@ -54,7 +56,7 @@ public class V1RollingUpdateDaemonSetFluent<A extends io.kubernetes.client.opena
     if (!(super.equals(o))) {
       return false;
     }
-    V1RollingUpdateDaemonSetFluent that = (V1RollingUpdateDaemonSetFluent) o;
+    V1RollingUpdateDaemonSetFluent<?> that = (V1RollingUpdateDaemonSetFluent<?>) o;
     if (!(Objects.equals(maxSurge, that.maxSurge))) {
       return false;
     }

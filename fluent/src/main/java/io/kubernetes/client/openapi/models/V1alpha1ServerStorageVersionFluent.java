@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1alpha1ServerStorageVersionFluent<A extends V1alpha1ServerStorageVersionFluent<A>> extends BaseFluent<A>{
 
   private String apiServerID;
   private List<String> decodableVersions;
@@ -43,7 +45,7 @@ public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.o
 
   public A addAllToDecodableVersions(Collection<String> items) {
     if (this.decodableVersions == null) {
-      this.decodableVersions = new ArrayList();
+      this.decodableVersions = new ArrayList<>();
     }
     for (String item : items) {
       this.decodableVersions.add(item);
@@ -53,7 +55,7 @@ public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.o
   
   public A addAllToServedVersions(Collection<String> items) {
     if (this.servedVersions == null) {
-      this.servedVersions = new ArrayList();
+      this.servedVersions = new ArrayList<>();
     }
     for (String item : items) {
       this.servedVersions.add(item);
@@ -63,7 +65,7 @@ public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.o
   
   public A addToDecodableVersions(String... items) {
     if (this.decodableVersions == null) {
-      this.decodableVersions = new ArrayList();
+      this.decodableVersions = new ArrayList<>();
     }
     for (String item : items) {
       this.decodableVersions.add(item);
@@ -73,7 +75,7 @@ public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.o
   
   public A addToDecodableVersions(int index,String item) {
     if (this.decodableVersions == null) {
-      this.decodableVersions = new ArrayList();
+      this.decodableVersions = new ArrayList<>();
     }
     this.decodableVersions.add(index, item);
     return (A) this;
@@ -81,7 +83,7 @@ public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.o
   
   public A addToServedVersions(String... items) {
     if (this.servedVersions == null) {
-      this.servedVersions = new ArrayList();
+      this.servedVersions = new ArrayList<>();
     }
     for (String item : items) {
       this.servedVersions.add(item);
@@ -91,7 +93,7 @@ public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.o
   
   public A addToServedVersions(int index,String item) {
     if (this.servedVersions == null) {
-      this.servedVersions = new ArrayList();
+      this.servedVersions = new ArrayList<>();
     }
     this.servedVersions.add(index, item);
     return (A) this;
@@ -117,7 +119,7 @@ public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.o
     if (!(super.equals(o))) {
       return false;
     }
-    V1alpha1ServerStorageVersionFluent that = (V1alpha1ServerStorageVersionFluent) o;
+    V1alpha1ServerStorageVersionFluent<?> that = (V1alpha1ServerStorageVersionFluent<?>) o;
     if (!(Objects.equals(apiServerID, that.apiServerID))) {
       return false;
     }
@@ -271,7 +273,7 @@ public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.o
   
   public A setToDecodableVersions(int index,String item) {
     if (this.decodableVersions == null) {
-      this.decodableVersions = new ArrayList();
+      this.decodableVersions = new ArrayList<>();
     }
     this.decodableVersions.set(index, item);
     return (A) this;
@@ -279,7 +281,7 @@ public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.o
   
   public A setToServedVersions(int index,String item) {
     if (this.servedVersions == null) {
-      this.servedVersions = new ArrayList();
+      this.servedVersions = new ArrayList<>();
     }
     this.servedVersions.set(index, item);
     return (A) this;
@@ -318,7 +320,7 @@ public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.o
   
   public A withDecodableVersions(List<String> decodableVersions) {
     if (decodableVersions != null) {
-        this.decodableVersions = new ArrayList();
+        this.decodableVersions = new ArrayList<>();
         for (String item : decodableVersions) {
           this.addToDecodableVersions(item);
         }
@@ -348,7 +350,7 @@ public class V1alpha1ServerStorageVersionFluent<A extends io.kubernetes.client.o
   
   public A withServedVersions(List<String> servedVersions) {
     if (servedVersions != null) {
-        this.servedVersions = new ArrayList();
+        this.servedVersions = new ArrayList<>();
         for (String item : servedVersions) {
           this.addToServedVersions(item);
         }

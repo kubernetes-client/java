@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1ConfigMapBuilder extends V1ConfigMapFluent<V1ConfigMapBuilder> implements VisitableBuilder<V1ConfigMap,V1ConfigMapBuilder>{
 
   V1ConfigMapFluent<?> fluent;

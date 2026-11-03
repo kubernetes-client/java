@@ -55,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.
  */
 @ApiModel(description = "ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_AGGREGATION_RULE = "aggregationRule";
   @SerializedName(SERIALIZED_NAME_AGGREGATION_RULE)
@@ -179,11 +179,11 @@ public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObje
   }
 
   /**
-   * Rules holds all the PolicyRules for this ClusterRole
+   * rules holds all the PolicyRules for this ClusterRole
    * @return rules
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Rules holds all the PolicyRules for this ClusterRole")
+  @ApiModelProperty(value = "rules holds all the PolicyRules for this ClusterRole")
   public List<V1PolicyRule> getRules() {
     return rules;
   }

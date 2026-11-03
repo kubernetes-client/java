@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * LeaseSpec is a specification of a Lease.
  */
 @ApiModel(description = "LeaseSpec is a specification of a Lease.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1LeaseSpec {
   public static final String SERIALIZED_NAME_ACQUIRE_TIME = "acquireTime";
   @SerializedName(SERIALIZED_NAME_ACQUIRE_TIME)
@@ -177,11 +177,11 @@ public class V1LeaseSpec {
   }
 
   /**
-   * PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be given up. This field can only be set if Strategy is also set.
+   * preferredHolder signals to a lease holder that the lease has a more optimal holder and should be given up. This field can only be set if Strategy is also set.
    * @return preferredHolder
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "PreferredHolder signals to a lease holder that the lease has a more optimal holder and should be given up. This field can only be set if Strategy is also set.")
+  @ApiModelProperty(value = "preferredHolder signals to a lease holder that the lease has a more optimal holder and should be given up. This field can only be set if Strategy is also set.")
   public String getPreferredHolder() {
     return preferredHolder;
   }
@@ -217,11 +217,11 @@ public class V1LeaseSpec {
   }
 
   /**
-   * Strategy indicates the strategy for picking the leader for coordinated leader election. If the field is not specified, there is no active coordination for this lease. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.
+   * strategy indicates the strategy for picking the leader for coordinated leader election. If the field is not specified, there is no active coordination for this lease. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.
    * @return strategy
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Strategy indicates the strategy for picking the leader for coordinated leader election. If the field is not specified, there is no active coordination for this lease. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.")
+  @ApiModelProperty(value = "strategy indicates the strategy for picking the leader for coordinated leader election. If the field is not specified, there is no active coordination for this lease. (Alpha) Using this field requires the CoordinatedLeaderElection feature gate to be enabled.")
   public String getStrategy() {
     return strategy;
   }

@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2MetricSpecFluent<A extends io.kubernetes.client.openapi.models.V2MetricSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2MetricSpecFluent<A extends V2MetricSpecFluent<A>> extends BaseFluent<A>{
 
   private V2ObjectMetricSourceBuilder _object;
   private V2ContainerResourceMetricSourceBuilder containerResource;
@@ -142,7 +144,7 @@ public class V2MetricSpecFluent<A extends io.kubernetes.client.openapi.models.V2
     if (!(super.equals(o))) {
       return false;
     }
-    V2MetricSpecFluent that = (V2MetricSpecFluent) o;
+    V2MetricSpecFluent<?> that = (V2MetricSpecFluent<?>) o;
     if (!(Objects.equals(containerResource, that.containerResource))) {
       return false;
     }
@@ -238,8 +240,8 @@ public class V2MetricSpecFluent<A extends io.kubernetes.client.openapi.models.V2
         this.containerResource = new V2ContainerResourceMetricSourceBuilder(containerResource);
         this._visitables.get("containerResource").add(this.containerResource);
     } else {
-        this.containerResource = null;
         this._visitables.get("containerResource").remove(this.containerResource);
+        this.containerResource = null;
     }
     return (A) this;
   }
@@ -250,50 +252,50 @@ public class V2MetricSpecFluent<A extends io.kubernetes.client.openapi.models.V2
         this.external = new V2ExternalMetricSourceBuilder(external);
         this._visitables.get("external").add(this.external);
     } else {
-        this.external = null;
         this._visitables.get("external").remove(this.external);
+        this.external = null;
     }
     return (A) this;
   }
   
   public ContainerResourceNested<A> withNewContainerResource() {
-    return new ContainerResourceNested(null);
+    return new ContainerResourceNested<>(null);
   }
   
   public ContainerResourceNested<A> withNewContainerResourceLike(V2ContainerResourceMetricSource item) {
-    return new ContainerResourceNested(item);
+    return new ContainerResourceNested<>(item);
   }
   
   public ExternalNested<A> withNewExternal() {
-    return new ExternalNested(null);
+    return new ExternalNested<>(null);
   }
   
   public ExternalNested<A> withNewExternalLike(V2ExternalMetricSource item) {
-    return new ExternalNested(item);
+    return new ExternalNested<>(item);
   }
   
   public ObjectNested<A> withNewObject() {
-    return new ObjectNested(null);
+    return new ObjectNested<>(null);
   }
   
   public ObjectNested<A> withNewObjectLike(V2ObjectMetricSource item) {
-    return new ObjectNested(item);
+    return new ObjectNested<>(item);
   }
   
   public PodsNested<A> withNewPods() {
-    return new PodsNested(null);
+    return new PodsNested<>(null);
   }
   
   public PodsNested<A> withNewPodsLike(V2PodsMetricSource item) {
-    return new PodsNested(item);
+    return new PodsNested<>(item);
   }
   
   public ResourceNested<A> withNewResource() {
-    return new ResourceNested(null);
+    return new ResourceNested<>(null);
   }
   
   public ResourceNested<A> withNewResourceLike(V2ResourceMetricSource item) {
-    return new ResourceNested(item);
+    return new ResourceNested<>(item);
   }
   
   public A withObject(V2ObjectMetricSource _object) {
@@ -302,8 +304,8 @@ public class V2MetricSpecFluent<A extends io.kubernetes.client.openapi.models.V2
         this._object = new V2ObjectMetricSourceBuilder(_object);
         this._visitables.get("_object").add(this._object);
     } else {
-        this._object = null;
         this._visitables.get("_object").remove(this._object);
+        this._object = null;
     }
     return (A) this;
   }
@@ -314,8 +316,8 @@ public class V2MetricSpecFluent<A extends io.kubernetes.client.openapi.models.V2
         this.pods = new V2PodsMetricSourceBuilder(pods);
         this._visitables.get("pods").add(this.pods);
     } else {
-        this.pods = null;
         this._visitables.get("pods").remove(this.pods);
+        this.pods = null;
     }
     return (A) this;
   }
@@ -326,8 +328,8 @@ public class V2MetricSpecFluent<A extends io.kubernetes.client.openapi.models.V2
         this.resource = new V2ResourceMetricSourceBuilder(resource);
         this._visitables.get("resource").add(this.resource);
     } else {
-        this.resource = null;
         this._visitables.get("resource").remove(this.resource);
+        this.resource = null;
     }
     return (A) this;
   }

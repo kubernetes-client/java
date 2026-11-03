@@ -38,6 +38,9 @@ public class Taints {
   }
 
   public static V1Taint findTaint(V1Node node, String key, Effect effect) {
+    if (node.getSpec() == null || node.getSpec().getTaints() == null) {
+      return null;
+    }
     for (V1Taint taint : node.getSpec().getTaints()) {
       if (taint.getKey().equals(key) && taint.getEffect().equals(effect.toString())) {
         return taint;

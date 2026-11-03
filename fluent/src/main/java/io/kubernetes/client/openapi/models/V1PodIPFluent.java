@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodIPFluent<A extends io.kubernetes.client.openapi.models.V1PodIPFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodIPFluent<A extends V1PodIPFluent<A>> extends BaseFluent<A>{
 
   private String ip;
 
@@ -51,7 +53,7 @@ public class V1PodIPFluent<A extends io.kubernetes.client.openapi.models.V1PodIP
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodIPFluent that = (V1PodIPFluent) o;
+    V1PodIPFluent<?> that = (V1PodIPFluent<?>) o;
     if (!(Objects.equals(ip, that.ip))) {
       return false;
     }

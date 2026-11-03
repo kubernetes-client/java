@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class AbstractOpenApiSchemaFluent<A extends io.kubernetes.client.openapi.models.AbstractOpenApiSchemaFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class AbstractOpenApiSchemaFluent<A extends AbstractOpenApiSchemaFluent<A>> extends BaseFluent<A>{
 
   private Boolean isNullable;
   private String schemaType;
@@ -52,7 +54,7 @@ public class AbstractOpenApiSchemaFluent<A extends io.kubernetes.client.openapi.
     if (!(super.equals(o))) {
       return false;
     }
-    AbstractOpenApiSchemaFluent that = (AbstractOpenApiSchemaFluent) o;
+    AbstractOpenApiSchemaFluent<?> that = (AbstractOpenApiSchemaFluent<?>) o;
     if (!(Objects.equals(isNullable, that.isNullable))) {
       return false;
     }

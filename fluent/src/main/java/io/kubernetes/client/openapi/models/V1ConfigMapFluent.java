@@ -23,12 +23,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ConfigMapFluent<A extends io.kubernetes.client.openapi.models.V1ConfigMapFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ConfigMapFluent<A extends V1ConfigMapFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private Map<String,byte[]> binaryData;
@@ -46,7 +48,7 @@ public class V1ConfigMapFluent<A extends io.kubernetes.client.openapi.models.V1C
 
   public A addToBinaryData(Map<String,byte[]> map) {
     if (this.binaryData == null && map != null) {
-      this.binaryData = new LinkedHashMap();
+      this.binaryData = new LinkedHashMap<>();
     }
     if (map != null) {
       this.binaryData.putAll(map);
@@ -56,7 +58,7 @@ public class V1ConfigMapFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToBinaryData(String key,byte[] value) {
     if (this.binaryData == null && key != null && value != null) {
-      this.binaryData = new LinkedHashMap();
+      this.binaryData = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.binaryData.put(key, value);
@@ -66,7 +68,7 @@ public class V1ConfigMapFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToData(Map<String,String> map) {
     if (this.data == null && map != null) {
-      this.data = new LinkedHashMap();
+      this.data = new LinkedHashMap<>();
     }
     if (map != null) {
       this.data.putAll(map);
@@ -76,7 +78,7 @@ public class V1ConfigMapFluent<A extends io.kubernetes.client.openapi.models.V1C
   
   public A addToData(String key,String value) {
     if (this.data == null && key != null && value != null) {
-      this.data = new LinkedHashMap();
+      this.data = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.data.put(key, value);
@@ -122,7 +124,7 @@ public class V1ConfigMapFluent<A extends io.kubernetes.client.openapi.models.V1C
     if (!(super.equals(o))) {
       return false;
     }
-    V1ConfigMapFluent that = (V1ConfigMapFluent) o;
+    V1ConfigMapFluent<?> that = (V1ConfigMapFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -285,7 +287,7 @@ public class V1ConfigMapFluent<A extends io.kubernetes.client.openapi.models.V1C
     if (binaryData == null) {
       this.binaryData = null;
     } else {
-      this.binaryData = new LinkedHashMap(binaryData);
+      this.binaryData = new LinkedHashMap<>(binaryData);
     }
     return (A) this;
   }
@@ -294,7 +296,7 @@ public class V1ConfigMapFluent<A extends io.kubernetes.client.openapi.models.V1C
     if (data == null) {
       this.data = null;
     } else {
-      this.data = new LinkedHashMap(data);
+      this.data = new LinkedHashMap<>(data);
     }
     return (A) this;
   }
@@ -319,18 +321,18 @@ public class V1ConfigMapFluent<A extends io.kubernetes.client.openapi.models.V1C
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   public class MetadataNested<N> extends V1ObjectMetaFluent<MetadataNested<N>> implements Nested<N>{
   

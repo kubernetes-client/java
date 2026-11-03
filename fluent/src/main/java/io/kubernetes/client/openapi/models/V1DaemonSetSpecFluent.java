@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DaemonSetSpecFluent<A extends io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DaemonSetSpecFluent<A extends V1DaemonSetSpecFluent<A>> extends BaseFluent<A>{
 
   private Integer minReadySeconds;
   private Integer revisionHistoryLimit;
@@ -110,7 +112,7 @@ public class V1DaemonSetSpecFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1DaemonSetSpecFluent that = (V1DaemonSetSpecFluent) o;
+    V1DaemonSetSpecFluent<?> that = (V1DaemonSetSpecFluent<?>) o;
     if (!(Objects.equals(minReadySeconds, that.minReadySeconds))) {
       return false;
     }
@@ -198,27 +200,27 @@ public class V1DaemonSetSpecFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public SelectorNested<A> withNewSelector() {
-    return new SelectorNested(null);
+    return new SelectorNested<>(null);
   }
   
   public SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
-    return new SelectorNested(item);
+    return new SelectorNested<>(item);
   }
   
   public TemplateNested<A> withNewTemplate() {
-    return new TemplateNested(null);
+    return new TemplateNested<>(null);
   }
   
   public TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
-    return new TemplateNested(item);
+    return new TemplateNested<>(item);
   }
   
   public UpdateStrategyNested<A> withNewUpdateStrategy() {
-    return new UpdateStrategyNested(null);
+    return new UpdateStrategyNested<>(null);
   }
   
   public UpdateStrategyNested<A> withNewUpdateStrategyLike(V1DaemonSetUpdateStrategy item) {
-    return new UpdateStrategyNested(item);
+    return new UpdateStrategyNested<>(item);
   }
   
   public A withRevisionHistoryLimit(Integer revisionHistoryLimit) {
@@ -232,8 +234,8 @@ public class V1DaemonSetSpecFluent<A extends io.kubernetes.client.openapi.models
         this.selector = new V1LabelSelectorBuilder(selector);
         this._visitables.get("selector").add(this.selector);
     } else {
-        this.selector = null;
         this._visitables.get("selector").remove(this.selector);
+        this.selector = null;
     }
     return (A) this;
   }
@@ -244,8 +246,8 @@ public class V1DaemonSetSpecFluent<A extends io.kubernetes.client.openapi.models
         this.template = new V1PodTemplateSpecBuilder(template);
         this._visitables.get("template").add(this.template);
     } else {
-        this.template = null;
         this._visitables.get("template").remove(this.template);
+        this.template = null;
     }
     return (A) this;
   }
@@ -256,8 +258,8 @@ public class V1DaemonSetSpecFluent<A extends io.kubernetes.client.openapi.models
         this.updateStrategy = new V1DaemonSetUpdateStrategyBuilder(updateStrategy);
         this._visitables.get("updateStrategy").add(this.updateStrategy);
     } else {
-        this.updateStrategy = null;
         this._visitables.get("updateStrategy").remove(this.updateStrategy);
+        this.updateStrategy = null;
     }
     return (A) this;
   }

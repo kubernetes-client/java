@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1alpha1StorageVersionStatusFluent<A extends V1alpha1StorageVersionStatusFluent<A>> extends BaseFluent<A>{
 
   private String commonEncodingVersion;
   private ArrayList<V1alpha1StorageVersionConditionBuilder> conditions;
@@ -45,7 +47,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
 
   public A addAllToConditions(Collection<V1alpha1StorageVersionCondition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1alpha1StorageVersionCondition item : items) {
         V1alpha1StorageVersionConditionBuilder builder = new V1alpha1StorageVersionConditionBuilder(item);
@@ -57,7 +59,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
   
   public A addAllToStorageVersions(Collection<V1alpha1ServerStorageVersion> items) {
     if (this.storageVersions == null) {
-      this.storageVersions = new ArrayList();
+      this.storageVersions = new ArrayList<>();
     }
     for (V1alpha1ServerStorageVersion item : items) {
         V1alpha1ServerStorageVersionBuilder builder = new V1alpha1ServerStorageVersionBuilder(item);
@@ -68,24 +70,24 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1alpha1StorageVersionCondition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public StorageVersionsNested<A> addNewStorageVersion() {
-    return new StorageVersionsNested(-1, null);
+    return new StorageVersionsNested<>(-1, null);
   }
   
   public StorageVersionsNested<A> addNewStorageVersionLike(V1alpha1ServerStorageVersion item) {
-    return new StorageVersionsNested(-1, item);
+    return new StorageVersionsNested<>(-1, item);
   }
   
   public A addToConditions(V1alpha1StorageVersionCondition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1alpha1StorageVersionCondition item : items) {
         V1alpha1StorageVersionConditionBuilder builder = new V1alpha1StorageVersionConditionBuilder(item);
@@ -97,7 +99,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
   
   public A addToConditions(int index,V1alpha1StorageVersionCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1alpha1StorageVersionConditionBuilder builder = new V1alpha1StorageVersionConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -112,7 +114,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
   
   public A addToStorageVersions(V1alpha1ServerStorageVersion... items) {
     if (this.storageVersions == null) {
-      this.storageVersions = new ArrayList();
+      this.storageVersions = new ArrayList<>();
     }
     for (V1alpha1ServerStorageVersion item : items) {
         V1alpha1ServerStorageVersionBuilder builder = new V1alpha1ServerStorageVersionBuilder(item);
@@ -124,7 +126,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
   
   public A addToStorageVersions(int index,V1alpha1ServerStorageVersion item) {
     if (this.storageVersions == null) {
-      this.storageVersions = new ArrayList();
+      this.storageVersions = new ArrayList<>();
     }
     V1alpha1ServerStorageVersionBuilder builder = new V1alpha1ServerStorageVersionBuilder(item);
     if (index < 0 || index >= this.storageVersions.size()) {
@@ -278,7 +280,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
     if (!(super.equals(o))) {
       return false;
     }
-    V1alpha1StorageVersionStatusFluent that = (V1alpha1StorageVersionStatusFluent) o;
+    V1alpha1StorageVersionStatusFluent<?> that = (V1alpha1StorageVersionStatusFluent<?>) o;
     if (!(Objects.equals(commonEncodingVersion, that.commonEncodingVersion))) {
       return false;
     }
@@ -382,6 +384,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
       return (A) this;
     }
     Iterator<V1alpha1StorageVersionConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1alpha1StorageVersionConditionBuilder builder = each.next();
@@ -398,6 +401,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
       return (A) this;
     }
     Iterator<V1alpha1ServerStorageVersionBuilder> each = storageVersions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("storageVersions");
     while (each.hasNext()) {
         V1alpha1ServerStorageVersionBuilder builder = each.next();
@@ -410,16 +414,16 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1alpha1StorageVersionCondition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public StorageVersionsNested<A> setNewStorageVersionLike(int index,V1alpha1ServerStorageVersion item) {
-    return new StorageVersionsNested(index, item);
+    return new StorageVersionsNested<>(index, item);
   }
   
   public A setToConditions(int index,V1alpha1StorageVersionCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1alpha1StorageVersionConditionBuilder builder = new V1alpha1StorageVersionConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -434,7 +438,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
   
   public A setToStorageVersions(int index,V1alpha1ServerStorageVersion item) {
     if (this.storageVersions == null) {
-      this.storageVersions = new ArrayList();
+      this.storageVersions = new ArrayList<>();
     }
     V1alpha1ServerStorageVersionBuilder builder = new V1alpha1ServerStorageVersionBuilder(item);
     if (index < 0 || index >= this.storageVersions.size()) {
@@ -478,7 +482,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1alpha1StorageVersionCondition item : conditions) {
           this.addToConditions(item);
         }
@@ -506,7 +510,7 @@ public class V1alpha1StorageVersionStatusFluent<A extends io.kubernetes.client.o
       this._visitables.get("storageVersions").clear();
     }
     if (storageVersions != null) {
-        this.storageVersions = new ArrayList();
+        this.storageVersions = new ArrayList<>();
         for (V1alpha1ServerStorageVersion item : storageVersions) {
           this.addToStorageVersions(item);
         }

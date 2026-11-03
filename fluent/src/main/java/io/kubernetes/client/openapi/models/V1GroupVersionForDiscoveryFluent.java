@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1GroupVersionForDiscoveryFluent<A extends io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1GroupVersionForDiscoveryFluent<A extends V1GroupVersionForDiscoveryFluent<A>> extends BaseFluent<A>{
 
   private String groupVersion;
   private String version;
@@ -53,7 +55,7 @@ public class V1GroupVersionForDiscoveryFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V1GroupVersionForDiscoveryFluent that = (V1GroupVersionForDiscoveryFluent) o;
+    V1GroupVersionForDiscoveryFluent<?> that = (V1GroupVersionForDiscoveryFluent<?>) o;
     if (!(Objects.equals(groupVersion, that.groupVersion))) {
       return false;
     }

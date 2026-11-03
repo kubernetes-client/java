@@ -8,9 +8,9 @@ GroupVersionKind unambiguously identifies a kind.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**group** | **String** | group is the group part of the GroupVersionKind. |  |
-|**kind** | **String** | kind is the kind part of the GroupVersionKind. |  |
-|**version** | **String** | version is the version part of the GroupVersionKind. |  |
+|**group** | **String** |  |  [optional] |
+|**version** | **String** |  |  [optional] |
+|**kind** | **String** |  |  [optional] |
 
 
 

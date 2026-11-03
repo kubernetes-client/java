@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder extends V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder> implements VisitableBuilder<V1StatefulSetPersistentVolumeClaimRetentionPolicy,V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder>{
 
   V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?> fluent;

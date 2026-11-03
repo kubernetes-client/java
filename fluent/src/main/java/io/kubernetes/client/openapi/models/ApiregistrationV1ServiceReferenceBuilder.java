@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class ApiregistrationV1ServiceReferenceBuilder extends ApiregistrationV1ServiceReferenceFluent<ApiregistrationV1ServiceReferenceBuilder> implements VisitableBuilder<ApiregistrationV1ServiceReference,ApiregistrationV1ServiceReferenceBuilder>{
 
   ApiregistrationV1ServiceReferenceFluent<?> fluent;

@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NamespaceSpecFluent<A extends io.kubernetes.client.openapi.models.V1NamespaceSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NamespaceSpecFluent<A extends V1NamespaceSpecFluent<A>> extends BaseFluent<A>{
 
   private List<String> finalizers;
 
@@ -40,7 +42,7 @@ public class V1NamespaceSpecFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToFinalizers(Collection<String> items) {
     if (this.finalizers == null) {
-      this.finalizers = new ArrayList();
+      this.finalizers = new ArrayList<>();
     }
     for (String item : items) {
       this.finalizers.add(item);
@@ -50,7 +52,7 @@ public class V1NamespaceSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToFinalizers(String... items) {
     if (this.finalizers == null) {
-      this.finalizers = new ArrayList();
+      this.finalizers = new ArrayList<>();
     }
     for (String item : items) {
       this.finalizers.add(item);
@@ -60,7 +62,7 @@ public class V1NamespaceSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToFinalizers(int index,String item) {
     if (this.finalizers == null) {
-      this.finalizers = new ArrayList();
+      this.finalizers = new ArrayList<>();
     }
     this.finalizers.add(index, item);
     return (A) this;
@@ -83,7 +85,7 @@ public class V1NamespaceSpecFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1NamespaceSpecFluent that = (V1NamespaceSpecFluent) o;
+    V1NamespaceSpecFluent<?> that = (V1NamespaceSpecFluent<?>) o;
     if (!(Objects.equals(finalizers, that.finalizers))) {
       return false;
     }
@@ -154,7 +156,7 @@ public class V1NamespaceSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public A setToFinalizers(int index,String item) {
     if (this.finalizers == null) {
-      this.finalizers = new ArrayList();
+      this.finalizers = new ArrayList<>();
     }
     this.finalizers.set(index, item);
     return (A) this;
@@ -173,7 +175,7 @@ public class V1NamespaceSpecFluent<A extends io.kubernetes.client.openapi.models
   
   public A withFinalizers(List<String> finalizers) {
     if (finalizers != null) {
-        this.finalizers = new ArrayList();
+        this.finalizers = new ArrayList<>();
         for (String item : finalizers) {
           this.addToFinalizers(item);
         }

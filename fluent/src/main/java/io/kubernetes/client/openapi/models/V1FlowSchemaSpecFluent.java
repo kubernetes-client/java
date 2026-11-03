@@ -27,12 +27,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.models.V1FlowSchemaSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1FlowSchemaSpecFluent<A extends V1FlowSchemaSpecFluent<A>> extends BaseFluent<A>{
 
   private V1FlowDistinguisherMethodBuilder distinguisherMethod;
   private Integer matchingPrecedence;
@@ -48,7 +50,7 @@ public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.model
 
   public A addAllToRules(Collection<V1PolicyRulesWithSubjects> items) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     for (V1PolicyRulesWithSubjects item : items) {
         V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);
@@ -59,16 +61,16 @@ public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public RulesNested<A> addNewRule() {
-    return new RulesNested(-1, null);
+    return new RulesNested<>(-1, null);
   }
   
   public RulesNested<A> addNewRuleLike(V1PolicyRulesWithSubjects item) {
-    return new RulesNested(-1, item);
+    return new RulesNested<>(-1, item);
   }
   
   public A addToRules(V1PolicyRulesWithSubjects... items) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     for (V1PolicyRulesWithSubjects item : items) {
         V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);
@@ -80,7 +82,7 @@ public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToRules(int index,V1PolicyRulesWithSubjects item) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);
     if (index < 0 || index >= this.rules.size()) {
@@ -206,7 +208,7 @@ public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1FlowSchemaSpecFluent that = (V1FlowSchemaSpecFluent) o;
+    V1FlowSchemaSpecFluent<?> that = (V1FlowSchemaSpecFluent<?>) o;
     if (!(Objects.equals(distinguisherMethod, that.distinguisherMethod))) {
       return false;
     }
@@ -284,6 +286,7 @@ public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1PolicyRulesWithSubjectsBuilder> each = rules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("rules");
     while (each.hasNext()) {
         V1PolicyRulesWithSubjectsBuilder builder = each.next();
@@ -296,12 +299,12 @@ public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public RulesNested<A> setNewRuleLike(int index,V1PolicyRulesWithSubjects item) {
-    return new RulesNested(index, item);
+    return new RulesNested<>(index, item);
   }
   
   public A setToRules(int index,V1PolicyRulesWithSubjects item) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     V1PolicyRulesWithSubjectsBuilder builder = new V1PolicyRulesWithSubjectsBuilder(item);
     if (index < 0 || index >= this.rules.size()) {
@@ -346,8 +349,8 @@ public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.model
         this.distinguisherMethod = new V1FlowDistinguisherMethodBuilder(distinguisherMethod);
         this._visitables.get("distinguisherMethod").add(this.distinguisherMethod);
     } else {
-        this.distinguisherMethod = null;
         this._visitables.get("distinguisherMethod").remove(this.distinguisherMethod);
+        this.distinguisherMethod = null;
     }
     return (A) this;
   }
@@ -358,19 +361,19 @@ public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public DistinguisherMethodNested<A> withNewDistinguisherMethod() {
-    return new DistinguisherMethodNested(null);
+    return new DistinguisherMethodNested<>(null);
   }
   
   public DistinguisherMethodNested<A> withNewDistinguisherMethodLike(V1FlowDistinguisherMethod item) {
-    return new DistinguisherMethodNested(item);
+    return new DistinguisherMethodNested<>(item);
   }
   
   public PriorityLevelConfigurationNested<A> withNewPriorityLevelConfiguration() {
-    return new PriorityLevelConfigurationNested(null);
+    return new PriorityLevelConfigurationNested<>(null);
   }
   
   public PriorityLevelConfigurationNested<A> withNewPriorityLevelConfigurationLike(V1PriorityLevelConfigurationReference item) {
-    return new PriorityLevelConfigurationNested(item);
+    return new PriorityLevelConfigurationNested<>(item);
   }
   
   public A withPriorityLevelConfiguration(V1PriorityLevelConfigurationReference priorityLevelConfiguration) {
@@ -379,8 +382,8 @@ public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.model
         this.priorityLevelConfiguration = new V1PriorityLevelConfigurationReferenceBuilder(priorityLevelConfiguration);
         this._visitables.get("priorityLevelConfiguration").add(this.priorityLevelConfiguration);
     } else {
-        this.priorityLevelConfiguration = null;
         this._visitables.get("priorityLevelConfiguration").remove(this.priorityLevelConfiguration);
+        this.priorityLevelConfiguration = null;
     }
     return (A) this;
   }
@@ -390,7 +393,7 @@ public class V1FlowSchemaSpecFluent<A extends io.kubernetes.client.openapi.model
       this._visitables.get("rules").clear();
     }
     if (rules != null) {
-        this.rules = new ArrayList();
+        this.rules = new ArrayList<>();
         for (V1PolicyRulesWithSubjects item : rules) {
           this.addToRules(item);
         }

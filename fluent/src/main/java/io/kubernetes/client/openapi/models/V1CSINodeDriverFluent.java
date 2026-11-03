@@ -24,12 +24,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.models.V1CSINodeDriverFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CSINodeDriverFluent<A extends V1CSINodeDriverFluent<A>> extends BaseFluent<A>{
 
   private V1VolumeNodeResourcesBuilder allocatable;
   private String name;
@@ -45,7 +47,7 @@ public class V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToTopologyKeys(Collection<String> items) {
     if (this.topologyKeys == null) {
-      this.topologyKeys = new ArrayList();
+      this.topologyKeys = new ArrayList<>();
     }
     for (String item : items) {
       this.topologyKeys.add(item);
@@ -55,7 +57,7 @@ public class V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToTopologyKeys(String... items) {
     if (this.topologyKeys == null) {
-      this.topologyKeys = new ArrayList();
+      this.topologyKeys = new ArrayList<>();
     }
     for (String item : items) {
       this.topologyKeys.add(item);
@@ -65,7 +67,7 @@ public class V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToTopologyKeys(int index,String item) {
     if (this.topologyKeys == null) {
-      this.topologyKeys = new ArrayList();
+      this.topologyKeys = new ArrayList<>();
     }
     this.topologyKeys.add(index, item);
     return (A) this;
@@ -107,7 +109,7 @@ public class V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1CSINodeDriverFluent that = (V1CSINodeDriverFluent) o;
+    V1CSINodeDriverFluent<?> that = (V1CSINodeDriverFluent<?>) o;
     if (!(Objects.equals(allocatable, that.allocatable))) {
       return false;
     }
@@ -207,7 +209,7 @@ public class V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.models
   
   public A setToTopologyKeys(int index,String item) {
     if (this.topologyKeys == null) {
-      this.topologyKeys = new ArrayList();
+      this.topologyKeys = new ArrayList<>();
     }
     this.topologyKeys.set(index, item);
     return (A) this;
@@ -245,8 +247,8 @@ public class V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.models
         this.allocatable = new V1VolumeNodeResourcesBuilder(allocatable);
         this._visitables.get("allocatable").add(this.allocatable);
     } else {
-        this.allocatable = null;
         this._visitables.get("allocatable").remove(this.allocatable);
+        this.allocatable = null;
     }
     return (A) this;
   }
@@ -257,11 +259,11 @@ public class V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public AllocatableNested<A> withNewAllocatable() {
-    return new AllocatableNested(null);
+    return new AllocatableNested<>(null);
   }
   
   public AllocatableNested<A> withNewAllocatableLike(V1VolumeNodeResources item) {
-    return new AllocatableNested(item);
+    return new AllocatableNested<>(item);
   }
   
   public A withNodeID(String nodeID) {
@@ -271,7 +273,7 @@ public class V1CSINodeDriverFluent<A extends io.kubernetes.client.openapi.models
   
   public A withTopologyKeys(List<String> topologyKeys) {
     if (topologyKeys != null) {
-        this.topologyKeys = new ArrayList();
+        this.topologyKeys = new ArrayList<>();
         for (String item : topologyKeys) {
           this.addToTopologyKeys(item);
         }

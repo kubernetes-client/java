@@ -23,12 +23,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VolumeAttachmentStatusFluent<A extends io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VolumeAttachmentStatusFluent<A extends V1VolumeAttachmentStatusFluent<A>> extends BaseFluent<A>{
 
   private V1VolumeErrorBuilder attachError;
   private Boolean attached;
@@ -44,7 +46,7 @@ public class V1VolumeAttachmentStatusFluent<A extends io.kubernetes.client.opena
 
   public A addToAttachmentMetadata(Map<String,String> map) {
     if (this.attachmentMetadata == null && map != null) {
-      this.attachmentMetadata = new LinkedHashMap();
+      this.attachmentMetadata = new LinkedHashMap<>();
     }
     if (map != null) {
       this.attachmentMetadata.putAll(map);
@@ -54,7 +56,7 @@ public class V1VolumeAttachmentStatusFluent<A extends io.kubernetes.client.opena
   
   public A addToAttachmentMetadata(String key,String value) {
     if (this.attachmentMetadata == null && key != null && value != null) {
-      this.attachmentMetadata = new LinkedHashMap();
+      this.attachmentMetadata = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.attachmentMetadata.put(key, value);
@@ -114,7 +116,7 @@ public class V1VolumeAttachmentStatusFluent<A extends io.kubernetes.client.opena
     if (!(super.equals(o))) {
       return false;
     }
-    V1VolumeAttachmentStatusFluent that = (V1VolumeAttachmentStatusFluent) o;
+    V1VolumeAttachmentStatusFluent<?> that = (V1VolumeAttachmentStatusFluent<?>) o;
     if (!(Objects.equals(attachError, that.attachError))) {
       return false;
     }
@@ -214,8 +216,8 @@ public class V1VolumeAttachmentStatusFluent<A extends io.kubernetes.client.opena
         this.attachError = new V1VolumeErrorBuilder(attachError);
         this._visitables.get("attachError").add(this.attachError);
     } else {
-        this.attachError = null;
         this._visitables.get("attachError").remove(this.attachError);
+        this.attachError = null;
     }
     return (A) this;
   }
@@ -233,7 +235,7 @@ public class V1VolumeAttachmentStatusFluent<A extends io.kubernetes.client.opena
     if (attachmentMetadata == null) {
       this.attachmentMetadata = null;
     } else {
-      this.attachmentMetadata = new LinkedHashMap(attachmentMetadata);
+      this.attachmentMetadata = new LinkedHashMap<>(attachmentMetadata);
     }
     return (A) this;
   }
@@ -244,26 +246,26 @@ public class V1VolumeAttachmentStatusFluent<A extends io.kubernetes.client.opena
         this.detachError = new V1VolumeErrorBuilder(detachError);
         this._visitables.get("detachError").add(this.detachError);
     } else {
-        this.detachError = null;
         this._visitables.get("detachError").remove(this.detachError);
+        this.detachError = null;
     }
     return (A) this;
   }
   
   public AttachErrorNested<A> withNewAttachError() {
-    return new AttachErrorNested(null);
+    return new AttachErrorNested<>(null);
   }
   
   public AttachErrorNested<A> withNewAttachErrorLike(V1VolumeError item) {
-    return new AttachErrorNested(item);
+    return new AttachErrorNested<>(item);
   }
   
   public DetachErrorNested<A> withNewDetachError() {
-    return new DetachErrorNested(null);
+    return new DetachErrorNested<>(null);
   }
   
   public DetachErrorNested<A> withNewDetachErrorLike(V1VolumeError item) {
-    return new DetachErrorNested(item);
+    return new DetachErrorNested<>(item);
   }
   public class AttachErrorNested<N> extends V1VolumeErrorFluent<AttachErrorNested<N>> implements Nested<N>{
   

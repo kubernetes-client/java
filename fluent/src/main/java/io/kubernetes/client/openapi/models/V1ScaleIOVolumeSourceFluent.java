@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ScaleIOVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1ScaleIOVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ScaleIOVolumeSourceFluent<A extends V1ScaleIOVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String fsType;
   private String gateway;
@@ -88,7 +90,7 @@ public class V1ScaleIOVolumeSourceFluent<A extends io.kubernetes.client.openapi.
     if (!(super.equals(o))) {
       return false;
     }
-    V1ScaleIOVolumeSourceFluent that = (V1ScaleIOVolumeSourceFluent) o;
+    V1ScaleIOVolumeSourceFluent<?> that = (V1ScaleIOVolumeSourceFluent<?>) o;
     if (!(Objects.equals(fsType, that.fsType))) {
       return false;
     }
@@ -269,11 +271,11 @@ public class V1ScaleIOVolumeSourceFluent<A extends io.kubernetes.client.openapi.
   }
   
   public SecretRefNested<A> withNewSecretRef() {
-    return new SecretRefNested(null);
+    return new SecretRefNested<>(null);
   }
   
   public SecretRefNested<A> withNewSecretRefLike(V1LocalObjectReference item) {
-    return new SecretRefNested(item);
+    return new SecretRefNested<>(item);
   }
   
   public A withProtectionDomain(String protectionDomain) {
@@ -296,8 +298,8 @@ public class V1ScaleIOVolumeSourceFluent<A extends io.kubernetes.client.openapi.
         this.secretRef = new V1LocalObjectReferenceBuilder(secretRef);
         this._visitables.get("secretRef").add(this.secretRef);
     } else {
-        this.secretRef = null;
         this._visitables.get("secretRef").remove(this.secretRef);
+        this.secretRef = null;
     }
     return (A) this;
   }

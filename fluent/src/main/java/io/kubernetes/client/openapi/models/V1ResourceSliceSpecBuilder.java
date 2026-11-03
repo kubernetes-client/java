@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1ResourceSliceSpecBuilder extends V1ResourceSliceSpecFluent<V1ResourceSliceSpecBuilder> implements VisitableBuilder<V1ResourceSliceSpec,V1ResourceSliceSpecBuilder>{
 
   V1ResourceSliceSpecFluent<?> fluent;
@@ -43,9 +44,11 @@ public class V1ResourceSliceSpecBuilder extends V1ResourceSliceSpecFluent<V1Reso
     buildable.setDriver(fluent.getDriver());
     buildable.setNodeName(fluent.getNodeName());
     buildable.setNodeSelector(fluent.buildNodeSelector());
+    buildable.setPartitionTypeAttribute(fluent.getPartitionTypeAttribute());
     buildable.setPerDeviceNodeSelection(fluent.getPerDeviceNodeSelection());
     buildable.setPool(fluent.buildPool());
     buildable.setSharedCounters(fluent.buildSharedCounters());
+    buildable.setSkipNodeOperations(fluent.getSkipNodeOperations());
     return buildable;
   }
   

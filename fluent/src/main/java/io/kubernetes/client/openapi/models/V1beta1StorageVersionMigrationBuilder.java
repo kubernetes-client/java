@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1beta1StorageVersionMigrationBuilder extends V1beta1StorageVersionMigrationFluent<V1beta1StorageVersionMigrationBuilder> implements VisitableBuilder<V1beta1StorageVersionMigration,V1beta1StorageVersionMigrationBuilder>{
 
   V1beta1StorageVersionMigrationFluent<?> fluent;

@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SeccompProfileFluent<A extends io.kubernetes.client.openapi.models.V1SeccompProfileFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SeccompProfileFluent<A extends V1SeccompProfileFluent<A>> extends BaseFluent<A>{
 
   private String localhostProfile;
   private String type;
@@ -53,7 +55,7 @@ public class V1SeccompProfileFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1SeccompProfileFluent that = (V1SeccompProfileFluent) o;
+    V1SeccompProfileFluent<?> that = (V1SeccompProfileFluent<?>) o;
     if (!(Objects.equals(localhostProfile, that.localhostProfile))) {
       return false;
     }

@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1ServiceAccountTokenProjectionBuilder extends V1ServiceAccountTokenProjectionFluent<V1ServiceAccountTokenProjectionBuilder> implements VisitableBuilder<V1ServiceAccountTokenProjection,V1ServiceAccountTokenProjectionBuilder>{
 
   V1ServiceAccountTokenProjectionFluent<?> fluent;
@@ -41,6 +42,7 @@ public class V1ServiceAccountTokenProjectionBuilder extends V1ServiceAccountToke
     buildable.setAudience(fluent.getAudience());
     buildable.setExpirationSeconds(fluent.getExpirationSeconds());
     buildable.setPath(fluent.getPath());
+    buildable.setUser(fluent.getUser());
     return buildable;
   }
   

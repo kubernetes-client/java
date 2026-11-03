@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.models.V1NonResourceRuleFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NonResourceRuleFluent<A extends V1NonResourceRuleFluent<A>> extends BaseFluent<A>{
 
   private List<String> nonResourceURLs;
   private List<String> verbs;
@@ -41,7 +43,7 @@ public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToNonResourceURLs(Collection<String> items) {
     if (this.nonResourceURLs == null) {
-      this.nonResourceURLs = new ArrayList();
+      this.nonResourceURLs = new ArrayList<>();
     }
     for (String item : items) {
       this.nonResourceURLs.add(item);
@@ -51,7 +53,7 @@ public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToVerbs(Collection<String> items) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     for (String item : items) {
       this.verbs.add(item);
@@ -61,7 +63,7 @@ public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToNonResourceURLs(String... items) {
     if (this.nonResourceURLs == null) {
-      this.nonResourceURLs = new ArrayList();
+      this.nonResourceURLs = new ArrayList<>();
     }
     for (String item : items) {
       this.nonResourceURLs.add(item);
@@ -71,7 +73,7 @@ public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToNonResourceURLs(int index,String item) {
     if (this.nonResourceURLs == null) {
-      this.nonResourceURLs = new ArrayList();
+      this.nonResourceURLs = new ArrayList<>();
     }
     this.nonResourceURLs.add(index, item);
     return (A) this;
@@ -79,7 +81,7 @@ public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToVerbs(String... items) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     for (String item : items) {
       this.verbs.add(item);
@@ -89,7 +91,7 @@ public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToVerbs(int index,String item) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     this.verbs.add(index, item);
     return (A) this;
@@ -113,7 +115,7 @@ public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1NonResourceRuleFluent that = (V1NonResourceRuleFluent) o;
+    V1NonResourceRuleFluent<?> that = (V1NonResourceRuleFluent<?>) o;
     if (!(Objects.equals(nonResourceURLs, that.nonResourceURLs))) {
       return false;
     }
@@ -245,7 +247,7 @@ public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToNonResourceURLs(int index,String item) {
     if (this.nonResourceURLs == null) {
-      this.nonResourceURLs = new ArrayList();
+      this.nonResourceURLs = new ArrayList<>();
     }
     this.nonResourceURLs.set(index, item);
     return (A) this;
@@ -253,7 +255,7 @@ public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToVerbs(int index,String item) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     this.verbs.set(index, item);
     return (A) this;
@@ -277,7 +279,7 @@ public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.mode
   
   public A withNonResourceURLs(List<String> nonResourceURLs) {
     if (nonResourceURLs != null) {
-        this.nonResourceURLs = new ArrayList();
+        this.nonResourceURLs = new ArrayList<>();
         for (String item : nonResourceURLs) {
           this.addToNonResourceURLs(item);
         }
@@ -302,7 +304,7 @@ public class V1NonResourceRuleFluent<A extends io.kubernetes.client.openapi.mode
   
   public A withVerbs(List<String> verbs) {
     if (verbs != null) {
-        this.verbs = new ArrayList();
+        this.verbs = new ArrayList<>();
         for (String item : verbs) {
           this.addToVerbs(item);
         }

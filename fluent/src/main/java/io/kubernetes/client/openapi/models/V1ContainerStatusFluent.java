@@ -31,12 +31,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.models.V1ContainerStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ContainerStatusFluent<A extends V1ContainerStatusFluent<A>> extends BaseFluent<A>{
 
   private Map<String,Quantity> allocatedResources;
   private ArrayList<V1ResourceStatusBuilder> allocatedResourcesStatus;
@@ -63,7 +65,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToAllocatedResourcesStatus(Collection<V1ResourceStatus> items) {
     if (this.allocatedResourcesStatus == null) {
-      this.allocatedResourcesStatus = new ArrayList();
+      this.allocatedResourcesStatus = new ArrayList<>();
     }
     for (V1ResourceStatus item : items) {
         V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
@@ -75,7 +77,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToVolumeMounts(Collection<V1VolumeMountStatus> items) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList();
+      this.volumeMounts = new ArrayList<>();
     }
     for (V1VolumeMountStatus item : items) {
         V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
@@ -86,24 +88,24 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public AllocatedResourcesStatusNested<A> addNewAllocatedResourcesStatus() {
-    return new AllocatedResourcesStatusNested(-1, null);
+    return new AllocatedResourcesStatusNested<>(-1, null);
   }
   
   public AllocatedResourcesStatusNested<A> addNewAllocatedResourcesStatusLike(V1ResourceStatus item) {
-    return new AllocatedResourcesStatusNested(-1, item);
+    return new AllocatedResourcesStatusNested<>(-1, item);
   }
   
   public VolumeMountsNested<A> addNewVolumeMount() {
-    return new VolumeMountsNested(-1, null);
+    return new VolumeMountsNested<>(-1, null);
   }
   
   public VolumeMountsNested<A> addNewVolumeMountLike(V1VolumeMountStatus item) {
-    return new VolumeMountsNested(-1, item);
+    return new VolumeMountsNested<>(-1, item);
   }
   
   public A addToAllocatedResources(Map<String,Quantity> map) {
     if (this.allocatedResources == null && map != null) {
-      this.allocatedResources = new LinkedHashMap();
+      this.allocatedResources = new LinkedHashMap<>();
     }
     if (map != null) {
       this.allocatedResources.putAll(map);
@@ -113,7 +115,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToAllocatedResources(String key,Quantity value) {
     if (this.allocatedResources == null && key != null && value != null) {
-      this.allocatedResources = new LinkedHashMap();
+      this.allocatedResources = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.allocatedResources.put(key, value);
@@ -123,7 +125,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToAllocatedResourcesStatus(V1ResourceStatus... items) {
     if (this.allocatedResourcesStatus == null) {
-      this.allocatedResourcesStatus = new ArrayList();
+      this.allocatedResourcesStatus = new ArrayList<>();
     }
     for (V1ResourceStatus item : items) {
         V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
@@ -135,7 +137,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToAllocatedResourcesStatus(int index,V1ResourceStatus item) {
     if (this.allocatedResourcesStatus == null) {
-      this.allocatedResourcesStatus = new ArrayList();
+      this.allocatedResourcesStatus = new ArrayList<>();
     }
     V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
     if (index < 0 || index >= this.allocatedResourcesStatus.size()) {
@@ -150,7 +152,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToVolumeMounts(V1VolumeMountStatus... items) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList();
+      this.volumeMounts = new ArrayList<>();
     }
     for (V1VolumeMountStatus item : items) {
         V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
@@ -162,7 +164,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToVolumeMounts(int index,V1VolumeMountStatus item) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList();
+      this.volumeMounts = new ArrayList<>();
     }
     V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
     if (index < 0 || index >= this.volumeMounts.size()) {
@@ -392,7 +394,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1ContainerStatusFluent that = (V1ContainerStatusFluent) o;
+    V1ContainerStatusFluent<?> that = (V1ContainerStatusFluent<?>) o;
     if (!(Objects.equals(allocatedResources, that.allocatedResources))) {
       return false;
     }
@@ -636,6 +638,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1ResourceStatusBuilder> each = allocatedResourcesStatus.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("allocatedResourcesStatus");
     while (each.hasNext()) {
         V1ResourceStatusBuilder builder = each.next();
@@ -652,6 +655,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1VolumeMountStatusBuilder> each = volumeMounts.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("volumeMounts");
     while (each.hasNext()) {
         V1VolumeMountStatusBuilder builder = each.next();
@@ -664,16 +668,16 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public AllocatedResourcesStatusNested<A> setNewAllocatedResourcesStatusLike(int index,V1ResourceStatus item) {
-    return new AllocatedResourcesStatusNested(index, item);
+    return new AllocatedResourcesStatusNested<>(index, item);
   }
   
   public VolumeMountsNested<A> setNewVolumeMountLike(int index,V1VolumeMountStatus item) {
-    return new VolumeMountsNested(index, item);
+    return new VolumeMountsNested<>(index, item);
   }
   
   public A setToAllocatedResourcesStatus(int index,V1ResourceStatus item) {
     if (this.allocatedResourcesStatus == null) {
-      this.allocatedResourcesStatus = new ArrayList();
+      this.allocatedResourcesStatus = new ArrayList<>();
     }
     V1ResourceStatusBuilder builder = new V1ResourceStatusBuilder(item);
     if (index < 0 || index >= this.allocatedResourcesStatus.size()) {
@@ -688,7 +692,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToVolumeMounts(int index,V1VolumeMountStatus item) {
     if (this.volumeMounts == null) {
-      this.volumeMounts = new ArrayList();
+      this.volumeMounts = new ArrayList<>();
     }
     V1VolumeMountStatusBuilder builder = new V1VolumeMountStatusBuilder(item);
     if (index < 0 || index >= this.volumeMounts.size()) {
@@ -786,7 +790,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
     if (allocatedResources == null) {
       this.allocatedResources = null;
     } else {
-      this.allocatedResources = new LinkedHashMap(allocatedResources);
+      this.allocatedResources = new LinkedHashMap<>(allocatedResources);
     }
     return (A) this;
   }
@@ -796,7 +800,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("allocatedResourcesStatus").clear();
     }
     if (allocatedResourcesStatus != null) {
-        this.allocatedResourcesStatus = new ArrayList();
+        this.allocatedResourcesStatus = new ArrayList<>();
         for (V1ResourceStatus item : allocatedResourcesStatus) {
           this.addToAllocatedResourcesStatus(item);
         }
@@ -840,8 +844,8 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
         this.lastState = new V1ContainerStateBuilder(lastState);
         this._visitables.get("lastState").add(this.lastState);
     } else {
-        this.lastState = null;
         this._visitables.get("lastState").remove(this.lastState);
+        this.lastState = null;
     }
     return (A) this;
   }
@@ -852,35 +856,35 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public LastStateNested<A> withNewLastState() {
-    return new LastStateNested(null);
+    return new LastStateNested<>(null);
   }
   
   public LastStateNested<A> withNewLastStateLike(V1ContainerState item) {
-    return new LastStateNested(item);
+    return new LastStateNested<>(item);
   }
   
   public ResourcesNested<A> withNewResources() {
-    return new ResourcesNested(null);
+    return new ResourcesNested<>(null);
   }
   
   public ResourcesNested<A> withNewResourcesLike(V1ResourceRequirements item) {
-    return new ResourcesNested(item);
+    return new ResourcesNested<>(item);
   }
   
   public StateNested<A> withNewState() {
-    return new StateNested(null);
+    return new StateNested<>(null);
   }
   
   public StateNested<A> withNewStateLike(V1ContainerState item) {
-    return new StateNested(item);
+    return new StateNested<>(item);
   }
   
   public UserNested<A> withNewUser() {
-    return new UserNested(null);
+    return new UserNested<>(null);
   }
   
   public UserNested<A> withNewUserLike(V1ContainerUser item) {
-    return new UserNested(item);
+    return new UserNested<>(item);
   }
   
   public A withReady() {
@@ -898,8 +902,8 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
         this.resources = new V1ResourceRequirementsBuilder(resources);
         this._visitables.get("resources").add(this.resources);
     } else {
-        this.resources = null;
         this._visitables.get("resources").remove(this.resources);
+        this.resources = null;
     }
     return (A) this;
   }
@@ -924,8 +928,8 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
         this.state = new V1ContainerStateBuilder(state);
         this._visitables.get("state").add(this.state);
     } else {
-        this.state = null;
         this._visitables.get("state").remove(this.state);
+        this.state = null;
     }
     return (A) this;
   }
@@ -941,8 +945,8 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
         this.user = new V1ContainerUserBuilder(user);
         this._visitables.get("user").add(this.user);
     } else {
-        this.user = null;
         this._visitables.get("user").remove(this.user);
+        this.user = null;
     }
     return (A) this;
   }
@@ -952,7 +956,7 @@ public class V1ContainerStatusFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("volumeMounts").clear();
     }
     if (volumeMounts != null) {
-        this.volumeMounts = new ArrayList();
+        this.volumeMounts = new ArrayList<>();
         for (V1VolumeMountStatus item : volumeMounts) {
           this.addToVolumeMounts(item);
         }

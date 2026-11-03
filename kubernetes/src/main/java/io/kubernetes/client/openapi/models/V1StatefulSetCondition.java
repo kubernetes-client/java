@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * StatefulSetCondition describes the state of a statefulset at a certain point.
  */
 @ApiModel(description = "StatefulSetCondition describes the state of a statefulset at a certain point.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1StatefulSetCondition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
@@ -70,12 +70,12 @@ public class V1StatefulSetCondition {
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String status;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String type;
 
   public V1StatefulSetCondition() {
@@ -141,7 +141,7 @@ public class V1StatefulSetCondition {
   }
 
 
-  public V1StatefulSetCondition status(@jakarta.annotation.Nonnull String status) {
+  public V1StatefulSetCondition status(@jakarta.annotation.Nullable String status) {
     this.status = status;
     return this;
   }
@@ -150,18 +150,18 @@ public class V1StatefulSetCondition {
    * Status of the condition, one of True, False, Unknown.
    * @return status
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Status of the condition, one of True, False, Unknown.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Status of the condition, one of True, False, Unknown.")
   public String getStatus() {
     return status;
   }
 
-  public void setStatus(@jakarta.annotation.Nonnull String status) {
+  public void setStatus(@jakarta.annotation.Nullable String status) {
     this.status = status;
   }
 
 
-  public V1StatefulSetCondition type(@jakarta.annotation.Nonnull String type) {
+  public V1StatefulSetCondition type(@jakarta.annotation.Nullable String type) {
     this.type = type;
     return this;
   }
@@ -170,13 +170,13 @@ public class V1StatefulSetCondition {
    * Type of statefulset condition.
    * @return type
    */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Type of statefulset condition.")
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Type of statefulset condition.")
   public String getType() {
     return type;
   }
 
-  public void setType(@jakarta.annotation.Nonnull String type) {
+  public void setType(@jakarta.annotation.Nullable String type) {
     this.type = type;
   }
 
@@ -236,7 +236,7 @@ public class V1StatefulSetCondition {
     openapiFields = new HashSet<String>(Arrays.asList("lastTransitionTime", "message", "reason", "status", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "type"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -259,13 +259,6 @@ public class V1StatefulSetCondition {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1StatefulSetCondition` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : V1StatefulSetCondition.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
@@ -273,10 +266,10 @@ public class V1StatefulSetCondition {
       if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
       }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
+      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
-      if (!jsonObj.get("type").isJsonPrimitive()) {
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }

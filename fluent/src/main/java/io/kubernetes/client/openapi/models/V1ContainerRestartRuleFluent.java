@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ContainerRestartRuleFluent<A extends io.kubernetes.client.openapi.models.V1ContainerRestartRuleFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ContainerRestartRuleFluent<A extends V1ContainerRestartRuleFluent<A>> extends BaseFluent<A>{
 
   private String action;
   private V1ContainerRestartRuleOnExitCodesBuilder exitCodes;
@@ -71,7 +73,7 @@ public class V1ContainerRestartRuleFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V1ContainerRestartRuleFluent that = (V1ContainerRestartRuleFluent) o;
+    V1ContainerRestartRuleFluent<?> that = (V1ContainerRestartRuleFluent<?>) o;
     if (!(Objects.equals(action, that.action))) {
       return false;
     }
@@ -124,18 +126,18 @@ public class V1ContainerRestartRuleFluent<A extends io.kubernetes.client.openapi
         this.exitCodes = new V1ContainerRestartRuleOnExitCodesBuilder(exitCodes);
         this._visitables.get("exitCodes").add(this.exitCodes);
     } else {
-        this.exitCodes = null;
         this._visitables.get("exitCodes").remove(this.exitCodes);
+        this.exitCodes = null;
     }
     return (A) this;
   }
   
   public ExitCodesNested<A> withNewExitCodes() {
-    return new ExitCodesNested(null);
+    return new ExitCodesNested<>(null);
   }
   
   public ExitCodesNested<A> withNewExitCodesLike(V1ContainerRestartRuleOnExitCodes item) {
-    return new ExitCodesNested(item);
+    return new ExitCodesNested<>(item);
   }
   public class ExitCodesNested<N> extends V1ContainerRestartRuleOnExitCodesFluent<ExitCodesNested<N>> implements Nested<N>{
   

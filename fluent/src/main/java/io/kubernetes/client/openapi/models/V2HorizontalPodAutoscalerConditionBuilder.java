@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V2HorizontalPodAutoscalerConditionBuilder extends V2HorizontalPodAutoscalerConditionFluent<V2HorizontalPodAutoscalerConditionBuilder> implements VisitableBuilder<V2HorizontalPodAutoscalerCondition,V2HorizontalPodAutoscalerConditionBuilder>{
 
   V2HorizontalPodAutoscalerConditionFluent<?> fluent;
@@ -40,6 +41,7 @@ public class V2HorizontalPodAutoscalerConditionBuilder extends V2HorizontalPodAu
     V2HorizontalPodAutoscalerCondition buildable = new V2HorizontalPodAutoscalerCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setMessage(fluent.getMessage());
+    buildable.setObservedGeneration(fluent.getObservedGeneration());
     buildable.setReason(fluent.getReason());
     buildable.setStatus(fluent.getStatus());
     buildable.setType(fluent.getType());

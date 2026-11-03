@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1APIGroupFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -49,7 +51,7 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
 
   public A addAllToServerAddressByClientCIDRs(Collection<V1ServerAddressByClientCIDR> items) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs = new ArrayList();
+      this.serverAddressByClientCIDRs = new ArrayList<>();
     }
     for (V1ServerAddressByClientCIDR item : items) {
         V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
@@ -61,7 +63,7 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
   
   public A addAllToVersions(Collection<V1GroupVersionForDiscovery> items) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     for (V1GroupVersionForDiscovery item : items) {
         V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
@@ -72,24 +74,24 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
   }
   
   public ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDR() {
-    return new ServerAddressByClientCIDRsNested(-1, null);
+    return new ServerAddressByClientCIDRsNested<>(-1, null);
   }
   
   public ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDRLike(V1ServerAddressByClientCIDR item) {
-    return new ServerAddressByClientCIDRsNested(-1, item);
+    return new ServerAddressByClientCIDRsNested<>(-1, item);
   }
   
   public VersionsNested<A> addNewVersion() {
-    return new VersionsNested(-1, null);
+    return new VersionsNested<>(-1, null);
   }
   
   public VersionsNested<A> addNewVersionLike(V1GroupVersionForDiscovery item) {
-    return new VersionsNested(-1, item);
+    return new VersionsNested<>(-1, item);
   }
   
   public A addToServerAddressByClientCIDRs(V1ServerAddressByClientCIDR... items) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs = new ArrayList();
+      this.serverAddressByClientCIDRs = new ArrayList<>();
     }
     for (V1ServerAddressByClientCIDR item : items) {
         V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
@@ -101,7 +103,7 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
   
   public A addToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs = new ArrayList();
+      this.serverAddressByClientCIDRs = new ArrayList<>();
     }
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
     if (index < 0 || index >= this.serverAddressByClientCIDRs.size()) {
@@ -116,7 +118,7 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
   
   public A addToVersions(V1GroupVersionForDiscovery... items) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     for (V1GroupVersionForDiscovery item : items) {
         V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
@@ -128,7 +130,7 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
   
   public A addToVersions(int index,V1GroupVersionForDiscovery item) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
     if (index < 0 || index >= this.versions.size()) {
@@ -301,7 +303,7 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
     if (!(super.equals(o))) {
       return false;
     }
-    V1APIGroupFluent that = (V1APIGroupFluent) o;
+    V1APIGroupFluent<?> that = (V1APIGroupFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -434,6 +436,7 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
       return (A) this;
     }
     Iterator<V1ServerAddressByClientCIDRBuilder> each = serverAddressByClientCIDRs.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("serverAddressByClientCIDRs");
     while (each.hasNext()) {
         V1ServerAddressByClientCIDRBuilder builder = each.next();
@@ -450,6 +453,7 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
       return (A) this;
     }
     Iterator<V1GroupVersionForDiscoveryBuilder> each = versions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("versions");
     while (each.hasNext()) {
         V1GroupVersionForDiscoveryBuilder builder = each.next();
@@ -462,16 +466,16 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
   }
   
   public ServerAddressByClientCIDRsNested<A> setNewServerAddressByClientCIDRLike(int index,V1ServerAddressByClientCIDR item) {
-    return new ServerAddressByClientCIDRsNested(index, item);
+    return new ServerAddressByClientCIDRsNested<>(index, item);
   }
   
   public VersionsNested<A> setNewVersionLike(int index,V1GroupVersionForDiscovery item) {
-    return new VersionsNested(index, item);
+    return new VersionsNested<>(index, item);
   }
   
   public A setToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs = new ArrayList();
+      this.serverAddressByClientCIDRs = new ArrayList<>();
     }
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
     if (index < 0 || index >= this.serverAddressByClientCIDRs.size()) {
@@ -486,7 +490,7 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
   
   public A setToVersions(int index,V1GroupVersionForDiscovery item) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
     if (index < 0 || index >= this.versions.size()) {
@@ -551,11 +555,11 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
   }
   
   public PreferredVersionNested<A> withNewPreferredVersion() {
-    return new PreferredVersionNested(null);
+    return new PreferredVersionNested<>(null);
   }
   
   public PreferredVersionNested<A> withNewPreferredVersionLike(V1GroupVersionForDiscovery item) {
-    return new PreferredVersionNested(item);
+    return new PreferredVersionNested<>(item);
   }
   
   public A withPreferredVersion(V1GroupVersionForDiscovery preferredVersion) {
@@ -564,8 +568,8 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
         this.preferredVersion = new V1GroupVersionForDiscoveryBuilder(preferredVersion);
         this._visitables.get("preferredVersion").add(this.preferredVersion);
     } else {
-        this.preferredVersion = null;
         this._visitables.get("preferredVersion").remove(this.preferredVersion);
+        this.preferredVersion = null;
     }
     return (A) this;
   }
@@ -575,7 +579,7 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
       this._visitables.get("serverAddressByClientCIDRs").clear();
     }
     if (serverAddressByClientCIDRs != null) {
-        this.serverAddressByClientCIDRs = new ArrayList();
+        this.serverAddressByClientCIDRs = new ArrayList<>();
         for (V1ServerAddressByClientCIDR item : serverAddressByClientCIDRs) {
           this.addToServerAddressByClientCIDRs(item);
         }
@@ -603,7 +607,7 @@ public class V1APIGroupFluent<A extends io.kubernetes.client.openapi.models.V1AP
       this._visitables.get("versions").clear();
     }
     if (versions != null) {
-        this.versions = new ArrayList();
+        this.versions = new ArrayList<>();
         for (V1GroupVersionForDiscovery item : versions) {
           this.addToVersions(item);
         }

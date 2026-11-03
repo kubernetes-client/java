@@ -30,4 +30,17 @@ class QuantityTest {
 
     assertEquals(set1, set2, "Sets of equal elements are not equal");
   }
+
+  @Test
+  void equalQuantitiesWithDifferentScaleHaveEqualHashCode() {
+    // "1" parses to scale 0; "1000m" parses to 1000 * 10^-3 = 1.000 (scale 3). They are equal by
+    // value, so the equals/hashCode contract requires equal hash codes (and HashSet membership).
+    final Quantity a = Quantity.fromString("1");
+    final Quantity b = Quantity.fromString("1000m");
+
+    assertEquals(a, b, "quantities with the same value should be equal");
+    assertEquals(
+        a.hashCode(), b.hashCode(), "equal quantities must have equal hash codes (equals/hashCode contract)");
+    assertEquals(Set.of(a), Set.of(b), "equal quantities must be interchangeable as hash-set members");
+  }
 }

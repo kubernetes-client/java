@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ResourceClaimSpecFluent<A extends io.kubernetes.client.openapi.models.V1ResourceClaimSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ResourceClaimSpecFluent<A extends V1ResourceClaimSpecFluent<A>> extends BaseFluent<A>{
 
   private V1DeviceClaimBuilder devices;
 
@@ -69,7 +71,7 @@ public class V1ResourceClaimSpecFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1ResourceClaimSpecFluent that = (V1ResourceClaimSpecFluent) o;
+    V1ResourceClaimSpecFluent<?> that = (V1ResourceClaimSpecFluent<?>) o;
     if (!(Objects.equals(devices, that.devices))) {
       return false;
     }
@@ -101,18 +103,18 @@ public class V1ResourceClaimSpecFluent<A extends io.kubernetes.client.openapi.mo
         this.devices = new V1DeviceClaimBuilder(devices);
         this._visitables.get("devices").add(this.devices);
     } else {
-        this.devices = null;
         this._visitables.get("devices").remove(this.devices);
+        this.devices = null;
     }
     return (A) this;
   }
   
   public DevicesNested<A> withNewDevices() {
-    return new DevicesNested(null);
+    return new DevicesNested<>(null);
   }
   
   public DevicesNested<A> withNewDevicesLike(V1DeviceClaim item) {
-    return new DevicesNested(item);
+    return new DevicesNested<>(item);
   }
   public class DevicesNested<N> extends V1DeviceClaimFluent<DevicesNested<N>> implements Nested<N>{
   

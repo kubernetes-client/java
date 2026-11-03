@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeConfigSourceFluent<A extends io.kubernetes.client.openapi.models.V1NodeConfigSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeConfigSourceFluent<A extends V1NodeConfigSourceFluent<A>> extends BaseFluent<A>{
 
   private V1ConfigMapNodeConfigSourceBuilder configMap;
 
@@ -69,7 +71,7 @@ public class V1NodeConfigSourceFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeConfigSourceFluent that = (V1NodeConfigSourceFluent) o;
+    V1NodeConfigSourceFluent<?> that = (V1NodeConfigSourceFluent<?>) o;
     if (!(Objects.equals(configMap, that.configMap))) {
       return false;
     }
@@ -101,18 +103,18 @@ public class V1NodeConfigSourceFluent<A extends io.kubernetes.client.openapi.mod
         this.configMap = new V1ConfigMapNodeConfigSourceBuilder(configMap);
         this._visitables.get("configMap").add(this.configMap);
     } else {
-        this.configMap = null;
         this._visitables.get("configMap").remove(this.configMap);
+        this.configMap = null;
     }
     return (A) this;
   }
   
   public ConfigMapNested<A> withNewConfigMap() {
-    return new ConfigMapNested(null);
+    return new ConfigMapNested<>(null);
   }
   
   public ConfigMapNested<A> withNewConfigMapLike(V1ConfigMapNodeConfigSource item) {
-    return new ConfigMapNested(item);
+    return new ConfigMapNested<>(item);
   }
   public class ConfigMapNested<N> extends V1ConfigMapNodeConfigSourceFluent<ConfigMapNested<N>> implements Nested<N>{
   

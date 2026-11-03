@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class DiscoveryV1EndpointPortFluent<A extends io.kubernetes.client.openapi.models.DiscoveryV1EndpointPortFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class DiscoveryV1EndpointPortFluent<A extends DiscoveryV1EndpointPortFluent<A>> extends BaseFluent<A>{
 
   private String appProtocol;
   private String name;
@@ -58,7 +60,7 @@ public class DiscoveryV1EndpointPortFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    DiscoveryV1EndpointPortFluent that = (DiscoveryV1EndpointPortFluent) o;
+    DiscoveryV1EndpointPortFluent<?> that = (DiscoveryV1EndpointPortFluent<?>) o;
     if (!(Objects.equals(appProtocol, that.appProtocol))) {
       return false;
     }

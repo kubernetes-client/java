@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import io.kubernetes.client.openapi.models.V1ModifyVolumeStatus;
 import io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition;
+import io.kubernetes.client.openapi.models.V1VolumeHealthStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -57,7 +58,7 @@ import io.kubernetes.client.openapi.JSON;
  * PersistentVolumeClaimStatus is the current status of a persistent volume claim.
  */
 @ApiModel(description = "PersistentVolumeClaimStatus is the current status of a persistent volume claim.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
@@ -88,6 +89,11 @@ public class V1PersistentVolumeClaimStatus {
   @SerializedName(SERIALIZED_NAME_CURRENT_VOLUME_ATTRIBUTES_CLASS_NAME)
   @jakarta.annotation.Nullable
   private String currentVolumeAttributesClassName;
+
+  public static final String SERIALIZED_NAME_HEALTH_STATUS = "healthStatus";
+  @SerializedName(SERIALIZED_NAME_HEALTH_STATUS)
+  @jakarta.annotation.Nullable
+  private V1VolumeHealthStatus healthStatus;
 
   public static final String SERIALIZED_NAME_MODIFY_VOLUME_STATUS = "modifyVolumeStatus";
   @SerializedName(SERIALIZED_NAME_MODIFY_VOLUME_STATUS)
@@ -262,6 +268,26 @@ public class V1PersistentVolumeClaimStatus {
   }
 
 
+  public V1PersistentVolumeClaimStatus healthStatus(@jakarta.annotation.Nullable V1VolumeHealthStatus healthStatus) {
+    this.healthStatus = healthStatus;
+    return this;
+  }
+
+  /**
+   * Get healthStatus
+   * @return healthStatus
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1VolumeHealthStatus getHealthStatus() {
+    return healthStatus;
+  }
+
+  public void setHealthStatus(@jakarta.annotation.Nullable V1VolumeHealthStatus healthStatus) {
+    this.healthStatus = healthStatus;
+  }
+
+
   public V1PersistentVolumeClaimStatus modifyVolumeStatus(@jakarta.annotation.Nullable V1ModifyVolumeStatus modifyVolumeStatus) {
     this.modifyVolumeStatus = modifyVolumeStatus;
     return this;
@@ -318,13 +344,14 @@ public class V1PersistentVolumeClaimStatus {
         Objects.equals(this.capacity, v1PersistentVolumeClaimStatus.capacity) &&
         Objects.equals(this.conditions, v1PersistentVolumeClaimStatus.conditions) &&
         Objects.equals(this.currentVolumeAttributesClassName, v1PersistentVolumeClaimStatus.currentVolumeAttributesClassName) &&
+        Objects.equals(this.healthStatus, v1PersistentVolumeClaimStatus.healthStatus) &&
         Objects.equals(this.modifyVolumeStatus, v1PersistentVolumeClaimStatus.modifyVolumeStatus) &&
         Objects.equals(this.phase, v1PersistentVolumeClaimStatus.phase);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessModes, allocatedResourceStatuses, allocatedResources, capacity, conditions, currentVolumeAttributesClassName, modifyVolumeStatus, phase);
+    return Objects.hash(accessModes, allocatedResourceStatuses, allocatedResources, capacity, conditions, currentVolumeAttributesClassName, healthStatus, modifyVolumeStatus, phase);
   }
 
   @Override
@@ -337,6 +364,7 @@ public class V1PersistentVolumeClaimStatus {
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    currentVolumeAttributesClassName: ").append(toIndentedString(currentVolumeAttributesClassName)).append("\n");
+    sb.append("    healthStatus: ").append(toIndentedString(healthStatus)).append("\n");
     sb.append("    modifyVolumeStatus: ").append(toIndentedString(modifyVolumeStatus)).append("\n");
     sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
     sb.append("}");
@@ -360,7 +388,7 @@ public class V1PersistentVolumeClaimStatus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("accessModes", "allocatedResourceStatuses", "allocatedResources", "capacity", "conditions", "currentVolumeAttributesClassName", "modifyVolumeStatus", "phase"));
+    openapiFields = new HashSet<String>(Arrays.asList("accessModes", "allocatedResourceStatuses", "allocatedResources", "capacity", "conditions", "currentVolumeAttributesClassName", "healthStatus", "modifyVolumeStatus", "phase"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -407,6 +435,10 @@ public class V1PersistentVolumeClaimStatus {
       }
       if ((jsonObj.get("currentVolumeAttributesClassName") != null && !jsonObj.get("currentVolumeAttributesClassName").isJsonNull()) && !jsonObj.get("currentVolumeAttributesClassName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `currentVolumeAttributesClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currentVolumeAttributesClassName").toString()));
+      }
+      // validate the optional field `healthStatus`
+      if (jsonObj.get("healthStatus") != null && !jsonObj.get("healthStatus").isJsonNull()) {
+        V1VolumeHealthStatus.validateJsonElement(jsonObj.get("healthStatus"));
       }
       // validate the optional field `modifyVolumeStatus`
       if (jsonObj.get("modifyVolumeStatus") != null && !jsonObj.get("modifyVolumeStatus").isJsonNull()) {

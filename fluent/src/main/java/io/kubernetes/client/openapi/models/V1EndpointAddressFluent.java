@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1EndpointAddressFluent<A extends io.kubernetes.client.openapi.models.V1EndpointAddressFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1EndpointAddressFluent<A extends V1EndpointAddressFluent<A>> extends BaseFluent<A>{
 
   private String hostname;
   private String ip;
@@ -75,7 +77,7 @@ public class V1EndpointAddressFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1EndpointAddressFluent that = (V1EndpointAddressFluent) o;
+    V1EndpointAddressFluent<?> that = (V1EndpointAddressFluent<?>) o;
     if (!(Objects.equals(hostname, that.hostname))) {
       return false;
     }
@@ -160,11 +162,11 @@ public class V1EndpointAddressFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public TargetRefNested<A> withNewTargetRef() {
-    return new TargetRefNested(null);
+    return new TargetRefNested<>(null);
   }
   
   public TargetRefNested<A> withNewTargetRefLike(V1ObjectReference item) {
-    return new TargetRefNested(item);
+    return new TargetRefNested<>(item);
   }
   
   public A withNodeName(String nodeName) {
@@ -178,8 +180,8 @@ public class V1EndpointAddressFluent<A extends io.kubernetes.client.openapi.mode
         this.targetRef = new V1ObjectReferenceBuilder(targetRef);
         this._visitables.get("targetRef").add(this.targetRef);
     } else {
-        this.targetRef = null;
         this._visitables.get("targetRef").remove(this.targetRef);
+        this.targetRef = null;
     }
     return (A) this;
   }

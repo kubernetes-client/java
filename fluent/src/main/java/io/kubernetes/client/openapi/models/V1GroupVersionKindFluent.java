@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1GroupVersionKindFluent<A extends io.kubernetes.client.openapi.models.V1GroupVersionKindFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1GroupVersionKindFluent<A extends V1GroupVersionKindFluent<A>> extends BaseFluent<A>{
 
   private String group;
   private String kind;
@@ -40,8 +42,8 @@ public class V1GroupVersionKindFluent<A extends io.kubernetes.client.openapi.mod
     instance = instance != null ? instance : new V1GroupVersionKind();
     if (instance != null) {
         this.withGroup(instance.getGroup());
-        this.withKind(instance.getKind());
         this.withVersion(instance.getVersion());
+        this.withKind(instance.getKind());
     }
   }
   
@@ -55,14 +57,14 @@ public class V1GroupVersionKindFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1GroupVersionKindFluent that = (V1GroupVersionKindFluent) o;
+    V1GroupVersionKindFluent<?> that = (V1GroupVersionKindFluent<?>) o;
     if (!(Objects.equals(group, that.group))) {
       return false;
     }
-    if (!(Objects.equals(kind, that.kind))) {
+    if (!(Objects.equals(version, that.version))) {
       return false;
     }
-    if (!(Objects.equals(version, that.version))) {
+    if (!(Objects.equals(kind, that.kind))) {
       return false;
     }
     return true;
@@ -93,7 +95,7 @@ public class V1GroupVersionKindFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public int hashCode() {
-    return Objects.hash(group, kind, version);
+    return Objects.hash(group, version, kind);
   }
   
   public String toString() {
@@ -104,14 +106,14 @@ public class V1GroupVersionKindFluent<A extends io.kubernetes.client.openapi.mod
         sb.append(group);
         sb.append(",");
     }
-    if (!(kind == null)) {
-        sb.append("kind:");
-        sb.append(kind);
-        sb.append(",");
-    }
     if (!(version == null)) {
         sb.append("version:");
         sb.append(version);
+        sb.append(",");
+    }
+    if (!(kind == null)) {
+        sb.append("kind:");
+        sb.append(kind);
     }
     sb.append("}");
     return sb.toString();

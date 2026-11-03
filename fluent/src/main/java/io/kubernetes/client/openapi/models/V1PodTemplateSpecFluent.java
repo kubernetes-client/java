@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodTemplateSpecFluent<A extends io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodTemplateSpecFluent<A extends V1PodTemplateSpecFluent<A>> extends BaseFluent<A>{
 
   private V1ObjectMetaBuilder metadata;
   private V1PodSpecBuilder spec;
@@ -87,7 +89,7 @@ public class V1PodTemplateSpecFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodTemplateSpecFluent that = (V1PodTemplateSpecFluent) o;
+    V1PodTemplateSpecFluent<?> that = (V1PodTemplateSpecFluent<?>) o;
     if (!(Objects.equals(metadata, that.metadata))) {
       return false;
     }
@@ -131,26 +133,26 @@ public class V1PodTemplateSpecFluent<A extends io.kubernetes.client.openapi.mode
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public SpecNested<A> withNewSpec() {
-    return new SpecNested(null);
+    return new SpecNested<>(null);
   }
   
   public SpecNested<A> withNewSpecLike(V1PodSpec item) {
-    return new SpecNested(item);
+    return new SpecNested<>(item);
   }
   
   public A withSpec(V1PodSpec spec) {
@@ -159,8 +161,8 @@ public class V1PodTemplateSpecFluent<A extends io.kubernetes.client.openapi.mode
         this.spec = new V1PodSpecBuilder(spec);
         this._visitables.get("spec").add(this.spec);
     } else {
-        this.spec = null;
         this._visitables.get("spec").remove(this.spec);
+        this.spec = null;
     }
     return (A) this;
   }

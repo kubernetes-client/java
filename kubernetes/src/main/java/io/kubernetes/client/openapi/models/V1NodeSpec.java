@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1NodeConfigSource;
+import io.kubernetes.client.openapi.models.V1NodePodPreemptionPolicy;
 import io.kubernetes.client.openapi.models.V1Taint;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -54,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * NodeSpec describes the attributes that a node is created with.
  */
 @ApiModel(description = "NodeSpec describes the attributes that a node is created with.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1NodeSpec {
   public static final String SERIALIZED_NAME_CONFIG_SOURCE = "configSource";
   @SerializedName(SERIALIZED_NAME_CONFIG_SOURCE)
@@ -75,6 +76,11 @@ public class V1NodeSpec {
   @SerializedName(SERIALIZED_NAME_POD_C_I_D_RS)
   @jakarta.annotation.Nullable
   private List<String> podCIDRs = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_POD_PREEMPTION_POLICY = "podPreemptionPolicy";
+  @SerializedName(SERIALIZED_NAME_POD_PREEMPTION_POLICY)
+  @jakarta.annotation.Nullable
+  private V1NodePodPreemptionPolicy podPreemptionPolicy;
 
   public static final String SERIALIZED_NAME_PROVIDER_I_D = "providerID";
   @SerializedName(SERIALIZED_NAME_PROVIDER_I_D)
@@ -182,6 +188,26 @@ public class V1NodeSpec {
   }
 
 
+  public V1NodeSpec podPreemptionPolicy(@jakarta.annotation.Nullable V1NodePodPreemptionPolicy podPreemptionPolicy) {
+    this.podPreemptionPolicy = podPreemptionPolicy;
+    return this;
+  }
+
+  /**
+   * Get podPreemptionPolicy
+   * @return podPreemptionPolicy
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1NodePodPreemptionPolicy getPodPreemptionPolicy() {
+    return podPreemptionPolicy;
+  }
+
+  public void setPodPreemptionPolicy(@jakarta.annotation.Nullable V1NodePodPreemptionPolicy podPreemptionPolicy) {
+    this.podPreemptionPolicy = podPreemptionPolicy;
+  }
+
+
   public V1NodeSpec providerID(@jakarta.annotation.Nullable String providerID) {
     this.providerID = providerID;
     return this;
@@ -264,6 +290,7 @@ public class V1NodeSpec {
         Objects.equals(this.externalID, v1NodeSpec.externalID) &&
         Objects.equals(this.podCIDR, v1NodeSpec.podCIDR) &&
         Objects.equals(this.podCIDRs, v1NodeSpec.podCIDRs) &&
+        Objects.equals(this.podPreemptionPolicy, v1NodeSpec.podPreemptionPolicy) &&
         Objects.equals(this.providerID, v1NodeSpec.providerID) &&
         Objects.equals(this.taints, v1NodeSpec.taints) &&
         Objects.equals(this.unschedulable, v1NodeSpec.unschedulable);
@@ -271,7 +298,7 @@ public class V1NodeSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configSource, externalID, podCIDR, podCIDRs, providerID, taints, unschedulable);
+    return Objects.hash(configSource, externalID, podCIDR, podCIDRs, podPreemptionPolicy, providerID, taints, unschedulable);
   }
 
   @Override
@@ -282,6 +309,7 @@ public class V1NodeSpec {
     sb.append("    externalID: ").append(toIndentedString(externalID)).append("\n");
     sb.append("    podCIDR: ").append(toIndentedString(podCIDR)).append("\n");
     sb.append("    podCIDRs: ").append(toIndentedString(podCIDRs)).append("\n");
+    sb.append("    podPreemptionPolicy: ").append(toIndentedString(podPreemptionPolicy)).append("\n");
     sb.append("    providerID: ").append(toIndentedString(providerID)).append("\n");
     sb.append("    taints: ").append(toIndentedString(taints)).append("\n");
     sb.append("    unschedulable: ").append(toIndentedString(unschedulable)).append("\n");
@@ -306,7 +334,7 @@ public class V1NodeSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("configSource", "externalID", "podCIDR", "podCIDRs", "providerID", "taints", "unschedulable"));
+    openapiFields = new HashSet<String>(Arrays.asList("configSource", "externalID", "podCIDR", "podCIDRs", "podPreemptionPolicy", "providerID", "taints", "unschedulable"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -346,6 +374,10 @@ public class V1NodeSpec {
       // ensure the optional json data is an array if present
       if (jsonObj.get("podCIDRs") != null && !jsonObj.get("podCIDRs").isJsonNull() && !jsonObj.get("podCIDRs").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `podCIDRs` to be an array in the JSON string but got `%s`", jsonObj.get("podCIDRs").toString()));
+      }
+      // validate the optional field `podPreemptionPolicy`
+      if (jsonObj.get("podPreemptionPolicy") != null && !jsonObj.get("podPreemptionPolicy").isJsonNull()) {
+        V1NodePodPreemptionPolicy.validateJsonElement(jsonObj.get("podPreemptionPolicy"));
       }
       if ((jsonObj.get("providerID") != null && !jsonObj.get("providerID").isJsonNull()) && !jsonObj.get("providerID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `providerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("providerID").toString()));

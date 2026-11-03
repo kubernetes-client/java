@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * ResourcePool describes the pool that ResourceSlices belong to.
  */
 @ApiModel(description = "ResourcePool describes the pool that ResourceSlices belong to.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ResourcePool {
   public static final String SERIALIZED_NAME_GENERATION = "generation";
   @SerializedName(SERIALIZED_NAME_GENERATION)
@@ -96,11 +96,11 @@ public class V1ResourcePool {
   }
 
   /**
-   * Name is used to identify the pool. For node-local devices, this is often the node name, but this is not required.  It must not be longer than 253 characters and must consist of one or more DNS sub-domains separated by slashes. This field is immutable.
+   * Name is used to identify the pool. For node-local devices, this is often the node name, but this is not required. A field selector can be used to list only ResourceSlice objects belonging to a certain pool.  It must not be longer than 253 characters and must consist of one or more DNS sub-domains separated by slashes. This field is immutable.
    * @return name
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Name is used to identify the pool. For node-local devices, this is often the node name, but this is not required.  It must not be longer than 253 characters and must consist of one or more DNS sub-domains separated by slashes. This field is immutable.")
+  @ApiModelProperty(required = true, value = "Name is used to identify the pool. For node-local devices, this is often the node name, but this is not required. A field selector can be used to list only ResourceSlice objects belonging to a certain pool.  It must not be longer than 253 characters and must consist of one or more DNS sub-domains separated by slashes. This field is immutable.")
   public String getName() {
     return name;
   }

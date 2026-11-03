@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PersistentVolumeClaimVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1PersistentVolumeClaimVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PersistentVolumeClaimVolumeSourceFluent<A extends V1PersistentVolumeClaimVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String claimName;
   private Boolean readOnly;
@@ -54,7 +56,7 @@ public class V1PersistentVolumeClaimVolumeSourceFluent<A extends io.kubernetes.c
     if (!(super.equals(o))) {
       return false;
     }
-    V1PersistentVolumeClaimVolumeSourceFluent that = (V1PersistentVolumeClaimVolumeSourceFluent) o;
+    V1PersistentVolumeClaimVolumeSourceFluent<?> that = (V1PersistentVolumeClaimVolumeSourceFluent<?>) o;
     if (!(Objects.equals(claimName, that.claimName))) {
       return false;
     }

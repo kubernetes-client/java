@@ -19,12 +19,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1TokenRequestStatusFluent<A extends io.kubernetes.client.openapi.models.V1TokenRequestStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1TokenRequestStatusFluent<A extends V1TokenRequestStatusFluent<A>> extends BaseFluent<A>{
 
   private OffsetDateTime expirationTimestamp;
   private String token;
@@ -54,7 +56,7 @@ public class V1TokenRequestStatusFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1TokenRequestStatusFluent that = (V1TokenRequestStatusFluent) o;
+    V1TokenRequestStatusFluent<?> that = (V1TokenRequestStatusFluent<?>) o;
     if (!(Objects.equals(expirationTimestamp, that.expirationTimestamp))) {
       return false;
     }

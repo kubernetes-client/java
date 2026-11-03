@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.models.V1DeviceClassSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DeviceClassSpecFluent<A extends V1DeviceClassSpecFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1DeviceClassConfigurationBuilder> config;
   private String extendedResourceName;
@@ -45,7 +47,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToConfig(Collection<V1DeviceClassConfiguration> items) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     for (V1DeviceClassConfiguration item : items) {
         V1DeviceClassConfigurationBuilder builder = new V1DeviceClassConfigurationBuilder(item);
@@ -57,7 +59,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToSelectors(Collection<V1DeviceSelector> items) {
     if (this.selectors == null) {
-      this.selectors = new ArrayList();
+      this.selectors = new ArrayList<>();
     }
     for (V1DeviceSelector item : items) {
         V1DeviceSelectorBuilder builder = new V1DeviceSelectorBuilder(item);
@@ -68,24 +70,24 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public ConfigNested<A> addNewConfig() {
-    return new ConfigNested(-1, null);
+    return new ConfigNested<>(-1, null);
   }
   
   public ConfigNested<A> addNewConfigLike(V1DeviceClassConfiguration item) {
-    return new ConfigNested(-1, item);
+    return new ConfigNested<>(-1, item);
   }
   
   public SelectorsNested<A> addNewSelector() {
-    return new SelectorsNested(-1, null);
+    return new SelectorsNested<>(-1, null);
   }
   
   public SelectorsNested<A> addNewSelectorLike(V1DeviceSelector item) {
-    return new SelectorsNested(-1, item);
+    return new SelectorsNested<>(-1, item);
   }
   
   public A addToConfig(V1DeviceClassConfiguration... items) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     for (V1DeviceClassConfiguration item : items) {
         V1DeviceClassConfigurationBuilder builder = new V1DeviceClassConfigurationBuilder(item);
@@ -97,7 +99,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToConfig(int index,V1DeviceClassConfiguration item) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     V1DeviceClassConfigurationBuilder builder = new V1DeviceClassConfigurationBuilder(item);
     if (index < 0 || index >= this.config.size()) {
@@ -112,7 +114,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToSelectors(V1DeviceSelector... items) {
     if (this.selectors == null) {
-      this.selectors = new ArrayList();
+      this.selectors = new ArrayList<>();
     }
     for (V1DeviceSelector item : items) {
         V1DeviceSelectorBuilder builder = new V1DeviceSelectorBuilder(item);
@@ -124,7 +126,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToSelectors(int index,V1DeviceSelector item) {
     if (this.selectors == null) {
-      this.selectors = new ArrayList();
+      this.selectors = new ArrayList<>();
     }
     V1DeviceSelectorBuilder builder = new V1DeviceSelectorBuilder(item);
     if (index < 0 || index >= this.selectors.size()) {
@@ -278,7 +280,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1DeviceClassSpecFluent that = (V1DeviceClassSpecFluent) o;
+    V1DeviceClassSpecFluent<?> that = (V1DeviceClassSpecFluent<?>) o;
     if (!(Objects.equals(config, that.config))) {
       return false;
     }
@@ -382,6 +384,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1DeviceClassConfigurationBuilder> each = config.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("config");
     while (each.hasNext()) {
         V1DeviceClassConfigurationBuilder builder = each.next();
@@ -398,6 +401,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1DeviceSelectorBuilder> each = selectors.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("selectors");
     while (each.hasNext()) {
         V1DeviceSelectorBuilder builder = each.next();
@@ -410,16 +414,16 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public ConfigNested<A> setNewConfigLike(int index,V1DeviceClassConfiguration item) {
-    return new ConfigNested(index, item);
+    return new ConfigNested<>(index, item);
   }
   
   public SelectorsNested<A> setNewSelectorLike(int index,V1DeviceSelector item) {
-    return new SelectorsNested(index, item);
+    return new SelectorsNested<>(index, item);
   }
   
   public A setToConfig(int index,V1DeviceClassConfiguration item) {
     if (this.config == null) {
-      this.config = new ArrayList();
+      this.config = new ArrayList<>();
     }
     V1DeviceClassConfigurationBuilder builder = new V1DeviceClassConfigurationBuilder(item);
     if (index < 0 || index >= this.config.size()) {
@@ -434,7 +438,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToSelectors(int index,V1DeviceSelector item) {
     if (this.selectors == null) {
-      this.selectors = new ArrayList();
+      this.selectors = new ArrayList<>();
     }
     V1DeviceSelectorBuilder builder = new V1DeviceSelectorBuilder(item);
     if (index < 0 || index >= this.selectors.size()) {
@@ -473,7 +477,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("config").clear();
     }
     if (config != null) {
-        this.config = new ArrayList();
+        this.config = new ArrayList<>();
         for (V1DeviceClassConfiguration item : config) {
           this.addToConfig(item);
         }
@@ -506,7 +510,7 @@ public class V1DeviceClassSpecFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("selectors").clear();
     }
     if (selectors != null) {
-        this.selectors = new ArrayList();
+        this.selectors = new ArrayList<>();
         for (V1DeviceSelector item : selectors) {
           this.addToSelectors(item);
         }

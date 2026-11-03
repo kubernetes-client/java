@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1CSINodeSpec;
+import io.kubernetes.client.openapi.models.V1CSINodeStatus;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -52,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * CSINode holds information about all CSI drivers installed on a node. CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn&#39;t create this object. CSINode has an OwnerReference that points to the corresponding node object.
  */
 @ApiModel(description = "CSINode holds information about all CSI drivers installed on a node. CSI drivers do not need to create the CSINode object directly. As long as they use the node-driver-registrar sidecar container, the kubelet will automatically populate the CSINode object for the CSI driver as part of kubelet plugin registration. CSINode has the same name as a node. If the object is missing, it means either there are no CSI Drivers available on the node, or the Kubelet version is low enough that it doesn't create this object. CSINode has an OwnerReference that points to the corresponding node object.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1CSINode implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -73,6 +74,11 @@ public class V1CSINode implements io.kubernetes.client.common.KubernetesObject {
   @SerializedName(SERIALIZED_NAME_SPEC)
   @jakarta.annotation.Nonnull
   private V1CSINodeSpec spec;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @jakarta.annotation.Nullable
+  private V1CSINodeStatus status;
 
   public V1CSINode() {
   }
@@ -157,6 +163,26 @@ public class V1CSINode implements io.kubernetes.client.common.KubernetesObject {
   }
 
 
+  public V1CSINode status(@jakarta.annotation.Nullable V1CSINodeStatus status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1CSINodeStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(@jakarta.annotation.Nullable V1CSINodeStatus status) {
+    this.status = status;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -170,12 +196,13 @@ public class V1CSINode implements io.kubernetes.client.common.KubernetesObject {
     return Objects.equals(this.apiVersion, v1CSINode.apiVersion) &&
         Objects.equals(this.kind, v1CSINode.kind) &&
         Objects.equals(this.metadata, v1CSINode.metadata) &&
-        Objects.equals(this.spec, v1CSINode.spec);
+        Objects.equals(this.spec, v1CSINode.spec) &&
+        Objects.equals(this.status, v1CSINode.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiVersion, kind, metadata, spec);
+    return Objects.hash(apiVersion, kind, metadata, spec, status);
   }
 
   @Override
@@ -186,6 +213,7 @@ public class V1CSINode implements io.kubernetes.client.common.KubernetesObject {
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -207,7 +235,7 @@ public class V1CSINode implements io.kubernetes.client.common.KubernetesObject {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "kind", "metadata", "spec"));
+    openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "kind", "metadata", "spec", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("spec"));
@@ -253,6 +281,10 @@ public class V1CSINode implements io.kubernetes.client.common.KubernetesObject {
       }
       // validate the required field `spec`
       V1CSINodeSpec.validateJsonElement(jsonObj.get("spec"));
+      // validate the optional field `status`
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+        V1CSINodeStatus.validateJsonElement(jsonObj.get("status"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

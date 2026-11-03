@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.models.V1LimitRangeSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1LimitRangeItemBuilder> limits;
 
@@ -43,7 +45,7 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
 
   public A addAllToLimits(Collection<V1LimitRangeItem> items) {
     if (this.limits == null) {
-      this.limits = new ArrayList();
+      this.limits = new ArrayList<>();
     }
     for (V1LimitRangeItem item : items) {
         V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
@@ -54,16 +56,16 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public LimitsNested<A> addNewLimit() {
-    return new LimitsNested(-1, null);
+    return new LimitsNested<>(-1, null);
   }
   
   public LimitsNested<A> addNewLimitLike(V1LimitRangeItem item) {
-    return new LimitsNested(-1, item);
+    return new LimitsNested<>(-1, item);
   }
   
   public A addToLimits(V1LimitRangeItem... items) {
     if (this.limits == null) {
-      this.limits = new ArrayList();
+      this.limits = new ArrayList<>();
     }
     for (V1LimitRangeItem item : items) {
         V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
@@ -75,7 +77,7 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToLimits(int index,V1LimitRangeItem item) {
     if (this.limits == null) {
-      this.limits = new ArrayList();
+      this.limits = new ArrayList<>();
     }
     V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
     if (index < 0 || index >= this.limits.size()) {
@@ -166,7 +168,7 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1LimitRangeSpecFluent that = (V1LimitRangeSpecFluent) o;
+    V1LimitRangeSpecFluent<?> that = (V1LimitRangeSpecFluent<?>) o;
     if (!(Objects.equals(limits, that.limits))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1LimitRangeItemBuilder> each = limits.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("limits");
     while (each.hasNext()) {
         V1LimitRangeItemBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public LimitsNested<A> setNewLimitLike(int index,V1LimitRangeItem item) {
-    return new LimitsNested(index, item);
+    return new LimitsNested<>(index, item);
   }
   
   public A setToLimits(int index,V1LimitRangeItem item) {
     if (this.limits == null) {
-      this.limits = new ArrayList();
+      this.limits = new ArrayList<>();
     }
     V1LimitRangeItemBuilder builder = new V1LimitRangeItemBuilder(item);
     if (index < 0 || index >= this.limits.size()) {
@@ -265,7 +268,7 @@ public class V1LimitRangeSpecFluent<A extends io.kubernetes.client.openapi.model
       this._visitables.get("limits").clear();
     }
     if (limits != null) {
-        this.limits = new ArrayList();
+        this.limits = new ArrayList<>();
         for (V1LimitRangeItem item : limits) {
           this.addToLimits(item);
         }

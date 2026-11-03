@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1JobSchedulingConfiguration;
 import io.kubernetes.client.openapi.models.V1LabelSelector;
 import io.kubernetes.client.openapi.models.V1PodFailurePolicy;
 import io.kubernetes.client.openapi.models.V1PodTemplateSpec;
@@ -54,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * JobSpec describes how the job execution will look like.
  */
 @ApiModel(description = "JobSpec describes how the job execution will look like.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1JobSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS)
@@ -110,6 +111,11 @@ public class V1JobSpec {
   @SerializedName(SERIALIZED_NAME_POD_REPLACEMENT_POLICY)
   @jakarta.annotation.Nullable
   private String podReplacementPolicy;
+
+  public static final String SERIALIZED_NAME_SCHEDULING = "scheduling";
+  @SerializedName(SERIALIZED_NAME_SCHEDULING)
+  @jakarta.annotation.Nullable
+  private V1JobSchedulingConfiguration scheduling;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
@@ -359,6 +365,26 @@ public class V1JobSpec {
   }
 
 
+  public V1JobSpec scheduling(@jakarta.annotation.Nullable V1JobSchedulingConfiguration scheduling) {
+    this.scheduling = scheduling;
+    return this;
+  }
+
+  /**
+   * Get scheduling
+   * @return scheduling
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1JobSchedulingConfiguration getScheduling() {
+    return scheduling;
+  }
+
+  public void setScheduling(@jakarta.annotation.Nullable V1JobSchedulingConfiguration scheduling) {
+    this.scheduling = scheduling;
+  }
+
+
   public V1JobSpec selector(@jakarta.annotation.Nullable V1LabelSelector selector) {
     this.selector = selector;
     return this;
@@ -480,6 +506,7 @@ public class V1JobSpec {
         Objects.equals(this.parallelism, v1JobSpec.parallelism) &&
         Objects.equals(this.podFailurePolicy, v1JobSpec.podFailurePolicy) &&
         Objects.equals(this.podReplacementPolicy, v1JobSpec.podReplacementPolicy) &&
+        Objects.equals(this.scheduling, v1JobSpec.scheduling) &&
         Objects.equals(this.selector, v1JobSpec.selector) &&
         Objects.equals(this.successPolicy, v1JobSpec.successPolicy) &&
         Objects.equals(this.suspend, v1JobSpec.suspend) &&
@@ -489,7 +516,7 @@ public class V1JobSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDeadlineSeconds, backoffLimit, backoffLimitPerIndex, completionMode, completions, managedBy, manualSelector, maxFailedIndexes, parallelism, podFailurePolicy, podReplacementPolicy, selector, successPolicy, suspend, template, ttlSecondsAfterFinished);
+    return Objects.hash(activeDeadlineSeconds, backoffLimit, backoffLimitPerIndex, completionMode, completions, managedBy, manualSelector, maxFailedIndexes, parallelism, podFailurePolicy, podReplacementPolicy, scheduling, selector, successPolicy, suspend, template, ttlSecondsAfterFinished);
   }
 
   @Override
@@ -507,6 +534,7 @@ public class V1JobSpec {
     sb.append("    parallelism: ").append(toIndentedString(parallelism)).append("\n");
     sb.append("    podFailurePolicy: ").append(toIndentedString(podFailurePolicy)).append("\n");
     sb.append("    podReplacementPolicy: ").append(toIndentedString(podReplacementPolicy)).append("\n");
+    sb.append("    scheduling: ").append(toIndentedString(scheduling)).append("\n");
     sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
     sb.append("    successPolicy: ").append(toIndentedString(successPolicy)).append("\n");
     sb.append("    suspend: ").append(toIndentedString(suspend)).append("\n");
@@ -533,7 +561,7 @@ public class V1JobSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("activeDeadlineSeconds", "backoffLimit", "backoffLimitPerIndex", "completionMode", "completions", "managedBy", "manualSelector", "maxFailedIndexes", "parallelism", "podFailurePolicy", "podReplacementPolicy", "selector", "successPolicy", "suspend", "template", "ttlSecondsAfterFinished"));
+    openapiFields = new HashSet<String>(Arrays.asList("activeDeadlineSeconds", "backoffLimit", "backoffLimitPerIndex", "completionMode", "completions", "managedBy", "manualSelector", "maxFailedIndexes", "parallelism", "podFailurePolicy", "podReplacementPolicy", "scheduling", "selector", "successPolicy", "suspend", "template", "ttlSecondsAfterFinished"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("template"));
@@ -579,6 +607,10 @@ public class V1JobSpec {
       }
       if ((jsonObj.get("podReplacementPolicy") != null && !jsonObj.get("podReplacementPolicy").isJsonNull()) && !jsonObj.get("podReplacementPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `podReplacementPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("podReplacementPolicy").toString()));
+      }
+      // validate the optional field `scheduling`
+      if (jsonObj.get("scheduling") != null && !jsonObj.get("scheduling").isJsonNull()) {
+        V1JobSchedulingConfiguration.validateJsonElement(jsonObj.get("scheduling"));
       }
       // validate the optional field `selector`
       if (jsonObj.get("selector") != null && !jsonObj.get("selector").isJsonNull()) {

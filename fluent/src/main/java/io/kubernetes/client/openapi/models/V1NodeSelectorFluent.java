@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeSelectorFluent<A extends io.kubernetes.client.openapi.models.V1NodeSelectorFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeSelectorFluent<A extends V1NodeSelectorFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1NodeSelectorTermBuilder> nodeSelectorTerms;
 
@@ -43,7 +45,7 @@ public class V1NodeSelectorFluent<A extends io.kubernetes.client.openapi.models.
 
   public A addAllToNodeSelectorTerms(Collection<V1NodeSelectorTerm> items) {
     if (this.nodeSelectorTerms == null) {
-      this.nodeSelectorTerms = new ArrayList();
+      this.nodeSelectorTerms = new ArrayList<>();
     }
     for (V1NodeSelectorTerm item : items) {
         V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
@@ -54,16 +56,16 @@ public class V1NodeSelectorFluent<A extends io.kubernetes.client.openapi.models.
   }
   
   public NodeSelectorTermsNested<A> addNewNodeSelectorTerm() {
-    return new NodeSelectorTermsNested(-1, null);
+    return new NodeSelectorTermsNested<>(-1, null);
   }
   
   public NodeSelectorTermsNested<A> addNewNodeSelectorTermLike(V1NodeSelectorTerm item) {
-    return new NodeSelectorTermsNested(-1, item);
+    return new NodeSelectorTermsNested<>(-1, item);
   }
   
   public A addToNodeSelectorTerms(V1NodeSelectorTerm... items) {
     if (this.nodeSelectorTerms == null) {
-      this.nodeSelectorTerms = new ArrayList();
+      this.nodeSelectorTerms = new ArrayList<>();
     }
     for (V1NodeSelectorTerm item : items) {
         V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
@@ -75,7 +77,7 @@ public class V1NodeSelectorFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToNodeSelectorTerms(int index,V1NodeSelectorTerm item) {
     if (this.nodeSelectorTerms == null) {
-      this.nodeSelectorTerms = new ArrayList();
+      this.nodeSelectorTerms = new ArrayList<>();
     }
     V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
     if (index < 0 || index >= this.nodeSelectorTerms.size()) {
@@ -166,7 +168,7 @@ public class V1NodeSelectorFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeSelectorFluent that = (V1NodeSelectorFluent) o;
+    V1NodeSelectorFluent<?> that = (V1NodeSelectorFluent<?>) o;
     if (!(Objects.equals(nodeSelectorTerms, that.nodeSelectorTerms))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1NodeSelectorFluent<A extends io.kubernetes.client.openapi.models.
       return (A) this;
     }
     Iterator<V1NodeSelectorTermBuilder> each = nodeSelectorTerms.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("nodeSelectorTerms");
     while (each.hasNext()) {
         V1NodeSelectorTermBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1NodeSelectorFluent<A extends io.kubernetes.client.openapi.models.
   }
   
   public NodeSelectorTermsNested<A> setNewNodeSelectorTermLike(int index,V1NodeSelectorTerm item) {
-    return new NodeSelectorTermsNested(index, item);
+    return new NodeSelectorTermsNested<>(index, item);
   }
   
   public A setToNodeSelectorTerms(int index,V1NodeSelectorTerm item) {
     if (this.nodeSelectorTerms == null) {
-      this.nodeSelectorTerms = new ArrayList();
+      this.nodeSelectorTerms = new ArrayList<>();
     }
     V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
     if (index < 0 || index >= this.nodeSelectorTerms.size()) {
@@ -265,7 +268,7 @@ public class V1NodeSelectorFluent<A extends io.kubernetes.client.openapi.models.
       this._visitables.get("nodeSelectorTerms").clear();
     }
     if (nodeSelectorTerms != null) {
-        this.nodeSelectorTerms = new ArrayList();
+        this.nodeSelectorTerms = new ArrayList<>();
         for (V1NodeSelectorTerm item : nodeSelectorTerms) {
           this.addToNodeSelectorTerms(item);
         }

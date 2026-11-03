@@ -14,8 +14,12 @@ package io.kubernetes.client.extended.event.legacy;
 
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.models.CoreV1Event;
+
+import java.time.OffsetDateTime;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
+
 import org.apache.commons.lang3.tuple.MutablePair;
 
 public class EventCorrelator {
@@ -25,6 +29,10 @@ public class EventCorrelator {
   protected EventLogger logger;
 
   public EventCorrelator() {
+    this(OffsetDateTime::now);
+  }
+
+  public EventCorrelator(Supplier<OffsetDateTime> now) {
     final int maxLRUCacheEntries = 4096;
 
     this.filter = new EventSpamFilter(maxLRUCacheEntries, EventUtils::getSpamKey)::filter;
@@ -32,7 +40,8 @@ public class EventCorrelator {
         new EventAggregator(
             maxLRUCacheEntries,
             EventUtils::getAggregatedAndLocalKeyByReason,
-            EventUtils::getAggregatedMessageByReason);
+            EventUtils::getAggregatedMessageByReason,
+            now);
     this.logger = new EventLogger(maxLRUCacheEntries, EventUtils::getEventKey);
   }
 

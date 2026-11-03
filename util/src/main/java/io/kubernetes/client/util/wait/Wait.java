@@ -68,8 +68,10 @@ public class Wait {
       }
     } catch (Exception e) {
       return result.get();
+    } finally {
+      future.cancel(true);
+      executorService.shutdownNow();
     }
-    future.cancel(true);
     return result.get();
   }
 }

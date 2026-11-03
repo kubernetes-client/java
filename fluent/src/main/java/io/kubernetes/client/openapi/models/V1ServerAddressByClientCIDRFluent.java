@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ServerAddressByClientCIDRFluent<A extends io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ServerAddressByClientCIDRFluent<A extends V1ServerAddressByClientCIDRFluent<A>> extends BaseFluent<A>{
 
   private String clientCIDR;
   private String serverAddress;
@@ -53,7 +55,7 @@ public class V1ServerAddressByClientCIDRFluent<A extends io.kubernetes.client.op
     if (!(super.equals(o))) {
       return false;
     }
-    V1ServerAddressByClientCIDRFluent that = (V1ServerAddressByClientCIDRFluent) o;
+    V1ServerAddressByClientCIDRFluent<?> that = (V1ServerAddressByClientCIDRFluent<?>) o;
     if (!(Objects.equals(clientCIDR, that.clientCIDR))) {
       return false;
     }

@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DaemonSetUpdateStrategyFluent<A extends io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DaemonSetUpdateStrategyFluent<A extends V1DaemonSetUpdateStrategyFluent<A>> extends BaseFluent<A>{
 
   private V1RollingUpdateDaemonSetBuilder rollingUpdate;
   private String type;
@@ -71,7 +73,7 @@ public class V1DaemonSetUpdateStrategyFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1DaemonSetUpdateStrategyFluent that = (V1DaemonSetUpdateStrategyFluent) o;
+    V1DaemonSetUpdateStrategyFluent<?> that = (V1DaemonSetUpdateStrategyFluent<?>) o;
     if (!(Objects.equals(rollingUpdate, that.rollingUpdate))) {
       return false;
     }
@@ -114,11 +116,11 @@ public class V1DaemonSetUpdateStrategyFluent<A extends io.kubernetes.client.open
   }
   
   public RollingUpdateNested<A> withNewRollingUpdate() {
-    return new RollingUpdateNested(null);
+    return new RollingUpdateNested<>(null);
   }
   
   public RollingUpdateNested<A> withNewRollingUpdateLike(V1RollingUpdateDaemonSet item) {
-    return new RollingUpdateNested(item);
+    return new RollingUpdateNested<>(item);
   }
   
   public A withRollingUpdate(V1RollingUpdateDaemonSet rollingUpdate) {
@@ -127,8 +129,8 @@ public class V1DaemonSetUpdateStrategyFluent<A extends io.kubernetes.client.open
         this.rollingUpdate = new V1RollingUpdateDaemonSetBuilder(rollingUpdate);
         this._visitables.get("rollingUpdate").add(this.rollingUpdate);
     } else {
-        this.rollingUpdate = null;
         this._visitables.get("rollingUpdate").remove(this.rollingUpdate);
+        this.rollingUpdate = null;
     }
     return (A) this;
   }

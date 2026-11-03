@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * ServiceAccountTokenProjection represents a projected service account token volume. This projection can be used to insert a service account token into the pods runtime filesystem for use against APIs (Kubernetes API Server or otherwise).
  */
 @ApiModel(description = "ServiceAccountTokenProjection represents a projected service account token volume. This projection can be used to insert a service account token into the pods runtime filesystem for use against APIs (Kubernetes API Server or otherwise).")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ServiceAccountTokenProjection {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
@@ -66,6 +66,11 @@ public class V1ServiceAccountTokenProjection {
   @SerializedName(SERIALIZED_NAME_PATH)
   @jakarta.annotation.Nonnull
   private String path;
+
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  @jakarta.annotation.Nullable
+  private Long user;
 
   public V1ServiceAccountTokenProjection() {
   }
@@ -130,6 +135,26 @@ public class V1ServiceAccountTokenProjection {
   }
 
 
+  public V1ServiceAccountTokenProjection user(@jakarta.annotation.Nullable Long user) {
+    this.user = user;
+    return this;
+  }
+
+  /**
+   * user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.
+   * @return user
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.")
+  public Long getUser() {
+    return user;
+  }
+
+  public void setUser(@jakarta.annotation.Nullable Long user) {
+    this.user = user;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -142,12 +167,13 @@ public class V1ServiceAccountTokenProjection {
     V1ServiceAccountTokenProjection v1ServiceAccountTokenProjection = (V1ServiceAccountTokenProjection) o;
     return Objects.equals(this.audience, v1ServiceAccountTokenProjection.audience) &&
         Objects.equals(this.expirationSeconds, v1ServiceAccountTokenProjection.expirationSeconds) &&
-        Objects.equals(this.path, v1ServiceAccountTokenProjection.path);
+        Objects.equals(this.path, v1ServiceAccountTokenProjection.path) &&
+        Objects.equals(this.user, v1ServiceAccountTokenProjection.user);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(audience, expirationSeconds, path);
+    return Objects.hash(audience, expirationSeconds, path, user);
   }
 
   @Override
@@ -157,6 +183,7 @@ public class V1ServiceAccountTokenProjection {
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
     sb.append("    expirationSeconds: ").append(toIndentedString(expirationSeconds)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -178,7 +205,7 @@ public class V1ServiceAccountTokenProjection {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("audience", "expirationSeconds", "path"));
+    openapiFields = new HashSet<String>(Arrays.asList("audience", "expirationSeconds", "path", "user"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("path"));

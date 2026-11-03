@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1VolumeMountBuilder extends V1VolumeMountFluent<V1VolumeMountBuilder> implements VisitableBuilder<V1VolumeMount,V1VolumeMountBuilder>{
 
   V1VolumeMountFluent<?> fluent;
@@ -38,6 +39,7 @@ public class V1VolumeMountBuilder extends V1VolumeMountFluent<V1VolumeMountBuild
 
   public V1VolumeMount build() {
     V1VolumeMount buildable = new V1VolumeMount();
+    buildable.setBindMountOptions(fluent.getBindMountOptions());
     buildable.setMountPath(fluent.getMountPath());
     buildable.setMountPropagation(fluent.getMountPropagation());
     buildable.setName(fluent.getName());

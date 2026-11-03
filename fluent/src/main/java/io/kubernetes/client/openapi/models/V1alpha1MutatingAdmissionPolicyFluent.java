@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1alpha1MutatingAdmissionPolicyFluent<A extends io.kubernetes.client.openapi.models.V1alpha1MutatingAdmissionPolicyFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1alpha1MutatingAdmissionPolicyFluent<A extends V1alpha1MutatingAdmissionPolicyFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -91,7 +93,7 @@ public class V1alpha1MutatingAdmissionPolicyFluent<A extends io.kubernetes.clien
     if (!(super.equals(o))) {
       return false;
     }
-    V1alpha1MutatingAdmissionPolicyFluent that = (V1alpha1MutatingAdmissionPolicyFluent) o;
+    V1alpha1MutatingAdmissionPolicyFluent<?> that = (V1alpha1MutatingAdmissionPolicyFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -177,26 +179,26 @@ public class V1alpha1MutatingAdmissionPolicyFluent<A extends io.kubernetes.clien
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public SpecNested<A> withNewSpec() {
-    return new SpecNested(null);
+    return new SpecNested<>(null);
   }
   
   public SpecNested<A> withNewSpecLike(V1alpha1MutatingAdmissionPolicySpec item) {
-    return new SpecNested(item);
+    return new SpecNested<>(item);
   }
   
   public A withSpec(V1alpha1MutatingAdmissionPolicySpec spec) {
@@ -205,8 +207,8 @@ public class V1alpha1MutatingAdmissionPolicyFluent<A extends io.kubernetes.clien
         this.spec = new V1alpha1MutatingAdmissionPolicySpecBuilder(spec);
         this._visitables.get("spec").add(this.spec);
     } else {
-        this.spec = null;
         this._visitables.get("spec").remove(this.spec);
+        this.spec = null;
     }
     return (A) this;
   }

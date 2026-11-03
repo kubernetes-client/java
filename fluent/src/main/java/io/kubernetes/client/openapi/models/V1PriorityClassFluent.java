@@ -22,12 +22,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PriorityClassFluent<A extends io.kubernetes.client.openapi.models.V1PriorityClassFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PriorityClassFluent<A extends V1PriorityClassFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String description;
@@ -83,7 +85,7 @@ public class V1PriorityClassFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1PriorityClassFluent that = (V1PriorityClassFluent) o;
+    V1PriorityClassFluent<?> that = (V1PriorityClassFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -235,18 +237,18 @@ public class V1PriorityClassFluent<A extends io.kubernetes.client.openapi.models
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public A withPreemptionPolicy(String preemptionPolicy) {

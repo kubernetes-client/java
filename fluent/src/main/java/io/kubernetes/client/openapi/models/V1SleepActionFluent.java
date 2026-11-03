@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SleepActionFluent<A extends io.kubernetes.client.openapi.models.V1SleepActionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SleepActionFluent<A extends V1SleepActionFluent<A>> extends BaseFluent<A>{
 
   private Long seconds;
 
@@ -52,7 +54,7 @@ public class V1SleepActionFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1SleepActionFluent that = (V1SleepActionFluent) o;
+    V1SleepActionFluent<?> that = (V1SleepActionFluent<?>) o;
     if (!(Objects.equals(seconds, that.seconds))) {
       return false;
     }

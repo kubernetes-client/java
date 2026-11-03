@@ -27,12 +27,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models.V1LabelSelectorFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1LabelSelectorFluent<A extends V1LabelSelectorFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1LabelSelectorRequirementBuilder> matchExpressions;
   private Map<String,String> matchLabels;
@@ -46,7 +48,7 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
 
   public A addAllToMatchExpressions(Collection<V1LabelSelectorRequirement> items) {
     if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList();
+      this.matchExpressions = new ArrayList<>();
     }
     for (V1LabelSelectorRequirement item : items) {
         V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
@@ -57,16 +59,16 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public MatchExpressionsNested<A> addNewMatchExpression() {
-    return new MatchExpressionsNested(-1, null);
+    return new MatchExpressionsNested<>(-1, null);
   }
   
   public MatchExpressionsNested<A> addNewMatchExpressionLike(V1LabelSelectorRequirement item) {
-    return new MatchExpressionsNested(-1, item);
+    return new MatchExpressionsNested<>(-1, item);
   }
   
   public A addToMatchExpressions(V1LabelSelectorRequirement... items) {
     if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList();
+      this.matchExpressions = new ArrayList<>();
     }
     for (V1LabelSelectorRequirement item : items) {
         V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
@@ -78,7 +80,7 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToMatchExpressions(int index,V1LabelSelectorRequirement item) {
     if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList();
+      this.matchExpressions = new ArrayList<>();
     }
     V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
     if (index < 0 || index >= this.matchExpressions.size()) {
@@ -93,7 +95,7 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToMatchLabels(Map<String,String> map) {
     if (this.matchLabels == null && map != null) {
-      this.matchLabels = new LinkedHashMap();
+      this.matchLabels = new LinkedHashMap<>();
     }
     if (map != null) {
       this.matchLabels.putAll(map);
@@ -103,7 +105,7 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
   
   public A addToMatchLabels(String key,String value) {
     if (this.matchLabels == null && key != null && value != null) {
-      this.matchLabels = new LinkedHashMap();
+      this.matchLabels = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.matchLabels.put(key, value);
@@ -190,7 +192,7 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1LabelSelectorFluent that = (V1LabelSelectorFluent) o;
+    V1LabelSelectorFluent<?> that = (V1LabelSelectorFluent<?>) o;
     if (!(Objects.equals(matchExpressions, that.matchExpressions))) {
       return false;
     }
@@ -278,6 +280,7 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
       return (A) this;
     }
     Iterator<V1LabelSelectorRequirementBuilder> each = matchExpressions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("matchExpressions");
     while (each.hasNext()) {
         V1LabelSelectorRequirementBuilder builder = each.next();
@@ -290,12 +293,12 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
   }
   
   public MatchExpressionsNested<A> setNewMatchExpressionLike(int index,V1LabelSelectorRequirement item) {
-    return new MatchExpressionsNested(index, item);
+    return new MatchExpressionsNested<>(index, item);
   }
   
   public A setToMatchExpressions(int index,V1LabelSelectorRequirement item) {
     if (this.matchExpressions == null) {
-      this.matchExpressions = new ArrayList();
+      this.matchExpressions = new ArrayList<>();
     }
     V1LabelSelectorRequirementBuilder builder = new V1LabelSelectorRequirementBuilder(item);
     if (index < 0 || index >= this.matchExpressions.size()) {
@@ -329,7 +332,7 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
       this._visitables.get("matchExpressions").clear();
     }
     if (matchExpressions != null) {
-        this.matchExpressions = new ArrayList();
+        this.matchExpressions = new ArrayList<>();
         for (V1LabelSelectorRequirement item : matchExpressions) {
           this.addToMatchExpressions(item);
         }
@@ -356,7 +359,7 @@ public class V1LabelSelectorFluent<A extends io.kubernetes.client.openapi.models
     if (matchLabels == null) {
       this.matchLabels = null;
     } else {
-      this.matchLabels = new LinkedHashMap(matchLabels);
+      this.matchLabels = new LinkedHashMap<>(matchLabels);
     }
     return (A) this;
   }

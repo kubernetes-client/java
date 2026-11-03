@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
  * PriorityLevelConfiguration represents the configuration of a priority level.
  */
 @ApiModel(description = "PriorityLevelConfiguration represents the configuration of a priority level.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1PriorityLevelConfiguration implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -72,7 +72,7 @@ public class V1PriorityLevelConfiguration implements io.kubernetes.client.common
 
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private V1PriorityLevelConfigurationSpec spec;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
@@ -143,7 +143,7 @@ public class V1PriorityLevelConfiguration implements io.kubernetes.client.common
   }
 
 
-  public V1PriorityLevelConfiguration spec(@jakarta.annotation.Nullable V1PriorityLevelConfigurationSpec spec) {
+  public V1PriorityLevelConfiguration spec(@jakarta.annotation.Nonnull V1PriorityLevelConfigurationSpec spec) {
     this.spec = spec;
     return this;
   }
@@ -152,13 +152,13 @@ public class V1PriorityLevelConfiguration implements io.kubernetes.client.common
    * Get spec
    * @return spec
    */
-  @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
   public V1PriorityLevelConfigurationSpec getSpec() {
     return spec;
   }
 
-  public void setSpec(@jakarta.annotation.Nullable V1PriorityLevelConfigurationSpec spec) {
+  public void setSpec(@jakarta.annotation.Nonnull V1PriorityLevelConfigurationSpec spec) {
     this.spec = spec;
   }
 
@@ -238,7 +238,7 @@ public class V1PriorityLevelConfiguration implements io.kubernetes.client.common
     openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "kind", "metadata", "spec", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("spec"));
   }
 
   /**
@@ -261,6 +261,13 @@ public class V1PriorityLevelConfiguration implements io.kubernetes.client.common
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1PriorityLevelConfiguration` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1PriorityLevelConfiguration.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
@@ -272,10 +279,8 @@ public class V1PriorityLevelConfiguration implements io.kubernetes.client.common
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
         V1ObjectMeta.validateJsonElement(jsonObj.get("metadata"));
       }
-      // validate the optional field `spec`
-      if (jsonObj.get("spec") != null && !jsonObj.get("spec").isJsonNull()) {
-        V1PriorityLevelConfigurationSpec.validateJsonElement(jsonObj.get("spec"));
-      }
+      // validate the required field `spec`
+      V1PriorityLevelConfigurationSpec.validateJsonElement(jsonObj.get("spec"));
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
         V1PriorityLevelConfigurationStatus.validateJsonElement(jsonObj.get("status"));

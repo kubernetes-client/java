@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1EmptyDirVolumeSourceBuilder extends V1EmptyDirVolumeSourceFluent<V1EmptyDirVolumeSourceBuilder> implements VisitableBuilder<V1EmptyDirVolumeSource,V1EmptyDirVolumeSourceBuilder>{
 
   V1EmptyDirVolumeSourceFluent<?> fluent;
@@ -39,6 +40,7 @@ public class V1EmptyDirVolumeSourceBuilder extends V1EmptyDirVolumeSourceFluent<
   public V1EmptyDirVolumeSource build() {
     V1EmptyDirVolumeSource buildable = new V1EmptyDirVolumeSource();
     buildable.setMedium(fluent.getMedium());
+    buildable.setMode(fluent.getMode());
     buildable.setSizeLimit(fluent.getSizeLimit());
     return buildable;
   }

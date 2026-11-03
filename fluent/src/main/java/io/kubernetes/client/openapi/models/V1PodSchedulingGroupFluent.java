@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodSchedulingGroupFluent<A extends io.kubernetes.client.openapi.models.V1PodSchedulingGroupFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodSchedulingGroupFluent<A extends V1PodSchedulingGroupFluent<A>> extends BaseFluent<A>{
 
   private String podGroupName;
 
@@ -51,7 +53,7 @@ public class V1PodSchedulingGroupFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodSchedulingGroupFluent that = (V1PodSchedulingGroupFluent) o;
+    V1PodSchedulingGroupFluent<?> that = (V1PodSchedulingGroupFluent<?>) o;
     if (!(Objects.equals(podGroupName, that.podGroupName))) {
       return false;
     }

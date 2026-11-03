@@ -20,12 +20,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2MetricTargetFluent<A extends io.kubernetes.client.openapi.models.V2MetricTargetFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2MetricTargetFluent<A extends V2MetricTargetFluent<A>> extends BaseFluent<A>{
 
   private Integer averageUtilization;
   private Quantity averageValue;
@@ -59,7 +61,7 @@ public class V2MetricTargetFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V2MetricTargetFluent that = (V2MetricTargetFluent) o;
+    V2MetricTargetFluent<?> that = (V2MetricTargetFluent<?>) o;
     if (!(Objects.equals(averageUtilization, that.averageUtilization))) {
       return false;
     }

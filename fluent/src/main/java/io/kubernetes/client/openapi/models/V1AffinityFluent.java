@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1AffinityFluent<A extends io.kubernetes.client.openapi.models.V1AffinityFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1AffinityFluent<A extends V1AffinityFluent<A>> extends BaseFluent<A>{
 
   private V1NodeAffinityBuilder nodeAffinity;
   private V1PodAffinityBuilder podAffinity;
@@ -105,7 +107,7 @@ public class V1AffinityFluent<A extends io.kubernetes.client.openapi.models.V1Af
     if (!(super.equals(o))) {
       return false;
     }
-    V1AffinityFluent that = (V1AffinityFluent) o;
+    V1AffinityFluent<?> that = (V1AffinityFluent<?>) o;
     if (!(Objects.equals(nodeAffinity, that.nodeAffinity))) {
       return false;
     }
@@ -156,27 +158,27 @@ public class V1AffinityFluent<A extends io.kubernetes.client.openapi.models.V1Af
   }
   
   public NodeAffinityNested<A> withNewNodeAffinity() {
-    return new NodeAffinityNested(null);
+    return new NodeAffinityNested<>(null);
   }
   
   public NodeAffinityNested<A> withNewNodeAffinityLike(V1NodeAffinity item) {
-    return new NodeAffinityNested(item);
+    return new NodeAffinityNested<>(item);
   }
   
   public PodAffinityNested<A> withNewPodAffinity() {
-    return new PodAffinityNested(null);
+    return new PodAffinityNested<>(null);
   }
   
   public PodAffinityNested<A> withNewPodAffinityLike(V1PodAffinity item) {
-    return new PodAffinityNested(item);
+    return new PodAffinityNested<>(item);
   }
   
   public PodAntiAffinityNested<A> withNewPodAntiAffinity() {
-    return new PodAntiAffinityNested(null);
+    return new PodAntiAffinityNested<>(null);
   }
   
   public PodAntiAffinityNested<A> withNewPodAntiAffinityLike(V1PodAntiAffinity item) {
-    return new PodAntiAffinityNested(item);
+    return new PodAntiAffinityNested<>(item);
   }
   
   public A withNodeAffinity(V1NodeAffinity nodeAffinity) {
@@ -185,8 +187,8 @@ public class V1AffinityFluent<A extends io.kubernetes.client.openapi.models.V1Af
         this.nodeAffinity = new V1NodeAffinityBuilder(nodeAffinity);
         this._visitables.get("nodeAffinity").add(this.nodeAffinity);
     } else {
-        this.nodeAffinity = null;
         this._visitables.get("nodeAffinity").remove(this.nodeAffinity);
+        this.nodeAffinity = null;
     }
     return (A) this;
   }
@@ -197,8 +199,8 @@ public class V1AffinityFluent<A extends io.kubernetes.client.openapi.models.V1Af
         this.podAffinity = new V1PodAffinityBuilder(podAffinity);
         this._visitables.get("podAffinity").add(this.podAffinity);
     } else {
-        this.podAffinity = null;
         this._visitables.get("podAffinity").remove(this.podAffinity);
+        this.podAffinity = null;
     }
     return (A) this;
   }
@@ -209,8 +211,8 @@ public class V1AffinityFluent<A extends io.kubernetes.client.openapi.models.V1Af
         this.podAntiAffinity = new V1PodAntiAffinityBuilder(podAntiAffinity);
         this._visitables.get("podAntiAffinity").add(this.podAntiAffinity);
     } else {
-        this.podAntiAffinity = null;
         this._visitables.get("podAntiAffinity").remove(this.podAntiAffinity);
+        this.podAntiAffinity = null;
     }
     return (A) this;
   }

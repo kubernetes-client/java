@@ -21,12 +21,14 @@ import java.lang.SuppressWarnings;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1CapacityRequirementsFluent<A extends io.kubernetes.client.openapi.models.V1beta1CapacityRequirementsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1CapacityRequirementsFluent<A extends V1beta1CapacityRequirementsFluent<A>> extends BaseFluent<A>{
 
   private Map<String,Quantity> requests;
 
@@ -39,7 +41,7 @@ public class V1beta1CapacityRequirementsFluent<A extends io.kubernetes.client.op
 
   public A addToRequests(Map<String,Quantity> map) {
     if (this.requests == null && map != null) {
-      this.requests = new LinkedHashMap();
+      this.requests = new LinkedHashMap<>();
     }
     if (map != null) {
       this.requests.putAll(map);
@@ -49,7 +51,7 @@ public class V1beta1CapacityRequirementsFluent<A extends io.kubernetes.client.op
   
   public A addToRequests(String key,Quantity value) {
     if (this.requests == null && key != null && value != null) {
-      this.requests = new LinkedHashMap();
+      this.requests = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.requests.put(key, value);
@@ -74,7 +76,7 @@ public class V1beta1CapacityRequirementsFluent<A extends io.kubernetes.client.op
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1CapacityRequirementsFluent that = (V1beta1CapacityRequirementsFluent) o;
+    V1beta1CapacityRequirementsFluent<?> that = (V1beta1CapacityRequirementsFluent<?>) o;
     if (!(Objects.equals(requests, that.requests))) {
       return false;
     }
@@ -132,7 +134,7 @@ public class V1beta1CapacityRequirementsFluent<A extends io.kubernetes.client.op
     if (requests == null) {
       this.requests = null;
     } else {
-      this.requests = new LinkedHashMap(requests);
+      this.requests = new LinkedHashMap<>(requests);
     }
     return (A) this;
   }

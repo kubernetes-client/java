@@ -90,7 +90,10 @@ public class Quantity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(number);
+    // equals() compares numbers by value (scale-insensitive via BigDecimal.compareTo), so the
+    // hash must also be scale-insensitive to honor the equals/hashCode contract. Normalize the
+    // scale before hashing; otherwise e.g. "1" and "1000m" are equal but hash differently.
+    return Objects.hash(number == null ? null : number.stripTrailingZeros());
   }
 
   public static class QuantityAdapter extends TypeAdapter<Quantity> {

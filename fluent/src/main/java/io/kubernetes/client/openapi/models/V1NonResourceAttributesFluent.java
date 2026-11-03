@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NonResourceAttributesFluent<A extends io.kubernetes.client.openapi.models.V1NonResourceAttributesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NonResourceAttributesFluent<A extends V1NonResourceAttributesFluent<A>> extends BaseFluent<A>{
 
   private String path;
   private String verb;
@@ -53,7 +55,7 @@ public class V1NonResourceAttributesFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1NonResourceAttributesFluent that = (V1NonResourceAttributesFluent) o;
+    V1NonResourceAttributesFluent<?> that = (V1NonResourceAttributesFluent<?>) o;
     if (!(Objects.equals(path, that.path))) {
       return false;
     }

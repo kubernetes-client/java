@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * Maps a string key to a path within a volume.
  */
 @ApiModel(description = "Maps a string key to a path within a volume.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1KeyToPath {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -66,6 +66,11 @@ public class V1KeyToPath {
   @SerializedName(SERIALIZED_NAME_PATH)
   @jakarta.annotation.Nonnull
   private String path;
+
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  @jakarta.annotation.Nullable
+  private Long user;
 
   public V1KeyToPath() {
   }
@@ -130,6 +135,26 @@ public class V1KeyToPath {
   }
 
 
+  public V1KeyToPath user(@jakarta.annotation.Nullable Long user) {
+    this.user = user;
+    return this;
+  }
+
+  /**
+   * user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.
+   * @return user
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.")
+  public Long getUser() {
+    return user;
+  }
+
+  public void setUser(@jakarta.annotation.Nullable Long user) {
+    this.user = user;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -142,12 +167,13 @@ public class V1KeyToPath {
     V1KeyToPath v1KeyToPath = (V1KeyToPath) o;
     return Objects.equals(this.key, v1KeyToPath.key) &&
         Objects.equals(this.mode, v1KeyToPath.mode) &&
-        Objects.equals(this.path, v1KeyToPath.path);
+        Objects.equals(this.path, v1KeyToPath.path) &&
+        Objects.equals(this.user, v1KeyToPath.user);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, mode, path);
+    return Objects.hash(key, mode, path, user);
   }
 
   @Override
@@ -157,6 +183,7 @@ public class V1KeyToPath {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -178,7 +205,7 @@ public class V1KeyToPath {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("key", "mode", "path"));
+    openapiFields = new HashSet<String>(Arrays.asList("key", "mode", "path", "user"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("key", "path"));

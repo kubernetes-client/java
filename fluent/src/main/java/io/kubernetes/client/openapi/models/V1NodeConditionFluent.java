@@ -19,12 +19,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeConditionFluent<A extends io.kubernetes.client.openapi.models.V1NodeConditionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeConditionFluent<A extends V1NodeConditionFluent<A>> extends BaseFluent<A>{
 
   private OffsetDateTime lastHeartbeatTime;
   private OffsetDateTime lastTransitionTime;
@@ -62,7 +64,7 @@ public class V1NodeConditionFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeConditionFluent that = (V1NodeConditionFluent) o;
+    V1NodeConditionFluent<?> that = (V1NodeConditionFluent<?>) o;
     if (!(Objects.equals(lastHeartbeatTime, that.lastHeartbeatTime))) {
       return false;
     }

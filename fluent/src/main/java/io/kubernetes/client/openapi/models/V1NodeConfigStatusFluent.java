@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeConfigStatusFluent<A extends io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeConfigStatusFluent<A extends V1NodeConfigStatusFluent<A>> extends BaseFluent<A>{
 
   private V1NodeConfigSourceBuilder active;
   private V1NodeConfigSourceBuilder assigned;
@@ -107,7 +109,7 @@ public class V1NodeConfigStatusFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeConfigStatusFluent that = (V1NodeConfigStatusFluent) o;
+    V1NodeConfigStatusFluent<?> that = (V1NodeConfigStatusFluent<?>) o;
     if (!(Objects.equals(active, that.active))) {
       return false;
     }
@@ -179,8 +181,8 @@ public class V1NodeConfigStatusFluent<A extends io.kubernetes.client.openapi.mod
         this.active = new V1NodeConfigSourceBuilder(active);
         this._visitables.get("active").add(this.active);
     } else {
-        this.active = null;
         this._visitables.get("active").remove(this.active);
+        this.active = null;
     }
     return (A) this;
   }
@@ -191,8 +193,8 @@ public class V1NodeConfigStatusFluent<A extends io.kubernetes.client.openapi.mod
         this.assigned = new V1NodeConfigSourceBuilder(assigned);
         this._visitables.get("assigned").add(this.assigned);
     } else {
-        this.assigned = null;
         this._visitables.get("assigned").remove(this.assigned);
+        this.assigned = null;
     }
     return (A) this;
   }
@@ -208,34 +210,34 @@ public class V1NodeConfigStatusFluent<A extends io.kubernetes.client.openapi.mod
         this.lastKnownGood = new V1NodeConfigSourceBuilder(lastKnownGood);
         this._visitables.get("lastKnownGood").add(this.lastKnownGood);
     } else {
-        this.lastKnownGood = null;
         this._visitables.get("lastKnownGood").remove(this.lastKnownGood);
+        this.lastKnownGood = null;
     }
     return (A) this;
   }
   
   public ActiveNested<A> withNewActive() {
-    return new ActiveNested(null);
+    return new ActiveNested<>(null);
   }
   
   public ActiveNested<A> withNewActiveLike(V1NodeConfigSource item) {
-    return new ActiveNested(item);
+    return new ActiveNested<>(item);
   }
   
   public AssignedNested<A> withNewAssigned() {
-    return new AssignedNested(null);
+    return new AssignedNested<>(null);
   }
   
   public AssignedNested<A> withNewAssignedLike(V1NodeConfigSource item) {
-    return new AssignedNested(item);
+    return new AssignedNested<>(item);
   }
   
   public LastKnownGoodNested<A> withNewLastKnownGood() {
-    return new LastKnownGoodNested(null);
+    return new LastKnownGoodNested<>(null);
   }
   
   public LastKnownGoodNested<A> withNewLastKnownGoodLike(V1NodeConfigSource item) {
-    return new LastKnownGoodNested(item);
+    return new LastKnownGoodNested<>(item);
   }
   public class ActiveNested<N> extends V1NodeConfigSourceFluent<ActiveNested<N>> implements Nested<N>{
   

@@ -53,12 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * DownwardAPIVolumeSource represents a volume containing downward API info. Downward API volumes support ownership management and SELinux relabeling.
  */
 @ApiModel(description = "DownwardAPIVolumeSource represents a volume containing downward API info. Downward API volumes support ownership management and SELinux relabeling.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1DownwardAPIVolumeSource {
   public static final String SERIALIZED_NAME_DEFAULT_MODE = "defaultMode";
   @SerializedName(SERIALIZED_NAME_DEFAULT_MODE)
   @jakarta.annotation.Nullable
   private Integer defaultMode;
+
+  public static final String SERIALIZED_NAME_DEFAULT_USER = "defaultUser";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_USER)
+  @jakarta.annotation.Nullable
+  private Long defaultUser;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
@@ -85,6 +90,26 @@ public class V1DownwardAPIVolumeSource {
 
   public void setDefaultMode(@jakarta.annotation.Nullable Integer defaultMode) {
     this.defaultMode = defaultMode;
+  }
+
+
+  public V1DownwardAPIVolumeSource defaultUser(@jakarta.annotation.Nullable Long defaultUser) {
+    this.defaultUser = defaultUser;
+    return this;
+  }
+
+  /**
+   * defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.
+   * @return defaultUser
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.")
+  public Long getDefaultUser() {
+    return defaultUser;
+  }
+
+  public void setDefaultUser(@jakarta.annotation.Nullable Long defaultUser) {
+    this.defaultUser = defaultUser;
   }
 
 
@@ -127,12 +152,13 @@ public class V1DownwardAPIVolumeSource {
     }
     V1DownwardAPIVolumeSource v1DownwardAPIVolumeSource = (V1DownwardAPIVolumeSource) o;
     return Objects.equals(this.defaultMode, v1DownwardAPIVolumeSource.defaultMode) &&
+        Objects.equals(this.defaultUser, v1DownwardAPIVolumeSource.defaultUser) &&
         Objects.equals(this.items, v1DownwardAPIVolumeSource.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultMode, items);
+    return Objects.hash(defaultMode, defaultUser, items);
   }
 
   @Override
@@ -140,6 +166,7 @@ public class V1DownwardAPIVolumeSource {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1DownwardAPIVolumeSource {\n");
     sb.append("    defaultMode: ").append(toIndentedString(defaultMode)).append("\n");
+    sb.append("    defaultUser: ").append(toIndentedString(defaultUser)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -162,7 +189,7 @@ public class V1DownwardAPIVolumeSource {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("defaultMode", "items"));
+    openapiFields = new HashSet<String>(Arrays.asList("defaultMode", "defaultUser", "items"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

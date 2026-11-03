@@ -556,10 +556,15 @@ public class Exec {
               ExecProcess.this.onUnhandledError.accept(ex);
 
               synchronized (ExecProcess.this) {
-                // Try for a pretty unique error code, so if someone searches
-                // they'll find this
-                // code.
-                statusCode = -1975219;
+                // The server may close the connection right after sending the exit status, so
+                // closing our side can fail after the command finished. Keep a received exit
+                // status in that case.
+                if (statusCode < 0) {
+                  // Try for a pretty unique error code, so if someone searches
+                  // they'll find this
+                  // code.
+                  statusCode = -1975219;
+                }
                 isAlive = false;
                 ExecProcess.this.latch.countDown();
               }

@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NamespaceStatusFluent<A extends io.kubernetes.client.openapi.models.V1NamespaceStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NamespaceStatusFluent<A extends V1NamespaceStatusFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1NamespaceConditionBuilder> conditions;
   private String phase;
@@ -44,7 +46,7 @@ public class V1NamespaceStatusFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToConditions(Collection<V1NamespaceCondition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1NamespaceCondition item : items) {
         V1NamespaceConditionBuilder builder = new V1NamespaceConditionBuilder(item);
@@ -55,16 +57,16 @@ public class V1NamespaceStatusFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1NamespaceCondition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public A addToConditions(V1NamespaceCondition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1NamespaceCondition item : items) {
         V1NamespaceConditionBuilder builder = new V1NamespaceConditionBuilder(item);
@@ -76,7 +78,7 @@ public class V1NamespaceStatusFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToConditions(int index,V1NamespaceCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1NamespaceConditionBuilder builder = new V1NamespaceConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -168,7 +170,7 @@ public class V1NamespaceStatusFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1NamespaceStatusFluent that = (V1NamespaceStatusFluent) o;
+    V1NamespaceStatusFluent<?> that = (V1NamespaceStatusFluent<?>) o;
     if (!(Objects.equals(conditions, that.conditions))) {
       return false;
     }
@@ -232,6 +234,7 @@ public class V1NamespaceStatusFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1NamespaceConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1NamespaceConditionBuilder builder = each.next();
@@ -244,12 +247,12 @@ public class V1NamespaceStatusFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1NamespaceCondition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public A setToConditions(int index,V1NamespaceCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1NamespaceConditionBuilder builder = new V1NamespaceConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -283,7 +286,7 @@ public class V1NamespaceStatusFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1NamespaceCondition item : conditions) {
           this.addToConditions(item);
         }

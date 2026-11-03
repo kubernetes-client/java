@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.models.V1VolumeMountStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1VolumeMountStatusFluent<A extends V1VolumeMountStatusFluent<A>> extends BaseFluent<A>{
 
   private String mountPath;
   private String name;
@@ -78,7 +80,7 @@ public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1VolumeMountStatusFluent that = (V1VolumeMountStatusFluent) o;
+    V1VolumeMountStatusFluent<?> that = (V1VolumeMountStatusFluent<?>) o;
     if (!(Objects.equals(mountPath, that.mountPath))) {
       return false;
     }
@@ -179,11 +181,11 @@ public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.mo
   }
   
   public VolumeStatusNested<A> withNewVolumeStatus() {
-    return new VolumeStatusNested(null);
+    return new VolumeStatusNested<>(null);
   }
   
   public VolumeStatusNested<A> withNewVolumeStatusLike(V1VolumeStatus item) {
-    return new VolumeStatusNested(item);
+    return new VolumeStatusNested<>(item);
   }
   
   public A withReadOnly() {
@@ -206,8 +208,8 @@ public class V1VolumeMountStatusFluent<A extends io.kubernetes.client.openapi.mo
         this.volumeStatus = new V1VolumeStatusBuilder(volumeStatus);
         this._visitables.get("volumeStatus").add(this.volumeStatus);
     } else {
-        this.volumeStatus = null;
         this._visitables.get("volumeStatus").remove(this.volumeStatus);
+        this.volumeStatus = null;
     }
     return (A) this;
   }

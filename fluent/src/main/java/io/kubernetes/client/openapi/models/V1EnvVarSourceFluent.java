@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1EnvVarSourceFluent<A extends io.kubernetes.client.openapi.models.V1EnvVarSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1EnvVarSourceFluent<A extends V1EnvVarSourceFluent<A>> extends BaseFluent<A>{
 
   private V1ConfigMapKeySelectorBuilder configMapKeyRef;
   private V1ObjectFieldSelectorBuilder fieldRef;
@@ -141,7 +143,7 @@ public class V1EnvVarSourceFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1EnvVarSourceFluent that = (V1EnvVarSourceFluent) o;
+    V1EnvVarSourceFluent<?> that = (V1EnvVarSourceFluent<?>) o;
     if (!(Objects.equals(configMapKeyRef, that.configMapKeyRef))) {
       return false;
     }
@@ -221,8 +223,8 @@ public class V1EnvVarSourceFluent<A extends io.kubernetes.client.openapi.models.
         this.configMapKeyRef = new V1ConfigMapKeySelectorBuilder(configMapKeyRef);
         this._visitables.get("configMapKeyRef").add(this.configMapKeyRef);
     } else {
-        this.configMapKeyRef = null;
         this._visitables.get("configMapKeyRef").remove(this.configMapKeyRef);
+        this.configMapKeyRef = null;
     }
     return (A) this;
   }
@@ -233,8 +235,8 @@ public class V1EnvVarSourceFluent<A extends io.kubernetes.client.openapi.models.
         this.fieldRef = new V1ObjectFieldSelectorBuilder(fieldRef);
         this._visitables.get("fieldRef").add(this.fieldRef);
     } else {
-        this.fieldRef = null;
         this._visitables.get("fieldRef").remove(this.fieldRef);
+        this.fieldRef = null;
     }
     return (A) this;
   }
@@ -245,50 +247,50 @@ public class V1EnvVarSourceFluent<A extends io.kubernetes.client.openapi.models.
         this.fileKeyRef = new V1FileKeySelectorBuilder(fileKeyRef);
         this._visitables.get("fileKeyRef").add(this.fileKeyRef);
     } else {
-        this.fileKeyRef = null;
         this._visitables.get("fileKeyRef").remove(this.fileKeyRef);
+        this.fileKeyRef = null;
     }
     return (A) this;
   }
   
   public ConfigMapKeyRefNested<A> withNewConfigMapKeyRef() {
-    return new ConfigMapKeyRefNested(null);
+    return new ConfigMapKeyRefNested<>(null);
   }
   
   public ConfigMapKeyRefNested<A> withNewConfigMapKeyRefLike(V1ConfigMapKeySelector item) {
-    return new ConfigMapKeyRefNested(item);
+    return new ConfigMapKeyRefNested<>(item);
   }
   
   public FieldRefNested<A> withNewFieldRef() {
-    return new FieldRefNested(null);
+    return new FieldRefNested<>(null);
   }
   
   public FieldRefNested<A> withNewFieldRefLike(V1ObjectFieldSelector item) {
-    return new FieldRefNested(item);
+    return new FieldRefNested<>(item);
   }
   
   public FileKeyRefNested<A> withNewFileKeyRef() {
-    return new FileKeyRefNested(null);
+    return new FileKeyRefNested<>(null);
   }
   
   public FileKeyRefNested<A> withNewFileKeyRefLike(V1FileKeySelector item) {
-    return new FileKeyRefNested(item);
+    return new FileKeyRefNested<>(item);
   }
   
   public ResourceFieldRefNested<A> withNewResourceFieldRef() {
-    return new ResourceFieldRefNested(null);
+    return new ResourceFieldRefNested<>(null);
   }
   
   public ResourceFieldRefNested<A> withNewResourceFieldRefLike(V1ResourceFieldSelector item) {
-    return new ResourceFieldRefNested(item);
+    return new ResourceFieldRefNested<>(item);
   }
   
   public SecretKeyRefNested<A> withNewSecretKeyRef() {
-    return new SecretKeyRefNested(null);
+    return new SecretKeyRefNested<>(null);
   }
   
   public SecretKeyRefNested<A> withNewSecretKeyRefLike(V1SecretKeySelector item) {
-    return new SecretKeyRefNested(item);
+    return new SecretKeyRefNested<>(item);
   }
   
   public A withResourceFieldRef(V1ResourceFieldSelector resourceFieldRef) {
@@ -297,8 +299,8 @@ public class V1EnvVarSourceFluent<A extends io.kubernetes.client.openapi.models.
         this.resourceFieldRef = new V1ResourceFieldSelectorBuilder(resourceFieldRef);
         this._visitables.get("resourceFieldRef").add(this.resourceFieldRef);
     } else {
-        this.resourceFieldRef = null;
         this._visitables.get("resourceFieldRef").remove(this.resourceFieldRef);
+        this.resourceFieldRef = null;
     }
     return (A) this;
   }
@@ -309,8 +311,8 @@ public class V1EnvVarSourceFluent<A extends io.kubernetes.client.openapi.models.
         this.secretKeyRef = new V1SecretKeySelectorBuilder(secretKeyRef);
         this._visitables.get("secretKeyRef").add(this.secretKeyRef);
     } else {
-        this.secretKeyRef = null;
         this._visitables.get("secretKeyRef").remove(this.secretKeyRef);
+        this.secretKeyRef = null;
     }
     return (A) this;
   }

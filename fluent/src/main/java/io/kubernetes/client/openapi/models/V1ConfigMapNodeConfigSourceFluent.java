@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ConfigMapNodeConfigSourceFluent<A extends io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ConfigMapNodeConfigSourceFluent<A extends V1ConfigMapNodeConfigSourceFluent<A>> extends BaseFluent<A>{
 
   private String kubeletConfigKey;
   private String name;
@@ -59,7 +61,7 @@ public class V1ConfigMapNodeConfigSourceFluent<A extends io.kubernetes.client.op
     if (!(super.equals(o))) {
       return false;
     }
-    V1ConfigMapNodeConfigSourceFluent that = (V1ConfigMapNodeConfigSourceFluent) o;
+    V1ConfigMapNodeConfigSourceFluent<?> that = (V1ConfigMapNodeConfigSourceFluent<?>) o;
     if (!(Objects.equals(kubeletConfigKey, that.kubeletConfigKey))) {
       return false;
     }

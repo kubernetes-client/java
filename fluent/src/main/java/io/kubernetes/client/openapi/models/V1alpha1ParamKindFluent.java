@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1alpha1ParamKindFluent<A extends io.kubernetes.client.openapi.models.V1alpha1ParamKindFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1alpha1ParamKindFluent<A extends V1alpha1ParamKindFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -53,7 +55,7 @@ public class V1alpha1ParamKindFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1alpha1ParamKindFluent that = (V1alpha1ParamKindFluent) o;
+    V1alpha1ParamKindFluent<?> that = (V1alpha1ParamKindFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }

@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeSwapStatusFluent<A extends io.kubernetes.client.openapi.models.V1NodeSwapStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeSwapStatusFluent<A extends V1NodeSwapStatusFluent<A>> extends BaseFluent<A>{
 
   private Long capacity;
 
@@ -52,7 +54,7 @@ public class V1NodeSwapStatusFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeSwapStatusFluent that = (V1NodeSwapStatusFluent) o;
+    V1NodeSwapStatusFluent<?> that = (V1NodeSwapStatusFluent<?>) o;
     if (!(Objects.equals(capacity, that.capacity))) {
       return false;
     }

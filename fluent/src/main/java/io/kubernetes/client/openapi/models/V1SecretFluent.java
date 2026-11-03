@@ -23,12 +23,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1SecretFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SecretFluent<A extends V1SecretFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private Map<String,byte[]> data;
@@ -47,7 +49,7 @@ public class V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1Secr
 
   public A addToData(Map<String,byte[]> map) {
     if (this.data == null && map != null) {
-      this.data = new LinkedHashMap();
+      this.data = new LinkedHashMap<>();
     }
     if (map != null) {
       this.data.putAll(map);
@@ -57,7 +59,7 @@ public class V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1Secr
   
   public A addToData(String key,byte[] value) {
     if (this.data == null && key != null && value != null) {
-      this.data = new LinkedHashMap();
+      this.data = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.data.put(key, value);
@@ -67,7 +69,7 @@ public class V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1Secr
   
   public A addToStringData(Map<String,String> map) {
     if (this.stringData == null && map != null) {
-      this.stringData = new LinkedHashMap();
+      this.stringData = new LinkedHashMap<>();
     }
     if (map != null) {
       this.stringData.putAll(map);
@@ -77,7 +79,7 @@ public class V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1Secr
   
   public A addToStringData(String key,String value) {
     if (this.stringData == null && key != null && value != null) {
-      this.stringData = new LinkedHashMap();
+      this.stringData = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.stringData.put(key, value);
@@ -124,7 +126,7 @@ public class V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1Secr
     if (!(super.equals(o))) {
       return false;
     }
-    V1SecretFluent that = (V1SecretFluent) o;
+    V1SecretFluent<?> that = (V1SecretFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -303,7 +305,7 @@ public class V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1Secr
     if (data == null) {
       this.data = null;
     } else {
-      this.data = new LinkedHashMap(data);
+      this.data = new LinkedHashMap<>(data);
     }
     return (A) this;
   }
@@ -328,25 +330,25 @@ public class V1SecretFluent<A extends io.kubernetes.client.openapi.models.V1Secr
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public <K,V>A withStringData(Map<String,String> stringData) {
     if (stringData == null) {
       this.stringData = null;
     } else {
-      this.stringData = new LinkedHashMap(stringData);
+      this.stringData = new LinkedHashMap<>(stringData);
     }
     return (A) this;
   }

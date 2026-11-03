@@ -55,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
  * RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace.
  */
 @ApiModel(description = "RoleBinding references a role, but does not contain it.  It can reference a Role in the same namespace or a ClusterRole in the global namespace. It adds who information via Subjects and namespace information by which namespace it exists in.  RoleBindings in a given namespace only have effect in that namespace.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -179,11 +179,11 @@ public class V1RoleBinding implements io.kubernetes.client.common.KubernetesObje
   }
 
   /**
-   * Subjects holds references to the objects the role applies to.
+   * subjects holds references to the objects the role applies to.
    * @return subjects
    */
   @jakarta.annotation.Nullable
-  @ApiModelProperty(value = "Subjects holds references to the objects the role applies to.")
+  @ApiModelProperty(value = "subjects holds references to the objects the role applies to.")
   public List<RbacV1Subject> getSubjects() {
     return subjects;
   }

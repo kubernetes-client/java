@@ -50,7 +50,7 @@ import io.kubernetes.client.openapi.JSON;
  * Selects a key from a ConfigMap.
  */
 @ApiModel(description = "Selects a key from a ConfigMap.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1ConfigMapKeySelector {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
@@ -76,11 +76,11 @@ public class V1ConfigMapKeySelector {
   }
 
   /**
-   * The key to select.
+   * The key to select from the ConfigMap&#39;s Data field. Keys in the BinaryData field are not currently propagated to container env vars.
    * @return key
    */
   @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "The key to select.")
+  @ApiModelProperty(required = true, value = "The key to select from the ConfigMap's Data field. Keys in the BinaryData field are not currently propagated to container env vars.")
   public String getKey() {
     return key;
   }

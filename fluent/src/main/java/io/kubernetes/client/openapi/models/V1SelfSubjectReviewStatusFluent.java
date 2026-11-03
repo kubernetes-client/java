@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SelfSubjectReviewStatusFluent<A extends io.kubernetes.client.openapi.models.V1SelfSubjectReviewStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SelfSubjectReviewStatusFluent<A extends V1SelfSubjectReviewStatusFluent<A>> extends BaseFluent<A>{
 
   private V1UserInfoBuilder userInfo;
 
@@ -69,7 +71,7 @@ public class V1SelfSubjectReviewStatusFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1SelfSubjectReviewStatusFluent that = (V1SelfSubjectReviewStatusFluent) o;
+    V1SelfSubjectReviewStatusFluent<?> that = (V1SelfSubjectReviewStatusFluent<?>) o;
     if (!(Objects.equals(userInfo, that.userInfo))) {
       return false;
     }
@@ -96,11 +98,11 @@ public class V1SelfSubjectReviewStatusFluent<A extends io.kubernetes.client.open
   }
   
   public UserInfoNested<A> withNewUserInfo() {
-    return new UserInfoNested(null);
+    return new UserInfoNested<>(null);
   }
   
   public UserInfoNested<A> withNewUserInfoLike(V1UserInfo item) {
-    return new UserInfoNested(item);
+    return new UserInfoNested<>(item);
   }
   
   public A withUserInfo(V1UserInfo userInfo) {
@@ -109,8 +111,8 @@ public class V1SelfSubjectReviewStatusFluent<A extends io.kubernetes.client.open
         this.userInfo = new V1UserInfoBuilder(userInfo);
         this._visitables.get("userInfo").add(this.userInfo);
     } else {
-        this.userInfo = null;
         this._visitables.get("userInfo").remove(this.userInfo);
+        this.userInfo = null;
     }
     return (A) this;
   }

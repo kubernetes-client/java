@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1RoleFluent<A extends io.kubernetes.client.openapi.models.V1RoleFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1RoleFluent<A extends V1RoleFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -47,7 +49,7 @@ public class V1RoleFluent<A extends io.kubernetes.client.openapi.models.V1RoleFl
 
   public A addAllToRules(Collection<V1PolicyRule> items) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     for (V1PolicyRule item : items) {
         V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
@@ -58,16 +60,16 @@ public class V1RoleFluent<A extends io.kubernetes.client.openapi.models.V1RoleFl
   }
   
   public RulesNested<A> addNewRule() {
-    return new RulesNested(-1, null);
+    return new RulesNested<>(-1, null);
   }
   
   public RulesNested<A> addNewRuleLike(V1PolicyRule item) {
-    return new RulesNested(-1, item);
+    return new RulesNested<>(-1, item);
   }
   
   public A addToRules(V1PolicyRule... items) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     for (V1PolicyRule item : items) {
         V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
@@ -79,7 +81,7 @@ public class V1RoleFluent<A extends io.kubernetes.client.openapi.models.V1RoleFl
   
   public A addToRules(int index,V1PolicyRule item) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
     if (index < 0 || index >= this.rules.size()) {
@@ -189,7 +191,7 @@ public class V1RoleFluent<A extends io.kubernetes.client.openapi.models.V1RoleFl
     if (!(super.equals(o))) {
       return false;
     }
-    V1RoleFluent that = (V1RoleFluent) o;
+    V1RoleFluent<?> that = (V1RoleFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -271,6 +273,7 @@ public class V1RoleFluent<A extends io.kubernetes.client.openapi.models.V1RoleFl
       return (A) this;
     }
     Iterator<V1PolicyRuleBuilder> each = rules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("rules");
     while (each.hasNext()) {
         V1PolicyRuleBuilder builder = each.next();
@@ -283,12 +286,12 @@ public class V1RoleFluent<A extends io.kubernetes.client.openapi.models.V1RoleFl
   }
   
   public RulesNested<A> setNewRuleLike(int index,V1PolicyRule item) {
-    return new RulesNested(index, item);
+    return new RulesNested<>(index, item);
   }
   
   public A setToRules(int index,V1PolicyRule item) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
     if (index < 0 || index >= this.rules.size()) {
@@ -343,18 +346,18 @@ public class V1RoleFluent<A extends io.kubernetes.client.openapi.models.V1RoleFl
         this.metadata = new V1ObjectMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   
   public A withRules(List<V1PolicyRule> rules) {
@@ -362,7 +365,7 @@ public class V1RoleFluent<A extends io.kubernetes.client.openapi.models.V1RoleFl
       this._visitables.get("rules").clear();
     }
     if (rules != null) {
-        this.rules = new ArrayList();
+        this.rules = new ArrayList<>();
         for (V1PolicyRule item : rules) {
           this.addToRules(item);
         }

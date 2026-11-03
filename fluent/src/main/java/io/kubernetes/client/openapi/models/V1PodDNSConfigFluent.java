@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.V1PodDNSConfigFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends BaseFluent<A>{
 
   private List<String> nameservers;
   private ArrayList<V1PodDNSConfigOptionBuilder> options;
@@ -45,7 +47,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
 
   public A addAllToNameservers(Collection<String> items) {
     if (this.nameservers == null) {
-      this.nameservers = new ArrayList();
+      this.nameservers = new ArrayList<>();
     }
     for (String item : items) {
       this.nameservers.add(item);
@@ -55,7 +57,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addAllToOptions(Collection<V1PodDNSConfigOption> items) {
     if (this.options == null) {
-      this.options = new ArrayList();
+      this.options = new ArrayList<>();
     }
     for (V1PodDNSConfigOption item : items) {
         V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
@@ -67,7 +69,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addAllToSearches(Collection<String> items) {
     if (this.searches == null) {
-      this.searches = new ArrayList();
+      this.searches = new ArrayList<>();
     }
     for (String item : items) {
       this.searches.add(item);
@@ -76,16 +78,16 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   }
   
   public OptionsNested<A> addNewOption() {
-    return new OptionsNested(-1, null);
+    return new OptionsNested<>(-1, null);
   }
   
   public OptionsNested<A> addNewOptionLike(V1PodDNSConfigOption item) {
-    return new OptionsNested(-1, item);
+    return new OptionsNested<>(-1, item);
   }
   
   public A addToNameservers(String... items) {
     if (this.nameservers == null) {
-      this.nameservers = new ArrayList();
+      this.nameservers = new ArrayList<>();
     }
     for (String item : items) {
       this.nameservers.add(item);
@@ -95,7 +97,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToNameservers(int index,String item) {
     if (this.nameservers == null) {
-      this.nameservers = new ArrayList();
+      this.nameservers = new ArrayList<>();
     }
     this.nameservers.add(index, item);
     return (A) this;
@@ -103,7 +105,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToOptions(V1PodDNSConfigOption... items) {
     if (this.options == null) {
-      this.options = new ArrayList();
+      this.options = new ArrayList<>();
     }
     for (V1PodDNSConfigOption item : items) {
         V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
@@ -115,7 +117,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToOptions(int index,V1PodDNSConfigOption item) {
     if (this.options == null) {
-      this.options = new ArrayList();
+      this.options = new ArrayList<>();
     }
     V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
     if (index < 0 || index >= this.options.size()) {
@@ -130,7 +132,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToSearches(String... items) {
     if (this.searches == null) {
-      this.searches = new ArrayList();
+      this.searches = new ArrayList<>();
     }
     for (String item : items) {
       this.searches.add(item);
@@ -140,7 +142,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToSearches(int index,String item) {
     if (this.searches == null) {
-      this.searches = new ArrayList();
+      this.searches = new ArrayList<>();
     }
     this.searches.add(index, item);
     return (A) this;
@@ -226,7 +228,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodDNSConfigFluent that = (V1PodDNSConfigFluent) o;
+    V1PodDNSConfigFluent<?> that = (V1PodDNSConfigFluent<?>) o;
     if (!(Objects.equals(nameservers, that.nameservers))) {
       return false;
     }
@@ -401,6 +403,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
       return (A) this;
     }
     Iterator<V1PodDNSConfigOptionBuilder> each = options.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("options");
     while (each.hasNext()) {
         V1PodDNSConfigOptionBuilder builder = each.next();
@@ -413,12 +416,12 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   }
   
   public OptionsNested<A> setNewOptionLike(int index,V1PodDNSConfigOption item) {
-    return new OptionsNested(index, item);
+    return new OptionsNested<>(index, item);
   }
   
   public A setToNameservers(int index,String item) {
     if (this.nameservers == null) {
-      this.nameservers = new ArrayList();
+      this.nameservers = new ArrayList<>();
     }
     this.nameservers.set(index, item);
     return (A) this;
@@ -426,7 +429,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   
   public A setToOptions(int index,V1PodDNSConfigOption item) {
     if (this.options == null) {
-      this.options = new ArrayList();
+      this.options = new ArrayList<>();
     }
     V1PodDNSConfigOptionBuilder builder = new V1PodDNSConfigOptionBuilder(item);
     if (index < 0 || index >= this.options.size()) {
@@ -441,7 +444,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   
   public A setToSearches(int index,String item) {
     if (this.searches == null) {
-      this.searches = new ArrayList();
+      this.searches = new ArrayList<>();
     }
     this.searches.set(index, item);
     return (A) this;
@@ -470,7 +473,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   
   public A withNameservers(List<String> nameservers) {
     if (nameservers != null) {
-        this.nameservers = new ArrayList();
+        this.nameservers = new ArrayList<>();
         for (String item : nameservers) {
           this.addToNameservers(item);
         }
@@ -498,7 +501,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
       this._visitables.get("options").clear();
     }
     if (options != null) {
-        this.options = new ArrayList();
+        this.options = new ArrayList<>();
         for (V1PodDNSConfigOption item : options) {
           this.addToOptions(item);
         }
@@ -523,7 +526,7 @@ public class V1PodDNSConfigFluent<A extends io.kubernetes.client.openapi.models.
   
   public A withSearches(List<String> searches) {
     if (searches != null) {
-        this.searches = new ArrayList();
+        this.searches = new ArrayList<>();
         for (String item : searches) {
           this.addToSearches(item);
         }

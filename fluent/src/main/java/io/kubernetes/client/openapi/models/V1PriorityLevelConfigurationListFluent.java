@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PriorityLevelConfigurationListFluent<A extends io.kubernetes.client.openapi.models.V1PriorityLevelConfigurationListFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PriorityLevelConfigurationListFluent<A extends V1PriorityLevelConfigurationListFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private ArrayList<V1PriorityLevelConfigurationBuilder> items;
@@ -47,7 +49,7 @@ public class V1PriorityLevelConfigurationListFluent<A extends io.kubernetes.clie
 
   public A addAllToItems(Collection<V1PriorityLevelConfiguration> items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1PriorityLevelConfiguration item : items) {
         V1PriorityLevelConfigurationBuilder builder = new V1PriorityLevelConfigurationBuilder(item);
@@ -58,16 +60,16 @@ public class V1PriorityLevelConfigurationListFluent<A extends io.kubernetes.clie
   }
   
   public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
+    return new ItemsNested<>(-1, null);
   }
   
   public ItemsNested<A> addNewItemLike(V1PriorityLevelConfiguration item) {
-    return new ItemsNested(-1, item);
+    return new ItemsNested<>(-1, item);
   }
   
   public A addToItems(V1PriorityLevelConfiguration... items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1PriorityLevelConfiguration item : items) {
         V1PriorityLevelConfigurationBuilder builder = new V1PriorityLevelConfigurationBuilder(item);
@@ -79,7 +81,7 @@ public class V1PriorityLevelConfigurationListFluent<A extends io.kubernetes.clie
   
   public A addToItems(int index,V1PriorityLevelConfiguration item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1PriorityLevelConfigurationBuilder builder = new V1PriorityLevelConfigurationBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -189,7 +191,7 @@ public class V1PriorityLevelConfigurationListFluent<A extends io.kubernetes.clie
     if (!(super.equals(o))) {
       return false;
     }
-    V1PriorityLevelConfigurationListFluent that = (V1PriorityLevelConfigurationListFluent) o;
+    V1PriorityLevelConfigurationListFluent<?> that = (V1PriorityLevelConfigurationListFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -271,6 +273,7 @@ public class V1PriorityLevelConfigurationListFluent<A extends io.kubernetes.clie
       return (A) this;
     }
     Iterator<V1PriorityLevelConfigurationBuilder> each = items.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("items");
     while (each.hasNext()) {
         V1PriorityLevelConfigurationBuilder builder = each.next();
@@ -283,12 +286,12 @@ public class V1PriorityLevelConfigurationListFluent<A extends io.kubernetes.clie
   }
   
   public ItemsNested<A> setNewItemLike(int index,V1PriorityLevelConfiguration item) {
-    return new ItemsNested(index, item);
+    return new ItemsNested<>(index, item);
   }
   
   public A setToItems(int index,V1PriorityLevelConfiguration item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1PriorityLevelConfigurationBuilder builder = new V1PriorityLevelConfigurationBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -337,7 +340,7 @@ public class V1PriorityLevelConfigurationListFluent<A extends io.kubernetes.clie
       this._visitables.get("items").clear();
     }
     if (items != null) {
-        this.items = new ArrayList();
+        this.items = new ArrayList<>();
         for (V1PriorityLevelConfiguration item : items) {
           this.addToItems(item);
         }
@@ -371,18 +374,18 @@ public class V1PriorityLevelConfigurationListFluent<A extends io.kubernetes.clie
         this.metadata = new V1ListMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   public class ItemsNested<N> extends V1PriorityLevelConfigurationFluent<ItemsNested<N>> implements Nested<N>{
   

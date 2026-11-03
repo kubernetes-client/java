@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1FileKeySelectorBuilder extends V1FileKeySelectorFluent<V1FileKeySelectorBuilder> implements VisitableBuilder<V1FileKeySelector,V1FileKeySelectorBuilder>{
 
   V1FileKeySelectorFluent<?> fluent;

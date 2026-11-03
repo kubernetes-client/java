@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2HPAScalingPolicyFluent<A extends io.kubernetes.client.openapi.models.V2HPAScalingPolicyFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2HPAScalingPolicyFluent<A extends V2HPAScalingPolicyFluent<A>> extends BaseFluent<A>{
 
   private Integer periodSeconds;
   private String type;
@@ -56,7 +58,7 @@ public class V2HPAScalingPolicyFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V2HPAScalingPolicyFluent that = (V2HPAScalingPolicyFluent) o;
+    V2HPAScalingPolicyFluent<?> that = (V2HPAScalingPolicyFluent<?>) o;
     if (!(Objects.equals(periodSeconds, that.periodSeconds))) {
       return false;
     }

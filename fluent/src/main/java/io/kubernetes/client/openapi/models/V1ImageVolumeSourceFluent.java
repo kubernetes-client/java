@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ImageVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1ImageVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ImageVolumeSourceFluent<A extends V1ImageVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String pullPolicy;
   private String reference;
@@ -53,7 +55,7 @@ public class V1ImageVolumeSourceFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1ImageVolumeSourceFluent that = (V1ImageVolumeSourceFluent) o;
+    V1ImageVolumeSourceFluent<?> that = (V1ImageVolumeSourceFluent<?>) o;
     if (!(Objects.equals(pullPolicy, that.pullPolicy))) {
       return false;
     }

@@ -18,15 +18,14 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.openapi.models.V1NodeAllocatableMappedResources;
+import io.kubernetes.client.openapi.models.V1NodeAllocatableOverheadResources;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,22 +54,27 @@ import io.kubernetes.client.openapi.JSON;
  * NodeAllocatableResourceClaimStatus describes the status of node allocatable resources allocated via DRA.
  */
 @ApiModel(description = "NodeAllocatableResourceClaimStatus describes the status of node allocatable resources allocated via DRA.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1NodeAllocatableResourceClaimStatus {
   public static final String SERIALIZED_NAME_CONTAINERS = "containers";
   @SerializedName(SERIALIZED_NAME_CONTAINERS)
   @jakarta.annotation.Nullable
   private List<String> containers = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_MAPPING = "mapping";
+  @SerializedName(SERIALIZED_NAME_MAPPING)
+  @jakarta.annotation.Nullable
+  private List<V1NodeAllocatableMappedResources> mapping = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_OVERHEAD = "overhead";
+  @SerializedName(SERIALIZED_NAME_OVERHEAD)
+  @jakarta.annotation.Nullable
+  private List<V1NodeAllocatableOverheadResources> overhead = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_RESOURCE_CLAIM_NAME = "resourceClaimName";
   @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIM_NAME)
   @jakarta.annotation.Nonnull
   private String resourceClaimName;
-
-  public static final String SERIALIZED_NAME_RESOURCES = "resources";
-  @SerializedName(SERIALIZED_NAME_RESOURCES)
-  @jakarta.annotation.Nonnull
-  private Map<String, Quantity> resources = new HashMap<>();
 
   public V1NodeAllocatableResourceClaimStatus() {
   }
@@ -103,6 +107,62 @@ public class V1NodeAllocatableResourceClaimStatus {
   }
 
 
+  public V1NodeAllocatableResourceClaimStatus mapping(@jakarta.annotation.Nullable List<V1NodeAllocatableMappedResources> mapping) {
+    this.mapping = mapping;
+    return this;
+  }
+
+  public V1NodeAllocatableResourceClaimStatus addMappingItem(V1NodeAllocatableMappedResources mappingItem) {
+    if (this.mapping == null) {
+      this.mapping = new ArrayList<>();
+    }
+    this.mapping.add(mappingItem);
+    return this;
+  }
+
+  /**
+   * Mapping contains allocations through devices mapped in the device spec&#39;s &#x60;nodeAllocatableResources[...].mapping&#x60; field. This is used by kubelet for pod level and container-level cgroup enforcement.
+   * @return mapping
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Mapping contains allocations through devices mapped in the device spec's `nodeAllocatableResources[...].mapping` field. This is used by kubelet for pod level and container-level cgroup enforcement.")
+  public List<V1NodeAllocatableMappedResources> getMapping() {
+    return mapping;
+  }
+
+  public void setMapping(@jakarta.annotation.Nullable List<V1NodeAllocatableMappedResources> mapping) {
+    this.mapping = mapping;
+  }
+
+
+  public V1NodeAllocatableResourceClaimStatus overhead(@jakarta.annotation.Nullable List<V1NodeAllocatableOverheadResources> overhead) {
+    this.overhead = overhead;
+    return this;
+  }
+
+  public V1NodeAllocatableResourceClaimStatus addOverheadItem(V1NodeAllocatableOverheadResources overheadItem) {
+    if (this.overhead == null) {
+      this.overhead = new ArrayList<>();
+    }
+    this.overhead.add(overheadItem);
+    return this;
+  }
+
+  /**
+   * Overhead contains allocations through devices mapped in the device spec&#39;s &#x60;nodeAllocatableResources[...].overhead&#x60; field. This is used by kubelet for pod level and container-level cgroup enforcement.
+   * @return overhead
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Overhead contains allocations through devices mapped in the device spec's `nodeAllocatableResources[...].overhead` field. This is used by kubelet for pod level and container-level cgroup enforcement.")
+  public List<V1NodeAllocatableOverheadResources> getOverhead() {
+    return overhead;
+  }
+
+  public void setOverhead(@jakarta.annotation.Nullable List<V1NodeAllocatableOverheadResources> overhead) {
+    this.overhead = overhead;
+  }
+
+
   public V1NodeAllocatableResourceClaimStatus resourceClaimName(@jakarta.annotation.Nonnull String resourceClaimName) {
     this.resourceClaimName = resourceClaimName;
     return this;
@@ -123,34 +183,6 @@ public class V1NodeAllocatableResourceClaimStatus {
   }
 
 
-  public V1NodeAllocatableResourceClaimStatus resources(@jakarta.annotation.Nonnull Map<String, Quantity> resources) {
-    this.resources = resources;
-    return this;
-  }
-
-  public V1NodeAllocatableResourceClaimStatus putResourcesItem(String key, Quantity resourcesItem) {
-    if (this.resources == null) {
-      this.resources = new HashMap<>();
-    }
-    this.resources.put(key, resourcesItem);
-    return this;
-  }
-
-  /**
-   * Resources is a map of the node-allocatable resource name to the aggregate quantity allocated to the claim.
-   * @return resources
-   */
-  @jakarta.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Resources is a map of the node-allocatable resource name to the aggregate quantity allocated to the claim.")
-  public Map<String, Quantity> getResources() {
-    return resources;
-  }
-
-  public void setResources(@jakarta.annotation.Nonnull Map<String, Quantity> resources) {
-    this.resources = resources;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -162,13 +194,14 @@ public class V1NodeAllocatableResourceClaimStatus {
     }
     V1NodeAllocatableResourceClaimStatus v1NodeAllocatableResourceClaimStatus = (V1NodeAllocatableResourceClaimStatus) o;
     return Objects.equals(this.containers, v1NodeAllocatableResourceClaimStatus.containers) &&
-        Objects.equals(this.resourceClaimName, v1NodeAllocatableResourceClaimStatus.resourceClaimName) &&
-        Objects.equals(this.resources, v1NodeAllocatableResourceClaimStatus.resources);
+        Objects.equals(this.mapping, v1NodeAllocatableResourceClaimStatus.mapping) &&
+        Objects.equals(this.overhead, v1NodeAllocatableResourceClaimStatus.overhead) &&
+        Objects.equals(this.resourceClaimName, v1NodeAllocatableResourceClaimStatus.resourceClaimName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(containers, resourceClaimName, resources);
+    return Objects.hash(containers, mapping, overhead, resourceClaimName);
   }
 
   @Override
@@ -176,8 +209,9 @@ public class V1NodeAllocatableResourceClaimStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1NodeAllocatableResourceClaimStatus {\n");
     sb.append("    containers: ").append(toIndentedString(containers)).append("\n");
+    sb.append("    mapping: ").append(toIndentedString(mapping)).append("\n");
+    sb.append("    overhead: ").append(toIndentedString(overhead)).append("\n");
     sb.append("    resourceClaimName: ").append(toIndentedString(resourceClaimName)).append("\n");
-    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -199,10 +233,10 @@ public class V1NodeAllocatableResourceClaimStatus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("containers", "resourceClaimName", "resources"));
+    openapiFields = new HashSet<String>(Arrays.asList("containers", "mapping", "overhead", "resourceClaimName"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("resourceClaimName", "resources"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("resourceClaimName"));
   }
 
   /**
@@ -236,6 +270,34 @@ public class V1NodeAllocatableResourceClaimStatus {
       // ensure the optional json data is an array if present
       if (jsonObj.get("containers") != null && !jsonObj.get("containers").isJsonNull() && !jsonObj.get("containers").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
+      }
+      if (jsonObj.get("mapping") != null && !jsonObj.get("mapping").isJsonNull()) {
+        JsonArray jsonArraymapping = jsonObj.getAsJsonArray("mapping");
+        if (jsonArraymapping != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("mapping").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mapping` to be an array in the JSON string but got `%s`", jsonObj.get("mapping").toString()));
+          }
+
+          // validate the optional field `mapping` (array)
+          for (int i = 0; i < jsonArraymapping.size(); i++) {
+            V1NodeAllocatableMappedResources.validateJsonElement(jsonArraymapping.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("overhead") != null && !jsonObj.get("overhead").isJsonNull()) {
+        JsonArray jsonArrayoverhead = jsonObj.getAsJsonArray("overhead");
+        if (jsonArrayoverhead != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("overhead").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `overhead` to be an array in the JSON string but got `%s`", jsonObj.get("overhead").toString()));
+          }
+
+          // validate the optional field `overhead` (array)
+          for (int i = 0; i < jsonArrayoverhead.size(); i++) {
+            V1NodeAllocatableOverheadResources.validateJsonElement(jsonArrayoverhead.get(i));
+          };
+        }
       }
       if (!jsonObj.get("resourceClaimName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resourceClaimName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resourceClaimName").toString()));

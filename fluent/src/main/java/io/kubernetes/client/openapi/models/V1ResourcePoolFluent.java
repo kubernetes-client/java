@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ResourcePoolFluent<A extends io.kubernetes.client.openapi.models.V1ResourcePoolFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ResourcePoolFluent<A extends V1ResourcePoolFluent<A>> extends BaseFluent<A>{
 
   private Long generation;
   private String name;
@@ -56,7 +58,7 @@ public class V1ResourcePoolFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1ResourcePoolFluent that = (V1ResourcePoolFluent) o;
+    V1ResourcePoolFluent<?> that = (V1ResourcePoolFluent<?>) o;
     if (!(Objects.equals(generation, that.generation))) {
       return false;
     }

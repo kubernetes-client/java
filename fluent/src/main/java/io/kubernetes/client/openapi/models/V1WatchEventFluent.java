@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1WatchEventFluent<A extends io.kubernetes.client.openapi.models.V1WatchEventFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1WatchEventFluent<A extends V1WatchEventFluent<A>> extends BaseFluent<A>{
 
   private Object _object;
   private String type;
@@ -52,7 +54,7 @@ public class V1WatchEventFluent<A extends io.kubernetes.client.openapi.models.V1
     if (!(super.equals(o))) {
       return false;
     }
-    V1WatchEventFluent that = (V1WatchEventFluent) o;
+    V1WatchEventFluent<?> that = (V1WatchEventFluent<?>) o;
     if (!(Objects.equals(_object, that._object))) {
       return false;
     }

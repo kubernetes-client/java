@@ -14,6 +14,7 @@ PersistentVolumeClaimStatus is the current status of a persistent volume claim.
 |**capacity** | **Map&lt;String, Quantity&gt;** | capacity represents the actual resources of the underlying volume. |  [optional] |
 |**conditions** | [**List&lt;V1PersistentVolumeClaimCondition&gt;**](V1PersistentVolumeClaimCondition.md) | conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to &#39;Resizing&#39;. |  [optional] |
 |**currentVolumeAttributesClassName** | **String** | currentVolumeAttributesClassName is the current name of the VolumeAttributesClass the PVC is using. When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim |  [optional] |
+|**healthStatus** | [**V1VolumeHealthStatus**](V1VolumeHealthStatus.md) |  |  [optional] |
 |**modifyVolumeStatus** | [**V1ModifyVolumeStatus**](V1ModifyVolumeStatus.md) |  |  [optional] |
 |**phase** | **String** | phase represents the current phase of PersistentVolumeClaim. |  [optional] |
 

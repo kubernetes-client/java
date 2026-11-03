@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * PodCertificateRequestSpec describes the certificate request.  All fields are immutable after creation.
  */
 @ApiModel(description = "PodCertificateRequestSpec describes the certificate request.  All fields are immutable after creation.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1beta1PodCertificateRequestSpec {
   public static final String SERIALIZED_NAME_MAX_EXPIRATION_SECONDS = "maxExpirationSeconds";
   @SerializedName(SERIALIZED_NAME_MAX_EXPIRATION_SECONDS)

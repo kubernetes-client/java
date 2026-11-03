@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.client.openapi.models.V1PodExtendedResourceClaimStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodExtendedResourceClaimStatusFluent<A extends V1PodExtendedResourceClaimStatusFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1ContainerExtendedResourceRequestBuilder> requestMappings;
   private String resourceClaimName;
@@ -44,7 +46,7 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
 
   public A addAllToRequestMappings(Collection<V1ContainerExtendedResourceRequest> items) {
     if (this.requestMappings == null) {
-      this.requestMappings = new ArrayList();
+      this.requestMappings = new ArrayList<>();
     }
     for (V1ContainerExtendedResourceRequest item : items) {
         V1ContainerExtendedResourceRequestBuilder builder = new V1ContainerExtendedResourceRequestBuilder(item);
@@ -55,16 +57,16 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
   }
   
   public RequestMappingsNested<A> addNewRequestMapping() {
-    return new RequestMappingsNested(-1, null);
+    return new RequestMappingsNested<>(-1, null);
   }
   
   public RequestMappingsNested<A> addNewRequestMappingLike(V1ContainerExtendedResourceRequest item) {
-    return new RequestMappingsNested(-1, item);
+    return new RequestMappingsNested<>(-1, item);
   }
   
   public A addToRequestMappings(V1ContainerExtendedResourceRequest... items) {
     if (this.requestMappings == null) {
-      this.requestMappings = new ArrayList();
+      this.requestMappings = new ArrayList<>();
     }
     for (V1ContainerExtendedResourceRequest item : items) {
         V1ContainerExtendedResourceRequestBuilder builder = new V1ContainerExtendedResourceRequestBuilder(item);
@@ -76,7 +78,7 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
   
   public A addToRequestMappings(int index,V1ContainerExtendedResourceRequest item) {
     if (this.requestMappings == null) {
-      this.requestMappings = new ArrayList();
+      this.requestMappings = new ArrayList<>();
     }
     V1ContainerExtendedResourceRequestBuilder builder = new V1ContainerExtendedResourceRequestBuilder(item);
     if (index < 0 || index >= this.requestMappings.size()) {
@@ -168,7 +170,7 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodExtendedResourceClaimStatusFluent that = (V1PodExtendedResourceClaimStatusFluent) o;
+    V1PodExtendedResourceClaimStatusFluent<?> that = (V1PodExtendedResourceClaimStatusFluent<?>) o;
     if (!(Objects.equals(requestMappings, that.requestMappings))) {
       return false;
     }
@@ -232,6 +234,7 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
       return (A) this;
     }
     Iterator<V1ContainerExtendedResourceRequestBuilder> each = requestMappings.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("requestMappings");
     while (each.hasNext()) {
         V1ContainerExtendedResourceRequestBuilder builder = each.next();
@@ -244,12 +247,12 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
   }
   
   public RequestMappingsNested<A> setNewRequestMappingLike(int index,V1ContainerExtendedResourceRequest item) {
-    return new RequestMappingsNested(index, item);
+    return new RequestMappingsNested<>(index, item);
   }
   
   public A setToRequestMappings(int index,V1ContainerExtendedResourceRequest item) {
     if (this.requestMappings == null) {
-      this.requestMappings = new ArrayList();
+      this.requestMappings = new ArrayList<>();
     }
     V1ContainerExtendedResourceRequestBuilder builder = new V1ContainerExtendedResourceRequestBuilder(item);
     if (index < 0 || index >= this.requestMappings.size()) {
@@ -283,7 +286,7 @@ public class V1PodExtendedResourceClaimStatusFluent<A extends io.kubernetes.clie
       this._visitables.get("requestMappings").clear();
     }
     if (requestMappings != null) {
-        this.requestMappings = new ArrayList();
+        this.requestMappings = new ArrayList<>();
         for (V1ContainerExtendedResourceRequest item : requestMappings) {
           this.addToRequestMappings(item);
         }

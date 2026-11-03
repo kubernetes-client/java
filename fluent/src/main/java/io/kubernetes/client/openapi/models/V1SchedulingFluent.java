@@ -27,12 +27,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1SchedulingFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SchedulingFluent<A extends V1SchedulingFluent<A>> extends BaseFluent<A>{
 
   private Map<String,String> nodeSelector;
   private ArrayList<V1TolerationBuilder> tolerations;
@@ -46,7 +48,7 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
 
   public A addAllToTolerations(Collection<V1Toleration> items) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList();
+      this.tolerations = new ArrayList<>();
     }
     for (V1Toleration item : items) {
         V1TolerationBuilder builder = new V1TolerationBuilder(item);
@@ -57,16 +59,16 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
   }
   
   public TolerationsNested<A> addNewToleration() {
-    return new TolerationsNested(-1, null);
+    return new TolerationsNested<>(-1, null);
   }
   
   public TolerationsNested<A> addNewTolerationLike(V1Toleration item) {
-    return new TolerationsNested(-1, item);
+    return new TolerationsNested<>(-1, item);
   }
   
   public A addToNodeSelector(Map<String,String> map) {
     if (this.nodeSelector == null && map != null) {
-      this.nodeSelector = new LinkedHashMap();
+      this.nodeSelector = new LinkedHashMap<>();
     }
     if (map != null) {
       this.nodeSelector.putAll(map);
@@ -76,7 +78,7 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToNodeSelector(String key,String value) {
     if (this.nodeSelector == null && key != null && value != null) {
-      this.nodeSelector = new LinkedHashMap();
+      this.nodeSelector = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.nodeSelector.put(key, value);
@@ -86,7 +88,7 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToTolerations(V1Toleration... items) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList();
+      this.tolerations = new ArrayList<>();
     }
     for (V1Toleration item : items) {
         V1TolerationBuilder builder = new V1TolerationBuilder(item);
@@ -98,7 +100,7 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToTolerations(int index,V1Toleration item) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList();
+      this.tolerations = new ArrayList<>();
     }
     V1TolerationBuilder builder = new V1TolerationBuilder(item);
     if (index < 0 || index >= this.tolerations.size()) {
@@ -190,7 +192,7 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
     if (!(super.equals(o))) {
       return false;
     }
-    V1SchedulingFluent that = (V1SchedulingFluent) o;
+    V1SchedulingFluent<?> that = (V1SchedulingFluent<?>) o;
     if (!(Objects.equals(nodeSelector, that.nodeSelector))) {
       return false;
     }
@@ -278,6 +280,7 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1TolerationBuilder> each = tolerations.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("tolerations");
     while (each.hasNext()) {
         V1TolerationBuilder builder = each.next();
@@ -290,12 +293,12 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
   }
   
   public TolerationsNested<A> setNewTolerationLike(int index,V1Toleration item) {
-    return new TolerationsNested(index, item);
+    return new TolerationsNested<>(index, item);
   }
   
   public A setToTolerations(int index,V1Toleration item) {
     if (this.tolerations == null) {
-      this.tolerations = new ArrayList();
+      this.tolerations = new ArrayList<>();
     }
     V1TolerationBuilder builder = new V1TolerationBuilder(item);
     if (index < 0 || index >= this.tolerations.size()) {
@@ -328,7 +331,7 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
     if (nodeSelector == null) {
       this.nodeSelector = null;
     } else {
-      this.nodeSelector = new LinkedHashMap(nodeSelector);
+      this.nodeSelector = new LinkedHashMap<>(nodeSelector);
     }
     return (A) this;
   }
@@ -338,7 +341,7 @@ public class V1SchedulingFluent<A extends io.kubernetes.client.openapi.models.V1
       this._visitables.get("tolerations").clear();
     }
     if (tolerations != null) {
-        this.tolerations = new ArrayList();
+        this.tolerations = new ArrayList<>();
         for (V1Toleration item : tolerations) {
           this.addToTolerations(item);
         }

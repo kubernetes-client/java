@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ContainerStateTerminatedFluent<A extends io.kubernetes.client.openapi.models.V1ContainerStateTerminatedFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ContainerStateTerminatedFluent<A extends V1ContainerStateTerminatedFluent<A>> extends BaseFluent<A>{
 
   private String containerID;
   private Integer exitCode;
@@ -65,7 +67,7 @@ public class V1ContainerStateTerminatedFluent<A extends io.kubernetes.client.ope
     if (!(super.equals(o))) {
       return false;
     }
-    V1ContainerStateTerminatedFluent that = (V1ContainerStateTerminatedFluent) o;
+    V1ContainerStateTerminatedFluent<?> that = (V1ContainerStateTerminatedFluent<?>) o;
     if (!(Objects.equals(containerID, that.containerID))) {
       return false;
     }

@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1AzureFilePersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1AzureFilePersistentVolumeSourceFluent<A extends V1AzureFilePersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private Boolean readOnly;
   private String secretName;
@@ -58,7 +60,7 @@ public class V1AzureFilePersistentVolumeSourceFluent<A extends io.kubernetes.cli
     if (!(super.equals(o))) {
       return false;
     }
-    V1AzureFilePersistentVolumeSourceFluent that = (V1AzureFilePersistentVolumeSourceFluent) o;
+    V1AzureFilePersistentVolumeSourceFluent<?> that = (V1AzureFilePersistentVolumeSourceFluent<?>) o;
     if (!(Objects.equals(readOnly, that.readOnly))) {
       return false;
     }

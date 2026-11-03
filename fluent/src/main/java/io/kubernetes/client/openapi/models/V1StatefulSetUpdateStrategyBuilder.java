@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1StatefulSetUpdateStrategyBuilder extends V1StatefulSetUpdateStrategyFluent<V1StatefulSetUpdateStrategyBuilder> implements VisitableBuilder<V1StatefulSetUpdateStrategy,V1StatefulSetUpdateStrategyBuilder>{
 
   V1StatefulSetUpdateStrategyFluent<?> fluent;

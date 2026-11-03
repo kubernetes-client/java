@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ValidationRuleFluent<A extends io.kubernetes.client.openapi.models.V1ValidationRuleFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ValidationRuleFluent<A extends V1ValidationRuleFluent<A>> extends BaseFluent<A>{
 
   private String fieldPath;
   private String message;
@@ -62,7 +64,7 @@ public class V1ValidationRuleFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1ValidationRuleFluent that = (V1ValidationRuleFluent) o;
+    V1ValidationRuleFluent<?> that = (V1ValidationRuleFluent<?>) o;
     if (!(Objects.equals(fieldPath, that.fieldPath))) {
       return false;
     }

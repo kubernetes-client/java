@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.openapi.models.V2APISubresourceDiscoveryFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2APISubresourceDiscoveryFluent<A extends V2APISubresourceDiscoveryFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1GroupVersionKindBuilder> acceptedTypes;
   private V1GroupVersionKindBuilder responseKind;
@@ -47,7 +49,7 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
 
   public A addAllToAcceptedTypes(Collection<V1GroupVersionKind> items) {
     if (this.acceptedTypes == null) {
-      this.acceptedTypes = new ArrayList();
+      this.acceptedTypes = new ArrayList<>();
     }
     for (V1GroupVersionKind item : items) {
         V1GroupVersionKindBuilder builder = new V1GroupVersionKindBuilder(item);
@@ -59,7 +61,7 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
   
   public A addAllToVerbs(Collection<String> items) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     for (String item : items) {
       this.verbs.add(item);
@@ -68,16 +70,16 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
   }
   
   public AcceptedTypesNested<A> addNewAcceptedType() {
-    return new AcceptedTypesNested(-1, null);
+    return new AcceptedTypesNested<>(-1, null);
   }
   
   public AcceptedTypesNested<A> addNewAcceptedTypeLike(V1GroupVersionKind item) {
-    return new AcceptedTypesNested(-1, item);
+    return new AcceptedTypesNested<>(-1, item);
   }
   
   public A addToAcceptedTypes(V1GroupVersionKind... items) {
     if (this.acceptedTypes == null) {
-      this.acceptedTypes = new ArrayList();
+      this.acceptedTypes = new ArrayList<>();
     }
     for (V1GroupVersionKind item : items) {
         V1GroupVersionKindBuilder builder = new V1GroupVersionKindBuilder(item);
@@ -89,7 +91,7 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
   
   public A addToAcceptedTypes(int index,V1GroupVersionKind item) {
     if (this.acceptedTypes == null) {
-      this.acceptedTypes = new ArrayList();
+      this.acceptedTypes = new ArrayList<>();
     }
     V1GroupVersionKindBuilder builder = new V1GroupVersionKindBuilder(item);
     if (index < 0 || index >= this.acceptedTypes.size()) {
@@ -104,7 +106,7 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
   
   public A addToVerbs(String... items) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     for (String item : items) {
       this.verbs.add(item);
@@ -114,7 +116,7 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
   
   public A addToVerbs(int index,String item) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     this.verbs.add(index, item);
     return (A) this;
@@ -217,7 +219,7 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V2APISubresourceDiscoveryFluent that = (V2APISubresourceDiscoveryFluent) o;
+    V2APISubresourceDiscoveryFluent<?> that = (V2APISubresourceDiscoveryFluent<?>) o;
     if (!(Objects.equals(subresource, that.subresource))) {
       return false;
     }
@@ -349,6 +351,7 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<V1GroupVersionKindBuilder> each = acceptedTypes.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("acceptedTypes");
     while (each.hasNext()) {
         V1GroupVersionKindBuilder builder = each.next();
@@ -361,12 +364,12 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
   }
   
   public AcceptedTypesNested<A> setNewAcceptedTypeLike(int index,V1GroupVersionKind item) {
-    return new AcceptedTypesNested(index, item);
+    return new AcceptedTypesNested<>(index, item);
   }
   
   public A setToAcceptedTypes(int index,V1GroupVersionKind item) {
     if (this.acceptedTypes == null) {
-      this.acceptedTypes = new ArrayList();
+      this.acceptedTypes = new ArrayList<>();
     }
     V1GroupVersionKindBuilder builder = new V1GroupVersionKindBuilder(item);
     if (index < 0 || index >= this.acceptedTypes.size()) {
@@ -381,7 +384,7 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
   
   public A setToVerbs(int index,String item) {
     if (this.verbs == null) {
-      this.verbs = new ArrayList();
+      this.verbs = new ArrayList<>();
     }
     this.verbs.set(index, item);
     return (A) this;
@@ -418,7 +421,7 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
       this._visitables.get("acceptedTypes").clear();
     }
     if (acceptedTypes != null) {
-        this.acceptedTypes = new ArrayList();
+        this.acceptedTypes = new ArrayList<>();
         for (V1GroupVersionKind item : acceptedTypes) {
           this.addToAcceptedTypes(item);
         }
@@ -442,11 +445,11 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
   }
   
   public ResponseKindNested<A> withNewResponseKind() {
-    return new ResponseKindNested(null);
+    return new ResponseKindNested<>(null);
   }
   
   public ResponseKindNested<A> withNewResponseKindLike(V1GroupVersionKind item) {
-    return new ResponseKindNested(item);
+    return new ResponseKindNested<>(item);
   }
   
   public A withResponseKind(V1GroupVersionKind responseKind) {
@@ -455,8 +458,8 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
         this.responseKind = new V1GroupVersionKindBuilder(responseKind);
         this._visitables.get("responseKind").add(this.responseKind);
     } else {
-        this.responseKind = null;
         this._visitables.get("responseKind").remove(this.responseKind);
+        this.responseKind = null;
     }
     return (A) this;
   }
@@ -468,7 +471,7 @@ public class V2APISubresourceDiscoveryFluent<A extends io.kubernetes.client.open
   
   public A withVerbs(List<String> verbs) {
     if (verbs != null) {
-        this.verbs = new ArrayList();
+        this.verbs = new ArrayList<>();
         for (String item : verbs) {
           this.addToVerbs(item);
         }

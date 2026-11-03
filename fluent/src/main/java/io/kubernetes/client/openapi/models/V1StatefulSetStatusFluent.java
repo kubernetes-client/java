@@ -27,12 +27,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1StatefulSetStatusFluent<A extends io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1StatefulSetStatusFluent<A extends V1StatefulSetStatusFluent<A>> extends BaseFluent<A>{
 
   private Integer availableReplicas;
   private Integer collisionCount;
@@ -54,7 +56,7 @@ public class V1StatefulSetStatusFluent<A extends io.kubernetes.client.openapi.mo
 
   public A addAllToConditions(Collection<V1StatefulSetCondition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1StatefulSetCondition item : items) {
         V1StatefulSetConditionBuilder builder = new V1StatefulSetConditionBuilder(item);
@@ -65,16 +67,16 @@ public class V1StatefulSetStatusFluent<A extends io.kubernetes.client.openapi.mo
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1StatefulSetCondition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public A addToConditions(V1StatefulSetCondition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1StatefulSetCondition item : items) {
         V1StatefulSetConditionBuilder builder = new V1StatefulSetConditionBuilder(item);
@@ -86,7 +88,7 @@ public class V1StatefulSetStatusFluent<A extends io.kubernetes.client.openapi.mo
   
   public A addToConditions(int index,V1StatefulSetCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1StatefulSetConditionBuilder builder = new V1StatefulSetConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -186,7 +188,7 @@ public class V1StatefulSetStatusFluent<A extends io.kubernetes.client.openapi.mo
     if (!(super.equals(o))) {
       return false;
     }
-    V1StatefulSetStatusFluent that = (V1StatefulSetStatusFluent) o;
+    V1StatefulSetStatusFluent<?> that = (V1StatefulSetStatusFluent<?>) o;
     if (!(Objects.equals(availableReplicas, that.availableReplicas))) {
       return false;
     }
@@ -338,6 +340,7 @@ public class V1StatefulSetStatusFluent<A extends io.kubernetes.client.openapi.mo
       return (A) this;
     }
     Iterator<V1StatefulSetConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1StatefulSetConditionBuilder builder = each.next();
@@ -350,12 +353,12 @@ public class V1StatefulSetStatusFluent<A extends io.kubernetes.client.openapi.mo
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1StatefulSetCondition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public A setToConditions(int index,V1StatefulSetCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1StatefulSetConditionBuilder builder = new V1StatefulSetConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -439,7 +442,7 @@ public class V1StatefulSetStatusFluent<A extends io.kubernetes.client.openapi.mo
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1StatefulSetCondition item : conditions) {
           this.addToConditions(item);
         }

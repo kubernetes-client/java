@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SecretEnvSourceFluent<A extends io.kubernetes.client.openapi.models.V1SecretEnvSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SecretEnvSourceFluent<A extends V1SecretEnvSourceFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private Boolean optional;
@@ -54,7 +56,7 @@ public class V1SecretEnvSourceFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1SecretEnvSourceFluent that = (V1SecretEnvSourceFluent) o;
+    V1SecretEnvSourceFluent<?> that = (V1SecretEnvSourceFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

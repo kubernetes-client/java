@@ -20,12 +20,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1AWSElasticBlockStoreVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1AWSElasticBlockStoreVolumeSourceFluent<A extends V1AWSElasticBlockStoreVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String fsType;
   private Integer partition;
@@ -59,7 +61,7 @@ public class V1AWSElasticBlockStoreVolumeSourceFluent<A extends io.kubernetes.cl
     if (!(super.equals(o))) {
       return false;
     }
-    V1AWSElasticBlockStoreVolumeSourceFluent that = (V1AWSElasticBlockStoreVolumeSourceFluent) o;
+    V1AWSElasticBlockStoreVolumeSourceFluent<?> that = (V1AWSElasticBlockStoreVolumeSourceFluent<?>) o;
     if (!(Objects.equals(fsType, that.fsType))) {
       return false;
     }

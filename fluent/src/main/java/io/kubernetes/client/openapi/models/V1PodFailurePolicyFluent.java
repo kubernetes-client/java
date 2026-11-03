@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodFailurePolicyFluent<A extends io.kubernetes.client.openapi.models.V1PodFailurePolicyFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodFailurePolicyFluent<A extends V1PodFailurePolicyFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1PodFailurePolicyRuleBuilder> rules;
 
@@ -43,7 +45,7 @@ public class V1PodFailurePolicyFluent<A extends io.kubernetes.client.openapi.mod
 
   public A addAllToRules(Collection<V1PodFailurePolicyRule> items) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     for (V1PodFailurePolicyRule item : items) {
         V1PodFailurePolicyRuleBuilder builder = new V1PodFailurePolicyRuleBuilder(item);
@@ -54,16 +56,16 @@ public class V1PodFailurePolicyFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public RulesNested<A> addNewRule() {
-    return new RulesNested(-1, null);
+    return new RulesNested<>(-1, null);
   }
   
   public RulesNested<A> addNewRuleLike(V1PodFailurePolicyRule item) {
-    return new RulesNested(-1, item);
+    return new RulesNested<>(-1, item);
   }
   
   public A addToRules(V1PodFailurePolicyRule... items) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     for (V1PodFailurePolicyRule item : items) {
         V1PodFailurePolicyRuleBuilder builder = new V1PodFailurePolicyRuleBuilder(item);
@@ -75,7 +77,7 @@ public class V1PodFailurePolicyFluent<A extends io.kubernetes.client.openapi.mod
   
   public A addToRules(int index,V1PodFailurePolicyRule item) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     V1PodFailurePolicyRuleBuilder builder = new V1PodFailurePolicyRuleBuilder(item);
     if (index < 0 || index >= this.rules.size()) {
@@ -166,7 +168,7 @@ public class V1PodFailurePolicyFluent<A extends io.kubernetes.client.openapi.mod
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodFailurePolicyFluent that = (V1PodFailurePolicyFluent) o;
+    V1PodFailurePolicyFluent<?> that = (V1PodFailurePolicyFluent<?>) o;
     if (!(Objects.equals(rules, that.rules))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1PodFailurePolicyFluent<A extends io.kubernetes.client.openapi.mod
       return (A) this;
     }
     Iterator<V1PodFailurePolicyRuleBuilder> each = rules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("rules");
     while (each.hasNext()) {
         V1PodFailurePolicyRuleBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1PodFailurePolicyFluent<A extends io.kubernetes.client.openapi.mod
   }
   
   public RulesNested<A> setNewRuleLike(int index,V1PodFailurePolicyRule item) {
-    return new RulesNested(index, item);
+    return new RulesNested<>(index, item);
   }
   
   public A setToRules(int index,V1PodFailurePolicyRule item) {
     if (this.rules == null) {
-      this.rules = new ArrayList();
+      this.rules = new ArrayList<>();
     }
     V1PodFailurePolicyRuleBuilder builder = new V1PodFailurePolicyRuleBuilder(item);
     if (index < 0 || index >= this.rules.size()) {
@@ -265,7 +268,7 @@ public class V1PodFailurePolicyFluent<A extends io.kubernetes.client.openapi.mod
       this._visitables.get("rules").clear();
     }
     if (rules != null) {
-        this.rules = new ArrayList();
+        this.rules = new ArrayList<>();
         for (V1PodFailurePolicyRule item : rules) {
           this.addToRules(item);
         }

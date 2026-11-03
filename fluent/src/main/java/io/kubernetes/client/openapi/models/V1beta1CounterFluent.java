@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta1CounterFluent<A extends io.kubernetes.client.openapi.models.V1beta1CounterFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta1CounterFluent<A extends V1beta1CounterFluent<A>> extends BaseFluent<A>{
 
   private Quantity value;
 
@@ -52,7 +54,7 @@ public class V1beta1CounterFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta1CounterFluent that = (V1beta1CounterFluent) o;
+    V1beta1CounterFluent<?> that = (V1beta1CounterFluent<?>) o;
     if (!(Objects.equals(value, that.value))) {
       return false;
     }

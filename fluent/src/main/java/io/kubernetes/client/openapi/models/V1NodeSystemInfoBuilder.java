@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1NodeSystemInfoBuilder extends V1NodeSystemInfoFluent<V1NodeSystemInfoBuilder> implements VisitableBuilder<V1NodeSystemInfo,V1NodeSystemInfoBuilder>{
 
   V1NodeSystemInfoFluent<?> fluent;
@@ -47,6 +48,7 @@ public class V1NodeSystemInfoBuilder extends V1NodeSystemInfoFluent<V1NodeSystem
     buildable.setMachineID(fluent.getMachineID());
     buildable.setOperatingSystem(fluent.getOperatingSystem());
     buildable.setOsImage(fluent.getOsImage());
+    buildable.setRunningInUserNamespace(fluent.getRunningInUserNamespace());
     buildable.setSwap(fluent.buildSwap());
     buildable.setSystemUUID(fluent.getSystemUUID());
     return buildable;

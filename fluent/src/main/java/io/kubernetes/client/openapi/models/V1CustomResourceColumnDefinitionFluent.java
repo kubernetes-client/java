@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CustomResourceColumnDefinitionFluent<A extends io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CustomResourceColumnDefinitionFluent<A extends V1CustomResourceColumnDefinitionFluent<A>> extends BaseFluent<A>{
 
   private String description;
   private String format;
@@ -62,7 +64,7 @@ public class V1CustomResourceColumnDefinitionFluent<A extends io.kubernetes.clie
     if (!(super.equals(o))) {
       return false;
     }
-    V1CustomResourceColumnDefinitionFluent that = (V1CustomResourceColumnDefinitionFluent) o;
+    V1CustomResourceColumnDefinitionFluent<?> that = (V1CustomResourceColumnDefinitionFluent<?>) o;
     if (!(Objects.equals(description, that.description))) {
       return false;
     }

@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1GRPCActionBuilder extends V1GRPCActionFluent<V1GRPCActionBuilder> implements VisitableBuilder<V1GRPCAction,V1GRPCActionBuilder>{
 
   V1GRPCActionFluent<?> fluent;
@@ -38,6 +39,7 @@ public class V1GRPCActionBuilder extends V1GRPCActionFluent<V1GRPCActionBuilder>
 
   public V1GRPCAction build() {
     V1GRPCAction buildable = new V1GRPCAction();
+    buildable.setMode(fluent.getMode());
     buildable.setPort(fluent.getPort());
     buildable.setService(fluent.getService());
     return buildable;

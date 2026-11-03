@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1CSINodeBuilder extends V1CSINodeFluent<V1CSINodeBuilder> implements VisitableBuilder<V1CSINode,V1CSINodeBuilder>{
 
   V1CSINodeFluent<?> fluent;
@@ -42,6 +43,7 @@ public class V1CSINodeBuilder extends V1CSINodeFluent<V1CSINodeBuilder> implemen
     buildable.setKind(fluent.getKind());
     buildable.setMetadata(fluent.buildMetadata());
     buildable.setSpec(fluent.buildSpec());
+    buildable.setStatus(fluent.buildStatus());
     return buildable;
   }
   

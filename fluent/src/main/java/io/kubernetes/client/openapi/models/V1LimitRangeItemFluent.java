@@ -21,12 +21,14 @@ import java.lang.SuppressWarnings;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.models.V1LimitRangeItemFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1LimitRangeItemFluent<A extends V1LimitRangeItemFluent<A>> extends BaseFluent<A>{
 
   private Map<String,Quantity> _default;
   private Map<String,Quantity> defaultRequest;
@@ -44,7 +46,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
 
   public A addToDefault(Map<String,Quantity> map) {
     if (this._default == null && map != null) {
-      this._default = new LinkedHashMap();
+      this._default = new LinkedHashMap<>();
     }
     if (map != null) {
       this._default.putAll(map);
@@ -54,7 +56,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToDefault(String key,Quantity value) {
     if (this._default == null && key != null && value != null) {
-      this._default = new LinkedHashMap();
+      this._default = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this._default.put(key, value);
@@ -64,7 +66,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToDefaultRequest(Map<String,Quantity> map) {
     if (this.defaultRequest == null && map != null) {
-      this.defaultRequest = new LinkedHashMap();
+      this.defaultRequest = new LinkedHashMap<>();
     }
     if (map != null) {
       this.defaultRequest.putAll(map);
@@ -74,7 +76,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToDefaultRequest(String key,Quantity value) {
     if (this.defaultRequest == null && key != null && value != null) {
-      this.defaultRequest = new LinkedHashMap();
+      this.defaultRequest = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.defaultRequest.put(key, value);
@@ -84,7 +86,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToMax(Map<String,Quantity> map) {
     if (this.max == null && map != null) {
-      this.max = new LinkedHashMap();
+      this.max = new LinkedHashMap<>();
     }
     if (map != null) {
       this.max.putAll(map);
@@ -94,7 +96,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToMax(String key,Quantity value) {
     if (this.max == null && key != null && value != null) {
-      this.max = new LinkedHashMap();
+      this.max = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.max.put(key, value);
@@ -104,7 +106,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToMaxLimitRequestRatio(Map<String,Quantity> map) {
     if (this.maxLimitRequestRatio == null && map != null) {
-      this.maxLimitRequestRatio = new LinkedHashMap();
+      this.maxLimitRequestRatio = new LinkedHashMap<>();
     }
     if (map != null) {
       this.maxLimitRequestRatio.putAll(map);
@@ -114,7 +116,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToMaxLimitRequestRatio(String key,Quantity value) {
     if (this.maxLimitRequestRatio == null && key != null && value != null) {
-      this.maxLimitRequestRatio = new LinkedHashMap();
+      this.maxLimitRequestRatio = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.maxLimitRequestRatio.put(key, value);
@@ -124,7 +126,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToMin(Map<String,Quantity> map) {
     if (this.min == null && map != null) {
-      this.min = new LinkedHashMap();
+      this.min = new LinkedHashMap<>();
     }
     if (map != null) {
       this.min.putAll(map);
@@ -134,7 +136,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToMin(String key,Quantity value) {
     if (this.min == null && key != null && value != null) {
-      this.min = new LinkedHashMap();
+      this.min = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.min.put(key, value);
@@ -163,7 +165,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1LimitRangeItemFluent that = (V1LimitRangeItemFluent) o;
+    V1LimitRangeItemFluent<?> that = (V1LimitRangeItemFluent<?>) o;
     if (!(Objects.equals(_default, that._default))) {
       return false;
     }
@@ -397,7 +399,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
     if (_default == null) {
       this._default = null;
     } else {
-      this._default = new LinkedHashMap(_default);
+      this._default = new LinkedHashMap<>(_default);
     }
     return (A) this;
   }
@@ -406,7 +408,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
     if (defaultRequest == null) {
       this.defaultRequest = null;
     } else {
-      this.defaultRequest = new LinkedHashMap(defaultRequest);
+      this.defaultRequest = new LinkedHashMap<>(defaultRequest);
     }
     return (A) this;
   }
@@ -415,7 +417,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
     if (max == null) {
       this.max = null;
     } else {
-      this.max = new LinkedHashMap(max);
+      this.max = new LinkedHashMap<>(max);
     }
     return (A) this;
   }
@@ -424,7 +426,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
     if (maxLimitRequestRatio == null) {
       this.maxLimitRequestRatio = null;
     } else {
-      this.maxLimitRequestRatio = new LinkedHashMap(maxLimitRequestRatio);
+      this.maxLimitRequestRatio = new LinkedHashMap<>(maxLimitRequestRatio);
     }
     return (A) this;
   }
@@ -433,7 +435,7 @@ public class V1LimitRangeItemFluent<A extends io.kubernetes.client.openapi.model
     if (min == null) {
       this.min = null;
     } else {
-      this.min = new LinkedHashMap(min);
+      this.min = new LinkedHashMap<>(min);
     }
     return (A) this;
   }

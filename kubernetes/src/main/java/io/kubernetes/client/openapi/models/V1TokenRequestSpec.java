@@ -24,7 +24,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,8 +55,13 @@ import io.kubernetes.client.openapi.JSON;
  * TokenRequestSpec contains client provided parameters of a token request.
  */
 @ApiModel(description = "TokenRequestSpec contains client provided parameters of a token request.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1TokenRequestSpec {
+  public static final String SERIALIZED_NAME_ATTESTATIONS = "attestations";
+  @SerializedName(SERIALIZED_NAME_ATTESTATIONS)
+  @jakarta.annotation.Nullable
+  private Map<String, List<String>> attestations = new HashMap<>();
+
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
   @SerializedName(SERIALIZED_NAME_AUDIENCES)
   @jakarta.annotation.Nullable
@@ -72,6 +79,34 @@ public class V1TokenRequestSpec {
 
   public V1TokenRequestSpec() {
   }
+
+  public V1TokenRequestSpec attestations(@jakarta.annotation.Nullable Map<String, List<String>> attestations) {
+    this.attestations = attestations;
+    return this;
+  }
+
+  public V1TokenRequestSpec putAttestationsItem(String key, List<String> attestationsItem) {
+    if (this.attestations == null) {
+      this.attestations = new HashMap<>();
+    }
+    this.attestations.put(key, attestationsItem);
+    return this;
+  }
+
+  /**
+   * attestations is a map of well-known keys to string-slice values. The values for each key have a specific semantic meaning, which is documented on the key definition. Requesters of tokens may ask the Kubernetes API Server to attest to certain claims. The API Server may perform authorization checks depending on the key of this map.
+   * @return attestations
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "attestations is a map of well-known keys to string-slice values. The values for each key have a specific semantic meaning, which is documented on the key definition. Requesters of tokens may ask the Kubernetes API Server to attest to certain claims. The API Server may perform authorization checks depending on the key of this map.")
+  public Map<String, List<String>> getAttestations() {
+    return attestations;
+  }
+
+  public void setAttestations(@jakarta.annotation.Nullable Map<String, List<String>> attestations) {
+    this.attestations = attestations;
+  }
+
 
   public V1TokenRequestSpec audiences(@jakarta.annotation.Nullable List<String> audiences) {
     this.audiences = audiences;
@@ -151,20 +186,22 @@ public class V1TokenRequestSpec {
       return false;
     }
     V1TokenRequestSpec v1TokenRequestSpec = (V1TokenRequestSpec) o;
-    return Objects.equals(this.audiences, v1TokenRequestSpec.audiences) &&
+    return Objects.equals(this.attestations, v1TokenRequestSpec.attestations) &&
+        Objects.equals(this.audiences, v1TokenRequestSpec.audiences) &&
         Objects.equals(this.boundObjectRef, v1TokenRequestSpec.boundObjectRef) &&
         Objects.equals(this.expirationSeconds, v1TokenRequestSpec.expirationSeconds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(audiences, boundObjectRef, expirationSeconds);
+    return Objects.hash(attestations, audiences, boundObjectRef, expirationSeconds);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1TokenRequestSpec {\n");
+    sb.append("    attestations: ").append(toIndentedString(attestations)).append("\n");
     sb.append("    audiences: ").append(toIndentedString(audiences)).append("\n");
     sb.append("    boundObjectRef: ").append(toIndentedString(boundObjectRef)).append("\n");
     sb.append("    expirationSeconds: ").append(toIndentedString(expirationSeconds)).append("\n");
@@ -189,7 +226,7 @@ public class V1TokenRequestSpec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("audiences", "boundObjectRef", "expirationSeconds"));
+    openapiFields = new HashSet<String>(Arrays.asList("attestations", "audiences", "boundObjectRef", "expirationSeconds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

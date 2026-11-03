@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1HostAliasFluent<A extends io.kubernetes.client.openapi.models.V1HostAliasFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1HostAliasFluent<A extends V1HostAliasFluent<A>> extends BaseFluent<A>{
 
   private List<String> hostnames;
   private String ip;
@@ -41,7 +43,7 @@ public class V1HostAliasFluent<A extends io.kubernetes.client.openapi.models.V1H
 
   public A addAllToHostnames(Collection<String> items) {
     if (this.hostnames == null) {
-      this.hostnames = new ArrayList();
+      this.hostnames = new ArrayList<>();
     }
     for (String item : items) {
       this.hostnames.add(item);
@@ -51,7 +53,7 @@ public class V1HostAliasFluent<A extends io.kubernetes.client.openapi.models.V1H
   
   public A addToHostnames(String... items) {
     if (this.hostnames == null) {
-      this.hostnames = new ArrayList();
+      this.hostnames = new ArrayList<>();
     }
     for (String item : items) {
       this.hostnames.add(item);
@@ -61,7 +63,7 @@ public class V1HostAliasFluent<A extends io.kubernetes.client.openapi.models.V1H
   
   public A addToHostnames(int index,String item) {
     if (this.hostnames == null) {
-      this.hostnames = new ArrayList();
+      this.hostnames = new ArrayList<>();
     }
     this.hostnames.add(index, item);
     return (A) this;
@@ -85,7 +87,7 @@ public class V1HostAliasFluent<A extends io.kubernetes.client.openapi.models.V1H
     if (!(super.equals(o))) {
       return false;
     }
-    V1HostAliasFluent that = (V1HostAliasFluent) o;
+    V1HostAliasFluent<?> that = (V1HostAliasFluent<?>) o;
     if (!(Objects.equals(hostnames, that.hostnames))) {
       return false;
     }
@@ -167,7 +169,7 @@ public class V1HostAliasFluent<A extends io.kubernetes.client.openapi.models.V1H
   
   public A setToHostnames(int index,String item) {
     if (this.hostnames == null) {
-      this.hostnames = new ArrayList();
+      this.hostnames = new ArrayList<>();
     }
     this.hostnames.set(index, item);
     return (A) this;
@@ -191,7 +193,7 @@ public class V1HostAliasFluent<A extends io.kubernetes.client.openapi.models.V1H
   
   public A withHostnames(List<String> hostnames) {
     if (hostnames != null) {
-        this.hostnames = new ArrayList();
+        this.hostnames = new ArrayList<>();
         for (String item : hostnames) {
           this.addToHostnames(item);
         }

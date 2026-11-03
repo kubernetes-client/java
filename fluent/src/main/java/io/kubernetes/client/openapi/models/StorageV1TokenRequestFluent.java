@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class StorageV1TokenRequestFluent<A extends io.kubernetes.client.openapi.models.StorageV1TokenRequestFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class StorageV1TokenRequestFluent<A extends StorageV1TokenRequestFluent<A>> extends BaseFluent<A>{
 
   private String audience;
   private Long expirationSeconds;
@@ -54,7 +56,7 @@ public class StorageV1TokenRequestFluent<A extends io.kubernetes.client.openapi.
     if (!(super.equals(o))) {
       return false;
     }
-    StorageV1TokenRequestFluent that = (StorageV1TokenRequestFluent) o;
+    StorageV1TokenRequestFluent<?> that = (StorageV1TokenRequestFluent<?>) o;
     if (!(Objects.equals(audience, that.audience))) {
       return false;
     }

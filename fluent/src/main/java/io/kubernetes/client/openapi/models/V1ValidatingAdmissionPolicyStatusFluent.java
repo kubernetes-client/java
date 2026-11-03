@@ -27,12 +27,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ValidatingAdmissionPolicyStatusFluent<A extends io.kubernetes.client.openapi.models.V1ValidatingAdmissionPolicyStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ValidatingAdmissionPolicyStatusFluent<A extends V1ValidatingAdmissionPolicyStatusFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1ConditionBuilder> conditions;
   private Long observedGeneration;
@@ -47,7 +49,7 @@ public class V1ValidatingAdmissionPolicyStatusFluent<A extends io.kubernetes.cli
 
   public A addAllToConditions(Collection<V1Condition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1Condition item : items) {
         V1ConditionBuilder builder = new V1ConditionBuilder(item);
@@ -58,16 +60,16 @@ public class V1ValidatingAdmissionPolicyStatusFluent<A extends io.kubernetes.cli
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1Condition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public A addToConditions(V1Condition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1Condition item : items) {
         V1ConditionBuilder builder = new V1ConditionBuilder(item);
@@ -79,7 +81,7 @@ public class V1ValidatingAdmissionPolicyStatusFluent<A extends io.kubernetes.cli
   
   public A addToConditions(int index,V1Condition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1ConditionBuilder builder = new V1ConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -188,7 +190,7 @@ public class V1ValidatingAdmissionPolicyStatusFluent<A extends io.kubernetes.cli
     if (!(super.equals(o))) {
       return false;
     }
-    V1ValidatingAdmissionPolicyStatusFluent that = (V1ValidatingAdmissionPolicyStatusFluent) o;
+    V1ValidatingAdmissionPolicyStatusFluent<?> that = (V1ValidatingAdmissionPolicyStatusFluent<?>) o;
     if (!(Objects.equals(conditions, that.conditions))) {
       return false;
     }
@@ -259,6 +261,7 @@ public class V1ValidatingAdmissionPolicyStatusFluent<A extends io.kubernetes.cli
       return (A) this;
     }
     Iterator<V1ConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1ConditionBuilder builder = each.next();
@@ -271,12 +274,12 @@ public class V1ValidatingAdmissionPolicyStatusFluent<A extends io.kubernetes.cli
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1Condition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public A setToConditions(int index,V1Condition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1ConditionBuilder builder = new V1ConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -315,7 +318,7 @@ public class V1ValidatingAdmissionPolicyStatusFluent<A extends io.kubernetes.cli
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1Condition item : conditions) {
           this.addToConditions(item);
         }
@@ -339,11 +342,11 @@ public class V1ValidatingAdmissionPolicyStatusFluent<A extends io.kubernetes.cli
   }
   
   public TypeCheckingNested<A> withNewTypeChecking() {
-    return new TypeCheckingNested(null);
+    return new TypeCheckingNested<>(null);
   }
   
   public TypeCheckingNested<A> withNewTypeCheckingLike(V1TypeChecking item) {
-    return new TypeCheckingNested(item);
+    return new TypeCheckingNested<>(item);
   }
   
   public A withObservedGeneration(Long observedGeneration) {
@@ -357,8 +360,8 @@ public class V1ValidatingAdmissionPolicyStatusFluent<A extends io.kubernetes.cli
         this.typeChecking = new V1TypeCheckingBuilder(typeChecking);
         this._visitables.get("typeChecking").add(this.typeChecking);
     } else {
-        this.typeChecking = null;
         this._visitables.get("typeChecking").remove(this.typeChecking);
+        this.typeChecking = null;
     }
     return (A) this;
   }

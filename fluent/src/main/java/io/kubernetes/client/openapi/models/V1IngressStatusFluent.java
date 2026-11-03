@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1IngressStatusFluent<A extends io.kubernetes.client.openapi.models.V1IngressStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1IngressStatusFluent<A extends V1IngressStatusFluent<A>> extends BaseFluent<A>{
 
   private V1IngressLoadBalancerStatusBuilder loadBalancer;
 
@@ -69,7 +71,7 @@ public class V1IngressStatusFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1IngressStatusFluent that = (V1IngressStatusFluent) o;
+    V1IngressStatusFluent<?> that = (V1IngressStatusFluent<?>) o;
     if (!(Objects.equals(loadBalancer, that.loadBalancer))) {
       return false;
     }
@@ -101,18 +103,18 @@ public class V1IngressStatusFluent<A extends io.kubernetes.client.openapi.models
         this.loadBalancer = new V1IngressLoadBalancerStatusBuilder(loadBalancer);
         this._visitables.get("loadBalancer").add(this.loadBalancer);
     } else {
-        this.loadBalancer = null;
         this._visitables.get("loadBalancer").remove(this.loadBalancer);
+        this.loadBalancer = null;
     }
     return (A) this;
   }
   
   public LoadBalancerNested<A> withNewLoadBalancer() {
-    return new LoadBalancerNested(null);
+    return new LoadBalancerNested<>(null);
   }
   
   public LoadBalancerNested<A> withNewLoadBalancerLike(V1IngressLoadBalancerStatus item) {
-    return new LoadBalancerNested(item);
+    return new LoadBalancerNested<>(item);
   }
   public class LoadBalancerNested<N> extends V1IngressLoadBalancerStatusFluent<LoadBalancerNested<N>> implements Nested<N>{
   

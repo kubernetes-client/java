@@ -15,6 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.Integer;
+import java.lang.Long;
 import java.lang.Object;
 import java.lang.RuntimeException;
 import java.lang.String;
@@ -26,14 +27,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1DownwardAPIVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DownwardAPIVolumeSourceFluent<A extends V1DownwardAPIVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private Integer defaultMode;
+  private Long defaultUser;
   private ArrayList<V1DownwardAPIVolumeFileBuilder> items;
 
   public V1DownwardAPIVolumeSourceFluent() {
@@ -45,7 +49,7 @@ public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.open
 
   public A addAllToItems(Collection<V1DownwardAPIVolumeFile> items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1DownwardAPIVolumeFile item : items) {
         V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
@@ -56,16 +60,16 @@ public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.open
   }
   
   public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
+    return new ItemsNested<>(-1, null);
   }
   
   public ItemsNested<A> addNewItemLike(V1DownwardAPIVolumeFile item) {
-    return new ItemsNested(-1, item);
+    return new ItemsNested<>(-1, item);
   }
   
   public A addToItems(V1DownwardAPIVolumeFile... items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1DownwardAPIVolumeFile item : items) {
         V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
@@ -77,7 +81,7 @@ public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.open
   
   public A addToItems(int index,V1DownwardAPIVolumeFile item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -119,6 +123,7 @@ public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.open
     instance = instance != null ? instance : new V1DownwardAPIVolumeSource();
     if (instance != null) {
         this.withDefaultMode(instance.getDefaultMode());
+        this.withDefaultUser(instance.getDefaultUser());
         this.withItems(instance.getItems());
     }
   }
@@ -169,8 +174,11 @@ public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1DownwardAPIVolumeSourceFluent that = (V1DownwardAPIVolumeSourceFluent) o;
+    V1DownwardAPIVolumeSourceFluent<?> that = (V1DownwardAPIVolumeSourceFluent<?>) o;
     if (!(Objects.equals(defaultMode, that.defaultMode))) {
+      return false;
+    }
+    if (!(Objects.equals(defaultUser, that.defaultUser))) {
       return false;
     }
     if (!(Objects.equals(items, that.items))) {
@@ -183,8 +191,16 @@ public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.open
     return this.defaultMode;
   }
   
+  public Long getDefaultUser() {
+    return this.defaultUser;
+  }
+  
   public boolean hasDefaultMode() {
     return this.defaultMode != null;
+  }
+  
+  public boolean hasDefaultUser() {
+    return this.defaultUser != null;
   }
   
   public boolean hasItems() {
@@ -201,7 +217,7 @@ public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.open
   }
   
   public int hashCode() {
-    return Objects.hash(defaultMode, items);
+    return Objects.hash(defaultMode, defaultUser, items);
   }
   
   public A removeAllFromItems(Collection<V1DownwardAPIVolumeFile> items) {
@@ -233,6 +249,7 @@ public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.open
       return (A) this;
     }
     Iterator<V1DownwardAPIVolumeFileBuilder> each = items.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("items");
     while (each.hasNext()) {
         V1DownwardAPIVolumeFileBuilder builder = each.next();
@@ -245,12 +262,12 @@ public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.open
   }
   
   public ItemsNested<A> setNewItemLike(int index,V1DownwardAPIVolumeFile item) {
-    return new ItemsNested(index, item);
+    return new ItemsNested<>(index, item);
   }
   
   public A setToItems(int index,V1DownwardAPIVolumeFile item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -271,6 +288,11 @@ public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.open
         sb.append(defaultMode);
         sb.append(",");
     }
+    if (!(defaultUser == null)) {
+        sb.append("defaultUser:");
+        sb.append(defaultUser);
+        sb.append(",");
+    }
     if (!(items == null) && !(items.isEmpty())) {
         sb.append("items:");
         sb.append(items);
@@ -284,12 +306,17 @@ public class V1DownwardAPIVolumeSourceFluent<A extends io.kubernetes.client.open
     return (A) this;
   }
   
+  public A withDefaultUser(Long defaultUser) {
+    this.defaultUser = defaultUser;
+    return (A) this;
+  }
+  
   public A withItems(List<V1DownwardAPIVolumeFile> items) {
     if (this.items != null) {
       this._visitables.get("items").clear();
     }
     if (items != null) {
-        this.items = new ArrayList();
+        this.items = new ArrayList<>();
         for (V1DownwardAPIVolumeFile item : items) {
           this.addToItems(item);
         }

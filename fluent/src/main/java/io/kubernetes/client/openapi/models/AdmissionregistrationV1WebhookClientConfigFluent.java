@@ -24,12 +24,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class AdmissionregistrationV1WebhookClientConfigFluent<A extends io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class AdmissionregistrationV1WebhookClientConfigFluent<A extends AdmissionregistrationV1WebhookClientConfigFluent<A>> extends BaseFluent<A>{
 
   private List<Byte> caBundle;
   private AdmissionregistrationV1ServiceReferenceBuilder service;
@@ -105,7 +107,7 @@ public class AdmissionregistrationV1WebhookClientConfigFluent<A extends io.kuber
     if (!(super.equals(o))) {
       return false;
     }
-    AdmissionregistrationV1WebhookClientConfigFluent that = (AdmissionregistrationV1WebhookClientConfigFluent) o;
+    AdmissionregistrationV1WebhookClientConfigFluent<?> that = (AdmissionregistrationV1WebhookClientConfigFluent<?>) o;
     if (!(Objects.equals(caBundle, that.caBundle))) {
       return false;
     }
@@ -214,11 +216,11 @@ public class AdmissionregistrationV1WebhookClientConfigFluent<A extends io.kuber
   }
   
   public ServiceNested<A> withNewService() {
-    return new ServiceNested(null);
+    return new ServiceNested<>(null);
   }
   
   public ServiceNested<A> withNewServiceLike(AdmissionregistrationV1ServiceReference item) {
-    return new ServiceNested(item);
+    return new ServiceNested<>(item);
   }
   
   public A withService(AdmissionregistrationV1ServiceReference service) {
@@ -227,8 +229,8 @@ public class AdmissionregistrationV1WebhookClientConfigFluent<A extends io.kuber
         this.service = new AdmissionregistrationV1ServiceReferenceBuilder(service);
         this._visitables.get("service").add(this.service);
     } else {
-        this.service = null;
         this._visitables.get("service").remove(this.service);
+        this.service = null;
     }
     return (A) this;
   }

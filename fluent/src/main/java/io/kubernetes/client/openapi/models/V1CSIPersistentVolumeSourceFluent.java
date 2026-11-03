@@ -23,12 +23,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CSIPersistentVolumeSourceFluent<A extends V1CSIPersistentVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private V1SecretReferenceBuilder controllerExpandSecretRef;
   private V1SecretReferenceBuilder controllerPublishSecretRef;
@@ -50,7 +52,7 @@ public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.op
 
   public A addToVolumeAttributes(Map<String,String> map) {
     if (this.volumeAttributes == null && map != null) {
-      this.volumeAttributes = new LinkedHashMap();
+      this.volumeAttributes = new LinkedHashMap<>();
     }
     if (map != null) {
       this.volumeAttributes.putAll(map);
@@ -60,7 +62,7 @@ public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.op
   
   public A addToVolumeAttributes(String key,String value) {
     if (this.volumeAttributes == null && key != null && value != null) {
-      this.volumeAttributes = new LinkedHashMap();
+      this.volumeAttributes = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.volumeAttributes.put(key, value);
@@ -174,7 +176,7 @@ public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.op
     if (!(super.equals(o))) {
       return false;
     }
-    V1CSIPersistentVolumeSourceFluent that = (V1CSIPersistentVolumeSourceFluent) o;
+    V1CSIPersistentVolumeSourceFluent<?> that = (V1CSIPersistentVolumeSourceFluent<?>) o;
     if (!(Objects.equals(controllerExpandSecretRef, that.controllerExpandSecretRef))) {
       return false;
     }
@@ -358,8 +360,8 @@ public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.op
         this.controllerExpandSecretRef = new V1SecretReferenceBuilder(controllerExpandSecretRef);
         this._visitables.get("controllerExpandSecretRef").add(this.controllerExpandSecretRef);
     } else {
-        this.controllerExpandSecretRef = null;
         this._visitables.get("controllerExpandSecretRef").remove(this.controllerExpandSecretRef);
+        this.controllerExpandSecretRef = null;
     }
     return (A) this;
   }
@@ -370,8 +372,8 @@ public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.op
         this.controllerPublishSecretRef = new V1SecretReferenceBuilder(controllerPublishSecretRef);
         this._visitables.get("controllerPublishSecretRef").add(this.controllerPublishSecretRef);
     } else {
-        this.controllerPublishSecretRef = null;
         this._visitables.get("controllerPublishSecretRef").remove(this.controllerPublishSecretRef);
+        this.controllerPublishSecretRef = null;
     }
     return (A) this;
   }
@@ -387,43 +389,43 @@ public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.op
   }
   
   public ControllerExpandSecretRefNested<A> withNewControllerExpandSecretRef() {
-    return new ControllerExpandSecretRefNested(null);
+    return new ControllerExpandSecretRefNested<>(null);
   }
   
   public ControllerExpandSecretRefNested<A> withNewControllerExpandSecretRefLike(V1SecretReference item) {
-    return new ControllerExpandSecretRefNested(item);
+    return new ControllerExpandSecretRefNested<>(item);
   }
   
   public ControllerPublishSecretRefNested<A> withNewControllerPublishSecretRef() {
-    return new ControllerPublishSecretRefNested(null);
+    return new ControllerPublishSecretRefNested<>(null);
   }
   
   public ControllerPublishSecretRefNested<A> withNewControllerPublishSecretRefLike(V1SecretReference item) {
-    return new ControllerPublishSecretRefNested(item);
+    return new ControllerPublishSecretRefNested<>(item);
   }
   
   public NodeExpandSecretRefNested<A> withNewNodeExpandSecretRef() {
-    return new NodeExpandSecretRefNested(null);
+    return new NodeExpandSecretRefNested<>(null);
   }
   
   public NodeExpandSecretRefNested<A> withNewNodeExpandSecretRefLike(V1SecretReference item) {
-    return new NodeExpandSecretRefNested(item);
+    return new NodeExpandSecretRefNested<>(item);
   }
   
   public NodePublishSecretRefNested<A> withNewNodePublishSecretRef() {
-    return new NodePublishSecretRefNested(null);
+    return new NodePublishSecretRefNested<>(null);
   }
   
   public NodePublishSecretRefNested<A> withNewNodePublishSecretRefLike(V1SecretReference item) {
-    return new NodePublishSecretRefNested(item);
+    return new NodePublishSecretRefNested<>(item);
   }
   
   public NodeStageSecretRefNested<A> withNewNodeStageSecretRef() {
-    return new NodeStageSecretRefNested(null);
+    return new NodeStageSecretRefNested<>(null);
   }
   
   public NodeStageSecretRefNested<A> withNewNodeStageSecretRefLike(V1SecretReference item) {
-    return new NodeStageSecretRefNested(item);
+    return new NodeStageSecretRefNested<>(item);
   }
   
   public A withNodeExpandSecretRef(V1SecretReference nodeExpandSecretRef) {
@@ -432,8 +434,8 @@ public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.op
         this.nodeExpandSecretRef = new V1SecretReferenceBuilder(nodeExpandSecretRef);
         this._visitables.get("nodeExpandSecretRef").add(this.nodeExpandSecretRef);
     } else {
-        this.nodeExpandSecretRef = null;
         this._visitables.get("nodeExpandSecretRef").remove(this.nodeExpandSecretRef);
+        this.nodeExpandSecretRef = null;
     }
     return (A) this;
   }
@@ -444,8 +446,8 @@ public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.op
         this.nodePublishSecretRef = new V1SecretReferenceBuilder(nodePublishSecretRef);
         this._visitables.get("nodePublishSecretRef").add(this.nodePublishSecretRef);
     } else {
-        this.nodePublishSecretRef = null;
         this._visitables.get("nodePublishSecretRef").remove(this.nodePublishSecretRef);
+        this.nodePublishSecretRef = null;
     }
     return (A) this;
   }
@@ -456,8 +458,8 @@ public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.op
         this.nodeStageSecretRef = new V1SecretReferenceBuilder(nodeStageSecretRef);
         this._visitables.get("nodeStageSecretRef").add(this.nodeStageSecretRef);
     } else {
-        this.nodeStageSecretRef = null;
         this._visitables.get("nodeStageSecretRef").remove(this.nodeStageSecretRef);
+        this.nodeStageSecretRef = null;
     }
     return (A) this;
   }
@@ -475,7 +477,7 @@ public class V1CSIPersistentVolumeSourceFluent<A extends io.kubernetes.client.op
     if (volumeAttributes == null) {
       this.volumeAttributes = null;
     } else {
-      this.volumeAttributes = new LinkedHashMap(volumeAttributes);
+      this.volumeAttributes = new LinkedHashMap<>(volumeAttributes);
     }
     return (A) this;
   }

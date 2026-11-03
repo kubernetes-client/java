@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1CertificateSigningRequestBuilder extends V1CertificateSigningRequestFluent<V1CertificateSigningRequestBuilder> implements VisitableBuilder<V1CertificateSigningRequest,V1CertificateSigningRequestBuilder>{
 
   V1CertificateSigningRequestFluent<?> fluent;

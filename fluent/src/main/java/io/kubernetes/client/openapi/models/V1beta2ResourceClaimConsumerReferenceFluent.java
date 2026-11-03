@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta2ResourceClaimConsumerReferenceFluent<A extends io.kubernetes.client.openapi.models.V1beta2ResourceClaimConsumerReferenceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta2ResourceClaimConsumerReferenceFluent<A extends V1beta2ResourceClaimConsumerReferenceFluent<A>> extends BaseFluent<A>{
 
   private String apiGroup;
   private String name;
@@ -57,7 +59,7 @@ public class V1beta2ResourceClaimConsumerReferenceFluent<A extends io.kubernetes
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta2ResourceClaimConsumerReferenceFluent that = (V1beta2ResourceClaimConsumerReferenceFluent) o;
+    V1beta2ResourceClaimConsumerReferenceFluent<?> that = (V1beta2ResourceClaimConsumerReferenceFluent<?>) o;
     if (!(Objects.equals(apiGroup, that.apiGroup))) {
       return false;
     }

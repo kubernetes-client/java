@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.models.V1MatchResourcesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1MatchResourcesFluent<A extends V1MatchResourcesFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1NamedRuleWithOperationsBuilder> excludeResourceRules;
   private String matchPolicy;
@@ -48,7 +50,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
 
   public A addAllToExcludeResourceRules(Collection<V1NamedRuleWithOperations> items) {
     if (this.excludeResourceRules == null) {
-      this.excludeResourceRules = new ArrayList();
+      this.excludeResourceRules = new ArrayList<>();
     }
     for (V1NamedRuleWithOperations item : items) {
         V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
@@ -60,7 +62,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
   
   public A addAllToResourceRules(Collection<V1NamedRuleWithOperations> items) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     for (V1NamedRuleWithOperations item : items) {
         V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
@@ -71,24 +73,24 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public ExcludeResourceRulesNested<A> addNewExcludeResourceRule() {
-    return new ExcludeResourceRulesNested(-1, null);
+    return new ExcludeResourceRulesNested<>(-1, null);
   }
   
   public ExcludeResourceRulesNested<A> addNewExcludeResourceRuleLike(V1NamedRuleWithOperations item) {
-    return new ExcludeResourceRulesNested(-1, item);
+    return new ExcludeResourceRulesNested<>(-1, item);
   }
   
   public ResourceRulesNested<A> addNewResourceRule() {
-    return new ResourceRulesNested(-1, null);
+    return new ResourceRulesNested<>(-1, null);
   }
   
   public ResourceRulesNested<A> addNewResourceRuleLike(V1NamedRuleWithOperations item) {
-    return new ResourceRulesNested(-1, item);
+    return new ResourceRulesNested<>(-1, item);
   }
   
   public A addToExcludeResourceRules(V1NamedRuleWithOperations... items) {
     if (this.excludeResourceRules == null) {
-      this.excludeResourceRules = new ArrayList();
+      this.excludeResourceRules = new ArrayList<>();
     }
     for (V1NamedRuleWithOperations item : items) {
         V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
@@ -100,7 +102,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToExcludeResourceRules(int index,V1NamedRuleWithOperations item) {
     if (this.excludeResourceRules == null) {
-      this.excludeResourceRules = new ArrayList();
+      this.excludeResourceRules = new ArrayList<>();
     }
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
     if (index < 0 || index >= this.excludeResourceRules.size()) {
@@ -115,7 +117,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToResourceRules(V1NamedRuleWithOperations... items) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     for (V1NamedRuleWithOperations item : items) {
         V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
@@ -127,7 +129,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToResourceRules(int index,V1NamedRuleWithOperations item) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
     if (index < 0 || index >= this.resourceRules.size()) {
@@ -315,7 +317,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1MatchResourcesFluent that = (V1MatchResourcesFluent) o;
+    V1MatchResourcesFluent<?> that = (V1MatchResourcesFluent<?>) o;
     if (!(Objects.equals(excludeResourceRules, that.excludeResourceRules))) {
       return false;
     }
@@ -433,6 +435,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1NamedRuleWithOperationsBuilder> each = excludeResourceRules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("excludeResourceRules");
     while (each.hasNext()) {
         V1NamedRuleWithOperationsBuilder builder = each.next();
@@ -449,6 +452,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
       return (A) this;
     }
     Iterator<V1NamedRuleWithOperationsBuilder> each = resourceRules.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("resourceRules");
     while (each.hasNext()) {
         V1NamedRuleWithOperationsBuilder builder = each.next();
@@ -461,16 +465,16 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
   }
   
   public ExcludeResourceRulesNested<A> setNewExcludeResourceRuleLike(int index,V1NamedRuleWithOperations item) {
-    return new ExcludeResourceRulesNested(index, item);
+    return new ExcludeResourceRulesNested<>(index, item);
   }
   
   public ResourceRulesNested<A> setNewResourceRuleLike(int index,V1NamedRuleWithOperations item) {
-    return new ResourceRulesNested(index, item);
+    return new ResourceRulesNested<>(index, item);
   }
   
   public A setToExcludeResourceRules(int index,V1NamedRuleWithOperations item) {
     if (this.excludeResourceRules == null) {
-      this.excludeResourceRules = new ArrayList();
+      this.excludeResourceRules = new ArrayList<>();
     }
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
     if (index < 0 || index >= this.excludeResourceRules.size()) {
@@ -485,7 +489,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
   
   public A setToResourceRules(int index,V1NamedRuleWithOperations item) {
     if (this.resourceRules == null) {
-      this.resourceRules = new ArrayList();
+      this.resourceRules = new ArrayList<>();
     }
     V1NamedRuleWithOperationsBuilder builder = new V1NamedRuleWithOperationsBuilder(item);
     if (index < 0 || index >= this.resourceRules.size()) {
@@ -534,7 +538,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
       this._visitables.get("excludeResourceRules").clear();
     }
     if (excludeResourceRules != null) {
-        this.excludeResourceRules = new ArrayList();
+        this.excludeResourceRules = new ArrayList<>();
         for (V1NamedRuleWithOperations item : excludeResourceRules) {
           this.addToExcludeResourceRules(item);
         }
@@ -568,26 +572,26 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
         this.namespaceSelector = new V1LabelSelectorBuilder(namespaceSelector);
         this._visitables.get("namespaceSelector").add(this.namespaceSelector);
     } else {
-        this.namespaceSelector = null;
         this._visitables.get("namespaceSelector").remove(this.namespaceSelector);
+        this.namespaceSelector = null;
     }
     return (A) this;
   }
   
   public NamespaceSelectorNested<A> withNewNamespaceSelector() {
-    return new NamespaceSelectorNested(null);
+    return new NamespaceSelectorNested<>(null);
   }
   
   public NamespaceSelectorNested<A> withNewNamespaceSelectorLike(V1LabelSelector item) {
-    return new NamespaceSelectorNested(item);
+    return new NamespaceSelectorNested<>(item);
   }
   
   public ObjectSelectorNested<A> withNewObjectSelector() {
-    return new ObjectSelectorNested(null);
+    return new ObjectSelectorNested<>(null);
   }
   
   public ObjectSelectorNested<A> withNewObjectSelectorLike(V1LabelSelector item) {
-    return new ObjectSelectorNested(item);
+    return new ObjectSelectorNested<>(item);
   }
   
   public A withObjectSelector(V1LabelSelector objectSelector) {
@@ -596,8 +600,8 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
         this.objectSelector = new V1LabelSelectorBuilder(objectSelector);
         this._visitables.get("objectSelector").add(this.objectSelector);
     } else {
-        this.objectSelector = null;
         this._visitables.get("objectSelector").remove(this.objectSelector);
+        this.objectSelector = null;
     }
     return (A) this;
   }
@@ -607,7 +611,7 @@ public class V1MatchResourcesFluent<A extends io.kubernetes.client.openapi.model
       this._visitables.get("resourceRules").clear();
     }
     if (resourceRules != null) {
-        this.resourceRules = new ArrayList();
+        this.resourceRules = new ArrayList<>();
         for (V1NamedRuleWithOperations item : resourceRules) {
           this.addToResourceRules(item);
         }

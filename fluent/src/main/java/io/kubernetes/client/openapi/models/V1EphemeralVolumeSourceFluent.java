@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1EphemeralVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1EphemeralVolumeSourceFluent<A extends V1EphemeralVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private V1PersistentVolumeClaimTemplateBuilder volumeClaimTemplate;
 
@@ -69,7 +71,7 @@ public class V1EphemeralVolumeSourceFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1EphemeralVolumeSourceFluent that = (V1EphemeralVolumeSourceFluent) o;
+    V1EphemeralVolumeSourceFluent<?> that = (V1EphemeralVolumeSourceFluent<?>) o;
     if (!(Objects.equals(volumeClaimTemplate, that.volumeClaimTemplate))) {
       return false;
     }
@@ -96,11 +98,11 @@ public class V1EphemeralVolumeSourceFluent<A extends io.kubernetes.client.openap
   }
   
   public VolumeClaimTemplateNested<A> withNewVolumeClaimTemplate() {
-    return new VolumeClaimTemplateNested(null);
+    return new VolumeClaimTemplateNested<>(null);
   }
   
   public VolumeClaimTemplateNested<A> withNewVolumeClaimTemplateLike(V1PersistentVolumeClaimTemplate item) {
-    return new VolumeClaimTemplateNested(item);
+    return new VolumeClaimTemplateNested<>(item);
   }
   
   public A withVolumeClaimTemplate(V1PersistentVolumeClaimTemplate volumeClaimTemplate) {
@@ -109,8 +111,8 @@ public class V1EphemeralVolumeSourceFluent<A extends io.kubernetes.client.openap
         this.volumeClaimTemplate = new V1PersistentVolumeClaimTemplateBuilder(volumeClaimTemplate);
         this._visitables.get("volumeClaimTemplate").add(this.volumeClaimTemplate);
     } else {
-        this.volumeClaimTemplate = null;
         this._visitables.get("volumeClaimTemplate").remove(this.volumeClaimTemplate);
+        this.volumeClaimTemplate = null;
     }
     return (A) this;
   }

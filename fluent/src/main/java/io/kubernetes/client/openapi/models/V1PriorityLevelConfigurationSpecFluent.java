@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.client.openapi.models.V1PriorityLevelConfigurationSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PriorityLevelConfigurationSpecFluent<A extends V1PriorityLevelConfigurationSpecFluent<A>> extends BaseFluent<A>{
 
   private V1ExemptPriorityLevelConfigurationBuilder exempt;
   private V1LimitedPriorityLevelConfigurationBuilder limited;
@@ -89,7 +91,7 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.clie
     if (!(super.equals(o))) {
       return false;
     }
-    V1PriorityLevelConfigurationSpecFluent that = (V1PriorityLevelConfigurationSpecFluent) o;
+    V1PriorityLevelConfigurationSpecFluent<?> that = (V1PriorityLevelConfigurationSpecFluent<?>) o;
     if (!(Objects.equals(exempt, that.exempt))) {
       return false;
     }
@@ -149,8 +151,8 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.clie
         this.exempt = new V1ExemptPriorityLevelConfigurationBuilder(exempt);
         this._visitables.get("exempt").add(this.exempt);
     } else {
-        this.exempt = null;
         this._visitables.get("exempt").remove(this.exempt);
+        this.exempt = null;
     }
     return (A) this;
   }
@@ -161,26 +163,26 @@ public class V1PriorityLevelConfigurationSpecFluent<A extends io.kubernetes.clie
         this.limited = new V1LimitedPriorityLevelConfigurationBuilder(limited);
         this._visitables.get("limited").add(this.limited);
     } else {
-        this.limited = null;
         this._visitables.get("limited").remove(this.limited);
+        this.limited = null;
     }
     return (A) this;
   }
   
   public ExemptNested<A> withNewExempt() {
-    return new ExemptNested(null);
+    return new ExemptNested<>(null);
   }
   
   public ExemptNested<A> withNewExemptLike(V1ExemptPriorityLevelConfiguration item) {
-    return new ExemptNested(item);
+    return new ExemptNested<>(item);
   }
   
   public LimitedNested<A> withNewLimited() {
-    return new LimitedNested(null);
+    return new LimitedNested<>(null);
   }
   
   public LimitedNested<A> withNewLimitedLike(V1LimitedPriorityLevelConfiguration item) {
-    return new LimitedNested(item);
+    return new LimitedNested<>(item);
   }
   
   public A withType(String type) {

@@ -26,12 +26,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SubjectAccessReviewSpecFluent<A extends V1SubjectAccessReviewSpecFluent<A>> extends BaseFluent<A>{
 
   private Map<String,List<String>> extra;
   private List<String> groups;
@@ -49,7 +51,7 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
 
   public A addAllToGroups(Collection<String> items) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     for (String item : items) {
       this.groups.add(item);
@@ -59,7 +61,7 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
   
   public A addToExtra(Map<String,List<String>> map) {
     if (this.extra == null && map != null) {
-      this.extra = new LinkedHashMap();
+      this.extra = new LinkedHashMap<>();
     }
     if (map != null) {
       this.extra.putAll(map);
@@ -69,7 +71,7 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
   
   public A addToExtra(String key,List<String> value) {
     if (this.extra == null && key != null && value != null) {
-      this.extra = new LinkedHashMap();
+      this.extra = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.extra.put(key, value);
@@ -79,7 +81,7 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
   
   public A addToGroups(String... items) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     for (String item : items) {
       this.groups.add(item);
@@ -89,7 +91,7 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
   
   public A addToGroups(int index,String item) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     this.groups.add(index, item);
     return (A) this;
@@ -149,7 +151,7 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1SubjectAccessReviewSpecFluent that = (V1SubjectAccessReviewSpecFluent) o;
+    V1SubjectAccessReviewSpecFluent<?> that = (V1SubjectAccessReviewSpecFluent<?>) o;
     if (!(Objects.equals(extra, that.extra))) {
       return false;
     }
@@ -291,7 +293,7 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
   
   public A setToGroups(int index,String item) {
     if (this.groups == null) {
-      this.groups = new ArrayList();
+      this.groups = new ArrayList<>();
     }
     this.groups.set(index, item);
     return (A) this;
@@ -337,14 +339,14 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
     if (extra == null) {
       this.extra = null;
     } else {
-      this.extra = new LinkedHashMap(extra);
+      this.extra = new LinkedHashMap<>(extra);
     }
     return (A) this;
   }
   
   public A withGroups(List<String> groups) {
     if (groups != null) {
-        this.groups = new ArrayList();
+        this.groups = new ArrayList<>();
         for (String item : groups) {
           this.addToGroups(item);
         }
@@ -368,19 +370,19 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
   }
   
   public NonResourceAttributesNested<A> withNewNonResourceAttributes() {
-    return new NonResourceAttributesNested(null);
+    return new NonResourceAttributesNested<>(null);
   }
   
   public NonResourceAttributesNested<A> withNewNonResourceAttributesLike(V1NonResourceAttributes item) {
-    return new NonResourceAttributesNested(item);
+    return new NonResourceAttributesNested<>(item);
   }
   
   public ResourceAttributesNested<A> withNewResourceAttributes() {
-    return new ResourceAttributesNested(null);
+    return new ResourceAttributesNested<>(null);
   }
   
   public ResourceAttributesNested<A> withNewResourceAttributesLike(V1ResourceAttributes item) {
-    return new ResourceAttributesNested(item);
+    return new ResourceAttributesNested<>(item);
   }
   
   public A withNonResourceAttributes(V1NonResourceAttributes nonResourceAttributes) {
@@ -389,8 +391,8 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
         this.nonResourceAttributes = new V1NonResourceAttributesBuilder(nonResourceAttributes);
         this._visitables.get("nonResourceAttributes").add(this.nonResourceAttributes);
     } else {
-        this.nonResourceAttributes = null;
         this._visitables.get("nonResourceAttributes").remove(this.nonResourceAttributes);
+        this.nonResourceAttributes = null;
     }
     return (A) this;
   }
@@ -401,8 +403,8 @@ public class V1SubjectAccessReviewSpecFluent<A extends io.kubernetes.client.open
         this.resourceAttributes = new V1ResourceAttributesBuilder(resourceAttributes);
         this._visitables.get("resourceAttributes").add(this.resourceAttributes);
     } else {
-        this.resourceAttributes = null;
         this._visitables.get("resourceAttributes").remove(this.resourceAttributes);
+        this.resourceAttributes = null;
     }
     return (A) this;
   }

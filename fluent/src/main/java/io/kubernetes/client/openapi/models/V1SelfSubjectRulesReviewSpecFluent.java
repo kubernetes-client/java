@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SelfSubjectRulesReviewSpecFluent<A extends io.kubernetes.client.openapi.models.V1SelfSubjectRulesReviewSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SelfSubjectRulesReviewSpecFluent<A extends V1SelfSubjectRulesReviewSpecFluent<A>> extends BaseFluent<A>{
 
   private String namespace;
 
@@ -51,7 +53,7 @@ public class V1SelfSubjectRulesReviewSpecFluent<A extends io.kubernetes.client.o
     if (!(super.equals(o))) {
       return false;
     }
-    V1SelfSubjectRulesReviewSpecFluent that = (V1SelfSubjectRulesReviewSpecFluent) o;
+    V1SelfSubjectRulesReviewSpecFluent<?> that = (V1SelfSubjectRulesReviewSpecFluent<?>) o;
     if (!(Objects.equals(namespace, that.namespace))) {
       return false;
     }

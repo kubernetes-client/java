@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1HTTPHeaderFluent<A extends io.kubernetes.client.openapi.models.V1HTTPHeaderFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1HTTPHeaderFluent<A extends V1HTTPHeaderFluent<A>> extends BaseFluent<A>{
 
   private String name;
   private String value;
@@ -53,7 +55,7 @@ public class V1HTTPHeaderFluent<A extends io.kubernetes.client.openapi.models.V1
     if (!(super.equals(o))) {
       return false;
     }
-    V1HTTPHeaderFluent that = (V1HTTPHeaderFluent) o;
+    V1HTTPHeaderFluent<?> that = (V1HTTPHeaderFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

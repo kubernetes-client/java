@@ -27,12 +27,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1DaemonSetStatusFluent<A extends io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> extends BaseFluent<A>{
 
   private Integer collisionCount;
   private ArrayList<V1DaemonSetConditionBuilder> conditions;
@@ -54,7 +56,7 @@ public class V1DaemonSetStatusFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToConditions(Collection<V1DaemonSetCondition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1DaemonSetCondition item : items) {
         V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
@@ -65,16 +67,16 @@ public class V1DaemonSetStatusFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1DaemonSetCondition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public A addToConditions(V1DaemonSetCondition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1DaemonSetCondition item : items) {
         V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
@@ -86,7 +88,7 @@ public class V1DaemonSetStatusFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToConditions(int index,V1DaemonSetCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -186,7 +188,7 @@ public class V1DaemonSetStatusFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1DaemonSetStatusFluent that = (V1DaemonSetStatusFluent) o;
+    V1DaemonSetStatusFluent<?> that = (V1DaemonSetStatusFluent<?>) o;
     if (!(Objects.equals(collisionCount, that.collisionCount))) {
       return false;
     }
@@ -338,6 +340,7 @@ public class V1DaemonSetStatusFluent<A extends io.kubernetes.client.openapi.mode
       return (A) this;
     }
     Iterator<V1DaemonSetConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1DaemonSetConditionBuilder builder = each.next();
@@ -350,12 +353,12 @@ public class V1DaemonSetStatusFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1DaemonSetCondition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public A setToConditions(int index,V1DaemonSetCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -434,7 +437,7 @@ public class V1DaemonSetStatusFluent<A extends io.kubernetes.client.openapi.mode
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1DaemonSetCondition item : conditions) {
           this.addToConditions(item);
         }

@@ -24,12 +24,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1FCVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1FCVolumeSourceFluent<A extends V1FCVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String fsType;
   private Integer lun;
@@ -46,7 +48,7 @@ public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.model
 
   public A addAllToTargetWWNs(Collection<String> items) {
     if (this.targetWWNs == null) {
-      this.targetWWNs = new ArrayList();
+      this.targetWWNs = new ArrayList<>();
     }
     for (String item : items) {
       this.targetWWNs.add(item);
@@ -56,7 +58,7 @@ public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.model
   
   public A addAllToWwids(Collection<String> items) {
     if (this.wwids == null) {
-      this.wwids = new ArrayList();
+      this.wwids = new ArrayList<>();
     }
     for (String item : items) {
       this.wwids.add(item);
@@ -66,7 +68,7 @@ public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToTargetWWNs(String... items) {
     if (this.targetWWNs == null) {
-      this.targetWWNs = new ArrayList();
+      this.targetWWNs = new ArrayList<>();
     }
     for (String item : items) {
       this.targetWWNs.add(item);
@@ -76,7 +78,7 @@ public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToTargetWWNs(int index,String item) {
     if (this.targetWWNs == null) {
-      this.targetWWNs = new ArrayList();
+      this.targetWWNs = new ArrayList<>();
     }
     this.targetWWNs.add(index, item);
     return (A) this;
@@ -84,7 +86,7 @@ public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToWwids(String... items) {
     if (this.wwids == null) {
-      this.wwids = new ArrayList();
+      this.wwids = new ArrayList<>();
     }
     for (String item : items) {
       this.wwids.add(item);
@@ -94,7 +96,7 @@ public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.model
   
   public A addToWwids(int index,String item) {
     if (this.wwids == null) {
-      this.wwids = new ArrayList();
+      this.wwids = new ArrayList<>();
     }
     this.wwids.add(index, item);
     return (A) this;
@@ -121,7 +123,7 @@ public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1FCVolumeSourceFluent that = (V1FCVolumeSourceFluent) o;
+    V1FCVolumeSourceFluent<?> that = (V1FCVolumeSourceFluent<?>) o;
     if (!(Objects.equals(fsType, that.fsType))) {
       return false;
     }
@@ -286,7 +288,7 @@ public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.model
   
   public A setToTargetWWNs(int index,String item) {
     if (this.targetWWNs == null) {
-      this.targetWWNs = new ArrayList();
+      this.targetWWNs = new ArrayList<>();
     }
     this.targetWWNs.set(index, item);
     return (A) this;
@@ -294,7 +296,7 @@ public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.model
   
   public A setToWwids(int index,String item) {
     if (this.wwids == null) {
-      this.wwids = new ArrayList();
+      this.wwids = new ArrayList<>();
     }
     this.wwids.set(index, item);
     return (A) this;
@@ -352,7 +354,7 @@ public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.model
   
   public A withTargetWWNs(List<String> targetWWNs) {
     if (targetWWNs != null) {
-        this.targetWWNs = new ArrayList();
+        this.targetWWNs = new ArrayList<>();
         for (String item : targetWWNs) {
           this.addToTargetWWNs(item);
         }
@@ -377,7 +379,7 @@ public class V1FCVolumeSourceFluent<A extends io.kubernetes.client.openapi.model
   
   public A withWwids(List<String> wwids) {
     if (wwids != null) {
-        this.wwids = new ArrayList();
+        this.wwids = new ArrayList<>();
         for (String item : wwids) {
           this.addToWwids(item);
         }

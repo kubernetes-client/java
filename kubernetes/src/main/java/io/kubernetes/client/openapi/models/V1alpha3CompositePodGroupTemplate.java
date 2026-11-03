@@ -1,0 +1,496 @@
+/*
+Copyright 2026 The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+package io.kubernetes.client.openapi.models;
+
+import java.util.Objects;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1alpha3CompositeDisruptionMode;
+import io.kubernetes.client.openapi.models.V1alpha3CompositePodGroupSchedulingConstraints;
+import io.kubernetes.client.openapi.models.V1alpha3CompositePodGroupSchedulingPolicy;
+import io.kubernetes.client.openapi.models.V1alpha3PodGroupTemplate;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
+/**
+ * CompositePodGroupTemplate represents a template for a CompositePodGroup with a scheduling policy.
+ */
+@ApiModel(description = "CompositePodGroupTemplate represents a template for a CompositePodGroup with a scheduling policy.")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+public class V1alpha3CompositePodGroupTemplate {
+  public static final String SERIALIZED_NAME_COMPOSITE_POD_GROUP_TEMPLATES = "compositePodGroupTemplates";
+  @SerializedName(SERIALIZED_NAME_COMPOSITE_POD_GROUP_TEMPLATES)
+  @jakarta.annotation.Nullable
+  private List<V1alpha3CompositePodGroupTemplate> compositePodGroupTemplates = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_DISRUPTION_MODE = "disruptionMode";
+  @SerializedName(SERIALIZED_NAME_DISRUPTION_MODE)
+  @jakarta.annotation.Nullable
+  private V1alpha3CompositeDisruptionMode disruptionMode;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nonnull
+  private String name;
+
+  public static final String SERIALIZED_NAME_POD_GROUP_TEMPLATES = "podGroupTemplates";
+  @SerializedName(SERIALIZED_NAME_POD_GROUP_TEMPLATES)
+  @jakarta.annotation.Nullable
+  private List<V1alpha3PodGroupTemplate> podGroupTemplates = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_PREEMPTION_POLICY = "preemptionPolicy";
+  @SerializedName(SERIALIZED_NAME_PREEMPTION_POLICY)
+  @jakarta.annotation.Nullable
+  private String preemptionPolicy;
+
+  public static final String SERIALIZED_NAME_PRIORITY = "priority";
+  @SerializedName(SERIALIZED_NAME_PRIORITY)
+  @jakarta.annotation.Nullable
+  private Integer priority;
+
+  public static final String SERIALIZED_NAME_PRIORITY_CLASS_NAME = "priorityClassName";
+  @SerializedName(SERIALIZED_NAME_PRIORITY_CLASS_NAME)
+  @jakarta.annotation.Nullable
+  private String priorityClassName;
+
+  public static final String SERIALIZED_NAME_SCHEDULING_CONSTRAINTS = "schedulingConstraints";
+  @SerializedName(SERIALIZED_NAME_SCHEDULING_CONSTRAINTS)
+  @jakarta.annotation.Nullable
+  private V1alpha3CompositePodGroupSchedulingConstraints schedulingConstraints;
+
+  public static final String SERIALIZED_NAME_SCHEDULING_POLICY = "schedulingPolicy";
+  @SerializedName(SERIALIZED_NAME_SCHEDULING_POLICY)
+  @jakarta.annotation.Nonnull
+  private V1alpha3CompositePodGroupSchedulingPolicy schedulingPolicy;
+
+  public V1alpha3CompositePodGroupTemplate() {
+  }
+
+  public V1alpha3CompositePodGroupTemplate compositePodGroupTemplates(@jakarta.annotation.Nullable List<V1alpha3CompositePodGroupTemplate> compositePodGroupTemplates) {
+    this.compositePodGroupTemplates = compositePodGroupTemplates;
+    return this;
+  }
+
+  public V1alpha3CompositePodGroupTemplate addCompositePodGroupTemplatesItem(V1alpha3CompositePodGroupTemplate compositePodGroupTemplatesItem) {
+    if (this.compositePodGroupTemplates == null) {
+      this.compositePodGroupTemplates = new ArrayList<>();
+    }
+    this.compositePodGroupTemplates.add(compositePodGroupTemplatesItem);
+    return this;
+  }
+
+  /**
+   * compositePodGroupTemplates is the list of templates for children CompositePodGroups. The maximum number of templates is 8. At least one entry in CompositePodGroupTemplates or PodGroupTemplates must be set.
+   * @return compositePodGroupTemplates
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "compositePodGroupTemplates is the list of templates for children CompositePodGroups. The maximum number of templates is 8. At least one entry in CompositePodGroupTemplates or PodGroupTemplates must be set.")
+  public List<V1alpha3CompositePodGroupTemplate> getCompositePodGroupTemplates() {
+    return compositePodGroupTemplates;
+  }
+
+  public void setCompositePodGroupTemplates(@jakarta.annotation.Nullable List<V1alpha3CompositePodGroupTemplate> compositePodGroupTemplates) {
+    this.compositePodGroupTemplates = compositePodGroupTemplates;
+  }
+
+
+  public V1alpha3CompositePodGroupTemplate disruptionMode(@jakarta.annotation.Nullable V1alpha3CompositeDisruptionMode disruptionMode) {
+    this.disruptionMode = disruptionMode;
+    return this;
+  }
+
+  /**
+   * Get disruptionMode
+   * @return disruptionMode
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1alpha3CompositeDisruptionMode getDisruptionMode() {
+    return disruptionMode;
+  }
+
+  public void setDisruptionMode(@jakarta.annotation.Nullable V1alpha3CompositeDisruptionMode disruptionMode) {
+    this.disruptionMode = disruptionMode;
+  }
+
+
+  public V1alpha3CompositePodGroupTemplate name(@jakarta.annotation.Nonnull String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * name is a unique identifier for the CompositePodGroupTemplate within the Workload. It must be a DNS label. This field is required.
+   * @return name
+   */
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "name is a unique identifier for the CompositePodGroupTemplate within the Workload. It must be a DNS label. This field is required.")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@jakarta.annotation.Nonnull String name) {
+    this.name = name;
+  }
+
+
+  public V1alpha3CompositePodGroupTemplate podGroupTemplates(@jakarta.annotation.Nullable List<V1alpha3PodGroupTemplate> podGroupTemplates) {
+    this.podGroupTemplates = podGroupTemplates;
+    return this;
+  }
+
+  public V1alpha3CompositePodGroupTemplate addPodGroupTemplatesItem(V1alpha3PodGroupTemplate podGroupTemplatesItem) {
+    if (this.podGroupTemplates == null) {
+      this.podGroupTemplates = new ArrayList<>();
+    }
+    this.podGroupTemplates.add(podGroupTemplatesItem);
+    return this;
+  }
+
+  /**
+   * podGroupTemplates is the list of templates for children PodGroups. The maximum number of templates is 8. At least one entry in CompositePodGroupTemplates or PodGroupTemplates must be set.
+   * @return podGroupTemplates
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "podGroupTemplates is the list of templates for children PodGroups. The maximum number of templates is 8. At least one entry in CompositePodGroupTemplates or PodGroupTemplates must be set.")
+  public List<V1alpha3PodGroupTemplate> getPodGroupTemplates() {
+    return podGroupTemplates;
+  }
+
+  public void setPodGroupTemplates(@jakarta.annotation.Nullable List<V1alpha3PodGroupTemplate> podGroupTemplates) {
+    this.podGroupTemplates = podGroupTemplates;
+  }
+
+
+  public V1alpha3CompositePodGroupTemplate preemptionPolicy(@jakarta.annotation.Nullable String preemptionPolicy) {
+    this.preemptionPolicy = preemptionPolicy;
+    return this;
+  }
+
+  /**
+   * preemptionPolicy is the Policy for preempting pods/podgroups with lower priority. One of Never, PreemptLowerPriority. This field is immutable. This field is available only when the PodGroupPreemptionPolicy feature gate is enabled.
+   * @return preemptionPolicy
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "preemptionPolicy is the Policy for preempting pods/podgroups with lower priority. One of Never, PreemptLowerPriority. This field is immutable. This field is available only when the PodGroupPreemptionPolicy feature gate is enabled.")
+  public String getPreemptionPolicy() {
+    return preemptionPolicy;
+  }
+
+  public void setPreemptionPolicy(@jakarta.annotation.Nullable String preemptionPolicy) {
+    this.preemptionPolicy = preemptionPolicy;
+  }
+
+
+  public V1alpha3CompositePodGroupTemplate priority(@jakarta.annotation.Nullable Integer priority) {
+    this.priority = priority;
+    return this;
+  }
+
+  /**
+   * priority is the value of priority of composite pod groups created from this template. Various system components use this field to find the priority of the composite pod group. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. This field is immutable.
+   * @return priority
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "priority is the value of priority of composite pod groups created from this template. Various system components use this field to find the priority of the composite pod group. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. This field is immutable.")
+  public Integer getPriority() {
+    return priority;
+  }
+
+  public void setPriority(@jakarta.annotation.Nullable Integer priority) {
+    this.priority = priority;
+  }
+
+
+  public V1alpha3CompositePodGroupTemplate priorityClassName(@jakarta.annotation.Nullable String priorityClassName) {
+    this.priorityClassName = priorityClassName;
+    return this;
+  }
+
+  /**
+   * priorityClassName indicates the priority that should be considered when scheduling a composite pod group created from this template. If no priority class is specified, admission control can set this to the global default priority class if it exists. Otherwise, composite pod groups created from this template will have the priority set to zero. This field is immutable.
+   * @return priorityClassName
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "priorityClassName indicates the priority that should be considered when scheduling a composite pod group created from this template. If no priority class is specified, admission control can set this to the global default priority class if it exists. Otherwise, composite pod groups created from this template will have the priority set to zero. This field is immutable.")
+  public String getPriorityClassName() {
+    return priorityClassName;
+  }
+
+  public void setPriorityClassName(@jakarta.annotation.Nullable String priorityClassName) {
+    this.priorityClassName = priorityClassName;
+  }
+
+
+  public V1alpha3CompositePodGroupTemplate schedulingConstraints(@jakarta.annotation.Nullable V1alpha3CompositePodGroupSchedulingConstraints schedulingConstraints) {
+    this.schedulingConstraints = schedulingConstraints;
+    return this;
+  }
+
+  /**
+   * Get schedulingConstraints
+   * @return schedulingConstraints
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1alpha3CompositePodGroupSchedulingConstraints getSchedulingConstraints() {
+    return schedulingConstraints;
+  }
+
+  public void setSchedulingConstraints(@jakarta.annotation.Nullable V1alpha3CompositePodGroupSchedulingConstraints schedulingConstraints) {
+    this.schedulingConstraints = schedulingConstraints;
+  }
+
+
+  public V1alpha3CompositePodGroupTemplate schedulingPolicy(@jakarta.annotation.Nonnull V1alpha3CompositePodGroupSchedulingPolicy schedulingPolicy) {
+    this.schedulingPolicy = schedulingPolicy;
+    return this;
+  }
+
+  /**
+   * Get schedulingPolicy
+   * @return schedulingPolicy
+   */
+  @jakarta.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  public V1alpha3CompositePodGroupSchedulingPolicy getSchedulingPolicy() {
+    return schedulingPolicy;
+  }
+
+  public void setSchedulingPolicy(@jakarta.annotation.Nonnull V1alpha3CompositePodGroupSchedulingPolicy schedulingPolicy) {
+    this.schedulingPolicy = schedulingPolicy;
+  }
+
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    V1alpha3CompositePodGroupTemplate v1alpha3CompositePodGroupTemplate = (V1alpha3CompositePodGroupTemplate) o;
+    return Objects.equals(this.compositePodGroupTemplates, v1alpha3CompositePodGroupTemplate.compositePodGroupTemplates) &&
+        Objects.equals(this.disruptionMode, v1alpha3CompositePodGroupTemplate.disruptionMode) &&
+        Objects.equals(this.name, v1alpha3CompositePodGroupTemplate.name) &&
+        Objects.equals(this.podGroupTemplates, v1alpha3CompositePodGroupTemplate.podGroupTemplates) &&
+        Objects.equals(this.preemptionPolicy, v1alpha3CompositePodGroupTemplate.preemptionPolicy) &&
+        Objects.equals(this.priority, v1alpha3CompositePodGroupTemplate.priority) &&
+        Objects.equals(this.priorityClassName, v1alpha3CompositePodGroupTemplate.priorityClassName) &&
+        Objects.equals(this.schedulingConstraints, v1alpha3CompositePodGroupTemplate.schedulingConstraints) &&
+        Objects.equals(this.schedulingPolicy, v1alpha3CompositePodGroupTemplate.schedulingPolicy);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(compositePodGroupTemplates, disruptionMode, name, podGroupTemplates, preemptionPolicy, priority, priorityClassName, schedulingConstraints, schedulingPolicy);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class V1alpha3CompositePodGroupTemplate {\n");
+    sb.append("    compositePodGroupTemplates: ").append(toIndentedString(compositePodGroupTemplates)).append("\n");
+    sb.append("    disruptionMode: ").append(toIndentedString(disruptionMode)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    podGroupTemplates: ").append(toIndentedString(podGroupTemplates)).append("\n");
+    sb.append("    preemptionPolicy: ").append(toIndentedString(preemptionPolicy)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    priorityClassName: ").append(toIndentedString(priorityClassName)).append("\n");
+    sb.append("    schedulingConstraints: ").append(toIndentedString(schedulingConstraints)).append("\n");
+    sb.append("    schedulingPolicy: ").append(toIndentedString(schedulingPolicy)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>(Arrays.asList("compositePodGroupTemplates", "disruptionMode", "name", "podGroupTemplates", "preemptionPolicy", "priority", "priorityClassName", "schedulingConstraints", "schedulingPolicy"));
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "schedulingPolicy"));
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to V1alpha3CompositePodGroupTemplate
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!V1alpha3CompositePodGroupTemplate.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1alpha3CompositePodGroupTemplate is not found in the empty JSON string", V1alpha3CompositePodGroupTemplate.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!V1alpha3CompositePodGroupTemplate.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1alpha3CompositePodGroupTemplate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1alpha3CompositePodGroupTemplate.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("compositePodGroupTemplates") != null && !jsonObj.get("compositePodGroupTemplates").isJsonNull()) {
+        JsonArray jsonArraycompositePodGroupTemplates = jsonObj.getAsJsonArray("compositePodGroupTemplates");
+        if (jsonArraycompositePodGroupTemplates != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("compositePodGroupTemplates").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `compositePodGroupTemplates` to be an array in the JSON string but got `%s`", jsonObj.get("compositePodGroupTemplates").toString()));
+          }
+
+          // validate the optional field `compositePodGroupTemplates` (array)
+          for (int i = 0; i < jsonArraycompositePodGroupTemplates.size(); i++) {
+            V1alpha3CompositePodGroupTemplate.validateJsonElement(jsonArraycompositePodGroupTemplates.get(i));
+          };
+        }
+      }
+      // validate the optional field `disruptionMode`
+      if (jsonObj.get("disruptionMode") != null && !jsonObj.get("disruptionMode").isJsonNull()) {
+        V1alpha3CompositeDisruptionMode.validateJsonElement(jsonObj.get("disruptionMode"));
+      }
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if (jsonObj.get("podGroupTemplates") != null && !jsonObj.get("podGroupTemplates").isJsonNull()) {
+        JsonArray jsonArraypodGroupTemplates = jsonObj.getAsJsonArray("podGroupTemplates");
+        if (jsonArraypodGroupTemplates != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("podGroupTemplates").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `podGroupTemplates` to be an array in the JSON string but got `%s`", jsonObj.get("podGroupTemplates").toString()));
+          }
+
+          // validate the optional field `podGroupTemplates` (array)
+          for (int i = 0; i < jsonArraypodGroupTemplates.size(); i++) {
+            V1alpha3PodGroupTemplate.validateJsonElement(jsonArraypodGroupTemplates.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("preemptionPolicy") != null && !jsonObj.get("preemptionPolicy").isJsonNull()) && !jsonObj.get("preemptionPolicy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `preemptionPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preemptionPolicy").toString()));
+      }
+      if ((jsonObj.get("priorityClassName") != null && !jsonObj.get("priorityClassName").isJsonNull()) && !jsonObj.get("priorityClassName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `priorityClassName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priorityClassName").toString()));
+      }
+      // validate the optional field `schedulingConstraints`
+      if (jsonObj.get("schedulingConstraints") != null && !jsonObj.get("schedulingConstraints").isJsonNull()) {
+        V1alpha3CompositePodGroupSchedulingConstraints.validateJsonElement(jsonObj.get("schedulingConstraints"));
+      }
+      // validate the required field `schedulingPolicy`
+      V1alpha3CompositePodGroupSchedulingPolicy.validateJsonElement(jsonObj.get("schedulingPolicy"));
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1alpha3CompositePodGroupTemplate.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1alpha3CompositePodGroupTemplate' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1alpha3CompositePodGroupTemplate> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1alpha3CompositePodGroupTemplate.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1alpha3CompositePodGroupTemplate>() {
+           @Override
+           public void write(JsonWriter out, V1alpha3CompositePodGroupTemplate value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1alpha3CompositePodGroupTemplate read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+  /**
+   * Create an instance of V1alpha3CompositePodGroupTemplate given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of V1alpha3CompositePodGroupTemplate
+   * @throws IOException if the JSON string is invalid with respect to V1alpha3CompositePodGroupTemplate
+   */
+  public static V1alpha3CompositePodGroupTemplate fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1alpha3CompositePodGroupTemplate.class);
+  }
+
+  /**
+   * Convert an instance of V1alpha3CompositePodGroupTemplate to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
+}

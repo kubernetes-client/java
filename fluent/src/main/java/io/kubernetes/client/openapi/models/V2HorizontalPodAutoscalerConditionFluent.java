@@ -13,21 +13,25 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Long;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2HorizontalPodAutoscalerConditionFluent<A extends io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerConditionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2HorizontalPodAutoscalerConditionFluent<A extends V2HorizontalPodAutoscalerConditionFluent<A>> extends BaseFluent<A>{
 
   private OffsetDateTime lastTransitionTime;
   private String message;
+  private Long observedGeneration;
   private String reason;
   private String status;
   private String type;
@@ -44,6 +48,7 @@ public class V2HorizontalPodAutoscalerConditionFluent<A extends io.kubernetes.cl
     if (instance != null) {
         this.withLastTransitionTime(instance.getLastTransitionTime());
         this.withMessage(instance.getMessage());
+        this.withObservedGeneration(instance.getObservedGeneration());
         this.withReason(instance.getReason());
         this.withStatus(instance.getStatus());
         this.withType(instance.getType());
@@ -60,11 +65,14 @@ public class V2HorizontalPodAutoscalerConditionFluent<A extends io.kubernetes.cl
     if (!(super.equals(o))) {
       return false;
     }
-    V2HorizontalPodAutoscalerConditionFluent that = (V2HorizontalPodAutoscalerConditionFluent) o;
+    V2HorizontalPodAutoscalerConditionFluent<?> that = (V2HorizontalPodAutoscalerConditionFluent<?>) o;
     if (!(Objects.equals(lastTransitionTime, that.lastTransitionTime))) {
       return false;
     }
     if (!(Objects.equals(message, that.message))) {
+      return false;
+    }
+    if (!(Objects.equals(observedGeneration, that.observedGeneration))) {
       return false;
     }
     if (!(Objects.equals(reason, that.reason))) {
@@ -87,6 +95,10 @@ public class V2HorizontalPodAutoscalerConditionFluent<A extends io.kubernetes.cl
     return this.message;
   }
   
+  public Long getObservedGeneration() {
+    return this.observedGeneration;
+  }
+  
   public String getReason() {
     return this.reason;
   }
@@ -107,6 +119,10 @@ public class V2HorizontalPodAutoscalerConditionFluent<A extends io.kubernetes.cl
     return this.message != null;
   }
   
+  public boolean hasObservedGeneration() {
+    return this.observedGeneration != null;
+  }
+  
   public boolean hasReason() {
     return this.reason != null;
   }
@@ -120,7 +136,7 @@ public class V2HorizontalPodAutoscalerConditionFluent<A extends io.kubernetes.cl
   }
   
   public int hashCode() {
-    return Objects.hash(lastTransitionTime, message, reason, status, type);
+    return Objects.hash(lastTransitionTime, message, observedGeneration, reason, status, type);
   }
   
   public String toString() {
@@ -134,6 +150,11 @@ public class V2HorizontalPodAutoscalerConditionFluent<A extends io.kubernetes.cl
     if (!(message == null)) {
         sb.append("message:");
         sb.append(message);
+        sb.append(",");
+    }
+    if (!(observedGeneration == null)) {
+        sb.append("observedGeneration:");
+        sb.append(observedGeneration);
         sb.append(",");
     }
     if (!(reason == null)) {
@@ -161,6 +182,11 @@ public class V2HorizontalPodAutoscalerConditionFluent<A extends io.kubernetes.cl
   
   public A withMessage(String message) {
     this.message = message;
+    return (A) this;
+  }
+  
+  public A withObservedGeneration(Long observedGeneration) {
+    this.observedGeneration = observedGeneration;
     return (A) this;
   }
   

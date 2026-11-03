@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PreferredSchedulingTermFluent<A extends io.kubernetes.client.openapi.models.V1PreferredSchedulingTermFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PreferredSchedulingTermFluent<A extends V1PreferredSchedulingTermFluent<A>> extends BaseFluent<A>{
 
   private V1NodeSelectorTermBuilder preference;
   private Integer weight;
@@ -72,7 +74,7 @@ public class V1PreferredSchedulingTermFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1PreferredSchedulingTermFluent that = (V1PreferredSchedulingTermFluent) o;
+    V1PreferredSchedulingTermFluent<?> that = (V1PreferredSchedulingTermFluent<?>) o;
     if (!(Objects.equals(preference, that.preference))) {
       return false;
     }
@@ -115,11 +117,11 @@ public class V1PreferredSchedulingTermFluent<A extends io.kubernetes.client.open
   }
   
   public PreferenceNested<A> withNewPreference() {
-    return new PreferenceNested(null);
+    return new PreferenceNested<>(null);
   }
   
   public PreferenceNested<A> withNewPreferenceLike(V1NodeSelectorTerm item) {
-    return new PreferenceNested(item);
+    return new PreferenceNested<>(item);
   }
   
   public A withPreference(V1NodeSelectorTerm preference) {
@@ -128,8 +130,8 @@ public class V1PreferredSchedulingTermFluent<A extends io.kubernetes.client.open
         this.preference = new V1NodeSelectorTermBuilder(preference);
         this._visitables.get("preference").add(this.preference);
     } else {
-        this.preference = null;
         this._visitables.get("preference").remove(this.preference);
+        this.preference = null;
     }
     return (A) this;
   }

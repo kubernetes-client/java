@@ -20,12 +20,14 @@ import java.lang.SuppressWarnings;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CounterSetFluent<A extends io.kubernetes.client.openapi.models.V1CounterSetFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CounterSetFluent<A extends V1CounterSetFluent<A>> extends BaseFluent<A>{
 
   private Map<String,V1Counter> counters;
   private String name;
@@ -39,7 +41,7 @@ public class V1CounterSetFluent<A extends io.kubernetes.client.openapi.models.V1
 
   public A addToCounters(Map<String,V1Counter> map) {
     if (this.counters == null && map != null) {
-      this.counters = new LinkedHashMap();
+      this.counters = new LinkedHashMap<>();
     }
     if (map != null) {
       this.counters.putAll(map);
@@ -49,7 +51,7 @@ public class V1CounterSetFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToCounters(String key,V1Counter value) {
     if (this.counters == null && key != null && value != null) {
-      this.counters = new LinkedHashMap();
+      this.counters = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.counters.put(key, value);
@@ -75,7 +77,7 @@ public class V1CounterSetFluent<A extends io.kubernetes.client.openapi.models.V1
     if (!(super.equals(o))) {
       return false;
     }
-    V1CounterSetFluent that = (V1CounterSetFluent) o;
+    V1CounterSetFluent<?> that = (V1CounterSetFluent<?>) o;
     if (!(Objects.equals(counters, that.counters))) {
       return false;
     }
@@ -149,7 +151,7 @@ public class V1CounterSetFluent<A extends io.kubernetes.client.openapi.models.V1
     if (counters == null) {
       this.counters = null;
     } else {
-      this.counters = new LinkedHashMap(counters);
+      this.counters = new LinkedHashMap<>(counters);
     }
     return (A) this;
   }

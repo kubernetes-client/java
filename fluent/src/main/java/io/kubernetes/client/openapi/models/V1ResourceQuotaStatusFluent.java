@@ -21,12 +21,14 @@ import java.lang.SuppressWarnings;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.models.V1ResourceQuotaStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ResourceQuotaStatusFluent<A extends V1ResourceQuotaStatusFluent<A>> extends BaseFluent<A>{
 
   private Map<String,Quantity> hard;
   private Map<String,Quantity> used;
@@ -40,7 +42,7 @@ public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.
 
   public A addToHard(Map<String,Quantity> map) {
     if (this.hard == null && map != null) {
-      this.hard = new LinkedHashMap();
+      this.hard = new LinkedHashMap<>();
     }
     if (map != null) {
       this.hard.putAll(map);
@@ -50,7 +52,7 @@ public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.
   
   public A addToHard(String key,Quantity value) {
     if (this.hard == null && key != null && value != null) {
-      this.hard = new LinkedHashMap();
+      this.hard = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.hard.put(key, value);
@@ -60,7 +62,7 @@ public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.
   
   public A addToUsed(Map<String,Quantity> map) {
     if (this.used == null && map != null) {
-      this.used = new LinkedHashMap();
+      this.used = new LinkedHashMap<>();
     }
     if (map != null) {
       this.used.putAll(map);
@@ -70,7 +72,7 @@ public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.
   
   public A addToUsed(String key,Quantity value) {
     if (this.used == null && key != null && value != null) {
-      this.used = new LinkedHashMap();
+      this.used = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.used.put(key, value);
@@ -96,7 +98,7 @@ public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.
     if (!(super.equals(o))) {
       return false;
     }
-    V1ResourceQuotaStatusFluent that = (V1ResourceQuotaStatusFluent) o;
+    V1ResourceQuotaStatusFluent<?> that = (V1ResourceQuotaStatusFluent<?>) o;
     if (!(Objects.equals(hard, that.hard))) {
       return false;
     }
@@ -194,7 +196,7 @@ public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.
     if (hard == null) {
       this.hard = null;
     } else {
-      this.hard = new LinkedHashMap(hard);
+      this.hard = new LinkedHashMap<>(hard);
     }
     return (A) this;
   }
@@ -203,7 +205,7 @@ public class V1ResourceQuotaStatusFluent<A extends io.kubernetes.client.openapi.
     if (used == null) {
       this.used = null;
     } else {
-      this.used = new LinkedHashMap(used);
+      this.used = new LinkedHashMap<>(used);
     }
     return (A) this;
   }

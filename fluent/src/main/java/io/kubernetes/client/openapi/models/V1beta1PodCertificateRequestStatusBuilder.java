@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1beta1PodCertificateRequestStatusBuilder extends V1beta1PodCertificateRequestStatusFluent<V1beta1PodCertificateRequestStatusBuilder> implements VisitableBuilder<V1beta1PodCertificateRequestStatus,V1beta1PodCertificateRequestStatusBuilder>{
 
   V1beta1PodCertificateRequestStatusFluent<?> fluent;

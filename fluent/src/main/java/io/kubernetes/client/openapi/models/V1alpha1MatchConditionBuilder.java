@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1alpha1MatchConditionBuilder extends V1alpha1MatchConditionFluent<V1alpha1MatchConditionBuilder> implements VisitableBuilder<V1alpha1MatchCondition,V1alpha1MatchConditionBuilder>{
 
   V1alpha1MatchConditionFluent<?> fluent;

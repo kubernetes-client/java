@@ -29,12 +29,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1NodeStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1NodeAddressBuilder> addresses;
   private Map<String,Quantity> allocatable;
@@ -60,7 +62,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
 
   public A addAllToAddresses(Collection<V1NodeAddress> items) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList();
+      this.addresses = new ArrayList<>();
     }
     for (V1NodeAddress item : items) {
         V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
@@ -72,7 +74,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addAllToConditions(Collection<V1NodeCondition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1NodeCondition item : items) {
         V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
@@ -84,7 +86,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addAllToDeclaredFeatures(Collection<String> items) {
     if (this.declaredFeatures == null) {
-      this.declaredFeatures = new ArrayList();
+      this.declaredFeatures = new ArrayList<>();
     }
     for (String item : items) {
       this.declaredFeatures.add(item);
@@ -94,7 +96,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addAllToImages(Collection<V1ContainerImage> items) {
     if (this.images == null) {
-      this.images = new ArrayList();
+      this.images = new ArrayList<>();
     }
     for (V1ContainerImage item : items) {
         V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
@@ -106,7 +108,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addAllToRuntimeHandlers(Collection<V1NodeRuntimeHandler> items) {
     if (this.runtimeHandlers == null) {
-      this.runtimeHandlers = new ArrayList();
+      this.runtimeHandlers = new ArrayList<>();
     }
     for (V1NodeRuntimeHandler item : items) {
         V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
@@ -118,7 +120,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addAllToVolumesAttached(Collection<V1AttachedVolume> items) {
     if (this.volumesAttached == null) {
-      this.volumesAttached = new ArrayList();
+      this.volumesAttached = new ArrayList<>();
     }
     for (V1AttachedVolume item : items) {
         V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
@@ -130,7 +132,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addAllToVolumesInUse(Collection<String> items) {
     if (this.volumesInUse == null) {
-      this.volumesInUse = new ArrayList();
+      this.volumesInUse = new ArrayList<>();
     }
     for (String item : items) {
       this.volumesInUse.add(item);
@@ -139,48 +141,48 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   }
   
   public AddressesNested<A> addNewAddress() {
-    return new AddressesNested(-1, null);
+    return new AddressesNested<>(-1, null);
   }
   
   public AddressesNested<A> addNewAddressLike(V1NodeAddress item) {
-    return new AddressesNested(-1, item);
+    return new AddressesNested<>(-1, item);
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1NodeCondition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public ImagesNested<A> addNewImage() {
-    return new ImagesNested(-1, null);
+    return new ImagesNested<>(-1, null);
   }
   
   public ImagesNested<A> addNewImageLike(V1ContainerImage item) {
-    return new ImagesNested(-1, item);
+    return new ImagesNested<>(-1, item);
   }
   
   public RuntimeHandlersNested<A> addNewRuntimeHandler() {
-    return new RuntimeHandlersNested(-1, null);
+    return new RuntimeHandlersNested<>(-1, null);
   }
   
   public RuntimeHandlersNested<A> addNewRuntimeHandlerLike(V1NodeRuntimeHandler item) {
-    return new RuntimeHandlersNested(-1, item);
+    return new RuntimeHandlersNested<>(-1, item);
   }
   
   public VolumesAttachedNested<A> addNewVolumesAttached() {
-    return new VolumesAttachedNested(-1, null);
+    return new VolumesAttachedNested<>(-1, null);
   }
   
   public VolumesAttachedNested<A> addNewVolumesAttachedLike(V1AttachedVolume item) {
-    return new VolumesAttachedNested(-1, item);
+    return new VolumesAttachedNested<>(-1, item);
   }
   
   public A addToAddresses(V1NodeAddress... items) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList();
+      this.addresses = new ArrayList<>();
     }
     for (V1NodeAddress item : items) {
         V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
@@ -192,7 +194,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToAddresses(int index,V1NodeAddress item) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList();
+      this.addresses = new ArrayList<>();
     }
     V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
     if (index < 0 || index >= this.addresses.size()) {
@@ -207,7 +209,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToAllocatable(Map<String,Quantity> map) {
     if (this.allocatable == null && map != null) {
-      this.allocatable = new LinkedHashMap();
+      this.allocatable = new LinkedHashMap<>();
     }
     if (map != null) {
       this.allocatable.putAll(map);
@@ -217,7 +219,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToAllocatable(String key,Quantity value) {
     if (this.allocatable == null && key != null && value != null) {
-      this.allocatable = new LinkedHashMap();
+      this.allocatable = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.allocatable.put(key, value);
@@ -227,7 +229,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToCapacity(Map<String,Quantity> map) {
     if (this.capacity == null && map != null) {
-      this.capacity = new LinkedHashMap();
+      this.capacity = new LinkedHashMap<>();
     }
     if (map != null) {
       this.capacity.putAll(map);
@@ -237,7 +239,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToCapacity(String key,Quantity value) {
     if (this.capacity == null && key != null && value != null) {
-      this.capacity = new LinkedHashMap();
+      this.capacity = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.capacity.put(key, value);
@@ -247,7 +249,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToConditions(V1NodeCondition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1NodeCondition item : items) {
         V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
@@ -259,7 +261,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToConditions(int index,V1NodeCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -274,7 +276,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToDeclaredFeatures(String... items) {
     if (this.declaredFeatures == null) {
-      this.declaredFeatures = new ArrayList();
+      this.declaredFeatures = new ArrayList<>();
     }
     for (String item : items) {
       this.declaredFeatures.add(item);
@@ -284,7 +286,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToDeclaredFeatures(int index,String item) {
     if (this.declaredFeatures == null) {
-      this.declaredFeatures = new ArrayList();
+      this.declaredFeatures = new ArrayList<>();
     }
     this.declaredFeatures.add(index, item);
     return (A) this;
@@ -292,7 +294,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToImages(V1ContainerImage... items) {
     if (this.images == null) {
-      this.images = new ArrayList();
+      this.images = new ArrayList<>();
     }
     for (V1ContainerImage item : items) {
         V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
@@ -304,7 +306,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToImages(int index,V1ContainerImage item) {
     if (this.images == null) {
-      this.images = new ArrayList();
+      this.images = new ArrayList<>();
     }
     V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
     if (index < 0 || index >= this.images.size()) {
@@ -319,7 +321,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToRuntimeHandlers(V1NodeRuntimeHandler... items) {
     if (this.runtimeHandlers == null) {
-      this.runtimeHandlers = new ArrayList();
+      this.runtimeHandlers = new ArrayList<>();
     }
     for (V1NodeRuntimeHandler item : items) {
         V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
@@ -331,7 +333,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToRuntimeHandlers(int index,V1NodeRuntimeHandler item) {
     if (this.runtimeHandlers == null) {
-      this.runtimeHandlers = new ArrayList();
+      this.runtimeHandlers = new ArrayList<>();
     }
     V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
     if (index < 0 || index >= this.runtimeHandlers.size()) {
@@ -346,7 +348,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToVolumesAttached(V1AttachedVolume... items) {
     if (this.volumesAttached == null) {
-      this.volumesAttached = new ArrayList();
+      this.volumesAttached = new ArrayList<>();
     }
     for (V1AttachedVolume item : items) {
         V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
@@ -358,7 +360,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToVolumesAttached(int index,V1AttachedVolume item) {
     if (this.volumesAttached == null) {
-      this.volumesAttached = new ArrayList();
+      this.volumesAttached = new ArrayList<>();
     }
     V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
     if (index < 0 || index >= this.volumesAttached.size()) {
@@ -373,7 +375,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToVolumesInUse(String... items) {
     if (this.volumesInUse == null) {
-      this.volumesInUse = new ArrayList();
+      this.volumesInUse = new ArrayList<>();
     }
     for (String item : items) {
       this.volumesInUse.add(item);
@@ -383,7 +385,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A addToVolumesInUse(int index,String item) {
     if (this.volumesInUse == null) {
-      this.volumesInUse = new ArrayList();
+      this.volumesInUse = new ArrayList<>();
     }
     this.volumesInUse.add(index, item);
     return (A) this;
@@ -788,7 +790,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeStatusFluent that = (V1NodeStatusFluent) o;
+    V1NodeStatusFluent<?> that = (V1NodeStatusFluent<?>) o;
     if (!(Objects.equals(addresses, that.addresses))) {
       return false;
     }
@@ -1232,6 +1234,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1NodeAddressBuilder> each = addresses.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("addresses");
     while (each.hasNext()) {
         V1NodeAddressBuilder builder = each.next();
@@ -1248,6 +1251,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1NodeConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1NodeConditionBuilder builder = each.next();
@@ -1264,6 +1268,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1ContainerImageBuilder> each = images.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("images");
     while (each.hasNext()) {
         V1ContainerImageBuilder builder = each.next();
@@ -1280,6 +1285,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1NodeRuntimeHandlerBuilder> each = runtimeHandlers.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("runtimeHandlers");
     while (each.hasNext()) {
         V1NodeRuntimeHandlerBuilder builder = each.next();
@@ -1296,6 +1302,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       return (A) this;
     }
     Iterator<V1AttachedVolumeBuilder> each = volumesAttached.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("volumesAttached");
     while (each.hasNext()) {
         V1AttachedVolumeBuilder builder = each.next();
@@ -1308,28 +1315,28 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   }
   
   public AddressesNested<A> setNewAddressLike(int index,V1NodeAddress item) {
-    return new AddressesNested(index, item);
+    return new AddressesNested<>(index, item);
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1NodeCondition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public ImagesNested<A> setNewImageLike(int index,V1ContainerImage item) {
-    return new ImagesNested(index, item);
+    return new ImagesNested<>(index, item);
   }
   
   public RuntimeHandlersNested<A> setNewRuntimeHandlerLike(int index,V1NodeRuntimeHandler item) {
-    return new RuntimeHandlersNested(index, item);
+    return new RuntimeHandlersNested<>(index, item);
   }
   
   public VolumesAttachedNested<A> setNewVolumesAttachedLike(int index,V1AttachedVolume item) {
-    return new VolumesAttachedNested(index, item);
+    return new VolumesAttachedNested<>(index, item);
   }
   
   public A setToAddresses(int index,V1NodeAddress item) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList();
+      this.addresses = new ArrayList<>();
     }
     V1NodeAddressBuilder builder = new V1NodeAddressBuilder(item);
     if (index < 0 || index >= this.addresses.size()) {
@@ -1344,7 +1351,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A setToConditions(int index,V1NodeCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1NodeConditionBuilder builder = new V1NodeConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -1359,7 +1366,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A setToDeclaredFeatures(int index,String item) {
     if (this.declaredFeatures == null) {
-      this.declaredFeatures = new ArrayList();
+      this.declaredFeatures = new ArrayList<>();
     }
     this.declaredFeatures.set(index, item);
     return (A) this;
@@ -1367,7 +1374,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A setToImages(int index,V1ContainerImage item) {
     if (this.images == null) {
-      this.images = new ArrayList();
+      this.images = new ArrayList<>();
     }
     V1ContainerImageBuilder builder = new V1ContainerImageBuilder(item);
     if (index < 0 || index >= this.images.size()) {
@@ -1382,7 +1389,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A setToRuntimeHandlers(int index,V1NodeRuntimeHandler item) {
     if (this.runtimeHandlers == null) {
-      this.runtimeHandlers = new ArrayList();
+      this.runtimeHandlers = new ArrayList<>();
     }
     V1NodeRuntimeHandlerBuilder builder = new V1NodeRuntimeHandlerBuilder(item);
     if (index < 0 || index >= this.runtimeHandlers.size()) {
@@ -1397,7 +1404,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A setToVolumesAttached(int index,V1AttachedVolume item) {
     if (this.volumesAttached == null) {
-      this.volumesAttached = new ArrayList();
+      this.volumesAttached = new ArrayList<>();
     }
     V1AttachedVolumeBuilder builder = new V1AttachedVolumeBuilder(item);
     if (index < 0 || index >= this.volumesAttached.size()) {
@@ -1412,7 +1419,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A setToVolumesInUse(int index,String item) {
     if (this.volumesInUse == null) {
-      this.volumesInUse = new ArrayList();
+      this.volumesInUse = new ArrayList<>();
     }
     this.volumesInUse.set(index, item);
     return (A) this;
@@ -1499,7 +1506,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this._visitables.get("addresses").clear();
     }
     if (addresses != null) {
-        this.addresses = new ArrayList();
+        this.addresses = new ArrayList<>();
         for (V1NodeAddress item : addresses) {
           this.addToAddresses(item);
         }
@@ -1526,7 +1533,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     if (allocatable == null) {
       this.allocatable = null;
     } else {
-      this.allocatable = new LinkedHashMap(allocatable);
+      this.allocatable = new LinkedHashMap<>(allocatable);
     }
     return (A) this;
   }
@@ -1535,7 +1542,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
     if (capacity == null) {
       this.capacity = null;
     } else {
-      this.capacity = new LinkedHashMap(capacity);
+      this.capacity = new LinkedHashMap<>(capacity);
     }
     return (A) this;
   }
@@ -1545,7 +1552,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1NodeCondition item : conditions) {
           this.addToConditions(item);
         }
@@ -1574,8 +1581,8 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
         this.config = new V1NodeConfigStatusBuilder(config);
         this._visitables.get("config").add(this.config);
     } else {
-        this.config = null;
         this._visitables.get("config").remove(this.config);
+        this.config = null;
     }
     return (A) this;
   }
@@ -1586,15 +1593,15 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
         this.daemonEndpoints = new V1NodeDaemonEndpointsBuilder(daemonEndpoints);
         this._visitables.get("daemonEndpoints").add(this.daemonEndpoints);
     } else {
-        this.daemonEndpoints = null;
         this._visitables.get("daemonEndpoints").remove(this.daemonEndpoints);
+        this.daemonEndpoints = null;
     }
     return (A) this;
   }
   
   public A withDeclaredFeatures(List<String> declaredFeatures) {
     if (declaredFeatures != null) {
-        this.declaredFeatures = new ArrayList();
+        this.declaredFeatures = new ArrayList<>();
         for (String item : declaredFeatures) {
           this.addToDeclaredFeatures(item);
         }
@@ -1623,8 +1630,8 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
         this.features = new V1NodeFeaturesBuilder(features);
         this._visitables.get("features").add(this.features);
     } else {
-        this.features = null;
         this._visitables.get("features").remove(this.features);
+        this.features = null;
     }
     return (A) this;
   }
@@ -1634,7 +1641,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this._visitables.get("images").clear();
     }
     if (images != null) {
-        this.images = new ArrayList();
+        this.images = new ArrayList<>();
         for (V1ContainerImage item : images) {
           this.addToImages(item);
         }
@@ -1658,35 +1665,35 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   }
   
   public ConfigNested<A> withNewConfig() {
-    return new ConfigNested(null);
+    return new ConfigNested<>(null);
   }
   
   public ConfigNested<A> withNewConfigLike(V1NodeConfigStatus item) {
-    return new ConfigNested(item);
+    return new ConfigNested<>(item);
   }
   
   public DaemonEndpointsNested<A> withNewDaemonEndpoints() {
-    return new DaemonEndpointsNested(null);
+    return new DaemonEndpointsNested<>(null);
   }
   
   public DaemonEndpointsNested<A> withNewDaemonEndpointsLike(V1NodeDaemonEndpoints item) {
-    return new DaemonEndpointsNested(item);
+    return new DaemonEndpointsNested<>(item);
   }
   
   public FeaturesNested<A> withNewFeatures() {
-    return new FeaturesNested(null);
+    return new FeaturesNested<>(null);
   }
   
   public FeaturesNested<A> withNewFeaturesLike(V1NodeFeatures item) {
-    return new FeaturesNested(item);
+    return new FeaturesNested<>(item);
   }
   
   public NodeInfoNested<A> withNewNodeInfo() {
-    return new NodeInfoNested(null);
+    return new NodeInfoNested<>(null);
   }
   
   public NodeInfoNested<A> withNewNodeInfoLike(V1NodeSystemInfo item) {
-    return new NodeInfoNested(item);
+    return new NodeInfoNested<>(item);
   }
   
   public A withNodeInfo(V1NodeSystemInfo nodeInfo) {
@@ -1695,8 +1702,8 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
         this.nodeInfo = new V1NodeSystemInfoBuilder(nodeInfo);
         this._visitables.get("nodeInfo").add(this.nodeInfo);
     } else {
-        this.nodeInfo = null;
         this._visitables.get("nodeInfo").remove(this.nodeInfo);
+        this.nodeInfo = null;
     }
     return (A) this;
   }
@@ -1711,7 +1718,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this._visitables.get("runtimeHandlers").clear();
     }
     if (runtimeHandlers != null) {
-        this.runtimeHandlers = new ArrayList();
+        this.runtimeHandlers = new ArrayList<>();
         for (V1NodeRuntimeHandler item : runtimeHandlers) {
           this.addToRuntimeHandlers(item);
         }
@@ -1739,7 +1746,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
       this._visitables.get("volumesAttached").clear();
     }
     if (volumesAttached != null) {
-        this.volumesAttached = new ArrayList();
+        this.volumesAttached = new ArrayList<>();
         for (V1AttachedVolume item : volumesAttached) {
           this.addToVolumesAttached(item);
         }
@@ -1764,7 +1771,7 @@ public class V1NodeStatusFluent<A extends io.kubernetes.client.openapi.models.V1
   
   public A withVolumesInUse(List<String> volumesInUse) {
     if (volumesInUse != null) {
-        this.volumesInUse = new ArrayList();
+        this.volumesInUse = new ArrayList<>();
         for (String item : volumesInUse) {
           this.addToVolumesInUse(item);
         }

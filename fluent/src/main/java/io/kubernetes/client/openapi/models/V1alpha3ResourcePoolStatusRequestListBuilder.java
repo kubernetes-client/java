@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1alpha3ResourcePoolStatusRequestListBuilder extends V1alpha3ResourcePoolStatusRequestListFluent<V1alpha3ResourcePoolStatusRequestListBuilder> implements VisitableBuilder<V1alpha3ResourcePoolStatusRequestList,V1alpha3ResourcePoolStatusRequestListBuilder>{
 
   V1alpha3ResourcePoolStatusRequestListFluent<?> fluent;

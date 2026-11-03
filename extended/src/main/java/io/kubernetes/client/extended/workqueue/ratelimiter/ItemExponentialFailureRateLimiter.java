@@ -37,7 +37,7 @@ public class ItemExponentialFailureRateLimiter<T> implements RateLimiter<T> {
   public Duration when(T item) {
     long exp = failures.computeIfAbsent(item, k -> new AtomicLong()).getAndIncrement();
     long d = maxDelay.toMillis() >> exp;
-    return d > baseDelay.toMillis() ? baseDelay.multipliedBy(1 << exp) : maxDelay;
+    return d > baseDelay.toMillis() ? baseDelay.multipliedBy(1L << exp) : maxDelay;
   }
 
   @Override

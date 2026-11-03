@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PreconditionsFluent<A extends io.kubernetes.client.openapi.models.V1PreconditionsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PreconditionsFluent<A extends V1PreconditionsFluent<A>> extends BaseFluent<A>{
 
   private String resourceVersion;
   private String uid;
@@ -53,7 +55,7 @@ public class V1PreconditionsFluent<A extends io.kubernetes.client.openapi.models
     if (!(super.equals(o))) {
       return false;
     }
-    V1PreconditionsFluent that = (V1PreconditionsFluent) o;
+    V1PreconditionsFluent<?> that = (V1PreconditionsFluent<?>) o;
     if (!(Objects.equals(resourceVersion, that.resourceVersion))) {
       return false;
     }

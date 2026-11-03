@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
  * DownwardAPIVolumeFile represents information to create the file containing the pod field
  */
 @ApiModel(description = "DownwardAPIVolumeFile represents information to create the file containing the pod field")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1DownwardAPIVolumeFile {
   public static final String SERIALIZED_NAME_FIELD_REF = "fieldRef";
   @SerializedName(SERIALIZED_NAME_FIELD_REF)
@@ -73,6 +73,11 @@ public class V1DownwardAPIVolumeFile {
   @SerializedName(SERIALIZED_NAME_RESOURCE_FIELD_REF)
   @jakarta.annotation.Nullable
   private V1ResourceFieldSelector resourceFieldRef;
+
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  @jakarta.annotation.Nullable
+  private Long user;
 
   public V1DownwardAPIVolumeFile() {
   }
@@ -157,6 +162,26 @@ public class V1DownwardAPIVolumeFile {
   }
 
 
+  public V1DownwardAPIVolumeFile user(@jakarta.annotation.Nullable Long user) {
+    this.user = user;
+    return this;
+  }
+
+  /**
+   * user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.
+   * @return user
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.")
+  public Long getUser() {
+    return user;
+  }
+
+  public void setUser(@jakarta.annotation.Nullable Long user) {
+    this.user = user;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -170,12 +195,13 @@ public class V1DownwardAPIVolumeFile {
     return Objects.equals(this.fieldRef, v1DownwardAPIVolumeFile.fieldRef) &&
         Objects.equals(this.mode, v1DownwardAPIVolumeFile.mode) &&
         Objects.equals(this.path, v1DownwardAPIVolumeFile.path) &&
-        Objects.equals(this.resourceFieldRef, v1DownwardAPIVolumeFile.resourceFieldRef);
+        Objects.equals(this.resourceFieldRef, v1DownwardAPIVolumeFile.resourceFieldRef) &&
+        Objects.equals(this.user, v1DownwardAPIVolumeFile.user);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fieldRef, mode, path, resourceFieldRef);
+    return Objects.hash(fieldRef, mode, path, resourceFieldRef, user);
   }
 
   @Override
@@ -186,6 +212,7 @@ public class V1DownwardAPIVolumeFile {
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    resourceFieldRef: ").append(toIndentedString(resourceFieldRef)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -207,7 +234,7 @@ public class V1DownwardAPIVolumeFile {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("fieldRef", "mode", "path", "resourceFieldRef"));
+    openapiFields = new HashSet<String>(Arrays.asList("fieldRef", "mode", "path", "resourceFieldRef", "user"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("path"));

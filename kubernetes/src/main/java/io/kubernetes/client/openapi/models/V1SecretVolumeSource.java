@@ -53,12 +53,17 @@ import io.kubernetes.client.openapi.JSON;
  * Adapts a Secret into a volume.  The contents of the target Secret&#39;s Data field will be presented in a volume as files using the keys in the Data field as the file names. Secret volumes support ownership management and SELinux relabeling.
  */
 @ApiModel(description = "Adapts a Secret into a volume.  The contents of the target Secret's Data field will be presented in a volume as files using the keys in the Data field as the file names. Secret volumes support ownership management and SELinux relabeling.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1SecretVolumeSource {
   public static final String SERIALIZED_NAME_DEFAULT_MODE = "defaultMode";
   @SerializedName(SERIALIZED_NAME_DEFAULT_MODE)
   @jakarta.annotation.Nullable
   private Integer defaultMode;
+
+  public static final String SERIALIZED_NAME_DEFAULT_USER = "defaultUser";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_USER)
+  @jakarta.annotation.Nullable
+  private Long defaultUser;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
@@ -95,6 +100,26 @@ public class V1SecretVolumeSource {
 
   public void setDefaultMode(@jakarta.annotation.Nullable Integer defaultMode) {
     this.defaultMode = defaultMode;
+  }
+
+
+  public V1SecretVolumeSource defaultUser(@jakarta.annotation.Nullable Long defaultUser) {
+    this.defaultUser = defaultUser;
+    return this;
+  }
+
+  /**
+   * defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.
+   * @return defaultUser
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.")
+  public Long getDefaultUser() {
+    return defaultUser;
+  }
+
+  public void setDefaultUser(@jakarta.annotation.Nullable Long defaultUser) {
+    this.defaultUser = defaultUser;
   }
 
 
@@ -177,6 +202,7 @@ public class V1SecretVolumeSource {
     }
     V1SecretVolumeSource v1SecretVolumeSource = (V1SecretVolumeSource) o;
     return Objects.equals(this.defaultMode, v1SecretVolumeSource.defaultMode) &&
+        Objects.equals(this.defaultUser, v1SecretVolumeSource.defaultUser) &&
         Objects.equals(this.items, v1SecretVolumeSource.items) &&
         Objects.equals(this.optional, v1SecretVolumeSource.optional) &&
         Objects.equals(this.secretName, v1SecretVolumeSource.secretName);
@@ -184,7 +210,7 @@ public class V1SecretVolumeSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultMode, items, optional, secretName);
+    return Objects.hash(defaultMode, defaultUser, items, optional, secretName);
   }
 
   @Override
@@ -192,6 +218,7 @@ public class V1SecretVolumeSource {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1SecretVolumeSource {\n");
     sb.append("    defaultMode: ").append(toIndentedString(defaultMode)).append("\n");
+    sb.append("    defaultUser: ").append(toIndentedString(defaultUser)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    optional: ").append(toIndentedString(optional)).append("\n");
     sb.append("    secretName: ").append(toIndentedString(secretName)).append("\n");
@@ -216,7 +243,7 @@ public class V1SecretVolumeSource {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("defaultMode", "items", "optional", "secretName"));
+    openapiFields = new HashSet<String>(Arrays.asList("defaultMode", "defaultUser", "items", "optional", "secretName"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

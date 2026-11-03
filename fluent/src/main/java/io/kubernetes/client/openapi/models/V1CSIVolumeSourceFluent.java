@@ -23,12 +23,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CSIVolumeSourceFluent<A extends V1CSIVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String driver;
   private String fsType;
@@ -45,7 +47,7 @@ public class V1CSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addToVolumeAttributes(Map<String,String> map) {
     if (this.volumeAttributes == null && map != null) {
-      this.volumeAttributes = new LinkedHashMap();
+      this.volumeAttributes = new LinkedHashMap<>();
     }
     if (map != null) {
       this.volumeAttributes.putAll(map);
@@ -55,7 +57,7 @@ public class V1CSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToVolumeAttributes(String key,String value) {
     if (this.volumeAttributes == null && key != null && value != null) {
-      this.volumeAttributes = new LinkedHashMap();
+      this.volumeAttributes = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.volumeAttributes.put(key, value);
@@ -100,7 +102,7 @@ public class V1CSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1CSIVolumeSourceFluent that = (V1CSIVolumeSourceFluent) o;
+    V1CSIVolumeSourceFluent<?> that = (V1CSIVolumeSourceFluent<?>) o;
     if (!(Objects.equals(driver, that.driver))) {
       return false;
     }
@@ -225,11 +227,11 @@ public class V1CSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public NodePublishSecretRefNested<A> withNewNodePublishSecretRef() {
-    return new NodePublishSecretRefNested(null);
+    return new NodePublishSecretRefNested<>(null);
   }
   
   public NodePublishSecretRefNested<A> withNewNodePublishSecretRefLike(V1LocalObjectReference item) {
-    return new NodePublishSecretRefNested(item);
+    return new NodePublishSecretRefNested<>(item);
   }
   
   public A withNodePublishSecretRef(V1LocalObjectReference nodePublishSecretRef) {
@@ -238,8 +240,8 @@ public class V1CSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mode
         this.nodePublishSecretRef = new V1LocalObjectReferenceBuilder(nodePublishSecretRef);
         this._visitables.get("nodePublishSecretRef").add(this.nodePublishSecretRef);
     } else {
-        this.nodePublishSecretRef = null;
         this._visitables.get("nodePublishSecretRef").remove(this.nodePublishSecretRef);
+        this.nodePublishSecretRef = null;
     }
     return (A) this;
   }
@@ -257,7 +259,7 @@ public class V1CSIVolumeSourceFluent<A extends io.kubernetes.client.openapi.mode
     if (volumeAttributes == null) {
       this.volumeAttributes = null;
     } else {
-      this.volumeAttributes = new LinkedHashMap(volumeAttributes);
+      this.volumeAttributes = new LinkedHashMap<>(volumeAttributes);
     }
     return (A) this;
   }

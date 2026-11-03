@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1NodeAddressFluent<A extends io.kubernetes.client.openapi.models.V1NodeAddressFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1NodeAddressFluent<A extends V1NodeAddressFluent<A>> extends BaseFluent<A>{
 
   private String address;
   private String type;
@@ -53,7 +55,7 @@ public class V1NodeAddressFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1NodeAddressFluent that = (V1NodeAddressFluent) o;
+    V1NodeAddressFluent<?> that = (V1NodeAddressFluent<?>) o;
     if (!(Objects.equals(address, that.address))) {
       return false;
     }

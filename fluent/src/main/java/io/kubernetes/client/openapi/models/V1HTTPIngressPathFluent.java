@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1HTTPIngressPathFluent<A extends V1HTTPIngressPathFluent<A>> extends BaseFluent<A>{
 
   private V1IngressBackendBuilder backend;
   private String path;
@@ -73,7 +75,7 @@ public class V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1HTTPIngressPathFluent that = (V1HTTPIngressPathFluent) o;
+    V1HTTPIngressPathFluent<?> that = (V1HTTPIngressPathFluent<?>) o;
     if (!(Objects.equals(backend, that.backend))) {
       return false;
     }
@@ -137,18 +139,18 @@ public class V1HTTPIngressPathFluent<A extends io.kubernetes.client.openapi.mode
         this.backend = new V1IngressBackendBuilder(backend);
         this._visitables.get("backend").add(this.backend);
     } else {
-        this.backend = null;
         this._visitables.get("backend").remove(this.backend);
+        this.backend = null;
     }
     return (A) this;
   }
   
   public BackendNested<A> withNewBackend() {
-    return new BackendNested(null);
+    return new BackendNested<>(null);
   }
   
   public BackendNested<A> withNewBackendLike(V1IngressBackend item) {
-    return new BackendNested(item);
+    return new BackendNested<>(item);
   }
   
   public A withPath(String path) {

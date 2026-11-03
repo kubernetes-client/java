@@ -13,7 +13,8 @@ limitations under the License.
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Object;
+import javax.annotation.processing.Generated;
+@Generated("io.sundr:builder-annotations")
 public class V1HTTPIngressPathBuilder extends V1HTTPIngressPathFluent<V1HTTPIngressPathBuilder> implements VisitableBuilder<V1HTTPIngressPath,V1HTTPIngressPathBuilder>{
 
   V1HTTPIngressPathFluent<?> fluent;

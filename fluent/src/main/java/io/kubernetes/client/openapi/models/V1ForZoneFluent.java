@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ForZoneFluent<A extends io.kubernetes.client.openapi.models.V1ForZoneFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ForZoneFluent<A extends V1ForZoneFluent<A>> extends BaseFluent<A>{
 
   private String name;
 
@@ -51,7 +53,7 @@ public class V1ForZoneFluent<A extends io.kubernetes.client.openapi.models.V1For
     if (!(super.equals(o))) {
       return false;
     }
-    V1ForZoneFluent that = (V1ForZoneFluent) o;
+    V1ForZoneFluent<?> that = (V1ForZoneFluent<?>) o;
     if (!(Objects.equals(name, that.name))) {
       return false;
     }

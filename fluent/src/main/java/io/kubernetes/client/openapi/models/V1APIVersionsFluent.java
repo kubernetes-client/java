@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V1APIVersionsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1APIVersionsFluent<A extends V1APIVersionsFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private String kind;
@@ -46,7 +48,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
 
   public A addAllToServerAddressByClientCIDRs(Collection<V1ServerAddressByClientCIDR> items) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs = new ArrayList();
+      this.serverAddressByClientCIDRs = new ArrayList<>();
     }
     for (V1ServerAddressByClientCIDR item : items) {
         V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
@@ -58,7 +60,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addAllToVersions(Collection<String> items) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     for (String item : items) {
       this.versions.add(item);
@@ -67,16 +69,16 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDR() {
-    return new ServerAddressByClientCIDRsNested(-1, null);
+    return new ServerAddressByClientCIDRsNested<>(-1, null);
   }
   
   public ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDRLike(V1ServerAddressByClientCIDR item) {
-    return new ServerAddressByClientCIDRsNested(-1, item);
+    return new ServerAddressByClientCIDRsNested<>(-1, item);
   }
   
   public A addToServerAddressByClientCIDRs(V1ServerAddressByClientCIDR... items) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs = new ArrayList();
+      this.serverAddressByClientCIDRs = new ArrayList<>();
     }
     for (V1ServerAddressByClientCIDR item : items) {
         V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
@@ -88,7 +90,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs = new ArrayList();
+      this.serverAddressByClientCIDRs = new ArrayList<>();
     }
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
     if (index < 0 || index >= this.serverAddressByClientCIDRs.size()) {
@@ -103,7 +105,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToVersions(String... items) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     for (String item : items) {
       this.versions.add(item);
@@ -113,7 +115,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToVersions(int index,String item) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     this.versions.add(index, item);
     return (A) this;
@@ -200,7 +202,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1APIVersionsFluent that = (V1APIVersionsFluent) o;
+    V1APIVersionsFluent<?> that = (V1APIVersionsFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -336,6 +338,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<V1ServerAddressByClientCIDRBuilder> each = serverAddressByClientCIDRs.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("serverAddressByClientCIDRs");
     while (each.hasNext()) {
         V1ServerAddressByClientCIDRBuilder builder = each.next();
@@ -348,12 +351,12 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public ServerAddressByClientCIDRsNested<A> setNewServerAddressByClientCIDRLike(int index,V1ServerAddressByClientCIDR item) {
-    return new ServerAddressByClientCIDRsNested(index, item);
+    return new ServerAddressByClientCIDRsNested<>(index, item);
   }
   
   public A setToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs = new ArrayList();
+      this.serverAddressByClientCIDRs = new ArrayList<>();
     }
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
     if (index < 0 || index >= this.serverAddressByClientCIDRs.size()) {
@@ -368,7 +371,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A setToVersions(int index,String item) {
     if (this.versions == null) {
-      this.versions = new ArrayList();
+      this.versions = new ArrayList<>();
     }
     this.versions.set(index, item);
     return (A) this;
@@ -415,7 +418,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
       this._visitables.get("serverAddressByClientCIDRs").clear();
     }
     if (serverAddressByClientCIDRs != null) {
-        this.serverAddressByClientCIDRs = new ArrayList();
+        this.serverAddressByClientCIDRs = new ArrayList<>();
         for (V1ServerAddressByClientCIDR item : serverAddressByClientCIDRs) {
           this.addToServerAddressByClientCIDRs(item);
         }
@@ -440,7 +443,7 @@ public class V1APIVersionsFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A withVersions(List<String> versions) {
     if (versions != null) {
-        this.versions = new ArrayList();
+        this.versions = new ArrayList<>();
         for (String item : versions) {
           this.addToVersions(item);
         }

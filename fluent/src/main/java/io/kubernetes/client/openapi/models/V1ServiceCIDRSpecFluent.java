@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi.models.V1ServiceCIDRSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ServiceCIDRSpecFluent<A extends V1ServiceCIDRSpecFluent<A>> extends BaseFluent<A>{
 
   private List<String> cidrs;
 
@@ -40,7 +42,7 @@ public class V1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToCidrs(Collection<String> items) {
     if (this.cidrs == null) {
-      this.cidrs = new ArrayList();
+      this.cidrs = new ArrayList<>();
     }
     for (String item : items) {
       this.cidrs.add(item);
@@ -50,7 +52,7 @@ public class V1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToCidrs(String... items) {
     if (this.cidrs == null) {
-      this.cidrs = new ArrayList();
+      this.cidrs = new ArrayList<>();
     }
     for (String item : items) {
       this.cidrs.add(item);
@@ -60,7 +62,7 @@ public class V1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToCidrs(int index,String item) {
     if (this.cidrs == null) {
-      this.cidrs = new ArrayList();
+      this.cidrs = new ArrayList<>();
     }
     this.cidrs.add(index, item);
     return (A) this;
@@ -83,7 +85,7 @@ public class V1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1ServiceCIDRSpecFluent that = (V1ServiceCIDRSpecFluent) o;
+    V1ServiceCIDRSpecFluent<?> that = (V1ServiceCIDRSpecFluent<?>) o;
     if (!(Objects.equals(cidrs, that.cidrs))) {
       return false;
     }
@@ -154,7 +156,7 @@ public class V1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToCidrs(int index,String item) {
     if (this.cidrs == null) {
-      this.cidrs = new ArrayList();
+      this.cidrs = new ArrayList<>();
     }
     this.cidrs.set(index, item);
     return (A) this;
@@ -173,7 +175,7 @@ public class V1ServiceCIDRSpecFluent<A extends io.kubernetes.client.openapi.mode
   
   public A withCidrs(List<String> cidrs) {
     if (cidrs != null) {
-        this.cidrs = new ArrayList();
+        this.cidrs = new ArrayList<>();
         for (String item : cidrs) {
           this.addToCidrs(item);
         }

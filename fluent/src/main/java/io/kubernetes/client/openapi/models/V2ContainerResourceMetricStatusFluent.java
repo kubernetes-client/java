@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2ContainerResourceMetricStatusFluent<A extends io.kubernetes.client.openapi.models.V2ContainerResourceMetricStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2ContainerResourceMetricStatusFluent<A extends V2ContainerResourceMetricStatusFluent<A>> extends BaseFluent<A>{
 
   private String container;
   private V2MetricValueStatusBuilder current;
@@ -73,7 +75,7 @@ public class V2ContainerResourceMetricStatusFluent<A extends io.kubernetes.clien
     if (!(super.equals(o))) {
       return false;
     }
-    V2ContainerResourceMetricStatusFluent that = (V2ContainerResourceMetricStatusFluent) o;
+    V2ContainerResourceMetricStatusFluent<?> that = (V2ContainerResourceMetricStatusFluent<?>) o;
     if (!(Objects.equals(container, that.container))) {
       return false;
     }
@@ -142,8 +144,8 @@ public class V2ContainerResourceMetricStatusFluent<A extends io.kubernetes.clien
         this.current = new V2MetricValueStatusBuilder(current);
         this._visitables.get("current").add(this.current);
     } else {
-        this.current = null;
         this._visitables.get("current").remove(this.current);
+        this.current = null;
     }
     return (A) this;
   }
@@ -154,11 +156,11 @@ public class V2ContainerResourceMetricStatusFluent<A extends io.kubernetes.clien
   }
   
   public CurrentNested<A> withNewCurrent() {
-    return new CurrentNested(null);
+    return new CurrentNested<>(null);
   }
   
   public CurrentNested<A> withNewCurrentLike(V2MetricValueStatus item) {
-    return new CurrentNested(item);
+    return new CurrentNested<>(item);
   }
   public class CurrentNested<N> extends V2MetricValueStatusFluent<CurrentNested<N>> implements Nested<N>{
   

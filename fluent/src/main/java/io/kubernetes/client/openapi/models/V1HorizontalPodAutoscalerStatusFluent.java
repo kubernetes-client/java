@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1HorizontalPodAutoscalerStatusFluent<A extends V1HorizontalPodAutoscalerStatusFluent<A>> extends BaseFluent<A>{
 
   private Integer currentCPUUtilizationPercentage;
   private Integer currentReplicas;
@@ -62,7 +64,7 @@ public class V1HorizontalPodAutoscalerStatusFluent<A extends io.kubernetes.clien
     if (!(super.equals(o))) {
       return false;
     }
-    V1HorizontalPodAutoscalerStatusFluent that = (V1HorizontalPodAutoscalerStatusFluent) o;
+    V1HorizontalPodAutoscalerStatusFluent<?> that = (V1HorizontalPodAutoscalerStatusFluent<?>) o;
     if (!(Objects.equals(currentCPUUtilizationPercentage, that.currentCPUUtilizationPercentage))) {
       return false;
     }

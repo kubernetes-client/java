@@ -26,12 +26,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1EndpointFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1EndpointFluent<A extends V1EndpointFluent<A>> extends BaseFluent<A>{
 
   private List<String> addresses;
   private V1EndpointConditionsBuilder conditions;
@@ -51,7 +53,7 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
 
   public A addAllToAddresses(Collection<String> items) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList();
+      this.addresses = new ArrayList<>();
     }
     for (String item : items) {
       this.addresses.add(item);
@@ -61,7 +63,7 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
   
   public A addToAddresses(String... items) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList();
+      this.addresses = new ArrayList<>();
     }
     for (String item : items) {
       this.addresses.add(item);
@@ -71,7 +73,7 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
   
   public A addToAddresses(int index,String item) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList();
+      this.addresses = new ArrayList<>();
     }
     this.addresses.add(index, item);
     return (A) this;
@@ -79,7 +81,7 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
   
   public A addToDeprecatedTopology(Map<String,String> map) {
     if (this.deprecatedTopology == null && map != null) {
-      this.deprecatedTopology = new LinkedHashMap();
+      this.deprecatedTopology = new LinkedHashMap<>();
     }
     if (map != null) {
       this.deprecatedTopology.putAll(map);
@@ -89,7 +91,7 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
   
   public A addToDeprecatedTopology(String key,String value) {
     if (this.deprecatedTopology == null && key != null && value != null) {
-      this.deprecatedTopology = new LinkedHashMap();
+      this.deprecatedTopology = new LinkedHashMap<>();
     }
     if (key != null && value != null) {
       this.deprecatedTopology.put(key, value);
@@ -169,7 +171,7 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
     if (!(super.equals(o))) {
       return false;
     }
-    V1EndpointFluent that = (V1EndpointFluent) o;
+    V1EndpointFluent<?> that = (V1EndpointFluent<?>) o;
     if (!(Objects.equals(addresses, that.addresses))) {
       return false;
     }
@@ -329,7 +331,7 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
   
   public A setToAddresses(int index,String item) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList();
+      this.addresses = new ArrayList<>();
     }
     this.addresses.set(index, item);
     return (A) this;
@@ -383,7 +385,7 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
   
   public A withAddresses(List<String> addresses) {
     if (addresses != null) {
-        this.addresses = new ArrayList();
+        this.addresses = new ArrayList<>();
         for (String item : addresses) {
           this.addToAddresses(item);
         }
@@ -412,8 +414,8 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
         this.conditions = new V1EndpointConditionsBuilder(conditions);
         this._visitables.get("conditions").add(this.conditions);
     } else {
-        this.conditions = null;
         this._visitables.get("conditions").remove(this.conditions);
+        this.conditions = null;
     }
     return (A) this;
   }
@@ -422,7 +424,7 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
     if (deprecatedTopology == null) {
       this.deprecatedTopology = null;
     } else {
-      this.deprecatedTopology = new LinkedHashMap(deprecatedTopology);
+      this.deprecatedTopology = new LinkedHashMap<>(deprecatedTopology);
     }
     return (A) this;
   }
@@ -433,8 +435,8 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
         this.hints = new V1EndpointHintsBuilder(hints);
         this._visitables.get("hints").add(this.hints);
     } else {
-        this.hints = null;
         this._visitables.get("hints").remove(this.hints);
+        this.hints = null;
     }
     return (A) this;
   }
@@ -445,27 +447,27 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
   }
   
   public ConditionsNested<A> withNewConditions() {
-    return new ConditionsNested(null);
+    return new ConditionsNested<>(null);
   }
   
   public ConditionsNested<A> withNewConditionsLike(V1EndpointConditions item) {
-    return new ConditionsNested(item);
+    return new ConditionsNested<>(item);
   }
   
   public HintsNested<A> withNewHints() {
-    return new HintsNested(null);
+    return new HintsNested<>(null);
   }
   
   public HintsNested<A> withNewHintsLike(V1EndpointHints item) {
-    return new HintsNested(item);
+    return new HintsNested<>(item);
   }
   
   public TargetRefNested<A> withNewTargetRef() {
-    return new TargetRefNested(null);
+    return new TargetRefNested<>(null);
   }
   
   public TargetRefNested<A> withNewTargetRefLike(V1ObjectReference item) {
-    return new TargetRefNested(item);
+    return new TargetRefNested<>(item);
   }
   
   public A withNodeName(String nodeName) {
@@ -479,8 +481,8 @@ public class V1EndpointFluent<A extends io.kubernetes.client.openapi.models.V1En
         this.targetRef = new V1ObjectReferenceBuilder(targetRef);
         this._visitables.get("targetRef").add(this.targetRef);
     } else {
-        this.targetRef = null;
         this._visitables.get("targetRef").remove(this.targetRef);
+        this.targetRef = null;
     }
     return (A) this;
   }

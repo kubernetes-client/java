@@ -12,8 +12,8 @@ DeploymentCondition describes the state of a deployment at a certain point.
 |**lastUpdateTime** | **OffsetDateTime** | The last time this condition was updated. |  [optional] |
 |**message** | **String** | A human readable message indicating details about the transition. |  [optional] |
 |**reason** | **String** | The reason for the condition&#39;s last transition. |  [optional] |
-|**status** | **String** | Status of the condition, one of True, False, Unknown. |  |
-|**type** | **String** | Type of deployment condition. |  |
+|**status** | **String** | Status of the condition, one of True, False, Unknown. |  [optional] |
+|**type** | **String** | Type of deployment condition. |  [optional] |
 
 
 

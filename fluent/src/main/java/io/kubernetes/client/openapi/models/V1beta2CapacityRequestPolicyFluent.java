@@ -25,12 +25,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1beta2CapacityRequestPolicyFluent<A extends io.kubernetes.client.openapi.models.V1beta2CapacityRequestPolicyFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1beta2CapacityRequestPolicyFluent<A extends V1beta2CapacityRequestPolicyFluent<A>> extends BaseFluent<A>{
 
   private Quantity _default;
   private V1beta2CapacityRequestPolicyRangeBuilder validRange;
@@ -45,7 +47,7 @@ public class V1beta2CapacityRequestPolicyFluent<A extends io.kubernetes.client.o
 
   public A addAllToValidValues(Collection<Quantity> items) {
     if (this.validValues == null) {
-      this.validValues = new ArrayList();
+      this.validValues = new ArrayList<>();
     }
     for (Quantity item : items) {
       this.validValues.add(item);
@@ -59,7 +61,7 @@ public class V1beta2CapacityRequestPolicyFluent<A extends io.kubernetes.client.o
   
   public A addToValidValues(Quantity... items) {
     if (this.validValues == null) {
-      this.validValues = new ArrayList();
+      this.validValues = new ArrayList<>();
     }
     for (Quantity item : items) {
       this.validValues.add(item);
@@ -69,7 +71,7 @@ public class V1beta2CapacityRequestPolicyFluent<A extends io.kubernetes.client.o
   
   public A addToValidValues(int index,Quantity item) {
     if (this.validValues == null) {
-      this.validValues = new ArrayList();
+      this.validValues = new ArrayList<>();
     }
     this.validValues.add(index, item);
     return (A) this;
@@ -109,7 +111,7 @@ public class V1beta2CapacityRequestPolicyFluent<A extends io.kubernetes.client.o
     if (!(super.equals(o))) {
       return false;
     }
-    V1beta2CapacityRequestPolicyFluent that = (V1beta2CapacityRequestPolicyFluent) o;
+    V1beta2CapacityRequestPolicyFluent<?> that = (V1beta2CapacityRequestPolicyFluent<?>) o;
     if (!(Objects.equals(_default, that._default))) {
       return false;
     }
@@ -198,7 +200,7 @@ public class V1beta2CapacityRequestPolicyFluent<A extends io.kubernetes.client.o
   
   public A setToValidValues(int index,Quantity item) {
     if (this.validValues == null) {
-      this.validValues = new ArrayList();
+      this.validValues = new ArrayList<>();
     }
     this.validValues.set(index, item);
     return (A) this;
@@ -235,11 +237,11 @@ public class V1beta2CapacityRequestPolicyFluent<A extends io.kubernetes.client.o
   }
   
   public ValidRangeNested<A> withNewValidRange() {
-    return new ValidRangeNested(null);
+    return new ValidRangeNested<>(null);
   }
   
   public ValidRangeNested<A> withNewValidRangeLike(V1beta2CapacityRequestPolicyRange item) {
-    return new ValidRangeNested(item);
+    return new ValidRangeNested<>(item);
   }
   
   public A withValidRange(V1beta2CapacityRequestPolicyRange validRange) {
@@ -248,15 +250,15 @@ public class V1beta2CapacityRequestPolicyFluent<A extends io.kubernetes.client.o
         this.validRange = new V1beta2CapacityRequestPolicyRangeBuilder(validRange);
         this._visitables.get("validRange").add(this.validRange);
     } else {
-        this.validRange = null;
         this._visitables.get("validRange").remove(this.validRange);
+        this.validRange = null;
     }
     return (A) this;
   }
   
   public A withValidValues(List<Quantity> validValues) {
     if (validValues != null) {
-        this.validValues = new ArrayList();
+        this.validValues = new ArrayList<>();
         for (Quantity item : validValues) {
           this.addToValidValues(item);
         }

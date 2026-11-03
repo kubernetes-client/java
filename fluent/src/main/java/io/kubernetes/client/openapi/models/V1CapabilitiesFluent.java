@@ -22,12 +22,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.V1CapabilitiesFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1CapabilitiesFluent<A extends V1CapabilitiesFluent<A>> extends BaseFluent<A>{
 
   private List<String> add;
   private List<String> drop;
@@ -41,7 +43,7 @@ public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.
 
   public A addAllToAdd(Collection<String> items) {
     if (this.add == null) {
-      this.add = new ArrayList();
+      this.add = new ArrayList<>();
     }
     for (String item : items) {
       this.add.add(item);
@@ -51,7 +53,7 @@ public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addAllToDrop(Collection<String> items) {
     if (this.drop == null) {
-      this.drop = new ArrayList();
+      this.drop = new ArrayList<>();
     }
     for (String item : items) {
       this.drop.add(item);
@@ -61,7 +63,7 @@ public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToAdd(String... items) {
     if (this.add == null) {
-      this.add = new ArrayList();
+      this.add = new ArrayList<>();
     }
     for (String item : items) {
       this.add.add(item);
@@ -71,7 +73,7 @@ public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToAdd(int index,String item) {
     if (this.add == null) {
-      this.add = new ArrayList();
+      this.add = new ArrayList<>();
     }
     this.add.add(index, item);
     return (A) this;
@@ -79,7 +81,7 @@ public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToDrop(String... items) {
     if (this.drop == null) {
-      this.drop = new ArrayList();
+      this.drop = new ArrayList<>();
     }
     for (String item : items) {
       this.drop.add(item);
@@ -89,7 +91,7 @@ public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.
   
   public A addToDrop(int index,String item) {
     if (this.drop == null) {
-      this.drop = new ArrayList();
+      this.drop = new ArrayList<>();
     }
     this.drop.add(index, item);
     return (A) this;
@@ -113,7 +115,7 @@ public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.
     if (!(super.equals(o))) {
       return false;
     }
-    V1CapabilitiesFluent that = (V1CapabilitiesFluent) o;
+    V1CapabilitiesFluent<?> that = (V1CapabilitiesFluent<?>) o;
     if (!(Objects.equals(add, that.add))) {
       return false;
     }
@@ -245,7 +247,7 @@ public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.
   
   public A setToAdd(int index,String item) {
     if (this.add == null) {
-      this.add = new ArrayList();
+      this.add = new ArrayList<>();
     }
     this.add.set(index, item);
     return (A) this;
@@ -253,7 +255,7 @@ public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.
   
   public A setToDrop(int index,String item) {
     if (this.drop == null) {
-      this.drop = new ArrayList();
+      this.drop = new ArrayList<>();
     }
     this.drop.set(index, item);
     return (A) this;
@@ -277,7 +279,7 @@ public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.
   
   public A withAdd(List<String> add) {
     if (add != null) {
-        this.add = new ArrayList();
+        this.add = new ArrayList<>();
         for (String item : add) {
           this.addToAdd(item);
         }
@@ -302,7 +304,7 @@ public class V1CapabilitiesFluent<A extends io.kubernetes.client.openapi.models.
   
   public A withDrop(List<String> drop) {
     if (drop != null) {
-        this.drop = new ArrayList();
+        this.drop = new ArrayList<>();
         for (String item : drop) {
           this.addToDrop(item);
         }

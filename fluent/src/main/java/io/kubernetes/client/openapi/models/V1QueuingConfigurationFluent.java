@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1QueuingConfigurationFluent<A extends io.kubernetes.client.openapi.models.V1QueuingConfigurationFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1QueuingConfigurationFluent<A extends V1QueuingConfigurationFluent<A>> extends BaseFluent<A>{
 
   private Integer handSize;
   private Integer queueLengthLimit;
@@ -56,7 +58,7 @@ public class V1QueuingConfigurationFluent<A extends io.kubernetes.client.openapi
     if (!(super.equals(o))) {
       return false;
     }
-    V1QueuingConfigurationFluent that = (V1QueuingConfigurationFluent) o;
+    V1QueuingConfigurationFluent<?> that = (V1QueuingConfigurationFluent<?>) o;
     if (!(Objects.equals(handSize, that.handSize))) {
       return false;
     }

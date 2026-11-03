@@ -25,12 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.client.openapi.models.V1PriorityLevelConfigurationStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PriorityLevelConfigurationStatusFluent<A extends V1PriorityLevelConfigurationStatusFluent<A>> extends BaseFluent<A>{
 
   private ArrayList<V1PriorityLevelConfigurationConditionBuilder> conditions;
 
@@ -43,7 +45,7 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
 
   public A addAllToConditions(Collection<V1PriorityLevelConfigurationCondition> items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1PriorityLevelConfigurationCondition item : items) {
         V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
@@ -54,16 +56,16 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
   }
   
   public ConditionsNested<A> addNewCondition() {
-    return new ConditionsNested(-1, null);
+    return new ConditionsNested<>(-1, null);
   }
   
   public ConditionsNested<A> addNewConditionLike(V1PriorityLevelConfigurationCondition item) {
-    return new ConditionsNested(-1, item);
+    return new ConditionsNested<>(-1, item);
   }
   
   public A addToConditions(V1PriorityLevelConfigurationCondition... items) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     for (V1PriorityLevelConfigurationCondition item : items) {
         V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
@@ -75,7 +77,7 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
   
   public A addToConditions(int index,V1PriorityLevelConfigurationCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -166,7 +168,7 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
     if (!(super.equals(o))) {
       return false;
     }
-    V1PriorityLevelConfigurationStatusFluent that = (V1PriorityLevelConfigurationStatusFluent) o;
+    V1PriorityLevelConfigurationStatusFluent<?> that = (V1PriorityLevelConfigurationStatusFluent<?>) o;
     if (!(Objects.equals(conditions, that.conditions))) {
       return false;
     }
@@ -219,6 +221,7 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
       return (A) this;
     }
     Iterator<V1PriorityLevelConfigurationConditionBuilder> each = conditions.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("conditions");
     while (each.hasNext()) {
         V1PriorityLevelConfigurationConditionBuilder builder = each.next();
@@ -231,12 +234,12 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
   }
   
   public ConditionsNested<A> setNewConditionLike(int index,V1PriorityLevelConfigurationCondition item) {
-    return new ConditionsNested(index, item);
+    return new ConditionsNested<>(index, item);
   }
   
   public A setToConditions(int index,V1PriorityLevelConfigurationCondition item) {
     if (this.conditions == null) {
-      this.conditions = new ArrayList();
+      this.conditions = new ArrayList<>();
     }
     V1PriorityLevelConfigurationConditionBuilder builder = new V1PriorityLevelConfigurationConditionBuilder(item);
     if (index < 0 || index >= this.conditions.size()) {
@@ -265,7 +268,7 @@ public class V1PriorityLevelConfigurationStatusFluent<A extends io.kubernetes.cl
       this._visitables.get("conditions").clear();
     }
     if (conditions != null) {
-        this.conditions = new ArrayList();
+        this.conditions = new ArrayList<>();
         for (V1PriorityLevelConfigurationCondition item : conditions) {
           this.addToConditions(item);
         }

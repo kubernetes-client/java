@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1SELinuxOptionsFluent<A extends io.kubernetes.client.openapi.models.V1SELinuxOptionsFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1SELinuxOptionsFluent<A extends V1SELinuxOptionsFluent<A>> extends BaseFluent<A>{
 
   private String level;
   private String role;
@@ -57,7 +59,7 @@ public class V1SELinuxOptionsFluent<A extends io.kubernetes.client.openapi.model
     if (!(super.equals(o))) {
       return false;
     }
-    V1SELinuxOptionsFluent that = (V1SELinuxOptionsFluent) o;
+    V1SELinuxOptionsFluent<?> that = (V1SELinuxOptionsFluent<?>) o;
     if (!(Objects.equals(level, that.level))) {
       return false;
     }

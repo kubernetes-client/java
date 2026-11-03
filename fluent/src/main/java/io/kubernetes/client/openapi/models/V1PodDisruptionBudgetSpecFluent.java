@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodDisruptionBudgetSpecFluent<A extends io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodDisruptionBudgetSpecFluent<A extends V1PodDisruptionBudgetSpecFluent<A>> extends BaseFluent<A>{
 
   private IntOrString maxUnavailable;
   private IntOrString minAvailable;
@@ -76,7 +78,7 @@ public class V1PodDisruptionBudgetSpecFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodDisruptionBudgetSpecFluent that = (V1PodDisruptionBudgetSpecFluent) o;
+    V1PodDisruptionBudgetSpecFluent<?> that = (V1PodDisruptionBudgetSpecFluent<?>) o;
     if (!(Objects.equals(maxUnavailable, that.maxUnavailable))) {
       return false;
     }
@@ -177,11 +179,11 @@ public class V1PodDisruptionBudgetSpecFluent<A extends io.kubernetes.client.open
   }
   
   public SelectorNested<A> withNewSelector() {
-    return new SelectorNested(null);
+    return new SelectorNested<>(null);
   }
   
   public SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
-    return new SelectorNested(item);
+    return new SelectorNested<>(item);
   }
   
   public A withSelector(V1LabelSelector selector) {
@@ -190,8 +192,8 @@ public class V1PodDisruptionBudgetSpecFluent<A extends io.kubernetes.client.open
         this.selector = new V1LabelSelectorBuilder(selector);
         this._visitables.get("selector").add(this.selector);
     } else {
-        this.selector = null;
         this._visitables.get("selector").remove(this.selector);
+        this.selector = null;
     }
     return (A) this;
   }

@@ -21,12 +21,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1WeightedPodAffinityTermFluent<A extends io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1WeightedPodAffinityTermFluent<A extends V1WeightedPodAffinityTermFluent<A>> extends BaseFluent<A>{
 
   private V1PodAffinityTermBuilder podAffinityTerm;
   private Integer weight;
@@ -72,7 +74,7 @@ public class V1WeightedPodAffinityTermFluent<A extends io.kubernetes.client.open
     if (!(super.equals(o))) {
       return false;
     }
-    V1WeightedPodAffinityTermFluent that = (V1WeightedPodAffinityTermFluent) o;
+    V1WeightedPodAffinityTermFluent<?> that = (V1WeightedPodAffinityTermFluent<?>) o;
     if (!(Objects.equals(podAffinityTerm, that.podAffinityTerm))) {
       return false;
     }
@@ -115,11 +117,11 @@ public class V1WeightedPodAffinityTermFluent<A extends io.kubernetes.client.open
   }
   
   public PodAffinityTermNested<A> withNewPodAffinityTerm() {
-    return new PodAffinityTermNested(null);
+    return new PodAffinityTermNested<>(null);
   }
   
   public PodAffinityTermNested<A> withNewPodAffinityTermLike(V1PodAffinityTerm item) {
-    return new PodAffinityTermNested(item);
+    return new PodAffinityTermNested<>(item);
   }
   
   public A withPodAffinityTerm(V1PodAffinityTerm podAffinityTerm) {
@@ -128,8 +130,8 @@ public class V1WeightedPodAffinityTermFluent<A extends io.kubernetes.client.open
         this.podAffinityTerm = new V1PodAffinityTermBuilder(podAffinityTerm);
         this._visitables.get("podAffinityTerm").add(this.podAffinityTerm);
     } else {
-        this.podAffinityTerm = null;
         this._visitables.get("podAffinityTerm").remove(this.podAffinityTerm);
+        this.podAffinityTerm = null;
     }
     return (A) this;
   }

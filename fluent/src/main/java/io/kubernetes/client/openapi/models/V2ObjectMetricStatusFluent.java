@@ -20,12 +20,14 @@ import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
 import java.util.Optional;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V2ObjectMetricStatusFluent<A extends io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V2ObjectMetricStatusFluent<A extends V2ObjectMetricStatusFluent<A>> extends BaseFluent<A>{
 
   private V2MetricValueStatusBuilder current;
   private V2CrossVersionObjectReferenceBuilder describedObject;
@@ -105,7 +107,7 @@ public class V2ObjectMetricStatusFluent<A extends io.kubernetes.client.openapi.m
     if (!(super.equals(o))) {
       return false;
     }
-    V2ObjectMetricStatusFluent that = (V2ObjectMetricStatusFluent) o;
+    V2ObjectMetricStatusFluent<?> that = (V2ObjectMetricStatusFluent<?>) o;
     if (!(Objects.equals(current, that.current))) {
       return false;
     }
@@ -161,8 +163,8 @@ public class V2ObjectMetricStatusFluent<A extends io.kubernetes.client.openapi.m
         this.current = new V2MetricValueStatusBuilder(current);
         this._visitables.get("current").add(this.current);
     } else {
-        this.current = null;
         this._visitables.get("current").remove(this.current);
+        this.current = null;
     }
     return (A) this;
   }
@@ -173,8 +175,8 @@ public class V2ObjectMetricStatusFluent<A extends io.kubernetes.client.openapi.m
         this.describedObject = new V2CrossVersionObjectReferenceBuilder(describedObject);
         this._visitables.get("describedObject").add(this.describedObject);
     } else {
-        this.describedObject = null;
         this._visitables.get("describedObject").remove(this.describedObject);
+        this.describedObject = null;
     }
     return (A) this;
   }
@@ -185,34 +187,34 @@ public class V2ObjectMetricStatusFluent<A extends io.kubernetes.client.openapi.m
         this.metric = new V2MetricIdentifierBuilder(metric);
         this._visitables.get("metric").add(this.metric);
     } else {
-        this.metric = null;
         this._visitables.get("metric").remove(this.metric);
+        this.metric = null;
     }
     return (A) this;
   }
   
   public CurrentNested<A> withNewCurrent() {
-    return new CurrentNested(null);
+    return new CurrentNested<>(null);
   }
   
   public CurrentNested<A> withNewCurrentLike(V2MetricValueStatus item) {
-    return new CurrentNested(item);
+    return new CurrentNested<>(item);
   }
   
   public DescribedObjectNested<A> withNewDescribedObject() {
-    return new DescribedObjectNested(null);
+    return new DescribedObjectNested<>(null);
   }
   
   public DescribedObjectNested<A> withNewDescribedObjectLike(V2CrossVersionObjectReference item) {
-    return new DescribedObjectNested(item);
+    return new DescribedObjectNested<>(item);
   }
   
   public MetricNested<A> withNewMetric() {
-    return new MetricNested(null);
+    return new MetricNested<>(null);
   }
   
   public MetricNested<A> withNewMetricLike(V2MetricIdentifier item) {
-    return new MetricNested(item);
+    return new MetricNested<>(item);
   }
   public class CurrentNested<N> extends V2MetricValueStatusFluent<CurrentNested<N>> implements Nested<N>{
   

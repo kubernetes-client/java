@@ -32,6 +32,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
+
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -143,9 +145,11 @@ class EventCorrelatorTest {
       CoreV1Event expectedEvent,
       Boolean expectedSkip)
       throws Exception {
-    EventCorrelator correlator = new EventCorrelator();
+    AtomicReference<OffsetDateTime> time =
+    new AtomicReference<>(OffsetDateTime.now());
+    EventCorrelator correlator = new EventCorrelator(() -> time.getAndUpdate(t -> t.plusSeconds(1)));
+    OffsetDateTime now = OffsetDateTime.now();
     for (CoreV1Event event : previousEvents) {
-      OffsetDateTime now = OffsetDateTime.now();
       event.setFirstTimestamp(now);
       event.setLastTimestamp(now);
       Optional<MutablePair<CoreV1Event, V1Patch>> result = correlator.correlate(event);
@@ -153,8 +157,7 @@ class EventCorrelatorTest {
         correlator.updateState(event);
       }
     }
-    Thread.sleep(100);
-    OffsetDateTime now = OffsetDateTime.now();
+    now = now.plusSeconds(1);
     newEvent.setFirstTimestamp(now);
     newEvent.setLastTimestamp(now);
     Optional<MutablePair<CoreV1Event, V1Patch>> result = correlator.correlate(newEvent);

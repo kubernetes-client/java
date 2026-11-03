@@ -19,16 +19,19 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjectionFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ServiceAccountTokenProjectionFluent<A extends V1ServiceAccountTokenProjectionFluent<A>> extends BaseFluent<A>{
 
   private String audience;
   private Long expirationSeconds;
   private String path;
+  private Long user;
 
   public V1ServiceAccountTokenProjectionFluent() {
   }
@@ -43,6 +46,7 @@ public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.clien
         this.withAudience(instance.getAudience());
         this.withExpirationSeconds(instance.getExpirationSeconds());
         this.withPath(instance.getPath());
+        this.withUser(instance.getUser());
     }
   }
   
@@ -56,7 +60,7 @@ public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.clien
     if (!(super.equals(o))) {
       return false;
     }
-    V1ServiceAccountTokenProjectionFluent that = (V1ServiceAccountTokenProjectionFluent) o;
+    V1ServiceAccountTokenProjectionFluent<?> that = (V1ServiceAccountTokenProjectionFluent<?>) o;
     if (!(Objects.equals(audience, that.audience))) {
       return false;
     }
@@ -64,6 +68,9 @@ public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.clien
       return false;
     }
     if (!(Objects.equals(path, that.path))) {
+      return false;
+    }
+    if (!(Objects.equals(user, that.user))) {
       return false;
     }
     return true;
@@ -81,6 +88,10 @@ public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.clien
     return this.path;
   }
   
+  public Long getUser() {
+    return this.user;
+  }
+  
   public boolean hasAudience() {
     return this.audience != null;
   }
@@ -93,8 +104,12 @@ public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.clien
     return this.path != null;
   }
   
+  public boolean hasUser() {
+    return this.user != null;
+  }
+  
   public int hashCode() {
-    return Objects.hash(audience, expirationSeconds, path);
+    return Objects.hash(audience, expirationSeconds, path, user);
   }
   
   public String toString() {
@@ -113,6 +128,11 @@ public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.clien
     if (!(path == null)) {
         sb.append("path:");
         sb.append(path);
+        sb.append(",");
+    }
+    if (!(user == null)) {
+        sb.append("user:");
+        sb.append(user);
     }
     sb.append("}");
     return sb.toString();
@@ -130,6 +150,11 @@ public class V1ServiceAccountTokenProjectionFluent<A extends io.kubernetes.clien
   
   public A withPath(String path) {
     this.path = path;
+    return (A) this;
+  }
+  
+  public A withUser(Long user) {
+    this.user = user;
     return (A) this;
   }
   

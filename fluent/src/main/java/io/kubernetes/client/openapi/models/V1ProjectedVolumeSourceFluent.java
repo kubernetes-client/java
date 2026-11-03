@@ -15,6 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.BaseFluent;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.Integer;
+import java.lang.Long;
 import java.lang.Object;
 import java.lang.RuntimeException;
 import java.lang.String;
@@ -26,14 +27,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private Integer defaultMode;
+  private Long defaultUser;
   private ArrayList<V1VolumeProjectionBuilder> sources;
 
   public V1ProjectedVolumeSourceFluent() {
@@ -45,7 +49,7 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
 
   public A addAllToSources(Collection<V1VolumeProjection> items) {
     if (this.sources == null) {
-      this.sources = new ArrayList();
+      this.sources = new ArrayList<>();
     }
     for (V1VolumeProjection item : items) {
         V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
@@ -56,16 +60,16 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
   }
   
   public SourcesNested<A> addNewSource() {
-    return new SourcesNested(-1, null);
+    return new SourcesNested<>(-1, null);
   }
   
   public SourcesNested<A> addNewSourceLike(V1VolumeProjection item) {
-    return new SourcesNested(-1, item);
+    return new SourcesNested<>(-1, item);
   }
   
   public A addToSources(V1VolumeProjection... items) {
     if (this.sources == null) {
-      this.sources = new ArrayList();
+      this.sources = new ArrayList<>();
     }
     for (V1VolumeProjection item : items) {
         V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
@@ -77,7 +81,7 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
   
   public A addToSources(int index,V1VolumeProjection item) {
     if (this.sources == null) {
-      this.sources = new ArrayList();
+      this.sources = new ArrayList<>();
     }
     V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
     if (index < 0 || index >= this.sources.size()) {
@@ -119,6 +123,7 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
     instance = instance != null ? instance : new V1ProjectedVolumeSource();
     if (instance != null) {
         this.withDefaultMode(instance.getDefaultMode());
+        this.withDefaultUser(instance.getDefaultUser());
         this.withSources(instance.getSources());
     }
   }
@@ -169,8 +174,11 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1ProjectedVolumeSourceFluent that = (V1ProjectedVolumeSourceFluent) o;
+    V1ProjectedVolumeSourceFluent<?> that = (V1ProjectedVolumeSourceFluent<?>) o;
     if (!(Objects.equals(defaultMode, that.defaultMode))) {
+      return false;
+    }
+    if (!(Objects.equals(defaultUser, that.defaultUser))) {
       return false;
     }
     if (!(Objects.equals(sources, that.sources))) {
@@ -183,8 +191,16 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
     return this.defaultMode;
   }
   
+  public Long getDefaultUser() {
+    return this.defaultUser;
+  }
+  
   public boolean hasDefaultMode() {
     return this.defaultMode != null;
+  }
+  
+  public boolean hasDefaultUser() {
+    return this.defaultUser != null;
   }
   
   public boolean hasMatchingSource(Predicate<V1VolumeProjectionBuilder> predicate) {
@@ -201,7 +217,7 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
   }
   
   public int hashCode() {
-    return Objects.hash(defaultMode, sources);
+    return Objects.hash(defaultMode, defaultUser, sources);
   }
   
   public A removeAllFromSources(Collection<V1VolumeProjection> items) {
@@ -233,6 +249,7 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
       return (A) this;
     }
     Iterator<V1VolumeProjectionBuilder> each = sources.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("sources");
     while (each.hasNext()) {
         V1VolumeProjectionBuilder builder = each.next();
@@ -245,12 +262,12 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
   }
   
   public SourcesNested<A> setNewSourceLike(int index,V1VolumeProjection item) {
-    return new SourcesNested(index, item);
+    return new SourcesNested<>(index, item);
   }
   
   public A setToSources(int index,V1VolumeProjection item) {
     if (this.sources == null) {
-      this.sources = new ArrayList();
+      this.sources = new ArrayList<>();
     }
     V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
     if (index < 0 || index >= this.sources.size()) {
@@ -271,6 +288,11 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
         sb.append(defaultMode);
         sb.append(",");
     }
+    if (!(defaultUser == null)) {
+        sb.append("defaultUser:");
+        sb.append(defaultUser);
+        sb.append(",");
+    }
     if (!(sources == null) && !(sources.isEmpty())) {
         sb.append("sources:");
         sb.append(sources);
@@ -284,12 +306,17 @@ public class V1ProjectedVolumeSourceFluent<A extends io.kubernetes.client.openap
     return (A) this;
   }
   
+  public A withDefaultUser(Long defaultUser) {
+    this.defaultUser = defaultUser;
+    return (A) this;
+  }
+  
   public A withSources(List<V1VolumeProjection> sources) {
     if (this.sources != null) {
       this._visitables.get("sources").clear();
     }
     if (sources != null) {
-        this.sources = new ArrayList();
+        this.sources = new ArrayList<>();
         for (V1VolumeProjection item : sources) {
           this.addToSources(item);
         }

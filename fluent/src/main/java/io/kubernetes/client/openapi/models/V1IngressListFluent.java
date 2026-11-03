@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1IngressListFluent<A extends io.kubernetes.client.openapi.models.V1IngressListFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1IngressListFluent<A extends V1IngressListFluent<A>> extends BaseFluent<A>{
 
   private String apiVersion;
   private ArrayList<V1IngressBuilder> items;
@@ -47,7 +49,7 @@ public class V1IngressListFluent<A extends io.kubernetes.client.openapi.models.V
 
   public A addAllToItems(Collection<V1Ingress> items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1Ingress item : items) {
         V1IngressBuilder builder = new V1IngressBuilder(item);
@@ -58,16 +60,16 @@ public class V1IngressListFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public ItemsNested<A> addNewItem() {
-    return new ItemsNested(-1, null);
+    return new ItemsNested<>(-1, null);
   }
   
   public ItemsNested<A> addNewItemLike(V1Ingress item) {
-    return new ItemsNested(-1, item);
+    return new ItemsNested<>(-1, item);
   }
   
   public A addToItems(V1Ingress... items) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     for (V1Ingress item : items) {
         V1IngressBuilder builder = new V1IngressBuilder(item);
@@ -79,7 +81,7 @@ public class V1IngressListFluent<A extends io.kubernetes.client.openapi.models.V
   
   public A addToItems(int index,V1Ingress item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1IngressBuilder builder = new V1IngressBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -189,7 +191,7 @@ public class V1IngressListFluent<A extends io.kubernetes.client.openapi.models.V
     if (!(super.equals(o))) {
       return false;
     }
-    V1IngressListFluent that = (V1IngressListFluent) o;
+    V1IngressListFluent<?> that = (V1IngressListFluent<?>) o;
     if (!(Objects.equals(apiVersion, that.apiVersion))) {
       return false;
     }
@@ -271,6 +273,7 @@ public class V1IngressListFluent<A extends io.kubernetes.client.openapi.models.V
       return (A) this;
     }
     Iterator<V1IngressBuilder> each = items.iterator();
+    @SuppressWarnings({"rawtypes"})
     List visitables = this._visitables.get("items");
     while (each.hasNext()) {
         V1IngressBuilder builder = each.next();
@@ -283,12 +286,12 @@ public class V1IngressListFluent<A extends io.kubernetes.client.openapi.models.V
   }
   
   public ItemsNested<A> setNewItemLike(int index,V1Ingress item) {
-    return new ItemsNested(index, item);
+    return new ItemsNested<>(index, item);
   }
   
   public A setToItems(int index,V1Ingress item) {
     if (this.items == null) {
-      this.items = new ArrayList();
+      this.items = new ArrayList<>();
     }
     V1IngressBuilder builder = new V1IngressBuilder(item);
     if (index < 0 || index >= this.items.size()) {
@@ -337,7 +340,7 @@ public class V1IngressListFluent<A extends io.kubernetes.client.openapi.models.V
       this._visitables.get("items").clear();
     }
     if (items != null) {
-        this.items = new ArrayList();
+        this.items = new ArrayList<>();
         for (V1Ingress item : items) {
           this.addToItems(item);
         }
@@ -371,18 +374,18 @@ public class V1IngressListFluent<A extends io.kubernetes.client.openapi.models.V
         this.metadata = new V1ListMetaBuilder(metadata);
         this._visitables.get("metadata").add(this.metadata);
     } else {
-        this.metadata = null;
         this._visitables.get("metadata").remove(this.metadata);
+        this.metadata = null;
     }
     return (A) this;
   }
   
   public MetadataNested<A> withNewMetadata() {
-    return new MetadataNested(null);
+    return new MetadataNested<>(null);
   }
   
   public MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
-    return new MetadataNested(item);
+    return new MetadataNested<>(item);
   }
   public class ItemsNested<N> extends V1IngressFluent<ItemsNested<N>> implements Nested<N>{
   

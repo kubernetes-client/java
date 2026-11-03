@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class VersionInfoFluent<A extends io.kubernetes.client.openapi.models.VersionInfoFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class VersionInfoFluent<A extends VersionInfoFluent<A>> extends BaseFluent<A>{
 
   private String buildDate;
   private String compiler;
@@ -75,7 +77,7 @@ public class VersionInfoFluent<A extends io.kubernetes.client.openapi.models.Ver
     if (!(super.equals(o))) {
       return false;
     }
-    VersionInfoFluent that = (VersionInfoFluent) o;
+    VersionInfoFluent<?> that = (VersionInfoFluent<?>) o;
     if (!(Objects.equals(buildDate, that.buildDate))) {
       return false;
     }

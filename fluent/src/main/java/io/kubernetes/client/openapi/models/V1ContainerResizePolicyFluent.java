@@ -18,12 +18,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1ContainerResizePolicyFluent<A extends io.kubernetes.client.openapi.models.V1ContainerResizePolicyFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1ContainerResizePolicyFluent<A extends V1ContainerResizePolicyFluent<A>> extends BaseFluent<A>{
 
   private String resourceName;
   private String restartPolicy;
@@ -53,7 +55,7 @@ public class V1ContainerResizePolicyFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1ContainerResizePolicyFluent that = (V1ContainerResizePolicyFluent) o;
+    V1ContainerResizePolicyFluent<?> that = (V1ContainerResizePolicyFluent<?>) o;
     if (!(Objects.equals(resourceName, that.resourceName))) {
       return false;
     }

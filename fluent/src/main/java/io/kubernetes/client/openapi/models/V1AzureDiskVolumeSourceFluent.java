@@ -19,12 +19,14 @@ import java.lang.String;
 import java.lang.StringBuilder;
 import java.lang.SuppressWarnings;
 import java.util.Objects;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1AzureDiskVolumeSourceFluent<A extends io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1AzureDiskVolumeSourceFluent<A extends V1AzureDiskVolumeSourceFluent<A>> extends BaseFluent<A>{
 
   private String cachingMode;
   private String diskName;
@@ -62,7 +64,7 @@ public class V1AzureDiskVolumeSourceFluent<A extends io.kubernetes.client.openap
     if (!(super.equals(o))) {
       return false;
     }
-    V1AzureDiskVolumeSourceFluent that = (V1AzureDiskVolumeSourceFluent) o;
+    V1AzureDiskVolumeSourceFluent<?> that = (V1AzureDiskVolumeSourceFluent<?>) o;
     if (!(Objects.equals(cachingMode, that.cachingMode))) {
       return false;
     }

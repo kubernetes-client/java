@@ -24,12 +24,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Predicate;
+import javax.annotation.processing.Generated;
 
 /**
  * Generated
  */
-@SuppressWarnings("unchecked")
-public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.models.V1PodAffinityTermFluent<A>> extends BaseFluent<A>{
+@Generated("io.sundr:builder-annotations")
+@SuppressWarnings({"unchecked"})
+public class V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> extends BaseFluent<A>{
 
   private V1LabelSelectorBuilder labelSelector;
   private List<String> matchLabelKeys;
@@ -47,7 +49,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
 
   public A addAllToMatchLabelKeys(Collection<String> items) {
     if (this.matchLabelKeys == null) {
-      this.matchLabelKeys = new ArrayList();
+      this.matchLabelKeys = new ArrayList<>();
     }
     for (String item : items) {
       this.matchLabelKeys.add(item);
@@ -57,7 +59,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToMismatchLabelKeys(Collection<String> items) {
     if (this.mismatchLabelKeys == null) {
-      this.mismatchLabelKeys = new ArrayList();
+      this.mismatchLabelKeys = new ArrayList<>();
     }
     for (String item : items) {
       this.mismatchLabelKeys.add(item);
@@ -67,7 +69,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addAllToNamespaces(Collection<String> items) {
     if (this.namespaces == null) {
-      this.namespaces = new ArrayList();
+      this.namespaces = new ArrayList<>();
     }
     for (String item : items) {
       this.namespaces.add(item);
@@ -77,7 +79,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToMatchLabelKeys(String... items) {
     if (this.matchLabelKeys == null) {
-      this.matchLabelKeys = new ArrayList();
+      this.matchLabelKeys = new ArrayList<>();
     }
     for (String item : items) {
       this.matchLabelKeys.add(item);
@@ -87,7 +89,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToMatchLabelKeys(int index,String item) {
     if (this.matchLabelKeys == null) {
-      this.matchLabelKeys = new ArrayList();
+      this.matchLabelKeys = new ArrayList<>();
     }
     this.matchLabelKeys.add(index, item);
     return (A) this;
@@ -95,7 +97,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToMismatchLabelKeys(String... items) {
     if (this.mismatchLabelKeys == null) {
-      this.mismatchLabelKeys = new ArrayList();
+      this.mismatchLabelKeys = new ArrayList<>();
     }
     for (String item : items) {
       this.mismatchLabelKeys.add(item);
@@ -105,7 +107,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToMismatchLabelKeys(int index,String item) {
     if (this.mismatchLabelKeys == null) {
-      this.mismatchLabelKeys = new ArrayList();
+      this.mismatchLabelKeys = new ArrayList<>();
     }
     this.mismatchLabelKeys.add(index, item);
     return (A) this;
@@ -113,7 +115,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToNamespaces(String... items) {
     if (this.namespaces == null) {
-      this.namespaces = new ArrayList();
+      this.namespaces = new ArrayList<>();
     }
     for (String item : items) {
       this.namespaces.add(item);
@@ -123,7 +125,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A addToNamespaces(int index,String item) {
     if (this.namespaces == null) {
-      this.namespaces = new ArrayList();
+      this.namespaces = new ArrayList<>();
     }
     this.namespaces.add(index, item);
     return (A) this;
@@ -183,7 +185,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
     if (!(super.equals(o))) {
       return false;
     }
-    V1PodAffinityTermFluent that = (V1PodAffinityTermFluent) o;
+    V1PodAffinityTermFluent<?> that = (V1PodAffinityTermFluent<?>) o;
     if (!(Objects.equals(labelSelector, that.labelSelector))) {
       return false;
     }
@@ -401,7 +403,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToMatchLabelKeys(int index,String item) {
     if (this.matchLabelKeys == null) {
-      this.matchLabelKeys = new ArrayList();
+      this.matchLabelKeys = new ArrayList<>();
     }
     this.matchLabelKeys.set(index, item);
     return (A) this;
@@ -409,7 +411,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToMismatchLabelKeys(int index,String item) {
     if (this.mismatchLabelKeys == null) {
-      this.mismatchLabelKeys = new ArrayList();
+      this.mismatchLabelKeys = new ArrayList<>();
     }
     this.mismatchLabelKeys.set(index, item);
     return (A) this;
@@ -417,7 +419,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A setToNamespaces(int index,String item) {
     if (this.namespaces == null) {
-      this.namespaces = new ArrayList();
+      this.namespaces = new ArrayList<>();
     }
     this.namespaces.set(index, item);
     return (A) this;
@@ -465,15 +467,15 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
         this.labelSelector = new V1LabelSelectorBuilder(labelSelector);
         this._visitables.get("labelSelector").add(this.labelSelector);
     } else {
-        this.labelSelector = null;
         this._visitables.get("labelSelector").remove(this.labelSelector);
+        this.labelSelector = null;
     }
     return (A) this;
   }
   
   public A withMatchLabelKeys(List<String> matchLabelKeys) {
     if (matchLabelKeys != null) {
-        this.matchLabelKeys = new ArrayList();
+        this.matchLabelKeys = new ArrayList<>();
         for (String item : matchLabelKeys) {
           this.addToMatchLabelKeys(item);
         }
@@ -498,7 +500,7 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   
   public A withMismatchLabelKeys(List<String> mismatchLabelKeys) {
     if (mismatchLabelKeys != null) {
-        this.mismatchLabelKeys = new ArrayList();
+        this.mismatchLabelKeys = new ArrayList<>();
         for (String item : mismatchLabelKeys) {
           this.addToMismatchLabelKeys(item);
         }
@@ -527,15 +529,15 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
         this.namespaceSelector = new V1LabelSelectorBuilder(namespaceSelector);
         this._visitables.get("namespaceSelector").add(this.namespaceSelector);
     } else {
-        this.namespaceSelector = null;
         this._visitables.get("namespaceSelector").remove(this.namespaceSelector);
+        this.namespaceSelector = null;
     }
     return (A) this;
   }
   
   public A withNamespaces(List<String> namespaces) {
     if (namespaces != null) {
-        this.namespaces = new ArrayList();
+        this.namespaces = new ArrayList<>();
         for (String item : namespaces) {
           this.addToNamespaces(item);
         }
@@ -559,19 +561,19 @@ public class V1PodAffinityTermFluent<A extends io.kubernetes.client.openapi.mode
   }
   
   public LabelSelectorNested<A> withNewLabelSelector() {
-    return new LabelSelectorNested(null);
+    return new LabelSelectorNested<>(null);
   }
   
   public LabelSelectorNested<A> withNewLabelSelectorLike(V1LabelSelector item) {
-    return new LabelSelectorNested(item);
+    return new LabelSelectorNested<>(item);
   }
   
   public NamespaceSelectorNested<A> withNewNamespaceSelector() {
-    return new NamespaceSelectorNested(null);
+    return new NamespaceSelectorNested<>(null);
   }
   
   public NamespaceSelectorNested<A> withNewNamespaceSelectorLike(V1LabelSelector item) {
-    return new NamespaceSelectorNested(item);
+    return new NamespaceSelectorNested<>(item);
   }
   
   public A withTopologyKey(String topologyKey) {

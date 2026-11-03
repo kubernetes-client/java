@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
  * NodeSystemInfo is a set of ids/uuids to uniquely identify the node.
  */
 @ApiModel(description = "NodeSystemInfo is a set of ids/uuids to uniquely identify the node.")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-26T22:35:15.319369Z[Etc/UTC]", comments = "Generator version: 7.18.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T02:48:00.835726Z[Etc/UTC]", comments = "Generator version: 7.18.0")
 public class V1NodeSystemInfo {
   public static final String SERIALIZED_NAME_ARCHITECTURE = "architecture";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURE)
@@ -97,6 +97,11 @@ public class V1NodeSystemInfo {
   @SerializedName(SERIALIZED_NAME_OS_IMAGE)
   @jakarta.annotation.Nonnull
   private String osImage;
+
+  public static final String SERIALIZED_NAME_RUNNING_IN_USER_NAMESPACE = "runningInUserNamespace";
+  @SerializedName(SERIALIZED_NAME_RUNNING_IN_USER_NAMESPACE)
+  @jakarta.annotation.Nullable
+  private Boolean runningInUserNamespace;
 
   public static final String SERIALIZED_NAME_SWAP = "swap";
   @SerializedName(SERIALIZED_NAME_SWAP)
@@ -291,6 +296,26 @@ public class V1NodeSystemInfo {
   }
 
 
+  public V1NodeSystemInfo runningInUserNamespace(@jakarta.annotation.Nullable Boolean runningInUserNamespace) {
+    this.runningInUserNamespace = runningInUserNamespace;
+    return this;
+  }
+
+  /**
+   * Whether the node is running in a user namespace.
+   * @return runningInUserNamespace
+   */
+  @jakarta.annotation.Nullable
+  @ApiModelProperty(value = "Whether the node is running in a user namespace.")
+  public Boolean getRunningInUserNamespace() {
+    return runningInUserNamespace;
+  }
+
+  public void setRunningInUserNamespace(@jakarta.annotation.Nullable Boolean runningInUserNamespace) {
+    this.runningInUserNamespace = runningInUserNamespace;
+  }
+
+
   public V1NodeSystemInfo swap(@jakarta.annotation.Nullable V1NodeSwapStatus swap) {
     this.swap = swap;
     return this;
@@ -350,13 +375,14 @@ public class V1NodeSystemInfo {
         Objects.equals(this.machineID, v1NodeSystemInfo.machineID) &&
         Objects.equals(this.operatingSystem, v1NodeSystemInfo.operatingSystem) &&
         Objects.equals(this.osImage, v1NodeSystemInfo.osImage) &&
+        Objects.equals(this.runningInUserNamespace, v1NodeSystemInfo.runningInUserNamespace) &&
         Objects.equals(this.swap, v1NodeSystemInfo.swap) &&
         Objects.equals(this.systemUUID, v1NodeSystemInfo.systemUUID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, bootID, containerRuntimeVersion, kernelVersion, kubeProxyVersion, kubeletVersion, machineID, operatingSystem, osImage, swap, systemUUID);
+    return Objects.hash(architecture, bootID, containerRuntimeVersion, kernelVersion, kubeProxyVersion, kubeletVersion, machineID, operatingSystem, osImage, runningInUserNamespace, swap, systemUUID);
   }
 
   @Override
@@ -372,6 +398,7 @@ public class V1NodeSystemInfo {
     sb.append("    machineID: ").append(toIndentedString(machineID)).append("\n");
     sb.append("    operatingSystem: ").append(toIndentedString(operatingSystem)).append("\n");
     sb.append("    osImage: ").append(toIndentedString(osImage)).append("\n");
+    sb.append("    runningInUserNamespace: ").append(toIndentedString(runningInUserNamespace)).append("\n");
     sb.append("    swap: ").append(toIndentedString(swap)).append("\n");
     sb.append("    systemUUID: ").append(toIndentedString(systemUUID)).append("\n");
     sb.append("}");
@@ -395,7 +422,7 @@ public class V1NodeSystemInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("architecture", "bootID", "containerRuntimeVersion", "kernelVersion", "kubeProxyVersion", "kubeletVersion", "machineID", "operatingSystem", "osImage", "swap", "systemUUID"));
+    openapiFields = new HashSet<String>(Arrays.asList("architecture", "bootID", "containerRuntimeVersion", "kernelVersion", "kubeProxyVersion", "kubeletVersion", "machineID", "operatingSystem", "osImage", "runningInUserNamespace", "swap", "systemUUID"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("architecture", "bootID", "containerRuntimeVersion", "kernelVersion", "kubeProxyVersion", "kubeletVersion", "machineID", "operatingSystem", "osImage", "systemUUID"));
