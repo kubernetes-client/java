@@ -126,7 +126,7 @@ public class KubernetesFromConfigMapProcessor
 
     @Override
     public Set<Entry<String, String>> entrySet() {
-      // The unmodifiable wrapper caches views; keep them live but pin each iterator to one snapshot.
+      // Keep the unmodifiable wrapper's cached views live; each iterator captures a snapshot.
       return new AbstractSet<>() {
         @Override
         public Iterator<Entry<String, String>> iterator() {

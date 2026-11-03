@@ -31,8 +31,9 @@ import java.lang.annotation.Target;
  * complete, immutable copy of the ConfigMap data. Iteration (including {@code forEach}) and copies
  * such as {@code new HashMap<>(map)} observe one complete version. Views returned by {@code
  * entrySet()}, {@code keySet()}, and {@code values()} remain live, but each iterator retains the
- * version captured when it was created. Separate calls to {@code get} may observe different versions
- * if a refresh occurs between them; they are not a transaction.
+ * version captured when it was created. Separate operations on the map or its views (for example,
+ * two {@code get} calls, or {@code size()} followed by iteration) may observe different versions if
+ * a refresh occurs between them; they are not a transaction.
  *
  * <p>Unlike the previously injected mutable cache map, the map and its views are now read-only.
  * Mutating operations throw {@link UnsupportedOperationException}. Copy the map into an

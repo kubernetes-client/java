@@ -12,9 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.manifests;
 
-import static org.awaitility.Awaitility.await;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.awaitility.Awaitility.await;
 
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import io.kubernetes.client.spring.extended.manifests.annotation.FromConfigMap;
