@@ -18,7 +18,10 @@ import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.KubernetesApiResponse;
 
 import java.time.Duration;
+import java.util.Collections;
+import java.util.IdentityHashMap;
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
@@ -171,7 +174,9 @@ public class WaitUtils {
     }
 
     /**
-     * Waits until the resource is deleted (returns null or throws 404).
+     * Waits until the resource is deleted (returns null or throws an {@link ApiException} with
+     * HTTP status 404, directly or wrapped in another exception). Other supplier exceptions are
+     * surfaced immediately.
      *
      * @param <T> the resource type
      * @param resourceSupplier supplier that fetches the current state of the resource
@@ -179,6 +184,7 @@ public class WaitUtils {
      * @param pollInterval time between checks
      * @throws TimeoutException if the resource is not deleted within the timeout
      * @throws InterruptedException if the thread is interrupted
+     * @throws RuntimeException if the supplier fails with an exception other than HTTP 404
      */
     public static <T extends KubernetesObject> void waitUntilDeleted(
             Supplier<T> resourceSupplier,
@@ -200,8 +206,11 @@ public class WaitUtils {
                         future.complete(null);
                     }
                 } catch (Exception e) {
-                    // Treat any exception as deleted (typically 404)
-                    future.complete(null);
+                    if (isNotFoundException(e)) {
+                        future.complete(null);
+                    } else {
+                        future.completeExceptionally(e);
+                    }
                 }
             }, 0, pollInterval.toMillis(), TimeUnit.MILLISECONDS);
 
@@ -211,10 +220,24 @@ public class WaitUtils {
                 scheduledTask.cancel(true);
             }
         } catch (ExecutionException e) {
-            throw new RuntimeException("Unexpected error while waiting for deletion", e.getCause());
+            Throwable cause = e.getCause();
+            if (cause instanceof RuntimeException) {
+                throw (RuntimeException) cause;
+            }
+            throw new RuntimeException("Unexpected error while waiting for deletion", cause);
         } finally {
             executor.shutdownNow();
         }
+    }
+
+    private static boolean isNotFoundException(Throwable exception) {
+        Set<Throwable> visited = Collections.newSetFromMap(new IdentityHashMap<>());
+        for (Throwable cause = exception; cause != null && visited.add(cause); cause = cause.getCause()) {
+            if (cause instanceof ApiException && ((ApiException) cause).getCode() == 404) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
