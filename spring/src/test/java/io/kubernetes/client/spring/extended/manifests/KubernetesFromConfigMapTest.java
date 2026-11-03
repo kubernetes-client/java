@@ -21,6 +21,7 @@ import io.kubernetes.client.spring.extended.manifests.config.KubernetesManifests
 import io.kubernetes.client.spring.extended.manifests.configmaps.ConfigMapGetter;
 import java.time.Duration;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -94,6 +95,25 @@ class KubernetesFromConfigMapTest {
   }
 
   @Test
+  void refreshRecoversAfterReadFailure() {
+    assertThat(myBean.dynamicData).containsEntry("foo", "bar1");
+    int failedReads = mockAtomicConfigMapGetter.failedReads.get();
+    mockAtomicConfigMapGetter.readFailure.set(new IllegalStateException("Transient API failure"));
+    try {
+      await().until(() -> mockAtomicConfigMapGetter.failedReads.get() > failedReads);
+      assertThat(myBean.dynamicData).containsExactlyEntriesOf(Map.of("foo", "bar1"));
+    } finally {
+      mockAtomicConfigMapGetter.readFailure.set(null);
+    }
+
+    mockAtomicConfigMapGetter.configMapAtomicReference.set(
+        new V1ConfigMap().putDataItem("foo", "recovered"));
+    await()
+        .timeout(manifestsProperties.getRefreshInterval().multipliedBy(2))
+        .until(() -> "recovered".equals(myBean.dynamicData.get("foo")));
+  }
+
+  @Test
   void keyUpdate() {
     assertThat(manifestsProperties.getRefreshInterval()).isEqualTo(Duration.ofSeconds(1));
     assertThat(myBean.dynamicData).isNotNull();
@@ -119,9 +139,16 @@ class KubernetesFromConfigMapTest {
   static class MockAtomicConfigMapGetter implements ConfigMapGetter {
 
     private final AtomicReference<V1ConfigMap> configMapAtomicReference = new AtomicReference<>();
+    private final AtomicReference<RuntimeException> readFailure = new AtomicReference<>();
+    private final AtomicInteger failedReads = new AtomicInteger();
 
     @Override
     public V1ConfigMap get(String namespace, String name) {
+      RuntimeException failure = readFailure.get();
+      if (failure != null) {
+        failedReads.incrementAndGet();
+        throw failure;
+      }
       return configMapAtomicReference.get();
     }
   }
