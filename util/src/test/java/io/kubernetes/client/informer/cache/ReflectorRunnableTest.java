@@ -43,6 +43,10 @@ import java.util.function.BiConsumer;
 import org.awaitility.Awaitility;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -210,6 +214,113 @@ class ReflectorRunnableTest {
     } finally {
       reflectorRunnable.stop();
     }
+  }
+
+  @ParameterizedTest
+  @ValueSource(ints = {410, 504})
+  void reflectorRecoversUnavailableResourceVersion(int statusCode) throws ApiException {
+    V1Pod initialPod = new V1Pod().metadata(new V1ObjectMeta().name("initial"));
+    V1Pod recoveredPod = new V1Pod().metadata(new V1ObjectMeta().name("recovered"));
+    ApiException unavailable =
+        statusCode == 410
+            ? new ApiException(410, "Gone")
+            : new ApiException(
+                statusCode,
+                null,
+                "{\"kind\":\"Status\",\"apiVersion\":\"v1\",\"reason\":\"Timeout\","
+                    + "\"details\":{\"causes\":[{\"reason\":\"Other\"},"
+                    + "{\"reason\":\"ResourceVersionTooLarge\"}]},\"code\":504}");
+    when(listerWatcher.list(any()))
+        .thenReturn(
+            new V1PodList()
+                .metadata(new V1ListMeta().resourceVersion("100"))
+                .items(Arrays.asList(initialPod)))
+        .thenThrow(unavailable)
+        .thenReturn(
+            new V1PodList()
+                .metadata(new V1ListMeta().resourceVersion("200"))
+                .items(Arrays.asList(recoveredPod)));
+    MockWatch<V1Pod> initialWatch =
+        new MockWatch<>(new Watch.Response<>(EventType.ERROR.name(), new V1Status().code(500)));
+    MockWatch<V1Pod> recoveredWatch =
+        new MockWatch<>(
+            new Watch.Response<>(
+                EventType.BOOKMARK.name(),
+                new V1Pod().metadata(new V1ObjectMeta().resourceVersion("201"))),
+            new Watch.Response<>(EventType.ERROR.name(), new V1Status().code(500)));
+    when(listerWatcher.watch(any())).thenReturn(initialWatch, recoveredWatch);
+    ReflectorRunnable<V1Pod, V1PodList> reflector =
+        new ReflectorRunnable<>(V1Pod.class, listerWatcher, deltaFIFO, exceptionHandler);
+
+    reflector.run();
+    assertThat(reflector.getLastSyncResourceVersion()).isEqualTo("100");
+    reflector.run();
+    assertThat(reflector.isLastSyncResourceVersionUnavailable()).isTrue();
+    assertThat(reflector.getLastSyncResourceVersion()).isEqualTo("100");
+    verify(exceptionHandler, never()).accept(V1Pod.class, unavailable);
+    reflector.run();
+
+    ArgumentCaptor<CallGeneratorParams> listParams =
+        ArgumentCaptor.forClass(CallGeneratorParams.class);
+    verify(listerWatcher, times(3)).list(listParams.capture());
+    assertThat(listParams.getAllValues())
+        .extracting(params -> params.resourceVersion)
+        .containsExactly("0", "100", "");
+    ArgumentCaptor<CallGeneratorParams> watchParams =
+        ArgumentCaptor.forClass(CallGeneratorParams.class);
+    verify(listerWatcher, times(2)).watch(watchParams.capture());
+    assertThat(watchParams.getAllValues())
+        .extracting(params -> params.resourceVersion)
+        .containsExactly("100", "200");
+    verify(deltaFIFO).replace(Arrays.asList(initialPod), "100");
+    verify(deltaFIFO).replace(Arrays.asList(recoveredPod), "200");
+    assertThat(reflector.isLastSyncResourceVersionUnavailable()).isFalse();
+    assertThat(reflector.getLastSyncResourceVersion()).isEqualTo("201");
+    assertThat(initialWatch.isClosed()).isTrue();
+    assertThat(recoveredWatch.isClosed()).isTrue();
+  }
+
+  @ParameterizedTest
+  @NullAndEmptySource
+  @ValueSource(
+      strings = {
+        "not json",
+        "null",
+        "[]",
+        "{}",
+        "{\"details\":null}",
+        "{\"details\":{\"causes\":null}}",
+        "{\"details\":{\"causes\":[]}}",
+        "{\"details\":{\"causes\":[null,{}]}}",
+        "{\"details\":{\"causes\":\"invalid\"}}",
+        "{\"details\":{\"causes\":[{\"reason\":{}}]}}",
+        "{\"reason\":\"Timeout\",\"message\":\"Too large resource version\"}",
+        "{\"reason\":\"Timeout\",\"details\":{\"causes\":[{\"reason\":\"Other\"}]}}"
+      })
+  void reflectorReportsOrdinaryTimeoutsAndMalformedBodies(String body) throws ApiException {
+    ApiException timeout = new ApiException(504, null, body);
+    when(listerWatcher.list(any()))
+        .thenReturn(new V1PodList().metadata(new V1ListMeta().resourceVersion("100")))
+        .thenThrow(timeout);
+    when(listerWatcher.watch(any()))
+        .thenReturn(
+            new MockWatch<>(
+                new Watch.Response<>(EventType.ERROR.name(), new V1Status().code(500))));
+    ReflectorRunnable<V1Pod, V1PodList> reflector =
+        new ReflectorRunnable<>(V1Pod.class, listerWatcher, deltaFIFO, exceptionHandler);
+
+    reflector.run();
+    reflector.run();
+    reflector.run();
+
+    ArgumentCaptor<CallGeneratorParams> params = ArgumentCaptor.forClass(CallGeneratorParams.class);
+    verify(listerWatcher, times(3)).list(params.capture());
+    assertThat(params.getAllValues())
+        .extracting(value -> value.resourceVersion)
+        .containsExactly("0", "100", "100");
+    verify(exceptionHandler, times(2)).accept(V1Pod.class, timeout);
+    assertThat(reflector.isLastSyncResourceVersionUnavailable()).isFalse();
+    assertThat(reflector.getLastSyncResourceVersion()).isEqualTo("100");
   }
 
   @Test
