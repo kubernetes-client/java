@@ -158,47 +158,44 @@ public class DeltaFIFO {
         this.queueActionLocked(DeltaType.Sync, obj);
       }
 
-      if (this.knownObjects == null) {
-        for (Map.Entry<String, Deque<MutablePair<DeltaType, KubernetesObject>>> entry :
-            this.items.entrySet()) {
-          if (keys.contains(entry.getKey())) {
-            continue;
-          }
-
-          KubernetesObject deletedObj = null;
-          MutablePair<DeltaType, KubernetesObject> delta =
-              entry.getValue().peekLast(); // get newest
-          if (delta != null) {
-            deletedObj = delta.getRight();
-          }
-          this.queueActionLocked(
-              DeltaType.Deleted, new DeletedFinalStateUnknown(entry.getKey(), deletedObj));
-        }
-
-        if (!this.populated) {
-          this.populated = true;
-          this.initialPopulationCount = list.size();
-        }
-        return;
-      }
-
-      // Detect deletions not already in the queue.
-      List<String> knownKeys = this.knownObjects.listKeys();
       int queueDeletion = 0;
-      for (String knownKey : knownKeys) {
-        if (keys.contains(knownKey)) {
+      for (Map.Entry<String, Deque<MutablePair<DeltaType, KubernetesObject>>> entry :
+          this.items.entrySet()) {
+        if (keys.contains(entry.getKey())) {
           continue;
         }
 
-        KubernetesObject deletedObj = this.knownObjects.getByKey(knownKey);
-        if (deletedObj == null) {
-          log.warn(
-              "Key {} does not exist in known objects store, placing DeleteFinalStateUnknown marker without object",
-              knownKey);
+        KubernetesObject deletedObj = null;
+        MutablePair<DeltaType, KubernetesObject> delta = entry.getValue().peekLast(); // get newest
+        if (delta != null) {
+          deletedObj = delta.getRight();
+          if (deletedObj instanceof DeletedFinalStateUnknown) {
+            deletedObj = ((DeletedFinalStateUnknown<?>) deletedObj).getObj();
+          }
         }
         queueDeletion++;
         this.queueActionLocked(
-            DeltaType.Deleted, new DeletedFinalStateUnknown(knownKey, deletedObj));
+            DeltaType.Deleted, new DeletedFinalStateUnknown(entry.getKey(), deletedObj));
+      }
+
+      // Detect deletions not already in the queue.
+      if (this.knownObjects != null) {
+        List<String> knownKeys = this.knownObjects.listKeys();
+        for (String knownKey : knownKeys) {
+          if (keys.contains(knownKey) || this.items.containsKey(knownKey)) {
+            continue;
+          }
+
+          KubernetesObject deletedObj = this.knownObjects.getByKey(knownKey);
+          if (deletedObj == null) {
+            log.warn(
+                "Key {} does not exist in known objects store, placing DeleteFinalStateUnknown marker without object",
+                knownKey);
+          }
+          queueDeletion++;
+          this.queueActionLocked(
+              DeltaType.Deleted, new DeletedFinalStateUnknown(knownKey, deletedObj));
+        }
       }
 
       if (!this.populated) {
