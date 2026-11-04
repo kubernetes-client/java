@@ -36,8 +36,27 @@ public class ItemExponentialFailureRateLimiter<T> implements RateLimiter<T> {
   @Override
   public Duration when(T item) {
     long exp = failures.computeIfAbsent(item, k -> new AtomicLong()).getAndIncrement();
-    long d = maxDelay.toMillis() >> exp;
-    return d > baseDelay.toMillis() ? baseDelay.multipliedBy(1L << exp) : maxDelay;
+    if (baseDelay.isNegative() || maxDelay.isNegative()) {
+      // Preserve the existing behavior for negative duration configurations.
+      long d = maxDelay.toMillis() >> exp;
+      return d > baseDelay.toMillis() ? baseDelay.multipliedBy(1L << exp) : maxDelay;
+    }
+    if (baseDelay.compareTo(maxDelay) >= 0) {
+      return maxDelay;
+    }
+    if (baseDelay.isZero()) {
+      return baseDelay;
+    }
+    Duration delay = baseDelay;
+    Duration halfMaxDelay = maxDelay.dividedBy(2);
+    for (long i = 0; i < exp; i++) {
+      // Check before doubling to avoid overflow; positive durations reach the cap in at most 94 steps.
+      if (delay.compareTo(halfMaxDelay) > 0) {
+        return maxDelay;
+      }
+      delay = delay.multipliedBy(2);
+    }
+    return delay;
   }
 
   @Override

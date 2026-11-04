@@ -15,9 +15,45 @@ package io.kubernetes.client.extended.workqueue.ratelimiter;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.Duration;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 class ItemExponentialFailureRateLimiterTest {
+
+  static Stream<Arguments> positiveDelays() {
+    return Stream.of(
+        Arguments.of(Duration.ofMillis(5), Duration.ofSeconds(1000)),
+        Arguments.of(Duration.ofMillis(1), Duration.ofMillis(Long.MAX_VALUE)),
+        Arguments.of(Duration.ofSeconds(Long.MAX_VALUE / 4), Duration.ofSeconds(Long.MAX_VALUE)),
+        Arguments.of(Duration.ofNanos(1), Duration.ofSeconds(Long.MAX_VALUE, 999_999_999)),
+        Arguments.of(Duration.ofNanos(3), Duration.ofNanos(10)),
+        Arguments.of(Duration.ofSeconds(2), Duration.ofSeconds(1)),
+        Arguments.of(Duration.ofMillis(1), Duration.ZERO),
+        Arguments.of(Duration.ZERO, Duration.ofSeconds(1)));
+  }
+
+  @ParameterizedTest
+  @MethodSource("positiveDelays")
+  void repeatedFailuresStayCapped(Duration baseDelay, Duration maxDelay) {
+    RateLimiter<String> rateLimiter = new ItemExponentialFailureRateLimiter<>(baseDelay, maxDelay);
+    Duration expected = baseDelay.compareTo(maxDelay) < 0 ? baseDelay : maxDelay;
+
+    for (int call = 1; call <= 1024; call++) {
+      assertThat(rateLimiter.when("item")).as("call %s", call).isEqualTo(expected);
+      assertThat(rateLimiter.numRequeues("item")).isEqualTo(call);
+      expected =
+          expected.compareTo(maxDelay.minus(expected)) >= 0 ? maxDelay : expected.plus(expected);
+    }
+
+    rateLimiter.forget("item");
+    assertThat(rateLimiter.numRequeues("item")).isZero();
+    assertThat(rateLimiter.when("item"))
+        .isEqualTo(baseDelay.compareTo(maxDelay) < 0 ? baseDelay : maxDelay);
+    assertThat(rateLimiter.numRequeues("item")).isEqualTo(1);
+  }
 
   @Test
   void itemExponentialFailureRateLimiter() {
