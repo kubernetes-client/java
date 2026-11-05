@@ -15,8 +15,13 @@ package io.kubernetes.client.custom;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
 // Note: Do not use AssertJ .isEquqlTo to test .equals, as this doesn't necessarily invoke it!
@@ -121,7 +126,27 @@ class IntOrStringTest {
     IntOrString intOrString2 = new IntOrString("17");
 
     ObjectMapper mapper = new ObjectMapper();
-    mapper.writeValueAsString(intOrString1);
-    mapper.writeValueAsString(intOrString2);
+    assertThat(mapper.writeValueAsString(intOrString1)).isEqualTo("17");
+    assertThat(mapper.writeValueAsString(intOrString2)).isEqualTo("\"17\"");
+  }
+
+  @Test
+  void jacksonSerializer_canBeOverriddenByMixin() throws JsonProcessingException {
+    ObjectMapper mapper = new ObjectMapper();
+    mapper.addMixIn(IntOrString.class, IntOrStringMixin.class);
+
+    assertThat(mapper.writeValueAsString(new IntOrString(17))).isEqualTo("\"custom:17\"");
+  }
+
+  @JsonSerialize(using = CustomIntOrStringSerializer.class)
+  private abstract static class IntOrStringMixin {}
+
+  private static class CustomIntOrStringSerializer extends JsonSerializer<IntOrString> {
+    @Override
+    public void serialize(
+        IntOrString value, JsonGenerator generator, SerializerProvider serializers)
+        throws IOException {
+      generator.writeString("custom:" + value);
+    }
   }
 }
