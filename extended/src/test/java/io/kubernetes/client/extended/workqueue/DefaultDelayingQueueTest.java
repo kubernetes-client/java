@@ -45,7 +45,9 @@ class DefaultDelayingQueueTest {
     String item = queue.get();
     queue.done(item);
 
-    Thread.sleep(10 * 1000L);
+    // The only entry was released above, so once nothing is left waiting to be added the queue
+    // cannot receive anything else. Poll for that instead of sleeping for a fixed 10 seconds.
+    assertThat(waitForWaitingQueueToFill(queue)).isTrue();
     assertThat(0).isEqualTo(queue.length());
   }
 

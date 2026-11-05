@@ -20,6 +20,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class PollingConfigMapGetter implements ConfigMapGetter {
 
+  private final Cache<NamespaceName, V1ConfigMap> lastObservedConfigMap =
+      Caffeine.newBuilder().expireAfterWrite(Duration.ofMinutes(5)).build();
+
   @Autowired private ApiClient apiClient;
 
   @Override

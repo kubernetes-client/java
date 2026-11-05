@@ -16,6 +16,34 @@ See the wiki page and documentation [here](https://github.com/kubernetes-client/
 - [Client Versioning and Compatibility](https://github.com/kubernetes-client/java/wiki/2.-Versioning-and-Compatibility)
 - [Code Examples](https://github.com/kubernetes-client/java/wiki/3.-Code-Examples)
 
+### Exec credential plugin policy
+
+Kubeconfig `exec` credential plugins start local processes. Only load trusted kubeconfigs with the
+default `AllowAll` policy. Applications can restrict which plugins may run using
+`ExecCredentialPluginPolicy`, which follows the `credentialPluginPolicy` /
+`credentialPluginAllowlist` semantics of [kuberc](https://kubernetes.io/docs/reference/kubectl/kuberc/):
+
+```java
+// Deny all exec plugins
+ApiClient client = ClientBuilder.standard(ExecCredentialPluginPolicy.DENY_ALL).build();
+
+// Only allow specific plugins (basenames resolved via PATH, or full paths)
+ApiClient client = ClientBuilder.standard(
+    ExecCredentialPluginPolicy.allowlist("kubelogin", "/usr/local/bin/my-trusted-plugin")).build();
+
+// Use the same policy as kubectl ($KUBERC or ~/.kube/kuberc)
+ApiClient client = ClientBuilder.standard(ExecCredentialPluginPolicy.fromDefaultKubeRc()).build();
+
+// Or on a KubeConfig loaded manually
+kubeConfig.setExecCredentialPluginPolicy(ExecCredentialPluginPolicy.DENY_ALL);
+```
+
+An allowlist entry matches when it is exactly equal to the plugin command, or when both resolve to the
+same executable via `PATH` (symlinks and globs are not resolved). Denied plugins are never started and
+an `ExecCredentialPluginDeniedException` is thrown. The policy applies to both initial credential
+acquisition and token refresh. It does not restrict plugin arguments or environment, and is a
+defense-in-depth measure rather than a sandbox.
+
 ## Release
 
 Starting from `20.0.0` (Kubernetes 1.28), `client-java-api` has introduced non-backward-compatible changes. Optional 

@@ -69,6 +69,7 @@ public class KubeConfig {
   Object preferences;
   ConfigPersister persister;
   private File file;
+  private ExecCredentialPluginPolicy execCredentialPluginPolicy = ExecCredentialPluginPolicy.ALLOW_ALL;
 
   public static void registerAuthenticator(Authenticator auth) {
     synchronized (authenticators) {
@@ -346,9 +347,9 @@ public class KubeConfig {
       }
       // Not checking isRegularFile or isExecutable here; leave that to ProcessBuilder.start.
       log.debug("Resolved {} to {}", command, resolvedCommand);
-      argv.add(resolvedCommand.toString());
+      argv.add(execCredentialPluginPolicy.checkAllowed(resolvedCommand.toString()));
     } else {
-      argv.add(command);
+      argv.add(execCredentialPluginPolicy.checkAllowed(command));
     }
     if (args != null) {
       argv.addAll(args);
@@ -408,6 +409,27 @@ public class KubeConfig {
    */
   public void setFile(File file) {
     this.file = file;
+  }
+
+  /**
+   * Sets the policy governing which exec credential plugins may be run when obtaining credentials.
+   * The policy applies both to the initial credential request and to any later refresh. Defaults
+   * to {@link ExecCredentialPluginPolicy#ALLOW_ALL}.
+   *
+   * <p>If a plugin is denied, {@link #getCredentials()} throws {@link
+   * io.kubernetes.client.util.exception.ExecCredentialPluginDeniedException} without starting the
+   * plugin.
+   *
+   * @param policy the policy to apply; null restores the default of allowing all plugins
+   * @see ExecCredentialPluginPolicy#fromDefaultKubeRc()
+   */
+  public void setExecCredentialPluginPolicy(ExecCredentialPluginPolicy policy) {
+    this.execCredentialPluginPolicy =
+        policy == null ? ExecCredentialPluginPolicy.ALLOW_ALL : policy;
+  }
+
+  public ExecCredentialPluginPolicy getExecCredentialPluginPolicy() {
+    return execCredentialPluginPolicy;
   }
 
   public void setPreferences(Object preferences) {
