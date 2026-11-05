@@ -23,7 +23,7 @@ import java.time.Duration;
 
 public class PollingEndpointsGetter implements EndpointsGetter {
 
-  private static final Cache<NamespaceName, V1Endpoints> lastObservedEndpoints =
+  private final Cache<NamespaceName, V1Endpoints> lastObservedEndpoints =
       Caffeine.newBuilder().expireAfterWrite(Duration.ofMinutes(5)).build();
 
   private final ApiClient apiClient;
