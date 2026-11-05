@@ -25,7 +25,8 @@ import java.lang.annotation.Target;
  * <p>The annotations has to be be applied to member field of type Map<String, String>.
  *
  * <p>The content of the map will be automatically updated at the interval specified by the property
- * "kubernetes.manifests.refreshInterval".
+ * "kubernetes.manifests.refreshInterval". The default polling getter reads the ConfigMap from the
+ * API server on every refresh.
  *
  * <p>If the given configmap, is not present in the cluster, the content of the map will stay empty.
  */
