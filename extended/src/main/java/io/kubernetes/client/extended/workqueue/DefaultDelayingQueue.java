@@ -21,6 +21,7 @@ import java.util.concurrent.DelayQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
@@ -34,21 +35,42 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
   private ConcurrentMap<T, WaitForEntry<T>> waitingEntryByData;
   protected BlockingQueue<WaitForEntry<T>> waitingForAddQueue;
   private Supplier<Long> timeSource;
+  private final ExecutorService ownedWaitingWorker;
+  private final Future<?> waitingTask;
 
   private static Long now() {
     return System.nanoTime() / 1000000;
   }
 
+  /**
+   * Creates a queue using a caller-owned executor. Shutdown cancels the waiting task but does not
+   * shut down the executor.
+   */
   public DefaultDelayingQueue(ExecutorService waitingWorker) {
+    this(waitingWorker, false);
+  }
+
+  private DefaultDelayingQueue(ExecutorService waitingWorker, boolean ownsWaitingWorker) {
+    this.ownedWaitingWorker = ownsWaitingWorker ? waitingWorker : null;
     this.timeSource = DefaultDelayingQueue::now;
     this.delayQueue = new DelayQueue<>();
     this.waitingEntryByData = new ConcurrentHashMap<>();
     this.waitingForAddQueue = new LinkedBlockingQueue<>(1000);
-    waitingWorker.submit(this::waitingLoop);
+    this.waitingTask = waitingWorker.submit(this::waitingLoop);
   }
 
+  /** Creates a queue that shuts down its internally owned executor on shutdown. */
   public DefaultDelayingQueue() {
-    this(Executors.newSingleThreadExecutor());
+    this(Executors.newSingleThreadExecutor(), true);
+  }
+
+  @Override
+  public void shutDown() {
+    super.shutDown();
+    waitingTask.cancel(true);
+    if (ownedWaitingWorker != null) {
+      ownedWaitingWorker.shutdown();
+    }
   }
 
   public void addAfter(T item, Duration duration) {

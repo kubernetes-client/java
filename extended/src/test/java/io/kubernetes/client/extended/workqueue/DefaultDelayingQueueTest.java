@@ -17,14 +17,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 import io.kubernetes.client.extended.wait.Wait;
 import java.time.Duration;
 import java.time.Instant;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 class DefaultDelayingQueueTest {
 
+  private final DefaultDelayingQueue<String> queue = new DefaultDelayingQueue<>();
+
+  @AfterEach
+  void tearDown() {
+    queue.shutDown();
+  }
+
   @Test
   void simpleDelayingQueue() throws Exception {
     final Instant staticTime = Instant.now();
-    DefaultDelayingQueue<String> queue = new DefaultDelayingQueue<>();
     // Hold time still
     queue.injectTimeSource(
         () -> {
@@ -54,7 +61,6 @@ class DefaultDelayingQueueTest {
   @Test
   void deduping() throws Exception {
     final Instant staticTime = Instant.now();
-    DefaultDelayingQueue<String> queue = new DefaultDelayingQueue<>();
     String item = "foo";
 
     // Hold time still
@@ -113,7 +119,6 @@ class DefaultDelayingQueueTest {
   @Test
   void copyShifting() throws Exception {
     final Instant staticTime = Instant.now();
-    DefaultDelayingQueue<String> queue = new DefaultDelayingQueue<>();
     queue.injectTimeSource(
         () -> {
           return staticTime.toEpochMilli();
