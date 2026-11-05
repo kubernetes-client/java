@@ -12,24 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.impl;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
 import io.kubernetes.client.informer.ListerWatcher;
+import io.kubernetes.client.informer.cache.Cache;
+import io.kubernetes.client.informer.cache.Caches;
 import io.kubernetes.client.informer.cache.DeltaFIFO;
 import io.kubernetes.client.informer.cache.Indexer;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.util.Threads;
+import java.util.Collections;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.function.BiConsumer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class DefaultSharedIndexInformerTest {
@@ -79,5 +86,49 @@ class DefaultSharedIndexInformerTest {
   void minimalConstructorExists() {
 
     new DefaultSharedIndexInformer<>(anyApiType, listerWatcher, anyResyncPeriod);
+  }
+
+  @ParameterizedTest
+  @CsvSource({
+    "true,false,false",
+    "true,true,false",
+    "false,true,false",
+    "true,false,true",
+    "true,true,true",
+    "false,true,true"
+  })
+  void relistReconcilesPendingAndCachedObjects(boolean queued, boolean cached, boolean present)
+      throws InterruptedException {
+    V1Pod pod =
+        new V1Pod()
+            .metadata(new V1ObjectMeta().namespace("default").name("foo").resourceVersion("2"));
+    V1Pod listedPod =
+        new V1Pod()
+            .metadata(new V1ObjectMeta().namespace("default").name("foo").resourceVersion("3"));
+    Cache<V1Pod> cache = new Cache<>();
+    DeltaFIFO fifo = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, cache);
+    DefaultSharedIndexInformer<V1Pod, V1PodList> informer =
+        new DefaultSharedIndexInformer<>(anyApiType, listerWatcher, 0, fifo, cache);
+    fifo.replace(Collections.emptyList(), "1");
+    if (cached) {
+      cache.add(pod);
+    }
+    if (queued) {
+      fifo.add(pod);
+    }
+
+    fifo.replace(present ? Collections.singletonList(listedPod) : Collections.emptyList(), "3");
+    assertThat(fifo.listKeys()).containsExactly("default/foo");
+    fifo.pop(informer::handleDeltas);
+
+    if (present) {
+      assertThat(cache.list()).containsExactly(listedPod);
+      assertThat(cache.getByKey("default/foo")).isSameAs(listedPod);
+    } else {
+      assertThat(cache.list()).isEmpty();
+      assertThat(cache.getByKey("default/foo")).isNull();
+    }
+    assertThat(fifo.listKeys()).isEmpty();
+    assertThat(fifo.hasSynced()).isTrue();
   }
 }

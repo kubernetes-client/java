@@ -25,6 +25,8 @@ import java.util.Deque;
 import java.util.LinkedList;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class DeltaFIFOTest {
   @Test
@@ -156,9 +158,11 @@ class DeltaFIFOTest {
 
     deltaFIFO.delete(oldPod);
     deltaFIFO.replace(Arrays.asList(newPod), "0");
+    deltaFIFO.replace(Arrays.asList(newPod), "0");
 
     deltaFIFO.pop(
         (deltas) -> {
+          assertThat(deltas).hasSize(1);
           assertThat(deltas.getFirst().getLeft()).isEqualTo(DeltaFIFO.DeltaType.Deleted);
           assertThat(deltas.getFirst().getRight()).isEqualTo(oldPod);
         });
@@ -168,5 +172,117 @@ class DeltaFIFOTest {
           assertThat(deltas.getFirst().getLeft()).isEqualTo(DeltaFIFO.DeltaType.Sync);
           assertThat(deltas.getFirst().getRight()).isEqualTo(newPod);
         });
+  }
+
+  @ParameterizedTest
+  @CsvSource({"false,false", "true,false", "true,true"})
+  void replaceDeletesPendingObjectUsingNewestDelta(boolean withStore, boolean cached)
+      throws InterruptedException {
+    V1Pod oldPod =
+        new V1Pod()
+            .metadata(new V1ObjectMeta().namespace("default").name("foo").resourceVersion("1"));
+    V1Pod newPod =
+        new V1Pod()
+            .metadata(new V1ObjectMeta().namespace("default").name("foo").resourceVersion("2"));
+    Cache<V1Pod> cache = new Cache<>();
+    DeltaFIFO fifo =
+        new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, withStore ? cache : null);
+    fifo.replace(Collections.emptyList(), "0");
+    if (cached) {
+      cache.add(oldPod);
+    }
+    fifo.add(oldPod);
+    fifo.update(newPod);
+
+    fifo.replace(Collections.emptyList(), "3");
+    fifo.replace(Collections.emptyList(), "4");
+
+    assertThat(fifo.listKeys()).containsExactly("default/foo");
+    fifo.pop(
+        deltas -> {
+          assertThat(deltas)
+              .extracting(MutablePair::getLeft)
+              .containsExactly(
+                  DeltaFIFO.DeltaType.Added,
+                  DeltaFIFO.DeltaType.Updated,
+                  DeltaFIFO.DeltaType.Deleted);
+          DeltaFIFO.DeletedFinalStateUnknown<?> tombstone =
+              (DeltaFIFO.DeletedFinalStateUnknown<?>) deltas.peekLast().getRight();
+          assertThat(tombstone.getKey()).isEqualTo("default/foo");
+          assertThat(tombstone.getObj()).isSameAs(newPod);
+        });
+    assertThat(fifo.listKeys()).isEmpty();
+    assertThat(fifo.hasSynced()).isTrue();
+  }
+
+  @Test
+  void replaceDeletesRecreatedObjectUsingNewestDelta() throws InterruptedException {
+    V1Pod oldPod =
+        new V1Pod()
+            .metadata(
+                new V1ObjectMeta()
+                    .namespace("default")
+                    .name("foo")
+                    .uid("old")
+                    .resourceVersion("1"));
+    V1Pod newPod =
+        new V1Pod()
+            .metadata(
+                new V1ObjectMeta()
+                    .namespace("default")
+                    .name("foo")
+                    .uid("new")
+                    .resourceVersion("2"));
+    Cache<V1Pod> cache = new Cache<>();
+    cache.add(oldPod);
+    DeltaFIFO fifo = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, cache);
+    fifo.delete(oldPod);
+    fifo.add(newPod);
+
+    fifo.replace(Collections.emptyList(), "3");
+
+    fifo.pop(
+        deltas -> {
+          assertThat(deltas)
+              .extracting(MutablePair::getLeft)
+              .containsExactly(
+                  DeltaFIFO.DeltaType.Deleted,
+                  DeltaFIFO.DeltaType.Added,
+                  DeltaFIFO.DeltaType.Deleted);
+          assertThat(deltas.peekFirst().getRight()).isSameAs(oldPod);
+          DeltaFIFO.DeletedFinalStateUnknown<?> tombstone =
+              (DeltaFIFO.DeletedFinalStateUnknown<?>) deltas.peekLast().getRight();
+          assertThat(tombstone.getObj()).isSameAs(newPod);
+        });
+    assertThat(fifo.listKeys()).isEmpty();
+  }
+
+  @Test
+  void replaceCountsCachedDeletionsDuringInitialSync() throws InterruptedException {
+    V1Pod missing = new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("missing"));
+    V1Pod present = new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("present"));
+    Cache<V1Pod> cache = new Cache<>();
+    cache.add(missing);
+    DeltaFIFO fifo = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, cache);
+
+    fifo.replace(Collections.singletonList(present), "1");
+    assertThat(fifo.hasSynced()).isFalse();
+    fifo.pop(
+        deltas -> {
+          assertThat(deltas).hasSize(1);
+          assertThat(deltas.peekFirst().getLeft()).isEqualTo(DeltaFIFO.DeltaType.Sync);
+          assertThat(deltas.peekFirst().getRight()).isSameAs(present);
+        });
+    assertThat(fifo.hasSynced()).isFalse();
+    fifo.pop(
+        deltas -> {
+          assertThat(deltas).hasSize(1);
+          assertThat(deltas.peekFirst().getLeft()).isEqualTo(DeltaFIFO.DeltaType.Deleted);
+          DeltaFIFO.DeletedFinalStateUnknown<?> tombstone =
+              (DeltaFIFO.DeletedFinalStateUnknown<?>) deltas.peekFirst().getRight();
+          assertThat(tombstone.getObj()).isSameAs(missing);
+        });
+    assertThat(fifo.hasSynced()).isTrue();
+    assertThat(fifo.listKeys()).isEmpty();
   }
 }
