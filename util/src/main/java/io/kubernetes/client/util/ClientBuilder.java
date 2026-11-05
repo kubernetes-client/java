@@ -107,11 +107,46 @@ public class ClientBuilder {
   }
 
   public static ClientBuilder standard(boolean persistConfig) throws IOException {
+    return standard(persistConfig, ExecCredentialPluginPolicy.ALLOW_ALL);
+  }
+
+  /**
+   * Creates a builder which is pre-configured as described in {@link #standard()}, applying the
+   * given policy to any exec credential plugin found in the kubeconfig.
+   *
+   * @param execCredentialPluginPolicy the exec credential plugin policy, for example {@link
+   *     ExecCredentialPluginPolicy#fromDefaultKubeRc()}; null allows all plugins
+   * @return <tt>ClientBuilder</tt> pre-configured using the precedence of {@link #standard()}
+   * @throws IOException if the configuration file or a file specified in a configuration file
+   *     cannot be read.
+   * @throws io.kubernetes.client.util.exception.ExecCredentialPluginDeniedException if the
+   *     kubeconfig requires an exec credential plugin which the policy does not allow
+   */
+  public static ClientBuilder standard(ExecCredentialPluginPolicy execCredentialPluginPolicy)
+      throws IOException {
+    return standard(true, execCredentialPluginPolicy);
+  }
+
+  /**
+   * Same as {@link #standard(ExecCredentialPluginPolicy)}, optionally persisting refreshed
+   * credentials to the kubeconfig file.
+   *
+   * @param persistConfig whether to persist refreshed credentials to the kubeconfig file
+   * @param execCredentialPluginPolicy the exec credential plugin policy; null allows all plugins
+   * @return <tt>ClientBuilder</tt> pre-configured using the precedence of {@link #standard()}
+   * @throws IOException if the configuration file or a file specified in a configuration file
+   *     cannot be read.
+   */
+  public static ClientBuilder standard(
+      boolean persistConfig, ExecCredentialPluginPolicy execCredentialPluginPolicy)
+      throws IOException {
     final File kubeConfig = findConfigFromEnv();
-    ClientBuilder clientBuilderEnv = getClientBuilder(persistConfig, kubeConfig);
+    ClientBuilder clientBuilderEnv =
+        getClientBuilder(persistConfig, kubeConfig, execCredentialPluginPolicy);
     if (clientBuilderEnv != null) return clientBuilderEnv;
     final File config = findConfigInHomeDir();
-    ClientBuilder clientBuilderHomeDir = getClientBuilder(persistConfig, config);
+    ClientBuilder clientBuilderHomeDir =
+        getClientBuilder(persistConfig, config, execCredentialPluginPolicy);
     if (clientBuilderHomeDir != null) return clientBuilderHomeDir;
     final File clusterCa = new File(SERVICEACCOUNT_CA_PATH);
     if (clusterCa.exists()) {
@@ -120,7 +155,10 @@ public class ClientBuilder {
     return new ClientBuilder();
   }
 
-  private static ClientBuilder getClientBuilder(boolean persistConfig, File kubeConfig)
+  private static ClientBuilder getClientBuilder(
+      boolean persistConfig,
+      File kubeConfig,
+      ExecCredentialPluginPolicy execCredentialPluginPolicy)
       throws IOException {
     if (kubeConfig != null) {
       try (BufferedReader kubeConfigReader =
@@ -132,6 +170,7 @@ public class ClientBuilder {
           kc.setPersistConfig(new FilePersister(kubeConfig));
         }
         kc.setFile(kubeConfig);
+        kc.setExecCredentialPluginPolicy(execCredentialPluginPolicy);
         return kubeconfig(kc);
       }
     }

@@ -12,13 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.manifests;
 
-import com.github.benmanes.caffeine.cache.Cache;
-import com.github.benmanes.caffeine.cache.Caffeine;
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import io.kubernetes.client.spring.extended.manifests.annotation.FromConfigMap;
 import io.kubernetes.client.spring.extended.manifests.config.KubernetesManifestsProperties;
 import io.kubernetes.client.spring.extended.manifests.configmaps.ConfigMapGetter;
 import java.lang.reflect.Field;
+import java.util.AbstractMap;
+import java.util.AbstractSet;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executors;
@@ -77,7 +79,7 @@ public class KubernetesFromConfigMapProcessor
       ConfigMapGetter configMapGetter =
           getOrCreateConfigMapGetter(fromConfigMapAnnotation, applicationContext);
 
-      Cache<String, String> configMapDataCache = Caffeine.newBuilder().build();
+      ConfigMapData configMapDataCache = new ConfigMapData();
       fullyRefreshCache(configMapGetter, fromConfigMapAnnotation, configMapDataCache);
       configMapKeyRefresher.scheduleAtFixedRate(
           () -> {
@@ -94,7 +96,7 @@ public class KubernetesFromConfigMapProcessor
           manifestsProperties.getRefreshInterval().getSeconds(),
           manifestsProperties.getRefreshInterval().getSeconds(),
           TimeUnit.SECONDS);
-      ReflectionUtils.setField(field, bean, configMapDataCache.asMap());
+      ReflectionUtils.setField(field, bean, Collections.unmodifiableMap(configMapDataCache));
     }
 
     return bean;
@@ -103,19 +105,48 @@ public class KubernetesFromConfigMapProcessor
   private static void fullyRefreshCache(
       ConfigMapGetter configMapGetter,
       FromConfigMap fromConfigMapAnnotation,
-      Cache<String, String> configMapDataCache) {
+      ConfigMapData configMapDataCache) {
     V1ConfigMap configMap =
         configMapGetter.get(fromConfigMapAnnotation.namespace(), fromConfigMapAnnotation.name());
-    if (configMap == null || configMap.getData() == null) {
-      configMapDataCache.invalidateAll();
-      return;
+    configMapDataCache.snapshot =
+        configMap == null || configMap.getData() == null
+            ? Map.of()
+            : Map.copyOf(configMap.getData());
+  }
+
+  private static final class ConfigMapData extends AbstractMap<String, String> {
+    private volatile Map<String, String> snapshot = Map.of();
+
+    @Override
+    public String get(Object key) {
+      return snapshot.get(key);
     }
-    // TODO: make the cache data refreshment atomic
-    Map<String, String> newData = configMap.getData();
-    newData.forEach(configMapDataCache::put);
-    Set.copyOf(configMapDataCache.asMap().keySet()).stream()
-        .filter(key -> !newData.containsKey(key))
-        .forEach(configMapDataCache::invalidate);
+
+    @Override
+    public String getOrDefault(Object key, String defaultValue) {
+      return snapshot.getOrDefault(key, defaultValue);
+    }
+
+    @Override
+    public boolean containsKey(Object key) {
+      return snapshot.containsKey(key);
+    }
+
+    @Override
+    public Set<Entry<String, String>> entrySet() {
+      // Keep the unmodifiable wrapper's cached views live; each iterator captures a snapshot.
+      return new AbstractSet<>() {
+        @Override
+        public Iterator<Entry<String, String>> iterator() {
+          return snapshot.entrySet().iterator();
+        }
+
+        @Override
+        public int size() {
+          return snapshot.size();
+        }
+      };
+    }
   }
 
   private ConfigMapGetter getOrCreateConfigMapGetter(
