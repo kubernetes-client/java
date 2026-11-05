@@ -15,6 +15,7 @@ package io.kubernetes.client.util;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodCondition;
@@ -163,19 +164,43 @@ class WaitUtilsTest {
     }
 
     @Test
-    void waitUntilDeleted_supplierThrows_treatsAsDeleted() throws Exception {
+    void waitUntilDeleted_supplierThrowsNotFound_treatsAsDeleted() throws Exception {
         AtomicInteger callCount = new AtomicInteger(0);
 
         Supplier<V1Pod> supplier = () -> {
-            if (callCount.incrementAndGet() >= 2) {
-                throw new RuntimeException("Not found");
-            }
-            return createReadyPod();
+            callCount.incrementAndGet();
+            throw new RuntimeException(new ApiException(404, "Resource is gone"));
         };
 
         WaitUtils.waitUntilDeleted(supplier, Duration.ofSeconds(5), Duration.ofMillis(100));
 
-        assertThat(callCount.get()).isGreaterThanOrEqualTo(2);
+        assertThat(callCount.get()).isEqualTo(1);
+    }
+
+    @Test
+    void waitUntilDeleted_supplierThrowsNonNotFoundApiException_surfacesFailure() {
+        RuntimeException failure = new RuntimeException(new ApiException(503, "Server error"));
+
+        assertThatThrownBy(() -> WaitUtils.waitUntilDeleted(
+                        () -> {
+                            throw failure;
+                        },
+                        Duration.ofSeconds(5),
+                        Duration.ofMillis(100)))
+                .isSameAs(failure);
+    }
+
+    @Test
+    void waitUntilDeleted_supplierThrowsArbitraryRuntimeException_surfacesFailure() {
+        IllegalStateException failure = new IllegalStateException("Not found");
+
+        assertThatThrownBy(() -> WaitUtils.waitUntilDeleted(
+                        () -> {
+                            throw failure;
+                        },
+                        Duration.ofSeconds(5),
+                        Duration.ofMillis(100)))
+                .isSameAs(failure);
     }
 
     @Test
@@ -185,6 +210,20 @@ class WaitUtilsTest {
         assertThatThrownBy(() ->
                 WaitUtils.waitUntilDeleted(supplier, Duration.ofMillis(200), Duration.ofMillis(50)))
                 .isInstanceOf(TimeoutException.class);
+    }
+
+    @Test
+    void waitUntilDeleted_interrupted_throwsInterruptedException() {
+        Thread.currentThread().interrupt();
+        try {
+            assertThatThrownBy(() -> WaitUtils.waitUntilDeleted(
+                            () -> createReadyPod(),
+                            Duration.ofSeconds(5),
+                            Duration.ofMillis(100)))
+                    .isInstanceOf(InterruptedException.class);
+        } finally {
+            Thread.interrupted();
+        }
     }
 
     @Test

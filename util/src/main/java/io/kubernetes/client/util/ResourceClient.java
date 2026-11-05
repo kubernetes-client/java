@@ -534,15 +534,26 @@ public class ResourceClient<ApiType extends KubernetesObject, ApiListType extend
         Objects.requireNonNull(name, "Resource name must be specified");
         final String ns = namespace;
         final String resourceName = name;
-        WaitUtils.waitUntilDeleted(
-                () -> {
-                    KubernetesApiResponse<ApiType> response = ns != null
-                            ? api.get(ns, resourceName)
-                            : api.get(resourceName);
-                    return response.isSuccess() ? response.getObject() : null;
-                },
-                timeout
-        );
+        try {
+            WaitUtils.waitUntilDeleted(
+                    () -> {
+                        KubernetesApiResponse<ApiType> response = ns != null
+                                ? api.get(ns, resourceName)
+                                : api.get(resourceName);
+                        try {
+                            return response.throwsApiException().getObject();
+                        } catch (ApiException e) {
+                            throw new RuntimeException(e);
+                        }
+                    },
+                    timeout
+            );
+        } catch (RuntimeException e) {
+            if (e.getCause() instanceof ApiException) {
+                throw (ApiException) e.getCause();
+            }
+            throw e;
+        }
     }
 
     /**

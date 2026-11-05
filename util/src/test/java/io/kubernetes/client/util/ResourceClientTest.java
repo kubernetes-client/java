@@ -41,6 +41,7 @@ import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.openapi.models.V1PodSpec;
 import io.kubernetes.client.openapi.models.V1PodStatus;
 import io.kubernetes.client.openapi.models.V1Status;
+import java.time.Duration;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -367,6 +368,31 @@ class ResourceClientTest {
         assertThatThrownBy(() ->
                 podClient.inNamespace("default").withName("error-pod").get())
                 .isInstanceOf(ApiException.class);
+    }
+
+    @Test
+    void waitUntilDeleted_notFound_returns() throws Exception {
+        apiServer.stubFor(
+                get(urlPathEqualTo("/api/v1/namespaces/default/pods/missing"))
+                        .willReturn(aResponse()
+                                .withStatus(404)
+                                .withBody("{\"kind\": \"Status\", \"code\": 404}")));
+
+        podClient.inNamespace("default").withName("missing").waitUntilDeleted(Duration.ofSeconds(2));
+    }
+
+    @Test
+    void waitUntilDeleted_serverError_throwsApiException() {
+        apiServer.stubFor(
+                get(urlPathEqualTo("/api/v1/namespaces/default/pods/error-pod"))
+                        .willReturn(aResponse()
+                                .withStatus(500)
+                                .withBody("{\"message\": \"Internal Server Error\"}")));
+
+        assertThatThrownBy(() ->
+                podClient.inNamespace("default").withName("error-pod").waitUntilDeleted(Duration.ofSeconds(2)))
+                .isInstanceOf(ApiException.class)
+                .satisfies(e -> assertThat(((ApiException) e).getCode()).isEqualTo(500));
     }
 
     @Test
