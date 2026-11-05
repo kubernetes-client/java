@@ -83,7 +83,15 @@ public class KubernetesFromConfigMapProcessor
       fullyRefreshCache(configMapGetter, fromConfigMapAnnotation, configMapDataCache);
       configMapKeyRefresher.scheduleAtFixedRate(
           () -> {
-            fullyRefreshCache(configMapGetter, fromConfigMapAnnotation, configMapDataCache);
+            try {
+              fullyRefreshCache(configMapGetter, fromConfigMapAnnotation, configMapDataCache);
+            } catch (RuntimeException e) {
+              log.warn(
+                  "Failed refreshing ConfigMap {}/{}",
+                  fromConfigMapAnnotation.namespace(),
+                  fromConfigMapAnnotation.name(),
+                  e);
+            }
           },
           manifestsProperties.getRefreshInterval().getSeconds(),
           manifestsProperties.getRefreshInterval().getSeconds(),

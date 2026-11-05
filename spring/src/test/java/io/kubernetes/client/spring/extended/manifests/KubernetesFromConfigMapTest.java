@@ -29,6 +29,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -102,6 +103,25 @@ class KubernetesFromConfigMapTest {
     await()
         .timeout(manifestsProperties.getRefreshInterval().multipliedBy(2))
         .until(() -> "bar2".equals(myBean.dynamicData.get("foo")));
+  }
+
+  @Test
+  void refreshRecoversAfterReadFailure() {
+    assertThat(myBean.dynamicData).containsEntry("foo", "bar1");
+    int failedReads = mockAtomicConfigMapGetter.failedReads.get();
+    mockAtomicConfigMapGetter.readFailure.set(new IllegalStateException("Transient API failure"));
+    try {
+      await().until(() -> mockAtomicConfigMapGetter.failedReads.get() > failedReads);
+      assertThat(myBean.dynamicData).containsExactlyEntriesOf(Map.of("foo", "bar1"));
+    } finally {
+      mockAtomicConfigMapGetter.readFailure.set(null);
+    }
+
+    mockAtomicConfigMapGetter.configMapAtomicReference.set(
+        new V1ConfigMap().putDataItem("foo", "recovered"));
+    await()
+        .timeout(manifestsProperties.getRefreshInterval().multipliedBy(2))
+        .until(() -> "recovered".equals(myBean.dynamicData.get("foo")));
   }
 
   @Test
@@ -285,9 +305,16 @@ class KubernetesFromConfigMapTest {
   static class MockAtomicConfigMapGetter implements ConfigMapGetter {
 
     private final AtomicReference<V1ConfigMap> configMapAtomicReference = new AtomicReference<>();
+    private final AtomicReference<RuntimeException> readFailure = new AtomicReference<>();
+    private final AtomicInteger failedReads = new AtomicInteger();
 
     @Override
     public V1ConfigMap get(String namespace, String name) {
+      RuntimeException failure = readFailure.get();
+      if (failure != null) {
+        failedReads.incrementAndGet();
+        throw failure;
+      }
       return configMapAtomicReference.get();
     }
   }
