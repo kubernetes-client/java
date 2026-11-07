@@ -19,8 +19,10 @@ import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.informer.exception.WatchExpiredException;
 import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.ModelMapper;
 import io.kubernetes.client.util.Strings;
@@ -182,7 +184,7 @@ public class ReflectorRunnable<
         }
       }
     } catch (ApiException e) {
-      if (e.getCode() == HttpURLConnection.HTTP_GONE) {
+      if (e.getCode() == HttpURLConnection.HTTP_GONE || isTooLargeResourceVersion(e)) {
         log.info(
             "ResourceVersion {} expired, will retry w/o resourceVersion at the next time",
             getRelistResourceVersion());
@@ -193,6 +195,24 @@ public class ReflectorRunnable<
     } catch (Throwable t) {
       this.exceptionHandler.accept(apiTypeClass, t);
     }
+  }
+
+  private static boolean isTooLargeResourceVersion(ApiException exception) {
+    if (Strings.isNullOrEmpty(exception.getResponseBody())) {
+      return false;
+    }
+    V1Status status;
+    try {
+      status = JSON.deserialize(exception.getResponseBody(), V1Status.class);
+    } catch (RuntimeException e) {
+      // Generated status adapters can throw unchecked exceptions for malformed response bodies.
+      return false;
+    }
+    return status != null
+        && status.getDetails() != null
+        && status.getDetails().getCauses() != null
+        && status.getDetails().getCauses().stream()
+            .anyMatch(cause -> cause != null && "ResourceVersionTooLarge".equals(cause.getReason()));
   }
 
   public void stop() {
