@@ -15,13 +15,7 @@ package io.kubernetes.client.custom;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializerProvider;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.io.IOException;
+import io.kubernetes.client.openapi.JSON;
 import org.junit.jupiter.api.Test;
 
 // Note: Do not use AssertJ .isEquqlTo to test .equals, as this doesn't necessarily invoke it!
@@ -121,32 +115,14 @@ class IntOrStringTest {
   }
 
   @Test
-  void jacksonSerializer_writeValueAsString() throws JsonProcessingException {
-    IntOrString intOrString1 = new IntOrString(17);
-    IntOrString intOrString2 = new IntOrString("17");
-
-    ObjectMapper mapper = new ObjectMapper();
-    assertThat(mapper.writeValueAsString(intOrString1)).isEqualTo("17");
-    assertThat(mapper.writeValueAsString(intOrString2)).isEqualTo("\"17\"");
+  void gsonAdapter_serializesAsIntOrString() {
+    assertThat(JSON.getGson().toJson(new IntOrString(17))).isEqualTo("17");
+    assertThat(JSON.getGson().toJson(new IntOrString("17"))).isEqualTo("\"17\"");
   }
 
   @Test
-  void jacksonSerializer_canBeOverriddenByMixin() throws JsonProcessingException {
-    ObjectMapper mapper = new ObjectMapper();
-    mapper.addMixIn(IntOrString.class, IntOrStringMixin.class);
-
-    assertThat(mapper.writeValueAsString(new IntOrString(17))).isEqualTo("\"custom:17\"");
-  }
-
-  @JsonSerialize(using = CustomIntOrStringSerializer.class)
-  private abstract static class IntOrStringMixin {}
-
-  private static class CustomIntOrStringSerializer extends JsonSerializer<IntOrString> {
-    @Override
-    public void serialize(
-        IntOrString value, JsonGenerator generator, SerializerProvider serializers)
-        throws IOException {
-      generator.writeString("custom:" + value);
-    }
+  void gsonAdapter_deserializesAsIntOrString() {
+    assertThat(JSON.getGson().fromJson("17", IntOrString.class).getIntValue()).isEqualTo(17);
+    assertThat(JSON.getGson().fromJson("\"17\"", IntOrString.class).getStrValue()).isEqualTo("17");
   }
 }
