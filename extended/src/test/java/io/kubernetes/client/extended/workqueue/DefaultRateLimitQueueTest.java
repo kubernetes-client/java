@@ -16,6 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.extended.workqueue.ratelimiter.RateLimiter;
 import java.time.Duration;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.junit.jupiter.api.AfterEach;
@@ -23,14 +25,13 @@ import org.junit.jupiter.api.Test;
 
 class DefaultRateLimitQueueTest {
 
-  private final ExecutorService executor = Executors.newSingleThreadExecutor();
-  private final DefaultRateLimitingQueue<String> rlq =
-      new DefaultRateLimitingQueue<>(executor, new MockRateLimiter<>());
+  private final List<ExecutorService> executors = new CopyOnWriteArrayList<>();
+  private final List<DefaultRateLimitingQueue<String>> queues = new CopyOnWriteArrayList<>();
 
   @AfterEach
   void tearDown() {
-    rlq.shutDown();
-    executor.shutdownNow();
+    queues.forEach(DefaultRateLimitingQueue::shutDown);
+    executors.forEach(ExecutorService::shutdownNow);
   }
 
   private static class MockRateLimiter<T> implements RateLimiter<T> {
@@ -59,6 +60,11 @@ class DefaultRateLimitQueueTest {
 
   @Test
   void simpleRateLimitQueue() throws Exception {
+    ExecutorService executor = Executors.newSingleThreadExecutor();
+    executors.add(executor);
+    DefaultRateLimitingQueue<String> rlq =
+        new DefaultRateLimitingQueue<>(executor, new MockRateLimiter<>());
+    queues.add(rlq);
     long t1 = System.nanoTime();
     rlq.addRateLimited("foo");
     rlq.get();
