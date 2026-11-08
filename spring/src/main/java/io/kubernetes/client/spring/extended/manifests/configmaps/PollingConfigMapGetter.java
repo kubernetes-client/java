@@ -12,14 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.manifests.configmaps;
 
-import com.github.benmanes.caffeine.cache.Cache;
-import com.github.benmanes.caffeine.cache.Caffeine;
-import io.kubernetes.client.apimachinery.NamespaceName;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1ConfigMap;
-import java.time.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PollingConfigMapGetter implements ConfigMapGetter {
@@ -32,14 +28,10 @@ public class PollingConfigMapGetter implements ConfigMapGetter {
   @Override
   public V1ConfigMap get(String namespace, String name) {
     CoreV1Api coreV1Api = new CoreV1Api(apiClient);
-    return lastObservedConfigMap.get(
-        new NamespaceName(namespace, name),
-        k -> {
-          try {
-            return coreV1Api.readNamespacedConfigMap(name, namespace).execute();
-          } catch (ApiException e) {
-            throw new IllegalStateException(e);
-          }
-        });
+    try {
+      return coreV1Api.readNamespacedConfigMap(name, namespace).execute();
+    } catch (ApiException e) {
+      throw new IllegalStateException(e);
+    }
   }
 }
