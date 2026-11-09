@@ -15,8 +15,7 @@ package io.kubernetes.client.custom;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import io.kubernetes.client.openapi.JSON;
 import org.junit.jupiter.api.Test;
 
 // Note: Do not use AssertJ .isEquqlTo to test .equals, as this doesn't necessarily invoke it!
@@ -116,12 +115,14 @@ class IntOrStringTest {
   }
 
   @Test
-  void jacksonSerializer_writeValueAsString() throws JsonProcessingException {
-    IntOrString intOrString1 = new IntOrString(17);
-    IntOrString intOrString2 = new IntOrString("17");
+  void gsonAdapter_serializesAsIntOrString() {
+    assertThat(JSON.getGson().toJson(new IntOrString(17))).isEqualTo("17");
+    assertThat(JSON.getGson().toJson(new IntOrString("17"))).isEqualTo("\"17\"");
+  }
 
-    ObjectMapper mapper = new ObjectMapper();
-    mapper.writeValueAsString(intOrString1);
-    mapper.writeValueAsString(intOrString2);
+  @Test
+  void gsonAdapter_deserializesAsIntOrString() {
+    assertThat(JSON.getGson().fromJson("17", IntOrString.class).getIntValue()).isEqualTo(17);
+    assertThat(JSON.getGson().fromJson("\"17\"", IntOrString.class).getStrValue()).isEqualTo("17");
   }
 }
