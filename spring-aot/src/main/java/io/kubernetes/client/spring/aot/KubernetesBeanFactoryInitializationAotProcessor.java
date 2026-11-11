@@ -19,7 +19,6 @@ import java.lang.annotation.Annotation;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import org.jetbrains.annotations.NotNull;
 import org.reflections.Reflections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +29,7 @@ import org.springframework.beans.factory.aot.BeanFactoryInitializationAotContrib
 import org.springframework.beans.factory.aot.BeanFactoryInitializationAotProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
+import org.springframework.lang.NonNull;
 
 /**
  * GraalVM native images need to know about when you might reflectively work with types at runtime.
@@ -52,7 +52,7 @@ public class KubernetesBeanFactoryInitializationAotProcessor
 
   @Override
   public BeanFactoryInitializationAotContribution processAheadOfTime(
-      @NotNull ConfigurableListableBeanFactory beanFactory) {
+      @NonNull ConfigurableListableBeanFactory beanFactory) {
     return (generationContext, beanFactoryInitializationCode) -> {
       RuntimeHints hints = generationContext.getRuntimeHints();
       String[] classNames =
