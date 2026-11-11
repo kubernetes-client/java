@@ -33,7 +33,6 @@ import java.util.concurrent.ThreadFactory;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -282,7 +281,7 @@ public class DefaultSharedIndexInformer<
    * @param deltas deltas
    */
   public void handleDeltas(Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>> deltas) {
-    if (CollectionUtils.isEmpty(deltas)) {
+    if (deltas == null || deltas.isEmpty()) {
       return;
     }
 

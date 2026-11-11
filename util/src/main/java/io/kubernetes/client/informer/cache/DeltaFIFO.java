@@ -28,7 +28,6 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.Consumer;
 import java.util.function.Function;
-import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.slf4j.Logger;
@@ -402,7 +401,7 @@ public class DeltaFIFO {
 
     String id = this.keyOf(obj);
     Deque<MutablePair<DeltaType, KubernetesObject>> deltas = this.items.get(id);
-    if (deltas != null && !(CollectionUtils.isEmpty(deltas))) {
+    if (deltas != null && !deltas.isEmpty()) {
       return;
     }
 

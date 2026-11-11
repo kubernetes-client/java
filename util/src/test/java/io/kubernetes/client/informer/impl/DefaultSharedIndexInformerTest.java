@@ -83,6 +83,14 @@ class DefaultSharedIndexInformerTest {
   }
 
   @Test
+  void handleNullDeltas() {
+    DefaultSharedIndexInformer<V1Pod, V1PodList> informer =
+        new DefaultSharedIndexInformer<>(anyApiType, listerWatcher, anyResyncPeriod);
+
+    informer.handleDeltas(null);
+  }
+
+  @Test
   void minimalConstructorExists() {
 
     new DefaultSharedIndexInformer<>(anyApiType, listerWatcher, anyResyncPeriod);

@@ -22,8 +22,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.collections4.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -256,13 +254,13 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
     Function<ApiType, List<String>> indexFunc = this.indexers.get(indexName);
     List<String> indexKeys = indexFunc.apply((ApiType) obj);
     Map<String, Set<String>> index = this.indices.get(indexName);
-    if (MapUtils.isEmpty(index)) {
+    if (index == null || index.isEmpty()) {
       return new ArrayList<>();
     }
     Set<String> returnKeySet = new HashSet<>();
     for (String indexKey : indexKeys) {
       Set<String> set = index.get(indexKey);
-      if (CollectionUtils.isEmpty(set)) {
+      if (set == null || set.isEmpty()) {
         continue;
       }
       returnKeySet.addAll(set);
@@ -375,7 +373,7 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
       String indexName = indexEntry.getKey();
       Function<ApiType, List<String>> indexFunc = indexEntry.getValue();
       List<String> indexValues = indexFunc.apply(newObj);
-      if (CollectionUtils.isEmpty(indexValues)) {
+      if (indexValues == null || indexValues.isEmpty()) {
         continue;
       }
 
@@ -400,7 +398,7 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
     for (Map.Entry<String, Function<ApiType, List<String>>> indexEntry : this.indexers.entrySet()) {
       Function<ApiType, List<String>> indexFunc = indexEntry.getValue();
       List<String> indexValues = indexFunc.apply(oldObj);
-      if (CollectionUtils.isEmpty(indexValues)) {
+      if (indexValues == null || indexValues.isEmpty()) {
         continue;
       }
 
