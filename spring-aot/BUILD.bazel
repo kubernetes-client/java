@@ -14,7 +14,6 @@ java_library(
         "//extended:client-java-extended",
         "@maven//:com_google_code_gson_gson",
         "@maven//:io_swagger_swagger_annotations",
-        "@maven//:org_jetbrains_annotations",
         "@maven//:org_reflections_reflections",
         "@maven//:org_slf4j_slf4j_api",
         "@maven//:org_springframework_boot_spring_boot",
