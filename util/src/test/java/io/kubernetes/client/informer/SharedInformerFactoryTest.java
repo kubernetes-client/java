@@ -115,4 +115,13 @@ class SharedInformerFactoryTest {
     assertThat(cachedInformer == podInformer).isTrue();
   }
 
+  @Test
+  void startAndStopWhenInformerMapIsNull() {
+    SharedInformerFactory factory = new SharedInformerFactory();
+    factory.informers = null;
+
+    factory.startAllRegisteredInformers();
+    factory.stopAllRegisteredInformers(false);
+  }
+
 }

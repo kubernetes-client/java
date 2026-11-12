@@ -270,4 +270,18 @@ class CacheTest {
 
     assertThat(podCache.list()).isEmpty();
   }
+
+  @Test
+  void nullIndexValuesAreIgnored() {
+    Cache<V1Pod> podCache =
+        new Cache<>("nullable", pod -> null, pod -> "pod");
+    V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().namespace("ns").name("pod"));
+
+    podCache.add(pod);
+    assertThat(podCache.list()).containsExactly(pod);
+    assertThat(podCache.byIndex("nullable", "value")).isEmpty();
+
+    podCache.delete(pod);
+    assertThat(podCache.list()).isEmpty();
+  }
 }

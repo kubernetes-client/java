@@ -102,6 +102,14 @@ class SharedProcessorTest {
     assertThat(interrupted.get()).as("worker was interrupted").isTrue();
   }
 
+  @Test
+  void runAfterStopWithNullListeners() {
+    SharedProcessor<V1Pod> sharedProcessor = new SharedProcessor<>();
+    sharedProcessor.stop();
+
+    sharedProcessor.run();
+  }
+
   private static class ExpectingNoticationHandler<ApiType extends KubernetesObject>
       extends ProcessorListener<ApiType> {
 

@@ -28,8 +28,6 @@ import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.kubernetes.client.util.generic.options.ListOptions;
 import okhttp3.Call;
-import org.apache.commons.collections4.MapUtils;
-
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
@@ -454,7 +452,7 @@ public class SharedInformerFactory {
 
   /** Start all registered informers. */
   public synchronized void startAllRegisteredInformers() {
-    if (MapUtils.isEmpty(informers)) {
+    if (informers == null || informers.isEmpty()) {
       return;
     }
     informers.forEach(
@@ -474,7 +472,7 @@ public class SharedInformerFactory {
    * @param shutdownThreadPool whether or not to shut down the thread pool.
    */
   public synchronized void stopAllRegisteredInformers(boolean shutdownThreadPool) {
-    if (MapUtils.isEmpty(informers)) {
+    if (informers == null || informers.isEmpty()) {
       return;
     }
     informers.forEach(

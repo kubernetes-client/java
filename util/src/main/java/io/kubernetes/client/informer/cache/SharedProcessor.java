@@ -22,7 +22,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -98,7 +97,7 @@ public class SharedProcessor<ApiType extends KubernetesObject> {
   public void run() {
     lock.readLock().lock();
     try {
-      if (CollectionUtils.isEmpty(listeners)) {
+      if (listeners == null || listeners.isEmpty()) {
         return;
       }
       for (ProcessorListener listener : listeners) {

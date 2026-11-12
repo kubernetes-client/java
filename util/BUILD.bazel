@@ -20,7 +20,6 @@ java_library(
         "@maven//:io_prometheus_simpleclient",
         "@maven//:io_prometheus_simpleclient_httpserver",
         "@maven//:jakarta_annotation_jakarta_annotation_api",
-        "@maven//:org_apache_commons_commons_collections4",
         "@maven//:org_apache_commons_commons_compress",
         "@maven//:org_apache_commons_commons_lang3",
         "@maven//:org_bitbucket_b_c_jose4j",
