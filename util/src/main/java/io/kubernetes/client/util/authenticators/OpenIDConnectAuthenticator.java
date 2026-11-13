@@ -113,13 +113,27 @@ public class OpenIDConnectAuthenticator implements Authenticator {
     String clientSecret = (String) config.getOrDefault(OIDC_CLIENT_SECRET, "");
     String idpCert = (String) config.get(OIDC_IDP_CERT_DATA);
 
+    
     SSLContext sslContext = null;
 
+    // Initialize a secure default SSLContext using the system default TrustManager.
+    // This ensures that we always have certificate validation even when no idp-certificate-authority-data is provided.
+    try {
+      TrustManagerFactory defaultTmf =
+          TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+      defaultTmf.init((KeyStore) null);
+      SSLContext defaultSslContext = SSLContext.getInstance("TLS");
+      defaultSslContext.init(defaultTmf.getTrustManagers(), null, new SecureRandom());
+      sslContext = defaultSslContext;
+    } catch (KeyStoreException | NoSuchAlgorithmException | KeyManagementException e) {
+      throw new RuntimeException("Unable to initialize default TLS context", e);
+    }
+
     if (idpCert != null) {
-      // fist, lets get the pem
+      // first, let's get the pem (custom CA provided by user)
       String pemCert = new String(Base64.getDecoder().decode(idpCert));
 
-      // next lets get a cert object
+      // next let's get a cert object
       // need an alias name to store the certificate in a keystore.  Also
       // java keystores need passwords. this value is as good as any as
       // there isn't anything actually secret being stored.
@@ -143,10 +157,11 @@ public class OpenIDConnectAuthenticator implements Authenticator {
         TrustManagerFactory tmf = TrustManagerFactory.getInstance("PKIX");
         tmf.init(ks);
 
-        // TODO would be good to make this more dyanamic.  Doesn't seem like
-        // a good way to do this.
-        sslContext = SSLContext.getInstance("TLSv1.2");
-        sslContext.init(null, tmf.getTrustManagers(), new SecureRandom());
+        // Use TLSv1.2 for the custom context initialized with the provided CA(s)
+        SSLContext idpSslContext = SSLContext.getInstance("TLSv1.2");
+        idpSslContext.init(null, tmf.getTrustManagers(), new SecureRandom());
+        // override sslContext to use the idp-specific SSLContext
+        sslContext = idpSslContext;
 
       } catch (KeyStoreException
           | NoSuchAlgorithmException
@@ -156,6 +171,7 @@ public class OpenIDConnectAuthenticator implements Authenticator {
         throw new RuntimeException("Could not import idp certificate", e);
       }
     }
+
 
     // check the identity provider's configuration url for a token endpoint
     String tokenURL = loadTokenURL(issuer, sslContext);
