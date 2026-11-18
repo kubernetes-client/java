@@ -15,7 +15,9 @@ package io.kubernetes.client.extended.workqueue.ratelimiter;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import io.github.bucket4j.TimeMeter;
 import java.time.Duration;
+import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.Test;
 
 class BucketRateLimiterTest {
@@ -40,8 +42,23 @@ class BucketRateLimiterTest {
   }
 
   @Test
-  void bucketRateLimiterTokenAdded() throws InterruptedException {
-    RateLimiter<String> rateLimiter = new BucketRateLimiter<>(2, 1, Duration.ofSeconds(2));
+  void bucketRateLimiterTokenAdded() {
+    AtomicLong currentTimeNanos = new AtomicLong(0L);
+    TimeMeter manualClock =
+        new TimeMeter() {
+          @Override
+          public long currentTimeNanos() {
+            return currentTimeNanos.get();
+          }
+
+          @Override
+          public boolean isWallClockBased() {
+            return false;
+          }
+        };
+
+    RateLimiter<String> rateLimiter =
+        new BucketRateLimiter<>(2, 1, Duration.ofSeconds(2), manualClock);
 
     assertThat(rateLimiter.when("one")).isZero();
     assertThat(rateLimiter.when("one")).isZero();
@@ -49,7 +66,7 @@ class BucketRateLimiterTest {
     Duration waitDuration = rateLimiter.when("one");
     assertThat(waitDuration.getSeconds()).isPositive();
 
-    Thread.sleep(4000);
+    currentTimeNanos.addAndGet(Duration.ofSeconds(4).toNanos());
 
     assertThat(rateLimiter.when("two")).isZero();
 
