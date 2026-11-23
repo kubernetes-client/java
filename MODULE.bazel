@@ -42,12 +42,12 @@ maven.install(
         "org.slf4j:slf4j-api:2.0.20",
         "org.bouncycastle:bcpkix-jdk18on:1.87",
         "org.bouncycastle:bcprov-jdk18on:1.87",
-        "software.amazon.awssdk:sts:2.59.2",
-        "software.amazon.awssdk:auth:2.59.2",
-        "software.amazon.awssdk:http-auth-aws:2.59.2",
-        "software.amazon.awssdk:http-auth-spi:2.59.2",
-        "software.amazon.awssdk:http-client-spi:2.59.2",
-        "software.amazon.awssdk:utils:2.59.2",
+        "software.amazon.awssdk:sts:2.59.5",
+        "software.amazon.awssdk:auth:2.59.5",
+        "software.amazon.awssdk:http-auth-aws:2.59.5",
+        "software.amazon.awssdk:http-auth-spi:2.59.5",
+        "software.amazon.awssdk:http-client-spi:2.59.5",
+        "software.amazon.awssdk:utils:2.59.5",
         "com.google.protobuf:protobuf-java:4.36.2",
         "org.bitbucket.b_c:jose4j:0.9.7",
         "com.bucket4j:bucket4j-core:8.10.1",
@@ -60,7 +60,7 @@ maven.install(
         "io.gsonfire:gson-fire:1.9.0",
         "com.squareup.okhttp3:okhttp:5.5.1",
         "com.squareup.okhttp3:logging-interceptor:5.5.1",
-        "io.swagger:swagger-annotations:1.6.16",
+        "io.swagger:swagger-annotations:1.6.17",
         "jakarta.annotation:jakarta.annotation-api:3.0.0",
         "com.google.auth:google-auth-library-oauth2-http:1.58.0",
         "org.jetbrains:annotations:26.1.0",
@@ -70,15 +70,15 @@ maven.install(
         "com.squareup.okio:okio-jvm:3.18.2",
         "com.flipkart.zjsonpatch:zjsonpatch:0.4.16",
         # ---- spring (Java 17+ modules) ----
-        "org.springframework:spring-core:7.0.10",
-        "org.springframework:spring-aop:7.0.10",
-        "org.springframework:spring-beans:7.0.10",
-        "org.springframework:spring-context:7.0.10",
-        "org.springframework:spring-expression:7.0.10",
-        "org.springframework:spring-test:7.0.10",
+        "org.springframework:spring-core:7.1.0",
+        "org.springframework:spring-aop:7.1.0",
+        "org.springframework:spring-beans:7.1.0",
+        "org.springframework:spring-context:7.1.0",
+        "org.springframework:spring-expression:7.1.0",
+        "org.springframework:spring-test:7.1.0",
         # ---- test ----
-        "ch.qos.logback:logback-classic:1.6.7",
-        "ch.qos.logback:logback-core:1.6.7",
+        "ch.qos.logback:logback-classic:1.6.8",
+        "ch.qos.logback:logback-core:1.6.8",
         "org.junit.jupiter:junit-jupiter-api:6.1.3",
         "org.junit.jupiter:junit-jupiter-engine:6.1.3",
         "org.junit.jupiter:junit-jupiter-params:6.1.3",
@@ -102,8 +102,8 @@ maven.install(
     lock_file = "//:maven_install.json",
 )
 
-# Spring Boot 4.1.2 artifacts declared with exclusions to keep
-# spring-framework pinned to 7.0.10.
+# Spring Boot 4.2.0 artifacts declared with exclusions to keep
+# spring-framework pinned to 7.1.0.
 _SPRING_FRAMEWORK_EXCLUSIONS = [
     "org.springframework:spring-core",
     "org.springframework:spring-aop",
@@ -116,28 +116,28 @@ _SPRING_FRAMEWORK_EXCLUSIONS = [
 maven.artifact(
     artifact = "spring-boot",
     group = "org.springframework.boot",
-    version = "4.1.2",
+    version = "4.2.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
 maven.artifact(
     artifact = "spring-boot-autoconfigure",
     group = "org.springframework.boot",
-    version = "4.1.2",
+    version = "4.2.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
 maven.artifact(
     artifact = "spring-boot-actuator",
     group = "org.springframework.boot",
-    version = "4.1.2",
+    version = "4.2.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
 maven.artifact(
     artifact = "spring-boot-test",
     group = "org.springframework.boot",
-    version = "4.1.2",
+    version = "4.2.0",
     exclusions = _SPRING_FRAMEWORK_EXCLUSIONS,
 )
 
