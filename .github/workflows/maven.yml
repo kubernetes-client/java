@@ -55,7 +55,7 @@ jobs:
     name: GraalVM Maven Test
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: graalvm/setup-graalvm@d6eca2595046623d69d636041513c80abf745406 # v1.6.9
+      - uses: graalvm/setup-graalvm@60e76998d25690099182b796e99b8804da582d90 # v1.6.10
         with:
           version: '22.3.0'
           java-version: '17'
