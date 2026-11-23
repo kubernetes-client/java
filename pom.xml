@@ -61,7 +61,7 @@
     <jackson.annotations.version>2.23</jackson.annotations.version>
     <jsr305.version>3.0.2</jsr305.version>
     <okhttp3.version>5.5.1</okhttp3.version>
-    <swagger-core.version>1.6.16</swagger-core.version>
+    <swagger-core.version>1.6.17</swagger-core.version>
     <sundrio.version>0.400.1</sundrio.version>
     <gsonfire.version>1.9.0</gsonfire.version>
     <apache.commons.lang3.version>3.22.0</apache.commons.lang3.version>
@@ -69,15 +69,15 @@
     <apache.commons.compress>1.28.0</apache.commons.compress>
     <apache.commons.io>2.22.0</apache.commons.io>
     <common.codec.version>1.23.0</common.codec.version>
-    <spring.boot.version>4.1.2</spring.boot.version>
-    <spring.version>7.0.10</spring.version>
+    <spring.boot.version>4.2.0</spring.boot.version>
+    <spring.version>7.1.0</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
-    <aws.sdk.version>2.59.2</aws.sdk.version>
+    <aws.sdk.version>2.59.5</aws.sdk.version>
     <google.auth.version>1.58.0</google.auth.version>
     <jose4j.version>0.9.7</jose4j.version>
     <jetbrains.annotations.version>26.1.0</jetbrains.annotations.version>
-    <logback.version>1.6.7</logback.version>
+    <logback.version>1.6.8</logback.version>
     <mockito.version>5.24.0</mockito.version>
     <okio.version>3.18.2</okio.version>
     <assertj.version>3.27.7</assertj.version>
