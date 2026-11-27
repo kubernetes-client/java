@@ -15,6 +15,7 @@ package io.kubernetes.client.extended.workqueue.ratelimiter;
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket;
 import io.github.bucket4j.Refill;
+import io.github.bucket4j.TimeMeter;
 import io.github.bucket4j.local.SynchronizationStrategy;
 import java.time.Duration;
 
@@ -28,11 +29,17 @@ public class BucketRateLimiter<T> implements RateLimiter<T> {
    * @param period Period that generating specific number of tokens.
    */
   public BucketRateLimiter(long capacity, long tokensGeneratedInPeriod, Duration period) {
+    this(capacity, tokensGeneratedInPeriod, period, TimeMeter.SYSTEM_NANOTIME);
+  }
+
+  BucketRateLimiter(
+      long capacity, long tokensGeneratedInPeriod, Duration period, TimeMeter timeMeter) {
     Bandwidth bandwidth =
         Bandwidth.classic(capacity, Refill.greedy(tokensGeneratedInPeriod, period));
     this.bucket =
         Bucket.builder()
             .addLimit(bandwidth)
+            .withCustomTimePrecision(timeMeter)
             .withSynchronizationStrategy(SynchronizationStrategy.SYNCHRONIZED)
             .build();
   }
